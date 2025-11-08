@@ -1,4 +1,4 @@
-export type { Vehicle } from '@/types/vehicle';
+export type { Vehicle } from '@/lib/mock-data';
 
 export interface Venue {
   id: string;
