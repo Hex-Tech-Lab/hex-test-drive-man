@@ -22,7 +22,7 @@ const VEHICLE_SELECT = `
     vehicle_trim_id,
     venue_id,
     is_available,
-    venues(id, name, address)
+    venues(id, name, address, city)
   ),
   vehicle_images(
     image_url,
