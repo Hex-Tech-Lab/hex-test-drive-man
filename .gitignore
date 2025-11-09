@@ -25,4 +25,10 @@ dist-ssr
 *.sln
 *.sw?
 .env
-.env.local
+
+# Build artifacts (contains API keys)
+.next/
+*.tsbuildinfo
+
+# Build artifacts (contains API keys)
+.next/
