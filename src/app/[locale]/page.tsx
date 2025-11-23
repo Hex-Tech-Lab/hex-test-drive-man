@@ -6,8 +6,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import Header from '@/components/Header';
 import VehicleCard from '@/components/VehicleCard';
 import FilterPanel from '@/components/FilterPanel';
+import { vehicleRepository } from '@/repositories/vehicleRepository';
 import { Vehicle } from '@/types/vehicle';
-import { supabase } from '@/lib/supabase';
 import { useLanguageStore } from '@/stores/language-store';
 import { useFilterStore } from '@/stores/filter-store';
 import { useParams } from 'next/navigation';
@@ -23,11 +23,13 @@ export default function CatalogPage() {
   const [searchQuery, setSearchQuery] = useState('');
   
   // Use persistent filter store
-  const filters = useFilterStore((state) => ({
-    brands: state.brands,
-    priceRange: state.priceRange,
-    categories: state.categories,
-  }));
+  const brands = useFilterStore((state) => state.brands);
+  const priceRange = useFilterStore((state) => state.priceRange);
+  const categories = useFilterStore((state) => state.categories);
+  const bodyStyle = useFilterStore((state) => state.bodyStyle);
+  const segmentCode = useFilterStore((state) => state.segmentCode);
+  const agent = useFilterStore((state) => state.agent);
+  const filters = { brands, priceRange, categories, bodyStyle, segmentCode, agent };
   const setFiltersInStore = useFilterStore((state) => state.setFilters);
 
   useEffect(() => {
@@ -40,44 +42,12 @@ export default function CatalogPage() {
     async function fetchVehicles() {
       try {
         setLoading(true);
-        const { data, error: fetchError } = await supabase
-          .from('vehicle_trims')
-          .select(`
-            id,
-            trim_name,
-            model_year,
-            price_egp,
-            engine,
-            seats,
-            horsepower,
-            torque_nm,
-            acceleration_0_100,
-            top_speed,
-            fuel_consumption,
-            features,
-            model_id,
-            models!inner(
-              name,
-              hero_image_url,
-              hover_image_url,
-              brands!inner(
-                name,
-                logo_url
-              )
-            ),
-            categories!inner(name),
-            transmissions!inner(name),
-            fuel_types!inner(name)
-          `);
-
+        const { data, error: fetchError } = await vehicleRepository.getAllVehicles();
         if (fetchError) {
-          console.error('Supabase query error:', fetchError);
-          setError(fetchError.message);
-        } else {
-          setVehicles((data as unknown as Vehicle[]) || []);
+          setError(fetchError.message ?? 'Failed to load vehicles');
         }
-      } catch (err) {
-        console.error('Unexpected error:', err);
+        setVehicles((data as Vehicle[]) || []);
+      } catch {
         setError('Failed to load vehicles');
       } finally {
         setLoading(false);
@@ -87,7 +57,7 @@ export default function CatalogPage() {
     fetchVehicles();
   }, []);
 
-  const filteredVehicles = vehicles.filter((vehicle) => {
+  const filteredVehicles = vehicles.filter((vehicle: Vehicle) => {
     // Brand filter
     if (filters.brands.length > 0 && !filters.brands.includes(vehicle.models.brands.name)) {
       return false;
@@ -99,7 +69,25 @@ export default function CatalogPage() {
     }
 
     // Category filter
-    if (filters.categories.length > 0 && !filters.categories.includes(vehicle.categories.name)) {
+    if (filters.categories.length > 0 && !vehicle.categories?.name) {
+      return false;
+    }
+    if (filters.categories.length > 0 && !filters.categories.includes(vehicle.categories!.name)) {
+      return false;
+    }
+
+    // Body style filter
+    if (filters.bodyStyle && vehicle.body_styles?.name_en !== filters.bodyStyle) {
+      return false;
+    }
+
+    // Segment filter
+    if (filters.segmentCode && vehicle.segments?.code !== filters.segmentCode) {
+      return false;
+    }
+
+    // Agent filter
+    if (filters.agent && vehicle.agents?.name_en !== filters.agent) {
       return false;
     }
 
