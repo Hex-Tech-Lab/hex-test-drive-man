@@ -1,0 +1,7 @@
+rules:
+  - pattern: "console\.(log|debug|info)"
+    message: "Remove debug logging before merge"
+    severity: warning
+checks:
+  - typescript_strict: true
+  - unused_imports: true
