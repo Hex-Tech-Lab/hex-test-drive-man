@@ -38,3 +38,4 @@ repomix-output*.md
 
 # Windows Zone Identifier files
 *.Zone.Identifier
+*:Zone.Identifier
