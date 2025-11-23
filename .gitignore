@@ -30,3 +30,12 @@ dist-ssr
 # Build artifacts (contains API keys)
 .next/
 *.tsbuildinfo
+
+# TRAE workspace (temporary)
+.trae/
+
+# Repomix documentation exports
+repomix-output*.md
+
+# Windows Zone Identifier files
+*.Zone.Identifier
