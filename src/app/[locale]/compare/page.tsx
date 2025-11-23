@@ -122,38 +122,38 @@ export default function ComparePage() {
             <TableBody>
               <TableRow>
                 <TableCell><strong>{language === 'ar' ? 'السنة' : 'Year'}</strong></TableCell>
-                {compareItems.map((v) => (
+                {compareItems.map((v: any) => (
                   <TableCell key={v.id}>{v.model_year}</TableCell>
                 ))}
               </TableRow>
               <TableRow>
                 <TableCell><strong>{language === 'ar' ? 'الفئة' : 'Trim'}</strong></TableCell>
-                {compareItems.map((v) => (
+                {compareItems.map((v: any) => (
                   <TableCell key={v.id}>{v.trim_name}</TableCell>
                 ))}
               </TableRow>
               <TableRow>
                 <TableCell><strong>{language === 'ar' ? 'التصنيف' : 'Category'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.categories.name}</TableCell>
+                {compareItems.map((v: any) => (
+                  <TableCell key={v.id}>{v.categories?.name ?? '-'}</TableCell>
                 ))}
               </TableRow>
               <TableRow>
                 <TableCell><strong>{language === 'ar' ? 'المحرك' : 'Engine'}</strong></TableCell>
-                {compareItems.map((v) => (
+                {compareItems.map((v: any) => (
                   <TableCell key={v.id}>{v.engine || '-'}</TableCell>
                 ))}
               </TableRow>
               <TableRow>
                 <TableCell><strong>{language === 'ar' ? 'ناقل الحركة' : 'Transmission'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.transmissions.name}</TableCell>
+                {compareItems.map((v: any) => (
+                  <TableCell key={v.id}>{v.transmissions?.name ?? '-'}</TableCell>
                 ))}
               </TableRow>
               <TableRow>
                 <TableCell><strong>{language === 'ar' ? 'نوع الوقود' : 'Fuel Type'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.fuel_types.name}</TableCell>
+                {compareItems.map((v: any) => (
+                  <TableCell key={v.id}>{v.fuel_types?.name ?? '-'}</TableCell>
                 ))}
               </TableRow>
               <TableRow>
