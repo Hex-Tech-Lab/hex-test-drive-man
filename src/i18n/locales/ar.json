@@ -1,0 +1,21 @@
+{
+  "common": {
+    "search": "بحث",
+    "filter": "تصفية",
+    "compare": "قارن",
+    "brand": "العلامة التجارية",
+    "price": "السعر",
+    "year": "السنة"
+  },
+  "catalog": {
+    "title": "استكشف السيارات",
+    "noResults": "لم يتم العثور على نتائج",
+    "viewDetails": "عرض التفاصيل"
+  },
+  "filters": {
+    "bodyStyle": "نوع الهيكل",
+    "priceRange": "نطاق السعر",
+    "segment": "الفئة",
+    "reset": "إعادة تعيين"
+  }
+}

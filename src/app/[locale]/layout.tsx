@@ -7,7 +7,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   return (
-    <div lang={locale}>
+    <div lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       {children}
     </div>
   );

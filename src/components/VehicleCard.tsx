@@ -69,7 +69,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
         </Typography>
 
         <Typography variant="body2" color="text.secondary" gutterBottom>
-          {vehicle.model_year} • {vehicle.trim_name} • {vehicle.categories?.name ?? (language === 'ar' ? 'غير مصنف' : 'Uncategorized')}
+          {vehicle.model_year} • {vehicle.trim_name} • {language === 'ar' ? (vehicle.categories?.name ?? 'غير مصنف') : (vehicle.categories?.name ?? 'Uncategorized')}
         </Typography>
 
         <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap', mb: 2 }}>
