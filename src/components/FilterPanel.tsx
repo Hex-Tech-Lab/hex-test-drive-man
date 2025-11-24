@@ -47,7 +47,11 @@ export default function FilterPanel({ vehicles, onFilterChange }: FilterPanelPro
       ? selectedBrands.filter((b) => b !== brand)
       : [...selectedBrands, brand];
     setSelectedBrands(newBrands);
-    onFilterChange({ brands: newBrands, priceRange, categories: selectedCategories });
+    onFilterChange({
+      brands: newBrands,
+      priceRange,
+      categories: selectedCategories,
+    });
   };
 
   const handleCategoryToggle = (category: string) => {
@@ -55,13 +59,21 @@ export default function FilterPanel({ vehicles, onFilterChange }: FilterPanelPro
       ? selectedCategories.filter((c) => c !== category)
       : [...selectedCategories, category];
     setSelectedCategories(newCategories);
-    onFilterChange({ brands: selectedBrands, priceRange, categories: newCategories });
+    onFilterChange({
+      brands: selectedBrands,
+      priceRange,
+      categories: newCategories,
+    });
   };
 
   const handlePriceChange = (_event: Event, newValue: number | number[]) => {
     const newRange = newValue as [number, number];
     setPriceRange(newRange);
-    onFilterChange({ brands: selectedBrands, priceRange: newRange, categories: selectedCategories });
+    onFilterChange({
+      brands: selectedBrands,
+      priceRange: newRange,
+      categories: selectedCategories,
+    });
   };
 
   // Dynamic max price based on available vehicles
