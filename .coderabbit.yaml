@@ -1,19 +1,16 @@
-# yaml-language-server: = https://coderabbit.ai/integrations/schema.v2.json
-early_access: true
+# yaml-language-server: $schema= `https://coderabbit.ai/integrations/schema.v2.json` 
 
+early_access: true
 language: "en-US"
-enable_free_tier: false
 
 reviews:
   profile: assertive
   request_changes_workflow: true
   high_level_summary: true
-  high_level_summary_placeholder: "<- Keep component labels locale-aware without CodeRabbit summary placeholder -->"
   poem: false
   review_status: true
   collapse_walkthrough: false
-  sequence_diagrams: true
-  changed_files_summary: true
+  
   auto_review:
     enabled: true
     auto_incremental_review: true
@@ -22,26 +19,18 @@ reviews:
       - "DO NOT REVIEW"
     drafts: false
     base_branches:
-      - "main"
-      - "develop"
-  auto_apply_labels: true
-  tools:
-    github-checks:
-      enabled: true
-      timeout_ms: 90000
-    llm-review:
-      enabled: true
-    shellcheck:
-      enabled: true
-    ruff:
-      enabled: true
-    biome:
-      enabled: true
+      - main
+
+  path_filters:
+    excluded:
+      - "pnpm-lock.yaml"
+      - "package-lock.json"
+      - "**/*.md"
+      - ".github/**"
+
 chat:
   auto_reply: true
-  art: false
+
 knowledge_base:
-  opt_out: false
   learnings:
-    scope: "team"
-  auto_learning: true
+    scope: "auto"
