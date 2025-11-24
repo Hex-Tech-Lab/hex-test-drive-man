@@ -1,43 +1,47 @@
-# CodeRabbit AI Code Review Configuration
-# https://docs.coderabbit.ai/configuration
+# yaml-language-server: = https://coderabbit.ai/integrations/schema.v2.json
+early_access: true
 
-language: en-US
-
-early_access: false
+language: "en-US"
+enable_free_tier: false
 
 reviews:
-  profile: chill
-  request_changes_workflow: false
+  profile: assertive
+  request_changes_workflow: true
   high_level_summary: true
+  high_level_summary_placeholder: "<- Keep component labels locale-aware without CodeRabbit summary placeholder -->"
   poem: false
   review_status: true
   collapse_walkthrough: false
+  sequence_diagrams: true
+  changed_files_summary: true
   auto_review:
     enabled: true
+    auto_incremental_review: true
     ignore_title_keywords:
       - "WIP"
       - "DO NOT REVIEW"
-  drafts: false
-  auto_incremental_review: true
-
+    drafts: false
+    base_branches:
+      - "main"
+      - "develop"
+  auto_apply_labels: true
+  tools:
+    github-checks:
+      enabled: true
+      timeout_ms: 90000
+    llm-review:
+      enabled: true
+    shellcheck:
+      enabled: true
+    ruff:
+      enabled: true
+    biome:
+      enabled: true
 chat:
   auto_reply: true
-
-# Force review even for bot commits
-bot_reviews:
-  enabled: true
-  skip_bot_prs: false
-
-# Review all file types
-path_filters:
-  excluded: []
-
-# Review small PRs (don't skip based on size)
-size_filters:
-  min_lines: 0
-  max_lines: 10000
-
-# Force reviews for all PR types
-pr_filters:
-  excluded_labels: []
-  excluded_pr_numbers: []
+  art: false
+knowledge_base:
+  opt_out: false
+  learnings:
+    scope: "team"
+  auto_learning: true

@@ -39,3 +39,7 @@ repomix-output*.md
 # Windows Zone Identifier files
 *.Zone.Identifier
 *:Zone.Identifier
+
+# Package managers - pnpm only
+package-lock.json
+yarn.lock
