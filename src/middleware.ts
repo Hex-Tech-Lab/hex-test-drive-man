@@ -5,6 +5,11 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname.startsWith('/ar') || pathname.startsWith('/en')) {
+    if (pathname.endsWith('/sentry-example-page')) {
+      const url = request.nextUrl.clone();
+      url.pathname = '/sentry-example-page';
+      return NextResponse.rewrite(url);
+    }
     return NextResponse.next();
   }
 
@@ -13,6 +18,9 @@ export function middleware(request: NextRequest) {
   }
 
   const locale = 'ar';
+  if (pathname === '/sentry-example-page') {
+    return NextResponse.next();
+  }
   request.nextUrl.pathname = `/${locale}${pathname}`;
   return NextResponse.redirect(request.nextUrl);
 }
