@@ -1,0 +1,6 @@
+github:
+  request_review: author
+  sourcery_branch: sourcery/main
+
+refactor:
+  skip_default_rules: false
