@@ -19,3 +19,16 @@ path_filters:
 
 chat:
   auto_reply: true
+
+# Unit test generation (beta)
+unit_tests:
+  enabled: true
+  mode: comment
+  framework: vitest
+  test_files:
+    - src/repositories/**/*.ts
+    - src/lib/**/*.ts
+    - src/components/**/*.tsx
+  exclude:
+    - "**/*.test.ts"
+    - "**/*.test.tsx"
