@@ -5,14 +5,7 @@ import * as Sentry from '@sentry/nextjs';
 export default function SentryTestPage() {
   const triggerError = () => {
     try {
-      // @ts-ignore - intentional error for testing
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      // @ts-expect-error
-      // Trigger runtime error
-      // @ts-ignore
-      // eslint-disable-next-line no-undef
-      myUndefinedFunction();
+      throw new Error('Sentry test error');
     } catch (error) {
       Sentry.captureException(error);
       alert('Test error sent to Sentry! Check your dashboard.');

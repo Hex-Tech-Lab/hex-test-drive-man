@@ -22,7 +22,15 @@ export const useFilterStore = create<FilterState>()(
       segmentCode: null,
       agent: null,
       setFilters: (filters) => set((state) => ({ ...state, ...filters })),
-      resetFilters: () => set({ brands: [], categories: [], priceRange: [0, 20_000_000], bodyStyle: null, segmentCode: null, agent: null }),
+      resetFilters: () =>
+        set({
+          brands: [],
+          categories: [],
+          priceRange: [0, 5_000_000],
+          bodyStyle: null,
+          segmentCode: null,
+          agent: null,
+        }),
     }),
     {
       name: 'vehicle-filters',
