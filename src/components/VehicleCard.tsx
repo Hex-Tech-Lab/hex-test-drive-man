@@ -28,9 +28,6 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
     }
   };
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat(language === 'ar' ? 'ar-EG' : 'en-US').format(price);
-  };
 
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
