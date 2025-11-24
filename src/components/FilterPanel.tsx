@@ -61,7 +61,11 @@ export default function FilterPanel({ vehicles, onFilterChange }: FilterPanelPro
   const handlePriceChange = (_event: Event, newValue: number | number[]) => {
     const newRange = newValue as [number, number];
     setPriceRange(newRange);
-    onFilterChange({ brands: selectedBrands, priceRange: newRange, categories: selectedCategories });
+    onFilterChange({
+      brands: selectedBrands,
+      priceRange: newRange,
+      categories: selectedCategories,
+    });
   };
 
   // Dynamic max price based on available vehicles
