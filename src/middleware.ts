@@ -4,23 +4,18 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith('/ar') || pathname.startsWith('/en')) {
-    if (pathname.endsWith('/sentry-example-page')) {
-      const url = request.nextUrl.clone();
-      url.pathname = '/sentry-example-page';
-      return NextResponse.rewrite(url);
-    }
-    return NextResponse.next();
-  }
-
+  // Skip processing for static files
   if (pathname.includes('.')) {
     return NextResponse.next();
   }
 
-  const locale = 'ar';
+  // Allow Sentry test page without locale redirect
   if (pathname === '/sentry-example-page') {
     return NextResponse.next();
   }
+
+  // Redirect to Arabic locale
+  const locale = 'ar';
   request.nextUrl.pathname = `/${locale}${pathname}`;
   return NextResponse.redirect(request.nextUrl);
 }
