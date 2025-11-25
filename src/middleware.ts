@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  if (pathname.startsWith('/_next') || pathname.includes('.')) {
+  if (pathname.includes('.')) {
     return NextResponse.next();
   }
 
