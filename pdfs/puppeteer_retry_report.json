@@ -1,0 +1,132 @@
+{
+  "timestamp": "2025-11-26T23:35:42.677Z",
+  "total_retried": 28,
+  "successful": 5,
+  "still_failed": 23,
+  "recovered": [
+    {
+      "model": "Nissan Sunny N17 S",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/Sunny.pdf",
+      "file_size_mb": "2.08",
+      "method": "Puppeteer navigation"
+    },
+    {
+      "model": "Nissan Qashqai J12 Tech",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NEW-NISSAN-QASHQAI-EGP.pdf",
+      "file_size_mb": "6.66",
+      "method": "Puppeteer navigation"
+    },
+    {
+      "model": "Nissan Juke",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NEW-NISSAN-JUKE-EN.pdf",
+      "file_size_mb": "8.42",
+      "method": "Puppeteer navigation"
+    },
+    {
+      "model": "Nissan Patrol NiD",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/ALL-NEW-NISSAN-PATROL-EGP.pdf",
+      "file_size_mb": "10.15",
+      "method": "Puppeteer navigation"
+    },
+    {
+      "model": "MG RX5 Plus",
+      "url": "https://www.mgmotor.com.eg/wp-content/uploads/2024/04/RX5-Plus-Brochure-.pdf",
+      "file_size_mb": "13.85",
+      "method": "Puppeteer navigation"
+    }
+  ],
+  "permanent_failures": [
+    {
+      "model": "Nissan Urvan",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Chevrolet T-Series Jumbo SE",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Chevrolet N300 Move",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Hyundai Creta",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Toyota Fortuner GXL/Legend",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Toyota Rumion",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Toyota Yaris Cross AT",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "MG MG 7",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "MG MG ONE",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Mitsubishi Xpander",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Mitsubishi Eclipse Cross",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Renault Austral",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Renault Duster Techno/Iconic",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Renault Logan",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Bestune T77 Pro",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Bestune B70",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Bestune T55",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "BMW 3 Series LCI",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "BMW X3 M Sport",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Mercedes E-Class W214",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Mercedes GLC X254",
+      "reason": "PDF link not found on manufacturer website"
+    },
+    {
+      "model": "Audi Q8",
+      "reason": "net::ERR_NAME_NOT_RESOLVED at https://www.audi.com.eg/eg/web/en/models.html"
+    },
+    {
+      "model": "Audi A3 Sedan",
+      "reason": "net::ERR_NAME_NOT_RESOLVED at https://www.audi.com.eg/eg/web/en/models.html"
+    }
+  ]
+}

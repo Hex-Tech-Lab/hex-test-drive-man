@@ -1,0 +1,15 @@
+{
+  "brand": "Audi",
+  "platform": "YallaMotor",
+  "created_at": "2025-11-26T18:10:00Z",
+  "status": "initialized",
+  "directory": "/home/kellyb_dev/projects/hex-test-drive/pdfs/audi/yallamotor",
+  "files": [],
+  "file_count": 0,
+  "total_size_bytes": 0,
+  "metadata": {
+    "market": "Egypt",
+    "language_support": ["Arabic", "English"],
+    "pdf_format_version": "1.0"
+  }
+}

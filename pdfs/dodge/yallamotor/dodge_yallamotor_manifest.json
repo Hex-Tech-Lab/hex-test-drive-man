@@ -1,0 +1,14 @@
+{
+  "brand": "Dodge",
+  "timestamp": "2025-11-26T16:18:21.612Z",
+  "source": "YallaMotor Egypt",
+  "sourceUrl": "https://egypt.yallamotor.com/new-cars/dodge",
+  "pdfGenerationMethod": "Puppeteer page-to-PDF from model detail pages",
+  "modelsFound": 0,
+  "pdfGenerated": 0,
+  "models": [],
+  "notes": "YallaMotor does not offer official brochures. PDFs are automatically generated from model specification pages as of 2025-11-26.",
+  "errors": [
+    "Navigation timeout of 60000 ms exceeded"
+  ]
+}

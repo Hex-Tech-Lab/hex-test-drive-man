@@ -1,0 +1,79 @@
+{
+  "brand": "Nissan",
+  "timestamp": "2025-11-26T16:27:56.633Z",
+  "source": "YallaMotor Egypt",
+  "sourceUrl": "https://egypt.yallamotor.com/new-cars/nissan",
+  "pdfGenerationMethod": "Puppeteer page-to-PDF from model detail pages",
+  "modelsFound": 37,
+  "pdfGenerated": 9,
+  "models": [
+    {
+      "model": "altima",
+      "title": "Nissan Altima 2025",
+      "price": "N/A",
+      "fileName": "nissan_altima_yallamotor_20251126.pdf"
+    },
+    {
+      "model": "ariya",
+      "title": "Nissan Ariya 2025",
+      "price": "N/A",
+      "fileName": "nissan_ariya_yallamotor_20251126.pdf"
+    },
+    {
+      "model": "juke",
+      "title": "Nissan Juke 2025",
+      "price": "N/A",
+      "fileName": "nissan_juke_yallamotor_20251126.pdf"
+    },
+    {
+      "model": "kicks",
+      "title": "Nissan Kicks 2025",
+      "price": "N/A",
+      "fileName": "nissan_kicks_yallamotor_20251126.pdf"
+    },
+    {
+      "model": "magnite",
+      "title": "Nissan Magnite 2025",
+      "price": "N/A",
+      "fileName": "nissan_magnite_yallamotor_20251126.pdf"
+    },
+    {
+      "model": "maxima",
+      "title": "Nissan Maxima 2025",
+      "price": "N/A",
+      "fileName": "nissan_maxima_yallamotor_20251126.pdf"
+    },
+    {
+      "model": "micra",
+      "title": "Nissan Micra 2025",
+      "price": "N/A",
+      "fileName": "nissan_micra_yallamotor_20251126.pdf"
+    },
+    {
+      "model": "navara",
+      "title": "Nissan Navara 2025",
+      "price": "N/A",
+      "fileName": "nissan_navara_yallamotor_20251126.pdf"
+    },
+    {
+      "model": "pathfinder",
+      "title": "Nissan Pathfinder 2025",
+      "price": "N/A",
+      "fileName": "nissan_pathfinder_yallamotor_20251126.pdf"
+    }
+  ],
+  "notes": "YallaMotor does not offer official brochures. PDFs are automatically generated from model specification pages as of 2025-11-26.",
+  "errors": [
+    "challenger: Timed out after waiting 30000ms",
+    "civilian: Navigation timeout of 45000 ms exceeded",
+    "convertible: Navigation timeout of 45000 ms exceeded",
+    "coupe: Navigation timeout of 45000 ms exceeded",
+    "gt-r: Navigation timeout of 45000 ms exceeded",
+    "hatchback: Navigation timeout of 45000 ms exceeded",
+    "highlander: Navigation timeout of 45000 ms exceeded",
+    "jimny: Timed out after waiting 30000ms",
+    "land-cruiser: Timed out after waiting 30000ms",
+    "leaf: Navigation timeout of 45000 ms exceeded",
+    "minivan-van: Timed out after waiting 30000ms"
+  ]
+}

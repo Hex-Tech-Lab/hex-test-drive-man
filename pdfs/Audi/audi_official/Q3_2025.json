@@ -1,0 +1,14 @@
+{
+  "brand": "Audi",
+  "model": "Q3",
+  "year": "2025",
+  "source_url": "https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/Q3.pdf",
+  "filename": "Q3_2025.pdf",
+  "file_size_bytes": 3453718,
+  "file_size_mb": 3.29,
+  "sha256": "46e630e68c6df2b6f98440cfecf7c49ae54b7608f31510fbb388c1ef8994e416",
+  "download_date": "2025-11-27T01:20:42.153262",
+  "shared_by_models": [
+    "Audi Q3"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "download_date": "2025-11-27T01:04:36.064729",
+  "statistics": {
+    "total": 11,
+    "downloaded": 6,
+    "skipped": 0,
+    "failed": 5,
+    "errors": [
+      {
+        "brand": "BMW",
+        "model": "3 Series (LCI)",
+        "year": "2025",
+        "url": "https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/brochure-pool/april-2025/3_Series_Brochure_II.pdf.asset.1744715725290.pdf"
+      },
+      {
+        "brand": "BMW",
+        "model": "7 Series / i7",
+        "year": "2024",
+        "url": "https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/Home/Models/7-series/The_New_7_Brochure.pdf"
+      },
+      {
+        "brand": "Mercedes",
+        "model": "E-Class (W214)",
+        "year": "2024",
+        "url": "https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-e-class-saloon-2024-september-w214-mbux-owners-manual-1.pdf"
+      },
+      {
+        "brand": "Mercedes",
+        "model": "GLC (X254)",
+        "year": "2024",
+        "url": "https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-glc-suv-2024-september-x254-mbux-owners-manual-1.pdf"
+      },
+      {
+        "brand": "Chevrolet",
+        "model": "N-Series",
+        "year": "2024",
+        "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2024/N-Series-Brochure.pdf"
+      }
+    ]
+  }
+}

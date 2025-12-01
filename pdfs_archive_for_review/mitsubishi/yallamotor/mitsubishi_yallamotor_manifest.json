@@ -1,0 +1,107 @@
+{
+  "brand": "Mitsubishi",
+  "timestamp": "2025-11-26T16:18:13.300Z",
+  "source": "YallaMotor Egypt",
+  "sourceUrl": "https://egypt.yallamotor.com/new-cars/mitsubishi",
+  "pdfGenerationMethod": "Puppeteer page-to-PDF from model detail pages",
+  "modelsFound": 29,
+  "pdfGenerated": 13,
+  "models": [
+    {
+      "path": "sedan",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_sedan_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/sedan"
+    },
+    {
+      "path": "hatchback",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_hatchback_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/hatchback"
+    },
+    {
+      "path": "convertible",
+      "title": "egypt.yallamotor.com",
+      "price": "Just a moment...*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-a",
+      "fileName": "mitsubishi_convertible_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/convertible"
+    },
+    {
+      "path": "minivan-van",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_minivan-van_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/minivan-van"
+    },
+    {
+      "path": "suv",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_suv_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/suv"
+    },
+    {
+      "path": "coupe",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_coupe_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/coupe"
+    },
+    {
+      "path": "pickup-truck",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_pickup-truck_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/pickup-truck"
+    },
+    {
+      "path": "wagon",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_wagon_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/wagon"
+    },
+    {
+      "path": "land-cruiser",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_land-cruiser_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/land-cruiser"
+    },
+    {
+      "path": "toyota-land-cruiser-2025-39609-vs-nissan-patrol-2025-44654",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_toyota-land-cruiser-2025-39609-vs-nissan-patrol-2025-44654_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/toyota-land-cruiser-2025-39609-vs-nissan-patrol-2025-44654"
+    },
+    {
+      "path": "wrangler",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_wrangler_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/wrangler"
+    },
+    {
+      "path": "rush",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_rush_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/rush"
+    },
+    {
+      "path": "challenger",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "mitsubishi_challenger_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/mitsubishi/challenger"
+    }
+  ],
+  "notes": "YallaMotor does not offer official brochures. PDFs generated from model specification pages.",
+  "errors": [
+    "patrol: Navigation timeout of 45000 ms exceeded",
+    "jimny: Navigation timeout of 45000 ms exceeded"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "successful": 1,
+  "failed": 19,
+  "recovered": [
+    {
+      "model": "Nissan Urvan",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/Urvan.pdf",
+      "size_mb": "1.24"
+    }
+  ],
+  "failures": [
+    "Chevrolet T-Series",
+    "Chevrolet N300",
+    "Hyundai Creta",
+    "Toyota Fortuner",
+    "Toyota Rumion",
+    "Toyota Yaris",
+    "MG 7",
+    "MG ONE",
+    "Mitsubishi Xpander",
+    "Mitsubishi Eclipse",
+    "Renault Austral",
+    "Renault Duster",
+    "Renault Logan",
+    "BMW 3",
+    "BMW X3",
+    "Mercedes E-Class",
+    "Mercedes GLC",
+    "Audi Q8",
+    "Audi A3"
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "timestamp": "2025-11-26T23:47:29.587Z",
+  "total_sources": 28,
+  "successful": 25,
+  "failed": 3,
+  "vehicles": [
+    {
+      "brand": "BYD",
+      "model": "F3",
+      "year": 2025,
+      "source_url": "http://www.byd-egypt.com/f3.html",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:47:36.008Z"
+    },
+    {
+      "brand": "BYD",
+      "model": "Song Plus DM-i",
+      "year": 2025,
+      "source_url": "http://www.byd-egypt.com/song-plus-dmi.html",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:47:41.386Z"
+    },
+    {
+      "brand": "BYD",
+      "model": "Atto 3",
+      "year": 2025,
+      "source_url": "http://www.byd-egypt.com/atto3.html",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:47:45.830Z"
+    },
+    {
+      "brand": "Porsche",
+      "model": "Macan",
+      "year": 2025,
+      "source_url": "https://www.porsche.com/middle-east/_egypt_/models/macan/macan-models/macan/",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:02.663Z"
+    },
+    {
+      "brand": "Porsche",
+      "model": "Cayenne",
+      "year": 2025,
+      "source_url": "https://www.porsche.com/middle-east/_egypt_/models/cayenne/cayenne-models/cayenne/",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:10.776Z"
+    },
+    {
+      "brand": "Porsche",
+      "model": "911 Carrera",
+      "year": 2025,
+      "source_url": "https://www.porsche.com/middle-east/_egypt_/models/911/911-models/carrera/",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:15.282Z"
+    },
+    {
+      "brand": "Volvo",
+      "model": "XC60",
+      "year": 2025,
+      "source_url": "https://www.volvocars.com/en-eg/cars/xc60/",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:18.790Z"
+    },
+    {
+      "brand": "Volvo",
+      "model": "XC90",
+      "year": 2025,
+      "source_url": "https://www.volvocars.com/en-eg/cars/xc90/",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:22.022Z"
+    },
+    {
+      "brand": "Volvo",
+      "model": "EX30",
+      "year": 2025,
+      "source_url": "https://www.volvocars.com/en-eg/cars/ex30-electric/",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:25.213Z"
+    },
+    {
+      "brand": "Volvo",
+      "model": "XC40",
+      "year": 2025,
+      "source_url": "https://www.volvocars.com/en-eg/cars/xc40/specifications/",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:28.436Z"
+    },
+    {
+      "brand": "Volvo",
+      "model": "S60",
+      "year": 2025,
+      "source_url": "https://www.volvocars.com/en-eg/cars/s60/",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:31.636Z"
+    },
+    {
+      "brand": "Audi",
+      "model": "A4 Sedan",
+      "year": 2025,
+      "source_url": "https://audi-eg.com/models/a4",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:37.103Z"
+    },
+    {
+      "brand": "Audi",
+      "model": "A6 Sedan",
+      "year": 2025,
+      "source_url": "https://audi-eg.com/models/a6",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:48:41.628Z"
+    },
+    {
+      "brand": "Kia",
+      "model": "Sportage EX/LX",
+      "year": 2025,
+      "source_url": "https://www.kia.com.eg/uploads/models/6902014ecd8991761739086.pdf",
+      "source_type": "html",
+      "specifications": {
+        "_note": "This is a PDF, not HTML - should be re-downloaded"
+      },
+      "extraction_date": "2025-11-26T23:48:57.391Z"
+    },
+    {
+      "brand": "Kia",
+      "model": "Seltos",
+      "year": 2025,
+      "source_url": "https://www.kia.com.eg/uploads/models/68ab15690737f1756042601.pdf",
+      "source_type": "html",
+      "specifications": {
+        "_note": "This is a PDF, not HTML - should be re-downloaded"
+      },
+      "extraction_date": "2025-11-26T23:49:06.014Z"
+    },
+    {
+      "brand": "Kia",
+      "model": "Grand Cerato EX",
+      "year": 2025,
+      "source_url": "https://www.kia.com.eg/uploads/models/611a740cdad5e1629123596.pdf",
+      "source_type": "html",
+      "specifications": {
+        "_note": "This is a PDF, not HTML - should be re-downloaded"
+      },
+      "extraction_date": "2025-11-26T23:49:14.744Z"
+    },
+    {
+      "brand": "Kia",
+      "model": "XCeed",
+      "year": 2025,
+      "source_url": "https://www.kia.com.eg/uploads/models/64c949569d8921690913110.pdf",
+      "source_type": "html",
+      "specifications": {
+        "_note": "This is a PDF, not HTML - should be re-downloaded"
+      },
+      "extraction_date": "2025-11-26T23:49:23.633Z"
+    },
+    {
+      "brand": "Kia",
+      "model": "Sorento",
+      "year": 2025,
+      "source_url": "https://www.kia.com.eg/uploads/models/68496748289da1749641032.pdf",
+      "source_type": "html",
+      "specifications": {
+        "_note": "This is a PDF, not HTML - should be re-downloaded"
+      },
+      "extraction_date": "2025-11-26T23:49:33.035Z"
+    },
+    {
+      "brand": "Kia",
+      "model": "Carnival LE/GT",
+      "year": 2025,
+      "source_url": "https://kia.com.eg/download_brochure",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:49:46.648Z"
+    },
+    {
+      "brand": "Nissan",
+      "model": "Navara SE",
+      "year": 2025,
+      "source_url": "https://en.nissan.com.eg/vehicles/brochures.html",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:49:54.139Z"
+    },
+    {
+      "brand": "Chevrolet",
+      "model": "Captiva LTZ",
+      "year": 2025,
+      "source_url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/cars/2025-captiva/MY25-Captiva-Brochure.pdf",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:49:57.526Z"
+    },
+    {
+      "brand": "Chevrolet",
+      "model": "Optra GLS",
+      "year": 2026,
+      "source_url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/cars/2026-optra/the-all-new-optra-2026-brochure.pdf",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:50:00.713Z"
+    },
+    {
+      "brand": "Mercedes",
+      "model": "GLE 450 4MATIC",
+      "year": 2026,
+      "source_url": "https://www.mercedes-benz.com.eg/passengercars/buy/brochures.html",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:50:07.530Z"
+    },
+    {
+      "brand": "Mercedes",
+      "model": "GLS",
+      "year": 2026,
+      "source_url": "https://www.mercedes-benz.com.eg/passengercars/buy/brochures.html",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:50:12.875Z"
+    },
+    {
+      "brand": "BMW",
+      "model": "7 Series/i7",
+      "year": 2025,
+      "source_url": "https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/Home/Models/7-series/The_New_7_Brochure.pdf",
+      "source_type": "html",
+      "specifications": {},
+      "extraction_date": "2025-11-26T23:50:17.565Z"
+    }
+  ]
+}

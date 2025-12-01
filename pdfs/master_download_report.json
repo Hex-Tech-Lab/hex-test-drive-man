@@ -1,0 +1,413 @@
+{
+  "download_date": "2025-11-27T01:20:48.169591",
+  "statistics": {
+    "total_entries": 92,
+    "unique_urls": 88,
+    "already_downloaded": 9,
+    "newly_downloaded": 24,
+    "failed": 28,
+    "skipped_html": 27,
+    "errors": [
+      {
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_SUNNY_BROCHURE.pdf",
+        "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_SUNNY_BROCHURE.pdf",
+        "models": [
+          "Nissan Sunny N17 S",
+          "Nissan Sunny N17 VL"
+        ]
+      },
+      {
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_QASHQAI_BROCHURE.pdf",
+        "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_QASHQAI_BROCHURE.pdf",
+        "models": [
+          "Nissan Qashqai J12 Tech",
+          "Nissan Qashqai J12 Top"
+        ]
+      },
+      {
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/JUKE_BROCHURE.pdf",
+        "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/JUKE_BROCHURE.pdf",
+        "models": [
+          "Nissan Juke"
+        ]
+      },
+      {
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/PATROL_BROCHURE.pdf",
+        "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/PATROL_BROCHURE.pdf",
+        "models": [
+          "Nissan Patrol NiD"
+        ]
+      },
+      {
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/URVAN_BROCHURE.pdf",
+        "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/URVAN_BROCHURE.pdf",
+        "models": [
+          "Nissan Urvan"
+        ]
+      },
+      {
+        "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2025/T-Series-Updated-Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2025/T-Series-Updated-Brochure.pdf",
+        "models": [
+          "Chevrolet T-Series Jumbo SE",
+          "Chevrolet T-Series STD"
+        ]
+      },
+      {
+        "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2024/Move-Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2024/Move-Brochure.pdf",
+        "models": [
+          "Chevrolet N300 Move"
+        ]
+      },
+      {
+        "url": "https://hyundai-egypt.net/wp-content/uploads/2021/09/Creta-SU2-Brochure.pdf",
+        "error": "Not a PDF (Content-Type: text/html; charset=UTF-8)",
+        "models": [
+          "Hyundai Creta"
+        ]
+      },
+      {
+        "url": "https://toyota.com.eg/storage/45120/Fortuner-Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://toyota.com.eg/ar/storage/45120/Fortuner-Brochure.pdf",
+        "models": [
+          "Toyota Fortuner GXL/Legend"
+        ]
+      },
+      {
+        "url": "https://toyota.com.eg/storage/40150/Rumion-Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://toyota.com.eg/ar/storage/40150/Rumion-Brochure.pdf",
+        "models": [
+          "Toyota Rumion"
+        ]
+      },
+      {
+        "url": "https://toyota.com.eg/storage/43120/Urban-Cruiser-Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://toyota.com.eg/ar/storage/43120/Urban-Cruiser-Brochure.pdf",
+        "models": [
+          "Toyota Yaris Cross AT"
+        ]
+      },
+      {
+        "url": "https://www.mgmotor.com.eg/wp-content/uploads/2024/05/MG7-Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.mgmotor.com.eg/wp-content/uploads/2024/05/MG7-Brochure.pdf",
+        "models": [
+          "MG MG 7"
+        ]
+      },
+      {
+        "url": "https://www.mgmotor.com.eg/wp-content/uploads/2023/07/RX5-Plus-Brochure-English.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.mgmotor.com.eg/wp-content/uploads/2023/07/RX5-Plus-Brochure-English.pdf",
+        "models": [
+          "MG RX5 Plus"
+        ]
+      },
+      {
+        "url": "https://www.mgmotor.com.eg/wp-content/uploads/2024/01/MG-ONE-Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.mgmotor.com.eg/wp-content/uploads/2024/01/MG-ONE-Brochure.pdf",
+        "models": [
+          "MG MG ONE"
+        ]
+      },
+      {
+        "url": "https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Xpander-Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Xpander-Brochure.pdf",
+        "models": [
+          "Mitsubishi Xpander"
+        ]
+      },
+      {
+        "url": "https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Eclipse-Cross-Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Eclipse-Cross-Brochure.pdf",
+        "models": [
+          "Mitsubishi Eclipse Cross"
+        ]
+      },
+      {
+        "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Austral_Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://renault.com.eg/CountriesData/Egypt/images/Brochures/Austral_Brochure.pdf",
+        "models": [
+          "Renault Austral"
+        ]
+      },
+      {
+        "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Duster_Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://renault.com.eg/CountriesData/Egypt/images/Brochures/Duster_Brochure.pdf",
+        "models": [
+          "Renault Duster Techno/Iconic"
+        ]
+      },
+      {
+        "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Logan_Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://renault.com.eg/CountriesData/Egypt/images/Brochures/Logan_Brochure.pdf",
+        "models": [
+          "Renault Logan"
+        ]
+      },
+      {
+        "url": "https://bestune-egypt.com/brochure/t77.pdf",
+        "error": "404 Client Error: Not Found for url: https://bestune-egypt.com/brochure/t77.pdf",
+        "models": [
+          "Bestune T77 Pro"
+        ]
+      },
+      {
+        "url": "https://bestune-egypt.com/brochure/b70.pdf",
+        "error": "404 Client Error: Not Found for url: https://bestune-egypt.com/brochure/b70.pdf",
+        "models": [
+          "Bestune B70"
+        ]
+      },
+      {
+        "url": "https://bestune-egypt.com/brochure/t55.pdf",
+        "error": "404 Client Error: Not Found for url: https://bestune-egypt.com/brochure/t55.pdf",
+        "models": [
+          "Bestune T55"
+        ]
+      },
+      {
+        "url": "https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/brochure-pool/april-2025/3_Series_Brochure_II.pdf.asset.1744715725290.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/brochure-pool/april-2025/3_Series_Brochure_II.pdf.asset.1744715725290.pdf",
+        "models": [
+          "BMW 3 Series LCI"
+        ]
+      },
+      {
+        "url": "https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/brochure-pool/X3_Brochure.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/brochure-pool/X3_Brochure.pdf",
+        "models": [
+          "BMW X3 M Sport"
+        ]
+      },
+      {
+        "url": "https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-e-class-saloon-2024-september-w214-mbux-owners-manual-1.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-e-class-saloon-2024-september-w214-mbux-owners-manual-1.pdf",
+        "models": [
+          "Mercedes E-Class W214"
+        ]
+      },
+      {
+        "url": "https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-glc-suv-2024-september-x254-mbux-owners-manual-1.pdf",
+        "error": "404 Client Error: Not Found for url: https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-glc-suv-2024-september-x254-mbux-owners-manual-1.pdf",
+        "models": [
+          "Mercedes GLC X254"
+        ]
+      },
+      {
+        "url": "https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/Q8.pdf",
+        "error": "404 Client Error: Not Found for url: https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/Q8.pdf",
+        "models": [
+          "Audi Q8"
+        ]
+      },
+      {
+        "url": "https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/A3_Sedan.pdf",
+        "error": "404 Client Error: Not Found for url: https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/A3_Sedan.pdf",
+        "models": [
+          "Audi A3 Sedan"
+        ]
+      }
+    ]
+  },
+  "failed_urls": [
+    {
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_SUNNY_BROCHURE.pdf",
+      "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_SUNNY_BROCHURE.pdf",
+      "models": [
+        "Nissan Sunny N17 S",
+        "Nissan Sunny N17 VL"
+      ]
+    },
+    {
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_QASHQAI_BROCHURE.pdf",
+      "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_QASHQAI_BROCHURE.pdf",
+      "models": [
+        "Nissan Qashqai J12 Tech",
+        "Nissan Qashqai J12 Top"
+      ]
+    },
+    {
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/JUKE_BROCHURE.pdf",
+      "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/JUKE_BROCHURE.pdf",
+      "models": [
+        "Nissan Juke"
+      ]
+    },
+    {
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/PATROL_BROCHURE.pdf",
+      "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/PATROL_BROCHURE.pdf",
+      "models": [
+        "Nissan Patrol NiD"
+      ]
+    },
+    {
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/URVAN_BROCHURE.pdf",
+      "error": "404 Client Error: Not Found for url: https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/URVAN_BROCHURE.pdf",
+      "models": [
+        "Nissan Urvan"
+      ]
+    },
+    {
+      "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2025/T-Series-Updated-Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2025/T-Series-Updated-Brochure.pdf",
+      "models": [
+        "Chevrolet T-Series Jumbo SE",
+        "Chevrolet T-Series STD"
+      ]
+    },
+    {
+      "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2024/Move-Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2024/Move-Brochure.pdf",
+      "models": [
+        "Chevrolet N300 Move"
+      ]
+    },
+    {
+      "url": "https://hyundai-egypt.net/wp-content/uploads/2021/09/Creta-SU2-Brochure.pdf",
+      "error": "Not a PDF (Content-Type: text/html; charset=UTF-8)",
+      "models": [
+        "Hyundai Creta"
+      ]
+    },
+    {
+      "url": "https://toyota.com.eg/storage/45120/Fortuner-Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://toyota.com.eg/ar/storage/45120/Fortuner-Brochure.pdf",
+      "models": [
+        "Toyota Fortuner GXL/Legend"
+      ]
+    },
+    {
+      "url": "https://toyota.com.eg/storage/40150/Rumion-Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://toyota.com.eg/ar/storage/40150/Rumion-Brochure.pdf",
+      "models": [
+        "Toyota Rumion"
+      ]
+    },
+    {
+      "url": "https://toyota.com.eg/storage/43120/Urban-Cruiser-Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://toyota.com.eg/ar/storage/43120/Urban-Cruiser-Brochure.pdf",
+      "models": [
+        "Toyota Yaris Cross AT"
+      ]
+    },
+    {
+      "url": "https://www.mgmotor.com.eg/wp-content/uploads/2024/05/MG7-Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.mgmotor.com.eg/wp-content/uploads/2024/05/MG7-Brochure.pdf",
+      "models": [
+        "MG MG 7"
+      ]
+    },
+    {
+      "url": "https://www.mgmotor.com.eg/wp-content/uploads/2023/07/RX5-Plus-Brochure-English.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.mgmotor.com.eg/wp-content/uploads/2023/07/RX5-Plus-Brochure-English.pdf",
+      "models": [
+        "MG RX5 Plus"
+      ]
+    },
+    {
+      "url": "https://www.mgmotor.com.eg/wp-content/uploads/2024/01/MG-ONE-Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.mgmotor.com.eg/wp-content/uploads/2024/01/MG-ONE-Brochure.pdf",
+      "models": [
+        "MG MG ONE"
+      ]
+    },
+    {
+      "url": "https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Xpander-Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Xpander-Brochure.pdf",
+      "models": [
+        "Mitsubishi Xpander"
+      ]
+    },
+    {
+      "url": "https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Eclipse-Cross-Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Eclipse-Cross-Brochure.pdf",
+      "models": [
+        "Mitsubishi Eclipse Cross"
+      ]
+    },
+    {
+      "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Austral_Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://renault.com.eg/CountriesData/Egypt/images/Brochures/Austral_Brochure.pdf",
+      "models": [
+        "Renault Austral"
+      ]
+    },
+    {
+      "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Duster_Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://renault.com.eg/CountriesData/Egypt/images/Brochures/Duster_Brochure.pdf",
+      "models": [
+        "Renault Duster Techno/Iconic"
+      ]
+    },
+    {
+      "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Logan_Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://renault.com.eg/CountriesData/Egypt/images/Brochures/Logan_Brochure.pdf",
+      "models": [
+        "Renault Logan"
+      ]
+    },
+    {
+      "url": "https://bestune-egypt.com/brochure/t77.pdf",
+      "error": "404 Client Error: Not Found for url: https://bestune-egypt.com/brochure/t77.pdf",
+      "models": [
+        "Bestune T77 Pro"
+      ]
+    },
+    {
+      "url": "https://bestune-egypt.com/brochure/b70.pdf",
+      "error": "404 Client Error: Not Found for url: https://bestune-egypt.com/brochure/b70.pdf",
+      "models": [
+        "Bestune B70"
+      ]
+    },
+    {
+      "url": "https://bestune-egypt.com/brochure/t55.pdf",
+      "error": "404 Client Error: Not Found for url: https://bestune-egypt.com/brochure/t55.pdf",
+      "models": [
+        "Bestune T55"
+      ]
+    },
+    {
+      "url": "https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/brochure-pool/april-2025/3_Series_Brochure_II.pdf.asset.1744715725290.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/brochure-pool/april-2025/3_Series_Brochure_II.pdf.asset.1744715725290.pdf",
+      "models": [
+        "BMW 3 Series LCI"
+      ]
+    },
+    {
+      "url": "https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/brochure-pool/X3_Brochure.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.bmw-egypt.com/content/dam/bmw/marketEG/bmw-eg_com/brochure-pool/X3_Brochure.pdf",
+      "models": [
+        "BMW X3 M Sport"
+      ]
+    },
+    {
+      "url": "https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-e-class-saloon-2024-september-w214-mbux-owners-manual-1.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-e-class-saloon-2024-september-w214-mbux-owners-manual-1.pdf",
+      "models": [
+        "Mercedes E-Class W214"
+      ]
+    },
+    {
+      "url": "https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-glc-suv-2024-september-x254-mbux-owners-manual-1.pdf",
+      "error": "404 Client Error: Not Found for url: https://www.mercedes-benz.com.eg/passengercars/owners-manuals/en-eg/pdf/mercedes-glc-suv-2024-september-x254-mbux-owners-manual-1.pdf",
+      "models": [
+        "Mercedes GLC X254"
+      ]
+    },
+    {
+      "url": "https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/Q8.pdf",
+      "error": "404 Client Error: Not Found for url: https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/Q8.pdf",
+      "models": [
+        "Audi Q8"
+      ]
+    },
+    {
+      "url": "https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/A3_Sedan.pdf",
+      "error": "404 Client Error: Not Found for url: https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/A3_Sedan.pdf",
+      "models": [
+        "Audi A3 Sedan"
+      ]
+    }
+  ]
+}
