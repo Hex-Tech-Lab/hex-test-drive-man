@@ -43,3 +43,9 @@ repomix-output*.md
 # Package managers - pnpm only
 package-lock.json
 yarn.lock
+__pycache__/
+
+# Analysis outputs
+*_analysis.json
+*_quality_gate.json
+rules_engine/definitions/spec_definitions.json.backup
