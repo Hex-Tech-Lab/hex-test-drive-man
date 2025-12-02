@@ -6,15 +6,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Hex Test Drive Platform is a bilingual (Arabic/English) test drive booking platform for vehicles in the Egyptian market. Built with React 19, Next.js 15, and TypeScript 5.7.
 
-## Tech Stack
+## Tech Stack (as of 2025-12-02)
 
-- **React 19.0.0** + **Next.js 15.1.3** (App Router)
-- **TypeScript 5.7.2**
-- **SWR 2.2.5** for data fetching (chosen over React Query for lighter bundle)
-- **Zustand 5.0.2** for state management
-- **Material-UI 6.1.9** with Emotion
-- **react-i18next** for internationalization
-- **stylis-plugin-rtl** for Arabic RTL support
+- **Framework**: Next.js 16.0.6 (App Router)
+- **React**: 19.2.0
+- **TypeScript**: 5.9.3
+- **UI**: Material-UI 7.3.5 with Emotion
+- **State Management**: Zustand 5.0.9
+- **Data Fetching**: SWR 2.2.5
+- **Linting**: ESLint 9.39.1 with Flat Config
+- **Package Manager**: pnpm 10.24.0
 
 ## Build & Development Commands
 
@@ -27,7 +28,7 @@ pnpm build            # Build for production
 pnpm start            # Start production server
 
 # Code quality
-pnpm lint             # Run ESLint
+pnpm exec eslint .    # Run ESLint directly (next lint is currently broken)
 ```
 
 **Note:** Access Arabic version at `/ar` (default) and English at `/en`.
@@ -278,3 +279,44 @@ CREATE TABLE vehicle_specifications (
 - **Idempotency:** 100% (safe re-runs)
 
 **Reference:** See `LESSONS_LEARNED.md` for detailed technical insights and implementation patterns.
+
+---
+## Technical Report - Dependency Update (2025-12-02)
+
+*   **What has been done:**
+    *   Updated all project dependencies to their latest stable versions.
+    *   Fixed breaking changes introduced by the updates to ensure the project builds and runs correctly.
+    *   Migrated the ESLint configuration to be compatible with the newly updated ESLint v9.
+    *   Resolved all linting errors reported by the new configuration.
+    *   Committed all relevant changes to the current branch.
+
+*   **Key Changes:**
+    *   `package.json` / `pnpm-lock.yaml`: All dependencies updated. Notable updates include Next.js (15.1.3 -> 16.0.6), React (19.0.0 -> 19.2.0), and MUI (6.1.9 -> 7.3.5).
+    *   `@mui/material` Grid components in `page.tsx` and `compare/page.tsx` were updated to use the new `sx` prop for responsive props (e.g., `<Grid sx={{ xs: 12, md: 4 }}>`).
+    *   `.eslintrc.json` was deleted and replaced with `eslint.config.js` to support ESLint v9's new flat config format.
+    *   `eslint.config.js`: Now contains the project's ESLint configuration, extending `eslint-config-next` and including custom rules.
+    *   `src/components/AppProviders.tsx`: The `useEffect` hook was refactored to resolve a `react-hooks/set-state-in-effect` error.
+
+*   **Key Decisions:**
+    *   **Fix forward, don't revert:** When the dependency updates caused build and linting failures, the decision was made to fix the issues rather than reverting the updates, in order to adhere to the "update to latest stable" request.
+    *   **Migrate ESLint config:** Faced with a choice between downgrading ESLint or migrating to the new flat config format, I chose to migrate to keep the tooling up-to-date. This was a complex process that required several iterations to get right.
+    *   **Isolate unrelated changes:** I identified that some modified files (`enhanced_trim_parser.py`, `Corolla_2026_ocr.txt`) were not related to the dependency update task and intentionally left them unstaged.
+
+*   **Key Reflection Points:**
+    *   Updating major versions of dependencies, especially in a complex framework like Next.js with many interconnected tools (MUI, ESLint), often leads to a cascade of breaking changes that require significant effort to resolve.
+    *   The `next lint` command seems to have an issue in the new version of Next.js, as it fails even when `eslint` runs directly without errors. This suggests a potential bug or incompatibility in the `next` CLI tool itself.
+    *   Debugging ESLint's new flat config can be tricky. The error messages are not always clear, and inspecting the exported configuration from plugins (`eslint-config-next`) was crucial to solving the problem.
+
+*   **Results:**
+    *   The project's dependencies are now fully up-to-date with the latest stable versions.
+    *   The application is in a stable, buildable, and runnable state.
+    *   The code is compliant with the defined linting rules.
+
+*   **Quality Gates:**
+    *   **Build:** `pnpm build` now passes successfully.
+    *   **Linting:** `pnpm exec eslint .` now passes with exit code 0 (no errors).
+
+*   **Expected Actual Next Steps:**
+    *   Address the unstaged changes in `enhanced_trim_parser.py` and `Corolla_2026_ocr.txt` (either commit or discard).
+    *   Further investigate the `next lint` command failure, or use `pnpm exec eslint .` as the linting command going forward.
+    *   Push the two new commits to the remote repository.
