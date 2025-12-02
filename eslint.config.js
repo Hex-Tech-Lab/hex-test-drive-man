@@ -1,0 +1,27 @@
+import nextPlugin from 'eslint-config-next';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
+import reactPlugin from 'eslint-plugin-react';
+
+const config = [
+  ...nextPlugin,
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    plugins: {
+      '@typescript-eslint': typescriptPlugin,
+      'react': reactPlugin,
+    },
+    rules: {
+      'quotes': ['warn', 'single'],
+      'semi': ['warn', 'always'],
+      'comma-dangle': ['warn', 'always-multiline'],
+      'max-len': ['warn', { 'code': 100, 'ignoreUrls': true, 'ignoreStrings': true }],
+      'indent': ['warn', 2],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-vars': ['warn', { 'argsIgnorePattern': '^_' }],
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off'
+    }
+  }
+];
+
+export default config;

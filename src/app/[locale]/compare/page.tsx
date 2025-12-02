@@ -77,7 +77,7 @@ export default function ComparePage() {
 
         <Grid container spacing={3}>
           {compareItems.map((vehicle) => (
-            <Grid item key={vehicle.id} xs={12} md={4}>
+            <Grid key={vehicle.id} sx={{ xs: 12, md: 4 }}>
               <Card>
                 <Box sx={{ position: 'relative' }}>
                   <IconButton

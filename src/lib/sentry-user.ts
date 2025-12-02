@@ -23,7 +23,7 @@ export function setSentryUser(user: User | null) {
  */
 export function captureSentryError(
   error: Error,
-  context?: Record<string, unknown>
+  context?: Record<string, unknown>,
 ) {
   if (context) {
     Sentry.setContext('additional_context', context);

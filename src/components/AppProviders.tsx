@@ -24,10 +24,16 @@ export default function AppProviders({ children }: { children: React.ReactNode }
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    document.dir = language === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = language;
-  }, [language]);
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      document.dir = language === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.lang = language;
+    }
+  }, [language, mounted]);
 
   if (!mounted) {
     return null;

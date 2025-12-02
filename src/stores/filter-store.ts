@@ -34,6 +34,6 @@ export const useFilterStore = create<FilterState>()(
     }),
     {
       name: 'vehicle-filters',
-    }
-  )
+    },
+  ),
 );

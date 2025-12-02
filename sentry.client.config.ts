@@ -6,7 +6,7 @@ Sentry.init({
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1.0,
   
-  // Setting this option to true will print useful information to the console while you're setting up Sentry.
+  // Setting this to true prints useful information to the console when setting up Sentry.
   debug: false,
   
   replaysOnErrorSampleRate: 1.0,

@@ -29,6 +29,6 @@ export const useCompareStore = create<CompareStore>()(
     }),
     {
       name: 'compare-storage', // localStorage key
-    }
-  )
+    },
+  ),
 );

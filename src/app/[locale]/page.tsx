@@ -158,11 +158,11 @@ export default function CatalogPage() {
         />
 
         <Grid container spacing={3}>
-          <Grid item xs={12} md={3}>
+          <Grid sx={{ xs: 12, md: 3 }}>
             <FilterPanel onFilterChange={setFiltersInStore} vehicles={vehicles} />
           </Grid>
 
-          <Grid item xs={12} md={9}>
+          <Grid sx={{ xs: 12, md: 9 }}>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               {language === 'ar'
                 ? `${filteredVehicles.length} مركبة متاحة`
@@ -178,7 +178,7 @@ export default function CatalogPage() {
             ) : (
               <Grid container spacing={3}>
                 {filteredVehicles.map((vehicle) => (
-                  <Grid item key={vehicle.id} xs={12} sm={6} md={4}>
+                  <Grid key={vehicle.id} sx={{ xs: 12, sm: 6, md: 4 }}>
                     <VehicleCard vehicle={vehicle} />
                   </Grid>
                 ))}
