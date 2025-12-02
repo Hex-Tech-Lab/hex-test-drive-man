@@ -7,6 +7,25 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
+def detect_footnote_markers(rows):
+    """Scan all text for footnote markers, return set of characters used"""
+    markers = set()
+    common_markers = '*†‡§¶#'
+    
+    for row_items in rows.values():
+        for item in row_items:
+            text = item['text']
+            # Check for superscript numbers or trailing symbols
+            for char in text:
+                if char in common_markers or (char.isdigit() and len(text) > 1 and text[-1].isdigit()):
+                    markers.add(char)
+    
+    # Also check for digit suffixes (1, 2, 3)
+    if any(item['text'][-1].isdigit() for row in rows.values() for item in row if len(item['text']) > 1):
+        markers.update('0123456789')
+    
+    return ''.join(markers) if markers else '*0123456789†‡§¶#'
+
 def parse_trim_columns(pdf_path, page_num=3):
     """Parse trims with column awareness"""
     logging.info(f"Converting page {page_num}...")
@@ -46,11 +65,19 @@ def parse_trim_columns(pdf_path, page_num=3):
         return None
     
     # Extract trim names and their x-positions
+    # Detect footnote markers from entire document
+    footnote_chars = detect_footnote_markers(rows)
+    logging.info(f"Detected footnote markers: {footnote_chars}")
+    
     trim_columns = []
     for item in trim_row:
-        if item['text'] in ['ACTIVE', 'COMFORT', 'SMART*', 'ELEGANCE', 'HEV']:
-            trim_columns.append({'name': item['text'], 'x': item['x']})
+        trim_name = item['text'].rstrip(footnote_chars).upper()
+        # Filter: valid trim names only (not VEHICLE header, not Arabic garbage)
+        valid_trims = ['ACTIVE', 'COMFORT', 'SMART', 'ELEGANCE', 'HEV', 'LUXURY', 'PREMIUM', 'BASE', 'SE', 'LE', 'XLE', 'LIMITED']
+        if trim_name in valid_trims:
+            trim_columns.append({'name': trim_name, 'x': item['x'], 'original': item['text']})
     
+    logging.info(f"Trims (footnotes stripped): {[(t['original'], '->', t['name']) for t in trim_columns]}")
     # Merge "ELEGANCE" + "HEV" into "ELEGANCE HEV"
     merged_trims = []
     i = 0
@@ -66,6 +93,18 @@ def parse_trim_columns(pdf_path, page_num=3):
     
     # Step 2: Parse specs for each trim
     trims_data = {trim['name']: {} for trim in merged_trims}
+
+    # Calculate dynamic column boundaries
+    trim_ranges = {}
+    spacings = [merged_trims[i+1]['x'] - merged_trims[i]['x'] for i in range(len(merged_trims)-1)]
+    buffer = (sum(spacings) / len(spacings) * 0.5) if spacings else 100
+    
+    for i, trim in enumerate(merged_trims):
+        x_start = 0 if i == 0 else trim['x'] - buffer
+        x_end = 9999 if i == len(merged_trims)-1 else trim['x'] + buffer
+        trim_ranges[trim['name']] = (x_start, x_end)
+        logging.info(f"{trim['name']}: x={trim['x']}, range=[{x_start:.0f}, {x_end:.0f}]")
+
     
     for row_key in sorted(rows.keys()):
         row_items = rows[row_key]
@@ -74,18 +113,32 @@ def parse_trim_columns(pdf_path, page_num=3):
         
         # First item is usually the spec label
         spec_label = row_items[0]['text']
+        # Map items to trim columns using dynamic ranges
+        # Label column: leftmost items (x < 800)
+        label_items = [item for item in row_items if item['x'] < 800]
+        spec_label = label_items[0]['text'] if label_items else row_items[0]['text']
         
-        # Map remaining items to trim columns
-        for trim in merged_trims:
-            # Find items in this trim's column (x-coordinate range)
-            trim_x = trim['x']
-            # Allow ±100px tolerance
-            trim_values = [item['text'] for item in row_items if abs(item['x'] - trim_x) < 100 and item['text'] != spec_label]
-            
-            if trim_values:
-                trims_data[trim['name']][spec_label] = ' '.join(trim_values)
+        # Data columns: x >= 800, assign to trim ranges
+        data_items = [item for item in row_items if item['x'] >= 800]
+        for item in data_items:
+            for trim_name, (x_start, x_end) in trim_ranges.items():
+                if x_start <= item['x'] <= x_end:
+                    trims_data[trim_name][spec_label] = item['text']
     
-    return trims_data
+    # Diagnostic metadata
+    metadata = {
+        'trim_count': len(merged_trims),
+        'trims_detected': [t['name'] for t in merged_trims],
+        'column_boundaries': {name: {'x_center': next(t['x'] for t in merged_trims if t['name']==name), 
+                                      'x_start': ranges[0], 'x_end': ranges[1], 'width': ranges[1]-ranges[0]}
+                              for name, ranges in trim_ranges.items()},
+        'avg_column_spacing': round(sum([merged_trims[j+1]['x'] - merged_trims[j]['x'] for j in range(len(merged_trims)-1)]) / (len(merged_trims)-1), 1) if len(merged_trims) > 1 else 0,
+        'buffer_used': round(buffer, 1),
+        'total_specs_extracted': len(set(spec for trim_data in trims_data.values() for spec in trim_data.keys())),
+        'specs_per_trim': {name: len(specs) for name, specs in trims_data.items()}
+    }
+    
+    return {'trims': trims_data, 'metadata': metadata}
 
 if __name__ == "__main__":
     import sys
