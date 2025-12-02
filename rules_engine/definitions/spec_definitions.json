@@ -1,6 +1,6 @@
 {
-  "version": "1.0.2",
-  "last_updated": "2025-12-03T01:15:00Z",
+  "version": "1.0.3",
+  "last_updated": "2025-12-03T01:23:00Z",
   "specs": [
     {
       "canonical_name": "engine_type",
@@ -680,6 +680,202 @@
         "Andriod Auto"
       ],
       "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "exterior_mirrors",
+      "category": "convenience",
+      "display_name_en": "Exterior Mirrors",
+      "display_name_ar": "المرايا الخارجية",
+      "data_type": "string",
+      "valid_en": [
+        "Exterior Rear View Mirror",
+        "Rear View Mirror",
+        "Side Mirror",
+        "Electric Mirror",
+        "Folding Rear View Mirrors",
+        "Heater Rear View Mirrors",
+        "Exterior Rear View Mirror (Electric) + Signal Turn",
+        "Folding Mirrors"
+      ],
+      "common_typos_en": [
+        "Exterior Mirror",
+        "Rear View Miror"
+      ],
+      "forbidden_patterns_en": [
+        "Mirror Exterior"
+      ]
+    },
+    {
+      "canonical_name": "privacy_glass",
+      "category": "comfort",
+      "display_name_en": "Privacy Glass",
+      "display_name_ar": "زجاج خصوصية",
+      "data_type": "boolean",
+      "valid_en": [
+        "Privacy Glass",
+        "Rear & Side Glass Privacy",
+        "Privacy Black",
+        "Tinted Glass",
+        "Rear & Side Glass Privacy Black"
+      ],
+      "common_typos_en": [
+        "Privacy Glas"
+      ],
+      "forbidden_patterns_en": [
+        "Glass Privacy"
+      ]
+    },
+    {
+      "canonical_name": "headlamp_cleaner",
+      "category": "lighting",
+      "display_name_en": "Headlamp Cleaner",
+      "display_name_ar": "منظف المصابيح الأمامية",
+      "data_type": "boolean",
+      "valid_en": [
+        "Headlamp Cleaner",
+        "Headlight Washer",
+        "Lamp Washer"
+      ],
+      "common_typos_en": [
+        "Headlamp Clener"
+      ],
+      "forbidden_patterns_en": [
+        "Cleaner Headlamp"
+      ]
+    },
+    {
+      "canonical_name": "body_color",
+      "category": "exterior",
+      "display_name_en": "Body Color",
+      "display_name_ar": "لون الهيكل",
+      "data_type": "string",
+      "valid_en": [
+        "Two Tone Exterior Body Color",
+        "Body Color",
+        "Exterior Color",
+        "Paint Color"
+      ],
+      "common_typos_en": [
+        "Body Colour",
+        "Two Tone Body Color"
+      ],
+      "forbidden_patterns_en": [
+        "Color Body"
+      ]
+    },
+    {
+      "canonical_name": "wheel_size",
+      "category": "chassis",
+      "display_name_en": "Wheel Size",
+      "display_name_ar": "حجم العجلات",
+      "data_type": "string",
+      "valid_en": [
+        "Wheel Cap",
+        "Sport Rims",
+        "Alloy Wheels",
+        "Wheel Size",
+        "Rims"
+      ],
+      "common_typos_en": [
+        "Wheel Cap",
+        "Sport Rim"
+      ],
+      "forbidden_patterns_en": [
+        "Size Wheel"
+      ]
+    },
+    {
+      "canonical_name": "parking_brake",
+      "category": "safety",
+      "display_name_en": "Parking Brake",
+      "display_name_ar": "فرامل الانتظار",
+      "data_type": "string",
+      "valid_en": [
+        "Electronic Parking Brake",
+        "EPB",
+        "Parking Brake",
+        "Electronic Parking Brake (EPB"
+      ],
+      "common_typos_en": [
+        "Electronic Parking Brake (EPB"
+      ],
+      "forbidden_patterns_en": [
+        "Brake Parking"
+      ]
+    },
+    {
+      "canonical_name": "regenerative_braking",
+      "category": "powertrain",
+      "display_name_en": "Regenerative Braking",
+      "display_name_ar": "الكبح التجديدي",
+      "data_type": "boolean",
+      "valid_en": [
+        "Regenerative Brake",
+        "Regenerative Braking",
+        "Regen Brake"
+      ],
+      "common_typos_en": [
+        "Regenerative Brak"
+      ],
+      "forbidden_patterns_en": [
+        "Brake Regenerative"
+      ]
+    },
+    {
+      "canonical_name": "ambient_lighting",
+      "category": "comfort",
+      "display_name_en": "Ambient Lighting",
+      "display_name_ar": "إضاءة محيطة",
+      "data_type": "boolean",
+      "valid_en": [
+        "Ambient Light",
+        "Ambient Lighting",
+        "Interior Lighting"
+      ],
+      "common_typos_en": [
+        "Ambient Ligt"
+      ],
+      "forbidden_patterns_en": [
+        "Light Ambient"
+      ]
+    },
+    {
+      "canonical_name": "multifunction_display",
+      "category": "infotainment",
+      "display_name_en": "Multi-Function Display",
+      "display_name_ar": "شاشة متعددة الوظائف",
+      "data_type": "boolean",
+      "valid_en": [
+        "Multi Information Display",
+        "Multi-Function Display",
+        "MID",
+        "Information Display"
+      ],
+      "common_typos_en": [
+        "Multi Information Dispaly"
+      ],
+      "forbidden_patterns_en": [
+        "Display Multi"
+      ]
+    },
+    {
+      "canonical_name": "center_console",
+      "category": "comfort",
+      "display_name_en": "Center Console",
+      "display_name_ar": "كونسول وسطي",
+      "data_type": "string",
+      "valid_en": [
+        "Front Console Box",
+        "Center Console",
+        "Console Box",
+        "Armrest Console"
+      ],
+      "common_typos_en": [
+        "Console Bok"
+      ],
+      "forbidden_patterns_en": [
+        "Box Console"
+      ]
     }
   ]
 }

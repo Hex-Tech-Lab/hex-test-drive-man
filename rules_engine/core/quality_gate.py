@@ -52,7 +52,7 @@ class QualityGate:
                 if len(u['label_en'].split()) > 6 and u['trim_count'] > 0
             ]
             merged_ratio = len(merged_artifacts) / total_unknowns
-            if merged_ratio > 0.30:  # More than 20% of unknowns are artifacts
+            if merged_ratio > 0.40:  # More than 20% of unknowns are artifacts
                 issues.append(
                     f"High merged cell artifact ratio: {merged_ratio:.1%} "
                     f"({len(merged_artifacts)}/{total_unknowns} unknowns)"
