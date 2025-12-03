@@ -36,18 +36,26 @@ class SpecMatcher:
     def normalize_label(text: str) -> str:
         """
         Normalize label for matching.
+        - Strip content in parentheses (feature details)
         - Lowercase
         - Remove punctuation except spaces
         - Collapse multiple spaces
         """
         if not text:
             return ""
+        
+        # Strip parentheses and their content BEFORE other normalization
+        text = re.sub(r'\([^)]*\)', '', text)
+        
         # Lowercase
         text = text.lower()
+        
         # Remove punctuation but keep spaces and Arabic characters
         text = re.sub(r'[^\w\s\u0600-\u06FF]', ' ', text)
+        
         # Collapse spaces
         text = re.sub(r'\s+', ' ', text)
+        
         return text.strip()
     
     @staticmethod

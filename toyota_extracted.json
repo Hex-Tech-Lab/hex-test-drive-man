@@ -1,0 +1,896 @@
+{
+  "sections": [
+    "O E",
+    "ABS + EBD",
+    "METALLIC",
+    "METAL OXIDE ASH GRAY BLACK MICA METALLIC"
+  ],
+  "specs": [
+    {
+      "name_en": "Max Output",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "4 Cylinders In-Line Petrol Dohc Dual VVT-1598 CC": "120 HP/ 6000 RPM",
+        "i 1798 CC": "96 HP/5200 (Engine) & 93 HP HEV Motor",
+        "نوع المحرك سعة المحرك": "أقصى قدرة"
+      }
+    },
+    {
+      "name_en": "Max Torque",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "4 Cylinders In-Line Petrol Dohc Dual VVT-1598 CC": "154 NM/ 5200 RPM",
+        "i 1798 CC": "142 NM/ 3600 RPM & 185 NM HEV Motor",
+        "نوع المحرك سعة المحرك": "اقصي عزم الدوران"
+      }
+    },
+    {
+      "name_en": "Fuel System & Tank Capacity",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "4 Cylinders In-Line Petrol Dohc Dual VVT-1598 CC": "EFI / 50 Liter",
+        "i 1798 CC": "EFI / 43 Liter",
+        "نوع المحرك سعة المحرك": "نظام حقن وقود و سعة خزان الوقود"
+      }
+    },
+    {
+      "name_en": "Transmission",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "4 Cylinders In-Line Petrol Dohc Dual VVT-1598 CC": "Automatic CVT",
+        "i 1798 CC": null,
+        "نوع المحرك سعة المحرك": "ناقل حركة"
+      }
+    },
+    {
+      "name_en": "Wireless Door Lock With Key",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "ريموت كنترول",
+        "EXTERIOR FEATURES": null
+      }
+    },
+    {
+      "name_en": "Keyless Smart Entry (Driver + Passenger+Luggage)",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "مفتاح بصمة سائق - راكب - صندوق الأمتعة",
+        "EXTERIOR FEATURES": "ل"
+      }
+    },
+    {
+      "name_en": "Exterior Rear View Mirror (Electric) + Signal Turn",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "المرايات الجانبية كهربائية و إشارات",
+        "EXTERIOR FEATURES": "له"
+      }
+    },
+    {
+      "name_en": "Folding Rear View Mirrors",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "مرايات ضم كهربائية",
+        "EXTERIOR FEATURES": "ل"
+      }
+    },
+    {
+      "name_en": "Heater Rear View Mirrors",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "خاصية تسخين المرايات جانبية",
+        "EXTERIOR FEATURES": "ل"
+      }
+    },
+    {
+      "name_en": "Rear & Side Glass Privacy Black",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "الزجاج الخلفي و الجانبي ملون اسود",
+        "EXTERIOR FEATURES": "ل"
+      }
+    },
+    {
+      "name_en": "Front & Back Parking Sensors",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "حساسات ركن أمامية و خلفية",
+        "EXTERIOR FEATURES": null
+      }
+    },
+    {
+      "name_en": "Headlamp Cleaner",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "رشاشات للكشافات الأمامية",
+        "EXTERIOR FEATURES": null
+      }
+    },
+    {
+      "name_en": "Sunroof",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "فتحة سقف",
+        "EXTERIOR FEATURES": null
+      }
+    },
+    {
+      "name_en": "Two Tone Exterior Body Color",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "طلاء السيارة بلونين",
+        "EXTERIOR FEATURES": null
+      }
+    },
+    {
+      "name_en": "Rear Parking Camera",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": "كاميرا ركن خلفية",
+        "EXTERIOR FEATURES": "Locally Fitted"
+      }
+    },
+    {
+      "name_en": "Max Torque Fuel System & Tank Capacity",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "154 NM/ 5200 RPM\nEFI / 50 Liter",
+        "96 HP/5200 (Engine) & 93 HP": "142 NM/ 3600 RPM & 185 NM HEV EFI / 43 Liter",
+        "HEV Motor أقصى قدرة": "Motor\nاقصي عزم الدوران\nنظام حقن وقود و سعة خزان الوقود"
+      }
+    },
+    {
+      "name_en": "Transmission",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "Automatic CVT",
+        "96 HP/5200 (Engine) & 93 HP": null,
+        "HEV Motor أقصى قدرة": "ناقل حركة"
+      }
+    },
+    {
+      "name_en": "Tread",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "1530 Front/1539 Rear (",
+        "96 HP/5200 (Engine) & 93 HP": "mm)",
+        "HEV Motor أقصى قدرة": "المسافة بين المجلات"
+      }
+    },
+    {
+      "name_en": "Gross Vehicle Weight",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "1800 Kg",
+        "96 HP/5200 (Engine) & 93 HP": "1835Kg",
+        "HEV Motor أقصى قدرة": "وزن السيارة الإجمالي بالحمولة"
+      }
+    },
+    {
+      "name_en": "Front Suspension",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "Macpherson Strut",
+        "96 HP/5200 (Engine) & 93 HP": null,
+        "HEV Motor أقصى قدرة": "التعليق الامامي"
+      }
+    },
+    {
+      "name_en": "Rear Suspension",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "Double Wishbone",
+        "96 HP/5200 (Engine) & 93 HP": null,
+        "HEV Motor أقصى قدرة": "التعليق الخلفى"
+      }
+    },
+    {
+      "name_en": "Steering Column",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "Tilt&Telescopic",
+        "96 HP/5200 (Engine) & 93 HP": null,
+        "HEV Motor أقصى قدرة": "عجلة القيادة"
+      }
+    },
+    {
+      "name_en": "Min Turning Radius",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "5.2m",
+        "96 HP/5200 (Engine) & 93 HP": null,
+        "HEV Motor أقصى قدرة": "أقل نصف قطر دوران"
+      }
+    },
+    {
+      "name_en": "Power Steering",
+      "name_ar": "",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "Electric (EPS)",
+        "96 HP/5200 (Engine) & 93 HP": null,
+        "HEV Motor أقصى قدرة": "باور ستيرينج"
+      }
+    },
+    {
+      "name_en": "Wheel Cap 195/65 R",
+      "name_ar": "15",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": null,
+        "HEV Motor أقصى قدرة": "غطاء عجل 195/65 R15"
+      }
+    },
+    {
+      "name_en": "Sport Rims 205/55R",
+      "name_ar": "16",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "V",
+        "96 HP/5200 (Engine) & 93 HP": null,
+        "HEV Motor أقصى قدرة": "جنوط سبورت 205/55 R16"
+      }
+    },
+    {
+      "name_en": "Sport Rims 225/45R",
+      "name_ar": "17",
+      "section": "O E",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "الد",
+        "HEV Motor أقصى قدرة": "جنوط سبورت 225/45 R17"
+      }
+    },
+    {
+      "name_en": "Brake Assist (BA) + Hill Assist Control (HAC)",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "الا",
+        "120 HP/ 6000 RPM": "له\nله",
+        "96 HP/5200 (Engine) & 93 HP": "الا\nv",
+        "HEV Motor أقصى قدرة": "نظام مساعدة الفرامل + نظام المؤازرة علي صعود المرتفعات"
+      }
+    },
+    {
+      "name_en": "Vehicle Stability Control (VSC",
+      "name_ar": ")",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "ل",
+        "120 HP/ 6000 RPM": "اله\nله",
+        "96 HP/5200 (Engine) & 93 HP": "اله\ni-Booster",
+        "HEV Motor أقصى قدرة": "نظام التحكم في ثبات السيارة"
+      }
+    },
+    {
+      "name_en": "Regenerative Brake",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "الا",
+        "HEV Motor أقصى قدرة": "نظام الفرامل بإعادة توليد الطاقة"
+      }
+    },
+    {
+      "name_en": "Electronic Parking Brake (EPB",
+      "name_ar": ")",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "ل",
+        "HEV Motor أقصى قدرة": "فرامل يد إلكترونية"
+      }
+    },
+    {
+      "name_en": "Antitheft Immobilizer",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "الد",
+        "120 HP/ 6000 RPM": "اله\nاله",
+        "96 HP/5200 (Engine) & 93 HP": "له\nل",
+        "HEV Motor أقصى قدرة": "نظام الحماية ضد السرقة"
+      }
+    },
+    {
+      "name_en": "Driver & Passenger Airbags",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "اله\nله",
+        "96 HP/5200 (Engine) & 93 HP": "ل\nله",
+        "HEV Motor أقصى قدرة": "وسائد هوائية للسائق و الراكب الامامي"
+      }
+    },
+    {
+      "name_en": "Front Side & Curtain Airbags",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "v\nل",
+        "HEV Motor أقصى قدرة": "وسائد هوائية أمامية جانبية و ستارة"
+      }
+    },
+    {
+      "name_en": "Lane Keeping System",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "V",
+        "HEV Motor أقصى قدرة": "نظام التحذير عند مغادرة المسار"
+      }
+    },
+    {
+      "name_en": "Pitch & Bounce Control",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "v",
+        "HEV Motor أقصى قدرة": "نظام التحكم بالإهزازات"
+      }
+    },
+    {
+      "name_en": "Tire Pressure Warning System",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "لا",
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "له\nV ( محدد لكل أطار )",
+        "HEV Motor أقصى قدرة": "نظام تحذير ضغط الإطارات"
+      }
+    },
+    {
+      "name_en": "Front Fog Light -White LED",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "اله",
+        "96 HP/5200 (Engine) & 93 HP": "اله\nV (بحليات كروم)",
+        "HEV Motor أقصى قدرة": "مصابيح ضباب امامية (LED)"
+      }
+    },
+    {
+      "name_en": "Rear Fog Lamp",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "ل",
+        "96 HP/5200 (Engine) & 93 HP": "الد\nل",
+        "HEV Motor أقصى قدرة": "مصابيح ضباب خلفية"
+      }
+    },
+    {
+      "name_en": "Head & Tail Lamp BI PES LED",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "له",
+        "96 HP/5200 (Engine) & 93 HP": "اله\nل",
+        "HEV Motor أقصى قدرة": "مصابيح أمامية, خلفية (BI PES LED)"
+      }
+    },
+    {
+      "name_en": "Auto High Beam Headlamps (LED",
+      "name_ar": ")",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "-\nل",
+        "HEV Motor أقصى قدرة": "التبديل تلقائيا بين الضوء العالي والمنخفض"
+      }
+    },
+    {
+      "name_en": "Daytime Running Lights LED",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "الد",
+        "120 HP/ 6000 RPM": "له\nله",
+        "96 HP/5200 (Engine) & 93 HP": "ل\nل",
+        "HEV Motor أقصى قدرة": "أضواء نهارية (LED)"
+      }
+    },
+    {
+      "name_en": "Ambient Light",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "ل",
+        "HEV Motor أقصى قدرة": "أضواء محيطة داخلية"
+      }
+    },
+    {
+      "name_en": "Multi-Function Steering Wheel (Disp+Tel+Voice+Audio) Steering Wheel Heater",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "الد",
+        "120 HP/ 6000 RPM": "ال\nV+ CCS\n-",
+        "96 HP/5200 (Engine) & 93 HP": "v+ CCS\nV+ACC+LTA Control\nv",
+        "HEV Motor أقصى قدرة": "عجلة قيادة متعددة الوظائف (Disp+Tel+Voice+Audio)\nسخانات بعجلة القيادة"
+      }
+    },
+    {
+      "name_en": "3 Spoke Steering Wheel Leather",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "v\nله",
+        "96 HP/5200 (Engine) & 93 HP": "الد\nاله",
+        "HEV Motor أقصى قدرة": "عجلة القيادة ثلاثية الأذرع مكسوة بجلد"
+      }
+    },
+    {
+      "name_en": "Front Console Box",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "بلاستيك",
+        "120 HP/ 6000 RPM": "بلاستيك\nبلاستيك",
+        "96 HP/5200 (Engine) & 93 HP": "بلاستيك\nجلد",
+        "HEV Motor أقصى قدرة": "الكونصول الأمامي"
+      }
+    },
+    {
+      "name_en": "Cruise Control",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "الا",
+        "96 HP/5200 (Engine) & 93 HP": "ال",
+        "HEV Motor أقصى قدرة": "مثبت سرعة"
+      }
+    },
+    {
+      "name_en": "Full Speed Adaptive Cruise Control",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "له",
+        "HEV Motor أقصى قدرة": "مثبت سرعة تفاعلي"
+      }
+    },
+    {
+      "name_en": "All Power Windows Auto Up/Down",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "لا",
+        "120 HP/ 6000 RPM": "اله\nل",
+        "96 HP/5200 (Engine) & 93 HP": "اله\nاله",
+        "HEV Motor أقصى قدرة": "نوافذ كهربائية أوتوماتيكية بضغطة كاملة"
+      }
+    },
+    {
+      "name_en": "Electric Air Conditioner",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "اله",
+        "120 HP/ 6000 RPM": "اله\nV+ Digital",
+        "96 HP/5200 (Engine) & 93 HP": "V+ Digital\nV+ Digital",
+        "HEV Motor أقصى قدرة": "مكيف الهواء (إلكتروني )"
+      }
+    },
+    {
+      "name_en": "Automatic & Dual Air Condition",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "ل",
+        "96 HP/5200 (Engine) & 93 HP": "الا\nالا",
+        "HEV Motor أقصى قدرة": "مكيف الهواء أوتوماتيكي مزدوج المناخ"
+      }
+    },
+    {
+      "name_en": "Rear Air Condition Outlets",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "ل",
+        "96 HP/5200 (Engine) & 93 HP": "اله\nل",
+        "HEV Motor أقصى قدرة": "مخرج تكييف خلفي"
+      }
+    },
+    {
+      "name_en": "USB + 6 Speakers +Bluetooth",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "ل",
+        "120 HP/ 6000 RPM": "اله\nلا",
+        "96 HP/5200 (Engine) & 93 HP": "اله\nله",
+        "HEV Motor أقصى قدرة": "بلوتوث + USB Type C + عدد 6 سماعات"
+      }
+    },
+    {
+      "name_en": "Apple Carplay + Android Auto",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "له",
+        "120 HP/ 6000 RPM": "ل\nV",
+        "96 HP/5200 (Engine) & 93 HP": "ل\nاله",
+        "HEV Motor أقصى قدرة": "أبل كار بلاي + أندرويد أوتو"
+      }
+    },
+    {
+      "name_en": "8 Inch Touch Screen",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "اله",
+        "120 HP/ 6000 RPM": "اله\nل",
+        "96 HP/5200 (Engine) & 93 HP": "له\nاله",
+        "HEV Motor أقصى قدرة": "شاشة تعمل باللمس 8 بوصة"
+      }
+    },
+    {
+      "name_en": "Inside Rear View Mirror (Electrochromic",
+      "name_ar": ")",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "v",
+        "96 HP/5200 (Engine) & 93 HP": "الا\nالا",
+        "HEV Motor أقصى قدرة": "مرآة داخلية ذات التعتيم التلقائي"
+      }
+    },
+    {
+      "name_en": "Automatic Rain Sensor Fabric Seat Material Seat Heater",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "له\nله",
+        "96 HP/5200 (Engine) & 93 HP": "اله\nv\n√+ Leather\nV+ Leather\nأمامي + خلفي\nأمامي",
+        "HEV Motor أقصى قدرة": "حساس مطر اوتوماتيكي\nمقاعد قماش\nتسخين للكراسي"
+      }
+    },
+    {
+      "name_en": "Wireless Charger",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "اله\nل",
+        "HEV Motor أقصى قدرة": "شاحن هاتف لاسلكي"
+      }
+    },
+    {
+      "name_en": "Engine Oil Level Warning",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "له",
+        "HEV Motor أقصى قدرة": "نظام تحذير مستوى زيت المحرك"
+      }
+    },
+    {
+      "name_en": "Multi Information Display",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "7 Inch",
+        "120 HP/ 6000 RPM": "7 Inch\n12.3 Inch",
+        "96 HP/5200 (Engine) & 93 HP": "12.3 Inch\n12.3 Inch",
+        "HEV Motor أقصى قدرة": "شاشة عرض المعلومات (العدادات )"
+      }
+    },
+    {
+      "name_en": "Wireless Door Lock With Key Keyless Smart Entry (Driver + Passenger+Luggage)",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "ل",
+        "120 HP/ 6000 RPM": "ل",
+        "96 HP/5200 (Engine) & 93 HP": "ل\nل\nلا\nله",
+        "HEV Motor أقصى قدرة": "ريموت كنترول\nمفتاح بصمة سائق - راكب - صندوق الأمتعة"
+      }
+    },
+    {
+      "name_en": "Exterior Rear View Mirror (Electric) + Signal Turn Folding Rear View Mirrors",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "ل",
+        "120 HP/ 6000 RPM": "الا\nله\nل",
+        "96 HP/5200 (Engine) & 93 HP": "ل\nل\n√+Auto\n√+Auto",
+        "HEV Motor أقصى قدرة": "المرايات الجانبية كهربائية و إشارات\nمرايات ضم كهربائية"
+      }
+    },
+    {
+      "name_en": "Heater Rear View Mirrors",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "ال\nل",
+        "96 HP/5200 (Engine) & 93 HP": "الا\nالا",
+        "HEV Motor أقصى قدرة": "خاصية تسخين المرايات جانبية"
+      }
+    },
+    {
+      "name_en": "Rear & Side Glass Privacy Black",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": "√\nل",
+        "96 HP/5200 (Engine) & 93 HP": "الد\nاله",
+        "HEV Motor أقصى قدرة": "الزجاج الخلفي و الجانبي ملون اسود"
+      }
+    },
+    {
+      "name_en": "Front & Back Parking Sensors",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "اله",
+        "HEV Motor أقصى قدرة": "حساسات ركن أمامية و خلفية"
+      }
+    },
+    {
+      "name_en": "Headlamp Cleaner",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "اله",
+        "HEV Motor أقصى قدرة": "رشاشات للكشافات الأمامية"
+      }
+    },
+    {
+      "name_en": "Sunroof",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "120 HP/ 6000 RPM": null,
+        "96 HP/5200 (Engine) & 93 HP": "الد",
+        "HEV Motor أقصى قدرة": "فتحة سقف"
+      }
+    },
+    {
+      "name_en": "Brake Assist (BA) + Hill Assist Control (HAC)",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": "الا",
+        "له": "له",
+        "√": "الا",
+        "اله": "v",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "نظام مساعدة الفرامل + نظام المؤازرة علي صعود المرتفعات"
+      }
+    },
+    {
+      "name_en": "Vehicle Stability Control (VSC",
+      "name_ar": ")",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": "ل",
+        "له": "اله",
+        "√": "اله",
+        "اله": "i-Booster",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "نظام التحكم في ثبات السيارة"
+      }
+    },
+    {
+      "name_en": "Regenerative Brake",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": null,
+        "له": null,
+        "√": null,
+        "اله": "الا",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "نظام الفرامل بإعادة توليد الطاقة"
+      }
+    },
+    {
+      "name_en": "Electronic Parking Brake (EPB",
+      "name_ar": ")",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": null,
+        "له": null,
+        "√": null,
+        "اله": "ل",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "فرامل يد إلكترونية"
+      }
+    },
+    {
+      "name_en": "Antitheft Immobilizer",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": "الد",
+        "له": "اله",
+        "√": "له",
+        "اله": "ل",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "نظام الحماية ضد السرقة"
+      }
+    },
+    {
+      "name_en": "Driver & Passenger Airbags",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": null,
+        "له": "اله",
+        "√": "ل",
+        "اله": "له",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "وسائد هوائية للسائق و الراكب الامامي"
+      }
+    },
+    {
+      "name_en": "Front Side & Curtain Airbags",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": null,
+        "له": null,
+        "√": "v",
+        "اله": "ل",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "وسائد هوائية أمامية جانبية و ستارة"
+      }
+    },
+    {
+      "name_en": "Lane Keeping System",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": null,
+        "له": null,
+        "√": null,
+        "اله": "V",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "نظام التحذير عند مغادرة المسار"
+      }
+    },
+    {
+      "name_en": "Pitch & Bounce Control",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": null,
+        "له": null,
+        "√": null,
+        "اله": "v",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "نظام التحكم بالإهزازات"
+      }
+    },
+    {
+      "name_en": "Tire Pressure Warning System",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "الا": "لا",
+        "له": null,
+        "√": "له",
+        "اله": "V ( محدد لكل أطار )",
+        "نظام منع انفلاق المكابح + نظام توزيع الفرامل الإلكترونية": "نظام تحذير ضغط الإطارات"
+      }
+    },
+    {
+      "name_en": "Rear Fog Lamp",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "اله اله": "ل\nالد",
+        "V (بحليات كروم)": "ل",
+        "مصابيح ضباب امامية (LED)": "مصابيح ضباب خلفية"
+      }
+    },
+    {
+      "name_en": "Head & Tail Lamp BI PES LED",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "اله اله": "له\nاله",
+        "V (بحليات كروم)": "ل",
+        "مصابيح ضباب امامية (LED)": "مصابيح أمامية, خلفية (BI PES LED)"
+      }
+    },
+    {
+      "name_en": "Auto High Beam Headlamps (LED",
+      "name_ar": ")",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "اله اله": null,
+        "V (بحليات كروم)": "ل",
+        "مصابيح ضباب امامية (LED)": "التبديل تلقائيا بين الضوء العالي والمنخفض"
+      }
+    },
+    {
+      "name_en": "Daytime Running Lights LED",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": "له",
+        "اله اله": "له\nل",
+        "V (بحليات كروم)": "ل",
+        "مصابيح ضباب امامية (LED)": "أضواء نهارية (LED)"
+      }
+    },
+    {
+      "name_en": "Ambient Light",
+      "name_ar": "",
+      "section": "ABS + EBD",
+      "trims": {
+        "": null,
+        "اله اله": "ل",
+        "V (بحليات كروم)": null,
+        "مصابيح ضباب امامية (LED)": "أضواء محيطة داخلية"
+      }
+    }
+  ]
+}

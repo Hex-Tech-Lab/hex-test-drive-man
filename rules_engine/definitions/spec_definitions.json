@@ -1,6 +1,6 @@
 {
-  "version": "1.0.3",
-  "last_updated": "2025-12-03T01:23:00Z",
+  "version": "1.0.5",
+  "last_updated": "2025-12-03T02:19:00Z",
   "specs": [
     {
       "canonical_name": "engine_type",
@@ -876,6 +876,207 @@
       "forbidden_patterns_en": [
         "Box Console"
       ]
+    },
+    {
+      "canonical_name": "abs_ebd",
+      "category": "safety",
+      "display_name_en": "ABS + EBD",
+      "display_name_ar": "نظام منع انفلاق المكابح",
+      "data_type": "boolean",
+      "valid_en": [
+        "ABS",
+        "EBD",
+        "ABS + EBD",
+        "Anti-lock Braking System",
+        "Electronic Brakeforce Distribution"
+      ],
+      "valid_ar": [
+        "نظام منع انفلاق المكابح"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "tread",
+      "category": "dimensions",
+      "display_name_en": "Tread/Track Width",
+      "display_name_ar": "المسافة بين المجلات",
+      "data_type": "string",
+      "valid_en": [
+        "Tread",
+        "Track Width",
+        "Front Tread",
+        "Rear Tread"
+      ],
+      "valid_ar": [
+        "المسافة بين المجلات"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "gross_vehicle_weight",
+      "category": "dimensions",
+      "display_name_en": "Gross Vehicle Weight",
+      "display_name_ar": "وزن السيارة الإجمالي",
+      "data_type": "string",
+      "valid_en": [
+        "Gross Vehicle Weight",
+        "GVW",
+        "Total Weight"
+      ],
+      "valid_ar": [
+        "وزن السيارة الإجمالي",
+        "وزن السيارة الإجمالي بالحمولة"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "steering_wheel_heater",
+      "category": "comfort",
+      "display_name_en": "Steering Wheel Heater",
+      "display_name_ar": "سخانات بعجلة القيادة",
+      "data_type": "boolean",
+      "valid_en": [
+        "Steering Wheel Heater",
+        "Heated Steering Wheel"
+      ],
+      "valid_ar": [
+        "سخانات بعجلة القيادة"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "rain_sensor",
+      "category": "convenience",
+      "display_name_en": "Rain Sensor",
+      "display_name_ar": "حساس مطر",
+      "data_type": "boolean",
+      "valid_en": [
+        "Automatic Rain Sensor",
+        "Rain Sensor",
+        "Auto Wiper"
+      ],
+      "valid_ar": [
+        "حساس مطر اوتوماتيكي",
+        "حساس مطر"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "seat_material",
+      "category": "interior",
+      "display_name_en": "Seat Material",
+      "display_name_ar": "مقاعد",
+      "data_type": "string",
+      "valid_en": [
+        "Fabric Seat Material",
+        "Leather Seats",
+        "Seat Material"
+      ],
+      "valid_ar": [
+        "مقاعد قماش",
+        "مقاعد جلد"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "seat_heater",
+      "category": "comfort",
+      "display_name_en": "Seat Heater",
+      "display_name_ar": "سخانات مقاعد",
+      "data_type": "boolean",
+      "valid_en": [
+        "Seat Heater",
+        "Heated Seats"
+      ],
+      "valid_ar": [
+        "سخانات مقاعد"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "pitch_bounce_control",
+      "category": "safety",
+      "display_name_en": "Pitch & Bounce Control",
+      "display_name_ar": "نظام التحكم بالإهزازات",
+      "data_type": "boolean",
+      "valid_en": [
+        "Pitch & Bounce Control",
+        "Pitch and Bounce Control",
+        "Pitch Control",
+        "Bounce Control"
+      ],
+      "valid_ar": [
+        "نظام التحكم بالإهزازات"
+      ],
+      "common_typos_en": [],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "headlamp_bi_led",
+      "category": "lighting",
+      "display_name_en": "BI-LED Headlamps",
+      "display_name_ar": "مصابيح BI LED",
+      "data_type": "boolean",
+      "valid_en": [
+        "Head & Tail Lamp BI PES LED",
+        "BI PES LED",
+        "BI-LED",
+        "Bi-Beam LED",
+        "Head Tail Lamp BI PES LED"
+      ],
+      "valid_ar": [
+        "مصابيح أمامية خلفية",
+        "مصابيح أمامية, خلفية"
+      ],
+      "common_typos_en": [
+        "BI PES LED",
+        "BIPES LED"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "steering_wheel_design",
+      "category": "interior",
+      "display_name_en": "Steering Wheel Design",
+      "display_name_ar": "تصميم عجلة القيادة",
+      "data_type": "string",
+      "valid_en": [
+        "3 Spoke Steering Wheel Leather",
+        "3 Spoke Steering Wheel",
+        "Leather Steering Wheel",
+        "Spoke Steering Wheel"
+      ],
+      "valid_ar": [
+        "عجلة القيادة ثلاثية الأذرع",
+        "مكسوة بجلد"
+      ],
+      "common_typos_en": [],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "wheel_specification",
+      "category": "chassis",
+      "display_name_en": "Wheel & Rim Specification",
+      "display_name_ar": "مواصفات العجلات",
+      "data_type": "string",
+      "valid_en": [
+        "Wheel Cap",
+        "Sport Rims",
+        "Alloy Wheels",
+        "Rims",
+        "R15",
+        "R16",
+        "R17",
+        "195/65",
+        "205/55",
+        "225/45"
+      ],
+      "valid_ar": [
+        "غطاء عجل",
+        "جنوط سبورت"
+      ],
+      "common_typos_en": [],
+      "forbidden_patterns_en": []
     }
   ]
 }

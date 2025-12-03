@@ -1,0 +1,202 @@
+{
+  "version": "1.0.1",
+  "last_updated": "2025-12-03T01:02:00Z",
+  "specs": [
+    {
+      "canonical_name": "engine_type",
+      "category": "powertrain",
+      "display_name_en": "Engine Type",
+      "display_name_ar": "نوع المحرك",
+      "data_type": "string",
+      "valid_en": ["Engine Type", "Engine", "Motor Type", "Power Unit"],
+      "common_typos_en": ["Engine Tpe", "Engne Type", "Engin Type", "Enginee Type"],
+      "forbidden_patterns_en": ["Type Engine", "Engine Capacity Type", "Type of Capacity"]
+    },
+    {
+      "canonical_name": "engine_capacity",
+      "category": "powertrain",
+      "display_name_en": "Engine Capacity",
+      "display_name_ar": "سعة المحرك",
+      "data_type": "numeric_with_unit",
+      "unit": "cc",
+      "valid_en": ["Engine Capacity", "Displacement", "CC", "Cubic Capacity", "Engine Size", "Capacity"],
+      "common_typos_en": ["Engine Capcity", "Displacment", "Engine Capicity", "Engin Capacity"],
+      "forbidden_patterns_en": ["Capacity Engine", "CC Type", "Type Capacity"]
+    },
+    {
+      "canonical_name": "max_output",
+      "category": "powertrain",
+      "display_name_en": "Max Power Output",
+      "display_name_ar": "أقصى قدرة",
+      "data_type": "numeric_with_unit",
+      "unit": "hp",
+      "valid_en": ["Max Output", "Maximum Output", "Max Power", "Peak Power", "HP", "Horsepower", "Power Output", "Maximum Power"],
+      "common_typos_en": ["Max Ouput", "Maximum Ouptut", "Max Pwr", "Maximm Power"],
+      "forbidden_patterns_en": ["Output Max", "Torque Output", "Max Torque", "Torque Power", "Power Torque", "Fuel System", "Tank Capacity"]
+    },
+    {
+      "canonical_name": "max_torque",
+      "category": "powertrain",
+      "display_name_en": "Max Torque",
+      "display_name_ar": "عزم الدوران الأقصى",
+      "data_type": "numeric_with_unit",
+      "unit": "nm",
+      "valid_en": ["Max Torque", "Maximum Torque", "Peak Torque", "Torque", "Maximum Torque Output"],
+      "common_typos_en": ["Max Torq", "Maximum Torqe", "Mx Torque", "Maximm Torque"],
+      "forbidden_patterns_en": ["Torque Max", "Max Output", "Power Torque", "Max Power", "Horsepower", "Fuel System", "Tank Capacity"]
+    },
+    {
+      "canonical_name": "transmission",
+      "category": "powertrain",
+      "display_name_en": "Transmission",
+      "display_name_ar": "ناقل الحركة",
+      "data_type": "string",
+      "valid_en": ["Transmission", "Gearbox", "Transmission Type", "Gear Box", "Gears"],
+      "common_typos_en": ["Transmision", "Transmssion", "Transmition", "Gearbok"],
+      "forbidden_patterns_en": ["Transmission Capacity", "Type Transmission"]
+    },
+    {
+      "canonical_name": "fuel_system",
+      "category": "fuel",
+      "display_name_en": "Fuel System",
+      "display_name_ar": "نظام الوقود",
+      "data_type": "string",
+      "valid_en": ["Fuel System", "Fuel Type", "Fuel Injection", "Fuel Delivery", "Fuel Supply", "Fuel System & Tank Capacity"],
+      "common_typos_en": ["Feul System", "Fuel Systm", "Fuel Injction", "Fule System"],
+      "forbidden_patterns_en": ["System Fuel"]
+    },
+    {
+      "canonical_name": "fuel_tank_capacity",
+      "category": "fuel",
+      "display_name_en": "Fuel Tank Capacity",
+      "display_name_ar": "سعة خزان الوقود",
+      "data_type": "numeric_with_unit",
+      "unit": "liter",
+      "valid_en": ["Fuel Tank Capacity", "Tank Capacity", "Fuel Tank", "Tank Size", "Fuel Capacity", "Fuel System & Tank Capacity"],
+      "common_typos_en": ["Feul Tank", "Fuel Tnk Capacity", "Tank Capicity", "Fule Tank"],
+      "forbidden_patterns_en": ["Capacity Tank Fuel", "System Tank"]
+    },
+    {
+      "canonical_name": "front_suspension",
+      "category": "chassis",
+      "display_name_en": "Front Suspension",
+      "display_name_ar": "التعليق الأمامي",
+      "data_type": "string",
+      "valid_en": ["Front Suspension", "Front Susp", "Suspension Front"],
+      "common_typos_en": ["Frnt Suspension", "Front Suspnsion", "Front Suspention"],
+      "forbidden_patterns_en": ["Rear Suspension", "Suspension Rear"]
+    },
+    {
+      "canonical_name": "rear_suspension",
+      "category": "chassis",
+      "display_name_en": "Rear Suspension",
+      "display_name_ar": "التعليق الخلفي",
+      "data_type": "string",
+      "valid_en": ["Rear Suspension", "Rear Susp", "Suspension Rear"],
+      "common_typos_en": ["Rer Suspension", "Rear Suspnsion", "Rear Suspention"],
+      "forbidden_patterns_en": ["Front Suspension", "Suspension Front"]
+    },
+    {
+      "canonical_name": "steering_system",
+      "category": "chassis",
+      "display_name_en": "Steering System",
+      "display_name_ar": "نظام التوجيه",
+      "data_type": "string",
+      "valid_en": ["Steering Column", "Steering System", "Power Steering", "Steering", "Steering Type", "Multi-Function Steering", "Steering Wheel"],
+      "common_typos_en": ["Stering System", "Steering Colmn", "Pwr Steering", "Stearing"],
+      "forbidden_patterns_en": ["System Steering", "Column System"]
+    },
+    {
+      "canonical_name": "turning_radius",
+      "category": "chassis",
+      "display_name_en": "Turning Radius",
+      "display_name_ar": "نصف قطر الدوران",
+      "data_type": "numeric_with_unit",
+      "unit": "meter",
+      "valid_en": ["Turning Radius", "Min Turning Radius", "Minimum Turning Radius", "Turn Radius", "Turning Circle"],
+      "common_typos_en": ["Turnig Radius", "Turning Raduis", "Min Turn Radius", "Minmum Turning"],
+      "forbidden_patterns_en": ["Radius Turn", "Circle Turn"]
+    },
+    {
+      "canonical_name": "sunroof",
+      "category": "comfort",
+      "display_name_en": "Sunroof",
+      "display_name_ar": "فتحة سقف",
+      "data_type": "boolean",
+      "valid_en": ["Sunroof", "Sun Roof", "Panoramic Roof", "Moon Roof"],
+      "common_typos_en": ["Sunrof", "Sun roof", "Panormic Roof"],
+      "forbidden_patterns_en": ["Roof Sun"]
+    },
+    {
+      "canonical_name": "parking_sensors",
+      "category": "safety",
+      "display_name_en": "Parking Sensors",
+      "display_name_ar": "حساسات الركن",
+      "data_type": "string",
+      "valid_en": ["Parking Sensors", "Front Parking Sensors", "Back Parking Sensors", "Front & Back Parking Sensors", "Rear Parking Sensors"],
+      "common_typos_en": ["Pakring Sensors", "Parking Sensor"],
+      "forbidden_patterns_en": ["Sensors Parking"]
+    },
+    {
+      "canonical_name": "parking_camera",
+      "category": "safety",
+      "display_name_en": "Parking Camera",
+      "display_name_ar": "كاميرا ركن",
+      "data_type": "string",
+      "valid_en": ["Parking Camera", "Rear Camera", "Rear View Camera", "Rear Parking Camera", "Backup Camera", "Reversing Camera"],
+      "common_typos_en": ["Parking Camra", "Rear Camara", "Pakring Camera"],
+      "forbidden_patterns_en": ["Camera Parking"]
+    },
+    {
+      "canonical_name": "airbags",
+      "category": "safety",
+      "display_name_en": "Airbags",
+      "display_name_ar": "الوسائد الهوائية",
+      "data_type": "string",
+      "valid_en": ["Airbags", "Air Bags", "Driver Airbag", "Passenger Airbag", "Driver & Passenger Airbags", "Safety Airbags", "Front Side & Curtain Airbags", "Side Airbags", "Curtain Airbags"],
+      "common_typos_en": ["Airbag", "Air bag", "Airbgs"],
+      "forbidden_patterns_en": ["Bags Air"]
+    },
+    {
+      "canonical_name": "ac_system",
+      "category": "comfort",
+      "display_name_en": "Air Conditioning",
+      "display_name_ar": "نظام التكييف",
+      "data_type": "string",
+      "valid_en": ["Air Conditioner", "Air Conditioning", "AC", "A/C", "Electric Air Conditioner", "Automatic Air Condition", "Dual Air Condition", "Rear Air Condition", "Climate Control", "Rear Air Condition Outlets"],
+      "common_typos_en": ["Air Conditoner", "Air Conditiong", "Airconditioner", "Climat Control"],
+      "forbidden_patterns_en": ["Condition Air", "Conditioner Rear Front"]
+    },
+    {
+      "canonical_name": "screen_size",
+      "category": "infotainment",
+      "display_name_en": "Screen Size",
+      "display_name_ar": "حجم الشاشة",
+      "data_type": "numeric_with_unit",
+      "unit": "inch",
+      "valid_en": ["Screen Size", "Touch Screen", "Display Size", "Display Screen", "Infotainment Screen", "Inch Touch Screen", "Touchscreen", "8 Inch Touch Screen", "7 Inch Touch Screen", "9 Inch Touch Screen", "10 Inch Touch Screen"],
+      "common_typos_en": ["Scrn Size", "Touchscrn", "Dispay Size"],
+      "forbidden_patterns_en": ["Size Screen"]
+    },
+    {
+      "canonical_name": "cruise_control",
+      "category": "comfort",
+      "display_name_en": "Cruise Control",
+      "display_name_ar": "مثبت السرعة",
+      "data_type": "string",
+      "valid_en": ["Cruise Control", "Adaptive Cruise Control", "Full Speed Adaptive Cruise Control", "ACC"],
+      "common_typos_en": ["Cruse Control", "Cruise Cntrl"],
+      "forbidden_patterns_en": ["Control Cruise"]
+    },
+    {
+      "canonical_name": "keyless_entry",
+      "category": "convenience",
+      "display_name_en": "Keyless Entry",
+      "display_name_ar": "دخول بدون مفتاح",
+      "data_type": "boolean",
+      "valid_en": ["Keyless Entry", "Smart Entry", "Keyless Smart Entry", "Wireless Door Lock", "Wireless Door Lock With Key"],
+      "common_typos_en": ["Keyless Entery", "Keyless Entry"],
+      "forbidden_patterns_en": ["Entry Keyless"]
+    }
+  ]
+}
