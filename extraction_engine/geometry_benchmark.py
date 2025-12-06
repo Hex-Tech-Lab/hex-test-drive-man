@@ -40,6 +40,12 @@ try:
 except ImportError:
     img2table = False
 
+try:
+    from claude_vision_extractor import extract_specs_vision
+    claude_vision = True
+except ImportError:
+    claude_vision = False
+
 # Hard-coded Page Map
 PAGES = {
   "chevrolet_page3-3": ("pdf_samples/Chevrolet_Move_Van_2024.pdf", 3),
@@ -49,6 +55,17 @@ PAGES = {
   "bmw_x5_page15-15": ("pdf_samples/BMW_X5_LCI_2025.pdf", 15),
   "bmw_x1_page16-16": ("pdf_samples/BMW_X1-iX1_2025.pdf", 16),
   "mg4_page6-6": ("pdf_samples/MG_4_EV_2025.pdf", 6),
+}
+
+# Brand/Model mapping for Claude Vision
+BRAND_MODEL_MAP = {
+  "chevrolet_page3-3": ("Chevrolet", "Move Van"),
+  "kia_page4-4": ("Kia", "Sportage"),
+  "corolla_page3-3": ("Toyota", "Corolla"),
+  "chery_page6-6": ("Chery", "Tiggo 3"),
+  "bmw_x5_page15-15": ("BMW", "X5"),
+  "bmw_x1_page16-16": ("BMW", "X1"),
+  "mg4_page6-6": ("MG", "4 EV"),
 }
 
 def check_sanity(tables_count, rows, cols):
@@ -233,6 +250,35 @@ def run_img2table(png_path):
         time_sec = time.time() - start_time
         return 0, 0, 0, time_sec
 
+def run_claude_vision(png_path, brand, model):
+    """Extract tables using Claude Vision API"""
+    if not claude_vision:
+        raise ImportError("claude_vision_extractor not available")
+
+    start_time = time.time()
+
+    try:
+        result = extract_specs_vision(png_path, brand, model)
+
+        # Check if extraction succeeded
+        if "error" in result:
+            return 0, 0, 0, time.time() - start_time
+
+        # Compute metrics from Claude Vision result
+        trims = result.get("trims", [])
+        specs = result.get("specs", [])
+
+        tables = 1 if specs else 0
+        max_rows = len(specs)
+        max_cols = len(trims) + 1  # +1 for label column
+
+        time_sec = time.time() - start_time
+        return tables, max_rows, max_cols, time_sec
+
+    except Exception:
+        time_sec = time.time() - start_time
+        return 0, 0, 0, time_sec
+
 def main():
     print("PAGE,ENGINE,TABLES,ROWS,COLS,TIME_SEC,OK")
     
@@ -293,6 +339,19 @@ def main():
                 print(f"{key},img2table,0,0,0,0,False")
         except Exception:
             print(f"{key},img2table,0,0,0,0,False")
+
+        # Engine F: Claude Vision (PRIMARY)
+        image_path = get_image_path(key)
+        brand, model = BRAND_MODEL_MAP.get(key, ("Unknown", "Unknown"))
+        try:
+            if os.path.exists(image_path):
+                t, r, c, d = run_claude_vision(image_path, brand, model)
+                ok = check_sanity(t, r, c)
+                print(f"{key},claude_vision,{t},{r},{c},{d:.4f},{ok}")
+            else:
+                print(f"{key},claude_vision,0,0,0,0,False")
+        except Exception as e:
+            print(f"{key},claude_vision,0,0,0,0,False")
 
 if __name__ == "__main__":
     main()
