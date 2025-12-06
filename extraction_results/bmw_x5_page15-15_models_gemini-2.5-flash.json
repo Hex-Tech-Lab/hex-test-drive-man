@@ -1,0 +1,848 @@
+{
+  "trim_names": [
+    "X5 xDrive40i",
+    "X5 M60i xDrive"
+  ],
+  "sections": [
+    {
+      "section_name": "Engines & Transmissions",
+      "features": [
+        {
+          "feature_name": "TwinPower Turbo 6-cylinder inline petrol engine",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": null
+          }
+        },
+        {
+          "feature_name": "M TwinPower Turbo 8-cylinder petrol engine",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "8-Speed Sport Steptronic Transmission with gear shift paddles",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Safety",
+      "features": [
+        {
+          "feature_name": "Active Guard: Lane Departure Warning with Active Return, Front Collision Warning with Brake Intervention, Speed Limit Info including Prediction, no Overtaking Indicator and Left-turn warning with brake function, Evasion assistant",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Active protection",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Anti Lock Braking System (ABS)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Attentiveness assistant",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Automatic Stability Control (ASC)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Brake Assist",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Brake Energy Regeneration",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Brake-pad wear indicator",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Central locking",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Cornering Brake Control (CBC)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Crash Sensor",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Curtain head airbags front and rear",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Driver and front passenger airbags with occupation detector",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Dynamic Brake Control (DBC)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Dynamic Braking Lights",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Dynamic Stability Control (DSC)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Dynamic Traction Control (DTC)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Electronic vehicle immobilizer",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Hill Descent Control (HDC)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "ISO Fix Child Seat Mounting",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "PC iBrake (PostCrash approach control warning with light braking function)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Run-flat Tyres with run-flat indicator",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Side airbags for driver and front passenger, integrated in seat backrests",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Side airbags for passengers in the 2nd row of seats",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Tire pressure monitoring system",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "xDrive",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Performance",
+      "features": [
+        {
+          "feature_name": "Recovery system (48v mild hybrid system)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Active air stream kidney grille",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Cruise control with braking function",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Adaptive 2-axle air suspension",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Adaptive M Suspension Professional",
+      "features": [
+        {
+          "feature_name": "Active Roll Stabilization (ARS)",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Integral Active Steering",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M adaptive dampers",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M Sport brakes",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M sport exhaust system",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M Sport Differential",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Performance Control",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Servotronic",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Variable sport steering",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Exterior",
+      "features": [
+        {
+          "feature_name": "Acoustic Glazing",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Adaptive LED Headlight",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Aluminium running board",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Automatic operation of tailgate",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "BMW kidney 'Iconic Glow'",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "BMW selective beam",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "BMW Welcome light Carpet",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Comfort access system",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Electrical folding of exterior mirrors",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Exterior Line Satin Aluminium",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": null
+          }
+        },
+        {
+          "feature_name": "M high-gloss Shadowline",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M high-gloss Shadowline with extended contents",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M Lights Shadowline",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M Mirror caps",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M Roof rails high-gloss Shadowline",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Exterior mirror on driver's side with automatic anti-dazzle function",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "High Beam Assistance",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "LED tail lights",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M Aerodynamics package",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Panoramic glass roof",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Roof rails Aluminium satinated",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": null
+          }
+        },
+        {
+          "feature_name": "Soft-Close function for doors",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Sun protection glazing",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Interior",
+      "features": [
+        {
+          "feature_name": "4 Zone Automatic air conditioning",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Active seat ventilation for the front seats",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Ambient light (15 Colours)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Comfort seats front, electrically adjustable",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Cupholder, temperate",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Floor mats in velour",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Glass application 'CraftedClarity'",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Heat comfort package front which includes: door armrests, centre console armrest, and steering wheel heating",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M Leather steering wheel",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "M seat belts",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Massage function front",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Roller sun blinds for rear side windows, mechanical",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Sport leather steering wheel",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": null
+          }
+        },
+        {
+          "feature_name": "Seat Heating Front & Rear",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Travel and comfort system",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Technology",
+      "features": [
+        {
+          "feature_name": "BMW Gesture Control",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Acoustic pedestrian protection",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "BMW Live Cockpit Professional: BMW Curved Display, 14.9\" Control Display, 12.3\" Instrument display, Navigation system, OS 8.5, BMW Intelligent Personal Assistant (IPA), Head Up Display",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Harman Kardon surround sound system (16 speakers with 464 W Amplifier Power)",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Parking Assistant Plus",
+      "features": [
+        {
+          "feature_name": "Park Distance Control front and rear, Surround view cameras, Automatic parking, Reversing assistant",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Smartphone Integration",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Wireless charging front",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Others",
+      "features": [
+        {
+          "feature_name": "Automatic Start/Stop Function",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Parking brake with automatic hold function",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "Start/Stop Button",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Interior Trims",
+      "features": [
+        {
+          "feature_name": "Fine-wood trim 'Fineline Stripe' brown high-gloss",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": null
+          }
+        },
+        {
+          "feature_name": "M interior trim finishers 'Carbon Fiber'",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "BMW Individual instrument panel finished in leather",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Upholstery",
+      "features": [
+        {
+          "feature_name": "M headliner Alcantara anthracite",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "BMW Individual leather 'Merino' Black",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "BMW Individual leather 'Merino' Tartufo",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        },
+        {
+          "feature_name": "BMW Individual leather 'Merino' Coffee",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Alloy Wheels",
+      "features": [
+        {
+          "feature_name": "20\" light alloy wheels V-spoke style 738 Bicolour with mixed tyres and runflat tyres",
+          "values": {
+            "X5 xDrive40i": true,
+            "X5 M60i xDrive": null
+          }
+        },
+        {
+          "feature_name": "21\" M light alloy wheels Y-spoke style 741 M Bicolour with mixed tyres and runflat tyres",
+          "values": {
+            "X5 xDrive40i": null,
+            "X5 M60i xDrive": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Technical Data",
+      "features": [
+        {
+          "feature_name": "Cylinders / valves",
+          "values": {
+            "X5 xDrive40i": "6/4",
+            "X5 M60i xDrive": "8/4"
+          }
+        },
+        {
+          "feature_name": "Displacement (cc)",
+          "values": {
+            "X5 xDrive40i": 2998,
+            "X5 M60i xDrive": 4395
+          }
+        },
+        {
+          "feature_name": "Maximum Output (hp)",
+          "values": {
+            "X5 xDrive40i": 381,
+            "X5 M60i xDrive": 530
+          }
+        },
+        {
+          "feature_name": "Maximum Torque (Nm@rpm)",
+          "values": {
+            "X5 xDrive40i": "540 @1850 - 5000 rpm",
+            "X5 M60i xDrive": "750 @1800 - 4600 rpm"
+          }
+        },
+        {
+          "feature_name": "Top speed (km/h)",
+          "values": {
+            "X5 xDrive40i": 250,
+            "X5 M60i xDrive": 250
+          }
+        },
+        {
+          "feature_name": "Acceleration 0 - 100 km/h (sec.)",
+          "values": {
+            "X5 xDrive40i": 5.4,
+            "X5 M60i xDrive": 4.3
+          }
+        },
+        {
+          "feature_name": "Fuel Consumption (combined l/100 km)",
+          "values": {
+            "X5 xDrive40i": 9.2,
+            "X5 M60i xDrive": 11.6
+          }
+        },
+        {
+          "feature_name": "Tank Capacity (Liter)",
+          "values": {
+            "X5 xDrive40i": 83,
+            "X5 M60i xDrive": 83
+          }
+        },
+        {
+          "feature_name": "Luggage compartment (Liter)",
+          "values": {
+            "X5 xDrive40i": "650-1870",
+            "X5 M60i xDrive": "650-1870"
+          }
+        },
+        {
+          "feature_name": "Curb weight (kg)",
+          "values": {
+            "X5 xDrive40i": 2165,
+            "X5 M60i xDrive": 2345
+          }
+        },
+        {
+          "feature_name": "Ground clearance, mm",
+          "values": {
+            "X5 xDrive40i": 214,
+            "X5 M60i xDrive": 214
+          }
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "model": "models/gemini-2.5-flash",
+    "elapsed_sec": 44.21,
+    "image_path": "pdf_images/bmw_x5_page15-15.png"
+  }
+}

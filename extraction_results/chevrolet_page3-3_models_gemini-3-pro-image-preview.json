@@ -1,0 +1,320 @@
+{
+  "trim_names": [
+    "BASE",
+    "FULL OPTION"
+  ],
+  "sections": [
+    {
+      "section_name": "TECHNICAL SPECIFICATIONS",
+      "features": [
+        {
+          "feature_name": "Engine displacement (cc)",
+          "values": {
+            "BASE": "1206",
+            "FULL OPTION": "1206"
+          }
+        },
+        {
+          "feature_name": "Compression ratio",
+          "values": {
+            "BASE": "9.8",
+            "FULL OPTION": "9.8"
+          }
+        },
+        {
+          "feature_name": "Max. power (hp@rpm)",
+          "values": {
+            "BASE": "85@5300",
+            "FULL OPTION": "85@5300"
+          }
+        },
+        {
+          "feature_name": "Max. torque (N.m@rpm)",
+          "values": {
+            "BASE": "108@4000",
+            "FULL OPTION": "108@4000"
+          }
+        },
+        {
+          "feature_name": "Fuel type",
+          "values": {
+            "BASE": "Gasoline",
+            "FULL OPTION": "Gasoline"
+          }
+        },
+        {
+          "feature_name": "Electronic fuel injection",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Transmission",
+          "values": {
+            "BASE": "Manual 5 speed",
+            "FULL OPTION": "Manual 5 speed"
+          }
+        },
+        {
+          "feature_name": "Catalytic converter",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Brake: Front disk / Rear drum",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "WHEELS & TIRES",
+      "features": [
+        {
+          "feature_name": "Alloy wheels",
+          "values": {
+            "BASE": "-",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Tires",
+          "values": {
+            "BASE": "175/70 R 14",
+            "FULL OPTION": "175/70 R 14"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "EQUIPMENT",
+      "features": [
+        {
+          "feature_name": "Power steering",
+          "values": {
+            "BASE": "-",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Air conditioning",
+          "values": {
+            "BASE": "O",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Power windows (Front)",
+          "values": {
+            "BASE": "-",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Rear Window Defogger",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Central door lock with remote control",
+          "values": {
+            "BASE": "-",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Seat belts in all rows",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Outside mirror W/Manual outside adjustment",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Outside mirrors (Body color)",
+          "values": {
+            "BASE": "-",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Door handles (Body color)",
+          "values": {
+            "BASE": "-",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Body color bumpers",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Bumper color front grill cover",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Under engine stone shield",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Front fog lamps",
+          "values": {
+            "BASE": "-",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Central high mounted stop light",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Gauge/Speedometer/Trip",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Speakers",
+          "values": {
+            "BASE": "2",
+            "FULL OPTION": "4"
+          }
+        },
+        {
+          "feature_name": "Radio CD with AUX & USB",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Roof antenna",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "2 Front seats",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "2nd row bench (2 fixed + 1 folding)",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "3rd row bench (3)",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Passenger/Onboard seating",
+          "values": {
+            "BASE": "8",
+            "FULL OPTION": "8"
+          }
+        },
+        {
+          "feature_name": "Interior",
+          "values": {
+            "BASE": "Mono color",
+            "FULL OPTION": "Chrome finish"
+          }
+        },
+        {
+          "feature_name": "Digital clock",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        },
+        {
+          "feature_name": "Cup holder",
+          "values": {
+            "BASE": "\u2022",
+            "FULL OPTION": "\u2022"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "DIMENSIONS",
+      "features": [
+        {
+          "feature_name": "Wheels base (mm)",
+          "values": {
+            "BASE": "2700",
+            "FULL OPTION": "2700"
+          }
+        },
+        {
+          "feature_name": "Length (mm)",
+          "values": {
+            "BASE": "4005",
+            "FULL OPTION": "4005"
+          }
+        },
+        {
+          "feature_name": "Width (mm)",
+          "values": {
+            "BASE": "1620",
+            "FULL OPTION": "1620"
+          }
+        },
+        {
+          "feature_name": "Height (mm)",
+          "values": {
+            "BASE": "1900",
+            "FULL OPTION": "1900"
+          }
+        },
+        {
+          "feature_name": "Cargo volume",
+          "values": {
+            "BASE": "1225 L (3rd row down)",
+            "FULL OPTION": "1225 L (3rd row down)"
+          }
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "model": "models/gemini-3-pro-image-preview",
+    "elapsed_sec": 29.24,
+    "image_path": "pdf_images/chevy_page3-3.png"
+  }
+}

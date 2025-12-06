@@ -1,0 +1,15 @@
+{
+  "total_specs": 109,
+  "target": 168,
+  "coverage": 64.9,
+  "breakdown": {
+    "Uncategorized": 2,
+    "Engines & Transmissions": 1,
+    "Equipment": 1,
+    "Safety": 26,
+    "Performance": 11,
+    "Exterior": 38,
+    "Technology": 9,
+    "Interior": 21
+  }
+}

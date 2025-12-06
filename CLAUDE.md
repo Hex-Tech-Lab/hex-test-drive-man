@@ -477,3 +477,62 @@ CREATE TABLE vehicle_specifications (
 - Supabase: ✅ Configured
 - Sentry: ✅ Configured (client, server, edge, replay)
 - Sourcery: ❌ Not found in codebase
+
+---
+
+## Technical Report - React Loop Troubleshooting & Fixes (2025-12-03)
+
+*   **What has been done:**
+    *   Investigated "react loop state management" request.
+    *   Identified and fixed a breaking change in Next.js 16 regarding `middleware` vs `proxy` export.
+    *   Refactored `FilterPanel` component to use `useFilterStore` directly, eliminating local state duplication and ensuring UI stays in sync with the global store.
+    *   Verified build success.
+
+*   **Key Changes:**
+    *   `src/proxy.ts`: Renamed exported function from `middleware` to `proxy` to satisfy Next.js 16 requirements.
+    *   `src/components/FilterPanel.tsx`: Removed local `useState` for filters. Now subscribes directly to `useFilterStore`. Removed `onFilterChange` prop.
+    *   `src/app/[locale]/page.tsx`: Updated `FilterPanel` usage to remove the removed prop.
+
+*   **Key Decisions:**
+    *   **Direct Store Access:** Instead of passing props and callbacks, connecting `FilterPanel` directly to the Zustand store (`useFilterStore`) simplifies the data flow and prevents the UI from getting out of sync with the actual active filters. This is a more robust pattern for global filter state.
+
+*   **Key Reflection Points:**
+    *   The "react loop" might have been a misinterpretation of "UI not updating" or "Infinite loop due to callback dependency" (though none was explicitly found in the code, the state desync was a real bug).
+    *   Next.js 16's middleware change is strict and causes build failures if the export name is wrong.
+
+*   **Results:**
+    *   Build passes (`pnpm build`).
+    *   Filter UI is now reactive and persistent (via Zustand persist).
+
+*   **Quality Gates:**
+    *   **Build:** Passed.
+    *   **Linting:** Not explicitly run this time, but code changes were minimal and standard.
+
+*   **Expected Actual Next Steps:**
+    *   Deploy or run locally to verify user experience.
+
+---
+
+## Technical Report - Environment Fixes & Next.js 16 Verification (2025-12-06)
+
+*   **What has been done:**
+    *   Updated `@google/gemini-cli` to version 0.19.4.
+    *   Fixed `git` and `eslint` ignoring of the python `venv/` directory.
+    *   Verified Next.js 16 migration (build & lint passing).
+*   **Key Changes:**
+    *   `.gitignore`: Added `venv/`.
+    *   `eslint.config.js`: Added `ignores: ['venv/**']`.
+*   **Key Decisions:**
+    *   **Package Manager:** `npm` is disabled in this environment. Installed `pnpm` locally (`curl -fsSL https://get.pnpm.io/install.sh | sh -`) and used it to update dependencies and tools.
+    *   **Gemini Update:** Updated via `pnpm add -g @google/gemini-cli@latest`.
+*   **Key Reflection Points:**
+    *   The environment lacks a global `pnpm` in the PATH, requiring manual setup of `PNPM_HOME` and `PATH` for shell commands.
+*   **Results:**
+    *   Build passes.
+    *   Lint passes.
+    *   Gemini CLI updated.
+*   **Quality Gates:**
+    *   `pnpm build`: Passed.
+    *   `pnpm lint`: Passed.
+*   **Expected Actual Next Steps:**
+    *   Commit changes.

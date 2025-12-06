@@ -1,0 +1,552 @@
+{
+  "trim_names": [
+    "Standard",
+    "Luxury"
+  ],
+  "sections": [
+    {
+      "section_name": "Dimensions",
+      "features": [
+        {
+          "feature_name": "Length/Width/Height (mm)",
+          "values": {
+            "Standard": "4287/1836/1504",
+            "Luxury": "4287/1836/1504"
+          }
+        },
+        {
+          "feature_name": "Wheelbase (mm)",
+          "values": {
+            "Standard": "2705",
+            "Luxury": "2705"
+          }
+        },
+        {
+          "feature_name": "Kerb Weight (kg)",
+          "values": {
+            "Standard": "1655",
+            "Luxury": "1685"
+          }
+        },
+        {
+          "feature_name": "Luggage Capacity (L)",
+          "values": {
+            "Standard": "350/1165",
+            "Luxury": "350/1165"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Power Performance",
+      "features": [
+        {
+          "feature_name": "Battery Capacity",
+          "values": {
+            "Standard": "51 Kwh",
+            "Luxury": "64 Kwh"
+          }
+        },
+        {
+          "feature_name": "Motor Power (Hp)",
+          "values": {
+            "Standard": "168 Hp",
+            "Luxury": "200 Hp"
+          }
+        },
+        {
+          "feature_name": "Range (WLTP)",
+          "values": {
+            "Standard": "350 Km",
+            "Luxury": "450 Km"
+          }
+        },
+        {
+          "feature_name": "Max Torque (N.m)",
+          "values": {
+            "Standard": "250",
+            "Luxury": "250"
+          }
+        },
+        {
+          "feature_name": "One Pedal Driving",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Charging Time",
+      "features": [
+        {
+          "feature_name": "DC Charging Time",
+          "values": {
+            "Standard": "10-80% 40 Min",
+            "Luxury": "10-80% 35 Min"
+          }
+        },
+        {
+          "feature_name": "AC Charging Time",
+          "values": {
+            "Standard": "10-100% 7.5 Hrs",
+            "Luxury": "10-100% 6.5 Hrs"
+          }
+        },
+        {
+          "feature_name": "Regenerative Braking (Low - Standard - High - Auto)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Safety",
+      "features": [
+        {
+          "feature_name": "ESP (Electronic Stability Program)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Brakes System (ABS + EBD + CBC + ARP + HDC)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Air Bags",
+          "values": {
+            "Standard": "6",
+            "Luxury": "6"
+          }
+        },
+        {
+          "feature_name": "Adaptive Cruise Control (ACC)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Automatic Emergency Braking (AEB)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Intelligent High Beam Control (IHC)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Traffic Sign Recognition",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Traffic Jam Assitance (TJA)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Unsteady Driving Warning (UDW)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Lane Change Assist (LCA)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Lane Keep Assist (LKA)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Blind Spot Monitoring (BSM)",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Active Rear Cross Traffic Alert (ARCTA)",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Front Collision Warning (RCW)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Door Opening Warning (DOW)",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "TPMS (Tire Pressure Monitoring System)",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Electric Park Brake + Auto Hold",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Engine Immobilizer",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Autodimming Inner Rear View Mirror",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Rear ISOFIX child fitting",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Exterior",
+      "features": [
+        {
+          "feature_name": "LED Day Time Running Lamps",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "LED Headlights",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "LED Tail Lights",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Auto Headlamps Function",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Rear Fog Lights",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Headlamp Integrated Front Turn Signal Indicators",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "LED Taillight with Decoration Light",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Charging Port Light",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Active Grill Shutters",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Rear Wipers",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Power Adjustable Mirrors",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Power Folding Mirrors",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Rear Parking Sensors",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "360 View Camera",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Rear Spoiler",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Rims with Wheel Cap",
+          "values": {
+            "Standard": "16\" Alloy Black",
+            "Luxury": "18\" Alloy Two Tone"
+          }
+        },
+        {
+          "feature_name": "Tires",
+          "values": {
+            "Standard": "205/60 R16",
+            "Luxury": "235/45 R18"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Interior",
+      "features": [
+        {
+          "feature_name": "Automatic AC",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Fabric Seats",
+          "values": {
+            "Standard": true,
+            "Luxury": false
+          }
+        },
+        {
+          "feature_name": "Mircofiber Partial Leather Seats",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "6-Ways Power Adjustable Driver Seat",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "60/40 Split Folding Rear Seat",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "3 Level Heated Front Seats",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Electronic Gear Shifter",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Rear Air Conditioner Vents",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Leather Steering Wheel",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Wifi and Hotspot",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Heated Steering Wheel",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Keyless Entry",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Smart Motor Start/Stop",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Multifunction Steering Wheel",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "3 USB",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Infotainment 10.25\" Touch Screen",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Apple CarPlay + Android Auto",
+          "values": {
+            "Standard": true,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Arkamys 3D Sound System",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "7\" Virtual Cockpit",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Wireless Charger",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        },
+        {
+          "feature_name": "Intelligent Voice Command",
+          "values": {
+            "Standard": false,
+            "Luxury": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Warranty",
+      "features": [
+        {
+          "feature_name": "General Warranty",
+          "values": {
+            "Standard": "7 YEARS WARRANTY / 150,000 KM \"Whichever comes first\"",
+            "Luxury": "7 YEARS WARRANTY / 150,000 KM \"Whichever comes first\""
+          }
+        },
+        {
+          "feature_name": "Battery Warranty",
+          "values": {
+            "Standard": "7 YEARS BATTERY WARRANTY / 150,000 KM \"Whichever comes first\"",
+            "Luxury": "7 YEARS BATTERY WARRANTY / 150,000 KM \"Whichever comes first\""
+          }
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "model": "models/gemini-3-pro-image-preview",
+    "elapsed_sec": 76.54,
+    "image_path": "pdf_images/mg4_page6-6.png"
+  }
+}

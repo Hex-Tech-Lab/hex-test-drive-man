@@ -50,3 +50,6 @@ __pycache__/
 *_quality_gate.json
 rules_engine/definitions/spec_definitions.json.backup
 archive/
+
+# Virtual Environment
+venv/

@@ -1,27 +1,26 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Box, Typography, Checkbox, FormControlLabel, Slider, Paper, Divider, Button } from '@mui/material';
 import { Vehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
+import { useFilterStore } from '@/stores/filter-store';
 
 interface FilterPanelProps {
   vehicles: Vehicle[];
-  onFilterChange: (filters: {
-    brands: string[];
-    priceRange: [number, number];
-    categories: string[];
-  }) => void;
 }
 
-export default function FilterPanel({ vehicles, onFilterChange }: FilterPanelProps) {
+export default function FilterPanel({ vehicles }: FilterPanelProps) {
   const language = useLanguageStore((state) => state.language);
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 20000000]);
+  
+  // Use persistent filter store
+  const selectedBrands = useFilterStore((state) => state.brands);
+  const selectedCategories = useFilterStore((state) => state.categories);
+  const priceRange = useFilterStore((state) => state.priceRange);
+  const setFilters = useFilterStore((state) => state.setFilters);
 
   // Extract unique brands from live data
-  const brands = useMemo(() => {
+  const availableBrands = useMemo(() => {
     const brandSet = new Set<string>();
     vehicles.forEach((v) => {
       if (v.models?.brands?.name) {
@@ -32,7 +31,7 @@ export default function FilterPanel({ vehicles, onFilterChange }: FilterPanelPro
   }, [vehicles]);
 
   // Extract unique categories from live data
-  const categories = useMemo(() => {
+  const availableCategories = useMemo(() => {
     const catSet = new Set<string>();
     vehicles.forEach((v) => {
       if (v.categories?.name) {
@@ -42,40 +41,6 @@ export default function FilterPanel({ vehicles, onFilterChange }: FilterPanelPro
     return Array.from(catSet).sort();
   }, [vehicles]);
 
-  const handleBrandToggle = (brand: string) => {
-    const newBrands = selectedBrands.includes(brand)
-      ? selectedBrands.filter((b) => b !== brand)
-      : [...selectedBrands, brand];
-    setSelectedBrands(newBrands);
-    onFilterChange({
-      brands: newBrands,
-      priceRange,
-      categories: selectedCategories,
-    });
-  };
-
-  const handleCategoryToggle = (category: string) => {
-    const newCategories = selectedCategories.includes(category)
-      ? selectedCategories.filter((c) => c !== category)
-      : [...selectedCategories, category];
-    setSelectedCategories(newCategories);
-    onFilterChange({
-      brands: selectedBrands,
-      priceRange,
-      categories: newCategories,
-    });
-  };
-
-  const handlePriceChange = (_event: Event, newValue: number | number[]) => {
-    const newRange = newValue as [number, number];
-    setPriceRange(newRange);
-    onFilterChange({
-      brands: selectedBrands,
-      priceRange: newRange,
-      categories: selectedCategories,
-    });
-  };
-
   // Dynamic max price based on available vehicles
   const maxPrice = useMemo(() => {
     if (vehicles.length === 0) return 20_000_000;
@@ -83,12 +48,33 @@ export default function FilterPanel({ vehicles, onFilterChange }: FilterPanelPro
     return prices.length > 0 ? Math.max(...prices) : 20_000_000;
   }, [vehicles]);
 
+  const handleBrandToggle = (brand: string) => {
+    const newBrands = selectedBrands.includes(brand)
+      ? selectedBrands.filter((b) => b !== brand)
+      : [...selectedBrands, brand];
+    
+    setFilters({ brands: newBrands });
+  };
+
+  const handleCategoryToggle = (category: string) => {
+    const newCategories = selectedCategories.includes(category)
+      ? selectedCategories.filter((c) => c !== category)
+      : [...selectedCategories, category];
+      
+    setFilters({ categories: newCategories });
+  };
+
+  const handlePriceChange = (_event: Event, newValue: number | number[]) => {
+    const newRange = newValue as [number, number];
+    setFilters({ priceRange: newRange });
+  };
+
   const handleReset = () => {
-    setSelectedBrands([]);
-    setSelectedCategories([]);
-    const resetRange: [number, number] = [0, maxPrice];
-    setPriceRange(resetRange);
-    onFilterChange({ brands: [], priceRange: resetRange, categories: [] });
+    setFilters({
+      brands: [],
+      categories: [],
+      priceRange: [0, maxPrice],
+    });
   };
 
   const formatPrice = (value: number): string => {
@@ -119,7 +105,7 @@ export default function FilterPanel({ vehicles, onFilterChange }: FilterPanelPro
         <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
           {language === 'ar' ? 'العلامات التجارية' : 'Brands'}
         </Typography>
-        {brands.map((brand) => (
+        {availableBrands.map((brand) => (
           <FormControlLabel
             key={brand}
             control={
@@ -140,7 +126,7 @@ export default function FilterPanel({ vehicles, onFilterChange }: FilterPanelPro
         <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
           {language === 'ar' ? 'الفئات' : 'Categories'}
         </Typography>
-        {categories.map((cat) => (
+        {availableCategories.map((cat) => (
           <FormControlLabel
             key={cat}
             control={

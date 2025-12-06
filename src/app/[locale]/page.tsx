@@ -30,7 +30,6 @@ export default function CatalogPage() {
   const segmentCode = useFilterStore((state) => state.segmentCode);
   const agent = useFilterStore((state) => state.agent);
   const filters = { brands, priceRange, categories, bodyStyle, segmentCode, agent };
-  const setFiltersInStore = useFilterStore((state) => state.setFilters);
 
   useEffect(() => {
     if (locale === 'ar' || locale === 'en') {
@@ -159,7 +158,7 @@ export default function CatalogPage() {
 
         <Grid container spacing={3}>
           <Grid sx={{ xs: 12, md: 3 }}>
-            <FilterPanel onFilterChange={setFiltersInStore} vehicles={vehicles} />
+            <FilterPanel vehicles={vehicles} />
           </Grid>
 
           <Grid sx={{ xs: 12, md: 9 }}>

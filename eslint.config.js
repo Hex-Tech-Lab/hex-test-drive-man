@@ -3,6 +3,9 @@ import typescriptPlugin from '@typescript-eslint/eslint-plugin';
 import reactPlugin from 'eslint-plugin-react';
 
 const config = [
+  {
+    ignores: ['venv/**'],
+  },
   ...nextPlugin,
   {
     files: ['**/*.ts', '**/*.tsx'],

@@ -1,0 +1,416 @@
+{
+  "trim_names": [
+    "TIGGO 3"
+  ],
+  "sections": [
+    {
+      "section_name": "Dimensions",
+      "features": [
+        {
+          "feature_name": "Length (mm)",
+          "values": {
+            "TIGGO 3": "4419 mm"
+          }
+        },
+        {
+          "feature_name": "Width (mm)",
+          "values": {
+            "TIGGO 3": "1765 mm"
+          }
+        },
+        {
+          "feature_name": "Height (mm)",
+          "values": {
+            "TIGGO 3": "1651 mm"
+          }
+        },
+        {
+          "feature_name": "Wheel Base (mm)",
+          "values": {
+            "TIGGO 3": "2510 mm"
+          }
+        },
+        {
+          "feature_name": "Ground Clearance (mm)",
+          "values": {
+            "TIGGO 3": "190 mm"
+          }
+        },
+        {
+          "feature_name": "Trunk Capacity(L)",
+          "values": {
+            "TIGGO 3": "550L"
+          }
+        },
+        {
+          "feature_name": "Curb Weight (kg)",
+          "values": {
+            "TIGGO 3": "1420 kg"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Engine",
+      "features": [
+        {
+          "feature_name": "Engine Capacity (L)",
+          "values": {
+            "TIGGO 3": "1.6DVVT"
+          }
+        },
+        {
+          "feature_name": "Maxium Power (HP)",
+          "values": {
+            "TIGGO 3": "125"
+          }
+        },
+        {
+          "feature_name": "Maxium Torque (NM)",
+          "values": {
+            "TIGGO 3": "160"
+          }
+        },
+        {
+          "feature_name": "Fuel Tank Capacity(L)",
+          "values": {
+            "TIGGO 3": "55"
+          }
+        },
+        {
+          "feature_name": "Transmission",
+          "values": {
+            "TIGGO 3": "CVT"
+          }
+        },
+        {
+          "feature_name": "Drivetrain (Front)",
+          "values": {
+            "TIGGO 3": "2WD"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Suspension",
+      "features": [
+        {
+          "feature_name": "Front",
+          "values": {
+            "TIGGO 3": "Two link Independent Rear Suspension"
+          }
+        },
+        {
+          "feature_name": "Rear",
+          "values": {
+            "TIGGO 3": "Mcpherson Independent Rear Suspension"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Wheels and Steering",
+      "features": [
+        {
+          "feature_name": "Power Steering",
+          "values": {
+            "TIGGO 3": "HPS"
+          }
+        },
+        {
+          "feature_name": "Tire Size",
+          "values": {
+            "TIGGO 3": "17\""
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Brakes",
+      "features": [
+        {
+          "feature_name": "Front",
+          "values": {
+            "TIGGO 3": "Disc"
+          }
+        },
+        {
+          "feature_name": "Rear",
+          "values": {
+            "TIGGO 3": "Disc"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Safety",
+      "features": [
+        {
+          "feature_name": "Engine Immobilizer",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Dual Front Airbags",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "ABS",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "EBD",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Rear Parking Sensor",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Rear View Camera",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Adjustable Height Front Seat Belt",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Child Anchor ISO FIX",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Exterior",
+      "features": [
+        {
+          "feature_name": "Halogen Headlamps",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Electric Adjustable Headlamps",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Day Time Running LED",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "LED Tailight",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Turning Fog Lights",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Sunroof",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Roofrack",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Front & Rear Boneless Wiper",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Electric Outside Mirrors With Side Repeater",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Interior",
+      "features": [
+        {
+          "feature_name": "Interior Color",
+          "values": {
+            "TIGGO 3": "Black"
+          }
+        },
+        {
+          "feature_name": "Leather Seats",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Leather Steering Wheel",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Steering Wheel Adjustable",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Cluster Screen",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Cigarette Lighter",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Front Arm Rests",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Rear Arm Rest With Cup Holder",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Features",
+      "features": [
+        {
+          "feature_name": "Engine Cover",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Keyless Entry",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Power Windows",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Auto A/C",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Cruise Control",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Driver Seat 6 Way Adjustment",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Passenger Seat 4 Way Adjustment",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Rear Seat Overall Folding",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Entertainment",
+      "features": [
+        {
+          "feature_name": "8\" Infotainment Screen",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "DVD",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Mobile Maping",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "BlueTooth\u00ae Connectivity",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "USB",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Multi-Function Steering Wheel",
+          "values": {
+            "TIGGO 3": "S"
+          }
+        },
+        {
+          "feature_name": "Speakers",
+          "values": {
+            "TIGGO 3": "4"
+          }
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "model": "models/gemini-3-pro-preview",
+    "elapsed_sec": 85.83,
+    "image_path": "pdf_images/chery_page6-6.png"
+  }
+}

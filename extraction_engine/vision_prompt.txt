@@ -1,0 +1,19 @@
+Extract this automotive specification table into structured JSON.
+REQUIREMENTS:
+- Capture Section name, Feature name, and values for each Trim
+- Handle rotated text (vertical headers) and invisible grids
+- Handle bilingual layouts (English/Arabic) - prefer English keys
+- Extract EXACT values (no rounding). Use null for empty cells.
+
+OUTPUT FORMAT (Strict JSON):
+{
+  "trim_names": ["Trim1", "Trim2"],
+  "sections": [
+    {
+      "section_name": "Performance",
+      "features": [
+        {"feature_name": "Engine", "values": {"Trim1": "1.6L", "Trim2": "2.0L"}}
+      ]
+    }
+  ]
+}
