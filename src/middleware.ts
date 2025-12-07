@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 
 const locales = ['ar', 'en'];
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Skip processing for static files
