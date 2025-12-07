@@ -1,20 +1,23 @@
 'use client';
 
+import { useState } from 'react';
 import { Card, CardMedia, CardContent, Typography, Box, Chip, Button, IconButton } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Vehicle } from '@/types/vehicle';
+import { VehicleWithImages } from '@/repositories/vehicleRepository';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { getVehicleImage, formatPrice as formatPriceHelper } from '@/lib/imageHelper';
 
 interface VehicleCardProps {
-  vehicle: Vehicle;
+  vehicle: Vehicle | VehicleWithImages;
 }
 
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
+  const [isHover, setIsHover] = useState(false);
 
   const isInCompare = compareItems.some((item) => item.id === vehicle.id);
   const canAddMore = compareItems.length < 3;
@@ -30,6 +33,20 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat(language === 'ar' ? 'ar-EG' : 'en-US').format(price);
   };
+
+  // Determine hero and hover images with proper fallback chain
+  const vehicleWithImages = vehicle as VehicleWithImages;
+  const heroImage =
+    vehicleWithImages.imageConfig?.heroPath ||
+    vehicle.models.hero_image_url ||
+    '/images/placeholders/vehicle-hero.jpg';
+
+  const hoverImage =
+    vehicleWithImages.imageConfig?.hoverPath ||
+    vehicle.models.hover_image_url ||
+    heroImage; // Fallback to hero if no hover available
+
+  const currentImage = isHover ? hoverImage : heroImage;
 
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
@@ -52,9 +69,15 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
       <CardMedia
         component="img"
         height="200"
-        image={vehicle.models.hero_image_url || 'https://via.placeholder.com/800x600?text=No+Image'}
+        image={currentImage}
         alt={`${vehicle.models.brands.name} ${vehicle.models.name}`}
-        sx={{ objectFit: 'cover' }}
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+        sx={{
+          objectFit: 'cover',
+          transition: 'opacity 0.3s ease-in-out',
+          cursor: 'pointer',
+        }}
       />
 
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>

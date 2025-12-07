@@ -1,0 +1,7 @@
+# Placeholder Images
+
+This directory should contain:
+- vehicle-hero.jpg - Default hero/exterior placeholder (800x600px minimum)
+- vehicle-interior.jpg - Default interior/dashboard placeholder (800x600px minimum)
+
+These images are used as fallbacks when specific vehicle images are not configured.
