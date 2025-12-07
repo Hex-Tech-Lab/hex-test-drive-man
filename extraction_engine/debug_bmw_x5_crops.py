@@ -8,30 +8,31 @@ from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
 
 
-# Adjusted crop coordinates for English tables only (bilingual PDF: English left, Arabic right)
+# Egyptian brochure layout rule: English tables in leftmost column (~1200px width)
 # Format: (x, y, width, height)
 # PDF dimensions: 2481x1754px
-# English section: approximately x=0 to x=650 (left half)
+# English section: x=0 to x≈1240 (left half, full table width)
+# Arabic section: x≈1240+ (right half, RTL)
 # All tables positioned vertically in English section
 CROP_COORDINATES = {
     "table-1": {
-        "coords": (27, 100, 650, 600),
-        "description": "Top main specifications table (English)"
+        "coords": (30, 100, 1210, 640),
+        "description": "Top SPECIFICATIONS table (English) - dark blue header"
     },
     "table-2": {
-        "coords": (27, 710, 650, 450),
-        "description": "Middle continuation specifications (English)"
+        "coords": (30, 745, 1210, 520),
+        "description": "Middle Performance/Exterior/Technology table (English)"
     },
     "table-3": {
-        "coords": (27, 1170, 650, 350),
-        "description": "Bottom TECHNICAL DATA table (English)"
+        "coords": (30, 1270, 1210, 255),
+        "description": "Bottom TECHNICAL DATA table (English) - tan header"
     }
 }
 
-# FINAL COORDINATES FOR INTEGRATION (after visual confirmation):
-# table-1: x=27, y=100, w=650, h=600
-# table-2: x=27, y=710, w=650, h=450
-# table-3: x=27, y=1170, w=650, h=350
+# FINAL COORDINATES FOR INTEGRATION (Egyptian brochure layout verified):
+# table-1: x=30, y=100, w=1210, h=640  (SPECIFICATIONS section)
+# table-2: x=30, y=745, w=1210, h=520  (Performance/Exterior/Technology sections)
+# table-3: x=30, y=1270, w=1210, h=255 (TECHNICAL DATA section)
 
 
 def add_border_and_label(img: Image.Image, label: str, coords: tuple) -> Image.Image:
