@@ -672,3 +672,24 @@ CREATE TABLE vehicle_specifications (
 
 See `docs/GEMINI.md` for complete benchmark analysis and validation criteria.
 
+
+---
+
+## Infrastructure & Environment
+**Date**: 2025-12-07 14:25 EET
+
+**System**
+- Ubuntu 24.04 LTS  
+- Node 22.21.0  
+- Python 3.12.3 (venv at `venv/`)
+
+**Package Management**
+- Use `apt-fast` for all system installs (not apt)  
+- Example: `sudo apt-fast update && sudo apt-fast install eog feh tmux`
+
+**CLI Usage (Gemini)**
+- Launch: `gemini` from project root  
+- Toggle YOLO inside CLI with keyboard (Ctrl+Y),  
+  instead of combining `--yolo` and `--approval-mode`.  
+- Recommended: run under `tmux` for long sessions.
+
