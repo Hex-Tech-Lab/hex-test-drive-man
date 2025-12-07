@@ -14,7 +14,7 @@ export default function Header() {
 
   const toggleLanguage = () => {
     const newLang = language === 'ar' ? 'en' : 'ar';
-    setLanguage(newLang);
+    // Store update will happen via useEffect in the page based on URL param
     router.push(`/${newLang}`);
   };
 
