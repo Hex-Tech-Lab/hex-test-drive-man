@@ -18,3 +18,9 @@ CodeRabbit is configured to:
 *   Auto-review any PR, regardless of base branch (via `base_branches: [".*"]`).
 *   Provide full findings even when other AI bots (Sourcery) are enabled.
 *   Ignore `pnpm-lock.yaml` and other generated files per existing path filters.
+
+## PR #4: feat: booking MVP 1.0
+*   **Target**: feature/gpg-commit-signing-20251124-1401
+*   **Head**: claude/booking-system-mvp-0189g3iqbGjjpKDJWbRpMfu8
+*   **Status**: Open (Conflicts expected). Awaiting CodeRabbit/Sourcery review.
+*   **URL**: https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/4
