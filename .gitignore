@@ -54,3 +54,4 @@ archive/
 # Virtual Environment
 venv/
 .vercel
+.env.local

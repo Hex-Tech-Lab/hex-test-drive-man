@@ -4,18 +4,31 @@ import { AppBar, Toolbar, Typography, IconButton, Badge, Button, Container } fro
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import { useLanguageStore } from '@/stores/language-store';
 import { useCompareStore } from '@/stores/compare-store';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function Header() {
   const language = useLanguageStore((state) => state.language);
   const setLanguage = useLanguageStore((state) => state.setLanguage);
   const compareItems = useCompareStore((state) => state.compareItems);
   const router = useRouter();
+  const pathname = usePathname(); // Get current pathname
 
   const toggleLanguage = () => {
     const newLang = language === 'ar' ? 'en' : 'ar';
-    // Store update will happen via useEffect in the page based on URL param
-    router.push(`/${newLang}`);
+    setLanguage(newLang); // Update store for immediate UI feedback
+
+    // Replace the current locale in the pathname with the new locale
+    const currentPathSegments = pathname.split('/').filter(Boolean); // Remove empty strings
+    // If the first segment is the current language, replace it
+    if (currentPathSegments.length > 0 && currentPathSegments[0] === language) {
+      currentPathSegments[0] = newLang;
+    } else {
+      // If no locale in path, prepend new locale
+      currentPathSegments.unshift(newLang);
+    }
+    const newPath = `/${currentPathSegments.join('/')}`;
+    
+    router.push(newPath); // Navigate to the same path with new locale
   };
 
   const goToCompare = () => {

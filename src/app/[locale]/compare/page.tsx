@@ -8,6 +8,7 @@ import Header from '@/components/Header';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { useParams, useRouter } from 'next/navigation';
+import { formatEGP } from '@/lib/imageHelper'; // Import formatEGP
 
 export default function ComparePage() {
   const params = useParams();
@@ -22,10 +23,6 @@ export default function ComparePage() {
       setLanguage(locale);
     }
   }, [locale, setLanguage]);
-
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat(language === 'ar' ? 'ar-EG' : 'en-US').format(price);
-  };
 
   if (compareItems.length === 0) {
     return (
@@ -42,7 +39,7 @@ export default function ComparePage() {
             <Button
               variant="contained"
               startIcon={<ArrowBackIcon />}
-              onClick={() => router.push(`/${language}`)}
+              onClick={() => router.back()}
               sx={{ mt: 2 }}
             >
               {language === 'ar' ? 'العودة إلى الكتالوج' : 'Back to Catalog'}
@@ -52,6 +49,9 @@ export default function ComparePage() {
       </>
     );
   }
+
+  const numberOfVehicleColumns = compareItems.length;
+  const gridTemplateColumns = `200px repeat(${numberOfVehicleColumns}, 1fr)`; // 200px for labels, 1fr for each vehicle
 
   return (
     <>
@@ -64,7 +64,7 @@ export default function ComparePage() {
           <Box>
             <Button
               startIcon={<ArrowBackIcon />}
-              onClick={() => router.push(`/${language}`)}
+              onClick={() => router.back()}
               sx={{ mr: 2 }}
             >
               {language === 'ar' ? 'عودة' : 'Back'}
@@ -75,10 +75,23 @@ export default function ComparePage() {
           </Box>
         </Box>
 
-        <Grid container spacing={3}>
+        {/* Unified Grid for Cards and Specs */}
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: gridTemplateColumns,
+            gap: 2, // Gap between grid items
+            alignItems: 'start',
+            overflowX: 'auto', // Enable horizontal scrolling for many items
+          }}
+        >
+          {/* Empty cell for the top-left corner (above spec labels) */}
+          <Box sx={{ gridColumn: '1 / span 1' }}></Box>
+
+          {/* Vehicle Cards - placed directly into the grid */}
           {compareItems.map((vehicle) => (
-            <Grid key={vehicle.id} sx={{ xs: 12, md: 4 }}>
-              <Card>
+            <Box key={vehicle.id} sx={{ gridColumn: 'span 1' }}>
+              <Card sx={{ height: '100%' }}>
                 <Box sx={{ position: 'relative' }}>
                   <IconButton
                     onClick={() => removeFromCompare(vehicle.id)}
@@ -105,95 +118,140 @@ export default function ComparePage() {
                     {vehicle.models.brands.name} {vehicle.models.name}
                   </Typography>
                   <Typography variant="h5" color="primary" gutterBottom>
-                    {formatPrice(vehicle.price_egp)} {language === 'ar' ? 'ج.م' : 'EGP'}
+                    {formatEGP(vehicle.price_egp, language)}
                   </Typography>
                 </CardContent>
               </Card>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
 
-        <Box sx={{ mt: 4 }}>
-          <Typography variant="h5" gutterBottom>
+          {/* Divider between Cards and Specs */}
+          <Divider sx={{ gridColumn: `1 / span ${numberOfVehicleColumns + 1}`, my: 2 }} />
+
+          {/* Specifications - Refactored from Table to Box/Typography for Grid alignment */}
+          <Typography variant="h5" sx={{ gridColumn: `1 / span ${numberOfVehicleColumns + 1}`, mt: 2, mb: 2 }}>
             {language === 'ar' ? 'المواصفات' : 'Specifications'}
           </Typography>
-          <Divider sx={{ mb: 2 }} />
-          <Table>
-            <TableBody>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'السنة' : 'Year'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.model_year}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'الفئة' : 'Trim'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.trim_name}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'التصنيف' : 'Category'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.categories?.name ?? '-'}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'المحرك' : 'Engine'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.engine || '-'}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'ناقل الحركة' : 'Transmission'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.transmissions?.name ?? '-'}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'نوع الوقود' : 'Fuel Type'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.fuel_types?.name ?? '-'}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'القوة الحصانية' : 'Horsepower'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.horsepower ? `${v.horsepower} HP` : '-'}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'عزم الدوران' : 'Torque'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.torque_nm ? `${v.torque_nm} Nm` : '-'}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'التسارع 0-100' : '0-100 km/h'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.acceleration_0_100 ? `${v.acceleration_0_100}s` : '-'}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'السرعة القصوى' : 'Top Speed'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.top_speed ? `${v.top_speed} km/h` : '-'}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'استهلاك الوقود' : 'Fuel Consumption'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.fuel_consumption || '-'}</TableCell>
-                ))}
-              </TableRow>
-              <TableRow>
-                <TableCell><strong>{language === 'ar' ? 'المقاعد' : 'Seats'}</strong></TableCell>
-                {compareItems.map((v) => (
-                  <TableCell key={v.id}>{v.seats || '-'}</TableCell>
-                ))}
-              </TableRow>
-            </TableBody>
-          </Table>
+
+          {/* Year */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
+            <strong>{language === 'ar' ? 'السنة' : 'Year'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
+              {v.model_year}
+            </Typography>
+          ))}
+
+          {/* Trim */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
+            <strong>{language === 'ar' ? 'الفئة' : 'Trim'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
+              {v.trim_name}
+            </Typography>
+          ))}
+
+          {/* Category */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
+            <strong>{language === 'ar' ? 'التصنيف' : 'Category'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
+              {v.categories?.name ?? '-'}
+            </Typography>
+          ))}
+
+          {/* Engine */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
+            <strong>{language === 'ar' ? 'المحرك' : 'Engine'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
+              {v.engine || '-'}
+            </Typography>
+          ))}
+
+          {/* Transmission */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
+            <strong>{language === 'ar' ? 'ناقل الحركة' : 'Transmission'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
+              {v.transmissions?.name ?? '-'}
+            </Typography>
+          ))}
+
+          {/* Fuel Type */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
+            <strong>{language === 'ar' ? 'نوع الوقود' : 'Fuel Type'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
+              {v.fuel_types?.name ?? '-'}
+            </Typography>
+          ))}
+
+          {/* Horsepower */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
+            <strong>{language === 'ar' ? 'القوة الحصانية' : 'Horsepower'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
+              {v.horsepower ? `${v.horsepower} HP` : '-'}
+            </Typography>
+          ))}
+
+          {/* Torque */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
+            <strong>{language === 'ar' ? 'عزم الدوران' : 'Torque'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
+              {v.torque_nm ? `${v.torque_nm} Nm` : '-'}
+            </Typography>
+          ))}
+
+          {/* Acceleration 0-100 */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
+            <strong>{language === 'ar' ? 'التسارع 0-100' : '0-100 km/h'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
+              {v.acceleration_0_100 ? `${v.acceleration_0_100}s` : '-'}
+            </Typography>
+          ))}
+
+          {/* Top Speed */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
+            <strong>{language === 'ar' ? 'السرعة القصوى' : 'Top Speed'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
+              {v.top_speed ? `${v.top_speed} km/h` : '-'}
+            </Typography>
+          ))}
+
+          {/* Fuel Consumption */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
+            <strong>{language === 'ar' ? 'استهلاك الوقود' : 'Fuel Consumption'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
+              {v.fuel_consumption || '-'}
+            </Typography>
+          ))}
+
+          {/* Seats */}
+          <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
+            <strong>{language === 'ar' ? 'المقاعد' : 'Seats'}</strong>
+          </Typography>
+          {compareItems.map((v) => (
+            <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
+              {v.seats || '-'}
+            </Typography>
+          ))}
         </Box>
       </Container>
     </>

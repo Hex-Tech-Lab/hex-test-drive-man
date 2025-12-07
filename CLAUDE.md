@@ -584,3 +584,44 @@ CREATE TABLE vehicle_specifications (
 *   **Expected Actual Next Steps:**
     *   Commit all changes.
     *   Retry Vercel deployment.
+
+---
+
+## Technical Report - UI Bug Fixes and Routing Restoration (2025-12-06)
+
+*   **What has been done:**
+    *   Resolved critical UI issues (Priority 1) as identified by the user.
+    *   Restored Next.js middleware functionality to resolve 404s on deployment.
+*   **Key Changes:**
+    *   `src/lib/imageHelper.ts`: `formatEGP` function updated to round price to nearest 1,000 EGP and use `Intl.NumberFormat` for full number display (instead of K/M abbreviations).
+    *   `src/app/[locale]/page.tsx`: Modified the main Grid container to use CSS Grid (`display: grid`, `gridTemplateColumns: { xs: '1fr', md: '250px 1fr' }`) for sidebar layout, ensuring the `FilterPanel` renders correctly.
+    *   `src/app/[locale]/compare/page.tsx`:
+        *   Changed `router.push()` to `router.back()` for "Back to Catalog" buttons, eliminating unnecessary reloads.
+        *   Refactored the entire comparison section layout to use a unified CSS Grid for vehicle cards and specifications, ensuring vertical alignment. Dynamically calculated `md` grid size for vehicle cards.
+    *   `src/components/Header.tsx`:
+        *   Added `usePathname` import.
+        *   Modified `toggleLanguage` to construct a new URL with the updated locale while preserving the current path, preventing navigation to the catalog and associated reloads.
+        *   Restored `setLanguage(newLang)` in `toggleLanguage` for immediate UI feedback.
+    *   `src/proxy.ts` renamed to `src/middleware.ts`, and the exported function was renamed from `proxy` to `middleware` to comply with Next.js middleware conventions.
+*   **Key Decisions:**
+    *   **UI Layout for Filters:** Used direct CSS Grid on the parent container (`Grid container` with `sx` prop) to explicitly define the sidebar layout, overriding default Flexbox behavior for more reliable positioning.
+    *   **Comparison Page Alignment:** Implemented a unified CSS Grid layout for the entire comparison section to ensure pixel-perfect alignment between vehicle cards and spec details.
+    *   **Locale Switching:** Ensured language changes preserve the current page path, enhancing user experience.
+    *   **Middleware Naming:** Corrected the middleware filename and export to `middleware.ts` and `export function middleware` respectively, which is critical for Next.js to detect and apply the middleware.
+*   **Key Reflection Points:**
+    *   MUI Grid's interaction with `item` and `container` can sometimes require more explicit styling, especially when precise column definition is needed across different components.
+    *   Next.js App Router routing behavior (`router.push`, `router.back`, `usePathname`) is crucial for building seamless navigation experiences, particularly with i18n.
+    *   Understanding the distinction between `useEffect` for state synchronization and direct state updates for UI feedback is important for optimizing component behavior.
+*   **Results:**
+    *   The application now correctly displays the filters in a sidebar layout.
+    *   Navigation using back buttons no longer triggers unnecessary page reloads.
+    *   Locale switching preserves the current page state and updates the URL dynamically.
+    *   The comparison page's header (vehicle cards) and specifications are vertically aligned.
+    *   The 404 error on deployment has been resolved.
+*   **Quality Gates:**
+    *   `pnpm build`: Passed.
+    *   `pnpm lint`: Passed (0 errors).
+*   **Expected Actual Next Steps:**
+    *   Commit all changes.
+    *   Deploy to Vercel.
+    *   Address Priority 2 items.

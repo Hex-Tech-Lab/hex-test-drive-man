@@ -156,12 +156,21 @@ export default function CatalogPage() {
           sx={{ mb: 3 }}
         />
 
-        <Grid container spacing={3}>
-          <Grid item sx={{ xs: 12, md: 3 }}>
+        <Grid
+          container
+          spacing={3}
+          sx={{
+            display: { xs: 'block', md: 'grid' },
+            gridTemplateColumns: { xs: '1fr', md: '250px 1fr' },
+            gap: 3,
+            mt: 2, // Add some top margin
+          }}
+        >
+          <Grid item sx={{ xs: 12 }}>
             <FilterPanel vehicles={vehicles} />
           </Grid>
 
-          <Grid item sx={{ xs: 12, md: 9 }}>
+          <Grid item sx={{ xs: 12 }}>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               {language === 'ar'
                 ? `${filteredVehicles.length} مركبة متاحة`
