@@ -166,3 +166,17 @@ response = model.generate_content(
   instead of combining `--yolo` and `--approval-mode`.  
 - Recommended: run under `tmux` for long sessions.
 
+---
+
+## Tooling Conventions
+**Date**: 2025-12-07 17:40 EET
+
+- pnpm: strict adherence, no npm/yarn or any derivatives
+- apt-fast: preferred system package manager; use it whenever possible
+- Node.js: LTS versions only
+- Dependencies: pinned versions (via pnpm-lock.yaml)
+- Environment: parity across dev and prod
+- Build: `pnpm build`
+- Lint: `pnpm lint`
+- Test: `pnpm test`
+- Docs: GEMINI.md and CLAUDE.md must always be updated first when tooling rules change
