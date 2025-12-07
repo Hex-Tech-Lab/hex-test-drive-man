@@ -625,3 +625,50 @@ CREATE TABLE vehicle_specifications (
     *   Commit all changes.
     *   Deploy to Vercel.
     *   Address Priority 2 items.
+---
+
+## Vision Model Benchmark & Production Decision (2025-12-07)
+
+**Test**: 4-model comparison on BMW X5 Page 15 specifications table
+**Models**: Gemini 2.5-flash, Gemini 2.5-pro, Claude Sonnet 4.5, Claude Haiku 4.5
+
+### Production Decision
+
+**PRIMARY**: Gemini 2.5-flash  
+**REJECTED**: Claude Haiku 4.5 (20% accuracy loss unacceptable)
+
+### Results Summary
+
+| Model | Specs | Time(s) | Accuracy | Cost/Page | Status |
+|-------|-------|---------|----------|-----------|--------|
+| **Gemini 2.5-flash** | **122** | **98.9** | **100%** | **$0.05-0.10** | **✅ SELECTED** |
+| Gemini 2.5-pro | 121 | 95.0 | 99.2% | $0.10-0.15 | Considered |
+| Claude Sonnet 4.5 | 119 | 99.6 | 97.5% | $0.10-0.15 | Considered |
+| Claude Haiku 4.5 | 99 | 39.3 | 81.1% | $0.02-0.03 | ❌ Rejected |
+
+### Validation Pipeline
+
+**Current Phase**: Phase 1 - Visual Baseline Validation (BMW X5)
+
+**Threshold**: 95%+ accuracy required to proceed to Phase 2
+
+**Pipeline**:
+1. **Phase 1**: BMW X5 visual validation → 95%+ pass/fail gate
+2. **Phase 2**: Iterative expansion (BMW X1, Toyota Corolla, Chevrolet) → 95%+ each
+3. **Phase 3**: Production deployment (all 8 PDFs) → only after 3 successful sprints
+
+### Files Generated
+
+- `docs/GEMINI.md` - Detailed production decision documentation
+- `extraction_engine/results/bmw_x5_gemini_flash.json` - Baseline extraction
+- `extraction_engine/results/benchmark_quality_report.txt` - Full analysis
+- `requirements.txt` - Python dependencies
+
+### Next Steps
+
+1. **IN PROGRESS**: Visual validation PNG generation (Phase 1)
+2. **PENDING**: Manual review @ 95%+ threshold
+3. **PENDING**: Phase 2 expansion (conditional on Phase 1 pass)
+
+See `docs/GEMINI.md` for complete benchmark analysis and validation criteria.
+
