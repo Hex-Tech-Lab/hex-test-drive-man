@@ -2,6 +2,31 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## CCW (Claude Code Web) Usage Guidelines
+**Date**: 2025-12-07 23:55 EET
+
+CCW works differently from Claude Code (terminal):
+
+- Needs current types, aliases, and structure before touching anything.
+- Must find canonical Vehicle type, repository, and VehicleCard component.
+- Must respect existing TypeScript path aliases (no deep ../ imports).
+- Claude Code (terminal) uses `/init` + CLAUDE.md; CCW has no such command.
+- CCW infers architecture from:
+  - `tsconfig.json` (paths/aliases)
+  - `src/types`, `src/repositories`, `src/components`
+  - `src/lib/imageHelper.ts`, `src/app/layout.tsx`, and related files.
+- Reading `vehicle.ts`, `vehicleRepository.ts`, `VehicleCard.tsx`,
+  `Header.tsx`, and `page.tsx` is required, not wasteful.
+
+**Required embedded prompt for all CCW sessions:**
+
+> First, read `CLAUDE.md`, `docs/GEMINI.md`, `DOCS_INDEX.md`, and `SETUP.md`.  
+> Do not scan the entire repo until you’ve parsed these docs.  
+> Then limit file reads to: `tsconfig.json`, `src/types/vehicle.ts`,  
+> `src/repositories/vehicleRepository.ts`, `src/components/VehicleCard.tsx`,  
+> and any alias definitions.  
+> Avoid broad `find`/`glob` unless strictly necessary.
+
 ## Project Overview
 
 Hex Test Drive Platform is a bilingual (Arabic/English) test drive booking platform for vehicles in the Egyptian market. Built with React 19, Next.js 15, and TypeScript 5.7.

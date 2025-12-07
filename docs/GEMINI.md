@@ -180,3 +180,16 @@ response = model.generate_content(
 - Lint: `pnpm lint`
 - Test: `pnpm test`
 - Docs: GEMINI.md and CLAUDE.md must always be updated first when tooling rules change
+
+---
+
+## CCW/GC Project Initialization Summary
+**Date**: 2025-12-07 23:55 EET
+
+- For Claude Code Web (CCW), always embed this behavior prompt:
+  - Read `CLAUDE.md`, `docs/GEMINI.md`, `DOCS_INDEX.md`, `SETUP.md` first.
+  - Then only read `tsconfig.json`, `src/types/vehicle.ts`,
+    `src/repositories/vehicleRepository.ts`,
+    `src/components/VehicleCard.tsx`, and alias definitions.
+  - Avoid full-repo `find`/`glob` unless strictly required.
+- Rationale: enforce TS aliases, canonical types, and repository pattern.
