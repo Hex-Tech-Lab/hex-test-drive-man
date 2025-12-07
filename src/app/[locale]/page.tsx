@@ -31,6 +31,23 @@ export default function CatalogPage() {
   const agent = useFilterStore((state) => state.agent);
   const filters = { brands, priceRange, categories, bodyStyle, segmentCode, agent };
 
+  // Scroll persistence
+  useEffect(() => {
+    // Restore scroll position on mount
+    const savedScroll = sessionStorage.getItem('catalog_scroll_pos');
+    if (savedScroll) {
+      window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'instant' });
+    }
+
+    // Save scroll position on scroll
+    const handleScroll = () => {
+      sessionStorage.setItem('catalog_scroll_pos', window.scrollY.toString());
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     if (locale === 'ar' || locale === 'en') {
       setLanguage(locale);

@@ -39,7 +39,7 @@ export default function ComparePage() {
             <Button
               variant="contained"
               startIcon={<ArrowBackIcon />}
-              onClick={() => router.back()}
+              onClick={() => router.push(`/${language}`)}
               sx={{ mt: 2 }}
             >
               {language === 'ar' ? 'العودة إلى الكتالوج' : 'Back to Catalog'}
@@ -64,7 +64,7 @@ export default function ComparePage() {
           <Box>
             <Button
               startIcon={<ArrowBackIcon />}
-              onClick={() => router.back()}
+              onClick={() => router.push(`/${language}`)}
               sx={{ mr: 2 }}
             >
               {language === 'ar' ? 'عودة' : 'Back'}

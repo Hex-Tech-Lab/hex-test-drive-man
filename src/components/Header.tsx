@@ -28,7 +28,7 @@ export default function Header() {
     }
     const newPath = `/${currentPathSegments.join('/')}`;
     
-    router.push(newPath); // Navigate to the same path with new locale
+    router.push(newPath, { scroll: false }); // Navigate to the same path with new locale, preserving scroll
   };
 
   const goToCompare = () => {
