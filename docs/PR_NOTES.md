@@ -10,3 +10,11 @@
 *   **Target**: main
 *   **Head**: feature/gpg-commit-signing-20251124-1401
 *   **Status**: Active. Automatically updated with latest fixes (Next.js CVE, UI fixes).
+
+## CodeRabbit Configuration
+**Date**: 2025-12-08 01:40 EET
+
+CodeRabbit is configured to:
+*   Auto-review any PR, regardless of base branch (via `base_branches: [".*"]`).
+*   Provide full findings even when other AI bots (Sourcery) are enabled.
+*   Ignore `pnpm-lock.yaml` and other generated files per existing path filters.

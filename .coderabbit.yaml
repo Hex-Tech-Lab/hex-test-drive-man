@@ -19,7 +19,7 @@ reviews:
       - "DO NOT REVIEW"
     drafts: false
     base_branches:
-      - main
+      - ".*"
 
   path_filters:
     excluded:

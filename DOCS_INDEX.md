@@ -9,3 +9,4 @@
 *   [extraction_engine/requirements.txt](extraction_engine/requirements.txt) - Python dependencies for the extraction engine.
 *   [extraction_engine/visual_validator.py](extraction_engine/visual_validator.py) - Script for visual validation of extracted data.
 *   [docs/FRONTEND_NOTES.md](docs/FRONTEND_NOTES.md) - Notes on frontend stack, routing, and deployment.
+*   [docs/PR_NOTES.md](docs/PR_NOTES.md) - Status of active PRs and CodeRabbit configuration notes.
