@@ -32,3 +32,18 @@ For manual redeployments, you can use the Vercel CLI with the `--force` flag:
 ```bash
 vercel deploy --prod --force
 ```
+
+## Lighthouse Snapshot – 2025-12-07 14:40 EET
+
+**Status**: ⚠️ Skipped / Blocked
+
+**URL**: https://hex-test-drive-k7m1gdf2o-techhypexps-projects.vercel.app
+
+**Reason**:
+The deployed URL is currently behind Vercel Authentication ("Authentication Required"), preventing automated analysis via CLI or `curl`.
+
+**Action Items**:
+*   Disable "Deployment Protection" in Vercel Project Settings for production, or;
+*   Perform a manual Lighthouse audit in a browser where you are logged in.
+*   **Target Scores**: > 90 across Performance, Accessibility, Best Practices, SEO.
+
