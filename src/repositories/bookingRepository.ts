@@ -1,31 +1,68 @@
-// In-memory booking repository for MVP v0
-// Created: 2025-12-07
-// NOTE: This is a temporary implementation. Will be replaced with Supabase/Drizzle in future iterations.
-
+import crypto from 'crypto';
 import { Booking, BookingInput, BookingStatus } from '@/types/booking';
 
-// In-memory storage (resets on server restart)
+// In-memory storage (replace with database in production)
 const bookings: Booking[] = [];
+
+/**
+ * Validates booking input and returns array of error messages
+ */
+function validateBookingInput(input: BookingInput): string[] {
+  const errors: string[] = [];
+
+  // Validate required fields
+  if (!input.name?.trim()) {
+    errors.push('Name is required');
+  }
+  if (!input.phone?.trim()) {
+    errors.push('Phone number is required');
+  }
+  if (!input.vehicleId?.trim()) {
+    errors.push('Vehicle ID is required');
+  }
+
+  // Validate preferred date
+  if (!input.preferredDate) {
+    errors.push('Preferred date is required');
+  } else {
+    const date = new Date(input.preferredDate);
+    
+    // Check if date is valid
+    if (isNaN(date.getTime())) {
+      errors.push('Invalid preferred date format');
+    }
+    
+    // Validate date is in the future
+    if (date.getTime() <= Date.now()) {
+      errors.push('Preferred date must be in the future');
+    }
+  }
+
+  return errors;
+}
 
 export const bookingRepository = {
   /**
-   * Create a new booking
-   * @param input - Booking input data
-   * @returns Promise resolving to the created booking
+   * Creates a new test drive booking
    */
   async createBooking(input: BookingInput): Promise<Booking> {
-    // Simulate async operation (database write)
+    // Validate input
+    const validationErrors = validateBookingInput(input);
+    if (validationErrors.length > 0) {
+      throw new Error(`Validation failed: ${validationErrors.join(', ')}`);
+    }
+
     await new Promise(resolve => setTimeout(resolve, 100));
 
     const booking: Booking = {
       id: crypto.randomUUID(),
-      name: input.name,
-      phone: input.phone,
-      preferredDate: input.preferredDate,
-      vehicleId: input.vehicleId,
-      notes: input.notes,
+      name: input.name.trim(),
+      phone: input.phone.trim(),
+      preferredDate: new Date(input.preferredDate),
+      vehicleId: input.vehicleId.trim(),
+      notes: input.notes?.trim(),
       status: 'pending' as BookingStatus,
-      createdAt: new Date().toISOString(),
+      createdAt: new Date(),
     };
 
     bookings.push(booking);
@@ -33,8 +70,7 @@ export const bookingRepository = {
   },
 
   /**
-   * Get all bookings (for future admin use)
-   * @returns Promise resolving to array of all bookings
+   * Retrieves all bookings
    */
   async getAllBookings(): Promise<Booking[]> {
     await new Promise(resolve => setTimeout(resolve, 50));
@@ -42,9 +78,7 @@ export const bookingRepository = {
   },
 
   /**
-   * Get booking by ID
-   * @param id - Booking ID
-   * @returns Promise resolving to booking or null if not found
+   * Retrieves a booking by ID
    */
   async getBookingById(id: string): Promise<Booking | null> {
     await new Promise(resolve => setTimeout(resolve, 50));
@@ -52,9 +86,7 @@ export const bookingRepository = {
   },
 
   /**
-   * Get bookings by vehicle ID
-   * @param vehicleId - Vehicle ID
-   * @returns Promise resolving to array of bookings for the vehicle
+   * Retrieves bookings for a specific vehicle
    */
   async getBookingsByVehicleId(vehicleId: string): Promise<Booking[]> {
     await new Promise(resolve => setTimeout(resolve, 50));
