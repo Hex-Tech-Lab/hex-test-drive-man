@@ -1,11 +1,36 @@
-version: "2"
+# yaml-language-server: $schema= `https://coderabbit.ai/integrations/schema.v2.json` 
+
+early_access: true
+language: "en-US"
+
 reviews:
-  path_filters:
-    - "!dist/"
-    - "!/.json"
-    - "!**/.lock"
+  profile: assertive
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  
   auto_review:
     enabled: true
+    auto_incremental_review: true
+    ignore_title_keywords:
+      - "WIP"
+      - "DO NOT REVIEW"
     drafts: false
-    ignore_titles: ["WIP", "dont-merge"]
-    review_status: true
+    base_branches:
+      - main
+
+  path_filters:
+    excluded:
+      - "pnpm-lock.yaml"
+      - "package-lock.json"
+      - "**/*.md"
+      - ".github/**"
+
+chat:
+  auto_reply: true
+
+knowledge_base:
+  learnings:
+    scope: "auto"

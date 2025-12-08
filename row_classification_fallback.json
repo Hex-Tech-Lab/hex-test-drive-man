@@ -1,0 +1,182 @@
+[
+  {
+    "global_index": 1,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: twinpower turbo 6-cylinder inl"
+  },
+  {
+    "global_index": 2,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: m twinpower turbo 8-cylinder p"
+  },
+  {
+    "global_index": 3,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: 8-speed sport steptronic trans"
+  },
+  {
+    "global_index": 4,
+    "classification": "section_header",
+    "confidence": 0.8,
+    "reason": "Keyword: equipment"
+  },
+  {
+    "global_index": 5,
+    "classification": "section_header",
+    "confidence": 0.8,
+    "reason": "Keyword: safety"
+  },
+  {
+    "global_index": 6,
+    "classification": "system",
+    "confidence": 0.8,
+    "reason": "Keyword: active guard:\nlane departure w"
+  },
+  {
+    "global_index": 7,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: active protection"
+  },
+  {
+    "global_index": 8,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: anti lock braking system (abs)"
+  },
+  {
+    "global_index": 9,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: attentiveness assistant"
+  },
+  {
+    "global_index": 10,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: automatic stability control (a"
+  },
+  {
+    "global_index": 11,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: brake assist"
+  },
+  {
+    "global_index": 12,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: brake energy regeneration"
+  },
+  {
+    "global_index": 13,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: brake-pad wear indicator"
+  },
+  {
+    "global_index": 14,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: central locking"
+  },
+  {
+    "global_index": 15,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: cornering brake control (cbc)"
+  },
+  {
+    "global_index": 16,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: crash sensor"
+  },
+  {
+    "global_index": 17,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: curtain head airbags front and"
+  },
+  {
+    "global_index": 18,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: driver and front passenger air"
+  },
+  {
+    "global_index": 19,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: dynamic brake control (dbc)"
+  },
+  {
+    "global_index": 20,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: dynamic braking lights"
+  },
+  {
+    "global_index": 21,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: dynamic stability control (dsc"
+  },
+  {
+    "global_index": 22,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: dynamic traction control (dtc)"
+  },
+  {
+    "global_index": 23,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: electronic vehicle immobilizer"
+  },
+  {
+    "global_index": 24,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: hill descent control (hdc)"
+  },
+  {
+    "global_index": 25,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: iso fix child seat mounting"
+  },
+  {
+    "global_index": 26,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: pc ibrake (postcrash approach "
+  },
+  {
+    "global_index": 27,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: run-flat tyres with run-flat i"
+  },
+  {
+    "global_index": 28,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: side airbags for driver and fr"
+  },
+  {
+    "global_index": 29,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: side airbags for passengers in"
+  },
+  {
+    "global_index": 30,
+    "classification": "noise",
+    "confidence": 0.8,
+    "reason": "Keyword: tire pressure monitoring syste"
+  }
+]

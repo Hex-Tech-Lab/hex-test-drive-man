@@ -1,0 +1,686 @@
+{
+  "trim_names": [
+    "ACTIVE",
+    "COMFORT",
+    "SMART*",
+    "ELEGANCE",
+    "ELEGANCE HEV"
+  ],
+  "sections": [
+    {
+      "section_name": "ENGINE",
+      "features": [
+        {
+          "feature_name": "Engine Type",
+          "values": {
+            "ACTIVE": "4 Cylinders In-Line Petrol Dohc Dual VVT-i",
+            "COMFORT": "4 Cylinders In-Line Petrol Dohc Dual VVT-i",
+            "SMART*": "4 Cylinders In-Line Petrol Dohc Dual VVT-i",
+            "ELEGANCE": "4 Cylinders In-Line Petrol Dohc Dual VVT-i",
+            "ELEGANCE HEV": "4 Cylinders In-Line Petrol Dohc Dual VVT-i"
+          }
+        },
+        {
+          "feature_name": "Engine Capacity",
+          "values": {
+            "ACTIVE": "1598 CC",
+            "COMFORT": "1598 CC",
+            "SMART*": "1598 CC",
+            "ELEGANCE": "1598 CC",
+            "ELEGANCE HEV": "1798 CC"
+          }
+        },
+        {
+          "feature_name": "Max Output",
+          "values": {
+            "ACTIVE": "120 HP/6000 RPM",
+            "COMFORT": "120 HP/6000 RPM",
+            "SMART*": "120 HP/6000 RPM",
+            "ELEGANCE": "96 HP/5200 (Engine) & 93 HP HEV Motor",
+            "ELEGANCE HEV": "96 HP/5200 (Engine) & 93 HP HEV Motor"
+          }
+        },
+        {
+          "feature_name": "Max Torque",
+          "values": {
+            "ACTIVE": "154 NM/ 5200 RPM",
+            "COMFORT": "154 NM/ 5200 RPM",
+            "SMART*": "154 NM/ 5200 RPM",
+            "ELEGANCE": "142 NM/ 3600 RPM & 185 NM HEV Motor",
+            "ELEGANCE HEV": "142 NM/ 3600 RPM & 185 NM HEV Motor"
+          }
+        },
+        {
+          "feature_name": "Fuel System & Tank Capacity",
+          "values": {
+            "ACTIVE": "EFI / 50 Liter",
+            "COMFORT": "EFI / 50 Liter",
+            "SMART*": "EFI / 50 Liter",
+            "ELEGANCE": "EFI / 43 Liter",
+            "ELEGANCE HEV": "EFI / 43 Liter"
+          }
+        },
+        {
+          "feature_name": "Transmission",
+          "values": {
+            "ACTIVE": "Automatic CVT",
+            "COMFORT": "Automatic CVT",
+            "SMART*": "Automatic CVT",
+            "ELEGANCE": "Automatic CVT",
+            "ELEGANCE HEV": "Automatic CVT"
+          }
+        },
+        {
+          "feature_name": "Tread",
+          "values": {
+            "ACTIVE": "1530 Front / 1539 Rear (mm)",
+            "COMFORT": "1530 Front / 1539 Rear (mm)",
+            "SMART*": "1530 Front / 1539 Rear (mm)",
+            "ELEGANCE": "1530 Front / 1539 Rear (mm)",
+            "ELEGANCE HEV": "1530 Front / 1539 Rear (mm)"
+          }
+        },
+        {
+          "feature_name": "Gross Vehicle Weight",
+          "values": {
+            "ACTIVE": "1800 Kg",
+            "COMFORT": "1800 Kg",
+            "SMART*": "1800 Kg",
+            "ELEGANCE": "1800 Kg",
+            "ELEGANCE HEV": "1835 Kg"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "CHASSIS & STEERING",
+      "features": [
+        {
+          "feature_name": "Front Suspension",
+          "values": {
+            "ACTIVE": "Macpherson Strut",
+            "COMFORT": "Macpherson Strut",
+            "SMART*": "Macpherson Strut",
+            "ELEGANCE": "Macpherson Strut",
+            "ELEGANCE HEV": "Macpherson Strut"
+          }
+        },
+        {
+          "feature_name": "Rear Suspension",
+          "values": {
+            "ACTIVE": "Double Wishbone",
+            "COMFORT": "Double Wishbone",
+            "SMART*": "Double Wishbone",
+            "ELEGANCE": "Double Wishbone",
+            "ELEGANCE HEV": "Double Wishbone"
+          }
+        },
+        {
+          "feature_name": "Steering Column",
+          "values": {
+            "ACTIVE": "Tilt&Telescopic",
+            "COMFORT": "Tilt&Telescopic",
+            "SMART*": "Tilt&Telescopic",
+            "ELEGANCE": "Tilt&Telescopic",
+            "ELEGANCE HEV": "Tilt&Telescopic"
+          }
+        },
+        {
+          "feature_name": "Min Turning Radius",
+          "values": {
+            "ACTIVE": "5.2m",
+            "COMFORT": "5.2m",
+            "SMART*": "5.2m",
+            "ELEGANCE": "5.2m",
+            "ELEGANCE HEV": "5.2m"
+          }
+        },
+        {
+          "feature_name": "Power Steering",
+          "values": {
+            "ACTIVE": "Electric (EPS)",
+            "COMFORT": "Electric (EPS)",
+            "SMART*": "Electric (EPS)",
+            "ELEGANCE": "Electric (EPS)",
+            "ELEGANCE HEV": "Electric (EPS)"
+          }
+        },
+        {
+          "feature_name": "Wheel Cap 195/65 R15",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "-"
+          }
+        },
+        {
+          "feature_name": "Sport Rims 205/55 R16",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Sport Rims 225/45 R17",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "-"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "SAFETY",
+      "features": [
+        {
+          "feature_name": "ABS + EBD",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Brake Assist (BA) + Hill Assist Control (HAC)",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Vehicle Stability Control (VSC)",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "i-Booster"
+          }
+        },
+        {
+          "feature_name": "Regenerative Brake",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Electronic Parking Brake (EPB)",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Antitheft Immobilizer",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Driver & Passenger Airbags",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Front Side & Curtain Airbags",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Lane Keeping System",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Pitch & Bounce Control",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Tire Pressure Warning System",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a ( \u0645\u062d\u062f\u062f \u0644\u0643\u0644 \u0623\u0637\u0627\u0631 )"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "LIGHTING SYSTEM",
+      "features": [
+        {
+          "feature_name": "Front Fog Light -White LED",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a ( \u0628\u062d\u0644\u064a\u0627\u062a \u0643\u0631\u0648\u0645)"
+          }
+        },
+        {
+          "feature_name": "Rear Fog Lamp",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Head & Tail Lamp BI PES LED",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Auto High Beam Headlamps (LED)",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Daytime Running Lights LED",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Ambient Light",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "-"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "INTERIOR FEATURES",
+      "features": [
+        {
+          "feature_name": "Multi-Function Steering Wheel (Disp+Tel+Voice+Audio)",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a+ CCS",
+            "ELEGANCE": "\u221a+ CCS",
+            "ELEGANCE HEV": "V+ACC+LTA Control"
+          }
+        },
+        {
+          "feature_name": "Steering Wheel Heater",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "-"
+          }
+        },
+        {
+          "feature_name": "3 Spoke Steering Wheel Leather",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Front Console Box",
+          "values": {
+            "ACTIVE": "\u0628\u0644\u0627\u0633\u062a\u064a\u0643",
+            "COMFORT": "\u0628\u0644\u0627\u0633\u062a\u064a\u0643",
+            "SMART*": "\u0628\u0644\u0627\u0633\u062a\u064a\u0643",
+            "ELEGANCE": "\u0628\u0644\u0627\u0633\u062a\u064a\u0643",
+            "ELEGANCE HEV": "\u062c\u0644\u062f"
+          }
+        },
+        {
+          "feature_name": "Cruise Control",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "-"
+          }
+        },
+        {
+          "feature_name": "Full Speed Adaptive Cruise Control",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "All Power Windows Auto Up/Down",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Electric Air Conditioner",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a+ Digital",
+            "ELEGANCE": "\u221a+ Digital",
+            "ELEGANCE HEV": "\u221a+ Digital"
+          }
+        },
+        {
+          "feature_name": "Automatic & Dual Air Condition",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "\u221a",
+            "SMART*": "-",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Rear Air Condition Outlets",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "USB + 6 Speakers + Bluetooth",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Apple Carplay + Android Auto",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "8 Inch Touch Screen",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Inside Rear View Mirror (Electrochromic)",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Automatic Rain Sensor",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Fabric Seat Material",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a+ Leather",
+            "ELEGANCE HEV": "\u221a+ Leather"
+          }
+        },
+        {
+          "feature_name": "Seat Heater",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a+ Leather",
+            "ELEGANCE HEV": "\u221a+ Leather"
+          }
+        },
+        {
+          "feature_name": "Wireless Charger",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "\u0623\u0645\u0627\u0645\u064a + \u062e\u0644\u0641\u064a",
+            "ELEGANCE": "\u0623\u0645\u0627\u0645\u064a + \u062e\u0644\u0641\u064a",
+            "ELEGANCE HEV": "\u0623\u0645\u0627\u0645\u064a"
+          }
+        },
+        {
+          "feature_name": "Engine Oil Level Warning",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Multi Information Display",
+          "values": {
+            "ACTIVE": "7 Inch",
+            "COMFORT": "7 Inch",
+            "SMART*": "12.3 Inch",
+            "ELEGANCE": "12.3 Inch",
+            "ELEGANCE HEV": "12.3 Inch"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "EXTERIOR FEATURES",
+      "features": [
+        {
+          "feature_name": "Wireless Door Lock With Key",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Keyless Smart Entry (Driver+Passenger+Luggage)",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Exterior Rear View Mirror (Electric) + Signal Turn",
+          "values": {
+            "ACTIVE": "\u221a",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Folding Rear View Mirrors",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "\u221a+Auto",
+            "ELEGANCE HEV": "\u221a+Auto"
+          }
+        },
+        {
+          "feature_name": "Heater Rear View Mirrors",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Rear & Side Glass Privacy Black",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Front & Back Parking Sensors",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "\u221a",
+            "SMART*": "\u221a",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Headlamp Cleaner",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "-"
+          }
+        },
+        {
+          "feature_name": "Sunroof",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "\u221a",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Two Tone Exterior Body Color",
+          "values": {
+            "ACTIVE": "-",
+            "COMFORT": "-",
+            "SMART*": "-",
+            "ELEGANCE": "-",
+            "ELEGANCE HEV": "\u221a"
+          }
+        },
+        {
+          "feature_name": "Rear Parking Camera",
+          "values": {
+            "ACTIVE": "Locally Fitted",
+            "COMFORT": "Locally Fitted",
+            "SMART*": "Locally Fitted",
+            "ELEGANCE": "Locally Fitted",
+            "ELEGANCE HEV": "Standard"
+          }
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "model": "models/gemini-2.0-flash-001",
+    "elapsed_sec": 33.84,
+    "image_path": "pdf_images/corolla_page3-3.png"
+  }
+}

@@ -1,0 +1,1281 @@
+{
+  "trim_names": [
+    "X1 sDrive18i xLine",
+    "X1 sDrive18i M Sport",
+    "X1 xDrive20i xLine",
+    "X1 xDrive20i M Sport",
+    "X1 eDrive20"
+  ],
+  "sections": [
+    {
+      "section_name": "Engines & Transmissions",
+      "features": [
+        {
+          "feature_name": "BMW TwinPower Turbo 3-Cylinder Engine",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Electric drive unit on the front axle",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "7-Speed Steptronic Transmission with Double Clutch",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "7 Speed Steptronic Transmission with Gear Shift Paddles",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Safety",
+      "features": [
+        {
+          "feature_name": "Acoustic protection for pedestrians",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Lane Departure Warning with Active Return",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Front Collision Warning with Brake Intervention",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Speed Limit Info including Prediction and no Overtaking Indicator",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Left-turn warning (vehicle) with brake function",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Evasion assistant",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Anti-Lock Braking System (ABS)",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Attentiveness assistant",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Automatic Hold Function",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Braking Readiness",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Brake Energy Regeneration",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Brake-pad wear indicator",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Central locking",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Cornering Brake Control (CBC)",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Crash Sensor",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Curtain head airbags front and rear",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Driver and front passenger airbags",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Dynamic Brake Control (DBC)",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Dynamic Braking Lights",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Dynamic Stability Control (DSC)",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Dynamic Traction Control (DTC)",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Electronic vehicle immobilizer",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Emergency spare wheel",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Keyless engine start",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Locking wheel bolts",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "PC iBrake (PostCrash approach control warning with light braking function)",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Roll-back Prevention",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Side airbags for driver and front passenger, integrated in seat backrests",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Tire pressure monitoring system",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Tire repair kit",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Performance",
+      "features": [
+        {
+          "feature_name": "Cruise Control with braking function",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Dynamic Damper Control",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "M Sport steering",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Performance Control",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Servotronic",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Exterior",
+      "features": [
+        {
+          "feature_name": "Adaptive LED Headlights",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Automatic operation of tailgate",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "BMW Selective Beam",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Comfort access",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Electronic folding of exterior mirrors",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Exterior mirror on driver\u2019s side with automatic anti-dazzle function",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "High Beam Assistance",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Mirror caps in Black",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Panoramic glass roof",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Sun protection glazing",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "M Aerodynamics Package",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "M high-gloss Shadowline",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "M high-gloss Shadowline with extended contents",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "M roof rails high-gloss Shadowline",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Exterior Line Satin Aluminium",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Mirror caps in Glacier Silver",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Roof rails Aluminium satinated",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Visual sump guard rear and front in Aluminium satinated",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "xLine-specific air inlets (air curtain) and rear diffuser in Pearl Chrome",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Interior",
+      "features": [
+        {
+          "feature_name": "2-Zone Automatic Air Conditioning",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Active seat for driver",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Active seat for driver and front passenger",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Ambient light",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Floor matts in velour",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Interior mirror with automatic anti-dazzle function",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Lumbar support, electrically adjustable for driver",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Lumbar support, electrically adjustable",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "M Leather steering wheel",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Seat adjustment, electric, with memory",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Seat adjustment, electric with memory, driver",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Seat adjustment, rear seats",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Sport leather steering wheel",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Sport seats for driver and front passenger",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Through loading system (40:20:40)",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Technology",
+      "features": [
+        {
+          "feature_name": "AC Charging Professional",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "10.7\" Control Display",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "10.25\" Instrument Display",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "BMW OS 9.0",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Harman Kardon Sound System (12 speakers)",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Hi-Fi loudspeaker system (7 speakers)",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "BMW IconicSounds Electric",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Rear View Camera",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Park Distance Control front and rear",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Automatic parking",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Reversing assistant",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Lane Change warning",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Rear crossing traffic warning",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Rear collision prevention",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Exit warning",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Blind spot detection",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Smartphone Integration",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Wireless charging",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Others",
+      "features": [
+        {
+          "feature_name": "Automatic Start/Stop Function",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Parking brake with automatic hold function",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "Start/Stop button",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Interior Trims",
+      "features": [
+        {
+          "feature_name": "Fine-wood trim, Eucalyptus, open-pored",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Interior trim finishers, Black high-gloss",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Upholstery",
+      "features": [
+        {
+          "feature_name": "Luxury instrument panel",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "M headliner anthracite",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Sensatec Perforated Black",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Sensatec Perforated Coral Red/Black",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Sensatec Perforated Mocha",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "Sensatec Perforated Oyster",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Alloy Wheels",
+      "features": [
+        {
+          "feature_name": "19\" light-alloy wheels V-spoke style 867 Bicolour",
+          "values": {
+            "X1 sDrive18i xLine": true,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": true,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "19\" M light-alloy wheels Double-spoke style 871 M Bicolour",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": true,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": true,
+            "X1 eDrive20": null
+          }
+        },
+        {
+          "feature_name": "19\" M light-alloy wheels Double-spoke style 872 M Bicolour",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": true
+          }
+        },
+        {
+          "feature_name": "20\" M light-alloy wheels Multi-spoke style 872 M Bicolour",
+          "values": {
+            "X1 sDrive18i xLine": null,
+            "X1 sDrive18i M Sport": null,
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": null
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Technical Data",
+      "features": [
+        {
+          "feature_name": "Cylinders / Valves",
+          "values": {
+            "X1 sDrive18i xLine": "3/4",
+            "X1 sDrive18i M Sport": "3/4",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "\u2013"
+          }
+        },
+        {
+          "feature_name": "Displacement (cc)",
+          "values": {
+            "X1 sDrive18i xLine": "1,499",
+            "X1 sDrive18i M Sport": "1,499",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "\u2013"
+          }
+        },
+        {
+          "feature_name": "Maximum Output (hp)",
+          "values": {
+            "X1 sDrive18i xLine": "156",
+            "X1 sDrive18i M Sport": "156",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "204"
+          }
+        },
+        {
+          "feature_name": "Maximum Torque (Nm/rpm)",
+          "values": {
+            "X1 sDrive18i xLine": "230 @1,500-4,600 rpm",
+            "X1 sDrive18i M Sport": "230 @1,500-4,600 rpm",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "250"
+          }
+        },
+        {
+          "feature_name": "Top Speed (km/h)",
+          "values": {
+            "X1 sDrive18i xLine": "215",
+            "X1 sDrive18i M Sport": "215",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "170"
+          }
+        },
+        {
+          "feature_name": "Acceleration 0 - 100 km/h (sec.)",
+          "values": {
+            "X1 sDrive18i xLine": "9",
+            "X1 sDrive18i M Sport": "9",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "8.6"
+          }
+        },
+        {
+          "feature_name": "Fuel Consumption (combined l/100 km)",
+          "values": {
+            "X1 sDrive18i xLine": "6.5",
+            "X1 sDrive18i M Sport": "6.5",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "\u2013"
+          }
+        },
+        {
+          "feature_name": "Tank Capacity (Liter)",
+          "values": {
+            "X1 sDrive18i xLine": "54",
+            "X1 sDrive18i M Sport": "54",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "\u2013"
+          }
+        },
+        {
+          "feature_name": "Luggage Compartment (Liter)",
+          "values": {
+            "X1 sDrive18i xLine": "540-1,600",
+            "X1 sDrive18i M Sport": "540-1,600",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "490-1,495"
+          }
+        },
+        {
+          "feature_name": "Curb Weight (kg)",
+          "values": {
+            "X1 sDrive18i xLine": "1500",
+            "X1 sDrive18i M Sport": "1500",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "1865"
+          }
+        },
+        {
+          "feature_name": "Electric Range (km)",
+          "values": {
+            "X1 sDrive18i xLine": "\u2013",
+            "X1 sDrive18i M Sport": "\u2013",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "430-474"
+          }
+        },
+        {
+          "feature_name": "Gross Battery Capacity (kWh)",
+          "values": {
+            "X1 sDrive18i xLine": "\u2013",
+            "X1 sDrive18i M Sport": "\u2013",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "66.5"
+          }
+        },
+        {
+          "feature_name": "Charging Time AC (Flex Charger 11kW, 0-100%), h",
+          "values": {
+            "X1 sDrive18i xLine": "\u2013",
+            "X1 sDrive18i M Sport": "\u2013",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "6:30"
+          }
+        },
+        {
+          "feature_name": "Charging Time AC (Wallbox 22kW, 0-100%), h",
+          "values": {
+            "X1 sDrive18i xLine": "\u2013",
+            "X1 sDrive18i M Sport": "\u2013",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "3:45"
+          }
+        },
+        {
+          "feature_name": "Charging Time DC (Fast Charger 50kW, 10-80%), h",
+          "values": {
+            "X1 sDrive18i xLine": "\u2013",
+            "X1 sDrive18i M Sport": "\u2013",
+            "X1 xDrive20i xLine": null,
+            "X1 xDrive20i M Sport": null,
+            "X1 eDrive20": "1:14"
+          }
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "model": "models/gemini-2.5-flash",
+    "elapsed_sec": 83.25,
+    "image_path": "pdf_images/bmw_x1_page16-16.png"
+  }
+}

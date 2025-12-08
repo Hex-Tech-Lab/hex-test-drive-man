@@ -1,0 +1,107 @@
+{
+  "brand": "Land Rover",
+  "timestamp": "2025-11-26T16:21:14.746Z",
+  "source": "YallaMotor Egypt",
+  "sourceUrl": "https://egypt.yallamotor.com/new-cars/land-rover",
+  "pdfGenerationMethod": "Puppeteer page-to-PDF from model detail pages",
+  "modelsFound": 26,
+  "pdfGenerated": 13,
+  "models": [
+    {
+      "path": "hatchback",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_hatchback_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/hatchback"
+    },
+    {
+      "path": "minivan-van",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_minivan-van_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/minivan-van"
+    },
+    {
+      "path": "suv",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_suv_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/suv"
+    },
+    {
+      "path": "coupe",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_coupe_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/coupe"
+    },
+    {
+      "path": "pickup-truck",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_pickup-truck_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/pickup-truck"
+    },
+    {
+      "path": "wagon",
+      "title": "egypt.yallamotor.com",
+      "price": "Just a moment...*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-a",
+      "fileName": "land_rover_wagon_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/wagon"
+    },
+    {
+      "path": "land-cruiser",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_land-cruiser_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/land-cruiser"
+    },
+    {
+      "path": "patrol",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_patrol_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/patrol"
+    },
+    {
+      "path": "toyota-land-cruiser-2025-39609-vs-nissan-patrol-2025-44654",
+      "title": "egypt.yallamotor.com",
+      "price": "Just a moment...*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-a",
+      "fileName": "land_rover_toyota-land-cruiser-2025-39609-vs-nissan-patrol-2025-44654_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/toyota-land-cruiser-2025-39609-vs-nissan-patrol-2025-44654"
+    },
+    {
+      "path": "wrangler",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_wrangler_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/wrangler"
+    },
+    {
+      "path": "jimny",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_jimny_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/jimny"
+    },
+    {
+      "path": "rush",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_rush_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/rush"
+    },
+    {
+      "path": "challenger",
+      "title": "egypt.yallamotor.com",
+      "price": "N/A",
+      "fileName": "land_rover_challenger_yallamotor_20251126.pdf",
+      "url": "https://egypt.yallamotor.com/new-cars/land-rover/challenger"
+    }
+  ],
+  "notes": "YallaMotor does not offer official brochures. PDFs generated from model specification pages.",
+  "errors": [
+    "sedan: Navigation timeout of 45000 ms exceeded",
+    "convertible: Navigation timeout of 45000 ms exceeded"
+  ]
+}

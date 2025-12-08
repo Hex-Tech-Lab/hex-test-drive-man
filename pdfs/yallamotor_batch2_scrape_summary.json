@@ -1,0 +1,66 @@
+{
+  "timestamp": "2025-11-26T16:13:53.114Z",
+  "batch": "Batch 2 - Chinese & New Brands",
+  "brands": {
+    "xpeng": {
+      "brand": "Xpeng",
+      "url": "https://egypt.yallamotor.com/new-cars/xpeng",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Navigation timeout of 60000 ms exceeded"
+      ]
+    },
+    "zeekr": {
+      "brand": "Zeekr",
+      "url": "https://egypt.yallamotor.com/new-cars/zeekr",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Navigation timeout of 60000 ms exceeded"
+      ]
+    },
+    "arcfox": {
+      "brand": "Arcfox",
+      "url": "https://egypt.yallamotor.com/new-cars/arcfox",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Navigation timeout of 60000 ms exceeded"
+      ]
+    },
+    "lynk-co": {
+      "brand": "Lynk & Co",
+      "url": "https://egypt.yallamotor.com/new-cars/lynk-co",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Navigation timeout of 60000 ms exceeded"
+      ]
+    },
+    "jetour": {
+      "brand": "Jetour",
+      "url": "https://egypt.yallamotor.com/new-cars/jetour",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Protocol error (Runtime.callFunctionOn): Target closed"
+      ]
+    },
+    "exeed": {
+      "brand": "EXEED",
+      "url": "https://egypt.yallamotor.com/new-cars/exeed",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Connection closed."
+      ]
+    }
+  }
+}

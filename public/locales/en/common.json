@@ -1,5 +1,19 @@
 {
   "appName": "Test Drive Platform",
   "language": "Language",
-  "bookTestDrive": "Book Test Drive"
+  "bookTestDrive": "Book Test Drive",
+  "booking": {
+    "title": "Book Test Drive",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "preferredDate": "Preferred Date",
+    "notes": "Notes (Optional)",
+    "submit": "Submit Booking",
+    "cancel": "Cancel",
+    "success": "Booking submitted successfully!",
+    "error": "Failed to submit booking. Please try again.",
+    "nameRequired": "Name is required",
+    "phoneRequired": "Phone number is required",
+    "dateRequired": "Preferred date is required"
+  }
 }

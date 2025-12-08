@@ -1,0 +1,29 @@
+{
+  "pdfs/Toyota/toyota_official/Corolla_2026.pdf": {
+    "pdf_path": "pdfs/Toyota/toyota_official/Corolla_2026.pdf",
+    "format_detected": "unknown",
+    "trim_count": 1,
+    "trims": [
+      {
+        "trim_name": "Standard",
+        "vehicle_trims": {
+          "horsepower": 120,
+          "torque": 154
+        },
+        "vehicle_dimensions": {
+          "curb_weight": "1800"
+        },
+        "vehicle_chassis": {
+          "suspension_front": "macpherson strut wolo] quail",
+          "suspension_rear": "double wishbone wala! guoill",
+          "tire_size": "195/65 r15"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {},
+        "warranty_terms": {},
+        "features": []
+      }
+    ],
+    "extraction_method": "hybrid"
+  }
+}

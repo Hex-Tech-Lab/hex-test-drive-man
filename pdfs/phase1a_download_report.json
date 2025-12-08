@@ -1,0 +1,335 @@
+{
+  "download_date": "2025-11-27T00:50:02.484719",
+  "statistics": {
+    "total": 65,
+    "downloaded": 42,
+    "skipped": 0,
+    "failed": 23,
+    "errors": [
+      {
+        "brand": "Nissan",
+        "model": "Sunny (N17)",
+        "year": "2024/25",
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_SUNNY_BROCHURE.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Nissan",
+        "model": "Qashqai (J12)",
+        "year": "2024/25",
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_QASHQAI_BROCHURE.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Nissan",
+        "model": "Juke",
+        "year": "2024",
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/JUKE_BROCHURE.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Nissan",
+        "model": "Patrol",
+        "year": "2024",
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/PATROL_BROCHURE.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Nissan",
+        "model": "Urvan",
+        "year": "2024",
+        "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/URVAN_BROCHURE.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Chery",
+        "model": "Tiggo 7 Pro",
+        "year": "2024",
+        "url": "https://www.chery-eg.com/media/files/TIGGO_7_PRObrochure_2024.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Chevrolet",
+        "model": "T-Series (Pickup)",
+        "year": "2025",
+        "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/may-2023-brochures/Dabbaba-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Chevrolet",
+        "model": "T-Series (Jumbo)",
+        "year": "2025",
+        "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2025/T-Series-Updated-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Chevrolet",
+        "model": "Malibu",
+        "year": "Legacy",
+        "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2020-brochures/Malibu_MY20_Brochure_EN.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Hyundai",
+        "model": "Creta",
+        "year": "2024",
+        "url": "https://hyundai-egypt.net/wp-content/uploads/2021/09/Creta-SU2-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Toyota",
+        "model": "Fortuner",
+        "year": "2025",
+        "url": "https://toyota.com.eg/storage/45120/Fortuner-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Toyota",
+        "model": "Rumion",
+        "year": "2024",
+        "url": "https://toyota.com.eg/storage/40150/Rumion-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Toyota",
+        "model": "Urban Cruiser",
+        "year": "2024",
+        "url": "https://toyota.com.eg/storage/43120/Urban-Cruiser-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "MG",
+        "model": "MG 7",
+        "year": "2025",
+        "url": "https://www.mgmotor.com.eg/wp-content/uploads/2024/05/MG7-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "MG",
+        "model": "MG ONE",
+        "year": "2024",
+        "url": "https://www.mgmotor.com.eg/wp-content/uploads/2024/01/MG-ONE-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "MG",
+        "model": "RX5 Plus",
+        "year": "2024",
+        "url": "https://www.mgmotor.com.eg/wp-content/uploads/2023/07/RX5-Plus-Brochure-English.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Bestune",
+        "model": "B70",
+        "year": "2024",
+        "url": "https://bestune-egypt.com/brochure/b70.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Bestune",
+        "model": "T77 Pro",
+        "year": "2024",
+        "url": "https://bestune-egypt.com/brochure/t77.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Bestune",
+        "model": "T55",
+        "year": "2024",
+        "url": "https://bestune-egypt.com/brochure/t55.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Mitsubishi",
+        "model": "Xpander",
+        "year": "2025",
+        "url": "https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Xpander-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Mitsubishi",
+        "model": "Eclipse Cross",
+        "year": "2025",
+        "url": "https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Eclipse-Cross-Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Renault",
+        "model": "Austral",
+        "year": "2024",
+        "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Austral_Brochure.pdf",
+        "error": "Download failed"
+      },
+      {
+        "brand": "Renault",
+        "model": "Stepway",
+        "year": "Legacy",
+        "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Stepway.pdf",
+        "error": "Download failed"
+      }
+    ]
+  },
+  "errors": [
+    {
+      "brand": "Nissan",
+      "model": "Sunny (N17)",
+      "year": "2024/25",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_SUNNY_BROCHURE.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Nissan",
+      "model": "Qashqai (J12)",
+      "year": "2024/25",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/NISSAN_QASHQAI_BROCHURE.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Nissan",
+      "model": "Juke",
+      "year": "2024",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/JUKE_BROCHURE.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Nissan",
+      "model": "Patrol",
+      "year": "2024",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/PATROL_BROCHURE.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Nissan",
+      "model": "Urvan",
+      "year": "2024",
+      "url": "https://www-europe.nissan-cdn.net/content/dam/Nissan/eg/brochures/URVAN_BROCHURE.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Chery",
+      "model": "Tiggo 7 Pro",
+      "year": "2024",
+      "url": "https://www.chery-eg.com/media/files/TIGGO_7_PRObrochure_2024.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Chevrolet",
+      "model": "T-Series (Pickup)",
+      "year": "2025",
+      "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/may-2023-brochures/Dabbaba-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Chevrolet",
+      "model": "T-Series (Jumbo)",
+      "year": "2025",
+      "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2025/T-Series-Updated-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Chevrolet",
+      "model": "Malibu",
+      "year": "Legacy",
+      "url": "https://www.chevroletarabia.com/content/dam/chevrolet/middle-east/egypt/english/index/download-a-brochure/2020-brochures/Malibu_MY20_Brochure_EN.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Hyundai",
+      "model": "Creta",
+      "year": "2024",
+      "url": "https://hyundai-egypt.net/wp-content/uploads/2021/09/Creta-SU2-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Toyota",
+      "model": "Fortuner",
+      "year": "2025",
+      "url": "https://toyota.com.eg/storage/45120/Fortuner-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Toyota",
+      "model": "Rumion",
+      "year": "2024",
+      "url": "https://toyota.com.eg/storage/40150/Rumion-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Toyota",
+      "model": "Urban Cruiser",
+      "year": "2024",
+      "url": "https://toyota.com.eg/storage/43120/Urban-Cruiser-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "MG",
+      "model": "MG 7",
+      "year": "2025",
+      "url": "https://www.mgmotor.com.eg/wp-content/uploads/2024/05/MG7-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "MG",
+      "model": "MG ONE",
+      "year": "2024",
+      "url": "https://www.mgmotor.com.eg/wp-content/uploads/2024/01/MG-ONE-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "MG",
+      "model": "RX5 Plus",
+      "year": "2024",
+      "url": "https://www.mgmotor.com.eg/wp-content/uploads/2023/07/RX5-Plus-Brochure-English.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Bestune",
+      "model": "B70",
+      "year": "2024",
+      "url": "https://bestune-egypt.com/brochure/b70.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Bestune",
+      "model": "T77 Pro",
+      "year": "2024",
+      "url": "https://bestune-egypt.com/brochure/t77.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Bestune",
+      "model": "T55",
+      "year": "2024",
+      "url": "https://bestune-egypt.com/brochure/t55.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Mitsubishi",
+      "model": "Xpander",
+      "year": "2025",
+      "url": "https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Xpander-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Mitsubishi",
+      "model": "Eclipse Cross",
+      "year": "2025",
+      "url": "https://www.mitsubishimotors-eg.com/content/dam/mitsubishi-motors-eg/images/brochures/Eclipse-Cross-Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Renault",
+      "model": "Austral",
+      "year": "2024",
+      "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Austral_Brochure.pdf",
+      "error": "Download failed"
+    },
+    {
+      "brand": "Renault",
+      "model": "Stepway",
+      "year": "Legacy",
+      "url": "https://renault.com.eg/CountriesData/Egypt/images/Brochures/Stepway.pdf",
+      "error": "Download failed"
+    }
+  ]
+}

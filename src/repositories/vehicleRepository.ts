@@ -2,7 +2,23 @@ import { supabase } from '@/lib/supabase';
 import { Vehicle } from '@/types/vehicle';
 
 const VEHICLE_SELECT = `
-  *,
+  id,
+  trim_name,
+  model_year,
+  price_egp,
+  engine,
+  seats,
+  horsepower,
+  torque_nm,
+  acceleration_0_100,
+  top_speed,
+  fuel_consumption,
+  features,
+  placeholder_image_url,
+  trim_count,
+  is_imported,
+  is_electric,
+  is_hybrid,
   models!inner(
     name,
     hero_image_url,
@@ -15,22 +31,18 @@ const VEHICLE_SELECT = `
   categories(name),
   transmissions(name),
   fuel_types(name),
-  body_styles(name_en, name_ar, icon_url, display_order),
-  countries(name_en, name_ar, flag_url, iso_code, region),
-  agents(name_en, name_ar, logo_url, website_url),
+  body_styles(name_en, name_ar, icon_url),
+  segments(code, name_en, name_local),
+  countries(name_en, name_ar, flag_url),
+  agents(name_en, name_ar, logo_url),
   venue_trims(
-    vehicle_trim_id,
-    venue_id,
-    is_available,
-    venues(id, name, address)
+    venues(id, name)
   ),
   vehicle_images(
     image_url,
     display_order,
     is_primary,
-    image_type,
-    alt_text_en,
-    alt_text_ar
+    image_type
   )
 `;
 
@@ -39,7 +51,8 @@ export const vehicleRepository = {
     const { data, error } = await supabase
       .from('vehicle_trims')
       .select(VEHICLE_SELECT)
-      .order('model_year', { ascending: false });
+      .order('model_year', { ascending: false })
+      .limit(50);
     
     return { data: data as Vehicle[] | null, error };
   },
@@ -98,5 +111,24 @@ export const vehicleRepository = {
       .eq('is_hybrid', true);
     
     return { data: data as Vehicle[] | null, error };
+  },
+
+  async getFilterOptions() {
+    const [brandData, bodyStyleData, segmentData, agentData] = await Promise.all([
+      supabase.from('brands').select('name, logo_url').order('name'),
+      supabase.from('body_styles').select('name_en, name_ar, icon_url').order('display_order'),
+      supabase.from('segments').select('code, name_en, name_local').order('price_min_egp'),
+      supabase.from('agents').select('name_en, name_ar, logo_url').order('name_en'),
+    ]);
+
+    const error = brandData.error || bodyStyleData.error || segmentData.error || agentData.error;
+
+    return {
+      brands: brandData.data ?? [],
+      bodyStyles: bodyStyleData.data ?? [],
+      segments: segmentData.data ?? [],
+      agents: agentData.data ?? [],
+      error,
+    };
   },
 };

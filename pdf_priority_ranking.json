@@ -1,0 +1,256 @@
+[
+  {
+    "path": "pdf_samples/Genesis_gv80_yallamotor_20251126.pdf",
+    "name": "Genesis_gv80_yallamotor_20251126.pdf",
+    "tables": 1,
+    "pages_with_tables": 1,
+    "total_rows": 0,
+    "orientation": "portrait",
+    "has_arabic": true,
+    "complexity": "SIMPLE",
+    "priority_score": 95,
+    "notes": [
+      "bilingual"
+    ]
+  },
+  {
+    "path": "pdf_samples/Toyota_Hilux_2025.pdf",
+    "name": "Toyota_Hilux_2025.pdf",
+    "tables": 2,
+    "pages_with_tables": 2,
+    "total_rows": 49,
+    "orientation": "portrait",
+    "has_arabic": true,
+    "complexity": "SIMPLE",
+    "priority_score": 95,
+    "notes": [
+      "bilingual"
+    ]
+  },
+  {
+    "path": "pdf_samples/Mercedes_C-Class_W206_2025.pdf",
+    "name": "Mercedes_C-Class_W206_2025.pdf",
+    "tables": 2,
+    "pages_with_tables": 1,
+    "total_rows": 1,
+    "orientation": "landscape",
+    "has_arabic": false,
+    "complexity": "SIMPLE",
+    "priority_score": 90,
+    "notes": [
+      "landscape"
+    ]
+  },
+  {
+    "path": "pdf_samples/Nissan_Qashqai_2025.pdf",
+    "name": "Nissan_Qashqai_2025.pdf",
+    "tables": 3,
+    "pages_with_tables": 2,
+    "total_rows": 8,
+    "orientation": "landscape",
+    "has_arabic": false,
+    "complexity": "SIMPLE",
+    "priority_score": 90,
+    "notes": [
+      "landscape"
+    ]
+  },
+  {
+    "path": "pdf_samples/Chevrolet_Move_Van_2024.pdf",
+    "name": "Chevrolet_Move_Van_2024.pdf",
+    "tables": 2,
+    "pages_with_tables": 1,
+    "total_rows": 90,
+    "orientation": "landscape",
+    "has_arabic": true,
+    "complexity": "SIMPLE",
+    "priority_score": 85,
+    "notes": [
+      "landscape",
+      "bilingual"
+    ]
+  },
+  {
+    "path": "pdf_samples/Hyundai_Accent_RB_GL_DAB_ABS_Plus_Prime_equiv_2025.pdf",
+    "name": "Hyundai_Accent_RB_GL_DAB_ABS_Plus_Prime_equiv_2025.pdf",
+    "tables": 2,
+    "pages_with_tables": 2,
+    "total_rows": 34,
+    "orientation": "landscape",
+    "has_arabic": true,
+    "complexity": "SIMPLE",
+    "priority_score": 85,
+    "notes": [
+      "landscape",
+      "bilingual"
+    ]
+  },
+  {
+    "path": "pdf_samples/Audi_Q3_2024-25.pdf",
+    "name": "Audi_Q3_2024-25.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "portrait",
+    "has_arabic": false,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/BMW_X1-iX1_2025.pdf",
+    "name": "BMW_X1-iX1_2025.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "landscape",
+    "has_arabic": false,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/BMW_X5_LCI_2025.pdf",
+    "name": "BMW_X5_LCI_2025.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "landscape",
+    "has_arabic": false,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/Chery_Tiggo_3_2024.pdf",
+    "name": "Chery_Tiggo_3_2024.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "landscape",
+    "has_arabic": false,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/Chery_eQ7_EV_2025.pdf",
+    "name": "Chery_eQ7_EV_2025.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "landscape",
+    "has_arabic": false,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/Geely_wagon_yallamotor_20251126.pdf",
+    "name": "Geely_wagon_yallamotor_20251126.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "portrait",
+    "has_arabic": false,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/Kia_Sportage_2025.pdf",
+    "name": "Kia_Sportage_2025.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "portrait",
+    "has_arabic": true,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/Land_Rover_hatchback_yallamotor_20251126.pdf",
+    "name": "Land_Rover_hatchback_yallamotor_20251126.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "portrait",
+    "has_arabic": false,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/MG_4_EV_2025.pdf",
+    "name": "MG_4_EV_2025.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "landscape",
+    "has_arabic": true,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/Mitsubishi_Attrage_2024.pdf",
+    "name": "Mitsubishi_Attrage_2024.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "landscape",
+    "has_arabic": true,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/Optra_2026.pdf",
+    "name": "Optra_2026.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "landscape",
+    "has_arabic": true,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  },
+  {
+    "path": "pdf_samples/Renault_Megane_2024.pdf",
+    "name": "Renault_Megane_2024.pdf",
+    "tables": 0,
+    "pages_with_tables": 0,
+    "total_rows": 0,
+    "orientation": "portrait",
+    "has_arabic": false,
+    "complexity": "NO_TABLES",
+    "priority_score": 10,
+    "notes": [
+      "no_tables_in_sample"
+    ]
+  }
+]

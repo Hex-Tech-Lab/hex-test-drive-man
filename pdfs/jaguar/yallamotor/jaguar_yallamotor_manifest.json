@@ -1,0 +1,12 @@
+{
+  "brand": "Jaguar",
+  "timestamp": "2025-11-26T16:21:53.315Z",
+  "source": "YallaMotor Egypt",
+  "sourceUrl": "https://egypt.yallamotor.com/new-cars/jaguar",
+  "pdfGenerationMethod": "Puppeteer page-to-PDF from model detail pages",
+  "modelsFound": 0,
+  "pdfGenerated": 0,
+  "models": [],
+  "notes": "YallaMotor does not offer official brochures. PDFs generated from model specification pages.",
+  "errors": []
+}

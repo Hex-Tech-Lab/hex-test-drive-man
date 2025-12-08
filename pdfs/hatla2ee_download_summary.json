@@ -1,0 +1,55 @@
+{
+  "download_date": "2025-11-26T14:05:49.223089+00:00",
+  "brands": {
+    "Volvo": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    },
+    "BMW": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    },
+    "Toyota": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    },
+    "Hyundai": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    },
+    "Nissan": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    },
+    "Porsche": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    },
+    "Chery": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    },
+    "MG": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    },
+    "Tesla": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    },
+    "BYD": {
+      "pdfs_count": 0,
+      "total_size_mb": 0.0,
+      "status": "no_pdfs_found"
+    }
+  }
+}

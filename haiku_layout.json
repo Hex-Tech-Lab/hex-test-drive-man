@@ -1,0 +1,20 @@
+{
+  "sections": [
+    {
+      "name": "Engines",
+      "row_start": 1,
+      "row_count": 20
+    },
+    {
+      "name": "Interior",
+      "row_start": 45,
+      "row_count": 30
+    },
+    {
+      "name": "Safety",
+      "row_start": 80,
+      "row_count": 40
+    }
+  ],
+  "total_rows": 150
+}

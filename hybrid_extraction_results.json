@@ -1,0 +1,734 @@
+{
+  "Arrizo_5_2024": {
+    "pdf_path": "/home/kellyb_dev/projects/hex-test-drive/pdfs/Chery/chery_official/Arrizo_5_2024.pdf",
+    "format_detected": "labels_in_column",
+    "trim_count": 3,
+    "trims": [
+      {
+        "trim_name": "MT",
+        "vehicle_trims": {
+          "engine_capacity": 1.5,
+          "horsepower": 114,
+          "torque": 141,
+          "output torque (nm / rpm)": 141,
+          "transmission": "5 MT"
+        },
+        "vehicle_dimensions": {
+          "wheelbase": "2650",
+          "ground_clearance": "120",
+          "curb_weight": "1297",
+          "trunk_capacity": 430.0,
+          "fuel_tank": "48"
+        },
+        "vehicle_chassis": {
+          "tire_size": "205/55 r16",
+          "drive_type": "fwd"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {},
+        "warranty_terms": {},
+        "features": [
+          {
+            "feature_code": "16''_alloy_wheel",
+            "feature_name": "16'' Alloy Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "spare_wheel",
+            "feature_name": "Spare Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "engine_immobilizer",
+            "feature_name": "Engine Immobilizer",
+            "is_standard": true
+          },
+          {
+            "feature_code": "dual_front_airbags",
+            "feature_name": "Dual Front Airbags",
+            "is_standard": true
+          },
+          {
+            "feature_code": "abs",
+            "feature_name": "Abs",
+            "is_standard": true
+          },
+          {
+            "feature_code": "ebd",
+            "feature_name": "Ebd",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_parking_sensors",
+            "feature_name": "Rear Parking Sensors",
+            "is_standard": true
+          },
+          {
+            "feature_code": "speed_limit_alert",
+            "feature_name": "Speed Limit Alert",
+            "is_standard": true
+          },
+          {
+            "feature_code": "child_anchor_iso_fix",
+            "feature_name": "Child Anchor Iso Fix",
+            "is_standard": true
+          },
+          {
+            "feature_code": "halogen_headlamps",
+            "feature_name": "Halogen Headlamps",
+            "is_standard": true
+          },
+          {
+            "feature_code": "led_rear_lamps",
+            "feature_name": "Led Rear Lamps",
+            "is_standard": true
+          },
+          {
+            "feature_code": "day_time_running_led",
+            "feature_name": "Day Time Running Led",
+            "is_standard": true
+          },
+          {
+            "feature_code": "power_outside_adjustable_mirrors_with_side_repeater",
+            "feature_name": "Power Outside Adjustable Mirrors With Side Repeater",
+            "is_standard": true
+          },
+          {
+            "feature_code": "pu_steering_wheel",
+            "feature_name": "Pu Steering Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "cluster_screen_3.5''",
+            "feature_name": "Cluster Screen 3.5''",
+            "is_standard": true
+          },
+          {
+            "feature_code": "front_arm_rests",
+            "feature_name": "Front Arm Rests",
+            "is_standard": true
+          },
+          {
+            "feature_code": "keyless_entry_system",
+            "feature_name": "Keyless Entry System",
+            "is_standard": true
+          },
+          {
+            "feature_code": "remote_trunk_control",
+            "feature_name": "Remote Trunk Control",
+            "is_standard": true
+          },
+          {
+            "feature_code": "multi_function_steering_wheel",
+            "feature_name": "Multi-Function Steering Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "power_windows",
+            "feature_name": "Power Windows",
+            "is_standard": true
+          },
+          {
+            "feature_code": "electric_a/c",
+            "feature_name": "Electric A/C",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_air_vents",
+            "feature_name": "Rear Air Vents",
+            "is_standard": true
+          },
+          {
+            "feature_code": "cruise_control",
+            "feature_name": "Cruise Control",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_privacy_glass",
+            "feature_name": "Rear Privacy Glass",
+            "is_standard": true
+          },
+          {
+            "feature_code": "bluetooth",
+            "feature_name": "Bluetooth",
+            "is_standard": true
+          },
+          {
+            "feature_code": "radio",
+            "feature_name": "Radio",
+            "is_standard": true
+          },
+          {
+            "feature_code": "usb",
+            "feature_name": "Usb",
+            "is_standard": true
+          }
+        ]
+      },
+      {
+        "trim_name": "Basic",
+        "vehicle_trims": {
+          "engine_capacity": 1.5,
+          "horsepower": 114,
+          "torque": 141,
+          "output torque (nm / rpm)": "None",
+          "transmission": "CVT"
+        },
+        "vehicle_dimensions": {
+          "wheelbase": "2650",
+          "ground_clearance": "120",
+          "curb_weight": "1297",
+          "trunk_capacity": 430.0,
+          "fuel_tank": "48"
+        },
+        "vehicle_chassis": {
+          "tire_size": "205/55 r16",
+          "drive_type": "fwd"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {},
+        "warranty_terms": {},
+        "features": [
+          {
+            "feature_code": "16''_alloy_wheel",
+            "feature_name": "16'' Alloy Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "spare_wheel",
+            "feature_name": "Spare Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "engine_immobilizer",
+            "feature_name": "Engine Immobilizer",
+            "is_standard": true
+          },
+          {
+            "feature_code": "dual_front_airbags",
+            "feature_name": "Dual Front Airbags",
+            "is_standard": true
+          },
+          {
+            "feature_code": "abs",
+            "feature_name": "Abs",
+            "is_standard": true
+          },
+          {
+            "feature_code": "ebd",
+            "feature_name": "Ebd",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_parking_sensors",
+            "feature_name": "Rear Parking Sensors",
+            "is_standard": true
+          },
+          {
+            "feature_code": "speed_limit_alert",
+            "feature_name": "Speed Limit Alert",
+            "is_standard": true
+          },
+          {
+            "feature_code": "child_anchor_iso_fix",
+            "feature_name": "Child Anchor Iso Fix",
+            "is_standard": true
+          },
+          {
+            "feature_code": "halogen_headlamps",
+            "feature_name": "Halogen Headlamps",
+            "is_standard": true
+          },
+          {
+            "feature_code": "led_rear_lamps",
+            "feature_name": "Led Rear Lamps",
+            "is_standard": true
+          },
+          {
+            "feature_code": "day_time_running_led",
+            "feature_name": "Day Time Running Led",
+            "is_standard": true
+          },
+          {
+            "feature_code": "power_outside_adjustable_mirrors_with_side_repeater",
+            "feature_name": "Power Outside Adjustable Mirrors With Side Repeater",
+            "is_standard": true
+          },
+          {
+            "feature_code": "pu_steering_wheel",
+            "feature_name": "Pu Steering Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "cluster_screen_3.5''",
+            "feature_name": "Cluster Screen 3.5''",
+            "is_standard": true
+          },
+          {
+            "feature_code": "front_arm_rests",
+            "feature_name": "Front Arm Rests",
+            "is_standard": true
+          },
+          {
+            "feature_code": "eco_mode",
+            "feature_name": "Eco Mode",
+            "is_standard": true
+          },
+          {
+            "feature_code": "keyless_entry_system",
+            "feature_name": "Keyless Entry System",
+            "is_standard": true
+          },
+          {
+            "feature_code": "remote_trunk_control",
+            "feature_name": "Remote Trunk Control",
+            "is_standard": true
+          },
+          {
+            "feature_code": "multi_function_steering_wheel",
+            "feature_name": "Multi-Function Steering Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "power_windows",
+            "feature_name": "Power Windows",
+            "is_standard": true
+          },
+          {
+            "feature_code": "electric_a/c",
+            "feature_name": "Electric A/C",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_air_vents",
+            "feature_name": "Rear Air Vents",
+            "is_standard": true
+          },
+          {
+            "feature_code": "cruise_control",
+            "feature_name": "Cruise Control",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_privacy_glass",
+            "feature_name": "Rear Privacy Glass",
+            "is_standard": true
+          },
+          {
+            "feature_code": "bluetooth",
+            "feature_name": "Bluetooth",
+            "is_standard": true
+          },
+          {
+            "feature_code": "radio",
+            "feature_name": "Radio",
+            "is_standard": true
+          },
+          {
+            "feature_code": "usb",
+            "feature_name": "Usb",
+            "is_standard": true
+          }
+        ]
+      },
+      {
+        "trim_name": "Comfort",
+        "vehicle_trims": {
+          "engine_capacity": 1.5,
+          "horsepower": 114,
+          "torque": 141,
+          "output torque (nm / rpm)": "None",
+          "transmission": "None"
+        },
+        "vehicle_dimensions": {
+          "wheelbase": "2650",
+          "ground_clearance": "120",
+          "curb_weight": "1297",
+          "trunk_capacity": 430.0,
+          "fuel_tank": "48"
+        },
+        "vehicle_chassis": {
+          "tire_size": "205/55 r16",
+          "drive_type": "fwd"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {},
+        "warranty_terms": {},
+        "features": [
+          {
+            "feature_code": "16''_alloy_wheel",
+            "feature_name": "16'' Alloy Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "spare_wheel",
+            "feature_name": "Spare Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "engine_immobilizer",
+            "feature_name": "Engine Immobilizer",
+            "is_standard": true
+          },
+          {
+            "feature_code": "dual_front_airbags",
+            "feature_name": "Dual Front Airbags",
+            "is_standard": true
+          },
+          {
+            "feature_code": "abs",
+            "feature_name": "Abs",
+            "is_standard": true
+          },
+          {
+            "feature_code": "ebd",
+            "feature_name": "Ebd",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_parking_sensors",
+            "feature_name": "Rear Parking Sensors",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_view_camera",
+            "feature_name": "Rear View Camera",
+            "is_standard": true
+          },
+          {
+            "feature_code": "speed_limit_alert",
+            "feature_name": "Speed Limit Alert",
+            "is_standard": true
+          },
+          {
+            "feature_code": "child_anchor_iso_fix",
+            "feature_name": "Child Anchor Iso Fix",
+            "is_standard": true
+          },
+          {
+            "feature_code": "halogen_headlamps",
+            "feature_name": "Halogen Headlamps",
+            "is_standard": true
+          },
+          {
+            "feature_code": "led_rear_lamps",
+            "feature_name": "Led Rear Lamps",
+            "is_standard": true
+          },
+          {
+            "feature_code": "day_time_running_led",
+            "feature_name": "Day Time Running Led",
+            "is_standard": true
+          },
+          {
+            "feature_code": "electric_sunroof",
+            "feature_name": "Electric Sunroof",
+            "is_standard": true
+          },
+          {
+            "feature_code": "power_outside_adjustable_mirrors_with_side_repeater",
+            "feature_name": "Power Outside Adjustable Mirrors With Side Repeater",
+            "is_standard": true
+          },
+          {
+            "feature_code": "heating_outside_mirrors",
+            "feature_name": "Heating Outside Mirrors",
+            "is_standard": true
+          },
+          {
+            "feature_code": "folding_outside_mirrors",
+            "feature_name": "Folding Outside Mirrors",
+            "is_standard": true
+          },
+          {
+            "feature_code": "pu_steering_wheel",
+            "feature_name": "Pu Steering Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "cluster_screen_3.5''",
+            "feature_name": "Cluster Screen 3.5''",
+            "is_standard": true
+          },
+          {
+            "feature_code": "front_arm_rests",
+            "feature_name": "Front Arm Rests",
+            "is_standard": true
+          },
+          {
+            "feature_code": "eco_mode",
+            "feature_name": "Eco Mode",
+            "is_standard": true
+          },
+          {
+            "feature_code": "keyless_entry_system",
+            "feature_name": "Keyless Entry System",
+            "is_standard": true
+          },
+          {
+            "feature_code": "remote_trunk_control",
+            "feature_name": "Remote Trunk Control",
+            "is_standard": true
+          },
+          {
+            "feature_code": "multi_function_steering_wheel",
+            "feature_name": "Multi-Function Steering Wheel",
+            "is_standard": true
+          },
+          {
+            "feature_code": "power_windows",
+            "feature_name": "Power Windows",
+            "is_standard": true
+          },
+          {
+            "feature_code": "electric_a/c",
+            "feature_name": "Electric A/C",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_air_vents",
+            "feature_name": "Rear Air Vents",
+            "is_standard": true
+          },
+          {
+            "feature_code": "cruise_control",
+            "feature_name": "Cruise Control",
+            "is_standard": true
+          },
+          {
+            "feature_code": "rear_privacy_glass",
+            "feature_name": "Rear Privacy Glass",
+            "is_standard": true
+          },
+          {
+            "feature_code": "8''_touch_screen",
+            "feature_name": "8'' Touch Screen",
+            "is_standard": true
+          },
+          {
+            "feature_code": "bluetooth",
+            "feature_name": "Bluetooth",
+            "is_standard": true
+          },
+          {
+            "feature_code": "apple_carplay_and_android_auto",
+            "feature_name": "Apple Carplay And Android Auto",
+            "is_standard": true
+          },
+          {
+            "feature_code": "radio",
+            "feature_name": "Radio",
+            "is_standard": true
+          },
+          {
+            "feature_code": "usb",
+            "feature_name": "Usb",
+            "is_standard": true
+          }
+        ]
+      }
+    ],
+    "extraction_method": "hybrid"
+  },
+  "MG_4_EV_2025": {
+    "pdf_path": "/home/kellyb_dev/projects/hex-test-drive/pdfs/MG/mg_official/MG_4_EV_2025.pdf",
+    "format_detected": "labels_in_column",
+    "trim_count": 2,
+    "trims": [
+      {
+        "trim_name": "Standard",
+        "vehicle_trims": {
+          "horsepower": 168,
+          "torque": 250,
+          "max torque (n.m)": 250,
+          "fabric seats": 149
+        },
+        "vehicle_dimensions": {
+          "length_mm": 4287,
+          "width_mm": 1836,
+          "height_mm": 1504,
+          "wheelbase": "2705",
+          "curb_weight": "1655",
+          "wheelbase (mm)": "2705"
+        },
+        "vehicle_chassis": {
+          "tire_size": "205/60 r16"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {
+          "battery_capacity": 51.0,
+          "dc_charging_time": "40"
+        },
+        "warranty_terms": {},
+        "features": []
+      },
+      {
+        "trim_name": "Luxury",
+        "vehicle_trims": {
+          "horsepower": 168,
+          "torque": 250,
+          "max torque (n.m)": "None",
+          "mircofiber partial leather seats": 149,
+          "3 level heated front seats": 149
+        },
+        "vehicle_dimensions": {
+          "length_mm": 4287,
+          "width_mm": 1836,
+          "height_mm": 1504,
+          "wheelbase": "2705",
+          "curb_weight": "1655",
+          "wheelbase (mm)": "None"
+        },
+        "vehicle_chassis": {
+          "tire_size": "205/60 r16"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {
+          "battery_capacity": 51.0,
+          "dc_charging_time": "40"
+        },
+        "warranty_terms": {},
+        "features": []
+      }
+    ],
+    "extraction_method": "hybrid"
+  },
+  "Accent_RB_2024": {
+    "pdf_path": "/home/kellyb_dev/projects/hex-test-drive/pdfs/Hyundai/hyundai_official/Accent_RB_2024.pdf",
+    "format_detected": "labels_in_column",
+    "trim_count": 5,
+    "trims": [
+      {
+        "trim_name": "-",
+        "vehicle_trims": {
+          "engine_capacity": 1.6,
+          "horsepower": 125,
+          "torque": 156
+        },
+        "vehicle_dimensions": {
+          "wheelbase": "2570",
+          "ground_clearance": "147",
+          "fuel_tank": "43"
+        },
+        "vehicle_chassis": {
+          "wheel_size": "16"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {},
+        "warranty_terms": {},
+        "features": [
+          {
+            "feature_code": "none",
+            "feature_name": "None",
+            "is_standard": true
+          }
+        ]
+      },
+      {
+        "trim_name": "-",
+        "vehicle_trims": {
+          "engine_capacity": 1.6,
+          "horsepower": 125,
+          "torque": 156
+        },
+        "vehicle_dimensions": {
+          "wheelbase": "2570",
+          "ground_clearance": "147",
+          "fuel_tank": "43"
+        },
+        "vehicle_chassis": {
+          "wheel_size": "16"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {},
+        "warranty_terms": {},
+        "features": [
+          {
+            "feature_code": "none",
+            "feature_name": "None",
+            "is_standard": true
+          }
+        ]
+      },
+      {
+        "trim_name": "-",
+        "vehicle_trims": {
+          "engine_capacity": 1.6,
+          "horsepower": 125,
+          "torque": 156
+        },
+        "vehicle_dimensions": {
+          "wheelbase": "2570",
+          "ground_clearance": "147",
+          "fuel_tank": "43"
+        },
+        "vehicle_chassis": {
+          "wheel_size": "16"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {},
+        "warranty_terms": {},
+        "features": [
+          {
+            "feature_code": "none",
+            "feature_name": "None",
+            "is_standard": true
+          }
+        ]
+      },
+      {
+        "trim_name": "-",
+        "vehicle_trims": {
+          "engine_capacity": 1.6,
+          "horsepower": 125,
+          "torque": 156
+        },
+        "vehicle_dimensions": {
+          "wheelbase": "2570",
+          "ground_clearance": "147",
+          "fuel_tank": "43"
+        },
+        "vehicle_chassis": {
+          "wheel_size": "16"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {},
+        "warranty_terms": {},
+        "features": [
+          {
+            "feature_code": "none",
+            "feature_name": "None",
+            "is_standard": true
+          }
+        ]
+      },
+      {
+        "trim_name": "S",
+        "vehicle_trims": {
+          "engine_capacity": 1.6,
+          "horsepower": 125,
+          "torque": 156
+        },
+        "vehicle_dimensions": {
+          "wheelbase": "2570",
+          "ground_clearance": "147",
+          "fuel_tank": "43"
+        },
+        "vehicle_chassis": {
+          "wheel_size": "16"
+        },
+        "vehicle_environmental_specs": {},
+        "ev_specs": {},
+        "warranty_terms": {},
+        "features": [
+          {
+            "feature_code": "none",
+            "feature_name": "None",
+            "is_standard": true
+          }
+        ]
+      }
+    ],
+    "extraction_method": "hybrid"
+  }
+}

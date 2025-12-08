@@ -1,0 +1,12 @@
+{
+  "brand": "Ford",
+  "timestamp": "2025-11-26T16:19:07.539Z",
+  "source": "YallaMotor Egypt",
+  "sourceUrl": "https://egypt.yallamotor.com/new-cars/ford",
+  "pdfGenerationMethod": "Puppeteer page-to-PDF from model detail pages",
+  "modelsFound": 0,
+  "pdfGenerated": 0,
+  "models": [],
+  "notes": "YallaMotor does not offer official brochures. PDFs generated from model specification pages.",
+  "errors": []
+}
