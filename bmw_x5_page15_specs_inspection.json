@@ -1,0 +1,46 @@
+{
+  "path": "bmw_x5_page15_specs.pdf",
+  "content_type": "text_based",
+  "tables": [
+    {
+      "page": 1,
+      "table_index": 1,
+      "rows": 69,
+      "columns": 4,
+      "orientation": "landscape",
+      "header": [
+        "SPECIFICATIONS",
+        "X5 xDrive40i",
+        "X5 M60i xDrive",
+        "تﺎﻔﺻاﻮﻤﻟا"
+      ]
+    },
+    {
+      "page": 1,
+      "table_index": 2,
+      "rows": 40,
+      "columns": 4,
+      "orientation": "landscape",
+      "header": [
+        "SPECIFICATIONS",
+        "X5 xDrive40i",
+        "X5 M60i xDrive",
+        "تﺎﻔﺻاﻮﻤﻟا"
+      ]
+    },
+    {
+      "page": 1,
+      "table_index": 3,
+      "rows": 12,
+      "columns": 4,
+      "orientation": "landscape",
+      "header": [
+        "Technical Data",
+        "X5 xDrive40i",
+        "X5 M60i xDrive",
+        "ﺔﻴﻨﻘﺗ تﺎﻣﻮﻠﻌﻣ"
+      ]
+    }
+  ],
+  "total_pages": 1
+}

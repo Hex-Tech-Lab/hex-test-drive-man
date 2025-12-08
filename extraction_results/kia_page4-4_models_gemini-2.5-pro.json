@@ -1,0 +1,901 @@
+{
+  "trim_names": [
+    "LX",
+    "EX",
+    "Highline",
+    "Premium",
+    "GT-line"
+  ],
+  "sections": [
+    {
+      "section_name": "Performance",
+      "features": [
+        {
+          "feature_name": "Engine Capacity",
+          "values": {
+            "LX": "4 Cylinders 1.6L Turbo GDI",
+            "EX": "4 Cylinders 1.6L Turbo GDI",
+            "Highline": "4 Cylinders 1.6L Turbo GDI",
+            "Premium": "4 Cylinders 1.6L Turbo GDI",
+            "GT-line": "4 Cylinders 1.6L Turbo GDI"
+          }
+        },
+        {
+          "feature_name": "Max. Power (HP/rpm)",
+          "values": {
+            "LX": "180/5,500",
+            "EX": "180/5,500",
+            "Highline": "180/5,500",
+            "Premium": "180/5,500",
+            "GT-line": "180/5,500"
+          }
+        },
+        {
+          "feature_name": "Max. Torque (Nm/rpm)",
+          "values": {
+            "LX": "265/4,500",
+            "EX": "265/4,500",
+            "Highline": "265/4,500",
+            "Premium": "265/4,500",
+            "GT-line": "265/4,500"
+          }
+        },
+        {
+          "feature_name": "Transmission",
+          "values": {
+            "LX": "7-Speed Automatic DCT",
+            "EX": "7-Speed Automatic DCT",
+            "Highline": "7-Speed Automatic DCT",
+            "Premium": "7-Speed Automatic DCT",
+            "GT-line": "7-Speed Automatic DCT"
+          }
+        },
+        {
+          "feature_name": "Fuel Tank Capacity (L)",
+          "values": {
+            "LX": "54",
+            "EX": "54",
+            "Highline": "54",
+            "Premium": "54",
+            "GT-line": "54"
+          }
+        },
+        {
+          "feature_name": "Front Suspension",
+          "values": {
+            "LX": "McPherson Strut-type",
+            "EX": "McPherson Strut-type",
+            "Highline": "McPherson Strut-type",
+            "Premium": "McPherson Strut-type",
+            "GT-line": "McPherson Strut-type"
+          }
+        },
+        {
+          "feature_name": "Rear Suspension",
+          "values": {
+            "LX": "Multilink (4-Link)",
+            "EX": "Multilink (4-Link)",
+            "Highline": "Multilink (4-Link)",
+            "Premium": "Multilink (4-Link)",
+            "GT-line": "Multilink (4-Link)"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Dimensions",
+      "features": [
+        {
+          "feature_name": "Minimum Ground Clearance (mm)",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": null,
+            "GT-line": null
+          }
+        },
+        {
+          "feature_name": "Boot Capacity (L)",
+          "values": {
+            "LX": "591",
+            "EX": "591",
+            "Highline": "591",
+            "Premium": "591",
+            "GT-line": "591"
+          }
+        },
+        {
+          "feature_name": "Boot Capacity after Folding 2nd Row (L)",
+          "values": {
+            "LX": "1,780",
+            "EX": "1,780",
+            "Highline": "1,780",
+            "Premium": "1,780",
+            "GT-line": "1,780"
+          }
+        },
+        {
+          "feature_name": "Overall Length (mm)",
+          "values": {
+            "LX": "4,540",
+            "EX": "4,540",
+            "Highline": "4,540",
+            "Premium": "4,540",
+            "GT-line": "4,540"
+          }
+        },
+        {
+          "feature_name": "Overall Width (mm)",
+          "values": {
+            "LX": "1,865",
+            "EX": "1,865",
+            "Highline": "1,865",
+            "Premium": "1,865",
+            "GT-line": "1,865"
+          }
+        },
+        {
+          "feature_name": "Overall Height (mm)",
+          "values": {
+            "LX": "1,645",
+            "EX": "1,645",
+            "Highline": "1,645",
+            "Premium": "1,645",
+            "GT-line": "1,645"
+          }
+        },
+        {
+          "feature_name": "Wheelbase (mm)",
+          "values": {
+            "LX": "2,680",
+            "EX": "2,680",
+            "Highline": "2,680",
+            "Premium": "2,680",
+            "GT-line": "2,680"
+          }
+        },
+        {
+          "feature_name": "Minimum Ground Clearance (mm)",
+          "values": {
+            "LX": "170",
+            "EX": "170",
+            "Highline": "170",
+            "Premium": "170",
+            "GT-line": "170"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Safety",
+      "features": [
+        {
+          "feature_name": "ABS + EBD",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "VSM + ESC",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "TPMS",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "HAC + DBC",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "BAS + TSA",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "EPB + Auto Hold",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Rear Parking Assist",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Driver & Passenger Airbag",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Side & Curtain Airbags",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Front Parking Assist",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Blind Spot Collision Warning",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "BVM (Blind-Spot View Monitor)",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "FCW (Front Collision Avoidance)",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "LKA (Lane Keeping Assist)",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "LFA (Lane Following Assist)",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "PCA (Parking Collision Avoidance Assist)",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Exterior",
+      "features": [
+        {
+          "feature_name": "Front Fog Lamp",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "LED Headlamps + DRL",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Privacy Glass",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Roof Rails",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Auto Light Control",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Alloy Wheel R17",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": null,
+            "Premium": null,
+            "GT-line": null
+          }
+        },
+        {
+          "feature_name": "Rear Lamp Combination (Bulb & LED)",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": null,
+            "GT-line": null
+          }
+        },
+        {
+          "feature_name": "Electric Folding Mirrors",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Smart Key Entry",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Rain Sensor",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Alloy Wheel R18",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": "S",
+            "Premium": null,
+            "GT-line": null
+          }
+        },
+        {
+          "feature_name": "Electric Panoramic Sunroof",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Alloy Wheel R19",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Rear Combination Lamp Full LED",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Electric Tail Gate + Smart Trunk",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Cubic LED Headlamps",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Interior",
+      "features": [
+        {
+          "feature_name": "Manual Air Conditioner",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": null,
+            "Premium": null,
+            "GT-line": null
+          }
+        },
+        {
+          "feature_name": "12.3-inch Curved Infotainment Screen",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Radio + 6 Speakers + USB + BT + Voice",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Apple CarPlay & Android Auto",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Drive Mode Select",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Steering Wheel Audio Controls",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Driver's Seat Height Adjuster",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Rear A/C Vents",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Rear Center Armrest + Cup Holder",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Cruise Control",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Rear View Camera",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Digital Cluster Display",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": null,
+            "Premium": null,
+            "GT-line": null
+          }
+        },
+        {
+          "feature_name": "Leather Steering Wheel + TGS Knob",
+          "values": {
+            "LX": "S",
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Electrochromic Mirror",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Start/Stop Engine Button + Remote Start",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Dual Zone Auto Air Conditioner",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Lumbar Support",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Remote Folding 2nd Row",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Rear Type-C Charger (2 Ports)",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Auto Window Defogger",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Infotainment/Climate Switchable Controller",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Leather + Cloth Seats",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": null,
+            "GT-line": null
+          }
+        },
+        {
+          "feature_name": "Paddle Shifters",
+          "values": {
+            "LX": null,
+            "EX": "S",
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Shift By Wire",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Variable Ambient Mood Lights",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Wireless Smart Phone Charger",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": null
+          }
+        },
+        {
+          "feature_name": "Leather Seats (Camel Brown)",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": "S",
+            "Premium": null,
+            "GT-line": null
+          }
+        },
+        {
+          "feature_name": "Full Digital Cluster 12.3-inch",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": "S",
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Driver & Passenger Power Seat",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Heated Seats (Front) + Heated Steering Wheel",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Ventilated Seats (Front)",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Walk In Device for Passenger Seat",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "360\u00b0 Surround View Monitor",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "SSC Smart Cruise Control",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": "S",
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "GT Leather + GT Steering",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": null,
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "GT Exterior Package",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": null,
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "GT Aluminum Foot Pedals",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": null,
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "HUD Head-up Display Projector",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": null,
+            "GT-line": "S"
+          }
+        },
+        {
+          "feature_name": "Heated Seats (Rear)",
+          "values": {
+            "LX": null,
+            "EX": null,
+            "Highline": null,
+            "Premium": null,
+            "GT-line": "S"
+          }
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "model": "models/gemini-2.5-pro",
+    "elapsed_sec": 71.46,
+    "image_path": "pdf_images/kia_page4-4.png"
+  }
+}

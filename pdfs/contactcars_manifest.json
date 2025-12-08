@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "source": "ContactCars",
+    "baseUrl": "https://www.contactcars.com/en",
+    "scrapeDate": "2025-11-26T14:23:55.193Z",
+    "scrapeType": "model_pages_advanced",
+    "brands": [
+      "volvo",
+      "bmw",
+      "toyota",
+      "hyundai",
+      "nissan",
+      "porsche",
+      "chery",
+      "mg",
+      "tesla",
+      "byd"
+    ]
+  },
+  "summary": {
+    "totalDownloaded": 0,
+    "totalFailed": 0,
+    "totalNotFound": 0
+  },
+  "downloads": [],
+  "failed": []
+}

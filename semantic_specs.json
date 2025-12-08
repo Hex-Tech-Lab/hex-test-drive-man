@@ -1,0 +1,84 @@
+{
+  "total_specs": 139,
+  "hierarchy_detected": 1,
+  "packages_detected": 6,
+  "perplexity_target": 168,
+  "coverage": 82.7,
+  "sample": [
+    {
+      "idx": 1,
+      "table": 1,
+      "en": "TwinPower Turbo 6-cylinder inline petrol engine",
+      "ar": "M TwinPower Turbo تﺎﻧاﻮﻄﺳأ ٦ كﺮﺤﻣ",
+      "trims": [
+        "",
+        ""
+      ],
+      "is_header": false,
+      "is_package": false,
+      "hierarchy_level": "spec_row",
+      "color_group": null,
+      "section": "ROOT"
+    },
+    {
+      "idx": 2,
+      "table": 1,
+      "en": "M TwinPower Turbo 8-cylinder petrol engine",
+      "ar": "M TwinPower Turbo تﺎﻧاﻮﻄﺳأ ٨ كﺮﺤﻣ",
+      "trims": [
+        "",
+        ""
+      ],
+      "is_header": false,
+      "is_package": false,
+      "hierarchy_level": "spec_row",
+      "color_group": null,
+      "section": "ROOT"
+    },
+    {
+      "idx": 3,
+      "table": 1,
+      "en": "8-Speed Sport Steptronic Transmission with gear shift paddles",
+      "ar": "ةدﺎﻴﻘﻟا ﺔﻠﺠﻋ ﻰﻠﻋ ﺔﻋﺮﺴﻠﻟ تﻻاﺪﺒﺑ دوﺰﻣ تﺎﻋﺮﺳ ٨ ﻲﺿﺎﻳر ﺔﻛﺮﺣ ﻞﻗﺎﻧ",
+      "trims": [
+        "",
+        ""
+      ],
+      "is_header": false,
+      "is_package": false,
+      "hierarchy_level": "spec_row",
+      "color_group": null,
+      "section": "ROOT"
+    },
+    {
+      "idx": 7,
+      "table": 1,
+      "en": "Active protection",
+      "ar": "ﻲﻠﻋﺎﻔﺘﻟا ﺔﻳﺎﻤﺤﻟا مﺎﻈﻧ",
+      "trims": [
+        "",
+        ""
+      ],
+      "is_header": false,
+      "is_package": false,
+      "hierarchy_level": "spec_row",
+      "color_group": null,
+      "package": "Active Guard"
+    },
+    {
+      "idx": 8,
+      "table": 1,
+      "en": "Anti Lock Braking System (ABS)",
+      "ar": "ﺢﺑﺎﻜﻤﻠﻟ قﻼﻐﻧﻻا ﻊﻨﻣ مﺎﻈﻧ",
+      "trims": [
+        "",
+        ""
+      ],
+      "is_header": false,
+      "is_package": false,
+      "hierarchy_level": "spec_row",
+      "color_group": null,
+      "package": "Active Guard"
+    }
+  ]
+}

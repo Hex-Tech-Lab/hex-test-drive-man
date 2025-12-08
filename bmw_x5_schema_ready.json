@@ -1,0 +1,1042 @@
+{
+  "source_pdf": "X5_LCI_2025.pdf",
+  "extraction_method": "pdfplumber+haiku",
+  "total_specs": 0,
+  "specs": [
+    {
+      "name_en": "TwinPower Turbo 6-cylinder inline petrol engine",
+      "name_ar": "M TwinPower Turbo تﺎﻧاﻮﻄﺳأ ٦ كﺮﺤﻣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M TwinPower Turbo 8-cylinder petrol engine",
+      "name_ar": "M TwinPower Turbo تﺎﻧاﻮﻄﺳأ ٨ كﺮﺤﻣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "8-Speed Sport Steptronic Transmission with gear shift paddles",
+      "name_ar": "ةدﺎﻴﻘﻟا ﺔﻠﺠﻋ ﻰﻠﻋ ﺔﻋﺮﺴﻠﻟ تﻻاﺪﺒﺑ دوﺰﻣ تﺎﻋﺮﺳ ٨ ﻲﺿﺎﻳر ﺔﻛﺮﺣ ﻞﻗﺎﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Equipment",
+      "name_ar": "تاﺰﻴﻬﺠﺘﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Safety",
+      "name_ar": "نﺎﻣﻷا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Active Guard:\nLane Departure Warning with Active Return\nFront Collision Warning with Brake Intervention\nSpeed Limit Info including Prediction, no Overtaking Indicator and Left-turn warning with brake function\nEvasion assistant",
+      "name_ar": ":ﻂﺸﻨﻟا ﺔﻳﺎﻤﺤﻟا مﺎﻈﻧ\nرﺎﺴﻤﻠﻟ ةرﺎﻴﺴﻟا ةدﻮﻋ ﺪﻋﺎﺴﻣ ﻊﻣ ﺔﻳروﺮﻤﻟا ةرﺎﺤﻟا ةردﺎﻐﻣ ﺪﻨﻋ ﻪﻴﺒﻨﺘﻟا مﺎﻈﻧ\nما ﺪﻄﺻﻻا ﻦﻣ باﺮﺘﻗﻻا ﺪﻨﻋ ﺢﺑﺎﻜﻤﻟا ﻞﻴﻌﻔﺗو ﻪﻴﺒﻨﺘﻟا مﺎﻈﻧ\nﺢﺑﺎﻜﻤﻟا ﻞﻴﻌﻔﺗ ﻊﻣ رﺎﺴﻴﻠﻟ فﺎﻄﻌﻧﻻا ﺪﻨﻋ ﺮﻳﺬﺤﺘﻟا مﺎﻈﻧو ﺔﻴﻧﻮﻧﺎﻘﻟا ﺔﻋﺮﺴﻟا ﺐﺴﺣ ةرﺎﻴﺴﻟا ﺔﻋﺮﺳ ﻂﺒﺿو ضﺮﻋ مﺎﻈﻧ\n(ماﺪﻄﺻﻻا ﻦﻣ باﺮﺘﻗﻻا) ئراﻮﻄﻟا ﺔﻟﺎﺣ ﻲﻓ ةرﺎﻴﺴﻟا رﺎﺴﻣ ﻞﻳﻮﺤﺗ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Active protection",
+      "name_ar": "ﻲﻠﻋﺎﻔﺘﻟا ﺔﻳﺎﻤﺤﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Anti Lock Braking System (ABS)",
+      "name_ar": "ﺢﺑﺎﻜﻤﻠﻟ قﻼﻐﻧﻻا ﻊﻨﻣ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Attentiveness assistant",
+      "name_ar": "ةدﺎﻴﻘﻟا ءﺎﻨﺛأ هﺎﺒﺘﻧِﻻا ﻰﻠﻋ ﻖﺋﺎﺴﻟا ةﺪﻋﺎﺴﻣ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Automatic Stability Control (ASC)",
+      "name_ar": "ةرﺎﻴﺴﻟا تﺎﺒﺛ ﻲﻓ ﻲﻧوﺮﺘﻜﻟﻹا ﻢﻜﺤﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Brake Assist",
+      "name_ar": "ﺢﺑﺎﻜﻤﻠﻟ ةرزاﺆﻤﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Brake Energy Regeneration",
+      "name_ar": "ﺎًﻴﺗاذ ﺢﺑﺎﻜﻤﻟا مﺎﻈﻨﻟ ﺔﻴﺋﺎﺑﺮﻬﻜﻟا ﺔﻗﺎﻄﻟا ﺪﻴﻟﻮﺗ ةدﺎﻋإ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Brake-pad wear indicator",
+      "name_ar": "ﻞﻣاﺮﻔﻟا ﻞﻛﺂﺗ ةدﻮﺟ ﻦﻋ ﻪﻴﺒﻨﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Central locking",
+      "name_ar": "يﺰﻛﺮﻤﻟا ﻞﻔﻘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Cornering Brake Control (CBC)",
+      "name_ar": "تﺎﺒﻨﺤﻨﻤﻟا ﻲﻓ ﺢﺑﺎﻜﻤﻟا ﻲﻓ ﻢﻜﺤﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Crash Sensor",
+      "name_ar": "بﺎﻛﺮﻟا ﺔﻳﺎﻤﺤﻟ مدﺎﺼﺗ سﺎﺴﺣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Curtain head airbags front and rear",
+      "name_ar": "ﺔﻴﻔﻠﺧو ﺔﻴﻣﺎﻣأ ﺔﻴﺋاﻮﻫ ﺔﻳﺎﻤﺣ ﺮﺋﺎﺘﺳ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Driver and front passenger airbags with occupation detector",
+      "name_ar": "ﺪﻌﻘﻤﻟا لﺎﻐﺷإ ﺮﻌﺸﺘﺴﻣ ﻊﻣ ﻲﻣﺎﻣﻷا ﺐﻛاﺮﻟاو ﻖﺋﺎﺴﻠﻟ ﺔﻴﺋاﻮﻫ ﺪﺋﺎﺳو",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Dynamic Brake Control (DBC)",
+      "name_ar": "ةرﺎﻴﺴﻟا ﺢﺑﺎﻜﻣ ﻲﻓ ﻲﻜﻴﻣﺎﻨﻳﺪﻟا ﻢﻜﺤﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Dynamic Braking Lights",
+      "name_ar": "ﺔﻴﻔﻠﺨﻟا ﺢﻴﺑﺎﺼﻤﻟا ﻲﻓ ﺔﻴﻜﻴﻣﺎﻨﻳد ةءﺎﺿإ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Dynamic Stability Control (DSC)",
+      "name_ar": "ةرﺎﻴﺴﻟا تﺎﺒﺛ ﻲﻓ ﻲﻜﻴﻣﺎﻨﻳﺪﻟا ﻢﻜﺤﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Dynamic Traction Control (DTC)",
+      "name_ar": "ةرﺎﻴﺴﻟا ﺮﺟ ﻲﻓ ﻢﻜﺤﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Electronic vehicle immobilizer",
+      "name_ar": "ﺔﻗﺮﺴﻟا ﺪﺿ ﻲﻧوﺮﺘﻛﻹا ﺔﻳﺎﻤﺤﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Hill Descent Control (HDC)",
+      "name_ar": "تارﺪﺤﻨﻤﻟا ﻲﻓ ةرﺎﻴﺴﻟا لوﺰﻧ ﻲﻓ ﻢﻜﺤﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "ISO Fix Child Seat Mounting",
+      "name_ar": "لﺎﻔﻃﻷا ﺪﻋﺎﻘﻤﻟ ﺖﻴﺒﺜﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "PC iBrake (PostCrash approach control warning with light braking function)",
+      "name_ar": "ةدﺪﻌﺘﻤﻟا تﺎﻣدﺎﺼﺘﻟا ﻊﻨﻤﻟ - ﺆﻃﺎﺒﺘﻟا ﻲﻓ ﻢﻜﺤﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Run-flat Tyres with run-flat indicator",
+      "name_ar": "تارﺎﻃﻹا ﻦﻣ ءاﻮﻬﻟا بﺮﺴﺗ ﺪﻨﻋ ﻪﻴﺒﻨﺘﻟا مﺎﻈﻧ ﻊﻣ ءاﻮﻫ ﻼﺑ ﺮﻴﺴﻟا ﺎﻴﺟﻮﻟﻮﻨﻜﺘﺑ ةرﻮﻄﺘﻣ تارﺎﻃإ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Side airbags for driver and front passenger, integrated in seat backrests",
+      "name_ar": "ﻲﻣﺎﻣﻷا ﺐﻛاﺮﻟاو ﻖﺋﺎﺴﻠﻟ ﺔﻴﺒﻧﺎﺟ ﺔﻴﺋاﻮﻫ ﺪﺋﺎﺳو",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Side airbags for passengers in the 2nd row of seats",
+      "name_ar": "بﺎﻛﺮﻟا ﻦﻣ ﻲﻧﺎﺜﻟا ﻒﺼﻠﻟ ﺔﻴﺒﻧﺎﺟ ﺔﻴﺋاﻮﻫ ﺪﺋﺎﺳو",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Tire pressure monitoring system",
+      "name_ar": "تارﺎﻃﻹا ﻂﻐﺿ ﺔﺒﻗاﺮﻣ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "xDrive",
+      "name_ar": "xDrive رﻮﻄﺘﻤﻟا ﻲﻋﺎﺑﺮﻟا ﻊﻓﺪﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Performance",
+      "name_ar": "ءادﻷا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Recovery system (48v mild hybrid system)",
+      "name_ar": "ﺖﻟﻮﭬ ٤٨ ﻦﻴﺠﻫ ﻊﻓد مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Active air stream kidney grille",
+      "name_ar": "ﻖﻠﻐﻟاو ﺢﺘﻔﻟا ﺔﻴﻜﻴﺗﺎﻣﻮﺗوأ ﺔﻴﻣﺎﻣأ ﺔﻜﺒﺷ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Cruise control with braking function",
+      "name_ar": "ﺔﻋﺮﺴﻟا ﻰﻠﻋ ﺔﻈﻓﺎﺤﻤﻠﻟ ﺔﻠﻣﺮﻔﻟا ﺔﻴﺻﺎﺨﺑ دوﺰﻣ ﺔﻋﺮﺳ ﺖﺒﺜﻣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Adaptive 2-axle air suspension",
+      "name_ar": "ﻲﻔﻠﺧو ﻲﻣﺎﻣأ ﻲﺋاﻮﻬﻟا ﻖﻴﻠﻌﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Adaptive M Suspension Professional:\nActive Roll Stablilization (ARS)\nIntegral Active Steering\nM adaptive dampers",
+      "name_ar": ":M ﻲﻛﺬﻟا ﻲﺿﺎﻳﺮﻟا ﻖﻴﻠﻌﺘﻟا مﺎﻈﻧ\nةرﺎﻴﺴﻟا ﻞﻳﺎﻤﺗ ﻊﻨﻣ مﺎﻈﻧ\nﺔﻴﻔﻠﺨﻟا تﻼﺠﻌﻟا ﻪﻴﺟﻮﺗو ﻂﺸﻨﻟا ﻪﻴﺟﻮﺘﻟا مﺎﻈﻧ\nM ﺔﻴﺿﺎﻳر تﺎﻣﺪﺻ تﺎﺼﺘﻤﻣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M Sport brakes",
+      "name_ar": "M ﻲﺿﺎﻳﺮﻟا ﻞﻣاﺮﻔﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M sport exhaust system",
+      "name_ar": "M ﻲﺿﺎﻳﺮﻟا مدﺎﻌﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M Sport Differential",
+      "name_ar": "M ﻲﻧوﺮﺘﻜﻟﻹا ﻲﻠﺿﺎﻔﺘﻟا ﻞﻔﻘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Performance Control",
+      "name_ar": "ﺔﻴﻔﻠﺨﻟا تﻼﺠﻌﻟا ﻰﻠﻋ مﺰﻌﻟا ﻊﻳزﻮﺗو ءادﻷا ﻲﻓ ﻢﻜﺤﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Servotronic",
+      "name_ar": "ةدﺎﻴﻘﻟا ﻲﻓ ةرزاﺆﻤﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Variable sport steering",
+      "name_ar": "ﺔﻋﺮﺴﻟا ﺐﺴﺣ ﺮﻴﻐﺘﻣ ﻲﺿﺎﻳر ﻪﻴﺟﻮﺗ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Exterior",
+      "name_ar": "ﻲﺟرﺎﺨﻟا ﻢﻴﻤﺼﺘﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Acoustic Glazing",
+      "name_ar": "تﻮﺼﻠﻟ لزﺎﻋ ﻲﻣﺎﻣأ ﻲﺒﻧﺎﺟو ﻲﻣﺎﻣأ جﺎﺟز",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Adaptive LED Headlight",
+      "name_ar": "تﺎﻴﻨﺤﻨﻤﻟا ةرﺎﻧإ ﺔﻴﺻﺎﺧ - LED ﺔﻴﻠﻋﺎﻔﺗ ﺔﻴﻛذ ﺔﻴﻣﺎﻣأ ﺢﻴﺑﺎﺼﻣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Aluminium running board",
+      "name_ar": "مﻮﻴﻨﻣﻮﻟﻷا ﻦﻣ ﻲﺒﻧﺎﺟ ﺐﺘﻋ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Automatic operation of tailgate",
+      "name_ar": "ﻲﻔﻠﺨﻟا قوﺪﻨﺼﻟا ءﺎﻄﻏ ﻖﻠﻏو ﺢﺘﻔﻟ ﻲﻜﻴﺗﺎﻣﻮﺗوأ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "BMW kidney 'Iconic Glow'",
+      "name_ar": "ﺔﺠﻣﺪﻣ ةءﺎﺿﺈﺑ ﺔﻴﻣﺎﻣﻷا ﺔﻜﺒﺸﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "BMW selective beam",
+      "name_ar": "رﺎﻬﺑﻹا مﺪﻋ ﺔﻴﺻﺎﺨﺑ ﻲﻛﺬﻟا ةءﺎﺿﻹا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "BMW Welcome light Carpet",
+      "name_ar": "ﺔﻴﺒﻴﺣﺮﺘﻟا ةرﺎﻧﻹا ﺔﻗﺎﺑ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Comfort access system",
+      "name_ar": "ةرﺎﻴﺴﻟا ﻦﻣ باﺮﺘﻗﻻا ﺪﻨﻋ - حﺎﺘﻔﻤﻟا ماﺪﺨﺘﺳا نوﺪﺑ ﺔﻴﻔﻠﺨﻟا ﺔﺒﻴﻘﺤﻟاو باﻮﺑﻷا ﻖﻠﻏو ﺢﺘﻓ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Electrical folding of exterior mirrors",
+      "name_ar": "ﺎًﻴﺋﺎﺑﺮﻬﻛ ﻲﻄﻠﻟ ﺔﻠﺑﺎﻗ ﺔﻴﺟرﺎﺧ تﺎﻳاﺮﻣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Exterior Line Satin Aluminium",
+      "name_ar": "ﺬﻓاﻮﻨﻠﻟ ﻊﻣﻼﻟا مﻮﻴﻨﻣﻮﻟﻷا ﻦﻣ رﺎﻃإ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M high-gloss Shadowline",
+      "name_ar": "ﻲﺒﻧﺎﺠﻟا جﺎﺟﺰﻟاو ﺬﻓاﻮﻨﻠﻟ ﻊﻣﻼﻟا دﻮﺳﻷا موﺮﻜﻟا ﻦﻣ رﺎﻃإ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M high-gloss Shadowline with extended contents",
+      "name_ar": "ﻊﻣﻻ دﻮﺳأ نﻮﻠﺑ مدﺎﻌﻟا جﺮﺨﻣو ﺔﻴﻣﺎﻣﻷا ﺔﻜﺒﺸﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M Lights Shadowline",
+      "name_ar": "دﻮﺳأ نﻮﻠﺑ ةءﺎﺿﻹا ﺢﻴﺑﺎﺼﻤﻟ ﻲﺟرﺎﺨﻟا رﺎﻃﻹا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M Mirror caps",
+      "name_ar": "M ﻢﻴﻤﺼﺘﺑ ﺔﻴﺟرﺎﺨﻟا تﺎﻳاﺮﻤﻟا ﺔﻴﻄﻏأ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M Roof rails high-gloss Shadowline",
+      "name_ar": "ﻊﻣﻼﻟا دﻮﺳﻷا موﺮﻜﻟا ﻦﻣ ﻒﻘﺴﻟا نﺎﺒﻀﻗ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Exterior mirror on driver's side with automatic anti-dazzle function",
+      "name_ar": "ﻖﺋﺎﺴﻟا ﺔﻬﺟ - ﻲﻜﻴﺗﺎﻣﻮﺗوﻷا ﻢﻴﺘﻌﺘﻟا ﺔﻴﺻﺎﺨﺑ ﺔﻴﺟرﺎﺨﻟا ﺎﻳاﺮﻤﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "High Beam Assistance",
+      "name_ar": "ةرﺎﻴﺴﻠﻟ ﺔﻴﻣﺎﻣﻷا ﺔﻴﻟﺎﻌﻟا ةءﺎﺿﻹا ﻊﻳزﻮﺗو ﺔﺟرد ﻲﻓ ﻲﻜﻴﺗﺎﻣﻮﺗوﻷا ﻢﻜﺤﺘﻟا مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "LED tail lights",
+      "name_ar": "LEDـﻟا مﺎﻈﻨﺑ ﺔﻴﻔﻠﺧ ةءﺎﺿإ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M Aerodynamics package",
+      "name_ar": "M ﻰﻜﻴﻣﺎﻨﻳدوﺮﻳأ ﻢﻴﻤﺼﺘﺑ ﻲﺒﻧﺎﺟ ﺐﺘﻋو (ﻲﻔﻠﺧو ﻲﻣﺎﻣأ) تﺎﻣاﺪﺼﻛا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Panoramic glass roof",
+      "name_ar": "ﺎﻣارﻮﻧﺎﺑ ﻒﻘﺳ ﺔﺤﺘﻓ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Roof rails Aluminium satinated",
+      "name_ar": "ﻊﻣﻼﻟا مﻮﻴﻨﻣﻮﻟﻷا ﻦﻣ ﻒﻘﺴﻟا نﺎﺒﻀﻗ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Soft-Close function for doors",
+      "name_ar": "(باﻮﺑﻷا ﻖﻠﻏ ﺔﻴﺻﺎﺧ) باﻮﺑﻷا ﻂﻔﺷ ﺔﻴﺻﺎﺧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Sun protection glazing",
+      "name_ar": "ﻢﺘﻌﻣ ﻲﻔﻠﺧ ﻲﺒﻧﺎﺟو ﻲﻔﻠﺧ جﺎﺟز",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "4 Zone Automatic air conditioning",
+      "name_ar": "ﻖﻃﺎﻨﻣ ٤ - ﻲﻜﻴﺗﺎﻣﻮﺗوأ ءاﻮﻫ ﻒﻴﻴﻜﺗ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Active seat ventilation for the front seats",
+      "name_ar": "ﺔﻳﻮﻬﺘﺑ ةدوﺰﻣ ﺔﻴﻣﺎﻣﻷا ﺪﻋﺎﻘﻤﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Ambient light (15 Colours)",
+      "name_ar": "(نﻮﻟ ١٥ ﻊﻣ) ﺔﻴﻠﺧاﺪﻟا ةرﺎﻧﻹا ﺔﻗﺎﺑ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Comfort seats front, electrically adjustable",
+      "name_ar": "ﻲﺋﺎﺑﺮﻬﻜﻟا ﻢﻜﺤﺘﻟا ﺔﻴﺻﺎﺧ ﻊﻣ ﻲﻣﺎﻣﻷا ﺐﻛاﺮﻟاو ﻖﺋﺎﺴﻟا ﺪﻌﻘﻤﻟ ةﺮﻛاﺬﻟا ﺔﻴﺻﺎﺧ ﻊﻣ ﺔﺤﻳﺮﻣ ﺔﻴﻣﺎﻣأ ﺪﻋﺎﻘﻣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Cupholder, temperate",
+      "name_ar": "ﺪﻳﺮﺒﺘﻟاو ﻦﻴﺨﺴﺘﻟا ﺔﻴﺻﺎﺨﺑ باﻮﻛأ ﻞﻣﺎﺣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Floor mats in velour",
+      "name_ar": "شﺎﻤﻘﻟا ﻦﻣ تﺎﺳاود",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Glass application 'CraftedClarity'",
+      "name_ar": "لﺎﺘﺴﻳﺮﻜﻟا ﻦﻣ ﺔﻴﺳﺎﺳﻷا ﻒﺋﺎﻇﻮﻟا ﻲﻓ ﻢﻜﺤﺘﻟا رارزأ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Heat comfort package front which includes: door armrests, centre console armrest, and\nsteering wheel heating",
+      "name_ar": "ﻲﻓ ﺪﺟﻮﻳ يﺬﻟا ﺪﻴﻟا ﺪﻨﺴﻣو باﻮﺑﻷا ﻲﻓ يﺪﻳﻷا ﺪﻧﺎﺴﻣ ﻞﻤﺸﺗ ﻲﺘﻟا مﺎﻣﻷﺎﺑ ﺔﻴﻓﺎﺿﻹا ﺔﺌﻓﺪﺘﻟا ﺔﻗﺎﺑ\nةدﺎﻴﻘﻟا ﺔﻠﺠﻋ ﺔﺌﻓﺪﺗ ﻰﻟإ ﺔﻓﺎﺿﻹﺎﺑ ﻲﻄﺳﻮﻟا لﻮﺴﻧﻮﻜﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M Leather steering wheel",
+      "name_ar": "M ﻢﻴﻤﺼﺗ - ﺪﻠﺠﻟا ﻦﻣ ﺔﻴﺿﺎﻳر ةدﺎﻴﻗ ﺔﻠﺠﻋ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M seat belts",
+      "name_ar": "M ﻢﻴﻤﺼﺗ - ﻒﻠﺨﻟاو مﺎﻣﻷا ﻲﻓ نﺎﻣﻷا ﺔﻣﺰﺣأ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Massage function front",
+      "name_ar": "ﺮﻬﻈﻟا ﻚﻴﻟﺪﺗ ﺔﻴﺻﺎﺨﺑ ﻲﻣﺎﻣﻷا ﺐﻛاﺮﻟاو ﻖﺋﺎﺴﻟا ﺪﻌﻘﻣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Roller sun blinds for rear side windows, mechanical",
+      "name_ar": "ﻲﻔﻠﺨﻟا ﻲﺒﻧﺎﺠﻟا جﺎﺟﺰﻠﻟ ﺮﺋﺎﺘﺳ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Sport leather steering wheel",
+      "name_ar": "ﺪﻠﺠﻟا ﻦﻣ ﺔﻴﺿﺎﻳر ةدﺎﻴﻗ ﺔﻠﺠﻋ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Seat Heating Front & Rear",
+      "name_ar": "ﺔﻴﻔﻠﺨﻟاو ﺔﻴﻣﺎﻣﻷا ﺪﻋﺎﻘﻤﻠﻟ ﺔﺌﻓﺪﺗ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Travel and comfort system",
+      "name_ar": "(ﺦﻟإ....ﻲﺣﻮﻠﻟا زﺎﻬﺠﻟا ﻞﻣﺎﺣ) تاراﻮﺴﺴﻛﻹا ﺐﻴﻛﺮﺘﻟ ﺪﻋﺎﻘﻤﻟا ﺔﻴﻔﻠﺧ ﻲﻓ ﺰﻴﻬﺠﺗ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Technology",
+      "name_ar": "ﺎﻴﺟﻮﻟﻮﻨﻜﺘﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "BMW Gesture Control",
+      "name_ar": "ﺪﻴﻟا تﺎﻛﺮﺣو ةرﺎﺷﻹﺎﺑ ﻢﻜﺤﺘﻠﻟ BMW مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "BMW Live Cockpit Professional :\nBMW Curved Display\n14.9\"\" Control Display\n12.3” Instrument display\nNavigation system\nOS 8.5\nBMW Intelligent Personal Assistant (IPA)\nHead Up Display",
+      "name_ar": ":تﺎﻣﻮﻠﻌﻤﻟاو ﻪﻴﻓﺮﺘﻠﻟBMW مﺎﻈﻧ\nCurved Display ﺔﺷﺎﺷ\nﺔﻔﻠﺘﺨﻤﻟا ﺔﻤﻈﻧﻷاو ﻂﺋاﺮﺨﻟا ضﺮﻌﻟ ﺔﻴﻄﺳو ﺔﺻﻮﺑ ١٤٫٩ سﺎﻴﻗ ﺔﺷﺎﺷ\nناﻮﻟﻷا ةﺮﻴﻐﺘﻣ تاداﺪﻌﻠﻟ ﺔﺻﻮﺑ ١٢٫٣سﺎﻴﻗ ﺔﺷﺎﺷ\nﻂﺋاﺮﺨﻟاو ﺔﺣﻼﻤﻟا مﺎﻈﻧ\nOS ٨٫٥ ﻞﻴﻐﺸﺗ مﺎﻈﻧ\n(IPA)ﻲﻛﺬﻟا BMW ﺪﻋﺎﺴﻣ\nﻖﺋﺎﺴﻠﻟ ﻲﻣﺎﻣﻷا جﺎﺟﺰﻟا ﻰﻠﻋ تﺎﻣﻮﻠﻌﻤﻟا ضﺮﻋ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Harman Kardon surround sound system (16 speakers with 464 W Amplifier Power)",
+      "name_ar": "تاو ٤٦٤ ةﻮﻘﺑ ﺔﻋﺎﻤﺳ ١٦ـﺑ دوﺰﻣ تﻮﺼﻠﻟ ﺮﺒﻜﻣ Harman Kardon ﻲﺗﻮﺻ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Parking Assistant Plus :\nPark Distance Control front and rear\nSurround view cameras\nAutomatic parking\nReversing assistant",
+      "name_ar": ":ةرﺎﻴﺴﻟا ﻒﺻ ﻰﻠﻋ ةﺪﻋﺎﺴﻤﻟا مﺎﻈﻧ\nﺔﻴﻔﻠﺧو ﺔﻴﻣﺎﻣأ - تﺎﺳﺎﺴﺣ مﺎﻈﻧ\nةرﺎﻴﺴﻟا لﻮﺣ ﺔﻠﻣﺎﺸﻟا ﺔﻳؤﺮﻠﻟ تاﺮﻴﻣﺎﻛ مﺎﻈﻧ\nﻲﻜﻴﺗﺎﻣﻮﺗوﻷا ﻦﻛﺮﻟا ﺪﻋﺎﺴﻣ\nﻒﻠﺨﻠﻟ عﻮﺟﺮﻟا ﺪﻋﺎﺴﻣ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Smartphone Integration",
+      "name_ar": "ةرﺎﻴﺴﻟا ﺔﺷﺎﺷ ﻊﻣ ﻒﺗاﻮﻬﻟا لﺎﺼﺗا ﺔﻴﺻﺎﺧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Wireless charging front",
+      "name_ar": "مﺎﻣﻷا ﻲﻓ ﻒﺗاﻮﻬﻠﻟ ﻲﻜﻠﺳﻻ ﻦﺣﺎﺷ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Others",
+      "name_ar": "ىﺮﺧأ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Automatic Start/Stop Function",
+      "name_ar": "دﻮﻗﻮﻟا كﻼﻬﺘﺳا ﺮﻴﻓﻮﺘﻟ ﺎًﻴﻜﻴﺗﺎﻣﻮﺗوأ كﺮﺤﻤﻟا ﻞﻴﻐﺸﺗو ءﺎﻔﻃإ مﺎﻈﻧ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Parking brake with automatic hold function",
+      "name_ar": "ﻲﻜﻴﺗﺎﻣﻮﺗوﻷا ﺢﺒﻜﻟا ﺔﻴﺻﺎﺧ ﻊﻣ ﺔﻴﺋﺎﺑﺮﻬﻛ ﻞﻣاﺮﻓ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Start/Stop Button",
+      "name_ar": "كﺮﺤﻤﻟا ءﺎﻔﻃإو ﻞﻴﻐﺸﺘﻟ رز",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Interior Trims",
+      "name_ar": "ﺔﻴﻠﺧاﺪﻟا تﺎﻴﻠﺤﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Fine-wood trim 'Fineline Stripe' brown high-gloss",
+      "name_ar": "ﻲﻨﺒﻟا ﺐﺸﺨﻟا ﻦﻣ ﻰﻠﺤﺑ ﻢﻌﻄﻣ ةرﺎﻴﺴﻟا هﻮﻠﺑﺎﺗ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M interior trim finishers 'Carbon Fiber'",
+      "name_ar": "نﻮﺑﺮﻜﻟا فﺎﻴﻟأ ﻦﻣ ﻰﻠﺤﺑ ﻢﻌﻄﻣ ةرﺎﻴﺴﻟا هﻮﻠﺑﺎﺗ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "BMW Individual instrument panel finished in leather",
+      "name_ar": "Individual ﺪﻠﺠﻟﺎﺑ ﻮﺴﻜﻣ ةرﺎﻴﺴﻟا هﻮﻠﺑﺎﺗ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Upholstery",
+      "name_ar": "ﻲﻠﺧاﺪﻟا شﺮﻔﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "M headliner Alcantara anthracite",
+      "name_ar": "دﻮﺳأ ﻲﻠﻤﺨﻣ ﻒﻘﺳ شﺮﻓ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "BMW Individual leather 'Merino' Black",
+      "name_ar": "دﻮﺳأ (ﻮﻨﻳﺮﻴﻣ) ﻮﻨﻳرﺎﻣ ﻲﻌﻴﺒﻃ ﺪﻠﺟ شﺮﻓ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "BMW Individual leather 'Merino' Tartufo",
+      "name_ar": "ﻲﻠﻤﺟ (ﻮﻨﻳﺮﻴﻣ) ﻮﻨﻳرﺎﻣ ﻲﻌﻴﺒﻃ ﺪﻠﺟ شﺮﻓ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "BMW Individual leather 'Merino' Coffee",
+      "name_ar": "ﻲﻨﺑ (ﻮﻨﻳﺮﻴﻣ) ﻮﻨﻳرﺎﻣ ﻲﻌﻴﺒﻃ ﺪﻠﺟ شﺮﻓ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Alloy Wheels",
+      "name_ar": "تﻼﺠﻌﻟا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "20\" light alloy wheels V-spoke style 738 Bicolour with mixed tyres and runflat tyres",
+      "name_ar": "٧٣٨ زاﺮﻄﻟا ﻦﻣ عرذﻷا دﺪﻌﺘﻣ ﻢﻴﻤﺼﺘﺑ ﺔﺻﻮﺑ ٢٠ سﺎﻘﻣ ﺔﻴﺿﺎﻳر ﺔﻴﻧﺪﻌﻣ تﻼﺠﻋ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "21\" M light alloy wheels Y-spoke style 741 M Bicolour with mixed tyres and runflat tyres",
+      "name_ar": "٧٤١ زاﺮﻄﻟا ﻦﻣ عرذﻷا ﻲﺋﺎﻨﺛ ﻢﻴﻤﺼﺘﺑ ﺔﺻﻮﺑ ٢١ سﺎﻘﻣ ﺔﻴﺿﺎﻳر ﺔﻴﻧﺪﻌﻣ M تﻼﺠﻋ",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Displacement (cc)",
+      "name_ar": "(ﻲﺳ ﻲﺳ) كﺮﺤﻤﻟا ﺔﻌﺳ",
+      "trim_values": [
+        "2,998",
+        "4,395"
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Maximum Output (hp)",
+      "name_ar": "(نﺎﺼﺣ) ىﻮﺼﻘﻟا ةرﺪﻘﻟا",
+      "trim_values": [
+        "381",
+        "530"
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Maximum Torque (Nm@rpm)",
+      "name_ar": "(ﺔﻘﻴﻗد.ﺔﻔﻟ@ﺮﺘﻣ.ﻦﺗﻮﻴﻧ) ﻰﺼﻗﻷا مﺰﻌﻟا",
+      "trim_values": [
+        "540 @1850 - 5000 rpm",
+        "750 @1800 - 4600 rpm"
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Top speed (km/h)",
+      "name_ar": "(ﺔﻋﺎﺳ/ﻢﻛ) ىﻮﺼﻘﻟا ﺔﻋﺮﺴﻟا",
+      "trim_values": [
+        "250",
+        "250"
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Acceleration 0 - 100 km/h (sec.)",
+      "name_ar": "(ﺔﻴﻧﺎﺛ) ﺔﻋﺎﺳ / ﻢﻛ ١٠٠ ﻰﻟإ ﺮﻔﺻ ﻦﻣ عرﺎﺴﺘﻟا",
+      "trim_values": [
+        "5.4",
+        "4.3"
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Fuel Consumption (combined l/100 km)",
+      "name_ar": "(ﺮﺘﻟ) ﺎﻬﺟرﺎﺧو ﺔﻨﻳﺪﻤﻟا ﻞﺧاد ةدﺎﻴﻗ - كﻼﻬﺘﺳِا ﻂﺳﻮﺘﻣ :دﻮﻗﻮﻟا كﻼﻬﺘﺳِا",
+      "trim_values": [
+        "9.2",
+        "11.6"
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Tank Capacity (Liter)",
+      "name_ar": "(ﺮﺘﻟ) دﻮﻗﻮﻟا ناﺰﺧ ﺔﻌﺳ",
+      "trim_values": [
+        "83",
+        "83"
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Luggage compartment (Liter):",
+      "name_ar": "(ﺮﺘﻟ) ﺔﻌﺘﻣﻷا ﺔﺒﻴﻘﺣ ﺔﻌﺳ",
+      "trim_values": [
+        "650-1870",
+        "650-1870"
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Curb weight (kg)",
+      "name_ar": "(ﻢﺠﻛ) نزﻮﻟا",
+      "trim_values": [
+        "2165",
+        "2345"
+      ],
+      "row_type": "spec_row"
+    },
+    {
+      "name_en": "Ground clearance, mm",
+      "name_ar": "ﺮﺘﻤﻴﻠﻠﻣ ،ﻲﺿرﻷا صﻮﻠﺨﻟا",
+      "trim_values": [
+        "214",
+        "214"
+      ],
+      "row_type": "spec_row"
+    }
+  ]
+}

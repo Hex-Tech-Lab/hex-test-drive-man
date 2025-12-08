@@ -1,0 +1,1082 @@
+{
+  "version": "1.0.5",
+  "last_updated": "2025-12-03T02:19:00Z",
+  "specs": [
+    {
+      "canonical_name": "engine_type",
+      "category": "powertrain",
+      "display_name_en": "Engine Type",
+      "display_name_ar": "نوع المحرك",
+      "data_type": "string",
+      "valid_en": [
+        "Engine Type",
+        "Engine",
+        "Motor Type",
+        "Power Unit"
+      ],
+      "common_typos_en": [
+        "Engine Tpe",
+        "Engne Type",
+        "Engin Type",
+        "Enginee Type"
+      ],
+      "forbidden_patterns_en": [
+        "Type Engine",
+        "Engine Capacity Type",
+        "Type of Capacity"
+      ]
+    },
+    {
+      "canonical_name": "engine_capacity",
+      "category": "powertrain",
+      "display_name_en": "Engine Capacity",
+      "display_name_ar": "سعة المحرك",
+      "data_type": "numeric_with_unit",
+      "unit": "cc",
+      "valid_en": [
+        "Engine Capacity",
+        "Displacement",
+        "CC",
+        "Cubic Capacity",
+        "Engine Size",
+        "Capacity"
+      ],
+      "common_typos_en": [
+        "Engine Capcity",
+        "Displacment",
+        "Engine Capicity",
+        "Engin Capacity"
+      ],
+      "forbidden_patterns_en": [
+        "Capacity Engine",
+        "CC Type",
+        "Type Capacity"
+      ]
+    },
+    {
+      "canonical_name": "max_output",
+      "category": "powertrain",
+      "display_name_en": "Max Power Output",
+      "display_name_ar": "أقصى قدرة",
+      "data_type": "numeric_with_unit",
+      "unit": "hp",
+      "valid_en": [
+        "Max Output",
+        "Maximum Output",
+        "Max Power",
+        "Peak Power",
+        "HP",
+        "Horsepower",
+        "Power Output",
+        "Maximum Power"
+      ],
+      "common_typos_en": [
+        "Max Ouput",
+        "Maximum Ouptut",
+        "Max Pwr",
+        "Maximm Power"
+      ],
+      "forbidden_patterns_en": [
+        "Output Max",
+        "Torque Output",
+        "Max Torque",
+        "Torque Power",
+        "Power Torque",
+        "Fuel System",
+        "Tank Capacity"
+      ]
+    },
+    {
+      "canonical_name": "max_torque",
+      "category": "powertrain",
+      "display_name_en": "Max Torque",
+      "display_name_ar": "عزم الدوران الأقصى",
+      "data_type": "numeric_with_unit",
+      "unit": "nm",
+      "valid_en": [
+        "Max Torque",
+        "Maximum Torque",
+        "Peak Torque",
+        "Torque",
+        "Maximum Torque Output"
+      ],
+      "common_typos_en": [
+        "Max Torq",
+        "Maximum Torqe",
+        "Mx Torque",
+        "Maximm Torque"
+      ],
+      "forbidden_patterns_en": [
+        "Torque Max",
+        "Max Output",
+        "Power Torque",
+        "Max Power",
+        "Horsepower",
+        "Fuel System",
+        "Tank Capacity"
+      ]
+    },
+    {
+      "canonical_name": "transmission",
+      "category": "powertrain",
+      "display_name_en": "Transmission",
+      "display_name_ar": "ناقل الحركة",
+      "data_type": "string",
+      "valid_en": [
+        "Transmission",
+        "Gearbox",
+        "Transmission Type",
+        "Gear Box",
+        "Gears"
+      ],
+      "common_typos_en": [
+        "Transmision",
+        "Transmssion",
+        "Transmition",
+        "Gearbok"
+      ],
+      "forbidden_patterns_en": [
+        "Transmission Capacity",
+        "Type Transmission"
+      ]
+    },
+    {
+      "canonical_name": "fuel_system",
+      "category": "fuel",
+      "display_name_en": "Fuel System",
+      "display_name_ar": "نظام الوقود",
+      "data_type": "string",
+      "valid_en": [
+        "Fuel System",
+        "Fuel Type",
+        "Fuel Injection",
+        "Fuel Delivery",
+        "Fuel Supply",
+        "Fuel System & Tank Capacity"
+      ],
+      "common_typos_en": [
+        "Feul System",
+        "Fuel Systm",
+        "Fuel Injction",
+        "Fule System"
+      ],
+      "forbidden_patterns_en": [
+        "System Fuel"
+      ]
+    },
+    {
+      "canonical_name": "fuel_tank_capacity",
+      "category": "fuel",
+      "display_name_en": "Fuel Tank Capacity",
+      "display_name_ar": "سعة خزان الوقود",
+      "data_type": "numeric_with_unit",
+      "unit": "liter",
+      "valid_en": [
+        "Fuel Tank Capacity",
+        "Tank Capacity",
+        "Fuel Tank",
+        "Tank Size",
+        "Fuel Capacity",
+        "Fuel System & Tank Capacity"
+      ],
+      "common_typos_en": [
+        "Feul Tank",
+        "Fuel Tnk Capacity",
+        "Tank Capicity",
+        "Fule Tank"
+      ],
+      "forbidden_patterns_en": [
+        "Capacity Tank Fuel",
+        "System Tank"
+      ]
+    },
+    {
+      "canonical_name": "front_suspension",
+      "category": "chassis",
+      "display_name_en": "Front Suspension",
+      "display_name_ar": "التعليق الأمامي",
+      "data_type": "string",
+      "valid_en": [
+        "Front Suspension",
+        "Front Susp",
+        "Suspension Front"
+      ],
+      "common_typos_en": [
+        "Frnt Suspension",
+        "Front Suspnsion",
+        "Front Suspention"
+      ],
+      "forbidden_patterns_en": [
+        "Rear Suspension",
+        "Suspension Rear"
+      ]
+    },
+    {
+      "canonical_name": "rear_suspension",
+      "category": "chassis",
+      "display_name_en": "Rear Suspension",
+      "display_name_ar": "التعليق الخلفي",
+      "data_type": "string",
+      "valid_en": [
+        "Rear Suspension",
+        "Rear Susp",
+        "Suspension Rear"
+      ],
+      "common_typos_en": [
+        "Rer Suspension",
+        "Rear Suspnsion",
+        "Rear Suspention"
+      ],
+      "forbidden_patterns_en": [
+        "Front Suspension",
+        "Suspension Front"
+      ]
+    },
+    {
+      "canonical_name": "steering_system",
+      "category": "chassis",
+      "display_name_en": "Steering System",
+      "display_name_ar": "نظام التوجيه",
+      "data_type": "string",
+      "valid_en": [
+        "Steering Column",
+        "Steering System",
+        "Power Steering",
+        "Steering",
+        "Steering Type",
+        "Multi-Function Steering",
+        "Steering Wheel"
+      ],
+      "common_typos_en": [
+        "Stering System",
+        "Steering Colmn",
+        "Pwr Steering",
+        "Stearing"
+      ],
+      "forbidden_patterns_en": [
+        "System Steering",
+        "Column System"
+      ]
+    },
+    {
+      "canonical_name": "turning_radius",
+      "category": "chassis",
+      "display_name_en": "Turning Radius",
+      "display_name_ar": "نصف قطر الدوران",
+      "data_type": "numeric_with_unit",
+      "unit": "meter",
+      "valid_en": [
+        "Turning Radius",
+        "Min Turning Radius",
+        "Minimum Turning Radius",
+        "Turn Radius",
+        "Turning Circle"
+      ],
+      "common_typos_en": [
+        "Turnig Radius",
+        "Turning Raduis",
+        "Min Turn Radius",
+        "Minmum Turning"
+      ],
+      "forbidden_patterns_en": [
+        "Radius Turn",
+        "Circle Turn"
+      ]
+    },
+    {
+      "canonical_name": "sunroof",
+      "category": "comfort",
+      "display_name_en": "Sunroof",
+      "display_name_ar": "فتحة سقف",
+      "data_type": "boolean",
+      "valid_en": [
+        "Sunroof",
+        "Sun Roof",
+        "Panoramic Roof",
+        "Moon Roof"
+      ],
+      "common_typos_en": [
+        "Sunrof",
+        "Sun roof",
+        "Panormic Roof"
+      ],
+      "forbidden_patterns_en": [
+        "Roof Sun"
+      ]
+    },
+    {
+      "canonical_name": "parking_sensors",
+      "category": "safety",
+      "display_name_en": "Parking Sensors",
+      "display_name_ar": "حساسات الركن",
+      "data_type": "string",
+      "valid_en": [
+        "Parking Sensors",
+        "Front Parking Sensors",
+        "Back Parking Sensors",
+        "Front & Back Parking Sensors",
+        "Rear Parking Sensors"
+      ],
+      "common_typos_en": [
+        "Pakring Sensors",
+        "Parking Sensor"
+      ],
+      "forbidden_patterns_en": [
+        "Sensors Parking"
+      ]
+    },
+    {
+      "canonical_name": "parking_camera",
+      "category": "safety",
+      "display_name_en": "Parking Camera",
+      "display_name_ar": "كاميرا ركن",
+      "data_type": "string",
+      "valid_en": [
+        "Parking Camera",
+        "Rear Camera",
+        "Rear View Camera",
+        "Rear Parking Camera",
+        "Backup Camera",
+        "Reversing Camera"
+      ],
+      "common_typos_en": [
+        "Parking Camra",
+        "Rear Camara",
+        "Pakring Camera"
+      ],
+      "forbidden_patterns_en": [
+        "Camera Parking"
+      ]
+    },
+    {
+      "canonical_name": "airbags",
+      "category": "safety",
+      "display_name_en": "Airbags",
+      "display_name_ar": "الوسائد الهوائية",
+      "data_type": "string",
+      "valid_en": [
+        "Airbags",
+        "Air Bags",
+        "Driver Airbag",
+        "Passenger Airbag",
+        "Driver & Passenger Airbags",
+        "Safety Airbags",
+        "Front Side & Curtain Airbags",
+        "Side Airbags",
+        "Curtain Airbags"
+      ],
+      "common_typos_en": [
+        "Airbag",
+        "Air bag",
+        "Airbgs"
+      ],
+      "forbidden_patterns_en": [
+        "Bags Air"
+      ]
+    },
+    {
+      "canonical_name": "ac_system",
+      "category": "comfort",
+      "display_name_en": "Air Conditioning",
+      "display_name_ar": "نظام التكييف",
+      "data_type": "string",
+      "valid_en": [
+        "Air Conditioner",
+        "Air Conditioning",
+        "AC",
+        "A/C",
+        "Electric Air Conditioner",
+        "Automatic Air Condition",
+        "Dual Air Condition",
+        "Rear Air Condition",
+        "Climate Control",
+        "Rear Air Condition Outlets"
+      ],
+      "common_typos_en": [
+        "Air Conditoner",
+        "Air Conditiong",
+        "Airconditioner",
+        "Climat Control"
+      ],
+      "forbidden_patterns_en": [
+        "Condition Air",
+        "Conditioner Rear Front"
+      ]
+    },
+    {
+      "canonical_name": "screen_size",
+      "category": "infotainment",
+      "display_name_en": "Screen Size",
+      "display_name_ar": "حجم الشاشة",
+      "data_type": "numeric_with_unit",
+      "unit": "inch",
+      "valid_en": [
+        "Screen Size",
+        "Touch Screen",
+        "Display Size",
+        "Display Screen",
+        "Infotainment Screen",
+        "Inch Touch Screen",
+        "Touchscreen",
+        "8 Inch Touch Screen",
+        "7 Inch Touch Screen",
+        "9 Inch Touch Screen",
+        "10 Inch Touch Screen"
+      ],
+      "common_typos_en": [
+        "Scrn Size",
+        "Touchscrn",
+        "Dispay Size"
+      ],
+      "forbidden_patterns_en": [
+        "Size Screen"
+      ]
+    },
+    {
+      "canonical_name": "cruise_control",
+      "category": "comfort",
+      "display_name_en": "Cruise Control",
+      "display_name_ar": "مثبت السرعة",
+      "data_type": "string",
+      "valid_en": [
+        "Cruise Control",
+        "Adaptive Cruise Control",
+        "Full Speed Adaptive Cruise Control",
+        "ACC"
+      ],
+      "common_typos_en": [
+        "Cruse Control",
+        "Cruise Cntrl"
+      ],
+      "forbidden_patterns_en": [
+        "Control Cruise"
+      ]
+    },
+    {
+      "canonical_name": "keyless_entry",
+      "category": "convenience",
+      "display_name_en": "Keyless Entry",
+      "display_name_ar": "دخول بدون مفتاح",
+      "data_type": "boolean",
+      "valid_en": [
+        "Keyless Entry",
+        "Smart Entry",
+        "Keyless Smart Entry",
+        "Wireless Door Lock",
+        "Wireless Door Lock With Key"
+      ],
+      "common_typos_en": [
+        "Keyless Entery",
+        "Keyless Entry"
+      ],
+      "forbidden_patterns_en": [
+        "Entry Keyless"
+      ]
+    },
+    {
+      "canonical_name": "stability_control",
+      "category": "safety",
+      "display_name_en": "Stability Control",
+      "display_name_ar": "نظام التحكم بالثبات",
+      "data_type": "boolean",
+      "valid_en": [
+        "Vehicle Stability Control",
+        "VSC",
+        "Stability Control",
+        "ESP",
+        "Electronic Stability Program"
+      ],
+      "common_typos_en": [
+        "Vehicle Stability Control (VSC",
+        "Vehicl Stability"
+      ],
+      "forbidden_patterns_en": [
+        "Stability Vehicle"
+      ]
+    },
+    {
+      "canonical_name": "brake_assist",
+      "category": "safety",
+      "display_name_en": "Brake Assist",
+      "display_name_ar": "مساعد الفرامل",
+      "data_type": "boolean",
+      "valid_en": [
+        "Brake Assist",
+        "BA",
+        "Hill Assist",
+        "HAC",
+        "Brake Assist (BA) + Hill Assist Control (HAC)",
+        "Hill Assist Control"
+      ],
+      "common_typos_en": [
+        "Brake Asist",
+        "Hill Asist"
+      ],
+      "forbidden_patterns_en": [
+        "Assist Brake"
+      ]
+    },
+    {
+      "canonical_name": "lane_keeping",
+      "category": "safety",
+      "display_name_en": "Lane Keeping System",
+      "display_name_ar": "نظام الحفاظ على المسار",
+      "data_type": "boolean",
+      "valid_en": [
+        "Lane Keeping System",
+        "Lane Keep Assist",
+        "LKA",
+        "Lane Departure Warning"
+      ],
+      "common_typos_en": [
+        "Lane Keping",
+        "Lane Keep"
+      ],
+      "forbidden_patterns_en": [
+        "Keeping Lane"
+      ]
+    },
+    {
+      "canonical_name": "tire_pressure_monitor",
+      "category": "safety",
+      "display_name_en": "Tire Pressure Monitoring",
+      "display_name_ar": "مراقبة ضغط الإطارات",
+      "data_type": "boolean",
+      "valid_en": [
+        "Tire Pressure Warning System",
+        "Tire Pressure Monitor",
+        "TPMS",
+        "Tire Pressure Monitoring"
+      ],
+      "common_typos_en": [
+        "Tire Presure",
+        "Tyre Pressure"
+      ],
+      "forbidden_patterns_en": [
+        "Pressure Tire"
+      ]
+    },
+    {
+      "canonical_name": "immobilizer",
+      "category": "security",
+      "display_name_en": "Immobilizer",
+      "display_name_ar": "نظام منع السرقة",
+      "data_type": "boolean",
+      "valid_en": [
+        "Antitheft Immobilizer",
+        "Immobilizer",
+        "Engine Immobilizer",
+        "Anti-theft System"
+      ],
+      "common_typos_en": [
+        "Anti theft",
+        "Immobiliser"
+      ],
+      "forbidden_patterns_en": [
+        "Immobilizer Antitheft"
+      ]
+    },
+    {
+      "canonical_name": "fog_lights",
+      "category": "lighting",
+      "display_name_en": "Fog Lights",
+      "display_name_ar": "أضواء الضباب",
+      "data_type": "string",
+      "valid_en": [
+        "Fog Light",
+        "Fog Lights",
+        "Front Fog Light",
+        "Rear Fog Lamp",
+        "Fog Lamps"
+      ],
+      "common_typos_en": [
+        "Fog Ligt",
+        "Front Fog Light -White LED"
+      ],
+      "forbidden_patterns_en": [
+        "Light Fog"
+      ]
+    },
+    {
+      "canonical_name": "headlamps",
+      "category": "lighting",
+      "display_name_en": "Headlamps",
+      "display_name_ar": "المصابيح الأمامية",
+      "data_type": "string",
+      "valid_en": [
+        "Headlamps",
+        "Head Lamps",
+        "Headlights",
+        "Head & Tail Lamp",
+        "Auto High Beam Headlamps",
+        "LED Headlamps"
+      ],
+      "common_typos_en": [
+        "Head Lamp",
+        "Auto High Beam Headlamps (LED"
+      ],
+      "forbidden_patterns_en": [
+        "Lamp Head"
+      ]
+    },
+    {
+      "canonical_name": "daytime_running_lights",
+      "category": "lighting",
+      "display_name_en": "Daytime Running Lights",
+      "display_name_ar": "أضواء النهار",
+      "data_type": "boolean",
+      "valid_en": [
+        "Daytime Running Lights",
+        "DRL",
+        "Daytime Running Lights LED",
+        "Running Lights"
+      ],
+      "common_typos_en": [
+        "Daytime Running Ligt",
+        "Day Time Running"
+      ],
+      "forbidden_patterns_en": [
+        "Running Daytime"
+      ]
+    },
+    {
+      "canonical_name": "power_windows",
+      "category": "convenience",
+      "display_name_en": "Power Windows",
+      "display_name_ar": "النوافذ الكهربائية",
+      "data_type": "string",
+      "valid_en": [
+        "Power Windows",
+        "All Power Windows",
+        "Electric Windows",
+        "Auto Up/Down",
+        "All Power Windows Auto Up/Down"
+      ],
+      "common_typos_en": [
+        "Power Window",
+        "Pwr Windows"
+      ],
+      "forbidden_patterns_en": [
+        "Windows Power"
+      ]
+    },
+    {
+      "canonical_name": "infotainment",
+      "category": "infotainment",
+      "display_name_en": "Infotainment System",
+      "display_name_ar": "نظام المعلومات والترفيه",
+      "data_type": "string",
+      "valid_en": [
+        "USB",
+        "Speakers",
+        "Bluetooth",
+        "Apple Carplay",
+        "Android Auto",
+        "USB + 6 Speakers +Bluetooth",
+        "Apple Carplay + Android Auto"
+      ],
+      "common_typos_en": [
+        "Apple Carplay",
+        "Andriod Auto"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "exterior_mirrors",
+      "category": "convenience",
+      "display_name_en": "Exterior Mirrors",
+      "display_name_ar": "المرايا الخارجية",
+      "data_type": "string",
+      "valid_en": [
+        "Exterior Rear View Mirror",
+        "Rear View Mirror",
+        "Side Mirror",
+        "Electric Mirror",
+        "Folding Rear View Mirrors",
+        "Heater Rear View Mirrors",
+        "Exterior Rear View Mirror (Electric) + Signal Turn",
+        "Folding Mirrors"
+      ],
+      "common_typos_en": [
+        "Exterior Mirror",
+        "Rear View Miror"
+      ],
+      "forbidden_patterns_en": [
+        "Mirror Exterior"
+      ]
+    },
+    {
+      "canonical_name": "privacy_glass",
+      "category": "comfort",
+      "display_name_en": "Privacy Glass",
+      "display_name_ar": "زجاج خصوصية",
+      "data_type": "boolean",
+      "valid_en": [
+        "Privacy Glass",
+        "Rear & Side Glass Privacy",
+        "Privacy Black",
+        "Tinted Glass",
+        "Rear & Side Glass Privacy Black"
+      ],
+      "common_typos_en": [
+        "Privacy Glas"
+      ],
+      "forbidden_patterns_en": [
+        "Glass Privacy"
+      ]
+    },
+    {
+      "canonical_name": "headlamp_cleaner",
+      "category": "lighting",
+      "display_name_en": "Headlamp Cleaner",
+      "display_name_ar": "منظف المصابيح الأمامية",
+      "data_type": "boolean",
+      "valid_en": [
+        "Headlamp Cleaner",
+        "Headlight Washer",
+        "Lamp Washer"
+      ],
+      "common_typos_en": [
+        "Headlamp Clener"
+      ],
+      "forbidden_patterns_en": [
+        "Cleaner Headlamp"
+      ]
+    },
+    {
+      "canonical_name": "body_color",
+      "category": "exterior",
+      "display_name_en": "Body Color",
+      "display_name_ar": "لون الهيكل",
+      "data_type": "string",
+      "valid_en": [
+        "Two Tone Exterior Body Color",
+        "Body Color",
+        "Exterior Color",
+        "Paint Color"
+      ],
+      "common_typos_en": [
+        "Body Colour",
+        "Two Tone Body Color"
+      ],
+      "forbidden_patterns_en": [
+        "Color Body"
+      ]
+    },
+    {
+      "canonical_name": "wheel_size",
+      "category": "chassis",
+      "display_name_en": "Wheel Size",
+      "display_name_ar": "حجم العجلات",
+      "data_type": "string",
+      "valid_en": [
+        "Wheel Cap",
+        "Sport Rims",
+        "Alloy Wheels",
+        "Wheel Size",
+        "Rims"
+      ],
+      "common_typos_en": [
+        "Wheel Cap",
+        "Sport Rim"
+      ],
+      "forbidden_patterns_en": [
+        "Size Wheel"
+      ]
+    },
+    {
+      "canonical_name": "parking_brake",
+      "category": "safety",
+      "display_name_en": "Parking Brake",
+      "display_name_ar": "فرامل الانتظار",
+      "data_type": "string",
+      "valid_en": [
+        "Electronic Parking Brake",
+        "EPB",
+        "Parking Brake",
+        "Electronic Parking Brake (EPB"
+      ],
+      "common_typos_en": [
+        "Electronic Parking Brake (EPB"
+      ],
+      "forbidden_patterns_en": [
+        "Brake Parking"
+      ]
+    },
+    {
+      "canonical_name": "regenerative_braking",
+      "category": "powertrain",
+      "display_name_en": "Regenerative Braking",
+      "display_name_ar": "الكبح التجديدي",
+      "data_type": "boolean",
+      "valid_en": [
+        "Regenerative Brake",
+        "Regenerative Braking",
+        "Regen Brake"
+      ],
+      "common_typos_en": [
+        "Regenerative Brak"
+      ],
+      "forbidden_patterns_en": [
+        "Brake Regenerative"
+      ]
+    },
+    {
+      "canonical_name": "ambient_lighting",
+      "category": "comfort",
+      "display_name_en": "Ambient Lighting",
+      "display_name_ar": "إضاءة محيطة",
+      "data_type": "boolean",
+      "valid_en": [
+        "Ambient Light",
+        "Ambient Lighting",
+        "Interior Lighting"
+      ],
+      "common_typos_en": [
+        "Ambient Ligt"
+      ],
+      "forbidden_patterns_en": [
+        "Light Ambient"
+      ]
+    },
+    {
+      "canonical_name": "multifunction_display",
+      "category": "infotainment",
+      "display_name_en": "Multi-Function Display",
+      "display_name_ar": "شاشة متعددة الوظائف",
+      "data_type": "boolean",
+      "valid_en": [
+        "Multi Information Display",
+        "Multi-Function Display",
+        "MID",
+        "Information Display"
+      ],
+      "common_typos_en": [
+        "Multi Information Dispaly"
+      ],
+      "forbidden_patterns_en": [
+        "Display Multi"
+      ]
+    },
+    {
+      "canonical_name": "center_console",
+      "category": "comfort",
+      "display_name_en": "Center Console",
+      "display_name_ar": "كونسول وسطي",
+      "data_type": "string",
+      "valid_en": [
+        "Front Console Box",
+        "Center Console",
+        "Console Box",
+        "Armrest Console"
+      ],
+      "common_typos_en": [
+        "Console Bok"
+      ],
+      "forbidden_patterns_en": [
+        "Box Console"
+      ]
+    },
+    {
+      "canonical_name": "abs_ebd",
+      "category": "safety",
+      "display_name_en": "ABS + EBD",
+      "display_name_ar": "نظام منع انفلاق المكابح",
+      "data_type": "boolean",
+      "valid_en": [
+        "ABS",
+        "EBD",
+        "ABS + EBD",
+        "Anti-lock Braking System",
+        "Electronic Brakeforce Distribution"
+      ],
+      "valid_ar": [
+        "نظام منع انفلاق المكابح"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "tread",
+      "category": "dimensions",
+      "display_name_en": "Tread/Track Width",
+      "display_name_ar": "المسافة بين المجلات",
+      "data_type": "string",
+      "valid_en": [
+        "Tread",
+        "Track Width",
+        "Front Tread",
+        "Rear Tread"
+      ],
+      "valid_ar": [
+        "المسافة بين المجلات"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "gross_vehicle_weight",
+      "category": "dimensions",
+      "display_name_en": "Gross Vehicle Weight",
+      "display_name_ar": "وزن السيارة الإجمالي",
+      "data_type": "string",
+      "valid_en": [
+        "Gross Vehicle Weight",
+        "GVW",
+        "Total Weight"
+      ],
+      "valid_ar": [
+        "وزن السيارة الإجمالي",
+        "وزن السيارة الإجمالي بالحمولة"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "steering_wheel_heater",
+      "category": "comfort",
+      "display_name_en": "Steering Wheel Heater",
+      "display_name_ar": "سخانات بعجلة القيادة",
+      "data_type": "boolean",
+      "valid_en": [
+        "Steering Wheel Heater",
+        "Heated Steering Wheel"
+      ],
+      "valid_ar": [
+        "سخانات بعجلة القيادة"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "rain_sensor",
+      "category": "convenience",
+      "display_name_en": "Rain Sensor",
+      "display_name_ar": "حساس مطر",
+      "data_type": "boolean",
+      "valid_en": [
+        "Automatic Rain Sensor",
+        "Rain Sensor",
+        "Auto Wiper"
+      ],
+      "valid_ar": [
+        "حساس مطر اوتوماتيكي",
+        "حساس مطر"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "seat_material",
+      "category": "interior",
+      "display_name_en": "Seat Material",
+      "display_name_ar": "مقاعد",
+      "data_type": "string",
+      "valid_en": [
+        "Fabric Seat Material",
+        "Leather Seats",
+        "Seat Material"
+      ],
+      "valid_ar": [
+        "مقاعد قماش",
+        "مقاعد جلد"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "seat_heater",
+      "category": "comfort",
+      "display_name_en": "Seat Heater",
+      "display_name_ar": "سخانات مقاعد",
+      "data_type": "boolean",
+      "valid_en": [
+        "Seat Heater",
+        "Heated Seats"
+      ],
+      "valid_ar": [
+        "سخانات مقاعد"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "pitch_bounce_control",
+      "category": "safety",
+      "display_name_en": "Pitch & Bounce Control",
+      "display_name_ar": "نظام التحكم بالإهزازات",
+      "data_type": "boolean",
+      "valid_en": [
+        "Pitch & Bounce Control",
+        "Pitch and Bounce Control",
+        "Pitch Control",
+        "Bounce Control"
+      ],
+      "valid_ar": [
+        "نظام التحكم بالإهزازات"
+      ],
+      "common_typos_en": [],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "headlamp_bi_led",
+      "category": "lighting",
+      "display_name_en": "BI-LED Headlamps",
+      "display_name_ar": "مصابيح BI LED",
+      "data_type": "boolean",
+      "valid_en": [
+        "Head & Tail Lamp BI PES LED",
+        "BI PES LED",
+        "BI-LED",
+        "Bi-Beam LED",
+        "Head Tail Lamp BI PES LED"
+      ],
+      "valid_ar": [
+        "مصابيح أمامية خلفية",
+        "مصابيح أمامية, خلفية"
+      ],
+      "common_typos_en": [
+        "BI PES LED",
+        "BIPES LED"
+      ],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "steering_wheel_design",
+      "category": "interior",
+      "display_name_en": "Steering Wheel Design",
+      "display_name_ar": "تصميم عجلة القيادة",
+      "data_type": "string",
+      "valid_en": [
+        "3 Spoke Steering Wheel Leather",
+        "3 Spoke Steering Wheel",
+        "Leather Steering Wheel",
+        "Spoke Steering Wheel"
+      ],
+      "valid_ar": [
+        "عجلة القيادة ثلاثية الأذرع",
+        "مكسوة بجلد"
+      ],
+      "common_typos_en": [],
+      "forbidden_patterns_en": []
+    },
+    {
+      "canonical_name": "wheel_specification",
+      "category": "chassis",
+      "display_name_en": "Wheel & Rim Specification",
+      "display_name_ar": "مواصفات العجلات",
+      "data_type": "string",
+      "valid_en": [
+        "Wheel Cap",
+        "Sport Rims",
+        "Alloy Wheels",
+        "Rims",
+        "R15",
+        "R16",
+        "R17",
+        "195/65",
+        "205/55",
+        "225/45"
+      ],
+      "valid_ar": [
+        "غطاء عجل",
+        "جنوط سبورت"
+      ],
+      "common_typos_en": [],
+      "forbidden_patterns_en": []
+    }
+  ]
+}

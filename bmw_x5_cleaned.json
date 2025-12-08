@@ -1,0 +1,1033 @@
+{
+  "source_pdf": "bmw_x5_page15_specs.pdf",
+  "extraction_method": "native_pdf",
+  "total_specs": 114,
+  "specs": [
+    {
+      "name_en": "TwinPower Turbo 6-cylinder inline petrol engine",
+      "name_ar": "M TwinPower Turbo أسطوانات ٦ محرك",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M TwinPower Turbo 8-cylinder petrol engine",
+      "name_ar": "M TwinPower Turbo أسطوانات ٨ محرك",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "8Speed Sport Steptronic Transmission with gear shift paddes",
+      "name_ar": "ناقل حركة رياضي ٨ سرعات مزود ببدالات للسرعة على عجلة القيادة",
+      "trim_values": [
+        "٥٠",
+        "٥"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Equipment\nSafety",
+      "name_ar": "التجهيزات الأمان",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Active Guard:\nLane Departure Warning wth Active Return\nFront Coison warning wth Brake intervention\nSpeed Lmt Info ncludng Predction, no Overtaking indicator and Leftturn warning with brake function\nEvason assstant\nActive protection",
+      "name_ar": "نظام الحماية النشط: للمسار السيارة عودة مساعد مع المرورية الحارة مغادرة عند التنبيه نظام نظام التنبيه وتفعيل المكابح عند الاقتراب من الاصطد ام نظام عرض وضبط سرعة السيارة حسب السرعة القانونية ونظام التحذير عند الانعطاف لليسار مع تفعيل المكابح نظام تحويل مسار السيارة في حالة الطوارئ (الاقتراب من الاصطدام) - نظام الحماية التفاعلي",
+      "trim_values": [
+        "ه\nه",
+        "ه\nه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Ant Lock Braking System (ABS)",
+      "name_ar": "نظام منع الانغلاق للمكابح",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Attentiveness assistant",
+      "name_ar": "القيادة أثناء ِنتباه الا على السائق مساعدة نظام",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Automatic Stability Control (ASC)",
+      "name_ar": "نظام التحكم الإلكتروني في ثبات السيارة",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Brake Assist",
+      "name_ar": "نظام المؤازرة للمكابح",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Brake Energy Regeneration",
+      "name_ar": "ًا ذاتي المكابح لنظام الكهربائية الطاقة توليد إعادة نظام",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Brake-pad wear indicator",
+      "name_ar": "نظام التنبيه عن جودة تآكل الفرامل",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Centra locking",
+      "name_ar": "نظام القفل المركزي",
+      "trim_values": [
+        "O",
+        "C"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Cornering Brake Control (CBC)",
+      "name_ar": "نظام التحكم في المكابح في المنحنبات",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Crash Sensor",
+      "name_ar": "حساس تصادم لحماية الركاب",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Curtan head airbags front and rear",
+      "name_ar": "ستائر حماية هوائية أمامية وخلفية",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Driver and front passenger airbags wth occupaton detector",
+      "name_ar": "وسائد هوائية للسائق والراكب الأمامي مع مستشعر إشغال المقعد",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Dynamic Brake Control (DBC)",
+      "name_ar": "نظام التحكم الديناميكي في مكابح السيارة",
+      "trim_values": [
+        "○",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Dynamic Braking Lghts",
+      "name_ar": "إضاءة ديناميكية في المصابيح الخلفية",
+      "trim_values": [
+        "○",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Dynamic Stability Control (DSC)",
+      "name_ar": "نظام التحكم الديناميكي في ثبات السيارة",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Dynamic Tracton Control (DTC)",
+      "name_ar": "نظام التحكم في جر السيارة",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Electronic vehicle immobilizer",
+      "name_ar": "نظام الحماية الإكتروني ضد السرقة",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Hill Descent Control (HDC)",
+      "name_ar": "نظام التحكم في نزول السيارة في المنحدرات",
+      "trim_values": [
+        "○",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "SO Fix Child Seat Mounting",
+      "name_ar": "نظام التثبيت لمقاعد الأطفال",
+      "trim_values": [
+        "ه",
+        "○"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "PC iBrake (PostCrash approach Control warning wth light brakng functon)",
+      "name_ar": "نظام التحكم في التباطؤ - لمنع التصادمات المتعددة",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Run-flat Tyres with run-flat ndcator",
+      "name_ar": "إطارات متطورة بتكنولوجيا السير بلا هواء مع نظام التنبيه عند تسرب الهواء من الإطارات",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "side airbags for driver and front passenger, ntegrated in seat backrests",
+      "name_ar": "وسائد هوائية جانبية للسائق والراكب الأمامي",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "side airbags for passengers in the 2nd row of seats",
+      "name_ar": "وسائد هوائية جانبية للصف الثاني من الركاب",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Tre pressure monitoring system",
+      "name_ar": "نظام مراقبة ضغط الإطارات",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "xDrve",
+      "name_ar": "نظام الدفع الرباعي المتطور xDrive",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Performance\nRecovery system (48v md hybrid system)(",
+      "name_ar": "الأداء نظام دفع هجين ٤٨ ڤولت",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Active ar stream kidney grille",
+      "name_ar": "شبكة أمامية أوتوماتيكية الفتح والغلق",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Cruise control with braking function",
+      "name_ar": "مثبت سرعة مزود بخاصية الفرملة للمحافظة على السرعة",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Adaptve 2-axe air suspenson",
+      "name_ar": "نظام التعليق الهوائي أمامي وخلفي",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Adaptive M Suspension Professional:\nActive Ro Stablization (ARS)",
+      "name_ar": "نظام التعليق الرياضي الذكي M: نظام منع تمايل السيارة",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Integral Active steering\nM adaptve dampers",
+      "name_ar": "نظام التوجيه النشط وتوجيه العجلات الخلفية ممتصات صدمات رياضية M",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M Sport brakes",
+      "name_ar": "نظام الفرامل الرياضي M",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M sport exhaust system",
+      "name_ar": "نظام العادم الرياضي M",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M Sport Differentia",
+      "name_ar": "نظام القفل التفاضلي الإلكتروني M",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Performance Control",
+      "name_ar": "نظام التحكم في الأداء وتوزيع العزم على العجلات الخلفية",
+      "trim_values": [
+        "ه",
+        "O"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Servotronc",
+      "name_ar": "نظام المؤازرة في القيادة",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Variable sport steering",
+      "name_ar": "نظام توجيه رياضي متغير حسب السرعة",
+      "trim_values": [
+        "O",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Exterior",
+      "name_ar": "التصميم الخارجي",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Acoustic Gazing",
+      "name_ar": "زجاج أمامي وجانبي أمامي عازل للصوت",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Adaptve LED Headlight",
+      "name_ar": "مصابيح أمامية ذكية تفاعلية LED خاصية إنارة المنحنيات -",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Aluminium running board",
+      "name_ar": "عتب جانبي من الألومنيوم",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Automatic operation of tailgate",
+      "name_ar": "نظام أوتوماتيكي لفتح وغلق غطاء الصندوق الخلفي",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "BMW kidney 'Iconic Glow'",
+      "name_ar": "الشبكة الأمامية بإضاءة مدمجة",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "BMW selective beam",
+      "name_ar": "نظام الإضاءة الذكي بخاصية عدم الإبهار",
+      "trim_values": [
+        "O",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "BMW Welcome light Carpet",
+      "name_ar": "باقة الإنارة الترحيبية",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Comfort access system",
+      "name_ar": "نظام فتح وغلق الأبواب والحقيبة الخلفية بدون استخدام المفتاح - عند الاقتراب من السيارة",
+      "trim_values": [
+        "ه",
+        "응으\nه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Electrica folding of exteror mirrors",
+      "name_ar": "ًا مرايات خارجية قابلة للطي كهربائي",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Exterior Line Satin Aumnium",
+      "name_ar": "إطار من الألومنيوم اللامع للنوافذ",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M high-goss Shadowne",
+      "name_ar": "إطار من الكروم الأسود اللامع للنوافذ والزجاج الجانبي",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M highgoss Shadowne wth extended contents",
+      "name_ar": "الشبكة الأمامية ومخرج العادم بلون أسود لامع",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M Lights Shadowline",
+      "name_ar": "الإطار الخارجي لمصابيح الإضاءة بلون أسود",
+      "trim_values": [
+        "",
+        "이이"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M mirror caps",
+      "name_ar": "أغطية المرايات الخارجية بتصميم M",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M Roof rais highgloss Shadowline",
+      "name_ar": "قضبان السقف من الكروم الأسود اللامع",
+      "trim_values": [
+        "ه",
+        "이이"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Exterior mirror on drivers side wth automatic antdazzle functon\nHigh Beam Assistance\nLED ta lghts",
+      "name_ar": "المرايا الخارجية بخاصية التعتيم الأوتوماتيكي - جهة السائق نظام التحكم الأوتوماتيكي في درجة وتوزيع الإضاءة العالية الأمامية للسيارة إضاءة خلفية بنظام الـLED",
+      "trim_values": [
+        "ه\nه\n응응응",
+        "이이이"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M Aerodynamcs package",
+      "name_ar": "اكصدامات (أمامي وخلفي) وعتب جانبي بتصميم أيروديناميكى M",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Panoramic glass roof",
+      "name_ar": "فتحة سقف بانوراما",
+      "trim_values": [
+        "٥٠",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Roof ras Aumnium satinated",
+      "name_ar": "قضبان السقف من الألومنيوم اللامع",
+      "trim_values": [
+        "○",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "SoftCose function for doors",
+      "name_ar": "خاصية شفط الأبواب (خاصية غلق الأبواب)",
+      "trim_values": [
+        "ه",
+        "○"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Sun protection glazing",
+      "name_ar": "زجاج خلفي وجانبي خلفي معتم",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Cylinders / valves",
+      "name_ar": "الأسطوانات / الصمامات",
+      "trim_values": [
+        "6/4",
+        "8/4"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Displacement (cc)\n(",
+      "name_ar": "سعة المحرك (سي سي)",
+      "trim_values": [
+        "2,998",
+        "4,395"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Maximum Output (hp)",
+      "name_ar": "القدرة القصوى (حصان)",
+      "trim_values": [
+        "381",
+        "530"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Maximum Torque (Nm@rpm)",
+      "name_ar": "العزم الأقصى (نيوتن.متر@لفةدقيقة)",
+      "trim_values": [
+        "540 @1850 - 5000 rpm",
+        "750 @1800 - 4600 rpm"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Top speed (km/h)",
+      "name_ar": "السرعة القصوى (كم/ساعة)",
+      "trim_values": [
+        "250",
+        "250"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Acceleration 0 100 km/h (sec.)\n-",
+      "name_ar": "التسارع من صفر إلى ١٠٠ كم / ساعة (ثانية)",
+      "trim_values": [
+        "5.4",
+        "4.3"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Fuel Consumption (combined /100 km)",
+      "name_ar": "(لتر) وخارجها المدينة داخل قيادة - ِستهلاك ا متوسط الوقود: ِستهلاك",
+      "trim_values": [
+        "9.2",
+        "11.6"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Tank Capacty (Liter)",
+      "name_ar": "سعة خزان الوقود (لتر)",
+      "trim_values": [
+        "83",
+        "83"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Luggage compartment (Liter):\n(;",
+      "name_ar": "سعة حقيبة الأمتعة (لتر)",
+      "trim_values": [
+        "650-1870",
+        "650-1870"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Curb weight (kg)",
+      "name_ar": "الوزن (كجم)",
+      "trim_values": [
+        "2165",
+        "2345"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Ground clearance, mm",
+      "name_ar": "الخلوص الأرضي، ملليمتر",
+      "trim_values": [
+        "214",
+        "214"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "4 Zone Automatic air conditioning",
+      "name_ar": "تكييف هواء أوتوماتيكي - ٤ مناطق",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Active seat ventilation for the front seats",
+      "name_ar": "المقاعد الأمامية مزودة بتهوية",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Ambient light (15 Colours)",
+      "name_ar": "باقة الإنارة الداخلية (مع ١٥ لون)",
+      "trim_values": [
+        "olololo",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Comfort seats front, electrically adjustable",
+      "name_ar": "مقاعد أمامية مريحة مع خاصية الذاكرة لمقعد السائق والراكب الأمامي مع خاصية التحكم الكهربائي",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Cupholder, temperature",
+      "name_ar": "حامل أكواب بخاصية التسخين والتبريد",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Foor mats in velour",
+      "name_ar": "دواسات من القماش",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "glass application 'CraftedClarity",
+      "name_ar": "أزرار التحكم في الوظائف الأساسية من الكريستال",
+      "trim_values": [
+        "ه",
+        "٥٠"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Heat comfort package front which includes: door armrests, centre consoe armrest, and\nsteering wheel heating",
+      "name_ar": "باقة التدفئة الإضافية بالأمام التي تشمل مساند الأيدي في الأبواب ومسند اليد الذي يوجد في الكونسول الوسطي بالإضافة إلى تدفئة عجلة القيادة \"",
+      "trim_values": [
+        "ه",
+        "O"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M Leather steering wheel",
+      "name_ar": "عجلة قيادة رياضية من الجلد تصميم M -",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M seat belts",
+      "name_ar": "أحزمة الأمان في الأمام والخلف - تصميم M",
+      "trim_values": [
+        "",
+        "O"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Massage function front",
+      "name_ar": "مقعد السائق والراكب الأمامي بخاصية تدليك الظهر",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Roer sun blnds for rear side windows, mechanca",
+      "name_ar": "ستائر للزجاج الجانبي الخلفي",
+      "trim_values": [
+        "ه",
+        "응응응\nه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Sport leather steering wheel",
+      "name_ar": "عجلة قيادة رياضية من الجلد",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Seat Heating Front & Rear",
+      "name_ar": "تدفئة للمقاعد الأمامية والخلفية",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Travel and comfort system",
+      "name_ar": "تجهيز في خلفية المقاعد لتركيب الإكسسوارات (حامل الجهاز اللوحي...إلخ)",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Technology",
+      "name_ar": "التكنولوجيا",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "BMW Gesture Control",
+      "name_ar": "نظام BMW للتحكم بالإشارة وحركات اليد",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "BMW Live Cockpit Professional :\nBMW Curved Display\n:\n12.3” Instrument Display\n149\"\" Control Dsplay\nNavgation system\nOS 8.5\nBMW nteigent Personal Assistant (PA)\nHead Up Display\nHarman Kardon surround sound system (16 speakers with 464 W Ampfier Power)",
+      "name_ar": "نظام BMW للترفيه والمعلومات: Curved Dspay شاشة شاشة قياس ١٤٫٩ بوصة وسطية لعرض الخرائط والأنظمة المختلفة شاشة قياس١٢٫٣ بوصة للعدادات متغيرة الألوان - نظام الملاحة والخرائط نظام تشغيل ٨٫٥ OS مساعد BMW الذكي(IPA( نظام عرض المعلومات على الزجاج الأمامي للسائق نظام صوتي Kardon Harman مكبر للصوت مزود بـ١٦ سماعة بقوة ٤٦٤ وات",
+      "trim_values": [
+        "ه\nه",
+        "O\nه\nه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Parking Assistant Plus :\nPark Distance Control front and rear\nSurround view cameras\nAutomatic parking\nReversng assstant\nSmartphone integration\n:",
+      "name_ar": "نظام المساعدة على صف السيارة: نظام حساسات - أمامية وخلفية نظام كاميرات للرؤية الشاملة حول السيارة مساعد الركن الأوتوماتيكي مساعد الرجوع للخلف السيارة شاشة مع الهواتف اتصال خاصية",
+      "trim_values": [
+        "ه\nه",
+        "ه\nه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Wireless charging front",
+      "name_ar": "شاحن لاسلكي للهواتف في الأمام",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Others",
+      "name_ar": "أخرى",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Automatic Start/Stop Function",
+      "name_ar": "الوقود استهلاك لتوفير ًا أوتوماتيكي المحرك وتشغيل إطفاء نظام",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Parking brake with Automatic hold function",
+      "name_ar": "فرامل كهربائية مع خاصية الكبح الأوتوماتيكي",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Start/Stop Button",
+      "name_ar": "زر لتشغيل وإطفاء المحرك",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Interior Trims",
+      "name_ar": "الحليات الداخلية",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Fine-wood trm Fineline Stripe' brown high-gloss\n''",
+      "name_ar": "تابلوه السيارة مطعم بحلى من الخشب البني",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M interior trim finishers 'Carbon Fiber'",
+      "name_ar": "تابلوه السيارة مطعم بحلى من ألياف الكربون",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "BMW Individual instrument panel finished n leather",
+      "name_ar": "تابلوه السيارة مكسو بالجلد Indvidual",
+      "trim_values": [
+        "",
+        "○"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Upholstery",
+      "name_ar": "الفرش الداخلي",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M headliner Alcantara anthracite",
+      "name_ar": "فرش سقف مخملي أسود",
+      "trim_values": [
+        "ه",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "BMW Individual leather 'Merino Black''",
+      "name_ar": "فرش جلد طبيعي مارينو (ميرينو) أسود",
+      "trim_values": [
+        "",
+        "ه\nان"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "BMW Individual leather 'Merino Tartufo'",
+      "name_ar": "فرش جلد طبيعي مارينو (ميرينو) جملي",
+      "trim_values": [
+        "°",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "BMW Individual leather 'Merino Coffee\n'",
+      "name_ar": "فرش جلد طبيعي مارينو (ميرينو) بني",
+      "trim_values": [
+        "ه",
+        "○"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Alloy Wheels",
+      "name_ar": "العجلات",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "20\" light alloy wheels V-spoke style 738 Bicoour wth mixed tyres and runflat tyres",
+      "name_ar": "عجلات معدنية رياضية مقاس ٢٠ بوصة بتصميم متعدد الأذرع من الطراز ٧٣٨",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "21\" M light alloy wheels Yspoke style 741 M Bicolour with mxed tyres and runflat tyres",
+      "name_ar": "عجلات M معدنية رياضية مقاس ٢١ بوصة بتصميم ثنائي الأذرع من الطراز ٧٤١",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "Engines & Transmissions",
+      "name_ar": "المحركات وناقلات الحركة",
+      "trim_values": [
+        "",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "TwinPower Turbo 6-cylinder inline petrol engine",
+      "name_ar": "M TwinPower Turbo أسطوانات ٦ محرك",
+      "trim_values": [
+        "ه",
+        ""
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "M TwinPower Turbo 8-cylinder petrol engine",
+      "name_ar": "M TwinPower Turbo أسطوانات ٨ محرك",
+      "trim_values": [
+        "",
+        "ه"
+      ],
+      "extraction_method": "native_pdf"
+    },
+    {
+      "name_en": "8Speed Sport Steptronic Transmission with gear shift paddes",
+      "name_ar": "ناقل حركة رياضي ٨ سرعات مزود ببدالات للسرعة على عجلة القيادة",
+      "trim_values": [
+        "٥٠",
+        "٥"
+      ],
+      "extraction_method": "native_pdf"
+    }
+  ]
+}

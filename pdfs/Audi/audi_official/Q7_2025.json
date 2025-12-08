@@ -1,0 +1,14 @@
+{
+  "brand": "Audi",
+  "model": "Q7",
+  "year": "2025",
+  "source_url": "https://oneaudi-falcon-asset-urls.prod.renderer.one.audi/api/assets/p123727-e1214567/publish?path=/content/dam/nemo/eg/Brochures/Q7.pdf",
+  "filename": "Q7_2025.pdf",
+  "file_size_bytes": 15081261,
+  "file_size_mb": 14.38,
+  "sha256": "ecca26b2bff57753a31a2b708e0be065e7b76b7e2019b8fc4f196ac81bbaffea",
+  "download_date": "2025-11-27T01:20:46.019746",
+  "shared_by_models": [
+    "Audi Q7"
+  ]
+}

@@ -14,6 +14,6 @@ export const useLanguageStore = create<LanguageStore>()(
     }),
     {
       name: 'language-storage', // localStorage key
-    }
-  )
+    },
+  ),
 );

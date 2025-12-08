@@ -18,16 +18,17 @@ export function getVehicleImage(imageUrl: string | null | undefined): string {
 }
 
 /**
- * Format price in Egyptian Pounds with K/M suffix
+ * Format price in Egyptian Pounds to nearest 1,000
  * @param price - Price in EGP
  * @returns Formatted price string
  */
-export function formatPrice(price: number): string {
-  if (price >= 1_000_000) {
-    return `${(price / 1_000_000).toFixed(1)}M EGP`;
-  }
-  if (price >= 1_000) {
-    return `${(price / 1_000).toFixed(0)}K EGP`;
-  }
-  return `${price} EGP`;
+export function formatEGP(price: number, lang: 'en' | 'ar'): string {
+  // Round to nearest 1,000
+  const rounded = Math.round(price / 1000) * 1000;
+  
+  return new Intl.NumberFormat(lang === 'ar' ? 'ar-EG' : 'en-EG', {
+    style: 'currency',
+    currency: 'EGP',
+    maximumFractionDigits: 0,
+  }).format(rounded);
 }

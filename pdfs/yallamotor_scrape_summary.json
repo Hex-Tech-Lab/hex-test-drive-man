@@ -1,0 +1,55 @@
+{
+  "timestamp": "2025-11-26T16:11:55.014Z",
+  "brands": {
+    "volkswagen": {
+      "brand": "Volkswagen",
+      "url": "https://egypt.yallamotor.com/new-cars/volkswagen",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Navigation timeout of 60000 ms exceeded"
+      ]
+    },
+    "peugeot": {
+      "brand": "Peugeot",
+      "url": "https://egypt.yallamotor.com/new-cars/peugeot",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Navigation timeout of 60000 ms exceeded"
+      ]
+    },
+    "renault": {
+      "brand": "Renault",
+      "url": "https://egypt.yallamotor.com/new-cars/renault",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Navigation timeout of 60000 ms exceeded"
+      ]
+    },
+    "skoda": {
+      "brand": "Skoda",
+      "url": "https://egypt.yallamotor.com/new-cars/skoda",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Navigation timeout of 60000 ms exceeded"
+      ]
+    },
+    "fiat": {
+      "brand": "Fiat",
+      "url": "https://egypt.yallamotor.com/new-cars/fiat",
+      "modelsFound": 0,
+      "pdfGenerated": 0,
+      "models": [],
+      "errors": [
+        "Navigation timeout of 60000 ms exceeded"
+      ]
+    }
+  }
+}
