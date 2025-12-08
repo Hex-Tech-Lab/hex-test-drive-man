@@ -67,8 +67,13 @@ class GeminiVisionExtractor:
         """
         start_time = time.time()
 
-        # Load image
-        with open(png_path, "rb") as f:
+        # Validate and load image
+        from pathlib import Path
+        image_path = Path(png_path)
+        if not image_path.exists():
+            return {"error": f"Image file not found: {png_path}", "metadata": {"model_used": self.model_name}}
+
+        with open(image_path, "rb") as f:
             image_data = f.read()
 
         # Build extraction prompt
