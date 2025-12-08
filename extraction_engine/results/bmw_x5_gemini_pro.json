@@ -1,0 +1,1101 @@
+{
+  "trims": [
+    "X5 xDrive40i",
+    "X5 M60i xDrive"
+  ],
+  "specs": [
+    {
+      "category": "Engines & Transmissions",
+      "subcategory": null,
+      "label": "TwinPower Turbo 6-cylinder inline petrol engine",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Engines & Transmissions",
+      "subcategory": null,
+      "label": "M TwinPower Turbo 8-cylinder petrol engine",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Engines & Transmissions",
+      "subcategory": null,
+      "label": "8-Speed Sport Steptronic Transmission with gear shift paddles",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": "Active Guard",
+      "label": "Lane Departure Warning with Active Return",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": "Active Guard",
+      "label": "Front Collision Warning with Brake Intervention",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": "Active Guard",
+      "label": "Speed Limit Info including Prediction, no Overtaking Indicator and Left-turn warning with brake function",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": "Active Guard",
+      "label": "Evasion assistant",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Active protection",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Anti Lock Braking System (ABS)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Attentiveness assistant",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Automatic Stability Control (ASC)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Brake Assist",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Brake Energy Regeneration",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Brake-pad wear indicator",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Central locking",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Cornering Brake Control (CBC)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Crash Sensor",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Curtain head airbags front and rear",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Driver and front passenger airbags with occupation detector",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Dynamic Brake Control (DBC)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Dynamic Braking Lights",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Dynamic Stability Control (DSC)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Dynamic Traction Control (DTC)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Electronic vehicle immobilizer",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Hill Descent Control (HDC)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "ISO Fix Child Seat Mounting",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "PC iBrake (PostCrash approach control warning with light braking function)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Run-flat Tyres with run-flat indicator",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Side airbags for driver and front passenger, integrated in seat backrests",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Side airbags for passengers in the 2nd row of seats",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "Tire pressure monitoring system",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Safety",
+      "subcategory": null,
+      "label": "xDrive",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "Recovery system (48v mild hybrid system)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "Active air stream kidney grille",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "Cruise control with braking function",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "Adaptive 2-axle air suspension",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": "Adaptive M Suspension Professional",
+      "label": "Active Roll Stabilization (ARS)",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": "Adaptive M Suspension Professional",
+      "label": "Integral Active Steering",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": "Adaptive M Suspension Professional",
+      "label": "M adaptive dampers",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "M Sport brakes",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "M sport exhaust system",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "M Sport Differential",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "Performance Control",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "Servotronic",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Performance",
+      "subcategory": null,
+      "label": "Variable sport steering",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Acoustic Glazing",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Adaptive LED Headlight",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Aluminium running board",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Automatic operation of tailgate",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "BMW kidney 'Iconic Glow'",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "BMW selective beam",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "BMW Welcome light Carpet",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Comfort access system",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Electrical folding of exterior mirrors",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Exterior Line Satin Aluminium",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "M high-gloss Shadowline",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "M high-gloss Shadowline with extended contents",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "M Lights Shadowline",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "M Mirror caps",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "M Roof rails high-gloss Shadowline",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Exterior mirror on driver's side with automatic anti-dazzle function",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "High Beam Assistance",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "LED tail lights",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "M Aerodynamics package",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Panoramic glass roof",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Roof rails Aluminium satinated",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Soft-Close function for doors",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Exterior",
+      "subcategory": null,
+      "label": "Sun protection glazing",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "4 Zone Automatic air conditioning",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Active seat ventilation for the front seats",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Ambient light (15 Colours)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Comfort seats front, electrically adjustable",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Cupholder, temperate",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Floor mats in velour",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Glass application 'CraftedClarity'",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Heat comfort package front which includes: door armrests, centre console armrest, and steering wheel heating",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "M Leather steering wheel",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "M seat belts",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Massage function front",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Roller sun blinds for rear side windows, mechanical",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Sport leather steering wheel",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Seat Heating Front & Rear",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior",
+      "subcategory": null,
+      "label": "Travel and comfort system",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": null,
+      "label": "BMW Gesture Control",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "BMW Live Cockpit Professional",
+      "label": "BMW Curved Display",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "BMW Live Cockpit Professional",
+      "label": "14.9\"\" Control Display",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "BMW Live Cockpit Professional",
+      "label": "12.3\"\" Instrument display",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "BMW Live Cockpit Professional",
+      "label": "Navigation system",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "BMW Live Cockpit Professional",
+      "label": "OS 8.5",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "BMW Live Cockpit Professional",
+      "label": "BMW Intelligent Personal Assistant (IPA)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "BMW Live Cockpit Professional",
+      "label": "Head Up Display",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": null,
+      "label": "Harman Kardon surround sound system (16 speakers with 464 W Amplifier Power)",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "Parking Assistant Plus",
+      "label": "Park Distance Control front and rear",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "Parking Assistant Plus",
+      "label": "Surround view cameras",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "Parking Assistant Plus",
+      "label": "Automatic parking",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": "Parking Assistant Plus",
+      "label": "Reversing assistant",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": null,
+      "label": "Smartphone Integration",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technology",
+      "subcategory": null,
+      "label": "Wireless charging front",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Others",
+      "subcategory": null,
+      "label": "Automatic Start/Stop Function",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Others",
+      "subcategory": null,
+      "label": "Parking brake with automatic hold function",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Others",
+      "subcategory": null,
+      "label": "Start/Stop Button",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior Trims",
+      "subcategory": null,
+      "label": "Fine-wood trim 'Fineline Stripe' brown high-gloss",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Interior Trims",
+      "subcategory": null,
+      "label": "M interior trim finishers 'Carbon Fiber'",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Interior Trims",
+      "subcategory": null,
+      "label": "BMW Individual instrument panel finished in leather",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Upholstery",
+      "subcategory": null,
+      "label": "M headliner Alcantara anthracite",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Upholstery",
+      "subcategory": null,
+      "label": "BMW Individual leather 'Merino' Black",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Upholstery",
+      "subcategory": null,
+      "label": "BMW Individual leather 'Merino' Tartufo",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Upholstery",
+      "subcategory": null,
+      "label": "BMW Individual leather 'Merino' Coffee",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Alloy Wheels",
+      "subcategory": null,
+      "label": "20\" light alloy wheels V-spoke style 738 Bicolour with mixed tyres and runflat tyres",
+      "values": {
+        "X5 xDrive40i": "Standard",
+        "X5 M60i xDrive": null
+      }
+    },
+    {
+      "category": "Alloy Wheels",
+      "subcategory": null,
+      "label": "21\" M light alloy wheels Y-spoke style 741 M Bicolour with mixed tyres and runflat tyres",
+      "values": {
+        "X5 xDrive40i": null,
+        "X5 M60i xDrive": "Standard"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Cylinders / valves",
+      "values": {
+        "X5 xDrive40i": "6/4",
+        "X5 M60i xDrive": "8/4"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Displacement (cc)",
+      "values": {
+        "X5 xDrive40i": "2,998",
+        "X5 M60i xDrive": "4,395"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Maximum Output (hp)",
+      "values": {
+        "X5 xDrive40i": "381",
+        "X5 M60i xDrive": "530"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Maximum Torque (Nm@rpm)",
+      "values": {
+        "X5 xDrive40i": "540 @1850 - 5000 rpm",
+        "X5 M60i xDrive": "750 @1800 - 4600 rpm"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Top speed (km/h)",
+      "values": {
+        "X5 xDrive40i": "250",
+        "X5 M60i xDrive": "250"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Acceleration 0 - 100 km/h (sec.)",
+      "values": {
+        "X5 xDrive40i": "5.4",
+        "X5 M60i xDrive": "4.3"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Fuel Consumption (combined l/100 km)",
+      "values": {
+        "X5 xDrive40i": "9.2",
+        "X5 M60i xDrive": "11.6"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Tank Capacity (Liter)",
+      "values": {
+        "X5 xDrive40i": "83",
+        "X5 M60i xDrive": "83"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Luggage compartment (Liter)",
+      "values": {
+        "X5 xDrive40i": "650-1870",
+        "X5 M60i xDrive": "650-1870"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Curb weight (kg)",
+      "values": {
+        "X5 xDrive40i": "2165",
+        "X5 M60i xDrive": "2345"
+      }
+    },
+    {
+      "category": "Technical Data",
+      "subcategory": null,
+      "label": "Ground clearance, mm",
+      "values": {
+        "X5 xDrive40i": "214",
+        "X5 M60i xDrive": "214"
+      }
+    }
+  ],
+  "metadata": {
+    "model_used": "gemini-2.5-pro",
+    "extraction_time": 94.95603227615356
+  }
+}
