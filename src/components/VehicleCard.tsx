@@ -47,6 +47,13 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
     severity: 'success' as 'success' | 'error',
   });
 
+  // Date calculation for min attribute (Local time)
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const minPreferredDate = `${year}-${month}-${day}`;
+
   const isInCompare = compareItems.some((item) => item.id === vehicle.id);
   const canAddMore = compareItems.length < 3;
 
@@ -147,7 +154,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
   };
 
   const handleSnackbarClose = () => {
-    setSnackbar({ ...snackbar, open: false });
+    setSnackbar((prev) => ({ ...prev, open: false }));
   };
 
   return (
@@ -238,7 +245,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
               fullWidth
               label={language === 'ar' ? 'الاسم الكامل' : 'Full Name'}
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
               error={!!formErrors.name}
               helperText={formErrors.name}
               sx={{ mb: 2 }}
@@ -249,7 +256,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
               fullWidth
               label={language === 'ar' ? 'رقم الهاتف' : 'Phone Number'}
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
               error={!!formErrors.phone}
               helperText={formErrors.phone}
               sx={{ mb: 2 }}
@@ -261,12 +268,12 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
               label={language === 'ar' ? 'التاريخ المفضل' : 'Preferred Date'}
               type="date"
               value={formData.preferredDate}
-              onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+              onChange={(e) => setFormData((prev) => ({ ...prev, preferredDate: e.target.value }))}
               error={!!formErrors.preferredDate}
               helperText={formErrors.preferredDate}
               InputLabelProps={{ shrink: true }}
               inputProps={{
-                min: new Date().toISOString().split('T')[0],
+                min: minPreferredDate,
               }}
               sx={{ mb: 2 }}
               required
@@ -276,7 +283,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
               fullWidth
               label={language === 'ar' ? 'ملاحظات (اختياري)' : 'Notes (Optional)'}
               value={formData.notes}
-              onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+              onChange={(e) => setFormData((prev) => ({ ...prev, notes: e.target.value }))}
               multiline
               rows={3}
             />

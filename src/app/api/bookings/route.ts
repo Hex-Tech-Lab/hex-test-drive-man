@@ -21,6 +21,14 @@ function validateBookingInput(
   data: unknown
 ): { valid: boolean; errors: string[] } {
   const errors: string[] = [];
+
+  if (typeof data !== 'object' || data === null) {
+    return {
+      valid: false,
+      errors: ['Body must be a JSON object'],
+    };
+  }
+
   const d = data as ValidationData;
 
   if (!d.name || typeof d.name !== 'string' || d.name.trim().length === 0) {
@@ -37,6 +45,13 @@ function validateBookingInput(
     const date = new Date(d.preferredDate);
     if (isNaN(date.getTime())) {
       errors.push('Preferred date must be a valid ISO 8601 date string');
+    } else {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      date.setHours(0, 0, 0, 0);
+      if (date < today) {
+        errors.push('Preferred date cannot be in the past');
+      }
     }
   }
 

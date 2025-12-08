@@ -2,9 +2,13 @@
 // Created: 2025-12-07
 // NOTE: This is a temporary implementation. Will be replaced with Supabase/Drizzle in future iterations.
 
+import crypto from 'crypto';
 import { Booking, BookingInput, BookingStatus } from '@/types/booking';
 
-// In-memory storage (resets on server restart)
+// In-memory storage (resets on server restart).
+// NOTE: This is MVP-only and not safe for concurrent mutation;
+// callers MUST treat returned objects as read-only.
+// Will be replaced with a proper database + repository.
 const bookings: Booking[] = [];
 
 export const bookingRepository = {
@@ -14,6 +18,37 @@ export const bookingRepository = {
    * @returns Promise resolving to the created booking
    */
   async createBooking(input: BookingInput): Promise<Booking> {
+    // Basic input validation
+    const errors: string[] = [];
+
+    if (!input.name || !input.name.trim()) {
+      errors.push('Name is required');
+    }
+    if (!input.phone || !input.phone.trim()) {
+      errors.push('Phone is required');
+    }
+    if (!input.vehicleId || !input.vehicleId.trim()) {
+      errors.push('Vehicle ID is required');
+    }
+
+    const MAX_LEN = 255;
+    const fieldsToCheck: Array<keyof BookingInput> = ['name', 'phone', 'vehicleId', 'notes'];
+    for (const field of fieldsToCheck) {
+      const value = input[field];
+      if (typeof value === 'string' && value.length > MAX_LEN) {
+        errors.push(`${field} must be at most ${MAX_LEN} characters`);
+      }
+    }
+
+    const date = new Date(input.preferredDate);
+    if (isNaN(date.getTime())) {
+      errors.push('Invalid preferred date');
+    }
+
+    if (errors.length > 0) {
+      throw new Error(errors.join('; '));
+    }
+
     // Simulate async operation (database write)
     await new Promise(resolve => setTimeout(resolve, 100));
 
