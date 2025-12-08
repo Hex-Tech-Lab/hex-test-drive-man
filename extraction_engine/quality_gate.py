@@ -44,7 +44,7 @@ class QualityGate:
         self.strict = strict
         self.min_specs = self.MIN_SPECS.get(vehicle_type, self.MIN_SPECS["default"])
 
-    def validate(self, extraction_result: Dict) -> Tuple[bool, Dict]:
+    def validate(self, extraction_result: Dict) -> tuple[bool, Dict]:
         """
         Run all quality checks on extraction result
 
@@ -107,7 +107,7 @@ class QualityGate:
 
         return report["passed"], report
 
-    def _validate_schema(self, result: Dict) -> Tuple[bool, List[str]]:
+    def _validate_schema(self, result: Dict) -> tuple[bool, list[str]]:
         """Validate JSON schema compliance"""
         errors = []
 
@@ -145,7 +145,7 @@ class QualityGate:
 
         return len(errors) == 0, errors
 
-    def _validate_completeness(self, result: Dict) -> Tuple[bool, Dict]:
+    def _validate_completeness(self, result: Dict) -> tuple[bool, Dict]:
         """Check if extraction is complete enough"""
         errors = []
         warnings = []
@@ -181,7 +181,7 @@ class QualityGate:
 
         return len(errors) == 0, {"errors": errors, "warnings": warnings}
 
-    def _validate_structure(self, result: Dict) -> Tuple[bool, List[str]]:
+    def _validate_structure(self, result: Dict) -> tuple[bool, list[str]]:
         """Validate hierarchical structure and consistency"""
         warnings = []
 
@@ -208,7 +208,7 @@ class QualityGate:
 
         return len(warnings) == 0, warnings
 
-    def _validate_semantics(self, result: Dict) -> Tuple[bool, List[str]]:
+    def _validate_semantics(self, result: Dict) -> tuple[bool, list[str]]:
         """Validate semantic accuracy of extracted values"""
         warnings = []
 
@@ -282,7 +282,7 @@ def validate_extraction(
     extraction_result: Dict,
     vehicle_type: str = "default",
     strict: bool = False
-) -> Tuple[bool, Dict]:
+) -> tuple[bool, Dict]:
     """
     Convenience function to validate extraction result
 

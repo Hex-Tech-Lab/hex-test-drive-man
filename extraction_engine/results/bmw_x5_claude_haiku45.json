@@ -1,0 +1,914 @@
+{
+  "trims": [
+    "X5 xDrive50i",
+    "X5 M50d xDrive"
+  ],
+  "specs": [
+    {
+      "category": "ENGINE & TRANSMISSION",
+      "subcategory": "Engine Type",
+      "label": "Engine Displacement",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": null
+      }
+    },
+    {
+      "category": "ENGINE & TRANSMISSION",
+      "subcategory": "Engine Type",
+      "label": "Twin-Turbo V-8 with Bi-Turbo petrol engine",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": null
+      }
+    },
+    {
+      "category": "ENGINE & TRANSMISSION",
+      "subcategory": "Engine Type",
+      "label": "Twin-Turbo V-8 with Bi-Turbo petrol engine",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "ENGINE & TRANSMISSION",
+      "subcategory": "Engine Type",
+      "label": "8-Speed Sport Steptronic Transmission with gear shift paddles",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Suspension",
+      "label": "Double-wishbone with Anti-Roll Bar",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Suspension",
+      "label": "Integral link rear suspension with Anti-Roll Bar",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Suspension",
+      "label": "Damper with Integrated Pneumatic Air Suspension Indicator and Lift-Axle warning with brake function",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Suspension",
+      "label": "Active suspension",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Suspension",
+      "label": "Adaptive M Suspension Professional",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Suspension",
+      "label": "Adjustable M Suspension Professional",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": null
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Suspension",
+      "label": "Ride height adjustment (AHC)",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Brake Force",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Brake Disc diameter",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Brake Pad thickness",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Corneal locking",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Cornering Brake Control (CBC)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Cabin Sensor",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Crash head airbag front and rear",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Dynamic Brake Control (DBC) with acceleration detection",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Dynamic Brake Control (DBC)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Dynamic Traction Control (DTC)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Dynamic Traction Control (DTC)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Electronic Brake Force Distribution",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Hill Descent Control (HDC)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Hill Start Assist Braking",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Integrated Brake System with anti-locking system",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Run-flat Tyres with run-flat indicator",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Side airbags for driver and front passenger, integrated in seat backrest",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Side airbags in the 2nd row of seats",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SUSPENSION",
+      "subcategory": "Brakes",
+      "label": "Tire pressure monitoring system",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "0-100 km/h (sec) (with launch control)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": null
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "Active on stream braking cylinders",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": null
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "Cruise control with braking function",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "Driving Dynamics Control (DDC)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": null
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "Adaptive M Suspension Professional",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "Ride height adjustment (AHC)",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "M Integral Brakes",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "M Sport Differential",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "Performance control",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "PERFORMANCE",
+      "subcategory": "Performance",
+      "label": "Selective load limiting",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "Acoustic Glazing",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "Aerodynamic body kit",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "Automatic operation of tailgate",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "BMW Laserlight",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "BMW Laserlight beam",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "BMW Individual Roof Accent",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "Exterior mirror on driver's side with automatic anti-dazzle function",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "High Beam Assist",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "M Aerodynamics package",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "Panoramic glass roof",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "Soft Close Sunroof for doors",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "EXTERIOR",
+      "subcategory": "Exterior",
+      "label": "Roof protection spoiler",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": null
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Ambient light (12 Colours)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Ambient light (5 Colours)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Ambient light (5 Colours)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Cabin air filtration adjustable",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Cabin air filtration",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Cabin air filtration",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Dual-zone automatic air conditioning",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Four-zone automatic air conditioning",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Head-comfort package from which includes: door armrests, center console armrest, and rear seat armrest",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "M seat belts",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Massage function",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Seat heating (front, rear, mechanical)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Seat leather seating areas",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Seat Heating Front & Rear",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "COMFORT & CONVENIENCE",
+      "subcategory": "Comfort & Convenience",
+      "label": "Ventilation system",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "BMW Live Cockpit Professional",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "BMW Operating System 7.0",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "BMW Operating System 8.0",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "Navigation system",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "BMW Intelligent Personal Assistant (IPA)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "Harman Kardon surround sound system (16 speakers with 600 W Amplifier Power)",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "Parking Assistance Plus",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "Surround view cameras",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "Reversing camera",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNOLOGY",
+      "subcategory": "Technology",
+      "label": "Wireless charging dock",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SAFETY",
+      "subcategory": "Safety",
+      "label": "Automatic Stabilize Function",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SAFETY",
+      "subcategory": "Safety",
+      "label": "Driving Assistance Automatic Brake Function",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SAFETY",
+      "subcategory": "Safety",
+      "label": "Lane Departure Warning",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SAFETY",
+      "subcategory": "Safety",
+      "label": "Energetic Brake Assist Brake Assist",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "SAFETY",
+      "subcategory": "Safety",
+      "label": "Energetic Brake Assist Brake Assist",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "UPHOLSTERY",
+      "subcategory": "Upholstery",
+      "label": "M Leather Alcantara upholstery",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "UPHOLSTERY",
+      "subcategory": "Upholstery",
+      "label": "BMW Individual leather 'Merino' Black",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "UPHOLSTERY",
+      "subcategory": "Upholstery",
+      "label": "BMW Individual leather 'Merino' Cognac",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "UPHOLSTERY",
+      "subcategory": "Upholstery",
+      "label": "BMW Individual leather 'Merino' Coffee",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "ROOF DETAILS",
+      "subcategory": "Roof Details",
+      "label": "20\" light alloy wheels 5-spoke style 740 M, 255/50 with mixed tyres and carbon tyres",
+      "values": {
+        "X5 xDrive50i": "●",
+        "X5 M50d xDrive": null
+      }
+    },
+    {
+      "category": "ROOF DETAILS",
+      "subcategory": "Roof Details",
+      "label": "21\" light alloy wheels 5-spoke style 740 M, 255/45 with mixed tyres and carbon tyres",
+      "values": {
+        "X5 xDrive50i": null,
+        "X5 M50d xDrive": "●"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Kerb Weight (kg)",
+      "values": {
+        "X5 xDrive50i": "2,095",
+        "X5 M50d xDrive": "4,785"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Displacement (cc)",
+      "values": {
+        "X5 xDrive50i": "2,998",
+        "X5 M50d xDrive": "3,0"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Max Power (bhp @ rpm)",
+      "values": {
+        "X5 xDrive50i": "503 @ 5500 - 6500 rpm",
+        "X5 M50d xDrive": "400 @ 4000 - 4400 rpm"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Max Torque (Nm)",
+      "values": {
+        "X5 xDrive50i": "625",
+        "X5 M50d xDrive": "760"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Acceleration 0-100 km/h (sec)",
+      "values": {
+        "X5 xDrive50i": "4.7",
+        "X5 M50d xDrive": "4.8"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Top Speed (km/h)",
+      "values": {
+        "X5 xDrive50i": "250",
+        "X5 M50d xDrive": "250"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Fuel Consumption (combined) (l/100 km)",
+      "values": {
+        "X5 xDrive50i": "9.2",
+        "X5 M50d xDrive": "11.6"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Tank Capacity (Litre)",
+      "values": {
+        "X5 xDrive50i": "84",
+        "X5 M50d xDrive": "83"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "CO2 Emissions (g/km)",
+      "values": {
+        "X5 xDrive50i": "210",
+        "X5 M50d xDrive": "265"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Curb weight (kg)",
+      "values": {
+        "X5 xDrive50i": "2,085",
+        "X5 M50d xDrive": "2,505"
+      }
+    },
+    {
+      "category": "TECHNICAL DATA",
+      "subcategory": "Technical Data",
+      "label": "Unladen weight (mm)",
+      "values": {
+        "X5 xDrive50i": "296",
+        "X5 M50d xDrive": "296"
+      }
+    }
+  ],
+  "metadata": {
+    "layout_type": "multi_column",
+    "has_rotated_headers": true,
+    "color_coded_sections": true,
+    "section_colors": [
+      "dark_blue",
+      "light_blue",
+      "navy",
+      "olive_green"
+    ],
+    "extraction_time": 39.27113604545593,
+    "model_used": "claude-sonnet-4.5",
+    "input_tokens": 2205,
+    "output_tokens": 8324
+  }
+}

@@ -48,7 +48,7 @@ class ClaudeVisionExtractor:
         png_path: str,
         brand: str,
         model: str,
-        expected_trims: Optional[List[str]] = None
+        expected_trims: Optional[list[str]] = None
     ) -> Dict:
         """
         Extract vehicle specifications from PNG image
@@ -84,8 +84,18 @@ class ClaudeVisionExtractor:
         """
         start_time = time.time()
 
+        # Validate image path
+        image_path = Path(png_path)
+        if not image_path.exists():
+            return {
+                "error": f"Image file not found: {png_path}",
+                "trims": [],
+                "specs": [],
+                "metadata": {"extraction_time": 0, "success": False}
+            }
+
         # Load and encode image
-        with open(png_path, "rb") as f:
+        with open(image_path, "rb") as f:
             image_data = base64.standard_b64encode(f.read()).decode("utf-8")
 
         # Build vision prompt
@@ -146,7 +156,7 @@ class ClaudeVisionExtractor:
         self,
         brand: str,
         model: str,
-        expected_trims: Optional[List[str]]
+        expected_trims: Optional[list[str]]
     ) -> str:
         """Build detailed extraction prompt for Claude"""
 

@@ -55,3 +55,9 @@ archive/
 venv/
 .vercel
 .env.local
+
+*.backup
+*.bak
+
+extract_*.py
+comment_urls.txt
