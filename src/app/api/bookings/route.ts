@@ -15,7 +15,13 @@ interface ValidationData {
 }
 
 /**
- * Validate booking input data
+ * Validate booking input and collect validation errors.
+ *
+ * Checks that `name`, `phone`, `preferredDate`, and `vehicleId` are present and correctly typed,
+ * that `preferredDate` parses to a valid date, and that `notes` (if provided) is a string.
+ *
+ * @param data - The raw input to validate (typically the parsed request body).
+ * @returns An object with `valid`: `true` if all validations pass, `false` otherwise; `errors`: an array of human-readable validation messages.
  */
 function validateBookingInput(
   data: unknown
@@ -55,8 +61,15 @@ function validateBookingInput(
 }
 
 /**
- * POST /api/bookings
- * Create a new test drive booking
+ * Creates a new test drive booking from the request body.
+ *
+ * Expects a JSON body with `name`, `phone`, `preferredDate` (ISO date string), `vehicleId`, and optional `notes`.
+ *
+ * @returns A JSON HTTP response:
+ * - Success (201): `{ booking }` with the created booking object.
+ * - Validation failure (400): `{ error: 'Invalid booking data', details: string[] }`.
+ * - Invalid JSON (400): `{ error: 'Invalid JSON in request body' }`.
+ * - Server error (500): `{ error: 'Internal server error' }`.
  */
 export async function POST(request: NextRequest) {
   try {

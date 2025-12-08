@@ -28,6 +28,12 @@ interface VehicleCardProps {
   vehicle: Vehicle;
 }
 
+/**
+ * Render a vehicle card with compare toggle, vehicle details, price, and an integrated booking dialog and feedback snackbar.
+ *
+ * @param vehicle - The vehicle data used to populate the card (brand, model, images, specs, price, id, etc.).
+ * @returns A React element displaying the vehicle card with compare controls, booking form dialog, and submission feedback.
+ */
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
