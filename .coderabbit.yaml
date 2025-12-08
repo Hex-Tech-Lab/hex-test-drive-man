@@ -22,11 +22,10 @@ reviews:
       - ".*"
 
   path_filters:
-    excluded:
-      - "pnpm-lock.yaml"
-      - "package-lock.json"
-      - "**/*.md"
-      - ".github/**"
+    - "!pnpm-lock.yaml"
+    - "!package-lock.json"
+    - "!**/*.md"
+    - "!.github/**"
 
 chat:
   auto_reply: true
