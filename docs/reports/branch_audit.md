@@ -8,3 +8,12 @@
 
 ## Stale Branches (No Commits in 7+ Days, Not in PRs)
 - claude/separate-lint-build-docs-01KoprSHsEkHoVZgaUnbVB6N (last commit: 16 hours ago)
+
+
+## Closed PRs (Post-Consolidation - 2025-12-08)
+- PR #1: Closed (stale, predates consolidation)
+- PR #4: Closed (merged to main)
+- PR #6: Closed (merged to main)
+
+## Active PRs
+- PR #7: WIP: PDF extraction (feature/pdf-extraction-engine → main)
