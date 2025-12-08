@@ -1,2786 +1,3773 @@
-# PR #7 AI Prompts (Web Scraped)
+# PR #7 CodeRabbit AI Prompts (Web Scraped)
 
-**Total Found:** 348
+**Date:** 2025-12-08
+**Total Found:** 377
 
-## Prompt 1: `extraction_engine/auto_crop_validator.py:106`
+## Prompt 1: `extraction_engine/auto_crop_validator.py` (Line 106)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
 
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 2: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 3: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 4: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 5: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 6: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 7: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 8: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 9: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 10: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 11: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 12: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 13: `extraction_engine/auto_crop_validator.py` (Line 106)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 14: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 15: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 16: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 17: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 18: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 19: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 20: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 21: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 22: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 23: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 24: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 25: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 26: `extraction_engine/auto_crop_validator.py` (Line 145)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 27: `extraction_engine/auto_crop_validator.py` (Line 188)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
+
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 2: `extraction_engine/auto_crop_validator.py:106`
+## Prompt 28: `extraction_engine/auto_crop_validator.py` (Line 188)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
 
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 29: `extraction_engine/auto_crop_validator.py` (Line 188)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 30: `extraction_engine/auto_crop_validator.py` (Line 188)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
+
+### AI Prompt
+
+``````
+
+---
+
+## Prompt 31: `extraction_engine/auto_crop_validator.py` (Line 188)
+
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
+
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 3: `extraction_engine/auto_crop_validator.py:106`
+## Prompt 32: `extraction_engine/auto_crop_validator.py` (Line 188)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 33: `extraction_engine/auto_crop_validator.py` (Line 188)
 
-## Prompt 4: `extraction_engine/auto_crop_validator.py:106`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 5: `extraction_engine/auto_crop_validator.py:106`
+## Prompt 34: `extraction_engine/auto_crop_validator.py` (Line 188)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 6: `extraction_engine/auto_crop_validator.py:106`
+## Prompt 35: `extraction_engine/auto_crop_validator.py` (Line 188)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 36: `extraction_engine/auto_crop_validator.py` (Line 188)
 
-## Prompt 7: `extraction_engine/auto_crop_validator.py:106`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 8: `extraction_engine/auto_crop_validator.py:106`
+## Prompt 37: `extraction_engine/auto_crop_validator.py` (Line 188)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 38: `extraction_engine/auto_crop_validator.py` (Line 188)
 
-## Prompt 9: `extraction_engine/auto_crop_validator.py:106`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 10: `extraction_engine/auto_crop_validator.py:106`
+## Prompt 39: `extraction_engine/auto_crop_validator.py` (Line 188)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 11: `extraction_engine/auto_crop_validator.py:106`
+## Prompt 40: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 41: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-## Prompt 12: `extraction_engine/auto_crop_validator.py:106`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050427
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 13: `extraction_engine/auto_crop_validator.py:145`
+## Prompt 42: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 43: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-## Prompt 14: `extraction_engine/auto_crop_validator.py:145`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 15: `extraction_engine/auto_crop_validator.py:145`
+## Prompt 44: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 16: `extraction_engine/auto_crop_validator.py:145`
+## Prompt 45: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 46: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-## Prompt 17: `extraction_engine/auto_crop_validator.py:145`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 18: `extraction_engine/auto_crop_validator.py:145`
+## Prompt 47: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 48: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-## Prompt 19: `extraction_engine/auto_crop_validator.py:145`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 20: `extraction_engine/auto_crop_validator.py:145`
+## Prompt 49: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 50: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-## Prompt 21: `extraction_engine/auto_crop_validator.py:145`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 22: `extraction_engine/auto_crop_validator.py:145`
+## Prompt 51: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 52: `extraction_engine/auto_crop_validator.py` (Line 279)
 
-## Prompt 23: `extraction_engine/auto_crop_validator.py:145`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 24: `extraction_engine/auto_crop_validator.py:145`
+## Prompt 53: `extraction_engine/auto_crop_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050433
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 25: `extraction_engine/auto_crop_validator.py:188`
+## Prompt 54: `extraction_engine/auto_crop_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 55: `extraction_engine/auto_crop_validator.py` (Line None)
 
-## Prompt 26: `extraction_engine/auto_crop_validator.py:188`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 27: `extraction_engine/auto_crop_validator.py:188`
+## Prompt 56: `extraction_engine/auto_crop_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 57: `extraction_engine/auto_crop_validator.py` (Line None)
 
-## Prompt 28: `extraction_engine/auto_crop_validator.py:188`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 29: `extraction_engine/auto_crop_validator.py:188`
+## Prompt 58: `extraction_engine/auto_crop_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 59: `extraction_engine/auto_crop_validator.py` (Line None)
 
-## Prompt 30: `extraction_engine/auto_crop_validator.py:188`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 31: `extraction_engine/auto_crop_validator.py:188`
+## Prompt 60: `extraction_engine/auto_crop_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 61: `extraction_engine/auto_crop_validator.py` (Line None)
 
-## Prompt 32: `extraction_engine/auto_crop_validator.py:188`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 33: `extraction_engine/auto_crop_validator.py:188`
+## Prompt 62: `extraction_engine/auto_crop_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 34: `extraction_engine/auto_crop_validator.py:188`
+## Prompt 63: `extraction_engine/auto_crop_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 64: `extraction_engine/auto_crop_validator.py` (Line None)
 
-## Prompt 35: `extraction_engine/auto_crop_validator.py:188`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 36: `extraction_engine/auto_crop_validator.py:188`
+## Prompt 65: `extraction_engine/auto_crop_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 66: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-## Prompt 37: `extraction_engine/auto_crop_validator.py:279`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 38: `extraction_engine/auto_crop_validator.py:279`
+## Prompt 67: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 68: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-## Prompt 39: `extraction_engine/auto_crop_validator.py:279`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 40: `extraction_engine/auto_crop_validator.py:279`
+## Prompt 69: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 70: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-## Prompt 41: `extraction_engine/auto_crop_validator.py:279`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 42: `extraction_engine/auto_crop_validator.py:279`
+## Prompt 71: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 43: `extraction_engine/auto_crop_validator.py:279`
+## Prompt 72: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 73: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-## Prompt 44: `extraction_engine/auto_crop_validator.py:279`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 45: `extraction_engine/auto_crop_validator.py:279`
+## Prompt 74: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 75: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-## Prompt 46: `extraction_engine/auto_crop_validator.py:279`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 47: `extraction_engine/auto_crop_validator.py:279`
+## Prompt 76: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 48: `extraction_engine/auto_crop_validator.py:279`
+## Prompt 77: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 78: `extraction_engine/bmw_x5_table_replicas.py` (Line 312)
 
-## Prompt 49: `extraction_engine/auto_crop_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 50: `extraction_engine/auto_crop_validator.py:None`
+## Prompt 79: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 80: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-## Prompt 51: `extraction_engine/auto_crop_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 52: `extraction_engine/auto_crop_validator.py:None`
+## Prompt 81: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 53: `extraction_engine/auto_crop_validator.py:None`
+## Prompt 82: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 83: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-## Prompt 54: `extraction_engine/auto_crop_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 55: `extraction_engine/auto_crop_validator.py:None`
+## Prompt 84: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 85: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-## Prompt 56: `extraction_engine/auto_crop_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 57: `extraction_engine/auto_crop_validator.py:None`
+## Prompt 86: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 87: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-## Prompt 58: `extraction_engine/auto_crop_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 59: `extraction_engine/auto_crop_validator.py:None`
+## Prompt 88: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 89: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-## Prompt 60: `extraction_engine/auto_crop_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 61: `extraction_engine/bmw_x5_table_replicas.py:312`
+## Prompt 90: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 62: `extraction_engine/bmw_x5_table_replicas.py:312`
+## Prompt 91: `extraction_engine/bmw_x5_table_replicas.py` (Line 354)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 92: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-## Prompt 63: `extraction_engine/bmw_x5_table_replicas.py:312`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 64: `extraction_engine/bmw_x5_table_replicas.py:312`
+## Prompt 93: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 94: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-## Prompt 65: `extraction_engine/bmw_x5_table_replicas.py:312`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 66: `extraction_engine/bmw_x5_table_replicas.py:312`
+## Prompt 95: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 96: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-## Prompt 67: `extraction_engine/bmw_x5_table_replicas.py:312`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 68: `extraction_engine/bmw_x5_table_replicas.py:312`
+## Prompt 97: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 98: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-## Prompt 69: `extraction_engine/bmw_x5_table_replicas.py:312`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 70: `extraction_engine/bmw_x5_table_replicas.py:312`
+## Prompt 99: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 71: `extraction_engine/bmw_x5_table_replicas.py:312`
+## Prompt 100: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 101: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-## Prompt 72: `extraction_engine/bmw_x5_table_replicas.py:312`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 73: `extraction_engine/bmw_x5_table_replicas.py:354`
+## Prompt 102: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 103: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-## Prompt 74: `extraction_engine/bmw_x5_table_replicas.py:354`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 75: `extraction_engine/bmw_x5_table_replicas.py:354`
+## Prompt 104: `extraction_engine/bmw_x5_table_replicas.py` (Line 389)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 105: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 76: `extraction_engine/bmw_x5_table_replicas.py:354`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 77: `extraction_engine/bmw_x5_table_replicas.py:354`
+## Prompt 106: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 107: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 78: `extraction_engine/bmw_x5_table_replicas.py:354`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 79: `extraction_engine/bmw_x5_table_replicas.py:354`
+## Prompt 108: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 80: `extraction_engine/bmw_x5_table_replicas.py:354`
+## Prompt 109: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 110: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 81: `extraction_engine/bmw_x5_table_replicas.py:354`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 82: `extraction_engine/bmw_x5_table_replicas.py:354`
+## Prompt 111: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 112: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 83: `extraction_engine/bmw_x5_table_replicas.py:354`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 84: `extraction_engine/bmw_x5_table_replicas.py:354`
+## Prompt 113: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 85: `extraction_engine/bmw_x5_table_replicas.py:389`
+## Prompt 114: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 115: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 86: `extraction_engine/bmw_x5_table_replicas.py:389`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 87: `extraction_engine/bmw_x5_table_replicas.py:389`
+## Prompt 116: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 117: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 88: `extraction_engine/bmw_x5_table_replicas.py:389`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 89: `extraction_engine/bmw_x5_table_replicas.py:389`
+## Prompt 118: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 90: `extraction_engine/bmw_x5_table_replicas.py:389`
+## Prompt 119: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 120: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 91: `extraction_engine/bmw_x5_table_replicas.py:389`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 92: `extraction_engine/bmw_x5_table_replicas.py:389`
+## Prompt 121: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 122: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 93: `extraction_engine/bmw_x5_table_replicas.py:389`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 94: `extraction_engine/bmw_x5_table_replicas.py:389`
+## Prompt 123: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 124: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 95: `extraction_engine/bmw_x5_table_replicas.py:389`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 96: `extraction_engine/bmw_x5_table_replicas.py:389`
+## Prompt 125: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 126: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 97: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 98: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 127: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 128: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 99: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 100: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 129: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 130: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 101: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 102: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 131: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 132: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-## Prompt 103: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 104: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 133: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 134: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-## Prompt 105: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 106: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 135: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 136: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-## Prompt 107: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 108: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 137: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 138: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-## Prompt 109: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 110: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 139: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 140: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-## Prompt 111: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 112: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 141: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 142: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-## Prompt 113: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 114: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 143: `extraction_engine/gemini_vision_extractor.py` (Line 110)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 144: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 115: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 116: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 145: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 146: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 117: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 118: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 147: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 148: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 119: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 120: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 149: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 150: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 121: `extraction_engine/gemini_vision_extractor.py:110`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 122: `extraction_engine/gemini_vision_extractor.py:110`
+## Prompt 151: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 152: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 123: `extraction_engine/gemini_vision_extractor.py:110`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 124: `extraction_engine/gemini_vision_extractor.py:110`
+## Prompt 153: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 154: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 125: `extraction_engine/gemini_vision_extractor.py:110`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 126: `extraction_engine/gemini_vision_extractor.py:110`
+## Prompt 155: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 156: `extraction_engine/gemini_vision_extractor.py` (Line None)
 
-## Prompt 127: `extraction_engine/gemini_vision_extractor.py:110`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 128: `extraction_engine/gemini_vision_extractor.py:110`
+## Prompt 157: `extraction_engine/requirements.txt` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 158: `extraction_engine/requirements.txt` (Line None)
 
-## Prompt 129: `extraction_engine/gemini_vision_extractor.py:110`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 130: `extraction_engine/gemini_vision_extractor.py:110`
+## Prompt 159: `extraction_engine/requirements.txt` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 160: `extraction_engine/requirements.txt` (Line None)
 
-## Prompt 131: `extraction_engine/gemini_vision_extractor.py:110`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 132: `extraction_engine/gemini_vision_extractor.py:110`
+## Prompt 161: `extraction_engine/requirements.txt` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050508
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 162: `extraction_engine/requirements.txt` (Line None)
 
-## Prompt 133: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 134: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 163: `extraction_engine/requirements.txt` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 164: `extraction_engine/requirements.txt` (Line None)
 
-## Prompt 135: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 136: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 165: `extraction_engine/requirements.txt` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 166: `extraction_engine/requirements.txt` (Line None)
 
-## Prompt 137: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 138: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 167: `extraction_engine/requirements.txt` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 168: `extraction_engine/requirements.txt` (Line None)
 
-## Prompt 139: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 140: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 169: `extraction_engine/requirements.txt` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 170: `extraction_engine/requirements.txt` (Line 103)
 
-## Prompt 141: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 142: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 171: `extraction_engine/requirements.txt` (Line 103)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 172: `extraction_engine/requirements.txt` (Line 103)
 
-## Prompt 143: `extraction_engine/gemini_vision_extractor.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 144: `extraction_engine/gemini_vision_extractor.py:None`
+## Prompt 173: `extraction_engine/requirements.txt` (Line 103)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 174: `extraction_engine/requirements.txt` (Line 103)
 
-## Prompt 145: `extraction_engine/requirements.txt:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 146: `extraction_engine/requirements.txt:None`
+## Prompt 175: `extraction_engine/requirements.txt` (Line 103)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 176: `extraction_engine/requirements.txt` (Line 103)
 
-## Prompt 147: `extraction_engine/requirements.txt:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 148: `extraction_engine/requirements.txt:None`
+## Prompt 177: `extraction_engine/requirements.txt` (Line 103)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 178: `extraction_engine/requirements.txt` (Line 103)
 
-## Prompt 149: `extraction_engine/requirements.txt:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 150: `extraction_engine/requirements.txt:None`
+## Prompt 179: `extraction_engine/requirements.txt` (Line 103)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 180: `extraction_engine/requirements.txt` (Line 103)
 
-## Prompt 151: `extraction_engine/requirements.txt:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 152: `extraction_engine/requirements.txt:None`
+## Prompt 181: `extraction_engine/requirements.txt` (Line 103)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 182: `extraction_engine/requirements.txt` (Line 103)
 
-## Prompt 153: `extraction_engine/requirements.txt:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 154: `extraction_engine/requirements.txt:None`
+## Prompt 183: `extraction_engine/requirements.txt` (Line 141)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 184: `extraction_engine/requirements.txt` (Line 141)
 
-## Prompt 155: `extraction_engine/requirements.txt:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 156: `extraction_engine/requirements.txt:None`
+## Prompt 185: `extraction_engine/requirements.txt` (Line 141)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 186: `extraction_engine/requirements.txt` (Line 141)
 
-## Prompt 157: `extraction_engine/requirements.txt:103`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 158: `extraction_engine/requirements.txt:103`
+## Prompt 187: `extraction_engine/requirements.txt` (Line 141)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 188: `extraction_engine/requirements.txt` (Line 141)
 
-## Prompt 159: `extraction_engine/requirements.txt:103`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 160: `extraction_engine/requirements.txt:103`
+## Prompt 189: `extraction_engine/requirements.txt` (Line 141)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 190: `extraction_engine/requirements.txt` (Line 141)
 
-## Prompt 161: `extraction_engine/requirements.txt:103`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 162: `extraction_engine/requirements.txt:103`
+## Prompt 191: `extraction_engine/requirements.txt` (Line 141)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 192: `extraction_engine/requirements.txt` (Line 141)
 
-## Prompt 163: `extraction_engine/requirements.txt:103`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 164: `extraction_engine/requirements.txt:103`
+## Prompt 193: `extraction_engine/requirements.txt` (Line 141)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 194: `extraction_engine/requirements.txt` (Line 141)
 
-## Prompt 165: `extraction_engine/requirements.txt:103`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 166: `extraction_engine/requirements.txt:103`
+## Prompt 195: `extraction_engine/requirements.txt` (Line 141)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 196: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-## Prompt 167: `extraction_engine/requirements.txt:103`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 168: `extraction_engine/requirements.txt:103`
+## Prompt 197: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 198: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-## Prompt 169: `extraction_engine/requirements.txt:141`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 170: `extraction_engine/requirements.txt:141`
+## Prompt 199: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 200: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-## Prompt 171: `extraction_engine/requirements.txt:141`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 172: `extraction_engine/requirements.txt:141`
+## Prompt 201: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 202: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-## Prompt 173: `extraction_engine/requirements.txt:141`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 174: `extraction_engine/requirements.txt:141`
+## Prompt 203: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 204: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-## Prompt 175: `extraction_engine/requirements.txt:141`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 176: `extraction_engine/requirements.txt:141`
+## Prompt 205: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 206: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-## Prompt 177: `extraction_engine/requirements.txt:141`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 178: `extraction_engine/requirements.txt:141`
+## Prompt 207: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 208: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 33)
 
-## Prompt 179: `extraction_engine/requirements.txt:141`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 180: `extraction_engine/requirements.txt:141`
+## Prompt 209: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 210: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-## Prompt 181: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 182: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+## Prompt 211: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 212: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-## Prompt 183: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 184: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+## Prompt 213: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 214: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-## Prompt 185: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 186: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+## Prompt 215: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 216: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-## Prompt 187: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 188: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+## Prompt 217: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 218: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-## Prompt 189: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 190: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+## Prompt 219: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 220: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-## Prompt 191: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 192: `extraction_engine/results/bmw_x5_claude_haiku45.json:33`
+## Prompt 221: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 798)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 222: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-## Prompt 193: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 194: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+## Prompt 223: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 224: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-## Prompt 195: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 196: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+## Prompt 225: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 226: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-## Prompt 197: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 198: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+## Prompt 227: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 228: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-## Prompt 199: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 200: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+## Prompt 229: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 230: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-## Prompt 201: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 202: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+## Prompt 231: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 232: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-## Prompt 203: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 204: `extraction_engine/results/bmw_x5_claude_haiku45.json:798`
+## Prompt 233: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 234: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 897)
 
-## Prompt 205: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 206: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+## Prompt 235: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 236: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-## Prompt 207: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 208: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+## Prompt 237: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 238: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-## Prompt 209: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 210: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+## Prompt 239: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 240: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-## Prompt 211: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 212: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+## Prompt 241: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 242: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-## Prompt 213: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 214: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+## Prompt 243: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 244: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-## Prompt 215: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 216: `extraction_engine/results/bmw_x5_claude_haiku45.json:897`
+## Prompt 245: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 246: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-## Prompt 217: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 218: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+## Prompt 247: `extraction_engine/results/bmw_x5_claude_haiku45.json` (Line 913)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 248: `extraction_engine/visual_validator.py` (Line None)
 
-## Prompt 219: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 220: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+## Prompt 249: `extraction_engine/visual_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 250: `extraction_engine/visual_validator.py` (Line None)
 
-## Prompt 221: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 222: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+## Prompt 251: `extraction_engine/visual_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 252: `extraction_engine/visual_validator.py` (Line None)
 
-## Prompt 223: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 224: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+## Prompt 253: `extraction_engine/visual_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 254: `extraction_engine/visual_validator.py` (Line None)
 
-## Prompt 225: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 226: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+## Prompt 255: `extraction_engine/visual_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 256: `extraction_engine/visual_validator.py` (Line None)
 
-## Prompt 227: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 228: `extraction_engine/results/bmw_x5_claude_haiku45.json:913`
+## Prompt 257: `extraction_engine/visual_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 258: `extraction_engine/visual_validator.py` (Line None)
 
-## Prompt 229: `extraction_engine/visual_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 230: `extraction_engine/visual_validator.py:None`
+## Prompt 259: `extraction_engine/visual_validator.py` (Line None)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 260: `extraction_engine/visual_validator.py` (Line None)
 
-## Prompt 231: `extraction_engine/visual_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 232: `extraction_engine/visual_validator.py:None`
+## Prompt 261: `extraction_engine/visual_validator.py` (Line 50)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 262: `extraction_engine/visual_validator.py` (Line 50)
 
-## Prompt 233: `extraction_engine/visual_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 234: `extraction_engine/visual_validator.py:None`
+## Prompt 263: `extraction_engine/visual_validator.py` (Line 50)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 264: `extraction_engine/visual_validator.py` (Line 50)
 
-## Prompt 235: `extraction_engine/visual_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 236: `extraction_engine/visual_validator.py:None`
+## Prompt 265: `extraction_engine/visual_validator.py` (Line 50)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 266: `extraction_engine/visual_validator.py` (Line 50)
 
-## Prompt 237: `extraction_engine/visual_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 238: `extraction_engine/visual_validator.py:None`
+## Prompt 267: `extraction_engine/visual_validator.py` (Line 50)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 268: `extraction_engine/visual_validator.py` (Line 50)
 
-## Prompt 239: `extraction_engine/visual_validator.py:None`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 240: `extraction_engine/visual_validator.py:None`
+## Prompt 269: `extraction_engine/visual_validator.py` (Line 50)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 270: `extraction_engine/visual_validator.py` (Line 50)
 
-## Prompt 241: `extraction_engine/visual_validator.py:50`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 242: `extraction_engine/visual_validator.py:50`
+## Prompt 271: `extraction_engine/visual_validator.py` (Line 50)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 272: `extraction_engine/visual_validator.py` (Line 50)
 
-## Prompt 243: `extraction_engine/visual_validator.py:50`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 244: `extraction_engine/visual_validator.py:50`
+## Prompt 273: `extraction_engine/visual_validator.py` (Line 50)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 274: `extraction_engine/visual_validator.py` (Line 55)
 
-## Prompt 245: `extraction_engine/visual_validator.py:50`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 246: `extraction_engine/visual_validator.py:50`
+## Prompt 275: `extraction_engine/visual_validator.py` (Line 55)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 276: `extraction_engine/visual_validator.py` (Line 55)
 
-## Prompt 247: `extraction_engine/visual_validator.py:50`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 248: `extraction_engine/visual_validator.py:50`
+## Prompt 277: `extraction_engine/visual_validator.py` (Line 55)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 278: `extraction_engine/visual_validator.py` (Line 55)
 
-## Prompt 249: `extraction_engine/visual_validator.py:50`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 250: `extraction_engine/visual_validator.py:50`
+## Prompt 279: `extraction_engine/visual_validator.py` (Line 55)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 280: `extraction_engine/visual_validator.py` (Line 55)
 
-## Prompt 251: `extraction_engine/visual_validator.py:50`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 252: `extraction_engine/visual_validator.py:50`
+## Prompt 281: `extraction_engine/visual_validator.py` (Line 55)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 282: `extraction_engine/visual_validator.py` (Line 55)
 
-## Prompt 253: `extraction_engine/visual_validator.py:55`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 254: `extraction_engine/visual_validator.py:55`
+## Prompt 283: `extraction_engine/visual_validator.py` (Line 55)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 284: `extraction_engine/visual_validator.py` (Line 55)
 
-## Prompt 255: `extraction_engine/visual_validator.py:55`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 256: `extraction_engine/visual_validator.py:55`
+## Prompt 285: `extraction_engine/visual_validator.py` (Line 55)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 286: `extraction_engine/visual_validator.py` (Line 55)
 
-## Prompt 257: `extraction_engine/visual_validator.py:55`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 258: `extraction_engine/visual_validator.py:55`
+## Prompt 287: `extraction_engine/visual_validator.py` (Line 165)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 288: `extraction_engine/visual_validator.py` (Line 165)
 
-## Prompt 259: `extraction_engine/visual_validator.py:55`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 260: `extraction_engine/visual_validator.py:55`
+## Prompt 289: `extraction_engine/visual_validator.py` (Line 165)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 290: `extraction_engine/visual_validator.py` (Line 165)
 
-## Prompt 261: `extraction_engine/visual_validator.py:55`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 262: `extraction_engine/visual_validator.py:55`
+## Prompt 291: `extraction_engine/visual_validator.py` (Line 165)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 292: `extraction_engine/visual_validator.py` (Line 165)
 
-## Prompt 263: `extraction_engine/visual_validator.py:55`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 264: `extraction_engine/visual_validator.py:55`
+## Prompt 293: `extraction_engine/visual_validator.py` (Line 165)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 294: `extraction_engine/visual_validator.py` (Line 165)
 
-## Prompt 265: `extraction_engine/visual_validator.py:165`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 266: `extraction_engine/visual_validator.py:165`
+## Prompt 295: `extraction_engine/visual_validator.py` (Line 165)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 296: `extraction_engine/visual_validator.py` (Line 165)
 
-## Prompt 267: `extraction_engine/visual_validator.py:165`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 268: `extraction_engine/visual_validator.py:165`
+## Prompt 297: `extraction_engine/visual_validator.py` (Line 165)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 298: `extraction_engine/visual_validator.py` (Line 165)
 
-## Prompt 269: `extraction_engine/visual_validator.py:165`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 270: `extraction_engine/visual_validator.py:165`
+## Prompt 299: `extraction_engine/visual_validator.py` (Line 165)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 300: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-## Prompt 271: `extraction_engine/visual_validator.py:165`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 272: `extraction_engine/visual_validator.py:165`
+## Prompt 301: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 302: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-## Prompt 273: `extraction_engine/visual_validator.py:165`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 274: `extraction_engine/visual_validator.py:165`
+## Prompt 303: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 304: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-## Prompt 275: `extraction_engine/visual_validator.py:165`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 276: `extraction_engine/visual_validator.py:165`
+## Prompt 305: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 306: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-## Prompt 277: `extraction_engine/claude_vision_extractor.py:99`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 278: `extraction_engine/claude_vision_extractor.py:99`
+## Prompt 307: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 308: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-## Prompt 279: `extraction_engine/claude_vision_extractor.py:99`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 280: `extraction_engine/claude_vision_extractor.py:99`
+## Prompt 309: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 310: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-## Prompt 281: `extraction_engine/claude_vision_extractor.py:99`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 282: `extraction_engine/claude_vision_extractor.py:99`
+## Prompt 311: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 312: `extraction_engine/claude_vision_extractor.py` (Line 99)
 
-## Prompt 283: `extraction_engine/claude_vision_extractor.py:99`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 284: `extraction_engine/claude_vision_extractor.py:99`
+## Prompt 313: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 314: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-## Prompt 285: `extraction_engine/claude_vision_extractor.py:99`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 286: `extraction_engine/claude_vision_extractor.py:99`
+## Prompt 315: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 316: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-## Prompt 287: `extraction_engine/claude_vision_extractor.py:99`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 288: `extraction_engine/claude_vision_extractor.py:99`
+## Prompt 317: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 318: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-## Prompt 289: `extraction_engine/gemini_vision_extractor.py:78`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 290: `extraction_engine/gemini_vision_extractor.py:78`
+## Prompt 319: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 320: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-## Prompt 291: `extraction_engine/gemini_vision_extractor.py:78`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 292: `extraction_engine/gemini_vision_extractor.py:78`
+## Prompt 321: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 322: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-## Prompt 293: `extraction_engine/gemini_vision_extractor.py:78`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 294: `extraction_engine/gemini_vision_extractor.py:78`
+## Prompt 323: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 324: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-## Prompt 295: `extraction_engine/gemini_vision_extractor.py:78`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 296: `extraction_engine/gemini_vision_extractor.py:78`
+## Prompt 325: `extraction_engine/gemini_vision_extractor.py` (Line 78)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 326: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-## Prompt 297: `extraction_engine/gemini_vision_extractor.py:78`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 298: `extraction_engine/gemini_vision_extractor.py:78`
+## Prompt 327: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 328: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-## Prompt 299: `extraction_engine/gemini_vision_extractor.py:78`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 300: `extraction_engine/gemini_vision_extractor.py:78`
+## Prompt 329: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 330: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-## Prompt 301: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 302: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+## Prompt 331: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 332: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-## Prompt 303: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 304: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+## Prompt 333: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 334: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-## Prompt 305: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 306: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+## Prompt 335: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 336: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-## Prompt 307: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 308: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+## Prompt 337: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 338: `docs/PR7_CODERABBIT_AI_PROMPTS.md` (Line 54)
 
-## Prompt 309: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 310: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+## Prompt 339: `extract_all_bot_comments.py` (Line 56)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 340: `extract_all_bot_comments.py` (Line 56)
 
-## Prompt 311: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 312: `docs/PR7_CODERABBIT_AI_PROMPTS.md:54`
+## Prompt 341: `extract_all_bot_comments.py` (Line 56)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 342: `extract_all_bot_comments.py` (Line 56)
 
-## Prompt 313: `extract_all_bot_comments.py:56`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 314: `extract_all_bot_comments.py:56`
+## Prompt 343: `extract_all_bot_comments.py` (Line 56)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 344: `extract_all_bot_comments.py` (Line 56)
 
-## Prompt 315: `extract_all_bot_comments.py:56`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 316: `extract_all_bot_comments.py:56`
+## Prompt 345: `extract_all_bot_comments.py` (Line 56)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 346: `extract_all_bot_comments.py` (Line 56)
 
-## Prompt 317: `extract_all_bot_comments.py:56`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 318: `extract_all_bot_comments.py:56`
+## Prompt 347: `extract_all_bot_comments.py` (Line 56)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 348: `extract_all_bot_comments.py` (Line 56)
 
-## Prompt 319: `extract_all_bot_comments.py:56`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 320: `extract_all_bot_comments.py:56`
+## Prompt 349: `extract_all_bot_comments.py` (Line 56)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 350: `extract_all_bot_comments.py` (Line 56)
 
-## Prompt 321: `extract_all_bot_comments.py:56`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 322: `extract_all_bot_comments.py:56`
+## Prompt 351: `extract_all_bot_comments.py` (Line 56)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 352: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-## Prompt 323: `extract_all_bot_comments.py:56`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 324: `extract_all_bot_comments.py:56`
+## Prompt 353: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 354: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-## Prompt 325: `extraction_engine/bmw_x5_table_replicas.py:28`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 326: `extraction_engine/bmw_x5_table_replicas.py:28`
+## Prompt 355: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 356: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-## Prompt 327: `extraction_engine/bmw_x5_table_replicas.py:28`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 328: `extraction_engine/bmw_x5_table_replicas.py:28`
+## Prompt 357: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 358: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-## Prompt 329: `extraction_engine/bmw_x5_table_replicas.py:28`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 330: `extraction_engine/bmw_x5_table_replicas.py:28`
+## Prompt 359: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 360: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-## Prompt 331: `extraction_engine/bmw_x5_table_replicas.py:28`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 332: `extraction_engine/bmw_x5_table_replicas.py:28`
+## Prompt 361: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 362: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-## Prompt 333: `extraction_engine/bmw_x5_table_replicas.py:28`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 334: `extraction_engine/bmw_x5_table_replicas.py:28`
+## Prompt 363: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 364: `extraction_engine/bmw_x5_table_replicas.py` (Line 28)
 
-## Prompt 335: `extraction_engine/bmw_x5_table_replicas.py:28`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 336: `extraction_engine/bmw_x5_table_replicas.py:28`
+## Prompt 365: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 366: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-## Prompt 337: `extraction_engine/bmw_x5_table_replicas.py:239`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 338: `extraction_engine/bmw_x5_table_replicas.py:239`
+## Prompt 367: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 368: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-## Prompt 339: `extraction_engine/bmw_x5_table_replicas.py:239`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 340: `extraction_engine/bmw_x5_table_replicas.py:239`
+## Prompt 369: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 370: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-## Prompt 341: `extraction_engine/bmw_x5_table_replicas.py:239`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 342: `extraction_engine/bmw_x5_table_replicas.py:239`
+## Prompt 371: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 372: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-## Prompt 343: `extraction_engine/bmw_x5_table_replicas.py:239`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 344: `extraction_engine/bmw_x5_table_replicas.py:239`
+## Prompt 373: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 374: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-## Prompt 345: `extraction_engine/bmw_x5_table_replicas.py:239`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+### AI Prompt
 
 ``````
 
 ---
 
-## Prompt 346: `extraction_engine/bmw_x5_table_replicas.py:239`
+## Prompt 375: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
+### AI Prompt
+
 ``````
 
 ---
 
-## Prompt 347: `extraction_engine/bmw_x5_table_replicas.py:239`
+## Prompt 376: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
+### AI Prompt
+
 ``````
 
 ---
+
+## Prompt 377: `extraction_engine/bmw_x5_table_replicas.py` (Line 239)
 
-## Prompt 348: `extraction_engine/bmw_x5_table_replicas.py:239`
+**Link:** [https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943](https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943)
 
-**Link:** https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943
+### AI Prompt
 
 ``````
 
