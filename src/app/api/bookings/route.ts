@@ -5,6 +5,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { bookingRepository } from '@/repositories/bookingRepository';
 import { BookingInput } from '@/types/booking';
+import { captureSentryError } from '@/lib/sentry-user';
 
 interface ValidationData {
   name?: unknown;
@@ -90,7 +91,11 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('Error creating booking:', error);
+    // Log error to Sentry with context
+    captureSentryError(
+      error instanceof Error ? error : new Error(String(error)),
+      { endpoint: '/api/bookings', method: 'POST' }
+    );
 
     // Handle JSON parse errors
     if (error instanceof SyntaxError) {
