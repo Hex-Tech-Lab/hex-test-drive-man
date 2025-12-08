@@ -24,3 +24,4 @@ CodeRabbit is configured to:
 *   **Head**: claude/booking-system-mvp-0189g3iqbGjjpKDJWbRpMfu8
 *   **Status**: Open (Conflicts expected). Awaiting CodeRabbit/Sourcery review.
 *   **URL**: https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/4
+*   **Status Update (02:10 EET)**: Updated with AI feedback (booking validation & state fixes); awaiting second review.
