@@ -193,3 +193,23 @@ response = model.generate_content(
     `src/components/VehicleCard.tsx`, and alias definitions.
   - Avoid full-repo `find`/`glob` unless strictly required.
 - Rationale: enforce TS aliases, canonical types, and repository pattern.
+
+## Critical Revelations (2025-12-08)
+
+### Image Processing Standard
+*   **Sharp preprocessing required** before Claude Vision API.
+*   **Target:** 1500px width (under 1568px limit, optimal tokens).
+*   **Original 600 DPI crops** kept as ground truth.
+
+### Egyptian Brochure Table Structure
+*   **NOT page-level language split**.
+*   Every table: **English leftmost | Trims middle | Arabic rightmost**.
+*   Multi-hierarchy color coding (dark blue L1, light blue L2).
+
+### Repository Authority
+*   **GitHub = single source of truth**.
+*   All agents must sync to GitHub before/after sessions.
+*   Feature branches merged to integration, then to main.
+
+### BMW X5 Extraction Workflow
+*   **Sharp resize → Claude Vision detect → Manual IoU validation → Task 2** (spec extraction + HTML replica).
