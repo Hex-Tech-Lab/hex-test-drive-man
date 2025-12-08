@@ -48,7 +48,7 @@ class ClaudeVisionExtractor:
         png_path: str,
         brand: str,
         model: str,
-        expected_trims: Optional[List[str]] = None
+        expected_trims: Optional[list[str]] = None
     ) -> Dict:
         """
         Extract vehicle specifications from PNG image
@@ -156,7 +156,7 @@ class ClaudeVisionExtractor:
         self,
         brand: str,
         model: str,
-        expected_trims: Optional[List[str]]
+        expected_trims: Optional[list[str]]
     ) -> str:
         """Build detailed extraction prompt for Claude"""
 

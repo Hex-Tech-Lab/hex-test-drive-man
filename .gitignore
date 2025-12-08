@@ -55,3 +55,6 @@ archive/
 venv/
 .vercel
 .env.local
+
+*.backup
+*.bak
