@@ -184,7 +184,7 @@ def create_validation_overlay(full_page_img: Image.Image,
     # Add legend
     try:
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
-    except:
+    except (OSError, IOError):
         font = ImageFont.load_default()
 
     legend_y = 100
@@ -350,13 +350,13 @@ def main():
         print(f"Error: Full page not found: {full_page}")
         return 1
 
-    for table_name, path in manual_crops.items():
+    for _, path in manual_crops.items():
         if not Path(path).exists():
             print(f"Error: Manual crop not found: {path}")
             return 1
 
     # Run validation
-    report = validate_crops(full_page, manual_crops, output_dir="validation")
+    validate_crops(full_page, manual_crops, output_dir="validation")
 
     return 0
 

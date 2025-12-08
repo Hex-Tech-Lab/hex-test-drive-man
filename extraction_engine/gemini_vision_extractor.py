@@ -9,14 +9,14 @@ import os
 import base64
 import json
 import time
-from typing import Dict, List, Optional
+from typing import Optional
 import google.generativeai as genai
 
 
 class GeminiVisionExtractor:
     """Extract vehicle specs using Gemini Vision API"""
 
-    def __init__(self, model_name: str = "gemini-2.5-flash", api_key: Optional[str] = None):
+    def __init__(self, model_name: str = "gemini-2.5-flash", api_key: Optional[str] = None) -> None:
         """
         Initialize Gemini Vision extractor
 
@@ -37,8 +37,8 @@ class GeminiVisionExtractor:
         png_path: str,
         brand: str,
         model_name: str,
-        expected_trims: Optional[List[str]] = None
-    ) -> Dict:
+        expected_trims: Optional[list[str]] = None
+    ) -> dict:
         """
         Extract vehicle specifications from PNG image
 
@@ -113,7 +113,7 @@ class GeminiVisionExtractor:
         self,
         brand: str,
         model_name: str,
-        expected_trims: Optional[List[str]] = None
+        expected_trims: Optional[list[str]] = None
     ) -> str:
         """Build extraction prompt for Gemini"""
 
@@ -182,7 +182,7 @@ CRITICAL INSTRUCTIONS:
 Begin extraction now.
 """
 
-    def _parse_response(self, response_text: str) -> Dict:
+    def _parse_response(self, response_text: str) -> dict:
         """Parse Gemini's response"""
         try:
             # Gemini should return pure JSON with response_mime_type set
@@ -205,8 +205,8 @@ def extract_specs_vision(
     brand: str,
     model_name: str,
     gemini_model: str = "gemini-2.5-flash",
-    expected_trims: Optional[List[str]] = None
-) -> Dict:
+    expected_trims: Optional[list[str]] = None
+) -> dict:
     """
     Convenience function for single extraction
 

@@ -8,16 +8,16 @@ import json
 import sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-from typing import Dict, List
+# Built-in generics used instead of typing.Dict/List
 
 
-def load_extraction_result(json_path: str) -> Dict:
+def load_extraction_result(json_path: str) -> dict:
     """Load extraction JSON result"""
     with open(json_path, 'r') as f:
         return json.load(f)
 
 
-def create_table_image(data: Dict, width: int = 1200, font_size: int = 12) -> Image.Image:
+def create_table_image(data: dict, width: int = 1200, font_size: int = 12) -> Image.Image:
     """
     Render extraction result as table image
 
@@ -45,7 +45,7 @@ def create_table_image(data: Dict, width: int = 1200, font_size: int = 12) -> Im
     try:
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", font_size)
         font_bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size + 2)
-    except:
+    except (OSError, IOError):
         font = ImageFont.load_default()
         font_bold = font
 
@@ -113,7 +113,7 @@ def create_side_by_side_comparison(
     original_pdf_path: str,
     extraction_json_path: str,
     output_path: str
-) -> Dict:
+) -> dict:
     """
     Create side-by-side comparison PNG
 
@@ -161,7 +161,7 @@ def create_side_by_side_comparison(
     draw = ImageDraw.Draw(combined)
     try:
         title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 18)
-    except:
+    except (OSError, IOError):
         title_font = ImageFont.load_default()
 
     draw.text((20, 10), "ORIGINAL PDF (Left)", fill='red', font=title_font)

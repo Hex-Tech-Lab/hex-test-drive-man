@@ -350,7 +350,7 @@ def create_side_by_side(original_crop: str, replica_png: str, output_path: str) 
     draw = ImageDraw.Draw(combined)
     try:
         title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 16)
-    except:
+    except (OSError, IOError):
         title_font = ImageFont.load_default()
 
     draw.text((20, 10), "ORIGINAL PDF", fill='#1C69D4', font=title_font)
