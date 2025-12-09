@@ -1,0 +1,219 @@
+{
+  "metadata": {
+    "generated": "2025-12-09T16:16:07.780475",
+    "total_comments": 30,
+    "coderabbit_comments": 29,
+    "details_blocks": 71,
+    "ai_prompts": 26
+  },
+  "prompts": [
+    {
+      "file": "extraction_engine/auto_crop_validator.py",
+      "line": 188,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050439",
+      "prompt": "```\nIn extraction_engine/auto_crop_validator.py around lines 185 to 188, the code\nuses a bare except when loading a truetype font; replace it with explicit\nexception handling (catch OSError and IOError as e) to avoid swallowing\nunrelated errors, and optionally log or propagate the exception before falling\nback to ImageFont.load_default().\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050439
+    },
+    {
+      "file": "extraction_engine/auto_crop_validator.py",
+      "line": 279,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050472",
+      "prompt": "```\nIn extraction_engine/auto_crop_validator.py around lines 273–279, the code\nfabricates a manual bbox using the auto-detected x,y which makes IoU\nmeaningless; replace that fabrication by obtaining an actual manual bbox\n(preferred) or computing one: update the logic to call/get manual_bbox from\nstored manual-crop metadata (e.g., crop metadata or a saved bbox field) and use\nthat for calculate_iou; if metadata is not available implement\nget_manual_crop_bbox to compute alignment (e.g., template matching / normalized\ncross-correlation or feature-based matching between the manual crop image and\nthe source to derive (x,y,w,h)), and add a clear fallback: if no reliable manual\nbbox can be produced, set IoU to None and append a clear note in the validation\nreport that positional comparison was skipped due to missing ground-truth bbox.\n```",
+      "severity": "MAJOR",
+      "comment_id": 2599050472
+    },
+    {
+      "file": "extraction_engine/auto_crop_validator.py",
+      "line": null,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050475",
+      "prompt": "```\nIn extraction_engine/auto_crop_validator.py around lines 353 to 359, the\nfor-loop and the validate_crops assignment create unused variables; change the\nloop to use an underscore for the unused table name (for _, path in\nmanual_crops.items():) and remove the unused report assignment by calling\nvalidate_crops(full_page, manual_crops, output_dir=\"validation\") without\nassigning its return value (or assign to _ if you must), so there are no unused\nvariables left.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050475
+    },
+    {
+      "file": "extraction_engine/bmw_x5_table_replicas.py",
+      "line": 312,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050478",
+      "prompt": "```\nextraction_engine/bmw_x5_table_replicas.py around lines 281 to 312, the\ntemporary HTML file is only deleted in some exception branches so it can leak if\nan unexpected exception occurs; ensure the temp file is always removed by moving\nPath(html_path).unlink() into a finally block (or use a try/finally around the\nconversion attempts) that calls unlink(..., missing_ok=True) or checks exists()\nbefore unlinking, and keep existing return/exception behavior (return True on\nsuccess, return False on handled fallbacks, re-raise or propagate other\nexceptions) so cleanup always runs regardless of which exception is raised.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050478
+    },
+    {
+      "file": "extraction_engine/bmw_x5_table_replicas.py",
+      "line": 354,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050483",
+      "prompt": "```\nIn extraction_engine/bmw_x5_table_replicas.py around lines 351 to 354, the code\nuses a bare except when loading a TrueType font; replace the bare except with\nspecific exception types (e.g., OSError or IOError) to only catch font-file\naccess/format errors, and keep the fallback to ImageFont.load_default().\nOptionally, add a brief debug log or comment inside the except block noting the\nfailure and the font path, but do not catch broad Exception or use an empty\nexcept.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050483
+    },
+    {
+      "file": "extraction_engine/bmw_x5_table_replicas.py",
+      "line": 389,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050487",
+      "prompt": "```\nIn extraction_engine/bmw_x5_table_replicas.py around lines 374 to 389, the\nscript currently assumes pdf_image and extraction_json exist and will crash with\nan unclear error if they are missing; add explicit existence checks for both\npaths before proceeding, converting pdf_image and extraction_json to Path\nobjects, and if either is missing raise or log a clear error message and exit\n(e.g., print error and sys.exit(1) or use logger) so the user knows which file\nis missing; only create validation and temp directories after validating input\nfiles to avoid creating directories on bad inputs.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050487
+    },
+    {
+      "file": "extraction_engine/gemini_vision_extractor.py",
+      "line": null,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050493",
+      "prompt": "```\nIn extraction_engine/gemini_vision_extractor.py around lines 19 to 33, add\nmodern type annotations by giving __init__ an explicit return type of None,\nreplace any uses of typing.Dict/typing.List in method signatures with built-in\ndict and list, and remove deprecated Dict/List imports from typing (or update\nimport lines accordingly); ensure function signatures, attribute annotations and\nany type hints in this file use the built-in types and that imports only include\nneeded typing names.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050493
+    },
+    {
+      "file": "extraction_engine/gemini_vision_extractor.py",
+      "line": null,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050496",
+      "prompt": "```\nIn extraction_engine/gemini_vision_extractor.py around lines 70-72, the code\nopens png_path without verifying it exists; add an explicit existence and\nfile-type check (e.g., use pathlib.Path(png_path).exists() and .is_file())\nbefore attempting to open it, and if the check fails return or raise a clear\nFileNotFoundError/ValueError with a descriptive message rather than letting a\ngeneric exception handler mask the cause; ensure any new import (pathlib.Path)\nis added at the top and keep the open() call only after the validation.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050496
+    },
+    {
+      "file": "extraction_engine/gemini_vision_extractor.py",
+      "line": null,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050518",
+      "prompt": "```\nIn extraction_engine/gemini_vision_extractor.py around lines 180 to 196, the\nJSON parsing fallback currently raises a new ValueError without exception\nchaining and does not handle errors from the nested json.loads calls; update the\nexcept block to (1) wrap the fallback parsing in its own try/except that catches\njson.JSONDecodeError and IndexError from the split/json.loads attempts, (2) if\nthose fallback attempts succeed return the parsed dict, otherwise raise\nValueError(...) from e to preserve the original JSONDecodeError context, and (3)\navoid swallowing the original exception so traceback and cause are preserved.\n```",
+      "severity": "MINOR",
+      "comment_id": 2599050518
+    },
+    {
+      "file": "extraction_engine/requirements.txt",
+      "line": null,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050522",
+      "prompt": "```\nIn extraction_engine/requirements.txt around lines 72 to 75, multiple\noverlapping OpenCV packages are listed which can conflict at install/runtime;\nretain only a single headless variant appropriate for server/extraction\npipelines (e.g., opencv-contrib-python-headless or opencv-python-headless) and\nremove the other three entries, ensuring the chosen package version meets\nproject needs and updating any imports or dependency notes if your code requires\ncontrib modules.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050522
+    },
+    {
+      "file": "extraction_engine/requirements.txt",
+      "line": 103,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050529",
+      "prompt": "```\nIn extraction_engine/requirements.txt around lines 105 to 106, the file pins\nboth pypdf==5.9.0 and PyPDF2==3.0.1; PyPDF2 is unused and deprecated (merged\ninto pypdf) and introduces a MEDIUM security issue. Remove the PyPDF2==3.0.1\nline from requirements.txt, leaving only pypdf==5.9.0, then run pip-tools/poetry\nlock or regenerate the lockfile and CI dependency checks to ensure the change is\nreflected.\n```",
+      "severity": "MAJOR",
+      "comment_id": 2599050529
+    },
+    {
+      "file": "extraction_engine/requirements.txt",
+      "line": 141,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050536",
+      "prompt": "```\nIn extraction_engine/requirements.txt around line 144, urllib3 is pinned to\n2.5.0 which contains high-severity vulnerabilities; update the requirement to\nurllib3>=2.6.0 (or a specific patched version like 2.6.0+) to mitigate\nCVE-2025-66471 and CVE-2025-66418; after updating the line, regenerate any\nlockfiles or dependency pins (pip-compile/poetry lock/poetry update or pip\ninstall -r) and run the test suite and dependency-scan/security-scan to verify\nno downstream conflicts.\n```",
+      "severity": "CRITICAL",
+      "comment_id": 2599050536
+    },
+    {
+      "file": "extraction_engine/results/bmw_x5_claude_haiku45.json",
+      "line": 33,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050539",
+      "prompt": "```\nIn extraction_engine/results/bmw_x5_claude_haiku45.json around lines 16 to 33,\nmultiple spec objects share the exact same category/subcategory/label (e.g.,\n\"Twin-Turbo V-8 with Bi-Turbo petrol engine\" and others) creating duplicate\nentries with split values across trims; deduplicate by collapsing entries with\nidentical category+subcategory+label into a single object, merging their values\nmaps so each trim key is set to the non-null value (if both non-null and\ndifferent, prefer the latest extraction and add a \"conflict\": true flag or log\nthe conflict), and remove the redundant objects; ensure the output contains only\nunique spec entries and add a unit test or validation step to detect future\nduplicate extractions.\n```",
+      "severity": "MAJOR",
+      "comment_id": 2599050539
+    },
+    {
+      "file": "extraction_engine/results/bmw_x5_claude_haiku45.json",
+      "line": 798,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050542",
+      "prompt": "```\nIn extraction_engine/results/bmw_x5_claude_haiku45.json around lines 782 to 798,\nwheel specification entries are incorrectly placed under \"ROOF DETAILS\"; change\nthe \"category\" (and optionally \"subcategory\") for these two objects to an\nappropriate category such as \"Alloy Wheels\" (e.g., set \"category\": \"Alloy\nWheels\" and \"subcategory\": \"Wheel Details\" or similar consistent existing key),\nleaving the \"label\" and \"values\" intact so the wheel specs remain correct but\nare classified under the proper category.\n```",
+      "severity": "MINOR",
+      "comment_id": 2599050542
+    },
+    {
+      "file": "extraction_engine/results/bmw_x5_claude_haiku45.json",
+      "line": 897,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050547",
+      "prompt": "```\nIn extraction_engine/results/bmw_x5_claude_haiku45.json around lines 800-897,\nfix three extraction errors: replace the implausible Kerb Weight for \"X5 M50d\nxDrive\" from \"4,785\" to the correct value \"2,505\" (match other curb/curb-weight\nentries), change Displacement for \"X5 M50d xDrive\" from the truncated \"3,0\" to\nthe full \"3,000\", and correct the label \"Unladen weight (mm)\" to \"Unladen weight\n(kg)\" and update its values to realistic weights (e.g., \"X5 xDrive50i\": \"2,085\",\n\"X5 M50d xDrive\": \"2,505\") so units and numbers are consistent and not\nmalformed.\n```",
+      "severity": "MAJOR",
+      "comment_id": 2599050547
+    },
+    {
+      "file": "extraction_engine/results/bmw_x5_claude_haiku45.json",
+      "line": 913,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050550",
+      "prompt": "```\nIn extraction_engine/results/bmw_x5_claude_haiku45.json around lines 899 to 913,\nthe metadata field \"model_used\" is \"claude-sonnet-4.5\" which conflicts with the\nfilename that references \"haiku45\"; update either the filename or the metadata\nso they match: choose the correct model identifier (haiku45 vs\nclaude-sonnet-4.5), then rename the file to reflect the metadata or change\n\"model_used\" to \"claude-haiku-4.5\" (or the exact canonical model name you\nintend) ensuring consistency across storage, tests, and any references.\n```",
+      "severity": "MINOR",
+      "comment_id": 2599050550
+    },
+    {
+      "file": "extraction_engine/visual_validator.py",
+      "line": null,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050553",
+      "prompt": "```\nIn extraction_engine/visual_validator.py around line 11, the import uses\ntyping.Dict and typing.List which are deprecated in favor of built-in generics\non Python 3.9+; remove those typing imports and update all type hints in this\nfile to use built-in lowercase generics (dict, list) instead of Dict and List so\nannotations use modern syntax and the typing import can be dropped.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050553
+    },
+    {
+      "file": "extraction_engine/visual_validator.py",
+      "line": 50,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050560",
+      "prompt": "```\nIn extraction_engine/visual_validator.py around lines 44 to 50, the current bare\nexcept swallows all exceptions; change it to catch specific exceptions (e.g.,\nOSError or IOError thrown when font files are missing/unreadable) and optionally\nlog the caught exception before falling back to ImageFont.load_default() so\nKeyboardInterrupt/SystemExit are not suppressed and debugging info is preserved.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050560
+    },
+    {
+      "file": "extraction_engine/visual_validator.py",
+      "line": 55,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050567",
+      "prompt": "```\nIn extraction_engine/visual_validator.py around lines 54-55, the image title is\nhard-coded to \"Gemini 2.5-flash Extraction Result\" which ignores the actual\nmodel in the metadata; replace the hard-coded string with the model from the\nmetadata (e.g., metadata.get('model') or metadata.get('model_name')), fall back\nto a safe default like \"Extraction Result\" if missing, sanitize/normalize the\nmodel string for display, and compose the title as f\"{model_display} Extraction\nResult\" before passing it to draw.text.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050567
+    },
+    {
+      "file": "extraction_engine/visual_validator.py",
+      "line": 165,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599050573",
+      "prompt": "```\nIn extraction_engine/visual_validator.py around lines 162 to 165, the try/except\nuses a bare except when loading the font; replace the bare except with a\nspecific exception tuple (e.g., except (OSError, IOError):) so only\nfile/OS-related font-loading errors are caught and then fall back to\nImageFont.load_default(); optionally log the exception before falling back for\nvisibility.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599050573
+    },
+    {
+      "file": "extraction_engine/claude_vision_extractor.py",
+      "line": 99,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146346",
+      "prompt": "```\nIn extraction_engine/claude_vision_extractor.py around lines 87 to 99, the\nmissing-image branch currently uses Path.exists() and returns metadata with\nextraction_time=0 and no model_used; change image_path.exists() to\nimage_path.is_file() to reject directories, and update the returned error\npayload to match other error paths (and Gemini’s) by including the same metadata\nkeys: compute and return a real extraction_time (e.g., time elapsed from\nfunction start to error), include model_used with the model name in use, and\nkeep success=False plus the same top-level keys (\"error\", \"trims\", \"specs\",\n\"metadata\") so downstream consumers see a stable contract.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599146346
+    },
+    {
+      "file": "extraction_engine/gemini_vision_extractor.py",
+      "line": 78,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2599146356",
+      "prompt": "```\nIn extraction_engine/gemini_vision_extractor.py around lines 68 to 78, the\nearly-return for a missing image file returns an inconsistent, thin error\npayload; update the return to match the extractor's standard error contract by\nincluding \"error\" with the message, \"metadata\" containing \"model_used\", include\nempty or default \"trims\" and \"specs\" keys as used elsewhere, and add\n\"extraction_time\" computed as time.time() - start_time (and any other fields\npresent in other error paths) so callers receive a consistent shape.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2599146356
+    },
+    {
+      "file": "docs/PR7_CODERABBIT_AI_PROMPTS.md",
+      "line": 594,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175928",
+      "prompt": "```\nIn docs/PR7_CODERABBIT_AI_PROMPTS.md around lines 1 to 54, fix markdownlint\nissues by (1) ensuring a blank line before and after every heading to resolve\nMD022, (2) removing trailing spaces at the ends of quote and other lines to\nresolve MD009, (3) converting any underlined headings to ATX style (use\nconsistent '#' headings) to resolve MD003, and (4) replacing generic “[Link]”\ntexts with descriptive link labels (e.g., “Sourcery review comment”, “CodeRabbit\nskip-review notice”) to resolve MD059; run markdownlint or the repo CI to verify\nthe fixes.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2600175928
+    },
+    {
+      "file": "extract_all_bot_comments.py",
+      "line": 56,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175930",
+      "prompt": "```\nIn extract_all_bot_comments.py around line 56, the conditional and return are\ncombined on one line which hurts readability; split the statement into two lines\nby placing the return on the next line and keep the same condition and behavior\n(i.e., check if \"parsing error\" in body.lower(): then on the following line\nreturn \"Critical\").\n```",
+      "severity": "CRITICAL",
+      "comment_id": 2600175930
+    },
+    {
+      "file": "extraction_engine/bmw_x5_table_replicas.py",
+      "line": 28,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175939",
+      "prompt": "```\nIn extraction_engine/bmw_x5_table_replicas.py around lines 25 to 28, the call\nopen(json_path, 'r') passes the redundant 'r' mode (read is the default); update\nthe function to call open(json_path) instead so the file is opened for reading\nwithout the explicit mode argument, leaving the rest of the function unchanged.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2600175939
+    },
+    {
+      "file": "extraction_engine/bmw_x5_table_replicas.py",
+      "line": 239,
+      "url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/7#discussion_r2600175943",
+      "prompt": "```\nIn extraction_engine/bmw_x5_table_replicas.py around lines 229 to 239, several\nstring concatenations use f-strings even though they contain no interpolations\n(lines 229, 231, 237, 239); remove the unnecessary leading \"f\" from those string\nliterals so they become normal strings (e.g., change f'\n\\n' to '\n\\n') to\neliminate the extraneous f-string prefixes and keep only strings that actually\nrequire interpolation as f-strings.\n```",
+      "severity": "TRIVIAL",
+      "comment_id": 2600175943
+    }
+  ]
+}
