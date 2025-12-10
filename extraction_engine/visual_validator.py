@@ -8,7 +8,7 @@ import json
 import sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-# Built-in generics used instead of typing.Dict/List
+# Built-in generics used instead of dict/List
 
 
 def load_extraction_result(json_path: str) -> dict:
