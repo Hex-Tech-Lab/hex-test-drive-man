@@ -70,7 +70,7 @@ for match in json_match:
         obj = json.loads(match)
         if 'global_index' in obj:
             json_objects.append(obj)
-    except:
+        except (Exception, ValueError) as e:
         continue
 
 print(f"✅ Parsed {len(json_objects)} classifications")

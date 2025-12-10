@@ -67,7 +67,7 @@ def analyze_file(filepath):
             "time": elapsed,
             "filepath": filepath
         }
-    except:
+        except (Exception, ValueError) as e:
         return None
 
 # Analyze both runs

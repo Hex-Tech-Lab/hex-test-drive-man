@@ -1,0 +1,1 @@
+Fixed 8 bare excepts: extraction_engine/compare_runs.py extraction_engine/geometry_benchmark.py extraction_engine/iterative_extractor.py extraction_engine/refined_classifier.py extraction_engine/llm_row_classifier_fixed.py extraction_engine/debug_bmw_x5_crops.py 

@@ -63,7 +63,7 @@ for match in json_match:
         obj = json.loads(match)
         if 'global_index' in obj and 'classification' in obj:
             json_objects.append(obj)
-    except:
+        except (Exception, ValueError) as e:
         pass
 
 if json_objects:

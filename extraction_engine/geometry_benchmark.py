@@ -108,7 +108,7 @@ def run_pdfplumber(pdf_path, page_num):
                         c = len(t_data[0]) if r > 0 else 0
                         max_rows = max(max_rows, r)
                         max_cols = max(max_cols, c)
-                except:
+        except (Exception, ValueError) as e:
                     pass
                     
     return total_tables, max_rows, max_cols, time.time() - start_time

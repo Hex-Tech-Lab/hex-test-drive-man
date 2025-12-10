@@ -68,7 +68,7 @@ def add_border_and_label(img: Image.Image, label: str, coords: tuple) -> Image.I
     # Add label with coordinates
     try:
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 14)
-    except:
+        except (Exception, ValueError) as e:
         font = ImageFont.load_default()
 
     x, y, w, h = coords

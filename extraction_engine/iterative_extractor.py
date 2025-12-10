@@ -63,7 +63,7 @@ Rows:
     try:
         # Try direct parse
         result = json.loads(response_text)
-    except:
+        except (Exception, ValueError) as e:
         # Extract JSON from markdown
         import re
         json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
