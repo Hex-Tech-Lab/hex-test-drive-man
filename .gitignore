@@ -75,3 +75,6 @@ scripts/*.json
 # Python virtual environments
 venv/
 .venv/
+
+# Sentry Config File
+.env.sentry-build-plugin
