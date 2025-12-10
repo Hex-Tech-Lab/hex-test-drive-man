@@ -71,3 +71,7 @@ data/temp/
 scripts/*.log
 scripts/*.json
 
+
+# Python virtual environments
+venv/
+.venv/
