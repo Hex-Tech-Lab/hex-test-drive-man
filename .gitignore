@@ -71,5 +71,3 @@ data/temp/
 scripts/*.log
 scripts/*.json
 
-# Archive (optional - remove if you want to track it)
-# archive/
