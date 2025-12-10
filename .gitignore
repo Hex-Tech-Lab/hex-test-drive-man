@@ -61,3 +61,13 @@ venv/
 
 extract_*.py
 comment_urls.txt
+
+# Temporary data
+data/temp/
+*.tmp
+*_temp.json
+
+# Scripts output
+scripts/*.log
+scripts/*.json
+
