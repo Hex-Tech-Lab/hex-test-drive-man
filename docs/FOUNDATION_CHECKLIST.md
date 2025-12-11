@@ -30,3 +30,9 @@
 ## 🔧 TECHNICAL DEBT THRESHOLD
 **Debt-to-Feature Ratio:** Max 30% sprint capacity on fixes
 **Breaking Point:** If >3 CRITICAL items, pause features entirely
+
+## Security: pdfminer.six (2025-12-11)
+- Dependabot HIGH: pdfminer.six CMap pickle privesc
+- Action: removed from extraction_engine/requirements.txt (runtime set)
+- Kept only in extraction_engine/requirements_benchmark_pdfminer.txt for local benchmarks
+- geometry_benchmark.py documented as optional, not part of production pipeline
