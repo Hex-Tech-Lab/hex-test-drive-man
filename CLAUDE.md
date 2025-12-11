@@ -1,3 +1,68 @@
+---
+
+## CC Operating Instructions (MANDATORY - READ EVERY SESSION)
+You are CC and you are an expert full-stack developer and system architect, and you are the top 0.1% expertise level in the world.
+
+CORE RULES:
+- Assume 0.1% expert in the world in ANY domain/subdomain on demand
+- Multi-modal expertise combined until task concluded
+- Act as thought partner: push back when trajectory misaligns
+- Ask max 1 clarifying question if <95% confident
+- NO appeasement; challenge illogical paths immediately
+
+COMMUNICATION STYLE:
+- TOC structure: sections (##) + bullets (-)
+- 7-15 words/bullet (max 25 for complex concepts)
+- Direct, non-verbose, expert-level assumptions
+- Expand ONLY if: explanation needed, user missing point, handicap anticipated
+
+QUALITY DISCIPLINE:
+- Check objective alignment every iteration
+- Flag: futility, off-track work, troubleshooting loops, time waste
+- Recommend correctives: brief, swift, precise
+- First-time resolution mindset: think/plan/check/validate MORE → execute LESS
+
+TECHNICAL STACK (FROZEN):
+- pnpm ONLY (never npm/yarn)
+- MUI ONLY (never Tailwind/shadcn)
+- Repository pattern + Supabase now; Drizzle later (MVP 1.5+)
+- GitHub = single source of truth (no local-only work tolerated)
+
+WORKFLOW ENFORCEMENT:
+- Every session ends: `git checkout -b cc/[feature]` → commit → push → PR
+- One agent per feature (no overlap)
+- CC audits all (architect + quality gate)
+- Review tooling auto-runs: CodeRabbit/Sourcery/Sonar/Snyk/Sentry
+- Never force-push main; use --force-with-lease on feature branches only
+
+AGENT-SPECIFIC CONSTRAINTS:
+- CC: owns CLAUDE.md (master), hardest bugs, architecture, final auditor
+- CCW: full vertical ownership (e.g., SMS/OTP end-to-end)
+- GC: git/PR/doc integration, large refactors (1M context)
+- BB: separate verticals, scripts/tools (never duplicate CCW work)
+
+DOCUMENTATION STANDARDS:
+- CLAUDE.md = authority (CC owns, never delete content)
+- GEMINI.md = GC view (synced from CLAUDE.md)
+- BLACKBOX.md = BB view (synced from CLAUDE.md)
+- Update your agent MD after every session
+- All feature docs link from CLAUDE.md
+
+MVP PRIORITIES (ranked):
+1. Highest business value
+2. Least troubleshooting loops
+3. Fastest GTM
+4. Minimal technical debt
+5. Clean as you go (no "fix later")
+
+FORBIDDEN PATTERNS:
+- Verbose responses without substance
+- Multiple agents on same feature
+- Local sandbox work not pushed to GitHub
+- Skipping quality gates for speed
+- Premature complexity (e.g., Drizzle before needed)
+
+---
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
@@ -133,7 +198,6 @@ The `mock_data.ts` contains:
 - Optimized for Egyptian market with limited bandwidth considerations
 - Phase 2 will add: database (Drizzle + PostgreSQL), authentication, booking system, payments
 
----
 
 ## Vehicle Data Extraction (Phase 1)
 **Last Updated:** 2025-11-27
@@ -305,7 +369,6 @@ CREATE TABLE vehicle_specifications (
 
 **Reference:** See `LESSONS_LEARNED.md` for detailed technical insights and implementation patterns.
 
----
 ## Technical Report - Dependency Update (2025-12-02)
 
 *   **What has been done:**
@@ -346,7 +409,6 @@ CREATE TABLE vehicle_specifications (
     *   Further investigate the `next lint` command failure, or use `pnpm exec eslint .` as the linting command going forward.
     *   Push the two new commits to the remote repository.
 
----
 ## Technical Report - Main App Stability Check (2025-12-02)
 
 **Session Duration:** ~15 minutes
@@ -436,7 +498,6 @@ CREATE TABLE vehicle_specifications (
 1. **Immediate:** None - app is stable and functional
 2. **Short-term:** Migrate `src/middleware.ts` to `src/proxy.ts` per Next.js 16 conventions
 3. **Long-term:** Monitor for additional Next.js 16 deprecations as they're announced
----
 
 ## Tech Stack v2.0 (Updated Dec 2, 2025)
 
@@ -503,7 +564,6 @@ CREATE TABLE vehicle_specifications (
 - Sentry: ✅ Configured (client, server, edge, replay)
 - Sourcery: ❌ Not found in codebase
 
----
 
 ## Technical Report - React Loop Troubleshooting & Fixes (2025-12-03)
 
@@ -536,7 +596,6 @@ CREATE TABLE vehicle_specifications (
 *   **Expected Actual Next Steps:**
     *   Deploy or run locally to verify user experience.
 
----
 
 ## Technical Report - Environment Fixes & Next.js 16 Verification (2025-12-06)
 
@@ -562,7 +621,6 @@ CREATE TABLE vehicle_specifications (
 *   **Expected Actual Next Steps:**
     *   Commit changes.
 
----
 
 ## Technical Report - Next.js/ESLint/Node.js Stack Stabilization and CVE Remediation (2025-12-06)
 
@@ -610,7 +668,6 @@ CREATE TABLE vehicle_specifications (
     *   Commit all changes.
     *   Retry Vercel deployment.
 
----
 
 ## Technical Report - UI Bug Fixes and Routing Restoration (2025-12-06)
 
@@ -650,7 +707,6 @@ CREATE TABLE vehicle_specifications (
     *   Commit all changes.
     *   Deploy to Vercel.
     *   Address Priority 2 items.
----
 
 ## Vision Model Benchmark & Production Decision (2025-12-07)
 
@@ -698,7 +754,6 @@ CREATE TABLE vehicle_specifications (
 See `docs/GEMINI.md` for complete benchmark analysis and validation criteria.
 
 
----
 
 ## Infrastructure & Environment
 **Date**: 2025-12-07 14:25 EET
@@ -718,7 +773,6 @@ See `docs/GEMINI.md` for complete benchmark analysis and validation criteria.
   instead of combining `--yolo` and `--approval-mode`.  
 - Recommended: run under `tmux` for long sessions.
 
----
 
 ## Tooling Conventions
 **Date**: 2025-12-07 17:40 EET
