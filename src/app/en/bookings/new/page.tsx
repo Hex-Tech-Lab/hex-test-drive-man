@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import { requestOtp } from '@/services/sms/engine';
 import { sendOTP } from '@/services/sms/engine';
 
 export default function NewBooking() {
