@@ -1,0 +1,14 @@
+[run]
+source = extraction_engine
+omit = 
+    */venv/*
+    */tests/*
+    */__pycache__/*
+
+[report]
+precision = 2
+show_missing = True
+skip_covered = False
+
+[html]
+directory = coverage_html_report
