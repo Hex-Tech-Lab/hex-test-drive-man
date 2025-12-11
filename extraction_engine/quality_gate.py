@@ -42,7 +42,7 @@ class QualityGate:
         """
         self.vehicle_type = vehicle_type
         self.strict = strict
-        self.min_specs = self.MIN_SPECS.get(vehicle_type, self.MIN_SPECS["default"])
+        self.min_specs_required = self.MIN_SPECS.get(vehicle_type, self.MIN_SPECS["default"])
 
     def validate(self, extraction_result: Dict) -> tuple[bool, Dict]:
         """
@@ -158,9 +158,9 @@ class QualityGate:
             errors.append(f"Only {len(trims)} trim(s) detected (minimum 2 expected)")
 
         # Minimum spec count
-        if len(specs) < self.min_specs:
+        if len(specs) < self.min_specs_required:
             warnings.append(
-                f"Only {len(specs)} specs extracted (expected ≥{self.min_specs} for {self.vehicle_type})"
+                f"Only {len(specs)} specs extracted (expected ≥{self.min_specs_required} for {self.vehicle_type})"
             )
 
         # Check for required categories
