@@ -1,18 +1,32 @@
-# Foundation Health Criteria
+# Foundation Health Criteria (Industry Standards)
 
-## ✅ PASSING (Ready to Build)
-- [ ] Zero HIGH/CRITICAL security vulns
-- [ ] CI/CD green (all checks pass)
-- [ ] No WSL memory warnings (<70%)
-- [ ] GitHub = single source of truth (no diverged branches)
-- [ ] AI scraper extractable as microservice
+## 🔴 CRITICAL (Zero Tolerance - BLOCKS ALL WORK)
+- [ ] Zero HIGH/CRITICAL CVEs in production dependencies
+- [ ] Zero failing CI/CD checks on main branch
+- [ ] All security scans passing (CodeQL, Dependabot)
+- [ ] No data corruption risks (schema migrations tested)
+- [ ] Secret scanning enabled + no leaked credentials
 
-## 🟡 ACCEPTABLE (Can proceed with caution)
-- [ ] <5 MODERATE security vulns (documented)
-- [ ] PR comments resolved OR documented as "won't fix"
-- [ ] RTL bugs catalogued in Issues
+## 🟠 HIGH PRIORITY (Fix within sprint)
+- [ ] <3 MODERATE CVEs (with mitigation plan)
+- [ ] Test coverage >70% for critical paths
+- [ ] All PR review comments resolved OR explicitly deferred
+- [ ] WSL/dev environment <80% memory usage
+- [ ] Docker images <500MB (if using containers)
 
-## ❌ BLOCKING (Must fix before feature work)
-- [ ] Any HIGH security vuln
-- [ ] Main branch CI/CD failing
-- [ ] WSL memory >90%
+## 🟡 MEDIUM (Address before major release)
+- [ ] Linting violations <10 across codebase
+- [ ] Documentation covers all public APIs
+- [ ] RTL/i18n bugs tracked in Issues with priority
+- [ ] Branch divergence <5 commits ahead of main
+- [ ] Automated rollback capability tested
+
+## 🟢 OPTIMIZATION (Nice-to-have)
+- [ ] Performance benchmarks established
+- [ ] Microservices extraction documented
+- [ ] Monitoring/observability (Sentry integrated)
+- [ ] Dependency update automation (Renovate/Dependabot auto-merge)
+
+## 🔧 TECHNICAL DEBT THRESHOLD
+**Debt-to-Feature Ratio:** Max 30% sprint capacity on fixes
+**Breaking Point:** If >3 CRITICAL items, pause features entirely
