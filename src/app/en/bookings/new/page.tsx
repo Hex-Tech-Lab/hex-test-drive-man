@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { sendOTP } from '@/lib/sms-engine';
+import { sendOTP } from '@/services/sms/engine';
 
 export default function NewBooking() {
   const [vehicleId, setVehicleId] = useState('');
