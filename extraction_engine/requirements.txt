@@ -1,4 +1,3 @@
-# Replace pdfminer.six (HIGH privesc) with safer alternatives
 pypdf2>=3.0.0
 pdfplumber>=0.11.0
 # ... rest of requirements

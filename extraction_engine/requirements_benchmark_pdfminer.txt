@@ -1,0 +1,4 @@
+# Optional, non-production dependencies for geometry_benchmark.py
+# WARNING: pdfminer.six has a history of insecure deserialization (CMap pickle) and local privesc issues.
+# Use ONLY in isolated, local benchmarking environments with controlled input.
+pdfminer.six==20251107
