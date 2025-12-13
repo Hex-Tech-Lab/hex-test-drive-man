@@ -20,7 +20,7 @@
     "@vercel/analytics": "1.4.1",
     "@vercel/speed-insights": "1.1.0",
     "date-fns": "4.1.0",
-    "next": "15.4.8",
+    "next": "15.4.10",
     "node-fetch": "3.3.2",
     "pdf2image": "1.2.3",
     "react": "19.2.0",
