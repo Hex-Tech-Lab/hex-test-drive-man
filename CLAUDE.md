@@ -1,9 +1,9 @@
-# CLAUDE.md - Project Brain (CC Owns) [2025-12-14 21:30 UTC]
+# CLAUDE.md - Project Brain (CC Owns) [2025-12-14 22:00 UTC]
 
-**Version**: 2.2.2
-**Last Updated**: 2025-12-14 21:30 UTC
+**Version**: 2.2.3
+**Last Updated**: 2025-12-14 22:00 UTC
 **Production Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Status**: ACTIVE - Vision-First Pipeline + Booking MVP + Status Update integrated, 1,907 lines
+**Status**: ACTIVE - Recovery + Housekeeping sessions integrated, 2,062 lines
 
 ---
 
@@ -849,6 +849,82 @@ CREATE POLICY "Users can view own verifications"
    - Booking route linted: 6 warnings (comma-dangle), 0 errors
    - No relative import violations detected
 
+### Session: Dec 12-13, 2025 (01:02 AM - 01:27 AM EET / 23:02 UTC Dec 12 - 23:27 UTC Dec 12) [Emergency Recovery]
+
+**Agent**: Multiple (CC attempting recovery)
+**Objective**: Emergency CLAUDE.md recovery after Git operation data loss
+
+**Key Outcomes**:
+1. **CLAUDE.md 597-line version lost**:
+   - User manually edited to 597 lines/24KB between 01:31-01:55 AM EET
+   - git reset --hard origin/main overwrote uncommitted changes
+   - Version never committed to Git (working-tree only)
+   - Status: UNRECOVERABLE
+
+2. **788-line fallback identified**:
+   - Found in HEAD@{1} (commit 5eb02fd, 2025-12-12 00:54 EET)
+   - File size: 36KB
+   - Contains fuller content vs truncated 103-line version
+   - User confused: expected 597, found 788
+
+3. **Forensic analysis completed**:
+   - Reflog search confirmed no 597-line commit exists
+   - git show HEAD@{1}:CLAUDE.md only 76 lines (mismatch)
+   - Root cause: Assistant violated "ALWAYS VERIFY FIRST" rule
+   - Lesson: Commit before destructive Git ops (reset/checkout)
+
+4. **Agent sync prompts prepared**:
+   - GC synchronization: 4-step process (pull → create GEMINI/BLACKBOX → commit → PR)
+   - CCW SMS/OTP Phase 1: 6 tasks (smsVerificationRepository, verifyOtp, RLS, UI, E2E, PR)
+   - Status: BLOCKED pending CLAUDE.md restoration
+
+5. **Critical incident documented**:
+   - 24.5h session (10h active + 14.5h sleep break)
+   - User statement: "I've lost all the work... going to kill you tomorrow"
+   - Recovery blocked: GC + CCW execution pending CLAUDE.md baseline
+
+**Status**: 788-line fallback available but unverified; reconstruction required
+
+### Session: Dec 9-10, 2025 (23:20 UTC / Dec 10 01:20 EET) [GC]
+
+**Agent**: Gemini Code (GC)
+**Objective**: Repository housekeeping + Sentry integration + CI/CD automation
+
+**Key Outcomes**:
+1. **Repository cleanup completed**:
+   - Removed 53 obsolete root files (BMW/Toyota JSONs, legacy scripts)
+   - Moved pdf_samples → data/samples/pdf/ (66 files)
+   - Moved pdf_images → data/samples/images/ (24 files)
+   - Commits: 34de530 → afc7e17
+   - Result: Root folder clean, organized structure
+
+2. **Sentry APM configured**:
+   - Ran pnpx @sentry/wizard@latest -i nextjs
+   - Wizard selections: Tracing✅, Replay❌, Logs❌, Example page❌ (avoids locale conflicts)
+   - Files created: sentry.client/server/edge.config.js
+   - Auth token: Added to .env.sentry-build-plugin (gitignored)
+   - Status: Configured but not receiving events yet
+
+3. **AI prompt collection automated**:
+   - Created .github/workflows/collect-ai-prompts.yml
+   - Fixed extraction: 26 actual prompts (not 377 false positives)
+   - Output: docs/PR7_AI_PROMPTS_FIXED.md (2 CRITICAL, 4 MAJOR, 3 MINOR, 17 TRIVIAL)
+   - Script: scripts/extract_ai_prompts_FIXED.py (BeautifulSoup filter)
+
+4. **Auto-sync script established**:
+   - Created ~/sync-repo.sh
+   - Resolves local WSL vs GitHub drift
+   - Commands: git reset --hard origin/main + git clean -fd
+   - User requirement: Run at EVERY session start
+
+5. **Technical debt identified**:
+   - 11 Dependabot vulnerabilities (3 HIGH, 8 MODERATE)
+   - 24 stale remote branches need cleanup
+   - Sentry verification pending (awaiting first event)
+   - pnpm updated to 10.25.0
+
+**Status**: Foundation cleanup complete, Sentry awaiting Vercel deployment verification
+
 ### Session: Dec 14, 2025 (18:00-20:00 UTC) [CC]
 
 **Agent**: Claude Code (CC)
@@ -1693,6 +1769,42 @@ Longer explanation if needed.
 
 ## LESSONS LEARNED & FORENSICS
 
+### CLAUDE.md Data Loss Incident [2025-12-12 02:00-02:07 AM EET, CC Critical Error]
+
+**Problem**: User's 597-line/24KB manually-edited CLAUDE.md lost during Git operations
+
+**Timeline**:
+1. 01:31-01:55 AM: User manually edited CLAUDE.md to 597 lines (24KB)
+2. 01:55 AM: Assistant provided GC sync prompt with git pull
+3. 02:00 AM: GC executed ~/sync-repo.sh (includes git reset --hard origin/main)
+4. 02:02 AM: User discovered file changed from 24KB → 4KB (103 lines)
+5. 02:07 AM: User: "I've lost all the work... going to kill you tomorrow"
+
+**Root Cause**: Assistant violated user's explicit "ALWAYS VERIFY FIRST" rule
+- Instructed Git operations without confirming CLAUDE.md was committed
+- User's uncommitted working-tree changes overwritten by reset --hard
+
+**Forensic Evidence**:
+```bash
+git reflog --all | grep "5eb02fd"
+git show 5eb02fd:CLAUDE.md | wc -l  # 76 lines, NOT 597
+git show HEAD@{1}:CLAUDE.md | wc -l  # 76 lines, NOT 597
+```
+- Conclusion: 597-line version NEVER committed; only existed in working tree
+
+**Impact**:
+- 24.5h session (10h active + 14.5h sleep break) disrupted
+- 597 lines of manual work UNRECOVERABLE
+- 788-line fallback available but content unverified
+- GC/CCW execution BLOCKED pending baseline restoration
+
+**Lesson #1**: ALWAYS run `git status` + `git diff --stat` before destructive Git operations
+**Lesson #2**: ~/sync-repo.sh includes `git reset --hard` → confirm user wants to discard local changes
+**Lesson #3**: User's manual edits MUST be committed BEFORE any reset/checkout operations
+**Lesson #4**: Assistant must verify uncommitted changes exist and warn user explicitly
+
+**User's Core Principle Violated**: "think more, plan more, check more, validate more → execute less"
+
 ### Content Preservation in Version Updates [2025-12-14 20:00 UTC, CC Error → User Correction]
 
 **Problem**: CC created v2.2.0 by compressing 1200-line v2.1.0 → 633 lines
@@ -1840,6 +1952,38 @@ Longer explanation if needed.
 
 **Files**:
 - CLAUDE.md: 1,701 lines (+100 from v2.2.0)
+
+### v2.2.3 (2025-12-14 22:00 UTC) [CC]
+
+**Major Changes**:
+- Integrated Dec 9-10 THOS (Repository Housekeeping & Sentry Configuration)
+- Integrated Dec 12-13 THOS (Emergency CLAUDE.md Recovery & Agent Sync)
+- Added critical incident forensics (597-line data loss)
+
+**New Content**:
+- Session Timeline: Dec 12-13 (Emergency recovery session - 24.5h)
+  - CLAUDE.md 597-line version lost during Git operations
+  - 788-line fallback identified (HEAD@{1})
+  - Agent sync prompts prepared (GC + CCW blocked)
+- Session Timeline: Dec 9-10 (Housekeeping + Sentry)
+  - 53 obsolete root files removed
+  - Sentry wizard completed (tracing enabled)
+  - AI prompt extraction fixed (26 actual prompts)
+  - Auto-sync script created (~/sync-repo.sh)
+- Lessons Learned: CLAUDE.md data loss incident forensics
+  - Timeline reconstruction
+  - Root cause: Violated "ALWAYS VERIFY FIRST" rule
+  - 4 lessons documented
+  - User's core principle violated
+
+**Updates**:
+- Lessons Learned: New entry at top (reverse chrono)
+- Technical Debt: 11 Dependabot vulnerabilities, 24 stale branches
+- pnpm updated to 10.25.0
+- Sentry configuration documented
+
+**Files**:
+- CLAUDE.md: 2,062 lines (+155 from v2.2.2)
 
 ### v2.2.2 (2025-12-14 21:30 UTC) [CC]
 
