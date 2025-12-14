@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { sendWhySMS } from './providers/whysms';
+import { sendWhySMS } from '@/services/sms/providers/whysms';
 
 export type OtpSubjectType = 'booking' | 'login';
 
