@@ -35,6 +35,17 @@ const config = [
       '@typescript-eslint/no-unused-vars': ['warn', { 'argsIgnorePattern': '^_' }],
       'react/react-in-jsx-scope': 'off', // Not needed with React 17+ JSX transform
       'react/prop-types': 'off', // Not needed with TypeScript
+      'no-restricted-imports': [
+        'error',
+        {
+          'patterns': [
+            {
+              'group': ['../*'],
+              'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.'
+            }
+          ]
+        }
+      ],
       // Removed problematic react-hooks rules for now
       // 'react-hooks/rules-of-hooks': 'error',
       // 'react-hooks/exhaustive-deps': 'warn',
@@ -65,6 +76,17 @@ const config = [
       'indent': ['warn', 2],
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
+      'no-restricted-imports': [
+        'error',
+        {
+          'patterns': [
+            {
+              'group': ['../*'],
+              'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.'
+            }
+          ]
+        }
+      ],
       // Removed problematic react-hooks rules for now
       // 'react-hooks/rules-of-hooks': 'error',
       // 'react-hooks/exhaustive-deps': 'warn',
