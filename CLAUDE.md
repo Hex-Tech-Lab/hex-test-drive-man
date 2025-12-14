@@ -1,9 +1,9 @@
-# CLAUDE.md - Project Brain (CC Owns) [2025-12-14 22:00 UTC]
+# CLAUDE.md - Project Brain (CC Owns) [2025-12-14 23:00 UTC]
 
-**Version**: 2.2.3
-**Last Updated**: 2025-12-14 22:00 UTC
+**Version**: 2.2.4
+**Last Updated**: 2025-12-14 23:00 UTC
 **Production Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Status**: ACTIVE - Recovery + Housekeeping sessions integrated, 2,062 lines
+**Status**: ACTIVE - PR#7 + SonarCloud + Snyk integrated, 2,219 lines
 
 ---
 
@@ -885,6 +885,51 @@ CREATE POLICY "Users can view own verifications"
 
 **Status**: 788-line fallback available but unverified; reconstruction required
 
+### Session: Dec 11, 2025 (Time not specified) [Multiple Agents]
+
+**Agent**: Multiple (CC/GC handling PR#7, SonarCloud, Snyk)
+**Objective**: PR#7 cleanup, SonarCloud/Snyk integration, foundation hardening
+
+**Key Outcomes**:
+1. **PR#7 merged successfully**:
+   - Pull request: feature/pdf-extraction-engine → main
+   - 12 commits, 52 files changed
+   - 87% of AI review items auto-fixed
+   - CodeRabbit prompts: 2 CRITICAL, 4 MAJOR, 3 MINOR, 17 TRIVIAL
+   - Output: docs/PR7_AI_PROMPTS_FIXED.md, data/results/pr7_ai_prompts_fixed.json
+
+2. **SonarCloud integration configured**:
+   - Project: Hex-Tech-Lab_hex-test-drive-man
+   - Organization: hex-tech-lab
+   - Config: sonar-project.properties (Python 3.12, exclusions for node_modules/venv/data)
+   - Export script: scripts/fetch_sonarcloud_issues.sh
+   - Result: 34 BLOCKER/CRITICAL issues exported (1 BLOCKER, 33 CRITICAL)
+   - Decision: Fix BLOCKER + 2 CRITICAL, defer cognitive complexity issues
+
+3. **Critical fixes implemented**:
+   - BLOCKER: Renamed min_specs → minimum_specs_match in quality_gate.py
+   - CRITICAL: FilterPanel.tsx sorting → localeCompare (better i18n/RTL)
+   - CRITICAL: AI review items from PR#7:
+     - urllib3 >=2.6.0 (CVE fix, commit 8ac0840)
+     - pdfminer.six >=20221105 (local privilege escalation fix)
+     - Replace typing.Dict/List/Tuple → dict/list/tuple (commit 307a655)
+     - Fix bare except: blocks (commits 760a3fd, e8019c6)
+     - Split complex parsing line in extract_all_bot_comments.py (commit 74c5706)
+
+4. **Snyk dependency upgrades**:
+   - Next.js: 15.2.6 → 15.4.8 (Snyk recommendation)
+   - @supabase/supabase-js: 2.48.1 → 2.50.0
+   - ESLint 8.57.0 deprecation noted (deferred to avoid config conflicts)
+   - Commit: "chore(deps): apply Snyk recommendations (Next 15.4.8, Supabase 2.50.0)"
+
+5. **Foundation checklist drafted**:
+   - File: docs/FOUNDATION_CHECKLIST.md
+   - Criteria: Zero HIGH/CRITICAL CVEs, CI green, SonarCloud BLOCKER=0
+   - Technical debt accepted: 33 CRITICAL cognitive complexity issues deferred
+   - Dependabot: 6 open alerts (1 high, 5 moderate) for pypdf/PyPDF2
+
+**Status**: Main branch stable, PR#7 merged, CI green, security tooling wired
+
 ### Session: Dec 9-10, 2025 (23:20 UTC / Dec 10 01:20 EET) [GC]
 
 **Agent**: Gemini Code (GC)
@@ -1518,6 +1563,56 @@ gh pr create --base main --head [agent]/[feature] \
 **Format**: Reverse chronological (newest first)
 **Timestamp Standard**: [YYYY-MM-DD HH:MM UTC, Agent/User]
 
+### Dec 11, 2025: SonarCloud Integration Strategy [Multiple Agents]
+
+**Decision**: Configure SonarCloud for hex-tech-lab organization, prioritize BLOCKER fixes only
+**Rejected**: Local SonarQube server, fix all CRITICAL issues immediately
+
+**Rationale**:
+- SonarCloud SaaS avoids local infrastructure overhead
+- 34 BLOCKER/CRITICAL issues identified (1 BLOCKER, 33 CRITICAL)
+- Most CRITICALs are "reduce cognitive complexity" (not runtime bugs)
+- Pragmatic approach: Fix BLOCKER + user-facing CRITICALs, defer refactoring
+
+**Implementation**:
+- Project key: `Hex-Tech-Lab_hex-test-drive-man`
+- Organization: `hex-tech-lab`
+- Config: `sonar-project.properties` (Python 3.12, exclusions for node_modules/venv/data)
+- Export script: `scripts/fetch_sonarcloud_issues.sh`
+- Viewer: `scripts/print_sonarcloud_blockers.py`
+
+**Fixes Applied**:
+- BLOCKER: Renamed `min_specs` → `minimum_specs_match` in quality_gate.py
+- CRITICAL: FilterPanel.tsx sorting → `localeCompare()` (i18n/RTL correct)
+- Deferred: 33 CRITICAL cognitive complexity issues (technical debt)
+
+**Status**: ✅ Main branch clean, BLOCKER=0 after re-scan
+**Next**: Address cognitive complexity in controlled refactor sprint (post-MVP)
+
+### Dec 11, 2025: PR#7 AI Review Strategy [Multiple Agents]
+
+**Decision**: 87% auto-fix rate via grouped commits, manual review for edge cases
+**Rejected**: 100% automation (risky), manual review of all 26 items (slow)
+
+**Rationale**:
+- CodeRabbit flagged: 2 CRITICAL, 4 MAJOR, 3 MINOR, 17 TRIVIAL
+- Automation safe for: dependency upgrades, typing fixes, bare except blocks
+- Manual review needed for: complex parsing logic, architectural decisions
+
+**Implementation**:
+- Commit 8ac0840: urllib3 >=2.6.0, pdfminer.six >=20221105 (CVE fixes)
+- Commit 307a655: Replace typing.Dict/List/Tuple → dict/list/tuple (Python 3.9+)
+- Commit 74c5706: Split complex parsing line (readability)
+- Commits 760a3fd, e8019c6: Fix bare except blocks
+- Commit 4968779: Deduplicate JSON specs, fix BMW X5 model naming
+
+**Artifacts**:
+- Prompts: docs/PR7_AI_PROMPTS_FIXED.md (human-readable)
+- Data: data/results/pr7_ai_prompts_fixed.json (metadata + prompts[])
+
+**Status**: ✅ PR#7 merged, CI green, 87% items resolved
+**Remaining**: 13% edge cases accepted as technical debt
+
 ### Dec 7-8, 2025: Image Preprocessing for Claude Vision [CC]
 
 **Decision**: Resize PDFs to 4000px width using sharp-cli with Lanczos resampling
@@ -1934,6 +2029,36 @@ git show HEAD@{1}:CLAUDE.md | wc -l  # 76 lines, NOT 597
 
 ## VERSION HISTORY
 
+### v2.2.4 (2025-12-14 23:00 UTC) [CC]
+
+**Major Changes**:
+- Integrated Dec 11, 2025 THOS (PR#7, SonarCloud, Snyk, Foundation Hardening)
+- Added SonarCloud integration strategy to Architecture Decisions
+- Added PR#7 AI review strategy to Architecture Decisions
+
+**New Content**:
+- Session Timeline: Dec 11 (PR#7 merged, 87% auto-fixed)
+  - 34 BLOCKER/CRITICAL issues exported (1 BLOCKER, 33 CRITICAL)
+  - FilterPanel.tsx sorting fixed (localeCompare)
+  - Quality gate BLOCKER resolved (min_specs rename)
+  - Snyk dependency upgrades (Next.js 15.4.8, Supabase 2.50.0)
+  - Foundation checklist drafted (docs/FOUNDATION_CHECKLIST.md)
+- Architecture Decisions: Dec 11 SonarCloud Integration Strategy
+  - Pragmatic approach: Fix BLOCKER + user-facing CRITICALs
+  - Defer cognitive complexity (33 issues) to post-MVP refactor
+- Architecture Decisions: Dec 11 PR#7 AI Review Strategy
+  - 87% auto-fix via grouped commits
+  - CodeRabbit: 2 CRITICAL, 4 MAJOR, 3 MINOR, 17 TRIVIAL
+  - Artifacts: PR7_AI_PROMPTS_FIXED.md + JSON
+
+**Updates**:
+- Tech Stack: Next.js 15.4.8, Supabase 2.50.0 (upgraded Dec 11)
+- Tooling: SonarCloud scripts (fetch_sonarcloud_issues.sh, print_sonarcloud_blockers.py)
+- Technical Debt: 6 Dependabot alerts (pypdf/PyPDF2), 33 CRITICAL complexity issues
+
+**Files**:
+- CLAUDE.md: 2,219 lines (+157 from v2.2.3)
+
 ### v2.2.1 (2025-12-14 21:00 UTC) [CC]
 
 **Major Changes**:
@@ -2077,11 +2202,11 @@ git show HEAD@{1}:CLAUDE.md | wc -l  # 76 lines, NOT 597
 
 ---
 
-**END OF CLAUDE.md v2.2.0**
+**END OF CLAUDE.md v2.2.4**
 
 **Next Update**: After processing next THOS artifact from user
 **Maintained By**: CC (Claude Code / CCW)
-**Last Verified**: 2025-12-14 20:00 UTC
+**Last Verified**: 2025-12-14 23:00 UTC
 
 **Verification Sources**:
 - package.json (Read tool)
