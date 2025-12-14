@@ -1,9 +1,9 @@
-# CLAUDE.md - Project Brain (CC Owns) [2025-12-14 21:00 UTC]
+# CLAUDE.md - Project Brain (CC Owns) [2025-12-14 21:30 UTC]
 
-**Version**: 2.2.1
-**Last Updated**: 2025-12-14 21:00 UTC
+**Version**: 2.2.2
+**Last Updated**: 2025-12-14 21:30 UTC
 **Production Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Status**: ACTIVE - Dec 3 THOS integrated (Smart Rules 84.5%, BMW X5, API keys), 1,701 lines
+**Status**: ACTIVE - Vision-First Pipeline + Booking MVP + Status Update integrated, 1,907 lines
 
 ---
 
@@ -612,8 +612,9 @@ for row_key in sorted(rows.keys()):
 
 ### MVP 1.0 (IN PROGRESS) 🔄
 
-**Status**: 30% complete (estimate)
+**Status**: 60% complete (Dec 7-8 update)
 **Target**: Booking system with SMS/OTP verification
+**PR**: #4 (open, awaiting CodeRabbit/Sourcery fixes)
 
 **Completed** ✅:
 - ✅ requestOtp() → WhySMS SMS send [commit ca9da33, 2025-12-11 22:51 EET, CCW]
@@ -622,17 +623,32 @@ for row_key in sorted(rows.keys()):
 - ✅ WhySMS v3 integration (/api/v3/sms/send)
 - ✅ TypeScript alias fixes [commit 831b1ca]
 - ✅ Node.js client import fix [commit 831b1ca]
+- ✅ Booking MVP v0 implemented [Dec 7-8, CCW]:
+  - booking.ts types (BookingStatus, BookingInput, Booking)
+  - bookingRepository.ts (in-memory array, crypto.randomUUID)
+  - /api/bookings POST endpoint (basic validation)
+  - VehicleCard.tsx modal with form
+  - EN/AR localization keys
+  - Build passing ✓
 
 **Pending** ❌:
 - ❌ Apply migration to Supabase production
+- ❌ Migrate from in-memory to Supabase storage
+- ❌ Apply AI review feedback (PR #4):
+  - Functional state updates (setSnackbar, setFormData)
+  - Local date calculation (not UTC toISOString)
+  - Guard validateBookingInput against null
+  - Add crypto import to bookingRepository.ts
+- ❌ Resolve PR conflicts (pnpm-lock.yaml, VehicleCard.tsx)
 - ❌ verifyOtp() implementation (stub exists, no persistence)
 - ❌ RLS policies on sms_verifications
 - ❌ /bookings/[id]/verify page (UI)
 - ❌ KYC verification flow
 
 **Blockers**:
-1. Migration not applied to production database
-2. OTP persistence layer incomplete
+1. PR #4 conflicts with integration branch
+2. Migration not applied to production database
+3. In-memory storage needs Supabase migration
 
 ### MVP 1.5+ (PLANNED) ⏳
 
@@ -976,6 +992,129 @@ CREATE POLICY "Users can view own verifications"
 
 **Status**: pdfplumber preprocessor solid, rule-based parser pending
 
+### Session: Dec 7-8, 2025 (22:00 EET Dec 7 → 15:30 EET Dec 8) [CC + CCW + GC]
+
+**Agents**: Claude Code (CC) - extraction, CCW - booking, Gemini Code (GC) - repo management
+**Objective**: Dual-track development - BMW X5 PDF table extraction + booking system PR fixes
+
+**Key Outcomes**:
+1. **BMW X5 image preprocessing complete**:
+   - Issue: Python memory errors on 9922×7016px (600 DPI) images
+   - Solution: Batch resize to 4000px width using sharp-cli (Lanczos resampling)
+   - File: BMW_X5_LCI_2025-page-15_4k.jpg (1.1MB)
+   - Cost: ~$0.073/image (Claude Vision API)
+
+2. **Egyptian brochure layout rule established**:
+   - Each table structure: English leftmost | Trim columns (middle) | Arabic rightmost
+   - NOT page-level language split
+   - BMW X5 page 15: 3 independent tables (SPEC 1, SPEC 2, Technical Data)
+
+3. **Booking MVP v0 implemented (CCW)**:
+   - Files: booking.ts types, bookingRepository.ts, /api/bookings/route.ts
+   - VehicleCard.tsx modal with form + validation
+   - Localization: EN/AR keys added
+   - Status: In-memory storage, PR #4 open for review
+
+4. **Repository audit complete (GC)**:
+   - docs/REPOSITORY_STATE.md created
+   - Branch inventory: 24 branches (most stale, consolidation needed)
+   - PRs: #3 (vehicle images - conflicts), #4 (booking MVP - awaiting fixes)
+   - Single source of truth: GitHub repo
+
+5. **Technical debt identified**:
+   - PR #4 conflicts: pnpm-lock.yaml, VehicleCard.tsx
+   - CodeRabbit/Sourcery feedback pending application
+   - 24 stale branches need pruning
+
+**Architecture Decisions**:
+- Image preprocessing: 4000px width (Claude Vision single-image max 8000×8000px)
+- Resampling: Lanczos filter mandatory for quality (NOT bilinear)
+- Booking storage: In-memory array (must migrate to Supabase)
+- Git workflow: Feature branches → integration → main
+
+**Status**: BMW extraction preprocessing done, awaiting Claude Vision API call; booking PR awaiting AI review fixes
+
+### Session: Dec 4, 2025 (14:39 EET / 12:39 UTC) [Status Update]
+
+**Agent**: Status check (compilation from multiple agents)
+**Objective**: Assess blockers and technical debt across all workstreams
+
+**Key Outcomes**:
+1. **Main app stability confirmed**:
+   - Fixed: middleware.ts duplicate imports (HTTP 500 crash) on Dec 2
+   - All routes: HTTP 200 ✓
+   - Arabic/English locales working ✓
+   - Compare flow working ✓
+
+2. **Next.js 16 migration complete**:
+   - Fixed: middleware → proxy export name breaking change (Dec 3)
+   - FilterPanel refactored to use Zustand directly
+   - Status: Build passing ✓
+
+3. **Blocking issues identified**:
+   - 🔴 pdf-parse library bug: TypeError: pdf is not a function
+   - 🔴 Puppeteer waitForTimeout() deprecated (line 177)
+   - 🔴 HTML scraping: 0% success (missing brand-specific selectors)
+   - Impact: Cannot extract specs from 80 secured PDFs
+
+4. **PDF collection progress**:
+   - Secured: 80/87 official manufacturer PDFs (92%)
+   - Failed: 22 models (Bestune, Toyota, MG, Chevrolet - CDN URLs changed)
+   - 6 Kia PDFs misclassified as HTML (actually PDFs)
+
+5. **Tech stack versions verified**:
+   - Next.js 15.2.6 (CVE fix applied)
+   - React 19.0.0
+   - TypeScript 5.7.3
+   - pnpm 10.24.0
+
+**Action Plan Defined**:
+- Fix Hatla2ee scraper (5 min)
+- Fix PDF extractor (10 min)
+- Re-download Kia PDFs (2 min)
+- Migrate middleware → proxy (5 min)
+
+### Session: Dec 3-4, 2025 (Evening Dec 3 → 01:43 EET Dec 4) [GC]
+
+**Agent**: Gemini Code (GC)
+**Objective**: Architecture pivot from heuristic parsing to Vision-First pipeline
+
+**Key Outcomes**:
+1. **Critical discovery: Gemini Vision natively handles "invisible grids"**:
+   - User research: Gemini 1.5 Pro processes visual patches (tokens) directly
+   - No traditional OCR - sees whitespace as semantic delimiters
+   - Benchmark: Gemini 1.5 Flash hallucinates numbers (70,000 crores - wrong)
+   - Gemini 1.5 Pro required for high-fidelity extraction (3.60 Lakh Crore - correct)
+
+2. **Architecture pivot decision**:
+   - ABANDON: Coordinate-based table parsing (Iteration 2 Boundary Detection)
+   - ADOPT: Vision-First Pipeline (Gemini 1.5 Pro as primary extractor)
+   - Hybrid approach: Document AI for ground truth, Gemini for reasoning
+   - Validator: pdfplumber text dump to catch hallucinations
+
+3. **Priority Scanner operational (90% complete)**:
+   - pdf_priority_scanner.py scans 19 sample PDFs
+   - Output: pdf_assessment_matrix.json
+   - Classification: VECTOR (13 files), IMAGE_BASED (3 files), MANUAL (1 file)
+   - Accuracy: ±1 trim count for "clean" files
+
+4. **Boundary detection results (deprecated)**:
+   - Works for "Clean Grid" PDFs: Toyota Corolla (5 cols), BMW X5 (7 cols with gap)
+   - FAILS for invisible grids: Chevrolet (13 false columns), Kia Sportage (rotated headers)
+   - Root cause: Font-based filtering insufficient for complex layouts
+
+5. **Sample dataset curated**:
+   - 19 PDFs: 15 brands (German, Japanese, Korean, Chinese, American, French, British)
+   - Torture tests identified: Chevrolet Move, Kia Sportage, Chery Tigo 3
+   - Intentional gap: Missing pure EV models (Tesla/BYD)
+
+**Architecture Decisions**:
+- Hybrid pipeline: Scout (pdfplumber fast scan) → Extractor (Vision Model) → Auditor (text validation)
+- Cost optimization: Vision Model only on 1-2 relevant pages (not full 1000-page manuals)
+- Validation: Overlay trick (render JSON back to image, visual diff with original)
+
+**Status**: Scanner complete, Vision pipeline designed (0% implemented)
+
 ### Session: Dec 2-3, 2025 (22:00 - 01:42 EET / 20:00 - 23:42 UTC) [GC]
 
 **Agent**: Gemini Code (GC)
@@ -1302,6 +1441,52 @@ gh pr create --base main --head [agent]/[feature] \
 
 **Format**: Reverse chronological (newest first)
 **Timestamp Standard**: [YYYY-MM-DD HH:MM UTC, Agent/User]
+
+### Dec 7-8, 2025: Image Preprocessing for Claude Vision [CC]
+
+**Decision**: Resize PDFs to 4000px width using sharp-cli with Lanczos resampling
+**Rejected**: Original 600 DPI (memory errors), 1568px resize (poor quality)
+
+**Rationale**:
+- Python PIL memory errors on 9922×7016px images
+- Claude Vision single-image max: 8000×8000px (4000px fits comfortably)
+- Lanczos resampling preserves quality better than bilinear/bicubic
+- IrfanView validation: Text legible at 4000px, unusable at 1568px
+
+**Implementation**:
+- sharp-cli: `npx sharp-cli -i input.jpg -o output.jpg resize 4000`
+- DPI metadata: Keep 600 (informational only)
+- Cost: ~$0.073/image (Claude Vision API) vs $0.011 at 1568px
+
+**Status**: ✅ BMW X5 preprocessed to 1.1MB, manageable for Python
+**Next**: Run Claude Vision API for table detection
+
+### Dec 3-4, 2025: Vision-First Pipeline Architecture [GC]
+
+**Decision**: Gemini 1.5 Pro as primary extractor, abandon coordinate-based parsing
+**Rejected**: Iteration 2 Boundary Detection (coordinate clustering), pure OCR
+
+**Rationale**:
+- Gemini Vision processes visual patches (tokens) directly, no traditional OCR
+- Sees whitespace as semantic delimiters (visual attention mechanisms)
+- Handles "invisible grids", rotated text, complex layouts natively
+- Gemini 1.5 Flash hallucinates numbers; Pro required for high-fidelity
+
+**Implementation - Hybrid Pipeline**:
+1. **Scout** (pdfplumber): Fast keyword scan to find spec pages
+2. **Extractor** (Gemini 1.5 Pro): Convert page to PNG, send to Vision API
+3. **Auditor** (pdfplumber text): Verify Vision output against raw text (catch hallucinations)
+
+**Cost Optimization**:
+- Run Vision Model only on 1-2 relevant pages (not full 1000-page manuals)
+- Skip if pdfplumber extracts clean tables
+
+**Validation**:
+- Overlay trick: Render JSON back to image, visual diff with original
+- Text match: If Vision says "150 HP" and raw text contains "150", confidence = 100%
+
+**Status**: ⚠️ Scanner complete (90%), Vision pipeline designed (0% implemented)
+**Next**: Execute Vision test on 3 torture-test PDFs (Chevrolet, Kia, Chery)
 
 ### Dec 3, 2025: Smart Rules Engine Architecture [GC]
 
@@ -1636,6 +1821,49 @@ Longer explanation if needed.
 ---
 
 ## VERSION HISTORY
+
+### v2.2.1 (2025-12-14 21:00 UTC) [CC]
+
+**Major Changes**:
+- Integrated Dec 3, 2025 THOS artifacts (Smart Rules Engine + BMW X5 + API keys)
+- Updated Dec 3 session: Two-phase progression 31.7% → 56.1% → 84.5% coverage
+- Added BMW X5 session: Document AI unreliable, pdfplumber + rule-based parser path
+- Added API Keys & Credentials section (Anthropic, Google AI Studio, Sentry)
+- Updated Python venv activation note
+
+**New Content**:
+- Session Timeline: Updated Dec 3 00:00-02:24 EET (Phase 1 + Phase 2 complete outcomes)
+- Session Timeline: Added Dec 3 09:45 EET (BMW X5 extraction attempt)
+- Tech Stack: Python venv activation command
+- Tech Stack: API Keys & Credentials section (50 lines)
+- Tech Stack: Document AI status update (unreliable for production)
+
+**Files**:
+- CLAUDE.md: 1,701 lines (+100 from v2.2.0)
+
+### v2.2.2 (2025-12-14 21:30 UTC) [CC]
+
+**Major Changes**:
+- Integrated Dec 3-4 THOS (Vision-First Pipeline, Priority Scanner, Gemini 1.5 Pro)
+- Integrated Dec 4 Status Update (blocking issues, tech stack versions)
+- Integrated Dec 7-8 THOS (BMW X5 preprocessing, Booking MVP, Repository audit)
+
+**New Content**:
+- Session Timeline: Dec 7-8 (BMW X5 + Booking dual-track development)
+- Session Timeline: Dec 4 Status Update (blockers + tech debt)
+- Session Timeline: Dec 3-4 (Vision-First Pipeline architecture pivot)
+- Architecture Decisions: Image preprocessing (4000px, Lanczos, sharp-cli)
+- Architecture Decisions: Vision-First Pipeline (Gemini 1.5 Pro, Scout-Extractor-Auditor)
+- MVP Status: Booking MVP v0 (PR #4, in-memory storage, CodeRabbit feedback)
+
+**Updates**:
+- MVP 1.0: Updated to 60% complete (from 30%)
+- Tech Stack: Next.js 15.2.6, pnpm 10.24.0, sharp-cli 5.2.0
+- Repository State: 24 branches identified, consolidation plan
+- PDF Collection: 80/87 secured (92%), 22 failed models documented
+
+**Files**:
+- CLAUDE.md: 1,907 lines (+206 from v2.2.1)
 
 ### v2.2.1 (2025-12-14 21:00 UTC) [CC]
 
