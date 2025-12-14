@@ -1,9 +1,9 @@
-# CLAUDE.md - Project Brain (CC Owns) [2025-12-14 20:30 UTC]
+# CLAUDE.md - Project Brain (CC Owns) [2025-12-14 21:00 UTC]
 
-**Version**: 2.2.0
-**Last Updated**: 2025-12-14 20:30 UTC
+**Version**: 2.2.1
+**Last Updated**: 2025-12-14 21:00 UTC
 **Production Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Status**: ACTIVE - ESLint rules enforced, ready for SMS/OTP/2FA implementation
+**Status**: ACTIVE - Dec 3 THOS integrated (Smart Rules 84.5%, BMW X5, API keys), 1,701 lines
 
 ---
 
@@ -261,7 +261,8 @@ pnpm build
 
 - **System**: Ubuntu 24.04 LTS (WSL2 on Windows)
 - **Python**: 3.12.x
-- **venv Location**: /home/kellyb_dev/projects/hex-test-drive-man/venv
+- **venv Location**: ~/projects/hex-test-drive-man/venv
+- **Activation**: ALWAYS run `source venv/bin/activate` before working [Dec 4, 2025]
 
 **Key Libraries**:
 - pdfplumber: Latest (via pip3)
@@ -292,6 +293,40 @@ pnpm build
 - Email: doc-ai-extractor@gen-lang-client-0318181416.iam.gserviceaccount.com
 - Role: roles/documentai.apiUser
 - Key: /home/kellyb_dev/.config/gcp/doc-ai-key.json
+
+**Status** [Dec 3, 2025]:
+- ⚠️ Document AI deemed UNRELIABLE for production (BMW X5 session)
+- Issues: PAGE_LIMIT_EXCEEDED, heavy OCR errors, Arabic broken with \n
+- Match rate: only 8-9% on BMW specs
+- Decision: pdfplumber + rule-based parser is preferred path
+
+### API Keys & Credentials [Dec 3, 2025]
+
+**Note**: Security not enforced for development; all keys will be rotated before MVP 1.5/2.0 demo
+**Storage**: Keys stored in user's personal notes, NOT in CLAUDE.md (GitHub push protection enforced)
+
+**Anthropic API**:
+- Console: https://console.anthropic.com/settings/keys
+- Key: sk-ant-api03-[REDACTED]
+- Usage: Claude Sonnet 4 for LLM table parsing (experimental)
+
+**Google AI Studio**:
+- Console: https://aistudio.google.com/app/api-keys
+- Key: AIzaSy[REDACTED]
+- Usage: Gemini models (future use)
+
+**Sentry Error Tracking**:
+- Auth Token: sntrys_[REDACTED]
+- Org: hex-org
+- Project: hex-test-drive-man
+- DSN: https://[REDACTED]@o4510320861839361.ingest.de.sentry.io/4510348150177872
+- Region: de (Germany)
+
+**Environment Variables**:
+- Location: .env at project root
+- Required: ANTHROPIC_API_KEY, NEXT_PUBLIC_SENTRY_DSN, SENTRY_AUTH_TOKEN
+- Status: ⚠️ DO NOT commit .env to repository (use .env.template)
+- Access: User has full keys in personal notes (Dec 3, 2025 artifact)
 
 ---
 
@@ -836,43 +871,110 @@ CREATE POLICY "Users can view own verifications"
    - Clean working tree
    - All agent files synchronized (CLAUDE.md, GEMINI.md, BLACKBOX.md)
 
-### Session: Dec 3, 2025 (00:00-01:12 EET / 22:00 Dec 2 - 23:12 UTC Dec 2) [GC]
+### Session: Dec 3, 2025 (00:00-02:24 EET / 22:00 Dec 2 - 00:24 UTC Dec 3) [GC]
 
 **Agent**: Gemini Code (GC)
-**Objective**: Build Smart Rules Engine for spec matching
+**Objective**: Build Smart Rules Engine + Enhanced Document AI Extractor
+
+**Session Summary**: Two-phase progression from 31.7% → 56.1% → 84.5% coverage in 2.5 hours
+
+**Phase 1: Smart Rules Engine v0.1** (00:00-01:23 EET):
+1. **Engine architecture created**:
+   - Files: spec_matcher.py (200 lines), analyzer.py (150 lines)
+   - row_classifier.py (120 lines), quality_gate.py (180 lines)
+   - spec_definitions.json (420 lines, 29 specs - expanded from 19)
+   - pipeline/orchestrator.py (200 lines), cli/main.py (85 lines)
+
+2. **Coverage progression**:
+   - Initial: 31.7% (26/82 specs matched with 19 specs)
+   - Phase 1 final: 56.1% (46/82 specs matched with 29 specs)
+   - Improvement: +52.8pp (+167%)
+   - Precision: 100% (0 false positives)
+
+3. **Commit 12213c7** pushed to feature/gpg-commit-signing-20251124-1401
+
+**Phase 2: Enhanced Document AI Extractor v2** (01:23-02:24 EET):
+1. **Breakthrough: 84.5% coverage achieved**:
+   - Final: 71/84 specs matched (from 46/82)
+   - Canonical specs: 50 defined (from 29)
+   - Arabic support: 99% (up from 7%)
+   - Precision: 100% (maintained)
+
+2. **Enhanced extraction features**:
+   - Parentheses stripping in spec_matcher.py (fixes fuzzy matching)
+   - Bilingual Document AI extraction (proper Arabic labels)
+   - Smart cell splitter (context-aware vs naive approach)
+   - google_documentai_extractor_v2.py improvements
+
+3. **Coverage breakdown by category** (71 matched):
+   - Powertrain: 100% (engine, transmission, fuel)
+   - Chassis: 100% (suspension, steering, wheels)
+   - Safety: 95% (airbags, ADAS, braking)
+   - Lighting: 100% (headlamps, fog, DRL, ambient)
+   - Comfort: 90% (AC, seats, mirrors, sunroof)
+   - Infotainment: 85% (screen, connectivity, speakers)
+   - Convenience: 80% (keyless, power windows, rain sensor)
+
+4. **Remaining 13 unknowns**:
+   - 6 merged cells (Document AI artifacts - already matched)
+   - 3 duplicates (valid table section repeats)
+   - 3 wheel sizes (captured as wheel_specification)
+   - 1 noise (body color list)
+   - Effective coverage: ~95% (excluding artifacts)
+
+5. **Commit f18dc3d** pushed to feature/gpg-commit-signing-20251124-1401
+
+**Architecture Decisions**:
+- JSON-based rules (version controllable, no DB dependency)
+- Modular design: separate matcher/analyzer/gate (SRP)
+- Fuzzy matching with valid/typo/forbidden patterns (EN + AR)
+- CLI test mode: `python3 rules_engine/core/spec_matcher.py test_row "Engine Type" "نوع المحرك"`
+
+**Key Learnings**:
+- Parentheses matter: Content in (...) breaks fuzzy matching
+- Document AI column detection: Rightmost column treated as trim
+- Bilingual extraction: Arabic labels critical for Egyptian market
+- Merged cells exist: Document AI artifacts vs intentional combinations
+
+### Session: Dec 3, 2025 (09:45 EET / 07:45 UTC) [GC]
+
+**Agent**: Gemini Code (GC)
+**Objective**: BMW X5 specs extraction - pipeline re-architecture
 
 **Key Outcomes**:
-1. **Smart Rules Engine v0.1 created** (production-ready):
-   - Files: rules_engine/core/spec_matcher.py (200 lines)
-   - rules_engine/core/analyzer.py (150 lines)
-   - rules_engine/core/row_classifier.py (120 lines)
-   - rules_engine/core/quality_gate.py (180 lines)
-   - rules_engine/definitions/spec_definitions.json (420 lines, 19 specs)
-   - pipeline/orchestrator.py (200 lines)
-   - cli/main.py (85 lines)
+1. **Document AI path deemed unreliable**:
+   - Attempted X5/X6 extraction with google_documentai_extractor_v2_imageless.py
+   - Issues: PAGE_LIMIT_EXCEEDED, heavy OCR errors ("Actve", "Cuphoder")
+   - Arabic broken with \n between words
+   - Analyzer: only 8-9% match rate, majority classified as noise
+   - Decision: Document AI unsuitable for production
 
-2. **Toyota Corolla results**:
-   - Coverage: 31.7% (26/82 specs matched, threshold 25%)
-   - Precision: 100% (0 false positives)
-   - Matched specs: max_output, max_torque, transmission, fuel_system, suspensions, steering, turning_radius, sunroof, parking_camera/sensors, airbags, ac_system, screen_size, cruise_control, keyless_entry
-   - Duplicates: 7 specs with 17 duplicate instances (valid - same spec in multiple sections)
-   - Unknowns: 13 merged cell artifacts, 40+ high-confidence unknowns
+2. **pdfplumber preprocessor pipeline working**:
+   - pdf_analyzer.py: Scores pages, identifies spec-table pages (keywords, tables, numbers)
+   - BMW X5 page 15 detected: 72 score, 3 tables, 11 spec keywords, 94 lines
+   - ai_table_parser.py: Extracts clean 4-column tables from pdfplumber
+   - Output: bmw_x5_raw_tables.json (3 tables, 69+40+12 rows)
 
-3. **Quality gate status**:
-   - ⚠️ PASS with warnings (13 merged cell artifacts detected)
-   - Would FAIL at 30% threshold
-   - Target for next phase: 50%+ coverage (add 10 safety/ADAS specs)
+3. **LLM JSON parser unstable**:
+   - llm_table_parser.py uses claude-sonnet-4-20250514
+   - Issue: Returns single-line JSON (~20 KB), json.loads fails
+   - Error: JSONDecodeError: Expecting ',' delimiter: line 1 column 16170
+   - Status: LLM as primary JSON emitter unreliable
 
-4. **Architecture implemented**:
-   - JSON-based rules (version controllable, no DB dependency)
-   - Separate matcher/analyzer/gate (Single Responsibility Principle)
-   - Fuzzy matching with valid/typo/forbidden patterns (EN + AR)
-   - CLI test mode: `python3 rules_engine/core/spec_matcher.py test_row "Engine Type" "نوع المحرك"`
+4. **Architecture pivot**:
+   - Path forward: Deterministic rule-based parser over pdfplumber output
+   - Create extraction_engine/x5_table_parser.py (no LLM in loop)
+   - Rules: Section headers (row[0] non-empty, row[1]==row[2]=="")
+   - Spec rows: Any of row[1], row[2] non-empty
+   - Technical Data: Numeric columns as values, not checkmarks
 
-5. **Commits**:
-   - d794585: Smart rules engine v0.1 (27 files, 1,255 lines)
-   - fa8fb0a: Archive old scripts, cleanup
-   - Pushed to GitHub branch: feature/gpg-commit-signing-20251124-1401
+5. **Critical files created**:
+   - bmw_x5_page15_specs.pdf (extracted single spec page)
+   - bmw_x5_raw_tables.json (pdfplumber output: 3 structured tables)
+   - extraction_engine/pdf_analyzer.py (page scoring heuristics)
+   - extraction_engine/pdf_inspector.py (table dimensions, orientation, headers)
+
+**Status**: pdfplumber preprocessor solid, rule-based parser pending
 
 ### Session: Dec 2-3, 2025 (22:00 - 01:42 EET / 20:00 - 23:42 UTC) [GC]
 
@@ -1534,6 +1636,25 @@ Longer explanation if needed.
 ---
 
 ## VERSION HISTORY
+
+### v2.2.1 (2025-12-14 21:00 UTC) [CC]
+
+**Major Changes**:
+- Integrated Dec 3, 2025 THOS artifacts (Smart Rules Engine + BMW X5 + API keys)
+- Updated Dec 3 session: Two-phase progression 31.7% → 56.1% → 84.5% coverage
+- Added BMW X5 session: Document AI unreliable, pdfplumber + rule-based parser path
+- Added API Keys & Credentials section (Anthropic, Google AI Studio, Sentry)
+- Updated Python venv activation note
+
+**New Content**:
+- Session Timeline: Updated Dec 3 00:00-02:24 EET (Phase 1 + Phase 2 complete outcomes)
+- Session Timeline: Added Dec 3 09:45 EET (BMW X5 extraction attempt)
+- Tech Stack: Python venv activation command
+- Tech Stack: API Keys & Credentials section (50 lines)
+- Tech Stack: Document AI status update (unreliable for production)
+
+**Files**:
+- CLAUDE.md: 1,701 lines (+100 from v2.2.0)
 
 ### v2.2.0 (2025-12-14 20:00 UTC) [CC]
 
