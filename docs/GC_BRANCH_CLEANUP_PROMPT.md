@@ -35,12 +35,15 @@ Are you at least 95% confident you fully understand:
 
 ## 1. EXECUTIVE SUMMARY
 
-**Mission**: Audit 15+ branches and PRs, merge/delete obsolete branches, reject dangerous Dependabot PRs, document cleanup decisions, preserve ongoing work (CCW OTP/2FA).
+**Mission**: Audit 15+ branches and PRs, merge/delete obsolete branches, reject dangerous Dependabot PRs, document cleanup decisions, preserve ongoing work (CC + CCW).
 
-**Current State**:
-- ✅ Main branch: Stable, CI green
-- ✅ Active work: CCW on `ccw/otp-2fa-system` (NOT YET CREATED, will be created by CCW)
-- ✅ Claude session: `claude/sync-agent-instructions-015BBjkGH1Syq5uEU6r2uGCg` (current, active)
+**Current State** (Per `docs/WHERE_EVERYONE_IS.md`):
+- ✅ Main branch: Stable (commit ca9da33, Dec 11), but 3+ days behind CC's work
+- ⚠️ **GC's current branch**: `hex-ai/claude-md-master` (DIVERGED, needs merge/archive)
+- ⚠️ **GC MUST switch to main** before starting audit
+- ✅ CC active work: `claude/sync-agent-instructions-015BBjkGH1Syq5uEU6r2uGCg` (PROTECTED, do not touch)
+- ⚠️ Multiple CLAUDE.md files exist: root (103 lines on main), "Full till 7-12-2025", suspect1/2
+- ✅ CCW future work: Will create `ccw/otp-2fa-system` from main (FUTURE, don't interfere)
 - ⚠️ 15+ branches: Many stale, unknown status
 - ⚠️ Dependabot PRs: Auto-created, some DANGEROUS (ESLint 8→9)
 
@@ -64,14 +67,18 @@ Are you at least 95% confident you fully understand:
 
 ## 2. TECHNICAL ENVIRONMENT
 
-**Read CLAUDE.md First**: `/home/user/hex-test-drive-man/CLAUDE.md` (2,219 lines, v2.2.4)
-- Section 3: GUARDRAILS (dependency upgrade restrictions)
-- Section 4: Git & Repository Status
-- Section 9: Agent Ownership & Workflow
+**Read First**: `docs/WHERE_EVERYONE_IS.md` (comprehensive synchronization document)
+
+**Then Read**: CLAUDE.md on main (103 lines) OR on CC's branch (2,219 lines, v2.2.4)
+- **Note**: CLAUDE.md on main is STALE (Dec 12)
+- **Note**: CLAUDE.md v2.2.4 on CC's branch is CURRENT (Dec 14)
+- For this session: Use main's version + WHERE_EVERYONE_IS.md for context
 
 **Project Root**: `/home/user/hex-test-drive-man`
 
-**Current Branch**: `claude/sync-agent-instructions-015BBjkGH1Syq5uEU6r2uGCg`
+**GC's Current Branch**: `hex-ai/claude-md-master` (⚠️ WRONG, needs checkout to main)
+
+**Target Starting Branch**: `main` (where GC should operate from)
 
 **Tools**:
 - `gh` (GitHub CLI) - authenticated, working
@@ -80,15 +87,34 @@ Are you at least 95% confident you fully understand:
 
 **GitHub Repo**: `https://github.com/Hex-Tech-Lab/hex-test-drive-man`
 
+**Credentials**: Same as always (in .env.local or Git config)
+
 ---
 
 ## 3. CRITICAL CONSTRAINTS
 
 ### MUST NOT TOUCH (Protected Branches):
 
-1. **main** - Production branch
-2. **claude/sync-agent-instructions-015BBjkGH1Syq5uEU6r2uGCg** - Current CC session (ACTIVE)
+1. **main** - Production branch (GC operates FROM here, but doesn't delete)
+2. **claude/sync-agent-instructions-015BBjkGH1Syq5uEU6r2uGCg** - Current CC session (ACTIVE, PROTECTED)
 3. **ccw/otp-2fa-system** - CCW will create this (FUTURE, don't interfere)
+
+### MUST HANDLE (GC's Own Branch):
+
+4. **hex-ai/claude-md-master** - GC's previous work (Dec 12):
+   - Status: DIVERGED from main
+   - Contains: MVP_EVOLUTION docs, TECH_DECISIONS docs
+   - Last commit: 896c0fd (Dec 12)
+   - Action: MERGE docs to main (via PR), then DELETE branch
+   - Rationale: Consolidate diverged documentation
+
+### MUST INVESTIGATE (Potential Duplicates):
+
+5. **Multiple CLAUDE.md files** (untracked on main):
+   - `CLAUDE - Full till 7-12-2025.md` (⚠️ might be 597-line version)
+   - `CLAUDE-suspect1.md`
+   - `CLAUDE-suspect2.md`
+   - Action: Review, consolidate or delete (get user approval)
 
 ### MUST NOT MERGE (Dangerous PRs):
 
@@ -430,21 +456,42 @@ See: `docs/BRANCH_CLEANUP_USER_DECISIONS.md`
 
 ## 7. CRITICAL PATH
 
-### Immediate First 3 Actions:
+### Immediate First 4 Actions:
 
-1. **Read CLAUDE.md GUARDRAILS (5 minutes)**:
+1. **Read synchronization context (3 minutes)**:
    ```bash
    cd /home/user/hex-test-drive-man
-   grep -A 60 "GUARDRAILS" CLAUDE.md
+   cat docs/WHERE_EVERYONE_IS.md
    ```
 
-2. **Branch inventory (10 minutes)**:
+2. **Switch to main branch (2 minutes)**:
    ```bash
+   # Verify current branch (should be hex-ai/claude-md-master)
+   git branch --show-current
+
+   # Save any uncommitted work on current branch
+   git status
+   # If changes exist: git stash
+
+   # Switch to main
+   git checkout main
+   git pull origin main
+
+   # Verify at correct commit (ca9da33)
+   git log --oneline -1
+   ```
+
+3. **Branch inventory (10 minutes)**:
+   ```bash
+   # List all remote branches
    gh api repos/Hex-Tech-Lab/hex-test-drive-man/branches \
      --jq '.[] | {name: .name, commit: .commit.sha[0:7], date: .commit.commit.author.date}'
+
+   # Identify hex-ai/claude-md-master specifically
+   gh api repos/Hex-Tech-Lab/hex-test-drive-man/branches/hex-ai/claude-md-master
    ```
 
-3. **PR inventory (10 minutes)**:
+4. **PR inventory (10 minutes)**:
    ```bash
    gh pr list --state all --limit 50 --json number,title,author,state,headRefName
    ```
