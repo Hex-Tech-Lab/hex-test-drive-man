@@ -461,7 +461,18 @@ See: `docs/BRANCH_CLEANUP_USER_DECISIONS.md`
 1. **Read synchronization context (3 minutes)**:
    ```bash
    cd /home/user/hex-test-drive-man
-   cat docs/WHERE_EVERYONE_IS.md
+
+   # WHERE_EVERYONE_IS.md is on CC's branch, not main yet
+   # Read it from CC's branch:
+   git fetch origin
+   git show origin/claude/sync-agent-instructions-015BBjkGH1Syq5uEU6r2uGCg:docs/WHERE_EVERYONE_IS.md
+
+   # Key points if file not accessible:
+   # - Main (ca9da33) is 3+ days behind CC's work
+   # - CC's docs on claude/sync-agent-instructions-015BBjkGH1Syq5uEU6r2uGCg (PROTECTED)
+   # - Your hex-ai/claude-md-master needs merge to main then delete
+   # - Use CLAUDE.md v2.2.4 (2,219 lines, 87KB) as authoritative
+   # - Multiple CLAUDE.md files exist: use v2.2.4 only
    ```
 
 2. **Switch to main branch (2 minutes)**:
