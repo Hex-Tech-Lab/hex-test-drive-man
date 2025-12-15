@@ -1,9 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
-// TODO: Move OTP to API route (node-fetch incompatible with client components)
-// import { requestOtp } from '@/services/sms/engine';
-// import { sendOTP } from '@/services/sms/engine';
+import { requestOtp } from '@/services/sms/engine';
+import { sendOTP } from '@/services/sms/engine';
 
 export default function NewBooking() {
   const [vehicleId, setVehicleId] = useState('');
@@ -28,8 +27,7 @@ export default function NewBooking() {
       .single();
 
     if (data) {
-      // TODO: Send OTP via API route (node-fetch incompatible with client components)
-      // await sendOTP(phone, '123456');
+      await sendOTP(phone, '123456');
       // Redirect to /bookings/[id]/verify
       window.location.href = `/en/bookings/${data.id}/verify?phone=${phone}`;
     }
