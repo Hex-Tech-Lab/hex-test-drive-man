@@ -42,9 +42,9 @@ const config = [
             {
               'group': ['../*'],
               'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.'
-            }
-          ]
-        }
+            },
+          ],
+        },
       ],
       // Removed problematic react-hooks rules for now
       // 'react-hooks/rules-of-hooks': 'error',
@@ -80,10 +80,10 @@ const config = [
         'error',
         {
           'patterns': [
-            {
+            ,
               'group': ['../*'],
               'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.'
-            }
+            },
           ]
         }
       ],
