@@ -1,0 +1,69 @@
+{
+  "url": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/comments/2620932175",
+  "pull_request_review_id": 3580262522,
+  "id": 2620932175,
+  "node_id": "PRRC_kwDOQTyons6cOEBP",
+  "diff_hunk": "@@ -35,6 +35,17 @@ const config = [\n       '@typescript-eslint/no-unused-vars': ['warn', { 'argsIgnorePattern': '^_' }],\n       'react/react-in-jsx-scope': 'off', // Not needed with React 17+ JSX transform\n       'react/prop-types': 'off', // Not needed with TypeScript\n+      'no-restricted-imports': [\n+        'error',\n+        {\n+          'patterns': [\n+            {\n+              'group': ['../*'],\n+              'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.'\n+            }\n+          ]\n+        }\n+      ],",
+  "path": "eslint.config.js",
+  "commit_id": "dd8f8cc70535e610e28d2bc65c20953d885eae06",
+  "original_commit_id": "dd8f8cc70535e610e28d2bc65c20953d885eae06",
+  "user": {
+    "login": "coderabbitai[bot]",
+    "id": 136622811,
+    "node_id": "BOT_kgDOCCSy2w",
+    "avatar_url": "https://avatars.githubusercontent.com/in/347564?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/coderabbitai%5Bbot%5D",
+    "html_url": "https://github.com/apps/coderabbitai",
+    "followers_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/followers",
+    "following_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/following{/other_user}",
+    "gists_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/subscriptions",
+    "organizations_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/orgs",
+    "repos_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/repos",
+    "events_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/received_events",
+    "type": "Bot",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "body": "_🛠️ Refactor suggestion_ | _🟠 Major_\n\n**Add missing trailing commas per project style.**\n\nThe new `no-restricted-imports` rule correctly enforces path alias usage, but is missing trailing commas that your own ESLint config requires.\n\n\n\nApply this diff to both blocks:\n\n```diff\n       'no-restricted-imports': [\n         'error',\n         {\n           'patterns': [\n             {\n               'group': ['../*'],\n-              'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.'\n+              'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.',\n-            }\n+            },\n-          ]\n+          ],\n-        }\n+        },\n       ],\n```\n\n\nAlso applies to: 79-89\n\n<details>\n<summary>🧰 Tools</summary>\n\n<details>\n<summary>🪛 GitHub Check: quality-gate</summary>\n\n[warning] 47-47: \nMissing trailing comma\n\n---\n\n[warning] 46-46: \nMissing trailing comma\n\n---\n\n[warning] 45-45: \nMissing trailing comma\n\n---\n\n[warning] 44-44: \nMissing trailing comma\n\n</details>\n\n</details>\n\n<details>\n<summary>🤖 Prompt for AI Agents</summary>\n\n```\nIn eslint.config.js around lines 38-48 (and similarly 79-89), the newly added\nno-restricted-imports rule is missing trailing commas required by the project's\nESLint style; update the object and array literals in both rule blocks to\ninclude trailing commas for each property/element (e.g., after the patterns\narray, after the group and message entries, and after the rule object) so the\nfile conforms to the project's trailing-comma style.\n```\n\n</details>\n\n<!-- fingerprinting:phantom:poseidon:puma -->\n\n<!-- This is an auto-generated comment by CodeRabbit -->",
+  "created_at": "2025-12-15T21:36:36Z",
+  "updated_at": "2025-12-15T21:36:37Z",
+  "html_url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/11#discussion_r2620932175",
+  "pull_request_url": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/11",
+  "_links": {
+    "self": {
+      "href": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/comments/2620932175"
+    },
+    "html": {
+      "href": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/11#discussion_r2620932175"
+    },
+    "pull_request": {
+      "href": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/11"
+    }
+  },
+  "reactions": {
+    "url": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/comments/2620932175/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "start_line": 38,
+  "original_start_line": 38,
+  "start_side": "RIGHT",
+  "line": 48,
+  "original_line": 48,
+  "side": "RIGHT",
+  "author_association": "CONTRIBUTOR",
+  "original_position": 14,
+  "position": 14,
+  "subject_type": "line"
+}

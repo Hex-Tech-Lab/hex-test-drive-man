@@ -41,7 +41,7 @@ const config = [
           'patterns': [
             {
               'group': ['../*'],
-              'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.'
+              'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.',
             },
           ],
         },
