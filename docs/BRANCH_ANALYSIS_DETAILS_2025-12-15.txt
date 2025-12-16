@@ -1,0 +1,75 @@
+
+======================================
+BRANCH: add-claude-github-actions-1764703170829
+======================================
+Last Commit: 2025-12-02
+Last Message: "Claude Code Review workflow"
+
+Unique Commits: 2
+
+COMMIT HISTORY:
+7568c1b "Claude Code Review workflow"
+6d6d5be "Claude PR Assistant workflow"
+
+CHANGED FILES:
+.coderabbit.yaml
+.commitlintrc.json
+.coveragerc
+.env.template
+.eslintrc.json
+.github/workflows/claude-code-review.yml
+.github/workflows/claude.yml
+.github/workflows/collect-ai-prompts.yml
+.github/workflows/pr-review.yml
+.github/workflows/sonarcloud.yml
+.github/workflows/sourcery.yml
+.gitignore
+AGENTS.md
+CLAUDE.md
+CONTRIBUTING.md
+DOCS_INDEX.md
+EXTRACTION_ENGINE_README.md
+GEMINI.md
+MVP_ROADMAP.md
+README.md
+
+CHANGE SUMMARY:
+  src/ files: 27
+  docs/ files: 23
+  config files: 4
+  migrations: 1
+
+VALUE ASSESSMENT:
+  Value Score: 14
+  Risk Score: 5
+  Value: HIGH
+  Risk if Deleted: HIGH
+  Days Old: 13
+  Recommendation: ⚠️ INVESTIGATE
+
+
+======================================
+BRANCH: claude/booking-flow-otp-kyc-01N4AuNR1MG1Fs2PWvFBPCSA
+======================================
+Last Commit: 2025-12-11
+Last Message: docs(booking): add comprehensive booking flow implementation
+
+Unique Commits: 1
+
+COMMIT HISTORY:
+ab40301 docs(booking): add comprehensive booking flow implementation plan
+
+CHANGED FILES:
+CLAUDE.md
+GEMINI.md
+docs/AGENT_ASSIGNMENT.md
+docs/BOOKING_FLOW_IMPLEMENTATION_PLAN.md
+docs/BOOKING_FLOW_QUICK_REF.md
+docs/BRANCH_CLEANUP_2025-12-14.md
+docs/MVP_EVOLUTION_COMPLETE-v1.0-20251207.md
+docs/MVP_EVOLUTION_FRAMEWORK.md
+docs/REPOSITORY_STATE.md
+docs/TECHNOLOGY_STACK_DECISIONS-v1.0-20251207.md
+docs/TECH_DECISIONS_QUICK_REFERENCE-v1.0-20251207.md
+docs/files (1).zip
+

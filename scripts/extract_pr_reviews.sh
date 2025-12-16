@@ -1,4 +1,9 @@
 #!/bin/bash
+#===============================================================================
+# Created: 2025-12-16 15:15:00 EET | Agent: CC | v1.0.0
+# Purpose: Extract PR review comments from GitHub API
+#===============================================================================
+
 # Extract ALL review findings from PR to ACTION_ITEMS.md
 # Usage: ./scripts/extract_pr_reviews.sh <PR_NUMBER>
 
