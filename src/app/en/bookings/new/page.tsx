@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { requestBookingOtp } from '@/app/actions/bookingActions';
+import { requestBookingOtp } from '@/actions/bookingActions';
 
 export default function NewBooking() {
   const [vehicleId, setVehicleId] = useState('');
