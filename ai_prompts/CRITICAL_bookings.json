@@ -1,0 +1,69 @@
+{
+  "url": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/comments/2620932218",
+  "pull_request_review_id": 3580262522,
+  "id": 2620932218,
+  "node_id": "PRRC_kwDOQTyons6cOEB6",
+  "diff_hunk": "@@ -1,8 +1,9 @@\n 'use client';\n import { useState } from 'react';\n import { supabase } from '@/lib/supabase';\n-import { requestOtp } from '@/services/sms/engine';\n-import { sendOTP } from '@/services/sms/engine';\n+// TODO: Move OTP to API route (node-fetch incompatible with client components)\n+// import { requestOtp } from '@/services/sms/engine';\n+// import { sendOTP } from '@/services/sms/engine';",
+  "path": "src/app/en/bookings/new/page.tsx",
+  "commit_id": "dd8f8cc70535e610e28d2bc65c20953d885eae06",
+  "original_commit_id": "dd8f8cc70535e610e28d2bc65c20953d885eae06",
+  "user": {
+    "login": "coderabbitai[bot]",
+    "id": 136622811,
+    "node_id": "BOT_kgDOCCSy2w",
+    "avatar_url": "https://avatars.githubusercontent.com/in/347564?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/coderabbitai%5Bbot%5D",
+    "html_url": "https://github.com/apps/coderabbitai",
+    "followers_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/followers",
+    "following_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/following{/other_user}",
+    "gists_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/subscriptions",
+    "organizations_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/orgs",
+    "repos_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/repos",
+    "events_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/coderabbitai%5Bbot%5D/received_events",
+    "type": "Bot",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "body": "_⚠️ Potential issue_ | _🔴 Critical_\n\n<details>\n<summary>🧩 Analysis chain</summary>\n\n🏁 Script executed:\n\n```shell\ncat -n src/app/en/bookings/new/page.tsx | head -50\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 2119\n\n---\n\n🏁 Script executed:\n\n```shell\nfd -t f \"route.ts\" src/app/api --exec rg -l \"sendOTP\\|requestOtp\\|OTP\" {}\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 57\n\n---\n\n🏁 Script executed:\n\n```shell\n# Search for OTP-related code more broadly\nrg \"sendOTP|requestOtp|sms.*engine\" --type ts --type tsx -A 2\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 102\n\n---\n\n🏁 Script executed:\n\n```shell\n# Search for OTP-related code more broadly\nrg \"sendOTP|requestOtp|sms.*engine\" -t ts -t tsx -A 2\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 102\n\n---\n\n🏁 Script executed:\n\n```shell\n# Search for OTP-related code\nrg \"sendOTP|requestOtp\" -A 2\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 1131\n\n---\n\n🏁 Script executed:\n\n```shell\n# Check if SMS engine functions are server-side or can be used in client\nhead -30 src/services/sms/engine.ts\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 654\n\n---\n\n🏁 Script executed:\n\n```shell\n# Check imports at top of sms/engine.ts and search for API route\nhead -50 src/services/sms/engine.ts | grep -E \"import|fetch\"\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 165\n\n---\n\n🏁 Script executed:\n\n```shell\n# Search for API routes that call OTP functions\nfind src/app/api -name \"*.ts\" -exec grep -l \"sendOTP\\|requestOtp\" {} \\;\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 57\n\n---\n\n🏁 Script executed:\n\n```shell\n# Check if sms/engine.ts is server-only\ncat src/services/sms/engine.ts | head -5\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 217\n\n---\n\n🏁 Script executed:\n\n```shell\n# Check verify page to see what it expects\ncat -n src/app/en/bookings/\\[id\\]/verify/page.tsx 2>/dev/null || find src/app -path \"*bookings*verify*\" -name \"*.tsx\"\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 57\n\n---\n\n🏁 Script executed:\n\n```shell\n# Search for verify page more broadly\nfind src -name \"*verify*\" -type f\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 57\n\n---\n\n🏁 Script executed:\n\n```shell\n# List all API routes to see structure\nfind src/app/api -type f -name \"*.ts\"\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 104\n\n---\n\n🏁 Script executed:\n\n```shell\n# Check the bookings API route\ncat src/app/api/bookings/route.ts\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 3451\n\n---\n\n🏁 Script executed:\n\n```shell\n# Check if [id] directory exists under bookings\nfind src/app -path \"*bookings*\" -type d\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 139\n\n---\n\n🏁 Script executed:\n\n```shell\n# Check if [id] directory exists under bookings\nls -la src/app/en/bookings/\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 232\n\n---\n\n🏁 Script executed:\n\n```shell\n# Confirm no OTP API routes exist anywhere\nfind src/app/api -name \"*.ts\" -type f\n```\n\nRepository: Hex-Tech-Lab/hex-test-drive-man\n\nLength of output: 104\n\n---\n\n\n\n</details>\n\n**Critical: OTP flow and verify page are incomplete—users cannot complete bookings.**\n\nThe OTP sending has been disabled without implementing the required replacements:\n\n1. User submits booking successfully\n2. No OTP is sent (line 32 commented out)\n3. User is redirected to `/en/bookings/${data.id}/verify?phone=${phone}` (line 34), but this page does not exist\n4. User hits a 404 and cannot proceed\n\nMissing implementations:\n- OTP API route to send verification codes\n- Verify page at `/en/bookings/[id]/verify` to handle OTP submission\n- OTP retrieval and validation logic\n\nThe TODO comments reference moving OTP to an API route due to node-fetch incompatibility with client components, but the implementation is incomplete.\n\n<details>\n<summary>🤖 Prompt for AI Agents</summary>\n\n```\nIn src/app/en/bookings/new/page.tsx around lines 4 to 6 and the surrounding\nsubmit/redirect logic, the OTP send and verify flow was commented out causing\nusers to be redirected to a non-existent verify page and fail booking\ncompletion; implement an OTP API route (e.g., POST /api/sms/request-otp) that\ngenerates a secure code, stores it server-side (DB or cache) with expiry and\nrate-limit protections, and sends the OTP via your SMS provider; update the\nclient to call that API after booking creation (replacing the commented-out\ndirect send), then implement the verify page at /en/bookings/[id]/verify to\ncollect the OTP and POST to a verification API endpoint that validates the code\nagainst the stored value, marks the booking as verified on success, and handles\nerrors/expired codes and retries; ensure you don’t use node-fetch in client\ncomponents and move all provider/network calls to server/api handlers.\n```\n\n</details>\n\n<!-- fingerprinting:phantom:poseidon:puma -->\n\n<!-- This is an auto-generated comment by CodeRabbit -->",
+  "created_at": "2025-12-15T21:36:36Z",
+  "updated_at": "2025-12-15T21:36:38Z",
+  "html_url": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/11#discussion_r2620932218",
+  "pull_request_url": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/11",
+  "_links": {
+    "self": {
+      "href": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/comments/2620932218"
+    },
+    "html": {
+      "href": "https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/11#discussion_r2620932218"
+    },
+    "pull_request": {
+      "href": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/11"
+    }
+  },
+  "reactions": {
+    "url": "https://api.github.com/repos/Hex-Tech-Lab/hex-test-drive-man/pulls/comments/2620932218/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "start_line": 4,
+  "original_start_line": 4,
+  "start_side": "RIGHT",
+  "line": 6,
+  "original_line": 6,
+  "side": "RIGHT",
+  "author_association": "CONTRIBUTOR",
+  "original_position": 8,
+  "position": 8,
+  "subject_type": "line"
+}

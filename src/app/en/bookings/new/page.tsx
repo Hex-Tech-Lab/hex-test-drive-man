@@ -1,8 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { requestOtp } from '@/services/sms/engine';
-import { sendOTP } from '@/services/sms/engine';
+import { requestBookingOtp } from '@/actions/bookingActions';
 
 export default function NewBooking() {
   const [vehicleId, setVehicleId] = useState('');
@@ -27,8 +26,7 @@ export default function NewBooking() {
       .single();
 
     if (data) {
-      // Send OTP (stub for now)
-      await sendOTP(phone, '123456');
+      await requestBookingOtp({ phone, subjectId: data.id });
       // Redirect to /bookings/[id]/verify
       window.location.href = `/en/bookings/${data.id}/verify?phone=${phone}`;
     }

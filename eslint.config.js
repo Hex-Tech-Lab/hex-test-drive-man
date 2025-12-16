@@ -1,29 +1,35 @@
 import typescriptPlugin from '@typescript-eslint/eslint-plugin';
-import typescriptParser from '@typescript-eslint/parser'; // Import the parser
+import typescriptParser from '@typescript-eslint/parser';
 import reactPlugin from 'eslint-plugin-react';
-import reactHooksPlugin from 'eslint-plugin-react-hooks'; // Import react-hooks plugin
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
 const config = [
   {
-    ignores: ['venv/**'],
+    ignores: [
+      'venv/**',
+      '.next/**',
+      'node_modules/**',
+      'out/**',
+      'build/**',
+    ],
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: typescriptParser, // Specify the parser for TypeScript files
+      parser: typescriptParser,
       parserOptions: {
         ecmaFeatures: {
-          jsx: true, // Enable JSX parsing
+          jsx: true,
         },
-        ecmaVersion: 'latest', // Use the latest ECMAScript version
-        sourceType: 'module', // Use ES Modules
-        project: ['./tsconfig.json'], // Specify your tsconfig.json for type-aware linting
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        project: ['./tsconfig.json'],
       },
     },
     plugins: {
       '@typescript-eslint': typescriptPlugin,
       'react': reactPlugin,
-      'react-hooks': reactHooksPlugin, // Provide the imported plugin object
+      'react-hooks': reactHooksPlugin,
     },
     rules: {
       'quotes': ['warn', 'single'],
@@ -33,15 +39,21 @@ const config = [
       'indent': ['warn', 2],
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': ['warn', { 'argsIgnorePattern': '^_' }],
-      'react/react-in-jsx-scope': 'off', // Not needed with React 17+ JSX transform
-      'react/prop-types': 'off', // Not needed with TypeScript
-      // Removed problematic react-hooks rules for now
-      // 'react-hooks/rules-of-hooks': 'error',
-      // 'react-hooks/exhaustive-deps': 'warn',
-      // 'react/no-set-state-in-component': 'off'
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'no-restricted-imports': [
+        'error',
+        {
+          'patterns': [
+            {
+              'group': ['../*'],
+              'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.',
+            },
+          ],
+        },
+      ],
     },
   },
-  // Add a configuration for JavaScript files if any, using default parser or another
   {
     files: ['**/*.js', '**/*.jsx'],
     languageOptions: {
@@ -55,7 +67,7 @@ const config = [
     },
     plugins: {
       'react': reactPlugin,
-      'react-hooks': reactHooksPlugin, // Provide the imported plugin object
+      'react-hooks': reactHooksPlugin,
     },
     rules: {
       'quotes': ['warn', 'single'],
@@ -65,10 +77,17 @@ const config = [
       'indent': ['warn', 2],
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
-      // Removed problematic react-hooks rules for now
-      // 'react-hooks/rules-of-hooks': 'error',
-      // 'react-hooks/exhaustive-deps': 'warn',
-      // 'react/no-set-state-in-component': 'off'
+      'no-restricted-imports': [
+        'error',
+        {
+          'patterns': [
+            {
+              'group': ['../*'],
+              'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.',
+            },
+          ],
+        },
+      ],
     },
   },
 ];

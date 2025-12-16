@@ -1,0 +1,48 @@
+{
+  "user": "coderabbitai[bot]",
+  "file": "eslint.config.js",
+  "line": 48,
+  "body": "_🛠️ Refactor suggestion_ | _🟠 Major_\n\n**Add missing trailing commas per project style.**\n\nThe new `no-restricted-imports` rule correctly enforces path alias usage, but is missing trailing commas that "
+}
+{
+  "user": "coderabbitai[bot]",
+  "file": "scripts/analyze_all_branches.sh",
+  "line": 68,
+  "body": "_🧹 Nitpick_ | _🔵 Trivial_\n\n**Quote variables to prevent word splitting and globbing.**\n\nMultiple variables are used unquoted in git commands and conditionals. While branch names typically don't contai"
+}
+{
+  "user": "coderabbitai[bot]",
+  "file": "scripts/analyze_all_branches.sh",
+  "line": 128,
+  "body": "_🧹 Nitpick_ | _🔵 Trivial_\n\n**Use more efficient shell patterns.**\n\nTwo minor improvements for idiomatic bash:\n\n\n\n```diff\n-        key_changes=$(echo \"$key_changes\" | sed 's/, $//')\n+        key_change"
+}
+{
+  "user": "coderabbitai[bot]",
+  "file": "scripts/resolve_divergence_phase1.sh",
+  "line": 12,
+  "body": "_🧹 Nitpick_ | _🔵 Trivial_\n\n**Quote the command substitution to prevent word splitting.**\n\nThe date command substitution should be quoted to avoid potential word splitting issues in edge cases.\n\n\n\nAppl"
+}
+{
+  "user": "coderabbitai[bot]",
+  "file": "scripts/resolve_divergence_phase1.sh",
+  "line": 40,
+  "body": "_🧹 Nitpick_ | _🔵 Trivial_\n\n**Consider checking exit code directly and verify the phase2 script exists.**\n\nTwo improvements:\n1. Direct exit code checking is more idiomatic in bash\n2. The script referen"
+}
+{
+  "user": "coderabbitai[bot]",
+  "file": "scripts/verify_merge_status.sh",
+  "line": 58,
+  "body": "_🧹 Nitpick_ | _🔵 Trivial_\n\n**Quote variables to prevent word splitting and globbing.**\n\nThe `$branch` variable is used unquoted in multiple git commands, which could cause issues with branch names con"
+}
+{
+  "user": "coderabbitai[bot]",
+  "file": "src/app/en/bookings/new/page.tsx",
+  "line": 6,
+  "body": "_⚠️ Potential issue_ | _🔴 Critical_\n\n<details>\n<summary>🧩 Analysis chain</summary>\n\n🏁 Script executed:\n\n```shell\ncat -n src/app/en/bookings/new/page.tsx | head -50\n```\n\nRepository: Hex-Tech-Lab/hex-te"
+}
+{
+  "user": "coderabbitai[bot]",
+  "file": "tsconfig.json",
+  "line": 30,
+  "body": "_⚠️ Potential issue_ | _🟡 Minor_\n\n<details>\n<summary>🧩 Analysis chain</summary>\n\n🏁 Script executed:\n\n```shell\nfind . -name \"tsconfig.json\" -o -name \"package.json\" | head -20\n```\n\nRepository: Hex-Tech-"
+}
