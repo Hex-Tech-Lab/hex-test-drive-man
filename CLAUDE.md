@@ -870,7 +870,7 @@ CREATE POLICY "Users can view own verifications"
 **Format**: 3-5 key outcomes per session with [Date Time TZ, Agent]
 **Read Direction**: Top-to-bottom = newest first; Bottom-to-top = chronological development
 
-### Session: Dec 14, 2025 (20:30 UTC) [CC]
+#### Session: Dec 14, 2025 (20:30 UTC) [CC]
 
 **Agent**: Claude Code (CC)
 **Objective**: Apply technical debt fixes and code quality improvements
@@ -894,7 +894,7 @@ CREATE POLICY "Users can view own verifications"
    - Booking route linted: 6 warnings (comma-dangle), 0 errors
    - No relative import violations detected
 
-### Session: Dec 12-13, 2025 (01:02 AM - 01:27 AM EET / 23:02 UTC Dec 12 - 23:27 UTC Dec 12) [Emergency Recovery]
+#### Session: Dec 12-13, 2025 (01:02 AM - 01:27 AM EET / 23:02 UTC Dec 12 - 23:27 UTC Dec 12) [Emergency Recovery]
 
 **Agent**: Multiple (CC attempting recovery)
 **Objective**: Emergency CLAUDE.md recovery after Git operation data loss
@@ -930,7 +930,7 @@ CREATE POLICY "Users can view own verifications"
 
 **Status**: 788-line fallback available but unverified; reconstruction required
 
-### Session: Dec 11, 2025 (Time not specified) [Multiple Agents]
+#### Session: Dec 11, 2025 (Time not specified) [Multiple Agents]
 
 **Agent**: Multiple (CC/GC handling PR#7, SonarCloud, Snyk)
 **Objective**: PR#7 cleanup, SonarCloud/Snyk integration, foundation hardening
@@ -975,7 +975,7 @@ CREATE POLICY "Users can view own verifications"
 
 **Status**: Main branch stable, PR#7 merged, CI green, security tooling wired
 
-### Session: Dec 9-10, 2025 (23:20 UTC / Dec 10 01:20 EET) [GC]
+#### Session: Dec 9-10, 2025 (23:20 UTC / Dec 10 01:20 EET) [GC]
 
 **Agent**: Gemini Code (GC)
 **Objective**: Repository housekeeping + Sentry integration + CI/CD automation
@@ -1015,7 +1015,7 @@ CREATE POLICY "Users can view own verifications"
 
 **Status**: Foundation cleanup complete, Sentry awaiting Vercel deployment verification
 
-### Session: Dec 14, 2025 (18:00-20:00 UTC) [CC]
+#### Session: Dec 14, 2025 (18:00-20:00 UTC) [CC]
 
 **Agent**: Claude Code (CC)
 **Objective**: Fix BB critique, add GUARDRAILS, integrate remaining THOS
@@ -1053,7 +1053,7 @@ CREATE POLICY "Users can view own verifications"
    - Clean working tree
    - All agent files synchronized (CLAUDE.md, GEMINI.md, BLACKBOX.md)
 
-### Session: Dec 3, 2025 (00:00-02:24 EET / 22:00 Dec 2 - 00:24 UTC Dec 3) [GC]
+#### Session: Dec 3, 2025 (00:00-02:24 EET / 22:00 Dec 2 - 00:24 UTC Dec 3) [GC]
 
 **Agent**: Gemini Code (GC)
 **Objective**: Build Smart Rules Engine + Enhanced Document AI Extractor
@@ -1118,7 +1118,7 @@ CREATE POLICY "Users can view own verifications"
 - Bilingual extraction: Arabic labels critical for Egyptian market
 - Merged cells exist: Document AI artifacts vs intentional combinations
 
-### Session: Dec 3, 2025 (09:45 EET / 07:45 UTC) [GC]
+#### Session: Dec 3, 2025 (09:45 EET / 07:45 UTC) [GC]
 
 **Agent**: Gemini Code (GC)
 **Objective**: BMW X5 specs extraction - pipeline re-architecture
@@ -1158,7 +1158,7 @@ CREATE POLICY "Users can view own verifications"
 
 **Status**: pdfplumber preprocessor solid, rule-based parser pending
 
-### Session: Dec 7-8, 2025 (22:00 EET Dec 7 → 15:30 EET Dec 8) [CC + CCW + GC]
+#### Session: Dec 7-8, 2025 (22:00 EET Dec 7 → 15:30 EET Dec 8) [CC + CCW + GC]
 
 **Agents**: Claude Code (CC) - extraction, CCW - booking, Gemini Code (GC) - repo management
 **Objective**: Dual-track development - BMW X5 PDF table extraction + booking system PR fixes
@@ -1200,7 +1200,7 @@ CREATE POLICY "Users can view own verifications"
 
 **Status**: BMW extraction preprocessing done, awaiting Claude Vision API call; booking PR awaiting AI review fixes
 
-### Session: Dec 4, 2025 (14:39 EET / 12:39 UTC) [Status Update]
+#### Session: Dec 4, 2025 (14:39 EET / 12:39 UTC) [Status Update]
 
 **Agent**: Status check (compilation from multiple agents)
 **Objective**: Assess blockers and technical debt across all workstreams
@@ -1240,7 +1240,7 @@ CREATE POLICY "Users can view own verifications"
 - Re-download Kia PDFs (2 min)
 - Migrate middleware → proxy (5 min)
 
-### Session: Dec 3-4, 2025 (Evening Dec 3 → 01:43 EET Dec 4) [GC]
+#### Session: Dec 3-4, 2025 (Evening Dec 3 → 01:43 EET Dec 4) [GC]
 
 **Agent**: Gemini Code (GC)
 **Objective**: Architecture pivot from heuristic parsing to Vision-First pipeline
@@ -1281,7 +1281,7 @@ CREATE POLICY "Users can view own verifications"
 
 **Status**: Scanner complete, Vision pipeline designed (0% implemented)
 
-### Session: Dec 2-3, 2025 (22:00 - 01:42 EET / 20:00 - 23:42 UTC) [GC]
+#### Session: Dec 2-3, 2025 (22:00 - 01:42 EET / 20:00 - 23:42 UTC) [GC]
 
 **Agent**: Gemini Code (GC)
 **Objective**: Document AI integration + spec matching layer
@@ -1313,7 +1313,7 @@ CREATE POLICY "Users can view own verifications"
    - Refine match_spec() scoring
    - Target: >30/82 matches
 
-### Session: Dec 1-2, 2025 (22:00-01:42 EET / 20:00-23:42 UTC Dec 1) [GC + CC]
+#### Session: Dec 1-2, 2025 (22:00-01:42 EET / 20:00-23:42 UTC Dec 1) [GC + CC]
 
 **Agent**: Gemini Code (GC), Claude Code (CC)
 **Objective**: PDF extraction + OCR integration for image-based PDFs
@@ -1348,7 +1348,7 @@ CREATE POLICY "Users can view own verifications"
    - GPG signing disabled for speed
    - Next session roadmap: Implement cell-span detection, achieve 5/5 quality gate
 
-### Session: Dec 2, 2025 (10:46 EET / 08:46 UTC) [GC]
+#### Session: Dec 2, 2025 (10:46 EET / 08:46 UTC) [GC]
 
 **Agent**: Gemini Code (GC)
 **Objective**: Consolidation + quality gate setup
@@ -1378,7 +1378,7 @@ CREATE POLICY "Users can view own verifications"
    - Clean working tree
    - Ready for next session
 
-### Session: Nov 26, 2025 (Evening) - Dec 2, 2025 [Multiple Agents]
+#### Session: Nov 26, 2025 (Evening) - Dec 2, 2025 [Multiple Agents]
 
 **Agents**: Factory.ai, CCW, GC
 **Objective**: Emergency PDF preservation + brand/agent data population
@@ -1414,7 +1414,7 @@ CREATE POLICY "Users can view own verifications"
    - Root cause: vehicle_trims table claimed empty
    - Resolution: Data import completed Dec 2-13 (now 409 rows)
 
-### Session: Nov 11-22, 2025 [CCW, Factory.ai]
+#### Session: Nov 11-22, 2025 [CCW, Factory.ai]
 
 **Agents**: CCW (Claude Code Worker), Factory.ai
 **Objective**: SMS/OTP integration + booking schema
@@ -1448,7 +1448,7 @@ CREATE POLICY "Users can view own verifications"
    - RSA 4096-bit keys
    - 2-year expiry
 
-### Session: Dec 13, 2025 (16:00-18:45 UTC) [CC]
+#### Session: Dec 13, 2025 (16:00-18:45 UTC) [CC]
 
 **Agent**: Claude Code (CC)
 **Objective**: Reconstruct comprehensive CLAUDE.md from 15+ artifacts
@@ -1484,7 +1484,7 @@ CREATE POLICY "Users can view own verifications"
    - Clean working tree
    - 10 Dependabot alerts flagged for review
 
-### Session: Dec 12, 2025 (00:45 EET / 22:45 UTC Dec 11) [Hex-AI]
+#### Session: Dec 12, 2025 (00:45 EET / 22:45 UTC Dec 11) [Hex-AI]
 
 **Agent**: Hex-AI
 **Objective**: CLAUDE.md 10x restructure
@@ -1495,7 +1495,7 @@ CREATE POLICY "Users can view own verifications"
 3. Agent ownership clarified (CC/CCW/GC/BB)
 4. Git status documented (5 days behind, blocker identified)
 
-### Session: Dec 11, 2025 (22:51 EET / 20:51 UTC) [CCW]
+#### Session: Dec 11, 2025 (22:51 EET / 20:51 UTC) [CCW]
 
 **Agent**: CCW (Claude Code Worker)
 **Objective**: SMS engine integration
@@ -1506,7 +1506,7 @@ CREATE POLICY "Users can view own verifications"
 3. Booking schema migration created (not applied)
 4. verifyOtp() stub (no persistence)
 
-### Session: Dec 7, 2025 (16:28 EET / 14:28 UTC) [Bash]
+#### Session: Dec 7, 2025 (16:28 EET / 14:28 UTC) [Bash]
 
 **Agent**: Bash artifact
 **Objective**: Repository pattern establishment
