@@ -1,9 +1,9 @@
 # CLAUDE.md - Project Brain (CC Owns) [2025-12-16]
 
-**Version**: 2.2.5
-**Last Updated**: 2025-12-16
+**Version**: 2.2.6
+**Last Updated**: 2025-12-16 21:54 EET
 **Production Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Status**: ACTIVE - PR#7 + Agent Performance Matrix added, 2,277 lines
+**Status**: ACTIVE - File Naming Standards + Agent Performance Matrix, 2,323 lines
 
 ---
 
@@ -67,6 +67,51 @@
 - ❌ Fabricating version numbers or metrics
 - ❌ Waiting to "dump all at once" instead of incremental updates
 - ❌ Code changes when task scope is documentation only
+
+### FILE NAMING & TIMESTAMP STANDARDS
+
+**Mandatory Format**:
+```
+{PURPOSE}_{YYYY-MM-DD}_{HHMM}_{AGENT}.{ext}
+```
+
+**Examples**:
+- `SECURITY_AUDIT_2025-12-17_0930_CC.md`
+- `API_MIGRATION_2025-12-17_1405_GC.md`
+- `TEST_REPORT_2025-12-17_1620_BB.md`
+- `BRANCH_ANALYSIS_2025-12-16_1545_CC.md`
+
+**Agent Codes**:
+- **CC** = Claude Code (Terminal/CLI)
+- **GC** = Gemini CLI
+- **BB** = Blackbox AI
+- **CCW** = Claude Code Web
+- **PPLX** = Perplexity
+
+**Required Metadata Block** (Top of Every Document):
+```markdown
+---
+# Document Metadata
+Created: YYYY-MM-DD HH:MM:SS EET
+Agent: {Name} ({Code})
+Task: {Brief description}
+Execution Start: YYYY-MM-DD HH:MM:SS EET
+Execution End: YYYY-MM-DD HH:MM:SS EET
+Duration: X min Y sec
+---
+```
+
+**Timing Requirements**:
+- Log start timestamp when task begins
+- Log end timestamp when task completes
+- Calculate duration (minutes + seconds)
+- Report phase transitions with timestamps
+
+**Rationale**:
+- Multiple iterations per day require precise timestamps (HHMM format)
+- Agent switching mid-session requires clear attribution
+- Performance metrics must be self-reported, not estimated
+- File naming prevents overwrites (date + time + agent = unique)
 
 ---
 
@@ -2086,6 +2131,49 @@ git show HEAD@{1}:CLAUDE.md | wc -l  # 76 lines, NOT 597
 ---
 
 ## VERSION HISTORY
+
+### v2.2.6 (2025-12-16 21:54 EET) [CC]
+
+**Major Changes**:
+- Added FILE NAMING & TIMESTAMP STANDARDS section to CC Operating Instructions
+- Established mandatory format: {PURPOSE}_{YYYY-MM-DD}_{HHMM}_{AGENT}.{ext}
+- Required metadata blocks with self-reported execution timing
+- Agent Performance Matrix updated with 2025-12-16 Branch Cleanup Crisis session
+
+**New Content**:
+- File Naming Standards (lines 71-115)
+  - Mandatory format with examples
+  - Agent codes table (CC/GC/BB/CCW/PPLX)
+  - Required metadata block template
+  - Timing requirements (start/end/duration)
+  - Rationale (multiple iterations, agent switching, performance metrics)
+- Agent Performance Matrix session entry:
+  - CC: PR #11 extraction (⭐⭐⭐⭐⭐)
+  - GC: PR #1 recovery analysis (⭐⭐⭐⭐)
+  - BB: Empty branch forensics (⭐⭐⭐⭐⭐)
+
+**Updates**:
+- Updated task assignment guidelines (Branch Recovery, Empty Branch Forensics, PR Review Extraction, Work Effort Planning)
+
+**Files**:
+- CLAUDE.md: 2,323 lines (+46 from v2.2.5)
+
+### v2.2.5 (2025-12-16 16:00 EET) [CC]
+
+**Major Changes**:
+- Added Agent Performance Matrix section (Section 9.5)
+- Offload architecture: Summary in CLAUDE.md, full details in docs/AGENT_PERFORMANCE_MATRIX.md
+
+**New Content**:
+- Section 9.5: Agent Performance Matrix (58 lines)
+  - Current capabilities per agent (CC/GC/CCW/BB/PPLX)
+  - Recent successes and failures
+  - Task assignment guidelines table
+  - Performance improvement actions
+
+**Files**:
+- CLAUDE.md: 2,277 lines (+58 from v2.2.4)
+- docs/AGENT_PERFORMANCE_MATRIX.md: 414 lines (new file)
 
 ### v2.2.4 (2025-12-14 23:00 UTC) [CC]
 
