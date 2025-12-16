@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { requestOtp } from '@/services/sms/engine';
-import { sendOTP } from '@/services/sms/engine';
+
 
 export default function NewBooking() {
   const [vehicleId, setVehicleId] = useState('');
@@ -27,7 +27,7 @@ export default function NewBooking() {
       .single();
 
     if (data) {
-      await sendOTP(phone, '123456');
+      await requestOtp({ phone, subjectId: data.id, subjectType: 'booking' });
       // Redirect to /bookings/[id]/verify
       window.location.href = `/en/bookings/${data.id}/verify?phone=${phone}`;
     }
