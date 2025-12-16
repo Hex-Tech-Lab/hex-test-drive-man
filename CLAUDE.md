@@ -1,9 +1,9 @@
-# CLAUDE.md - Project Brain (CC Owns) [2025-12-14 23:00 UTC]
+# CLAUDE.md - Project Brain (CC Owns) [2025-12-16]
 
-**Version**: 2.2.4
-**Last Updated**: 2025-12-14 23:00 UTC
+**Version**: 2.2.5
+**Last Updated**: 2025-12-16
 **Production Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Status**: ACTIVE - PR#7 + SonarCloud + Snyk integrated, 2,219 lines
+**Status**: ACTIVE - PR#7 + Agent Performance Matrix added, 2,277 lines
 
 ---
 
@@ -1555,6 +1555,64 @@ gh pr create --base main --head [agent]/[feature] \
 3. BB syncs to BLACKBOX.md (if exists)
 4. Incremental updates (not bulk dumps)
 5. Version bump after each cohesive work block
+
+### Agent Performance Matrix
+
+📊 **Full Details**: See `docs/AGENT_PERFORMANCE_MATRIX.md` for complete history, timestamps, and performance KPIs.
+
+**Current Agent Capabilities** (Updated: 2025-12-16)
+
+#### CC (Claude Code) - Terminal/CLI
+- ✅ **Core Strengths**: Systematic investigation, documentation, strategic planning
+- ✅ **Recent Successes**: PR #7 fixes (4/4), POST_MERGE_SYNC.md creation, architecture discovery
+- ❌ **Recent Failure**: PR #11 troubleshooting loop (script spam without logs)
+- ⚡ **Speed**: Medium (thorough over fast)
+- 🎯 **Best For**: Documentation audits, multi-step workflows, verification tasks
+- ⚠️ **Avoid For**: CI/CD debugging without error logs, rapid iteration fixes
+
+#### GC (Gemini CLI)
+- ✅ **Core Strengths**: Fast path resolution, large context window, GitHub integration
+- ✅ **Recent Successes**: Import path fix (10 min), file relocation
+- ⚠️ **Areas to Watch**: Build tool identification, may need CI/CD config review
+- ⚡ **Speed**: Fast (quick iteration)
+- 🎯 **Best For**: Path resolution, quick fixes, repository-wide refactors
+- ⚠️ **Avoid For**: [Insufficient data - update after more tasks]
+
+#### CCW (Claude Code Web)
+- ✅ **Core Strengths**: Web-based workflow, GitHub UI integration
+- 🔄 **Status**: Active on OTP/2FA implementation
+- ⚡ **Speed**: [Pending assessment]
+- 🎯 **Best For**: [Pending evidence]
+- ⚠️ **Avoid For**: [Pending evidence]
+
+#### BB (Blackbox)
+- ✅ **Core Strengths**: Fresh perspective, catches issues others miss, forensic investigation
+- ✅ **Recent Successes**: .bolt/ audit (identified overlooked directory), CLAUDE.md v2.2.4 comprehensive audit
+- ⚡ **Speed**: Thorough (deep analysis)
+- 🎯 **Best For**: Documentation audits, repository archaeology, catching blind spots
+- ⚠️ **Avoid For**: [Insufficient data]
+
+#### PPLX (Perplexity Multi-Model)
+- ✅ **Core Strengths**: Model flexibility (CS4.5, Sonar), multi-agent coordination
+- 🔄 **Status**: Coordinating this consolidation effort
+- ⚡ **Speed**: Medium (strategic over tactical)
+- 🎯 **Best For**: Strategic planning, agent coordination, complex decision-making
+- ⚠️ **Avoid For**: Direct code implementation, hands-on debugging
+
+**Task Assignment Guidelines**
+
+| Task Type | Primary | Backup | Rationale |
+|-----------|---------|--------|-----------|
+| Doc Audits | BB | CC | Fresh eyes catch more |
+| Path Issues | GC | CC | Fast iteration |
+| CI/CD Debug | [TBD] | BB | Need logs-first approach |
+| Strategy | PPLX | CC | Coordination strength |
+| Quick Fixes | GC | CCW | Speed priority |
+
+**Performance Improvement Actions**
+- **For CC**: Always fetch logs before proposing fixes (no guess-loops)
+- **For GC**: Verify build tool assumptions (webpack vs turbopack)
+- **For All**: Use structured reports for CC review before merge
 
 ---
 
