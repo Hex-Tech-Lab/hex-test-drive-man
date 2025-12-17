@@ -2,13 +2,16 @@ const WHYSMS_BASE_URL = 'https://bulk.whysms.com/api/v3';
 const WHYSMS_TOKEN = process.env.WHYSMS_API_TOKEN!;
 
 export async function sendSms(to: string, message: string): Promise<boolean> {
+  const startTime = Date.now();
+  
   try {
-    // WhySMS expects EXACT parameter names (capitalized with spaces)
     const payload = {
-      "To": to,                    // Capitalized
-      "Message": message,           // Capitalized
-      "Sender ID": "ORDER"         // With space! Value from your account
+      recipient: to,
+      sender_id: "ORDER",
+      message: message,
     };
+
+    console.log(`[WhySMS] Sending to ${to} at ${new Date().toISOString()}`);
 
     const res = await fetch(`${WHYSMS_BASE_URL}/sms/send`, {
       method: 'POST',
@@ -21,16 +24,18 @@ export async function sendSms(to: string, message: string): Promise<boolean> {
     });
 
     const data = await res.json();
-    console.log('WhySMS API response:', JSON.stringify(data));
+    const apiLatency = Date.now() - startTime;
+
+    console.log(`[WhySMS] Response (${apiLatency}ms):`, JSON.stringify(data));
     
     if (!res.ok) {
-      console.error('WhySMS API error:', res.status, data);
+      console.error('[WhySMS] Failed:', res.status, data);
       return false;
     }
 
     return true;
   } catch (error) {
-    console.error('WhySMS send error:', error);
+    console.error(`[WhySMS] Error:`, error);
     return false;
   }
 }

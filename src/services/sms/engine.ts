@@ -1,5 +1,5 @@
 import * as crypto from 'crypto';
-import { sendWhySMS } from '@/services/sms/providers/whysms';
+import { sendSms } from '@/services/sms/providers/whysms';
 import { createClient } from '@/lib/supabase';
 
 export type OtpSubjectType = 'booking' | 'login';
@@ -39,7 +39,7 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
   const expiresAt = new Date(Date.now() + 5 * 60 * 1000).toISOString();
 
   const body = `Your Hex Test Drive code is ${code}. It expires in 5 minutes.`;
-  const res = await sendWhySMS(phone, body);
+  const res = await sendSms(phone, body);
 
   const supabase = createClient();
   // Store OTP in database for verification
