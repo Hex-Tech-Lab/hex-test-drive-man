@@ -126,7 +126,7 @@ Duration: X min Y sec
 
 ```json
 {
-  "next": "15.4.8",              // Line 23 - App Router, React 19 support
+  "next": "15.4.10",              // Line 23 - App Router, React 19 support
   "react": "19.2.0",             // Line 26 - Latest stable
   "react-dom": "19.2.0",         // Line 27
   "typescript": "5.7.3"          // Line 41 - Strict mode enabled
@@ -137,7 +137,7 @@ Duration: X min Y sec
 
 **Artifact Version Claims** [Dec 2-3 THOS]:
 - Claimed: Next.js 16.0.6, React 19.2.0, TypeScript 5.7.x
-- Verified: Next.js 15.4.8 (not 16.0.6), React 19.2.0 ✅, TypeScript 5.7.3 ✅
+- Verified: Next.js 15.4.10 (not 16.0.6), React 19.2.0 ✅, TypeScript 5.7.3 ✅
 - Conclusion: Next.js version fabricated in artifact (likely future projection)
 
 ### UI & Styling
@@ -986,10 +986,10 @@ CREATE POLICY "Users can view own verifications"
      - Split complex parsing line in extract_all_bot_comments.py (commit 74c5706)
 
 4. **Snyk dependency upgrades**:
-   - Next.js: 15.2.6 → 15.4.8 (Snyk recommendation)
+   - Next.js: 15.2.6 → 15.4.10 (Snyk recommendation)
    - @supabase/supabase-js: 2.48.1 → 2.50.0
    - ESLint 8.57.0 deprecation noted (deferred to avoid config conflicts)
-   - Commit: "chore(deps): apply Snyk recommendations (Next 15.4.8, Supabase 2.50.0)"
+   - Commit: "chore(deps): apply Snyk recommendations (Next 15.4.10, Supabase 2.50.0)"
 
 5. **Foundation checklist drafted**:
    - File: docs/FOUNDATION_CHECKLIST.md
@@ -1798,7 +1798,7 @@ git show HEAD@{1}:CLAUDE.md | wc -l  # 76 lines, NOT 597
 
 **Examples**:
 - Artifact claims: Next.js 16.0.6, MUI 7.3.5, Supabase 2.86.0
-- Verified reality: Next.js 15.4.8, MUI 6.4.3, Supabase 2.50.0
+- Verified reality: Next.js 15.4.10, MUI 6.4.3, Supabase 2.50.0
 - File count: Artifact estimated ~100, actual 77 (30% error)
 
 **Root Cause**: Agents generating handovers without tool verification
@@ -1933,7 +1933,7 @@ git show HEAD@{1}:CLAUDE.md | wc -l  # 76 lines, NOT 597
   - 34 BLOCKER/CRITICAL issues exported (1 BLOCKER, 33 CRITICAL)
   - FilterPanel.tsx sorting fixed (localeCompare)
   - Quality gate BLOCKER resolved (min_specs rename)
-  - Snyk dependency upgrades (Next.js 15.4.8, Supabase 2.50.0)
+  - Snyk dependency upgrades (Next.js 15.4.10, Supabase 2.50.0)
   - Foundation checklist drafted (docs/FOUNDATION_CHECKLIST.md)
 - Architecture Decisions: Dec 11 SonarCloud Integration Strategy
   - Pragmatic approach: Fix BLOCKER + user-facing CRITICALs
@@ -1944,7 +1944,7 @@ git show HEAD@{1}:CLAUDE.md | wc -l  # 76 lines, NOT 597
   - Artifacts: PR7_AI_PROMPTS_FIXED.md + JSON
 
 **Updates**:
-- Tech Stack: Next.js 15.4.8, Supabase 2.50.0 (upgraded Dec 11)
+- Tech Stack: Next.js 15.4.10, Supabase 2.50.0 (upgraded Dec 11)
 - Tooling: SonarCloud scripts (fetch_sonarcloud_issues.sh, print_sonarcloud_blockers.py)
 - Technical Debt: 6 Dependabot alerts (pypdf/PyPDF2), 33 CRITICAL complexity issues
 
