@@ -870,6 +870,30 @@ CREATE POLICY "Users can view own verifications"
 **Format**: 3-5 key outcomes per session with [Date Time TZ, Agent]
 **Read Direction**: Top-to-bottom = newest first; Bottom-to-top = chronological development
 
+**📋 Full Timeline**: See `docs/SESSION_TIMELINE_2025-12-17_1545_CC.md` for complete session history (19 sessions)
+**🔄 This Section**: Last 10 sessions only (for quick reference)
+
+### SESSION UPDATE WORKFLOW
+
+**MANDATORY**: Every agent must update Session Timeline when completing work
+
+**Update Process**:
+1. **Add new session** at TOP of timeline (reverse chrono)
+2. **Keep format**: `#### Session: [Date] [Time TZ] [Agent]`
+3. **Structure**: Agent, Objective, 3-5 Key Outcomes
+4. **File naming**: Use timestamp format `{PURPOSE}_{YYYY-MM-DD}_{HHMM}_{AGENT}.{ext}`
+5. **Sync replicas**: Update GEMINI.md, BLACKBOX.md after CLAUDE.md
+
+**When Session Count > 10**:
+1. Extract oldest sessions to `docs/SESSION_TIMELINE_{DATE}_{TIME}_{AGENT}.md`
+2. Update full timeline file (append new sessions to existing file)
+3. Keep only last 10 sessions in CLAUDE.md
+4. Update "Full Timeline" reference link above
+
+**Enforcement**: Session not documented = work not completed ✅
+
+---
+
 #### Session: Dec 14, 2025 (20:30 UTC) [CC]
 
 **Agent**: Claude Code (CC)
@@ -1239,284 +1263,6 @@ CREATE POLICY "Users can view own verifications"
 - Fix PDF extractor (10 min)
 - Re-download Kia PDFs (2 min)
 - Migrate middleware → proxy (5 min)
-
-#### Session: Dec 3-4, 2025 (Evening Dec 3 → 01:43 EET Dec 4) [GC]
-
-**Agent**: Gemini Code (GC)
-**Objective**: Architecture pivot from heuristic parsing to Vision-First pipeline
-
-**Key Outcomes**:
-1. **Critical discovery: Gemini Vision natively handles "invisible grids"**:
-   - User research: Gemini 1.5 Pro processes visual patches (tokens) directly
-   - No traditional OCR - sees whitespace as semantic delimiters
-   - Benchmark: Gemini 1.5 Flash hallucinates numbers (70,000 crores - wrong)
-   - Gemini 1.5 Pro required for high-fidelity extraction (3.60 Lakh Crore - correct)
-
-2. **Architecture pivot decision**:
-   - ABANDON: Coordinate-based table parsing (Iteration 2 Boundary Detection)
-   - ADOPT: Vision-First Pipeline (Gemini 1.5 Pro as primary extractor)
-   - Hybrid approach: Document AI for ground truth, Gemini for reasoning
-   - Validator: pdfplumber text dump to catch hallucinations
-
-3. **Priority Scanner operational (90% complete)**:
-   - pdf_priority_scanner.py scans 19 sample PDFs
-   - Output: pdf_assessment_matrix.json
-   - Classification: VECTOR (13 files), IMAGE_BASED (3 files), MANUAL (1 file)
-   - Accuracy: ±1 trim count for "clean" files
-
-4. **Boundary detection results (deprecated)**:
-   - Works for "Clean Grid" PDFs: Toyota Corolla (5 cols), BMW X5 (7 cols with gap)
-   - FAILS for invisible grids: Chevrolet (13 false columns), Kia Sportage (rotated headers)
-   - Root cause: Font-based filtering insufficient for complex layouts
-
-5. **Sample dataset curated**:
-   - 19 PDFs: 15 brands (German, Japanese, Korean, Chinese, American, French, British)
-   - Torture tests identified: Chevrolet Move, Kia Sportage, Chery Tigo 3
-   - Intentional gap: Missing pure EV models (Tesla/BYD)
-
-**Architecture Decisions**:
-- Hybrid pipeline: Scout (pdfplumber fast scan) → Extractor (Vision Model) → Auditor (text validation)
-- Cost optimization: Vision Model only on 1-2 relevant pages (not full 1000-page manuals)
-- Validation: Overlay trick (render JSON back to image, visual diff with original)
-
-**Status**: Scanner complete, Vision pipeline designed (0% implemented)
-
-#### Session: Dec 2-3, 2025 (22:00 - 01:42 EET / 20:00 - 23:42 UTC) [GC]
-
-**Agent**: Gemini Code (GC)
-**Objective**: Document AI integration + spec matching layer
-
-**Key Outcomes**:
-1. **Google Cloud Document AI integrated**:
-   - Project: gen-lang-client-0318181416 (HexTestDrive)
-   - Region: eu (multi-region)
-   - Processor: Form Parser v2.1 (pretrained-form-parser-v2.1-2023-06-26)
-   - Service account: doc-ai-extractor@ with apiUser role
-
-2. **Toyota Corolla extraction succeeded**:
-   - 82 structured rows extracted from PDF
-   - Output: toyota_extracted.json
-   - Sections detected: "O E" (likely "Engine" in original PDF)
-
-3. **Spec matching layer implemented**:
-   - Files: spec_matcher.py, toyota_analyzer.py, spec_definitions.json
-   - Fuzzy matching with valid/typo/forbidden patterns (EN/AR)
-   - Initial results: 12/82 matches (14.6%)
-   - Blockers: Incomplete definitions + threshold too permissive ("Max Torque" → max_output)
-
-4. **Quality gate status**:
-   - Pass: sunroof, parking_camera, steering_column, turning_radius, airbags, ac_system, screen_size
-   - Fail: max_output misidentified, 70 unknown rows
-
-5. **Next actions defined**:
-   - Rebuild spec_definitions.json (15 canonical specs)
-   - Refine match_spec() scoring
-   - Target: >30/82 matches
-
-#### Session: Dec 1-2, 2025 (22:00-01:42 EET / 20:00-23:42 UTC Dec 1) [GC + CC]
-
-**Agent**: Gemini Code (GC), Claude Code (CC)
-**Objective**: PDF extraction + OCR integration for image-based PDFs
-
-**Key Outcomes**:
-1. **OCR integration complete**:
-   - Tesseract 5.3.4 integrated for image-based PDFs (Toyota, BMW)
-   - Toyota Corolla: 9586 chars extracted, 6 specs detected (was 0 before)
-   - Fallback mechanism: if text <100 chars, load from *_ocr.txt
-
-2. **Cell-spanning issue discovered**:
-   - Toyota PDFs use merged cells for shared specs across trims
-   - Example: "Engine Type" centered across all 5 trims, "1598 CC" spans first 4 trims
-   - Current parser assigns to nearest x-coordinate (wrong)
-   - Solution: Calculate column boundaries, detect overlap percentage
-   - Status: Documented in docs/OCR_CELL_SPANNING_ISSUE.md, implementation pending
-
-3. **Quality gate results**:
-   - 2/5 pass: Kia Sportage (6 trims), Nissan Sunny (4 trims)
-   - 2/5 partial: BMW X5 (low spec count), Chery Tiggo (low spec count)
-   - 1/5 fail: Toyota Corolla (5 trims detected but data bleeding)
-
-4. **Enhanced trim parser created**:
-   - File: enhanced_trim_parser.py
-   - Text column detection working (104 rows, trim header at Row 6)
-   - X-coordinate clustering detects 5 trims correctly
-   - Needs: Cell-span detection algorithm (line 60+)
-
-5. **Commit 8aafad6 created**:
-   - 399 files committed (140K+ insertions)
-   - PDFs organized: capitalized folders = official, lowercase → pdfs_archive_for_review/
-   - GPG signing disabled for speed
-   - Next session roadmap: Implement cell-span detection, achieve 5/5 quality gate
-
-#### Session: Dec 2, 2025 (10:46 EET / 08:46 UTC) [GC]
-
-**Agent**: Gemini Code (GC)
-**Objective**: Consolidation + quality gate setup
-
-**Key Outcomes**:
-1. **Massive consolidation commit**:
-   - 399 files saved
-   - 140K+ insertions
-   - GPG signed (commit 8aafad6)
-
-2. **Quality gate baseline established**:
-   - Test suite: run_quality_gate.py
-   - 5 PDFs: Toyota Corolla, BMW X5, Kia Sportage, Chery Tiggo, Nissan Sunny
-   - Results: quality_gate_results.json (2/5 pass)
-
-3. **Archive created**:
-   - pdfs_archive_for_review/ folder
-   - Lowercase brand duplicates moved
-
-4. **Tomorrow's roadmap defined**:
-   - Implement cell-span detection (45-60 min)
-   - Test on Toyota Corolla (5/5 trims)
-   - Re-run quality gate (target 5/5 pass)
-   - Scale to all brands if gate passes
-
-5. **Session checkpoint saved**:
-   - Clean working tree
-   - Ready for next session
-
-#### Session: Nov 26, 2025 (Evening) - Dec 2, 2025 [Multiple Agents]
-
-**Agents**: Factory.ai, CCW, GC
-**Objective**: Emergency PDF preservation + brand/agent data population
-
-**Key Outcomes**:
-1. **Emergency PDF preservation** [Nov 26-27]:
-   - Context: Hatla2ee.com removed all manufacturer PDFs
-   - 80/87 PDFs secured (92% success rate)
-   - ~1.2GB manufacturer brochures preserved
-   - SHA256-verified data integrity
-
-2. **Multi-layered retry mechanisms**:
-   - Layer 1: Direct HTTP with requests library (Python)
-   - Layer 2: Puppeteer browser navigation (JavaScript)
-   - Layer 3: Manual URL pattern testing
-   - Outcome: 5 models recovered (Nissan x4, MG x1), 22 permanently failed
-
-3. **TRAE v1.2 completed** [Nov 26]:
-   - 93 brand logos populated (verified: now 95)
-   - 45 agent-brand relationships mapped
-   - 20 Egyptian distributors verified
-   - 14-column agent_brands schema implemented
-   - MUI BrandLogo component code provided
-
-4. **Critical blockers identified**:
-   - Blocker #1: pdf-parse library API incompatibility (TypeError: pdf is not a function)
-   - Blocker #2: Puppeteer waitForTimeout deprecation (line 177)
-   - Blocker #3: 6 Kia PDFs misclassified as HTML
-   - Status: All blockers addressed in Dec 1-2 session
-
-5. **Production catalog bug** [Dec 2]:
-   - Issue: Website showing 0 vehicles
-   - Root cause: vehicle_trims table claimed empty
-   - Resolution: Data import completed Dec 2-13 (now 409 rows)
-
-#### Session: Nov 11-22, 2025 [CCW, Factory.ai]
-
-**Agents**: CCW (Claude Code Worker), Factory.ai
-**Objective**: SMS/OTP integration + booking schema
-
-**Key Outcomes**:
-1. **WhySMS v3 integration** [Nov 11, commit ca9da33]:
-   - requestOtp() → WhySMS SMS send working
-   - API: /api/v3/sms/send
-   - Implementation: src/services/sms/engine.ts
-
-2. **Booking schema defined** [Nov 11]:
-   - File: supabase/migrations/20251211_booking_schema.sql
-   - Tables: bookings (12 columns), sms_verifications (7 columns)
-   - RLS policies: Enabled on bookings, pending on sms_verifications
-   - Status: Migration file exists but NOT applied to production
-
-3. **Factory.ai crisis** [Nov 22]:
-   - Object selectors created → React 19 infinite loops
-   - Pattern: `const { brands, types } = useFilterStore(s => ({ ... }))`
-   - Impact: Page crashes, infinite re-renders
-   - Fix: Switched to primitive selectors
-   - Prevention: ESLint rule required
-
-4. **verifyOtp() stub created**:
-   - Implementation: Stub exists, no persistence
-   - Blocker: OTP persistence layer incomplete
-   - Status: Pending completion in MVP 1.0
-
-5. **GPG commit signing enforced** [Nov 22]:
-   - Mandatory -S flag for all commits
-   - RSA 4096-bit keys
-   - 2-year expiry
-
-#### Session: Dec 13, 2025 (16:00-18:45 UTC) [CC]
-
-**Agent**: Claude Code (CC)
-**Objective**: Reconstruct comprehensive CLAUDE.md from 15+ artifacts
-
-**Key Outcomes**:
-1. **CLAUDE.md v2.0.0 created** (103→871 lines):
-   - Complete tech stack with package.json line references
-   - MUI 6.4.3 decision analysis (stay on LTS, defer v7)
-   - Database row counts verified via Supabase REST API
-   - TypeScript alias violations documented (2 files)
-   - Architecture decisions in reverse chronological order
-
-2. **Version fabrication pattern detected**:
-   - Artifacts claimed: Next.js 16.0.6, MUI 7.3.5, Supabase 2.86.0
-   - Verified reality: Next.js 15.4.8, MUI 6.4.3, Supabase 2.50.0
-   - Root cause: Agents generating handovers without tool verification
-   - Solution: "VERIFY 10x → PLAN 10x → EXECUTE 1x" enforcement
-
-3. **Supabase database verified**:
-   - 409 vehicle_trims (Dec 2 claimed 0 rows)
-   - 95 brands (+2 vs artifacts)
-   - 199 models (+141 vs artifacts)
-   - Data import occurred Dec 2-13
-
-4. **CLAUDE.md v2.1.0 restructured**:
-   - New logical flow: Gold Standard → Current State → Actions → Architecture
-   - Session Timeline section added (reverse chrono)
-   - All THOS artifacts integrated
-   - Incremental update workflow established
-
-5. **Commit 283b296 pushed to GitHub**:
-   - Branch: claude/sync-agent-instructions-015BBjkGH1Syq5uEU6r2uGCg
-   - Clean working tree
-   - 10 Dependabot alerts flagged for review
-
-#### Session: Dec 12, 2025 (00:45 EET / 22:45 UTC Dec 11) [Hex-AI]
-
-**Agent**: Hex-AI
-**Objective**: CLAUDE.md 10x restructure
-
-**Key Outcomes**:
-1. CLAUDE.md 10x restructure (103 → 104 lines)
-2. Operating instructions formalized
-3. Agent ownership clarified (CC/CCW/GC/BB)
-4. Git status documented (5 days behind, blocker identified)
-
-#### Session: Dec 11, 2025 (22:51 EET / 20:51 UTC) [CCW]
-
-**Agent**: CCW (Claude Code Worker)
-**Objective**: SMS engine integration
-
-**Key Outcomes**:
-1. SMS engine WhySMS integration (commit ca9da33)
-2. requestOtp() → WhySMS /api/v3/sms/send working
-3. Booking schema migration created (not applied)
-4. verifyOtp() stub (no persistence)
-
-#### Session: Dec 7, 2025 (16:28 EET / 14:28 UTC) [Bash]
-
-**Agent**: Bash artifact
-**Objective**: Repository pattern establishment
-
-**Key Outcomes**:
-1. Repository pattern established (no direct Supabase calls)
-2. Tech stack verified (Next.js 15.4.8, MUI 6.4.3, React 19)
-3. Booking schema defined (bookings + sms_verifications tables)
-
----
 
 ## AGENT OWNERSHIP & WORKFLOW
 
