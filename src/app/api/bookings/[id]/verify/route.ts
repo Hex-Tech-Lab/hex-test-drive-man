@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyOtp } from '@/services/sms/engine';
-import { createClient } from '@/lib/supabase';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 
 export async function POST(
   request: NextRequest,
@@ -17,7 +17,12 @@ export async function POST(
       );
     }
 
-    const supabase = createClient();
+    // Create client inside handler (has env vars at runtime)
+    const supabase = createSupabaseClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
+
     const { data: booking, error: bookingError } = await supabase
       .from('bookings')
       .select('phone_number')
