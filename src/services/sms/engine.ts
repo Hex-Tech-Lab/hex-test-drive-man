@@ -39,7 +39,13 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
   const expiresAt = new Date(Date.now() + 5 * 60 * 1000).toISOString();
 
   const body = `Your Hex Test Drive code is ${code}. It expires in 5 minutes.`;
-  const res = await sendSms(phone, body);
+  const smsSent = await sendSms(phone, body);
+
+  // Check SMS send result (sendSms returns boolean)
+  if (!smsSent) {
+    console.error('[SMS] Failed to send OTP to', phone);
+    return { success: false, error: 'SMS send failed' };
+  }
 
   const supabase = createClient();
   // Store OTP in database for verification
@@ -57,7 +63,6 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
     throw new Error('Failed to store OTP verification');
   }
 
-  // For now, log instead of DB insert; next step will wire DB.
   console.log('[OTP_REQUEST]', {
     phone,
     subjectType,
@@ -65,14 +70,8 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
     code,
     expiresAt,
     provider: 'whysms',
-    success: res.success,
-    status: res.status,
-    message: res.message,
+    smsSent: true,
   });
-
-  if (!res.success) {
-    return { success: false, error: res.message ?? 'SMS send failed' };
-  }
 
   return { success: true, expiresAt };
 }
