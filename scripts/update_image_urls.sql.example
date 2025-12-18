@@ -1,0 +1,90 @@
+-- Auto-generated SQL to update vehicle image URLs
+-- Generated: 2025-12-18 14:18:00 UTC
+-- Hero images: 75
+-- Hover images: 60
+-- Agent: BB
+--
+-- NOTE: This is an EXAMPLE showing expected output format
+--       Actual SQL will be generated when images are added
+
+BEGIN;
+
+-- Clear old placeholder paths (optional - uncomment if needed)
+-- UPDATE models SET hero_image_url = NULL WHERE hero_image_url LIKE '/cars/%';
+-- UPDATE models SET hover_image_url = NULL WHERE hover_image_url LIKE '/cars/%';
+
+-- ============================================
+-- HERO IMAGES (75 files)
+-- ============================================
+
+-- Update hero for: Toyota-corolla-2026.jpg
+UPDATE models
+SET hero_image_url = '/images/vehicles/hero/Toyota-corolla-2026.jpg'
+WHERE brand_id = (SELECT id FROM brands WHERE LOWER(name) = LOWER('Toyota'))
+  AND LOWER(name) LIKE '%corolla%'
+  AND (hero_image_url IS NULL OR hero_image_url LIKE '/cars/%');
+
+-- Update hero for: BMW-x5-2025.jpg
+UPDATE models
+SET hero_image_url = '/images/vehicles/hero/BMW-x5-2025.jpg'
+WHERE brand_id = (SELECT id FROM brands WHERE LOWER(name) = LOWER('BMW'))
+  AND LOWER(name) LIKE '%x5%'
+  AND (hero_image_url IS NULL OR hero_image_url LIKE '/cars/%');
+
+-- Update hero for: MG-mg-5-2026.jpg
+UPDATE models
+SET hero_image_url = '/images/vehicles/hero/MG-mg-5-2026.jpg'
+WHERE brand_id = (SELECT id FROM brands WHERE LOWER(name) = LOWER('MG'))
+  AND LOWER(name) LIKE '%mg%'
+  AND (hero_image_url IS NULL OR hero_image_url LIKE '/cars/%');
+
+-- ... (72 more hero image updates)
+
+-- ============================================
+-- HOVER IMAGES (60 files)
+-- ============================================
+
+-- Update hover for: Toyota-corolla-2026.jpg
+UPDATE models
+SET hover_image_url = '/images/vehicles/hover/Toyota-corolla-2026.jpg'
+WHERE brand_id = (SELECT id FROM brands WHERE LOWER(name) = LOWER('Toyota'))
+  AND LOWER(name) LIKE '%corolla%'
+  AND (hover_image_url IS NULL OR hover_image_url LIKE '/cars/%');
+
+-- Update hover for: BMW-x5-2025.jpg
+UPDATE models
+SET hover_image_url = '/images/vehicles/hover/BMW-x5-2025.jpg'
+WHERE brand_id = (SELECT id FROM brands WHERE LOWER(name) = LOWER('BMW'))
+  AND LOWER(name) LIKE '%x5%'
+  AND (hover_image_url IS NULL OR hover_image_url LIKE '/cars/%');
+
+-- ... (58 more hover image updates)
+
+COMMIT;
+
+-- ============================================
+-- VERIFICATION QUERIES
+-- ============================================
+
+-- Count updated models by brand
+SELECT
+    b.name as brand,
+    COUNT(*) as total_models,
+    COUNT(CASE WHEN m.hero_image_url LIKE '/images/vehicles/%' THEN 1 END) as with_hero,
+    COUNT(CASE WHEN m.hover_image_url LIKE '/images/vehicles/%' THEN 1 END) as with_hover
+FROM models m
+JOIN brands b ON m.brand_id = b.id
+GROUP BY b.name
+ORDER BY total_models DESC;
+
+-- List models still missing images
+SELECT
+    b.name as brand,
+    m.name as model,
+    m.year,
+    CASE WHEN m.hero_image_url IS NULL THEN '❌' ELSE '✅' END as hero,
+    CASE WHEN m.hover_image_url IS NULL THEN '❌' ELSE '✅' END as hover
+FROM models m
+JOIN brands b ON m.brand_id = b.id
+WHERE m.hero_image_url IS NULL OR m.hover_image_url IS NULL
+ORDER BY b.name, m.name, m.year;
