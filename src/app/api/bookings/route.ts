@@ -6,6 +6,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { bookingRepository } from '@/repositories/bookingRepository';
 import { BookingInput } from '@/types/booking';
 import { captureSentryError } from '@/lib/sentry-user';
+import { requestOtp } from '@/services/sms/engine';
 
 interface ValidationData {
   name?: unknown;
@@ -101,8 +102,34 @@ export async function POST(request: NextRequest) {
 
     const booking = await bookingRepository.createBooking(bookingInput);
 
+    // Send OTP via SMS
+    const otpResult = await requestOtp({
+      phone: booking.phone,
+      subjectType: 'booking',
+      subjectId: booking.id
+    });
+
+    if (!otpResult.success) {
+      console.error('[BOOKING] OTP send failed:', otpResult.error);
+      // Booking created but SMS failed - return partial success
+      return NextResponse.json(
+        {
+          booking,
+          warning: 'Booking created but SMS failed to send',
+          smsError: otpResult.error
+        },
+        { status: 201 }
+      );
+    }
+
     return NextResponse.json(
-      { booking },
+      {
+        booking,
+        otp: {
+          sent: true,
+          expiresAt: otpResult.expiresAt
+        }
+      },
       { status: 201 }
     );
   } catch (error) {
