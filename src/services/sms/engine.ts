@@ -52,6 +52,7 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
   const { error: dbError } = await supabase
   .from('sms_verifications')
   .insert({
+    booking_id: subjectId, // Link to booking (subjectId is booking UUID)
     phone_number: phone,
     otp: code,
     expires_at: new Date(Date.now() + 10 * 60 * 1000).toISOString(), // 10 min expiry
