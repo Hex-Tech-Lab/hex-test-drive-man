@@ -8,13 +8,13 @@ const PLACEHOLDER_IMAGE = '/images/placeholder-car.jpg';
 export function getVehicleImage(imageUrl: string | null | undefined): string {
   if (!imageUrl) return PLACEHOLDER_IMAGE;
 
-  // Check if URL is valid
-  try {
-    new URL(imageUrl);
+  // Accept both relative paths (starting with /) and absolute URLs
+  if (imageUrl.startsWith('/') || imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
     return imageUrl;
-  } catch {
-    return PLACEHOLDER_IMAGE;
   }
+
+  // Invalid format
+  return PLACEHOLDER_IMAGE;
 }
 
 /**
