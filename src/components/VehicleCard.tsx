@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   Card,
   CardMedia,
@@ -25,12 +26,14 @@ import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { BrandLogo } from '@/components/BrandLogo';
 import { getVehicleImage, formatEGP } from '@/lib/imageHelper';
+import { requestBookingOtp } from '@/actions/bookingActions';
 
 interface VehicleCardProps {
   vehicle: Vehicle;
 }
 
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
+  const router = useRouter();
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
 
@@ -125,18 +128,20 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
         throw new Error('Failed to submit booking');
       }
 
-      await response.json();
+      const booking = await response.json();
 
-      setSnackbar({
-        open: true,
-        message:
-          language === 'ar'
-            ? 'تم إرسال الحجز بنجاح!'
-            : 'Booking submitted successfully!',
-        severity: 'success',
+      // Send OTP to phone number
+      const otpResult = await requestBookingOtp({
+        phone: formData.phone,
+        subjectId: booking.id,
       });
 
-      handleBookingModalClose();
+      if (!otpResult.success) {
+        throw new Error(otpResult.error || 'Failed to send OTP');
+      }
+
+      // Redirect to OTP verification page
+      router.push(`/bookings/${booking.id}/verify`);
     } catch (error) {
       console.error('Error submitting booking:', error);
       setSnackbar({
