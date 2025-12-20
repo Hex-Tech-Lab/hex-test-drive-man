@@ -5,13 +5,16 @@ export async function sendSms(to: string, message: string): Promise<boolean> {
   const startTime = Date.now();
   
   try {
+    // Ensure E.164 format with + prefix
+    const formattedPhone = to.startsWith('+') ? to : `+${to}`;
+
     const payload = {
-      recipient: to,
+      recipient: formattedPhone,
       sender_id: "ORDER",
       message: message,
     };
 
-    console.log(`[WhySMS] Sending to ${to} at ${new Date().toISOString()}`);
+    console.log(`[WhySMS] Sending to ${formattedPhone} at ${new Date().toISOString()}`);
 
     const res = await fetch(`${WHYSMS_BASE_URL}/sms/send`, {
       method: 'POST',
