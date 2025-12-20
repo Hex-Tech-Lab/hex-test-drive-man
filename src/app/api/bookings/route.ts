@@ -123,13 +123,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      {
-        booking,
-        otp: {
-          sent: true,
-          expiresAt: otpResult.expiresAt
-        }
-      },
+      booking,
       { status: 201 }
     );
   } catch (error) {

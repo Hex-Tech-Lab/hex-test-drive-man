@@ -11,14 +11,18 @@ export async function sendSms(to: string, message: string): Promise<{ success: b
   const startTime = Date.now();
 
   try {
+    // Ensure E.164 format with + prefix
+    const formattedPhone = to.startsWith('+') ? to : `+${to}`;
+
     const payload = {
-      recipient: to,
-      sender_id: "Order",
+      recipient: formattedPhone,
+      sender_id: "ORDER",
       type: "otp",
       message: message,
     };
 
-    console.log(`[WhySMS] Sending OTP to ${to}`);
+    console.log(`[WhySMS] Sending OTP to ${formattedPhone} at ${new Date().toISOString()}`);
+
 
     const res = await fetch(`${WHYSMS_BASE_URL}/sms/send`, {
       method: 'POST',
