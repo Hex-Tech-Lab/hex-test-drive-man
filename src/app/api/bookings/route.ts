@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
     const booking = await bookingRepository.createBooking(bookingInput);
 
     return NextResponse.json(
-      { booking },
+      booking,
       { status: 201 }
     );
   } catch (error) {
