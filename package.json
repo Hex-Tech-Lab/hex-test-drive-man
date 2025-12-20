@@ -38,6 +38,6 @@
     "eslint": "9.0.0",
     "eslint-plugin-react": "7.37.4",
     "eslint-plugin-react-hooks": "5.2.0",
-    "typescript": "5.7.3"
+    "typescript": "5.9.3"
   }
 }
