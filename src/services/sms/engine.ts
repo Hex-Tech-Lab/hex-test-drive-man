@@ -53,7 +53,7 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
   .from('sms_verifications')
   .insert({
     booking_id: subjectId, // Link to booking (subjectId is booking UUID)
-    phone_number: phone,
+    phone_number: phone.trim(),
     otp: code,
     expires_at: new Date(Date.now() + 10 * 60 * 1000).toISOString(), // 10 min expiry
     verified: false
@@ -85,7 +85,7 @@ export async function verifyOtp(phoneNumber: string, otp: string): Promise<boole
     const { data: verification, error } = await supabase
       .from('sms_verifications')
       .select('*')
-      .eq('phone_number', phoneNumber)
+      .eq('phone_number', phoneNumber.trim())
       .eq('otp', otp)
       .eq('verified', false)
       .gte('expires_at', new Date().toISOString())

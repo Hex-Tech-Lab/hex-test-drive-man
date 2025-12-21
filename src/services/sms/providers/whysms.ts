@@ -11,8 +11,9 @@ export async function sendSms(to: string, message: string): Promise<{ success: b
   const startTime = Date.now();
 
   try {
-    // Ensure E.164 format with + prefix
-    const formattedPhone = to.startsWith('+') ? to : `+${to}`;
+    // Ensure E.164 format with + prefix (trim whitespace first)
+    const cleanPhone = to.trim();
+    const formattedPhone = cleanPhone.startsWith('+') ? cleanPhone : `+${cleanPhone}`;
 
     const payload = {
       recipient: formattedPhone,

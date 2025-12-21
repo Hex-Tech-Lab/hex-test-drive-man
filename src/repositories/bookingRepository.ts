@@ -53,7 +53,7 @@ export const bookingRepository = {
         vehicle_id: input.vehicleId,
         test_drive_date: input.preferredDate,
         test_drive_location: input.notes || 'Showroom',
-        phone_number: input.phone,
+        phone_number: input.phone.trim(),
         status: 'pending',
         phone_verified: false,
         kyc_verified: false,
