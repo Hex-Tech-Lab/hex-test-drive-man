@@ -1,15 +1,9 @@
-// In-memory booking repository for MVP v0
-// Created: 2025-12-07
-// NOTE: This is a temporary implementation. Will be replaced with Supabase/Drizzle in future iterations.
+// Supabase booking repository for MVP v1
+// Created: 2025-12-19 (replacing in-memory implementation)
+// Database persistence for bookings with OTP verification
 
-import crypto from 'crypto';
+import { createClient } from '@/lib/supabase';
 import { Booking, BookingInput, BookingStatus } from '@/types/booking';
-
-// In-memory storage (resets on server restart).
-// NOTE: This is MVP-only and not safe for concurrent mutation;
-// callers MUST treat returned objects as read-only.
-// Will be replaced with a proper database + repository.
-const bookings: Booking[] = [];
 
 export const bookingRepository = {
   /**
@@ -49,31 +43,42 @@ export const bookingRepository = {
       throw new Error(errors.join('; '));
     }
 
-    // Simulate async operation (database write)
-    await new Promise(resolve => setTimeout(resolve, 100));
+    // Create Supabase client
+    const supabase = createClient();
 
+    // Insert into database with column name mapping
+    const { data, error } = await supabase
+      .from('bookings')
+      .insert({
+        vehicle_id: input.vehicleId,
+        test_drive_date: input.preferredDate,
+        test_drive_location: input.notes || 'Showroom',
+        phone_number: input.phone,
+        status: 'pending',
+        phone_verified: false,
+        kyc_verified: false,
+      })
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Failed to create booking:', error);
+      throw new Error(`Failed to create booking: ${error.message}`);
+    }
+
+    // Map database columns back to Booking type
     const booking: Booking = {
-      id: crypto.randomUUID(),
+      id: data.id,
       name: input.name,
-      phone: input.phone,
-      preferredDate: input.preferredDate,
-      vehicleId: input.vehicleId,
-      notes: input.notes,
-      status: 'pending' as BookingStatus,
-      createdAt: new Date().toISOString(),
+      phone: data.phone_number,
+      preferredDate: data.test_drive_date,
+      vehicleId: data.vehicle_id,
+      notes: data.test_drive_location,
+      status: data.status as BookingStatus,
+      createdAt: data.created_at,
     };
 
-    bookings.push(booking);
     return booking;
-  },
-
-  /**
-   * Get all bookings (for future admin use)
-   * @returns Promise resolving to array of all bookings
-   */
-  async getAllBookings(): Promise<Booking[]> {
-    await new Promise(resolve => setTimeout(resolve, 50));
-    return [...bookings];
   },
 
   /**
@@ -82,17 +87,50 @@ export const bookingRepository = {
    * @returns Promise resolving to booking or null if not found
    */
   async getBookingById(id: string): Promise<Booking | null> {
-    await new Promise(resolve => setTimeout(resolve, 50));
-    return bookings.find(b => b.id === id) || null;
+    const supabase = createClient();
+
+    const { data, error } = await supabase
+      .from('bookings')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (error || !data) {
+      return null;
+    }
+
+    return {
+      id: data.id,
+      name: '',
+      phone: data.phone_number,
+      preferredDate: data.test_drive_date,
+      vehicleId: data.vehicle_id,
+      notes: data.test_drive_location,
+      status: data.status as BookingStatus,
+      createdAt: data.created_at,
+    };
   },
 
   /**
-   * Get bookings by vehicle ID
-   * @param vehicleId - Vehicle ID
-   * @returns Promise resolving to array of bookings for the vehicle
+   * Mark booking phone as verified
+   * @param id - Booking ID
    */
-  async getBookingsByVehicleId(vehicleId: string): Promise<Booking[]> {
-    await new Promise(resolve => setTimeout(resolve, 50));
-    return bookings.filter(b => b.vehicleId === vehicleId);
+  async markPhoneVerified(id: string): Promise<void> {
+    const supabase = createClient();
+
+    const { error } = await supabase
+      .from('bookings')
+      .update({
+        phone_verified: true,
+        verified_at: new Date().toISOString(),
+        status: 'confirmed',
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', id);
+
+    if (error) {
+      console.error('Failed to mark phone as verified:', error);
+      throw new Error(`Failed to mark phone as verified: ${error.message}`);
+    }
   },
 };
