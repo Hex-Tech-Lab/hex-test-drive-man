@@ -1,0 +1,24 @@
+{
+  "generated_at": "2025-12-21T14:15:23Z",
+  "metadata": {
+    "prs_scanned": 7,
+    "open_prs": 6,
+    "closed_prs_24h": 1,
+    "timeframe": "24 hours"
+  },
+  "total_findings": 0,
+  "by_severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "by_type": {
+    "inline_code": 0,
+    "security": 0,
+    "architecture": 0,
+    "summary": 0
+  },
+  "findings_by_pr": {},
+  "prioritized_actions": []
+}
