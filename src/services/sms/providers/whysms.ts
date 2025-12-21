@@ -22,8 +22,7 @@ export async function sendSms(to: string, message: string): Promise<{ success: b
       message: message,
     };
 
-    console.log(`[WhySMS] Sending OTP to ${formattedPhone} at ${new Date().toISOString()}`);
-
+    console.log(`[WhySMS] DEBUG REQUEST:`, JSON.stringify({ ...payload, message: 'REDACTED' }));
 
     const res = await fetch(`${WHYSMS_BASE_URL}/sms/send`, {
       method: 'POST',
@@ -35,7 +34,18 @@ export async function sendSms(to: string, message: string): Promise<{ success: b
       body: JSON.stringify(payload),
     });
 
-    const data: WhySmsResponse = await res.json();
+    const rawText = await res.text();
+    console.log(`[WhySMS] DEBUG RESPONSE STATUS: ${res.status}`);
+    console.log(`[WhySMS] DEBUG RESPONSE BODY: ${rawText}`);
+
+    let data: WhySmsResponse;
+    try {
+        data = JSON.parse(rawText);
+    } catch (e) {
+        console.error('[WhySMS] Failed to parse JSON response', e);
+        return { success: false, message: 'Invalid JSON response from provider' };
+    }
+
     const apiLatency = Date.now() - startTime;
 
     console.log(`[WhySMS] Response (${apiLatency}ms):`, JSON.stringify(data));
