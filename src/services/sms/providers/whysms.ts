@@ -22,8 +22,13 @@ export async function sendSms(to: string, message: string): Promise<{ success: b
       message: message,
     };
 
-    console.log(`[WhySMS] Sending OTP to ${formattedPhone} at ${new Date().toISOString()}`);
-
+    // Enhanced logging for debugging
+    console.log(`[WhySMS] === SMS SEND REQUEST ===`);
+    console.log(`[WhySMS] Timestamp: ${new Date().toISOString()}`);
+    console.log(`[WhySMS] Recipient: ${formattedPhone}`);
+    console.log(`[WhySMS] Payload:`, JSON.stringify(payload, null, 2));
+    console.log(`[WhySMS] Token configured: ${WHYSMS_TOKEN ? 'YES' : 'NO'}`);
+    console.log(`[WhySMS] Token length: ${WHYSMS_TOKEN?.length || 0}`);
 
     const res = await fetch(`${WHYSMS_BASE_URL}/sms/send`, {
       method: 'POST',
@@ -38,7 +43,10 @@ export async function sendSms(to: string, message: string): Promise<{ success: b
     const data: WhySmsResponse = await res.json();
     const apiLatency = Date.now() - startTime;
 
-    console.log(`[WhySMS] Response (${apiLatency}ms):`, JSON.stringify(data));
+    console.log(`[WhySMS] === SMS SEND RESPONSE ===`);
+    console.log(`[WhySMS] Latency: ${apiLatency}ms`);
+    console.log(`[WhySMS] HTTP Status: ${res.status}`);
+    console.log(`[WhySMS] Response Body:`, JSON.stringify(data, null, 2));
 
     if (!res.ok || data.status !== 'success') {
       return {
@@ -55,7 +63,11 @@ export async function sendSms(to: string, message: string): Promise<{ success: b
     };
   } catch (error) {
     const apiLatency = Date.now() - startTime;
-    console.error(`[WhySMS] Error after ${apiLatency}ms:`, error);
+    console.error(`[WhySMS] === SMS SEND ERROR ===`);
+    console.error(`[WhySMS] Latency: ${apiLatency}ms`);
+    console.error(`[WhySMS] Error Type: ${error instanceof Error ? error.constructor.name : typeof error}`);
+    console.error(`[WhySMS] Error Message:`, error instanceof Error ? error.message : String(error));
+    console.error(`[WhySMS] Error Stack:`, error instanceof Error ? error.stack : 'N/A');
     return {
       success: false,
       message: error instanceof Error ? error.message : 'Unknown error',
