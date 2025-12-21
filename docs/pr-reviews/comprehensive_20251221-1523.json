@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "generated_at": "2025-12-21T15:22:52Z",
+    "prs_scanned": 3,
+    "prs_open": 2,
+    "prs_closed_recent": 1
+  },
+  "total_findings": 62,
+  "by_severity": {
+    "critical": 7,
+    "high": 6,
+    "medium": 8,
+    "low": 5,
+    "info": 36
+  },
+  "note": "Detailed extraction requires TypeScript version - DNS issues prevented full parsing"
+}
