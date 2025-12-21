@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { Box, TextField, Button, Typography, Container, Paper, Alert } from '@mui/material'
 
@@ -12,6 +12,52 @@ export default function VerifyBookingPage() {
   const [otp, setOtp] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [showResend, setShowResend] = useState(false)
+  const [timer, setTimer] = useState(60)
+  const [resending, setResending] = useState(false)
+
+  useEffect(() => {
+    const countdown = setInterval(() => {
+      setTimer(prev => {
+        if (prev <= 1) {
+          setShowResend(true)
+          clearInterval(countdown)
+          return 0
+        }
+        return prev - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(countdown)
+  }, [])
+
+  const handleResend = async () => {
+    setResending(true)
+    setError('')
+
+    try {
+      const response = await fetch('/api/otp/resend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bookingId })
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to resend OTP')
+      }
+
+      // Reset timer
+      setShowResend(false)
+      setTimer(60)
+      setError('')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to resend OTP')
+    } finally {
+      setResending(false)
+    }
+  }
 
   const handleVerify = async () => {
     setLoading(true)
@@ -79,6 +125,25 @@ export default function VerifyBookingPage() {
         >
           {loading ? 'Verifying...' : 'Verify & Confirm Booking'}
         </Button>
+
+        <Box sx={{ mt: 2, textAlign: 'center' }}>
+          {!showResend && (
+            <Typography variant="body2" color="text.secondary">
+              Didn&apos;t receive code? Resend in {timer}s
+            </Typography>
+          )}
+
+          {showResend && (
+            <Button
+              variant="text"
+              onClick={handleResend}
+              disabled={resending}
+              sx={{ textTransform: 'none' }}
+            >
+              {resending ? 'Sending...' : 'Resend OTP'}
+            </Button>
+          )}
+        </Box>
 
         <Typography variant="caption" display="block" sx={{ mt: 2, textAlign: 'center', color: 'text.secondary' }}>
           Booking ID: {bookingId}
