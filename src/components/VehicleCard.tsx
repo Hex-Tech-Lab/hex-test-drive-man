@@ -107,6 +107,11 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
       return;
     }
 
+    // Prevent double submission
+    if (submitting) {
+      return;
+    }
+
     setSubmitting(true);
 
     try {
@@ -130,16 +135,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
 
       const booking = await response.json();
 
-      // Send OTP to phone number
-      const otpResult = await requestBookingOtp({
-        phone: formData.phone,
-        subjectId: booking.id,
-      });
-
-      if (!otpResult.success) {
-        throw new Error(otpResult.error || 'Failed to send OTP');
-      }
-
+      // OTP is already sent by the API endpoint - no need to send again
       // Redirect to OTP verification page
       router.push(`/bookings/${booking.id}/verify`);
     } catch (error) {
@@ -152,7 +148,6 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
             : 'Failed to submit booking. Please try again.',
         severity: 'error',
       });
-    } finally {
       setSubmitting(false);
     }
   };

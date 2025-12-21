@@ -7,6 +7,7 @@ import { bookingRepository } from '@/repositories/bookingRepository';
 import { BookingInput } from '@/types/booking';
 import { captureSentryError } from '@/lib/sentry-user';
 import { requestOtp } from '@/services/sms/engine';
+import { createClient } from '@/lib/supabase';
 
 interface ValidationData {
   name?: unknown;
@@ -99,6 +100,33 @@ export async function POST(request: NextRequest) {
       vehicleId: body.vehicleId.trim(),
       notes: body.notes?.trim(),
     };
+
+    // Idempotency check: prevent duplicate bookings within 60 seconds
+    const supabase = createClient();
+    const { data: recentBooking } = await supabase
+      .from('bookings')
+      .select('id, created_at')
+      .eq('phone_number', bookingInput.phone)
+      .gte('created_at', new Date(Date.now() - 60000).toISOString())
+      .maybeSingle();
+
+    if (recentBooking) {
+      console.log('[BOOKING] Duplicate booking attempt prevented:', {
+        phone: bookingInput.phone,
+        existingBookingId: recentBooking.id,
+        createdAt: recentBooking.created_at
+      });
+
+      // Return existing booking ID to prevent duplicate OTP
+      return NextResponse.json(
+        {
+          id: recentBooking.id,
+          message: 'Booking already exists',
+          duplicate: true
+        },
+        { status: 200 }
+      );
+    }
 
     const booking = await bookingRepository.createBooking(bookingInput);
 
