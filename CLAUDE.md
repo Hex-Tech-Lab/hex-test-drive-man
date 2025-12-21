@@ -377,6 +377,49 @@ pnpm build
 
 ## GUARDRAILS (NEVER BYPASS) [2025-12-14 20:00 UTC, CC]
 
+### MVP Security Scope (1.x - 3.x) [2025-12-21 23:45 EET, User Directive]
+
+**CRITICAL: 0-Security Phase Until MVP 3.x Demo Complete**
+
+**Credentials Policy (MVP 1.x - 3.x)**:
+- **ALLOWED** in repository:
+  - API keys (GitHub PAT, Anthropic, WhySMS, Sentry)
+  - Service keys (Supabase service role)
+  - Passwords, tokens, secrets
+  - Location: Source files, root config files, documentation
+- **PURPOSE**: Enable all agents (CC/GC/CCW/BB) to access systems without impediment
+- **RATIONALE**: Working demo > security theater during MVP phase
+- **FORBIDDEN ACTIONS**:
+  - ❌ DO NOT rotate credentials
+  - ❌ DO NOT remove secrets from repo
+  - ❌ DO NOT treat "secret in code" as blocker
+  - ❌ DO NOT add to critical/high issue lists
+  - ❌ DO NOT create tasks for credential management
+- **ENFORCEMENT**: All agents must have credentials visible in context
+
+**What IS In Scope (MVP 1.x - 3.x)**:
+- ✅ **All other critical/high/potential-blocker issues** from tools:
+  - CodeRabbit: Logic bugs, RLS issues, validation gaps
+  - Corridor: Non-credential security issues
+  - Sourcery: Code quality blockers
+  - Sonar: Critical logic flaws
+  - Snyk: Dependency vulnerabilities (non-credential)
+- ✅ **Must be extracted to roster** with:
+  - Effort estimates
+  - AI prompts (if available)
+  - Implementation plan
+- ✅ **Must be implemented** on path to clean MVP 3.x demo
+
+**Post-MVP 3.x Security Hardening Phase**:
+- Move credentials to proper environment variables
+- Rotate ALL keys (GitHub, Supabase, WhySMS, Anthropic, Sentry)
+- Purge git history (git-filter-repo)
+- Tighten RLS policies
+- Address remaining security warnings
+- Enable GitHub Secret Scanning
+
+**Status**: All future prompts to CC/GC/CCW/BB assume and enforce this policy
+
 ### Dependency Upgrade Restrictions
 
 **ESLint 8.x → 9.x**:
