@@ -1,0 +1,12 @@
+{
+  "generated_at": "2025-12-21T09:27:20Z",
+  "total_prs": 5,
+  "open_prs": 5,
+  "pr_summary": [
+{"number":17,"title":"[Snyk] Upgrade @types/react from 19.0.8 to 19.2.7","author":"TechHypeXP","state":"open","labels":[],"url":"https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/17","scope":"Dependency Upgrade","priority":"LOW"},
+{"number":16,"title":"[Snyk] Upgrade eslint from 9.0.0 to 9.39.1","author":"TechHypeXP","state":"open","labels":[],"url":"https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/16","scope":"Dependency Upgrade","priority":"LOW"},
+{"number":15,"title":"[Snyk] Upgrade @types/node from 22.13.1 to 22.19.1","author":"TechHypeXP","state":"open","labels":[],"url":"https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/15","scope":"Dependency Upgrade","priority":"LOW"},
+{"number":14,"title":"[Snyk] Upgrade @supabase/supabase-js from 2.50.0 to 2.86.0","author":"TechHypeXP","state":"open","labels":[],"url":"https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/14","scope":"Dependency Upgrade","priority":"LOW"},
+{"number":13,"title":"[Snyk] Upgrade typescript from 5.7.3 to 5.9.3","author":"TechHypeXP","state":"open","labels":[],"url":"https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/13","scope":"Dependency Upgrade","priority":"LOW"}
+  ]
+}
