@@ -16,10 +16,55 @@
 
 ---
 
+## MVP HORIZON: 0-SECURITY PHASE (1.x - 3.x)
+
+**CRITICAL POLICY CHANGE** [2025-12-21 23:45 EET, User Directive]:
+
+This document covers **MVP 1.x through 3.x** - the **0-security phase**. During this phase:
+
+### Credentials Policy
+- **ALLOWED in repository**:
+  - API keys (GitHub PAT, Anthropic, WhySMS, Sentry)
+  - Service keys (Supabase service role)
+  - Passwords, tokens, secrets
+  - Location: Source files, root config files, documentation
+- **PURPOSE**: Enable all agents (CC/GC/BB) to access systems without impediment
+- **RATIONALE**: Working demo > security theater during MVP phase
+
+### What Is NOT In Scope (MVP 1.x - 3.x)
+- ❌ Credential rotation
+- ❌ Secret removal from repo
+- ❌ Git history purging
+- ❌ Token/key management
+- **All credential-related findings moved to Post-MVP 3.x Security Hardening section**
+
+### What IS In Scope (MVP 1.x - 3.x)
+✅ **All other critical/high/potential-blocker issues** from tools:
+- CodeRabbit: Logic bugs, RLS issues, validation gaps, data integrity
+- Corridor: Non-credential security issues
+- Sourcery: Code quality blockers
+- Sonar: Critical logic flaws
+- Snyk: Dependency vulnerabilities (non-credential)
+- OTP/Bookings: Duplicate SMS, missing columns, schema mismatches
+- Database/RLS: Missing policies, overly permissive rules
+- Images: Coverage, 404s, broken references
+
+### Post-MVP 3.x: Security Hardening Phase
+After working demo is validated, all credential-related findings will be addressed:
+- Rotate all API keys and tokens
+- Purge secrets from git history
+- Implement proper secret management (env vars, vaults)
+- Security audit and penetration testing
+
+**Adjusted Critical Count**: 17 (was 19, moved 2 credential findings to Post-MVP 3.x)
+**Adjusted High Count**: 29 (was 33, moved 4 credential findings to Post-MVP 3.x)
+
+---
+
 ## TABLE OF CONTENTS
 
-1. [Critical Findings (19)](#1-critical-findings-19)
-2. [High Priority Findings (33)](#2-high-priority-findings-33)
+1. [Critical Findings (17)](#1-critical-findings-17) - **MVP 1.x-3.x Scope**
+2. [High Priority Findings (29)](#2-high-priority-findings-29) - **MVP 1.x-3.x Scope**
 3. [Medium/Low Findings (65)](#3-mediumlow-findings-65)
 4. [Execution Schedule](#4-execution-schedule)
 5. [PR Merge Readiness Matrix](#5-pr-merge-readiness-matrix)
@@ -28,10 +73,13 @@
 8. [Success Criteria](#8-success-criteria)
 9. [Rollback Plans](#9-rollback-plans)
 10. [Monitoring & Verification](#10-monitoring--verification)
+11. [Post-MVP 3.x Security Hardening](#11-post-mvp-3x-security-hardening) - **Deferred Credential Findings**
 
 ---
 
-## 1. CRITICAL FINDINGS (19)
+## 1. CRITICAL FINDINGS (17)
+
+**Note**: Credential-related findings (C-SEC-1, C-SEC-2) moved to [Section 11: Post-MVP 3.x Security Hardening](#11-post-mvp-3x-security-hardening)
 
 ### 1.1. OTP/Bookings Critical (3)
 
@@ -51,7 +99,7 @@
   // KEEP only:
   router.push(`/${language}/bookings/${booking.id}/verify`);
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 30m (15min code + 15min test)
 - **Status**: ⏳ Fix identified, code change ready
 - **Blocker**: YES - affects every booking, 50% cost waste
@@ -79,7 +127,7 @@
   SELECT column_name FROM information_schema.columns
   WHERE table_name = 'bookings' AND column_name = 'name';
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 1h (verify migration + update code + test)
 - **Status**: ⏳ Migration file exists, application status unknown
 - **Blocker**: YES - customer data integrity
@@ -104,71 +152,13 @@
   SELECT column_name FROM information_schema.columns
   WHERE table_name = 'bookings' AND column_name IN ('phone', 'phone_number');
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 30m (verify schema + audit code)
 - **Status**: ⏳ Needs schema verification
 - **Blocker**: YES - phone verification critical path
 - **Reference**: CodeRabbit PR #19
 
-### 1.2. Security/Secrets Critical (2)
-
-#### C-SEC-1: Hardcoded GitHub Personal Access Token
-- **PR**: #21
-- **Tool**: Manual analysis (CC), Corridor
-- **File**: `scripts/comprehensive-pr-scraper.ts:5`
-- **Issue**: Live GitHub PAT `ghp_[REDACTED]` committed to repo
-- **Impact**: Complete GitHub account compromise, repo write access, API abuse ($$$)
-- **Root Cause**: Development convenience, forgot to use env var
-- **Fix**:
-  ```bash
-  # 1. Rotate token immediately
-  gh auth login
-  # Revoke old: https://github.com/settings/tokens
-
-  # 2. Update code
-  const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
-  if (!GITHUB_TOKEN) throw new Error('GITHUB_TOKEN required');
-
-  # 3. Purge from history
-  git filter-repo --path scripts/comprehensive-pr-scraper.ts --invert-paths
-  git filter-repo --replace-text <(echo "ghp_[REDACTED_TOKEN_VALUE]==>REDACTED")
-
-  # 4. Force push (coordinate team)
-  git push --force-with-lease origin main
-  ```
-- **Owner**: CC
-- **ETA**: 2h (rotate + purge + coordinate force push)
-- **Status**: ⏳ Active vulnerability, immediate action required
-- **Blocker**: YES - security breach in progress
-- **Reference**: PR #21 Corridor comment
-
-#### C-SEC-2: Hardcoded Supabase Service Role Key
-- **PR**: #21
-- **Tool**: Sourcery, Corridor
-- **File**: `scripts/complete_vehicle_image_coverage.py:17-18`
-- **Issue**: Service role key `eyJhbGciOiJIUzI1NiIs...` bypasses RLS, full DB access
-- **Impact**: Complete database compromise, RLS bypass, data breach
-- **Root Cause**: Fallback default for convenience
-- **Fix**:
-  ```python
-  # Line 17-18: REMOVE fallback
-  SUPABASE_SERVICE_KEY = os.environ.get('SUPABASE_SERVICE_KEY')
-  if not SUPABASE_SERVICE_KEY:
-      print("ERROR: SUPABASE_SERVICE_KEY not set")
-      sys.exit(1)
-
-  # Rotate key in Supabase Dashboard
-  # Settings → API → Service Role Key → Generate New
-
-  # Purge from git history (coordinate with C-SEC-1)
-  ```
-- **Owner**: CC
-- **ETA**: 2h (coordinate with C-SEC-1 for single purge operation)
-- **Status**: ⏳ Active vulnerability
-- **Blocker**: YES - RLS bypass active
-- **Reference**: PR #21 Sourcery/Corridor comments, SMS_OTP_STATUS.md
-
-### 1.3. Database/RLS Critical (3)
+### 1.2. Database/RLS Critical (3)
 
 #### C-RLS-1: Overly Permissive Bookings INSERT Policy
 - **PR**: #19
@@ -190,7 +180,7 @@
   CREATE POLICY "Users can create own bookings" ON bookings
     FOR INSERT WITH CHECK (auth.uid() = user_id OR user_id IS NULL);
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 1h (decide on auth model + update migration + test)
 - **Status**: ⏳ Needs product decision: allow unauthenticated bookings?
 - **Blocker**: YES - security hole
@@ -223,7 +213,7 @@
   CREATE POLICY "Service role can delete OTPs" ON sms_verifications
     FOR DELETE TO service_role USING (true);
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 1h (coordinate with C-RLS-1)
 - **Status**: ⏳ Pending
 - **Blocker**: YES - OTP security hole
@@ -251,7 +241,7 @@
   CREATE POLICY "Service role can delete bookings" ON bookings
     FOR DELETE TO service_role USING (true);
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 1h (coordinate with C-RLS-1, C-RLS-2 for single migration)
 - **Status**: ⏳ Pending
 - **Blocker**: YES - functional blocker for booking management
@@ -292,7 +282,9 @@
 
 ---
 
-## 2. HIGH PRIORITY FINDINGS (33)
+## 2. HIGH PRIORITY FINDINGS (29)
+
+**Note**: Credential-related findings (H-SEC-1, H-SEC-2, H-SEC-3, H-SEC-4) moved to [Section 11: Post-MVP 3.x Security Hardening](#11-post-mvp-3x-security-hardening)
 
 ### 2.1. OTP/Bookings High (5)
 
@@ -319,7 +311,7 @@
     // ... rest of handler
   }
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 2h (Upstash setup + integration + test)
 - **Status**: ⏳ Pending
 - **Priority**: High (cost/security risk)
@@ -346,7 +338,7 @@
     return true;  // Signal success
   }
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 1h (change return type + update callers)
 - **Status**: ⏳ Pending
 - **Priority**: High (data integrity)
@@ -371,7 +363,7 @@
     );
   }
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 30m (status code change + update client)
 - **Status**: ⏳ Pending
 - **Priority**: High (API correctness)
@@ -400,7 +392,7 @@
     // ... WhySMS API call
   }
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 1.5h (add library + validation + test)
 - **Status**: ⏳ Pending
 - **Priority**: High (UX, reliability)
@@ -430,96 +422,12 @@
     // ... submit OTP
   };
   ```
-- **Owner**: CCW
+- **Owner**: GC (reassigned from CCW - quota locked)
 - **ETA**: 1h (add expiration check + UI)
 - **Status**: ⏳ Pending
 - **Priority**: High (UX)
 
-### 2.2. Security/Secrets High (4)
-
-#### H-SEC-1: WhySMS Credentials Exposure Risk
-- **PR**: #20
-- **Tool**: Manual analysis
-- **File**: `credentials.env`, env var references
-- **Issue**: WhySMS API key may be in git history or committed files
-- **Impact**: SMS account compromise, billing fraud
-- **Fix**:
-  ```bash
-  # Search git history
-  git log --all -p | grep -i "whysms"
-
-  # If found, purge
-  git filter-repo --replace-text <(echo "WHYSMS_KEY_VALUE==>REDACTED")
-
-  # Rotate credentials
-  # WhySMS Dashboard → API Keys → Generate New
-  ```
-- **Owner**: CC
-- **ETA**: 1h (coordinate with C-SEC-1 purge)
-- **Status**: ⏳ Pending verification
-- **Priority**: High (credential safety)
-
-#### H-SEC-2: Sentry Auth Token in Repository
-- **PR**: Multiple
-- **Tool**: Manual analysis
-- **File**: `.env.sentry-build-plugin`, git history
-- **Issue**: Sentry auth token (sntrys_*) may be committed
-- **Impact**: Error tracking abuse, project access
-- **Fix**:
-  ```bash
-  # Check if committed
-  git log --all -p | grep "sntrys_"
-
-  # .env.sentry-build-plugin should be gitignored (is it?)
-  # If leaked, rotate in Sentry Dashboard
-  ```
-- **Owner**: CC
-- **ETA**: 30m (verify + rotate if needed)
-- **Status**: ⏳ Pending verification
-- **Priority**: High (moderate impact)
-
-#### H-SEC-3: PII in BUG_FIXED.md
-- **PR**: #21
-- **Tool**: Manual analysis (CC)
-- **File**: `BUG_FIXED.md`
-- **Issue**: Contains plaintext Egyptian phone numbers (+20...) and OTP codes from testing
-- **Impact**: Privacy violation, test data exposure
-- **Fix**:
-  ```bash
-  # 1. Sanitize current file
-  sed -i 's/+20[0-9]\{10\}/+20XXXXXXXXXX/g' BUG_FIXED.md
-  sed -i 's/OTP: [0-9]\{6\}/OTP: XXXXXX/g' BUG_FIXED.md
-  git add BUG_FIXED.md
-  git commit -m "docs: sanitize PII from BUG_FIXED.md"
-
-  # 2. Purge from history
-  git filter-repo --path BUG_FIXED.md --replace-text <(echo "regex:+20[0-9]{10}==>+20XXXXXXXXXX")
-  ```
-- **Owner**: CC
-- **ETA**: 1h (sanitize + purge)
-- **Status**: ⏳ Pending
-- **Priority**: High (privacy/GDPR)
-
-#### H-SEC-4: Anthropic API Key Exposure Check
-- **PR**: Multiple
-- **Tool**: Manual analysis
-- **File**: Scripts, .env references
-- **Issue**: sk-ant-api03-* key may be in repo
-- **Impact**: AI API abuse, billing fraud ($$$)
-- **Fix**:
-  ```bash
-  # Search git history
-  git log --all -p | grep -i "sk-ant"
-
-  # If found, rotate immediately
-  # Anthropic Console → API Keys → Revoke + Create New
-  ```
-- **Owner**: CC
-- **ETA**: 30m (coordinate with C-SEC-1)
-- **Status**: ⏳ Pending verification
-- **Priority**: High (cost risk)
-
-### 2.3. Database/RLS High (6)
+### 2.2. Database/RLS High (6)
 
 #### H-RLS-1: Migrations Not Idempotent (Can't Re-run)
 - **PR**: #19
@@ -1173,40 +1081,234 @@ WHERE hero_image_url LIKE '/images/vehicles/%';
 
 ---
 
+## 11. POST-MVP 3.X SECURITY HARDENING
+
+**Status**: ⏸️ **DEFERRED** - Not in scope for MVP 1.x-3.x (0-security phase)
+**Execute After**: Working demo validated, before production launch
+**Total Findings**: 6 (2 critical, 4 high)
+**Estimated Effort**: 6-8 hours (credential rotation + git history purge + coordination)
+
+### 11.1. Critical Security Findings (Deferred)
+
+#### C-SEC-1: Hardcoded GitHub Personal Access Token
+- **PR**: #21
+- **Tool**: Manual analysis (CC), Corridor
+- **File**: `scripts/comprehensive-pr-scraper.ts:5`
+- **Issue**: Live GitHub PAT `ghp_[REDACTED]` committed to repo
+- **Impact**: Complete GitHub account compromise, repo write access, API abuse ($$$)
+- **Root Cause**: Development convenience, forgot to use env var
+- **Fix** (Post-MVP 3.x):
+  ```bash
+  # 1. Rotate token immediately
+  gh auth login
+  # Revoke old: https://github.com/settings/tokens
+
+  # 2. Update code
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
+  if (!GITHUB_TOKEN) throw new Error('GITHUB_TOKEN required');
+
+  # 3. Purge from history
+  git filter-repo --path scripts/comprehensive-pr-scraper.ts --invert-paths
+  git filter-repo --replace-text <(echo "ghp_[REDACTED_TOKEN_VALUE]==>REDACTED")
+
+  # 4. Force push (coordinate team)
+  git push --force-with-lease origin main
+  ```
+- **Owner**: CC
+- **ETA**: 2h (rotate + purge + coordinate force push)
+- **Deferred Because**: 0-security phase allows credentials in repo for agent access
+
+#### C-SEC-2: Hardcoded Supabase Service Role Key
+- **PR**: #21
+- **Tool**: Sourcery, Corridor
+- **File**: `scripts/complete_vehicle_image_coverage.py:17-18`
+- **Issue**: Service role key `eyJhbGciOiJIUzI1NiIs...` bypasses RLS, full DB access
+- **Impact**: Complete database compromise, RLS bypass, data breach
+- **Root Cause**: Fallback default for convenience
+- **Fix** (Post-MVP 3.x):
+  ```python
+  # Line 17-18: REMOVE fallback
+  SUPABASE_SERVICE_KEY = os.environ.get('SUPABASE_SERVICE_KEY')
+  if not SUPABASE_SERVICE_KEY:
+      print("ERROR: SUPABASE_SERVICE_KEY not set")
+      sys.exit(1)
+
+  # Rotate key in Supabase Dashboard
+  # Settings → API → Service Role Key → Generate New
+
+  # Purge from git history (coordinate with C-SEC-1)
+  ```
+- **Owner**: CC
+- **ETA**: 2h (coordinate with C-SEC-1 for single purge operation)
+- **Deferred Because**: Agents need service key access to execute database operations
+
+### 11.2. High Security Findings (Deferred)
+
+#### H-SEC-1: WhySMS Credentials Exposure Risk
+- **PR**: #20
+- **Tool**: Manual analysis
+- **File**: `credentials.env`, env var references
+- **Issue**: WhySMS API key may be in git history or committed files
+- **Impact**: SMS account compromise, billing fraud
+- **Fix** (Post-MVP 3.x):
+  ```bash
+  # Search git history
+  git log --all -p | grep -i "whysms"
+
+  # If found, purge
+  git filter-repo --replace-text <(echo "WHYSMS_KEY_VALUE==>REDACTED")
+
+  # Rotate credentials
+  # WhySMS Dashboard → API Keys → Generate New
+  ```
+- **Owner**: CC
+- **ETA**: 1h (coordinate with C-SEC-1 purge)
+- **Deferred Because**: Agents need SMS access for OTP testing
+
+#### H-SEC-2: Sentry Auth Token in Repository
+- **PR**: Multiple
+- **Tool**: Manual analysis
+- **File**: `.env.sentry-build-plugin`, git history
+- **Issue**: Sentry auth token (sntrys_*) may be committed
+- **Impact**: Error tracking abuse, project access
+- **Fix** (Post-MVP 3.x):
+  ```bash
+  # Check if committed
+  git log --all -p | grep "sntrys_"
+
+  # .env.sentry-build-plugin should be gitignored (is it?)
+  # If leaked, rotate in Sentry Dashboard
+  ```
+- **Owner**: CC
+- **ETA**: 30m (verify + rotate if needed)
+- **Deferred Because**: Agents need error tracking for debugging
+
+#### H-SEC-3: PII in BUG_FIXED.md
+- **PR**: #21
+- **Tool**: Manual analysis (CC)
+- **File**: `BUG_FIXED.md`
+- **Issue**: Contains plaintext Egyptian phone numbers (+20...) and OTP codes from testing
+- **Impact**: Privacy violation, test data exposure
+- **Fix** (Post-MVP 3.x):
+  ```bash
+  # 1. Sanitize current file
+  sed -i 's/+20[0-9]\{10\}/+20XXXXXXXXXX/g' BUG_FIXED.md
+  sed -i 's/OTP: [0-9]\{6\}/OTP: XXXXXX/g' BUG_FIXED.md
+  git add BUG_FIXED.md
+  git commit -m "docs: sanitize PII from BUG_FIXED.md"
+
+  # 2. Purge from history
+  git filter-repo --path BUG_FIXED.md --replace-text <(echo "regex:+20[0-9]{10}==>+20XXXXXXXXXX")
+  ```
+- **Owner**: CC
+- **ETA**: 1h (sanitize + purge)
+- **Deferred Because**: Test data useful for agents during development
+
+#### H-SEC-4: Anthropic API Key Exposure Check
+- **PR**: Multiple
+- **Tool**: Manual analysis
+- **File**: Scripts, .env references
+- **Issue**: sk-ant-api03-* key may be in repo
+- **Impact**: AI API abuse, billing fraud ($$$)
+- **Fix** (Post-MVP 3.x):
+  ```bash
+  # Search git history
+  git log --all -p | grep -i "sk-ant"
+
+  # If found, rotate immediately
+  # Anthropic Console → API Keys → Revoke + Create New
+  ```
+- **Owner**: CC
+- **ETA**: 30m (coordinate with C-SEC-1)
+- **Deferred Because**: Agents need AI access for PDF extraction and analysis
+
+### 11.3. Security Hardening Execution Plan (Post-MVP 3.x)
+
+**Prerequisites**:
+- MVP 3.x demo validated by user
+- All functional requirements met
+- Business value delivered
+
+**Execution Steps**:
+1. **Credential Audit** (1h):
+   - Scan entire git history for all secrets
+   - Document all exposed credentials
+   - Prioritize by risk (API cost > data access > convenience)
+
+2. **Rotation Phase** (2h):
+   - GitHub PAT → revoke + generate new
+   - Supabase service key → rotate in dashboard
+   - WhySMS API key → generate new key
+   - Sentry auth token → rotate if committed
+   - Anthropic API key → rotate if exposed
+   - Update all .env files across team
+
+3. **Git History Purge** (2h):
+   - Use `git filter-repo` for all secrets
+   - Single coordinated operation (not piecemeal)
+   - Force push to all branches
+   - Coordinate with all team members
+
+4. **Environment Variables Setup** (1h):
+   - Create .env.template with placeholders
+   - Update README with setup instructions
+   - Configure Vercel environment variables
+   - Test deployment with new credentials
+
+5. **Verification** (1h):
+   - Scan history: `git log --all -p | grep -E "ghp_|sk-ant|eyJhbGci"`
+   - Expected: Zero results
+   - Test all systems with new credentials
+   - Update documentation
+
+**Success Criteria**:
+- ✅ All secrets rotated and tested
+- ✅ Git history clean (verified scan)
+- ✅ All systems operational with new credentials
+- ✅ Team onboarding documentation updated
+- ✅ .env.template committed to repo
+
+---
+
 ## APPENDIX A: ISSUE REFERENCE INDEX
 
-### Critical Issues by ID:
+### Critical Issues by ID (MVP 1.x-3.x):
 - **C-OTP-1**: Duplicate OTP bug (2 SMS per booking)
 - **C-OTP-2**: Missing name column (data loss)
 - **C-OTP-3**: Phone column mismatch
-- **C-SEC-1**: GitHub token in repo
-- **C-SEC-2**: Supabase key in repo
 - **C-RLS-1**: Permissive INSERT policy
 - **C-RLS-2**: Missing sms_verifications policies
 - **C-RLS-3**: Missing bookings UPDATE/DELETE
 - **C-TOOL-1**: Migration not applied
 
-### High Issues by ID:
+### High Issues by ID (MVP 1.x-3.x):
 - **H-OTP-1**: No rate limiting
 - **H-OTP-2**: Silent update failures
 - **H-OTP-3**: Wrong status code
 - **H-OTP-4**: No E.164 validation
 - **H-OTP-5**: No expiration check
-- **H-SEC-1-4**: Additional secret exposures
 - **H-RLS-1-6**: Database hardening items
 - **H-IMG-1-2**: Image automation
 
+### Deferred Issues (Post-MVP 3.x):
+- **C-SEC-1**: GitHub token in repo → [Section 11.1](#111-critical-security-findings-deferred)
+- **C-SEC-2**: Supabase key in repo → [Section 11.1](#111-critical-security-findings-deferred)
+- **H-SEC-1**: WhySMS credentials → [Section 11.2](#112-high-security-findings-deferred)
+- **H-SEC-2**: Sentry auth token → [Section 11.2](#112-high-security-findings-deferred)
+- **H-SEC-3**: PII in BUG_FIXED.md → [Section 11.2](#112-high-security-findings-deferred)
+- **H-SEC-4**: Anthropic API key → [Section 11.2](#112-high-security-findings-deferred)
+
 ### Cross-References:
 - OTP duplicate bug: C-OTP-1 + H-RLS-6 (code fix + DB constraint)
-- Security sweep: C-SEC-1-2 + H-SEC-1-4 (all credentials)
+- Security hardening: Deferred to Post-MVP 3.x (see Section 11)
 - RLS hardening: C-RLS-1-3 + H-RLS-1-6 (policies + indexes)
 
 ---
 
 **Document End**
 
-**Last Updated**: 2025-12-21 22:10 EET
-**Next Review**: After Phase 1 (Security) complete (~6h)
-**Status**: 🚨 CRITICAL - Execute Phase 1 immediately
-**Owner**: CC (document maintenance), team (execution)
-**Version**: 2.0 (comprehensive, actionable, verified)
+**Last Updated**: 2025-12-21 23:55 EET
+**Next Review**: After MVP 1.x critical fixes complete (~10-18h)
+**Status**: ✅ ALIGNED - MVP 1.x-3.x 0-security phase, credential findings deferred
+**Owner**: CC (document maintenance), GC (primary executor), team (review)
+**Version**: 2.1 (0-security policy integrated, CCW→GC reassignment complete)
