@@ -136,8 +136,9 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
       const booking = await response.json();
 
       // OTP is already sent by the API endpoint - no need to send again
-      // Redirect to OTP verification page
-      router.push(`/bookings/${booking.id}/verify`);
+      // Redirect to OTP verification page (preserve current locale)
+      const currentLocale = window.location.pathname.split('/')[1] || 'en';
+      router.push(`/${currentLocale}/bookings/${booking.id}/verify`);
     } catch (error) {
       console.error('Error submitting booking:', error);
       setSnackbar({
@@ -184,6 +185,13 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
           image={getVehicleImage(vehicle.models.hero_image_url)}
           alt={`${vehicle.models.brands.name} ${vehicle.models.name}`}
           sx={{ objectFit: 'cover' }}
+          onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+            // Automatic fallback to placeholder on 404/corrupt image
+            const img = e.currentTarget;
+            if (img.src !== '/images/vehicles/hero/placeholder.webp') {
+              img.src = '/images/vehicles/hero/placeholder.webp';
+            }
+          }}
         />
       </Box>
 
