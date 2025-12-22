@@ -8,6 +8,7 @@ export default function VerifyBookingPage() {
   const params = useParams()
   const router = useRouter()
   const bookingId = params.id as string
+  const locale = params.locale as string
 
   const [otp, setOtp] = useState('')
   const [loading, setLoading] = useState(false)
@@ -77,7 +78,7 @@ export default function VerifyBookingPage() {
       }
 
       // Success - redirect to confirmation
-      router.push(`/bookings/${bookingId}/confirmed`)
+      router.push(`/${locale}/bookings/${bookingId}/confirmed`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Verification failed')
     } finally {
