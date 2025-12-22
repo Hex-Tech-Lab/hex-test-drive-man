@@ -7,6 +7,7 @@
 
 import { chromium } from 'playwright';
 import fetch from 'node-fetch';
+import { writeFile } from 'fs/promises';
 
 const CONFIG = {
   deploymentUrl: process.env.VERCEL_URL || 'https://hex-test-drive-man-git-ccw-fix-dupl-10f4e1-techhypexps-projects.vercel.app',
@@ -104,7 +105,7 @@ async function testBookingFlow() {
 
     // Screenshot on error
     const screenshot = await page.screenshot({ fullPage: true });
-    await require('fs').promises.writeFile('error-screenshot.png', screenshot);
+    await writeFile('error-screenshot.png', screenshot);
     log('Screenshot saved: error-screenshot.png');
   } finally {
     await browser.close();
@@ -162,7 +163,7 @@ async function generateReport() {
   log(JSON.stringify(summary, null, 2));
 
   // Write to file
-  await require('fs').promises.writeFile(
+  await writeFile(
     'E2E_TEST_REPORT.json',
     JSON.stringify({ summary, steps: report.steps }, null, 2)
   );
