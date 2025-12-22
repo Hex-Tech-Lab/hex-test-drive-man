@@ -1,4 +1,4 @@
-const PLACEHOLDER_IMAGE = '/images/placeholder-car.jpg';
+const PLACEHOLDER_IMAGE = '/images/vehicles/hero/placeholder.webp';
 
 /**
  * Get vehicle image URL with fallback to placeholder
