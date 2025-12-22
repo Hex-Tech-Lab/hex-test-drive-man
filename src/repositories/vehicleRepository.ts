@@ -51,9 +51,8 @@ export const vehicleRepository = {
     const { data, error } = await supabase
       .from('vehicle_trims')
       .select(VEHICLE_SELECT)
-      .order('model_year', { ascending: false })
-      .limit(50);
-    
+      .order('model_year', { ascending: false });
+
     return { data: data as Vehicle[] | null, error };
   },
 

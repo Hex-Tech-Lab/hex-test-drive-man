@@ -1,0 +1,106 @@
+brand,model,model_id
+Toyota,Fortuner 2026,ffd53327-52b1-4b96-94bb-da0971939b8f
+Toyota,Fortuner 2025,b462d521-964e-430e-810f-77f73283a3ef
+Toyota,Prado 2024,eb0d94a3-d5e3-497a-a301-ccd1f26f133f
+Toyota,Urban Cruiser 2026,224d35fc-9a3a-4c63-8fb1-45e66842b4fe
+Toyota,Urban Cruiser 2025,e28d8f4e-4721-4b60-b99d-3a5946605bc9
+Renault,Kardian 2025,0e77c7e9-51f5-445e-8dc3-7ed4561ed243
+Renault,Kardian 2026,26de3258-a4d2-4c06-a6d2-23625b6d6efa
+Renault,Taliant 2026,f8705318-f23e-4ee4-a7e8-0b2f791de5c2
+Renault,Taliant 2025,cae0f472-aca5-4d34-96ae-118c0d9ec1bd
+Renault,Austral 2026,3c930fa5-02c7-4d5e-82d7-9b46f9254d74
+BMW,320i 2024,ca63ca27-6308-4b01-804d-a60d2219c4fc
+BMW,730Li 2024,d8974cb8-1f90-4eb8-b234-4b570655db3a
+BMW,X7 2024,b9c1d128-aefa-4655-b00f-2ccc418bc550
+BMW,X3 2024,f72e110f-8338-4ba1-bc89-4a3c05079b5a
+BMW,iX3 2024,775d9755-bb00-481e-9926-6782812278b8
+BMW,i4 2024,bd2fec10-ac4a-452d-9dc9-f3d97d45db77
+BMW,218i 2024,7d6dc3ec-49c7-4e5a-a81c-5bd693c1bf85
+BMW,X6 2024,d6455a9c-9109-4828-afd2-1b5850e98009
+Volkswagen,Golf 2025,c2cffcbd-9f69-4366-9b37-319dfd10094d
+Volkswagen,Tiguan 2025,68d96703-e7ef-43ba-b18a-c3a0bc225000
+Volkswagen,Touareg 2025,58396a7b-a98a-49d6-bfb6-a27f3869fb78
+Volkswagen,T-Roc 2025,f14971d6-d520-476f-b3bb-78d46eb5dfda
+Volkswagen,Tiguan 2026,4176a3d9-d2f0-416d-90bb-5811d592491f
+Volkswagen,T-Roc 2026,7cadfc18-67c2-4ba2-81fd-8a7c159e96e6
+BAIC,U5 Plus 2025,383fa64e-1aec-4c58-ae1e-54b591df3006
+BAIC,BJ30 2025,0a76f80d-5641-41a5-ac5c-c9015639dee5
+BAIC,X55 2025,072ee824-d3f5-436d-a8f2-9848d90d6653
+Audi,A5 2025,c732daa3-5f38-401b-942c-66d721693b91
+Audi,Q8 e-tron 2024,b2563177-8d4d-4415-86af-7b93d2e34eeb
+Audi,A4 2024,7186c974-ea08-42f7-bfeb-edcfa5be3ca9
+Audi,Q5 2025,0ce666eb-de38-42cd-8fbb-b596f0a19d0f
+Audi,A6 2024,191008fb-f569-46ba-ac91-bd63fa919bae
+Audi,Q8 2025,b9818d4a-3913-48d3-9386-1edd583ed277
+Audi,A7 2025,a4751fac-ae99-420a-bbfc-5f7f2309b08d
+Audi,Q5 2026,b673dd31-0c62-4653-aaab-db1ad7dc388b
+Audi,A3 2026,5ae202c5-25cf-427a-98bf-cb9ae6146295
+Audi,A8 2024,e728cc96-3ac7-4ace-a0f5-64c9f2f606e9
+Audi,Q2 2025,791b6ea1-c2d1-4a61-b739-373655c1bab9
+Audi,A7 2024,08873b34-5ce0-4681-9383-50460e944176
+Audi,Q2 2026,23fc1ce5-1d55-48d8-b12d-d887413365d0
+Audi,A5 2026,d13e2491-9a52-4991-b026-44e1a050b823
+Audi,Q8 2026,ba5403c6-35cf-489a-ad24-fe84b257fca6
+Audi,A8 2025,109709f3-2e7c-4873-b378-d222c19163bc
+Audi,Q8 e-tron 2025,7569ac96-e881-4ecb-af1a-cf19e7cc2964
+Audi,A3 2025,11a2193e-062e-4812-9b5e-a70e5798c314
+Cupra,Leon 2026,c3ecc0cc-f45a-48b1-a217-1a5ee77d98f6
+Cupra,Terramar 2026,5a18e7be-1b91-4c1a-b578-831b54a7f375
+Cupra,Leon 2025,db8d33c4-f0f7-4968-bdfc-c7c7d7a87bcf
+Cupra,Terramar 2025,abc3c089-850a-42eb-9641-8e67f65aa206
+Cupra,Formentor 2024,e38aa971-4aa5-4fde-8067-157a69ffada1
+Skoda,Octavia A8 2025,4e2c951b-365b-48ba-be95-7ef311a8b7c3
+Skoda,Kodiaq 2025,78c2eaed-f19a-4fd1-85e6-c7fc2914f313
+Skoda,Karoq 2026,9da2431a-9d8a-44e7-b596-d70500af1e29
+Skoda,Octavia A8 2026,3ce19fe8-db0b-4f86-876b-bacd710fa3f6
+Skoda,Superb 2026,cacfcc7f-6b34-4c9e-86f3-cd8a7331ecd1
+Skoda,Kodiaq 2026,691efb15-2926-45ae-892c-e4b2987422eb
+Skoda,Karoq 2025,cb140d96-1491-4d55-88ee-64be70a06e3f
+Suzuki,Ertiga 2024,62c499cf-c32f-49d4-96b6-d6cc4883deed
+Suzuki,Ciaz 2024,0d57c556-3d6e-45b1-8a76-d6b92b119af8
+Suzuki,Grand Vitara 2024,43805524-8ad1-430a-82f5-d25c33da1105
+Suzuki,Swift 2025,b5704506-47a1-42f8-9e21-004cea507846
+Suzuki,S Presso 2024,b3fd66a9-84c5-4a2e-95af-2791bfdd3c0b
+Suzuki,Swift Dzire 2024,7b428aba-0dec-4dd3-b277-8c8ac1fcbfee
+Suzuki,Fronx 2024,cbfc281d-0d88-43b6-a75f-e6d31b8e6c6b
+Suzuki,Swift Dzire 2025,e10b64d8-49f3-4c04-b8bc-b2e60f9cb035
+Peugeot,2008 2025,dc3b67de-6e3a-4f3e-ae5d-3eb3c6dbfe64
+Peugeot,408 2025,1ba21b54-45c0-4f3f-a055-7153425355d5
+Peugeot,408 2026,13140fb7-f611-4fd2-94d7-eb4cddee97c4
+Peugeot,2008 2026,9f42d7e5-6df7-42fa-9c21-901cf77e22d8
+Peugeot,5008 2025,0fc33935-5100-4bf5-a8ff-4bbaba56df8a
+Peugeot,5008 2026,4537a62b-7bbf-4feb-a994-29989c454eea
+Peugeot,508 2025,b6900943-0dd0-4d41-b890-f4200aa5e16d
+Peugeot,3008 2025,07b3f691-ba13-49fd-ac3a-d19ba4cc93c9
+Peugeot,3008 2026,70c65a7b-a26e-4cac-891f-3de5c7fc8f1f
+Fiat,Tipo 2025,00cf925b-b4b7-4afb-9b2d-68ed9d4a51fb
+Fiat,500X 2025,cc10a8c7-0b85-4a0f-a90e-c5709eaae48d
+Fiat,500X 2026,cdbadc00-8341-4ea5-9f78-f8e9a5d52b49
+Changan,Eado Plus 2026,451127de-3be3-448d-bda0-4693c503252a
+Changan,CS 35 Plus 2026,4b716881-9c40-4b62-988e-f830a840882a
+Changan,UNI-V 2026,7c1be881-1c04-4e46-8ada-727fc15aeba5
+Changan,CS55 Plus 2025,e7acf7d0-af04-4aab-82fc-47229d459c14
+Changan,UNI-T 2025,de03179c-44c3-4c84-9662-49b018e85b3a
+Changan,CS 35 Plus 2025,d6ddab68-b95e-4075-bbda-a3ea7f7b8a99
+Changan,CS55 Plus 2026,e68e3af4-76a4-4ee5-8c35-9ca4ff90c6c6
+Changan,UNI-T 2026,6ebc5091-4ccc-4535-a782-e7589c834ef6
+GAC,GS3 Emzoom 2025,fba61bf4-5da8-4f89-b6bd-cb0ab8962d83
+GAC,Emkoo 2025,681297b7-a846-4f96-82d9-10dbf3a2a3df
+GAC,Empow 2025,4298fdb7-2cac-48f6-9edc-7fed95836cde
+GAC,GS4 Max 2025,7dbcb9d8-7400-4dce-bc0b-d905cd02b78b
+GAC,GS4 2025,154be272-2fa2-44e3-b491-8217925661ac
+HAVAL,M6 2026,b50637b4-c779-4cf2-a54c-d758f4ceafdc
+HAVAL,Jolion 2026,7e7063e9-120d-4e3e-88bf-d2442f94d33a
+HAVAL,H6 HEV 2025,626546fe-e86b-4be2-b2a0-c7af5558a16a
+HAVAL,H6 2026,a9a89736-5b2a-4ced-9dcd-b0860054eef7
+HAVAL,H6 HEV 2026,479978a9-f6a1-4cdd-a68d-2dc6353227b7
+HAVAL,Dargo 2025,17ebdd13-6506-4fee-b10d-27e1389a5d1c
+HAVAL,Dargo 2026,def88937-b922-4fcd-918b-a2f59213393c
+HAVAL,Jolion Pro 2025,6e0c5a37-6e53-41ed-ab26-cfca3ada92c4
+HAVAL,H6 2025,2e74b8c3-6b2b-41ee-93eb-ad6f477b6664
+HAVAL,Jolion 2025,152fecac-a2df-41a1-8614-f0a76b7936d0
+BYD,F3 2025,b0e4f090-14fc-40be-913a-0799580c3caf
+BYD,Tang Imported,2a17840b-9f0a-4a70-83d2-7a147eeb43dc
+BYD,Song Plus Imported,eb9cefb6-f7bd-4fa8-9529-1104945bf46b
+Jeep,Grand Cherokee L 2025,aeb6131d-2ac7-4e3e-ad00-13f9c903bf53
+Toyota,Land Cruiser 2025,26c9b57d-3a29-4404-8ab0-face81ae9f96

@@ -39,12 +39,12 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
   const expiresAt = new Date(Date.now() + 5 * 60 * 1000).toISOString();
 
   const body = `Your Hex Test Drive code is ${code}. It expires in 5 minutes.`;
-  const smsSent = await sendSms(phone, body);
+  const smsResult = await sendSms(phone, body);
 
-  // Check SMS send result (sendSms returns boolean)
-  if (!smsSent) {
-    console.error('[SMS] Failed to send OTP to', phone);
-    return { success: false, error: 'SMS send failed' };
+  // Check SMS send result (sendSms returns object with success property)
+  if (!smsResult.success) {
+    console.error('[SMS] Failed to send OTP to', phone, '- Error:', smsResult.message);
+    return { success: false, error: smsResult.message || 'SMS send failed' };
   }
 
   const supabase = createClient();
