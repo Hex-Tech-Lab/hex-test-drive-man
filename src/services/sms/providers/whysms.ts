@@ -18,7 +18,7 @@ export async function sendSms(to: string, message: string): Promise<{ success: b
     const payload = {
       recipient: formattedPhone,
       sender_id: "Order",
-      type: "otp",
+      type: "plain",
       message: message,
     };
 
