@@ -48,6 +48,13 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
     return prices.length > 0 ? Math.max(...prices) : 20_000_000;
   }, [vehicles]);
 
+  // Dynamic min price based on available vehicles
+  const minPrice = useMemo(() => {
+    if (vehicles.length === 0) return 0;
+    const prices = vehicles.map(v => v.price_egp).filter(p => p > 0);
+    return prices.length > 0 ? Math.min(...prices) : 0;
+  }, [vehicles]);
+
   const handleBrandToggle = (brand: string) => {
     const newBrands = selectedBrands.includes(brand)
       ? selectedBrands.filter((b) => b !== brand)
@@ -73,7 +80,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
     setFilters({
       brands: [],
       categories: [],
-      priceRange: [0, maxPrice],
+      priceRange: [minPrice, maxPrice],
     });
   };
 
@@ -151,7 +158,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
           value={priceRange}
           onChange={handlePriceChange}
           valueLabelDisplay="auto"
-          min={0}
+          min={minPrice}
           max={maxPrice}
           step={100_000}
           valueLabelFormat={formatPrice}
