@@ -103,3 +103,24 @@ export interface Vehicle {
   segment_id?: string | null;
   segments?: Segment | null;
 }
+
+/**
+ * Aggregated vehicle type for catalog display
+ * Groups multiple trims of the same model into a single card
+ */
+export interface AggregatedVehicle extends Omit<Vehicle, 'id' | 'trim_name' | 'price_egp'> {
+  /** Representative vehicle ID (first trim) */
+  id: string;
+  /** Model ID for grouping */
+  modelId: string;
+  /** All trims for this model */
+  trims: Vehicle[];
+  /** Minimum price across all trims */
+  minPrice: number;
+  /** Maximum price across all trims */
+  maxPrice: number;
+  /** Number of trims available */
+  trimCount: number;
+  /** Comma-separated trim names for tooltip */
+  trimNames: string;
+}
