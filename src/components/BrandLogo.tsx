@@ -35,7 +35,7 @@ export function BrandLogo({ brandName, logoUrl, size = 'medium' }: BrandLogoProp
         justifyContent: 'center',
         backgroundColor: '#fff',
         borderRadius: 1,
-        padding: 1.5,
+        padding: 0.5,
         border: '1px solid',
         borderColor: 'grey.100',
         transition: 'border-color 0.2s',

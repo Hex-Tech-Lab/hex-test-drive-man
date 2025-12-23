@@ -51,5 +51,13 @@
 - **UX correctness not yet browser‑verified:**
   - Aggregation, sort/grid behavior, filter behavior, and locale/compare flows still need BB’s end‑to‑end Playwright tests on the deployed app.
 
-- **Locale compliance vs user experience:**
-  - Code looks compliant (no reload calls), but user‑reported reloads mean there may be framework‑level or navigation‑pattern issues that only show up in the browser; this is a risk until BB’s tests confirm.
+
+### 4. Visual Readiness Improvements (Dec 24, 2025)
+
+- **Logo sizing improvements implemented**:
+  - `BrandLogo` component updated to use smaller padding (4px) and `objectFit: 'contain'`, ensuring landscape and portrait logos fill the box appropriately without clipping.
+
+- **Hero image positioning and naming fixed**:
+  - `VehicleCard` updated to use `objectPosition: 'center 85%'` to reduce chopped wheels/grille.
+  - Title formatting polished to avoid redundant brand names (e.g., "MG 5 2025" instead of "MG MG 5").
+  - `onError` handler enhanced for robust fallback.

@@ -33,6 +33,20 @@ interface VehicleCardProps {
   vehicle: AggregatedVehicle;
 }
 
+// Helper to format vehicle title (e.g. "MG 5 2025" instead of "MG MG 5")
+const formatVehicleTitle = (brand: string, model: string, year: number) => {
+  const brandLower = brand.toLowerCase();
+  const modelLower = model.toLowerCase();
+  
+  // If model name starts with brand name (e.g. "MG 5"), use model name only
+  // Otherwise combine them (e.g. "Toyota" + "Corolla" -> "Toyota Corolla")
+  const displayModel = modelLower.startsWith(brandLower) 
+    ? model 
+    : `${brand} ${model}`;
+    
+  return `${displayModel} ${year}`;
+};
+
 /**
  * Vehicle card component displaying summary and booking options
  * @param props - Component props
@@ -67,6 +81,8 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
 
   const isInCompare = compareItems.some((item) => item.id === vehicle.id);
   const canAddMore = compareItems.length < 3;
+  
+  const displayTitle = formatVehicleTitle(vehicle.models.brands.name, vehicle.models.name, vehicle.model_year);
 
   const handleCompareToggle = () => {
     if (isInCompare) {
@@ -190,8 +206,8 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
           component="img"
           height="200"
           image={getVehicleImage(vehicle.models.hero_image_url)}
-          alt={`${vehicle.models.brands.name} ${vehicle.models.name}`}
-          sx={{ objectFit: 'cover' }}
+          alt={displayTitle}
+          sx={{ objectFit: 'cover', objectPosition: 'center 85%' }}
           onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
             // Automatic fallback to placeholder on 404/corrupt image
             const img = e.currentTarget;
@@ -204,7 +220,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
 
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h6" gutterBottom>
-          {vehicle.models.brands.name} {vehicle.models.name}
+          {displayTitle}
         </Typography>
 
         <Tooltip 
@@ -213,7 +229,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
           placement="top"
         >
           <Typography variant="body2" color="text.secondary" gutterBottom>
-            {vehicle.model_year} • {vehicle.trimCount > 1 
+            {vehicle.trimCount > 1 
               ? `${vehicle.trimCount} ${language === 'ar' ? 'إصدارات' : 'trims'}` 
               : vehicle.trims[0].trim_name} • {vehicle.categories?.name ?? (language === 'ar' ? 'غير مصنف' : 'Uncategorized')}
           </Typography>
@@ -258,7 +274,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
         <DialogContent>
           <Box sx={{ pt: 2 }}>
             <Typography variant="subtitle1" gutterBottom>
-              {vehicle.models.brands.name} {vehicle.models.name} {vehicle.model_year}
+              {displayTitle}
             </Typography>
             <Typography variant="body2" color="text.secondary" gutterBottom sx={{ mb: 3 }}>
               {vehicle.trimCount > 1 
