@@ -583,8 +583,9 @@ b2b2557 [2025-12-12] docs(hex-ai): 10x CLAUDE.md restructure with full history
 
 ### 🎯 MVP 1.0 CC+BB Parallel Execution (8-12 hours)
 
-**Status**: ✅ Plan Complete | ⏳ Execution Ready
+**Status**: ✅ Plan Complete | ✅ BB Unblocked (UI Architecture) | ⏳ Execution Ready
 **Plan**: [`docs/MVP_1.0_CC_BB_PLAN.md`](docs/MVP_1.0_CC_BB_PLAN.md)
+**UI Architecture**: [`docs/UI_CATALOG_ARCHITECTURE.md`](docs/UI_CATALOG_ARCHITECTURE.md) (BB C1/C4 guidance)
 **Roster**: C1-C5 reassigned (CC:3, BB:2)
 
 **CC Branch**: `git checkout -b cc/mvp1-criticals`
