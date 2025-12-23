@@ -110,11 +110,15 @@ export default function CatalogPage() {
     // Search filter
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      return (
+      const matchesSearch = (
         vehicle.models.brands.name.toLowerCase().includes(query) ||
         vehicle.models.name.toLowerCase().includes(query) ||
         vehicle.trim_name.toLowerCase().includes(query)
       );
+
+      if (!matchesSearch) {
+        return false;
+      }
     }
 
     return true;
