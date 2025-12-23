@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Container, Grid, Typography, Box, TextField, InputAdornment, CircularProgress } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import Header from '@/components/Header';
 import VehicleCard from '@/components/VehicleCard';
 import FilterPanel from '@/components/FilterPanel';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
-import { Vehicle } from '@/types/vehicle';
+import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
 import { useFilterStore } from '@/stores/filter-store';
 import { useParams } from 'next/navigation';
@@ -73,14 +73,43 @@ export default function CatalogPage() {
     fetchVehicles();
   }, []);
 
-  const filteredVehicles = vehicles.filter((vehicle: Vehicle) => {
+  // Aggregate trims into model-level cards
+  const aggregatedVehicles = useMemo(() => {
+    const grouped = vehicles.reduce((acc, vehicle) => {
+      const modelKey = vehicle.model_id;
+      
+      if (!acc[modelKey]) {
+        acc[modelKey] = {
+          ...vehicle,
+          modelId: modelKey,
+          trims: [vehicle],
+          minPrice: vehicle.price_egp,
+          maxPrice: vehicle.price_egp,
+          trimCount: 1,
+          trimNames: vehicle.trim_name,
+        } as AggregatedVehicle;
+      } else {
+        acc[modelKey].trims.push(vehicle);
+        acc[modelKey].minPrice = Math.min(acc[modelKey].minPrice, vehicle.price_egp);
+        acc[modelKey].maxPrice = Math.max(acc[modelKey].maxPrice, vehicle.price_egp);
+        acc[modelKey].trimCount++;
+        acc[modelKey].trimNames += `, ${vehicle.trim_name}`;
+      }
+      
+      return acc;
+    }, {} as Record<string, AggregatedVehicle>);
+
+    return Object.values(grouped);
+  }, [vehicles]);
+
+  const filteredVehicles = aggregatedVehicles.filter((vehicle: AggregatedVehicle) => {
     // Brand filter
     if (filters.brands.length > 0 && !filters.brands.includes(vehicle.models.brands.name)) {
       return false;
     }
 
-    // Price filter
-    if (vehicle.price_egp < filters.priceRange[0] || vehicle.price_egp > filters.priceRange[1]) {
+    // Price filter (check if price range overlaps with filter range)
+    if (vehicle.maxPrice < filters.priceRange[0] || vehicle.minPrice > filters.priceRange[1]) {
       return false;
     }
 
@@ -113,7 +142,7 @@ export default function CatalogPage() {
       const matchesSearch = (
         vehicle.models.brands.name.toLowerCase().includes(query) ||
         vehicle.models.name.toLowerCase().includes(query) ||
-        vehicle.trim_name.toLowerCase().includes(query)
+        vehicle.trimNames.toLowerCase().includes(query)
       );
 
       if (!matchesSearch) {
@@ -194,8 +223,8 @@ export default function CatalogPage() {
           <Grid item sx={{ xs: 12 }}>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               {language === 'ar'
-                ? `${filteredVehicles.length} مركبة متاحة`
-                : `${filteredVehicles.length} vehicles available`}
+                ? `${filteredVehicles.length} طراز متاح`
+                : `${filteredVehicles.length} models available`}
             </Typography>
 
             {filteredVehicles.length === 0 ? (

@@ -95,7 +95,14 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
   };
 
   return (
-    <Paper sx={{ p: 2 }}>
+    <Paper sx={{ 
+      p: 2,
+      position: { xs: 'relative', md: 'sticky' },
+      top: { md: 80 },
+      maxHeight: { md: 'calc(100vh - 100px)' },
+      overflowY: { md: 'auto' },
+      zIndex: 10
+    }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
         <Typography variant="h6">
           {language === 'ar' ? 'تصفية' : 'Filters'}

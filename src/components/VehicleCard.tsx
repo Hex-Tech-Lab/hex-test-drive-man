@@ -18,10 +18,11 @@ import {
   TextField,
   Alert,
   Snackbar,
+  Tooltip,
 } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { Vehicle } from '@/types/vehicle';
+import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { BrandLogo } from '@/components/BrandLogo';
@@ -29,7 +30,7 @@ import { getVehicleImage, formatEGP } from '@/lib/imageHelper';
 import { requestBookingOtp } from '@/actions/bookingActions';
 
 interface VehicleCardProps {
-  vehicle: Vehicle;
+  vehicle: AggregatedVehicle;
 }
 
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
@@ -66,7 +67,8 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
     if (isInCompare) {
       removeFromCompare(vehicle.id);
     } else if (canAddMore) {
-      addToCompare(vehicle);
+      // Add first trim to compare (compare store expects Vehicle type)
+      addToCompare(vehicle.trims[0]);
     }
   };
 
@@ -200,9 +202,17 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
           {vehicle.models.brands.name} {vehicle.models.name}
         </Typography>
 
-        <Typography variant="body2" color="text.secondary" gutterBottom>
-          {vehicle.model_year} • {vehicle.trim_name} • {vehicle.categories?.name ?? (language === 'ar' ? 'غير مصنف' : 'Uncategorized')}
-        </Typography>
+        <Tooltip 
+          title={vehicle.trimCount > 1 ? vehicle.trimNames : ''} 
+          arrow 
+          placement="top"
+        >
+          <Typography variant="body2" color="text.secondary" gutterBottom>
+            {vehicle.model_year} • {vehicle.trimCount > 1 
+              ? `${vehicle.trimCount} ${language === 'ar' ? 'إصدارات' : 'trims'}` 
+              : vehicle.trims[0].trim_name} • {vehicle.categories?.name ?? (language === 'ar' ? 'غير مصنف' : 'Uncategorized')}
+          </Typography>
+        </Tooltip>
 
         <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap', mb: 2 }}>
           {vehicle.fuel_types?.name && (
@@ -215,7 +225,9 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
         </Box>
 
         <Typography variant="h5" color="primary" sx={{ mt: 'auto', fontWeight: 600 }}>
-          {formatEGP(vehicle.price_egp, language)}
+          {vehicle.trimCount > 1 && vehicle.minPrice !== vehicle.maxPrice
+            ? `${formatEGP(vehicle.minPrice, language)} - ${formatEGP(vehicle.maxPrice, language)}`
+            : formatEGP(vehicle.minPrice, language)}
         </Typography>
 
         <Button
@@ -244,7 +256,9 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
               {vehicle.models.brands.name} {vehicle.models.name} {vehicle.model_year}
             </Typography>
             <Typography variant="body2" color="text.secondary" gutterBottom sx={{ mb: 3 }}>
-              {vehicle.trim_name}
+              {vehicle.trimCount > 1 
+                ? `${vehicle.trimCount} ${language === 'ar' ? 'إصدارات متاحة' : 'trims available'}` 
+                : vehicle.trims[0].trim_name}
             </Typography>
 
             <TextField
