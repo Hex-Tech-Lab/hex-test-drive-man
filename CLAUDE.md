@@ -2348,7 +2348,430 @@ git show HEAD@{1}:CLAUDE.md | wc -l  # 76 lines, NOT 597
 
 ---
 
+## READY-TO-USE PROMPTS (v2.3.1)
+
+**Created**: 2025-12-23 03:00 UTC
+**Purpose**: Executable GC and BB prompts for catalog regression fixes
+**Uses**: GC/BB Prompt Templates from GEMINI.md/BLACKBOX.md with global fixtures
+
+### GC Prompt: Catalog Regression Fixes
+
+**Status**: READY - Copy entire block to GC
+
+```markdown
+You are GC (git/PR/doc integration).
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+Agent: GC (Gemini Code)
+Timebox: 3 hours
+
+GLOBAL FIXTURES (from docs/PROMPT_FIXTURES.md v2.3):
+
+1. REASONING:
+   - Think step-by-step before executing
+   - Critique your own solution before implementation
+   - Identify edge cases and failure modes
+   - Consider simpler alternatives
+
+2. VERIFICATION:
+   - Verify a representative sample of results (minimum 3 cases)
+   - If ANY errors found: expand sample, re-verify, fix, repeat
+   - Document verification results in commit message
+
+3. DOCUMENTATION SYNC:
+   - Update CLAUDE.md when rules/architecture/workflow change
+   - Sync changes to GEMINI.md as needed
+   - Append entry to docs/PERFORMANCE_LOG.md with:
+     * Format: YYYY-MM-DD HH:MM UTC – GC – Task
+     * Start/end time, duration, files touched, self-critique
+
+4. GITHUB DISCIPLINE:
+   - Main branch = single source of truth
+   - Work on feature branch: gc/catalog-regressions-fix
+   - Open PR when complete
+   - Never --force push to main
+   - Respect pre-commit hooks
+
+5. REVIEW TOOLING:
+   - Run: pnpm lint, pnpm build (TypeScript check)
+   - Read outputs from CodeRabbit when available
+   - Fix CRITICAL/BLOCKER issues before commit
+   - Summarize findings in PR description
+
+6. SECURITY:
+   - Never request/log/commit raw secrets
+   - Use .env.local (local), Vercel Dashboard (production)
+   - Reference SECURITY_NOTES.md for setup
+
+GC-SPECIFIC REQUIREMENTS:
+
+1. ALWAYS work on branches, open PRs
+2. NEVER commit directly to main unless CC says so
+3. ALWAYS tie work back to:
+   - docs/CRITICAL_HIGH_BLOCKERS_ROSTER.md
+   - docs/UI_CATALOG_ARCHITECTURE.md (updated specs)
+4. After finishing task:
+   - Update GEMINI.md if needed
+   - Append to docs/PERFORMANCE_LOG.md
+
+TASK-SPECIFIC INSTRUCTIONS:
+
+Fix catalog regressions per updated specs in UI_CATALOG_ARCHITECTURE.md and LOCALE_ROUTING_SPEC.md.
+
+**FILES TO READ FIRST**:
+- docs/UI_CATALOG_ARCHITECTURE.md (VEHICLE AGGREGATION RULES section)
+- docs/UI_CATALOG_ARCHITECTURE.md (AMAZON-LIKE FILTER LAYOUT section)
+- docs/UI_CATALOG_ARCHITECTURE.md (SORT + GRID CONTROLS section)
+- docs/LOCALE_ROUTING_SPEC.md (Rule 4.5: SPA Navigation Requirements)
+
+**IMPLEMENTATION TASKS**:
+
+1. FIX AGGREGATION (src/app/[locale]/page.tsx lines 81-107):
+   - Change aggregation key from `vehicle.model_id` to:
+     ```typescript
+     const aggregationKey = `${vehicle.models.brands.id}_${vehicle.model_id}_${vehicle.model_year}`;
+     ```
+   - Verify: Nissan X-Trail 2026 → 1 card, X-Trail 2025 → separate card
+   - Verify: Total cards = unique (brand, model, year) combinations
+
+2. ADD SORT + GRID CONTROLS (src/app/[locale]/page.tsx):
+   - Add to useFilterStore: sortBy, gridColumns state
+   - Create controls bar component above catalog grid:
+     * Sort dropdown (MUI Select): price_asc/desc, brand_asc, year_desc
+     * Grid density (MUI ToggleButtonGroup): 2/4/6 columns
+     * Right-aligned in LTR, left-aligned in RTL
+   - Apply sort to filteredVehicles before rendering
+   - Apply gridColumns to Grid container xs/sm/md breakpoints
+
+3. REFACTOR FILTER PANEL (src/components/FilterPanel.tsx):
+   - Convert filter groups to MUI Accordion:
+     * Brand, Price: defaultExpanded={true}
+     * Category, Body Style, Transmission: defaultExpanded={false}
+   - Update typography:
+     * Accordion headers: variant="subtitle2" (12px)
+     * Options: variant="body2" (13px)
+   - Update spacing:
+     * Between accordions: mb={0.5}
+     * Checkbox padding: 4px
+   - Add sticky container:
+     * position: sticky (desktop only)
+     * top: 80px
+     * maxHeight: 'calc(100vh - 96px)'
+     * overflowY: 'auto'
+
+4. VERIFY NO NEW RELOADS:
+   - Ensure language switch uses only router.push()
+   - Ensure compare → back uses only router.push()
+   - Search for forbidden patterns:
+     ```bash
+     grep -r "window.location.reload" src/
+     grep -r "router.refresh" src/
+     grep -r "window.location.href" src/
+     ```
+
+**VERIFICATION CHECKLIST**:
+- [ ] Nissan X-Trail shows 3 separate cards (2024, 2025, 2026)
+- [ ] BMW X5 shows 1 card with "7 trims"
+- [ ] Sort dropdown works (price asc/desc, name, year)
+- [ ] Grid density switches between 2/4/6 columns
+- [ ] Filter panel has accordions (Brand/Price expanded)
+- [ ] Filter panel sticky on desktop scroll
+- [ ] Typography smaller than before (12-13px)
+- [ ] No window.location.reload in codebase
+- [ ] pnpm build succeeds with zero errors
+
+**DELIVERABLES**:
+- Feature branch: gc/catalog-regressions-fix
+- PR with clear description + test plan
+- docs/PERFORMANCE_LOG.md entry
+- All TypeScript errors resolved
+
+GC EXECUTION CONSTRAINTS:
+- GC must NOT redesign fixtures
+- GC must treat this template as read-only boilerplate
+- If task requires fixture changes, escalate to CC
+```
+
+---
+
+### BB Prompt: Catalog Regression Browser Tests
+
+**Status**: READY - Copy entire block to BB
+
+```markdown
+You are BB (browser tests + scripts/tools).
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+Agent: BB (Blackbox)
+Timebox: 1.5 hours
+
+GLOBAL FIXTURES (from docs/PROMPT_FIXTURES.md v2.3):
+
+1. REASONING:
+   - Think step-by-step before executing
+   - Critique your own solution before implementation
+   - Identify edge cases and failure modes
+   - Consider simpler alternatives
+
+2. VERIFICATION:
+   - Verify a representative sample of results (minimum 3 cases)
+   - If ANY errors found: expand sample, re-verify, fix, repeat
+   - Document verification results in commit message
+
+3. DOCUMENTATION SYNC:
+   - Update CLAUDE.md when rules/architecture/workflow change
+   - Sync changes to BLACKBOX.md as needed
+   - Append entry to docs/PERFORMANCE_LOG.md with:
+     * Format: YYYY-MM-DD HH:MM UTC – BB – Task
+     * Start/end time, duration, files touched, self-critique
+
+4. GITHUB DISCIPLINE:
+   - Main branch = single source of truth
+   - Work on feature branch: bb/catalog-regression-tests
+   - Never --force push to main
+   - Respect pre-commit hooks
+
+5. REVIEW TOOLING:
+   - Run: pnpm lint, pnpm build (TypeScript check)
+   - Read outputs from Playwright test results
+   - Fix CRITICAL/BLOCKER issues before commit
+   - Summarize findings in test report
+
+6. SECURITY:
+   - Never request/log/commit raw secrets
+   - Never log secrets in browser test output
+   - Never include secrets in screenshot captions
+   - Verify env vars set without printing values
+
+BB-SPECIFIC REQUIREMENTS:
+
+1. BROWSER TESTING:
+   - Use Playwright + Xvfb for headless browser automation
+   - Test critical user flows (catalog, sort, filter, language switch, compare)
+   - Capture screenshots at key states (before/after)
+   - Generate JSON test results
+
+2. DELIVERABLES FOR THIS VERIFICATION:
+   - Brief markdown report (findings, issues, recommendations)
+   - JSON test results (test counts, pass/fail, timings)
+   - At least 3 screenshots (aggregation, controls, filter panel)
+   - Update docs/BROWSER_TEST_REPORT.md
+
+3. PERFORMANCE LOGGING:
+   - Append to docs/PERFORMANCE_LOG.md after completing work
+
+TASK-SPECIFIC INSTRUCTIONS:
+
+Verify GC's catalog regression fixes via browser automation tests.
+
+**SPECS TO VERIFY**:
+- docs/UI_CATALOG_ARCHITECTURE.md (VEHICLE AGGREGATION RULES)
+- docs/UI_CATALOG_ARCHITECTURE.md (SORT + GRID CONTROLS)
+- docs/UI_CATALOG_ARCHITECTURE.md (AMAZON-LIKE FILTER LAYOUT)
+- docs/LOCALE_ROUTING_SPEC.md (Rule 4.5: SPA Navigation Requirements)
+
+**TEST SCENARIOS**:
+
+1. AGGREGATION CORRECTNESS:
+   - Navigate to /en/catalog
+   - Search for "Nissan X-Trail"
+   - Count cards displayed
+   - Expected:
+     * 3 separate cards (one per year: 2024, 2025, 2026)
+     * Each card subtitle shows "<Year> • <N> trims • SUV"
+   - Screenshot: Save as "aggregation-xtrail.png"
+   - Assert: NO single card with "409 trims"
+
+2. SORT BEHAVIOR:
+   - Navigate to /en/catalog
+   - Locate sort dropdown (top-right area)
+   - Select "Price: Low to High"
+   - Verify: First card has lowest price
+   - Select "Price: High to Low"
+   - Verify: First card has highest price
+   - Screenshot: Save as "sort-controls.png"
+
+3. GRID DENSITY:
+   - Navigate to /en/catalog
+   - Locate grid density control (next to sort)
+   - Click 2-column button
+   - Verify: Grid shows 2 columns
+   - Click 6-column button
+   - Verify: Grid shows 6 columns
+   - Screenshot: Save as "grid-6col.png"
+
+4. FILTER PANEL LAYOUT:
+   - Navigate to /en/catalog
+   - Verify filter panel on left side
+   - Verify Brand and Price accordions expanded
+   - Verify Category accordion collapsed
+   - Click Category accordion
+   - Verify: Expands without page scroll jump
+   - Scroll page down
+   - Verify: Filter panel becomes sticky
+   - Screenshot: Save as "filter-panel-sticky.png"
+
+5. LANGUAGE SWITCH (NO RELOAD):
+   - Open DevTools Network tab
+   - Navigate to /en/catalog
+   - Clear network log
+   - Click "العربية" button
+   - Verify URL: /ar/catalog
+   - Verify Network tab: NO document reload (only XHR/fetch)
+   - Assert: Performance timeline shows NO navigation event
+   - Screenshot: Save as "lang-switch-network.png"
+
+6. COMPARE FLOW (NO RELOAD):
+   - Navigate to /en/catalog
+   - Apply filter: Brand=BMW
+   - Add 3 vehicles to compare
+   - Open DevTools Network tab
+   - Clear network log
+   - Click "Compare" button
+   - Navigate to /en/compare
+   - Click "Back to Catalog"
+   - Verify: Returns to /en/catalog
+   - Verify: Brand=BMW filter still applied
+   - Verify: Network tab shows NO document reload
+   - Screenshot: Save as "compare-back-network.png"
+
+**REPORT FORMAT**:
+
+```markdown
+# Browser Test Report: Catalog Regression Verification
+
+**Date**: 2025-12-23 HH:MM UTC
+**Agent**: BB
+**Test Duration**: <N> minutes
+**Branch**: bb/catalog-regression-tests
+
+## Test Summary
+- Total Tests: 6
+- Passed: X
+- Failed: Y
+- Coverage: Aggregation, Sort, Grid, Filter, Language, Compare
+
+## Findings
+
+### ✅ Aggregation Correctness
+- Nissan X-Trail: 3 separate cards (2024, 2025, 2026)
+- BMW X5: 1 card with "7 trims"
+- NO 409-trim single card bug
+
+### ✅ Sort + Grid Controls
+- Sort dropdown: Top-right placement ✓
+- Grid density: 2/4/6 columns working ✓
+
+### ✅ Filter Panel
+- Accordions: Brand/Price expanded, others collapsed ✓
+- Sticky behavior: Works on scroll ✓
+- Typography: 12-13px font size ✓
+
+### ⚠️ Language Switch
+- URL changes correctly (en ↔ ar) ✓
+- Network tab: [PASS/FAIL - document reload detected?]
+
+### ⚠️ Compare Flow
+- Navigation works (catalog → compare → back) ✓
+- Filter state preserved: [PASS/FAIL]
+- Network tab: [PASS/FAIL - document reload detected?]
+
+## Screenshots
+![Aggregation](path/to/aggregation-xtrail.png)
+![Sort Controls](path/to/sort-controls.png)
+![Grid 6 Columns](path/to/grid-6col.png)
+![Filter Panel Sticky](path/to/filter-panel-sticky.png)
+![Language Switch Network](path/to/lang-switch-network.png)
+![Compare Back Network](path/to/compare-back-network.png)
+
+## Recommendations
+- [List any issues found]
+- [Suggested fixes for GC]
+
+## JSON Results
+See: data/test-results/catalog-regression-2025-12-23.json
+```
+
+**DELIVERABLES**:
+- Markdown report: docs/BROWSER_TEST_REPORT_CATALOG_REGRESSION.md
+- JSON results: data/test-results/catalog-regression-2025-12-23.json
+- Screenshots: 6 files in public/test-screenshots/
+- docs/PERFORMANCE_LOG.md entry
+
+BB EXECUTION CONSTRAINTS:
+- BB must NOT redesign fixtures
+- BB must treat this template as read-only boilerplate
+- If test failures found, report to CC (do not attempt fixes)
+```
+
+---
+
 ## VERSION HISTORY
+
+### v2.3.1 (2025-12-23 03:00 UTC) [CC]
+
+**RELEASE**: Catalog Regression Specs + Ready-to-Use GC/BB Prompts
+
+**Purpose**: Define canonical specs for fixing catalog regressions and provide executable prompts for GC and BB.
+
+**New Specs in UI_CATALOG_ARCHITECTURE.md**:
+- **VEHICLE AGGREGATION RULES (CANONICAL)** section:
+  - Aggregation key: `(brand_id, model_id, model_year)`
+  - Card display rules (title, subtitle, price formatting)
+  - Explicit non-goals (never aggregate across years/models/brands)
+  - Verification test cases (X-Trail 2024/2025/2026)
+
+- **AMAZON-LIKE FILTER LAYOUT (CANONICAL)** section:
+  - No internal scrollbars rule
+  - Amazon scroll behavior (page scrolls, then filter sticky)
+  - Accordion structure (Brand/Price expanded, others collapsed)
+  - Typography and spacing (12-13px fonts, compact padding)
+  - Visual design (white background, subtle border)
+
+- **SORT + GRID CONTROLS (CANONICAL)** section:
+  - Controls bar placement (above grid, right-aligned in LTR)
+  - Sort dropdown options (price asc/desc, name, year)
+  - Grid density control (2/4/6 columns, default 4)
+  - State management in Zustand with localStorage persistence
+
+**New Specs in LOCALE_ROUTING_SPEC.md**:
+- **Rule 4.5: SPA Navigation Requirements** section:
+  - Language switch MUST use SPA navigation only (no reloads)
+  - Compare flow MUST preserve state without reload
+  - Verification methods (Network tab, Performance timeline)
+  - Audit status (contradicts previous claims, requires re-verification)
+  - Forbidden patterns (window.location.reload, router.refresh, hard navigation)
+
+**New Section in CLAUDE.md**:
+- **READY-TO-USE PROMPTS (v2.3.1)**:
+  - GC Prompt: Catalog Regression Fixes (3-hour timebox)
+    * 4 implementation tasks (aggregation, sort/grid, filter panel, reload check)
+    * 9-item verification checklist
+    * Complete with global fixtures and GC-specific requirements
+  - BB Prompt: Catalog Regression Browser Tests (1.5-hour timebox)
+    * 6 test scenarios (aggregation, sort, grid, filter, language, compare)
+    * Screenshot requirements for each scenario
+    * Complete report format template
+
+**Files Modified**:
+- CLAUDE.md: Version 2.3.0 → 2.3.1, added READY-TO-USE PROMPTS section
+- docs/UI_CATALOG_ARCHITECTURE.md: Added 3 canonical spec sections (250+ lines)
+- docs/LOCALE_ROUTING_SPEC.md: Added Rule 4.5 with SPA navigation requirements (100+ lines)
+
+**Impact**:
+- Provides precise, implementable specs for all catalog regression fixes
+- GC can copy-paste prompt and execute immediately
+- BB can copy-paste prompt and run browser tests immediately
+- Eliminates ambiguity in aggregation logic (409-trim bug clearly defined)
+- Establishes Amazon-like UX as canonical standard for filters
+- Flags reload behavior as regression requiring re-verification
+
+**Next Steps**:
+- User gives GC Prompt to GC → GC implements fixes on branch
+- User gives BB Prompt to BB → BB verifies fixes via browser tests
+- CC reviews PR and test results before merge to main
+
+---
 
 ### v2.3.0 (2025-12-23 02:50 UTC) [CC]
 

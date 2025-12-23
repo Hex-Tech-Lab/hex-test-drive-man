@@ -199,6 +199,108 @@ router.push(`/${locale}/bookings/${bookingId}/confirmed`);
 
 ---
 
+## Rule 4.5: SPA Navigation Requirements (No Full Page Reloads)
+
+**Version**: 1.0 (2025-12-23 03:00 UTC)
+**Status**: CANONICAL - Contradicts previous audit claims, requires BB re-verification
+
+### Language Switch Behavior
+
+**REQUIRED**: Language switch (EN ↔ AR) MUST use SPA navigation only.
+
+**Rule**: NO full page reload before, during, or after language switch.
+
+**Implementation**:
+```typescript
+// ✅ CORRECT: Pure client-side navigation
+const switchLocale = (newLocale: 'en' | 'ar') => {
+  const segments = pathname.split('/');
+  segments[1] = newLocale;
+  const newPath = segments.join('/');
+  router.push(newPath);  // Next.js handles transition via SPA
+};
+
+// ❌ WRONG: Any reload is forbidden
+const switchLocale = (newLocale: 'en' | 'ar') => {
+  router.push(`/${newLocale}/catalog`);
+  window.location.reload();  // ← FORBIDDEN
+};
+
+// ❌ WRONG: Hard navigation
+window.location.href = `/${newLocale}/catalog`;  // ← FORBIDDEN
+```
+
+**Verification**:
+- Network tab: Should show only XHR/fetch requests, NO full document reload
+- DevTools Performance: No "Navigation" event after language switch
+- User experience: Instant switch, no white screen flash
+
+---
+
+### Compare Flow Navigation
+
+**REQUIRED**: Catalog → Compare → Back to Catalog must preserve state without full reload.
+
+**Scenario**:
+1. User on `/en/catalog` (filters applied: Brand=BMW, Price=1M-2M)
+2. User adds 3 vehicles to compare
+3. User clicks "Compare" button → `/en/compare`
+4. User clicks "Back to Catalog" → returns to `/en/catalog`
+
+**Expected Behavior**:
+- ✅ Returns to `/en/catalog` (same locale)
+- ✅ Filters still applied (Brand=BMW, Price=1M-2M)
+- ✅ Scroll position preserved (if technically feasible)
+- ✅ NO full page reload
+- ✅ Comparison list still populated (state persisted)
+
+**Implementation Requirements**:
+```typescript
+// In ComparisonPage:
+const handleBackToCatalog = () => {
+  const locale = params.locale as string;
+  router.push(`/${locale}/catalog`);  // Uses SPA navigation
+  // Zustand filter state automatically restored from localStorage
+};
+
+// Filter state persistence (already implemented via Zustand):
+// - useFilterStore persists to localStorage
+// - On catalog re-mount, state auto-restores
+```
+
+**Forbidden Patterns**:
+- ❌ `window.location.reload()` anywhere in compare flow
+- ❌ `window.location.href = ...` (hard navigation)
+- ❌ Clearing filter state on unmount
+- ❌ Resetting scroll position to top on back navigation
+
+---
+
+### Audit Status
+
+**Previous Claims** (2025-12-23 LOCALE_AUDIT_REPORT_20251223.md):
+- Claimed: "100% locale compliance, 0 violations"
+- Claimed: "No window.location.reload() calls found"
+
+**User Observation** (2025-12-23):
+- Reality: Language switch causes full page reload
+- Reality: Compare → Back causes full page reload
+- Reality: Filter state NOT preserved on back navigation
+
+**Status**: ⚠️ CONTRADICTED - Previous audit incomplete or behavior regressed
+
+**Action Required**:
+- BB: Re-verify with browser DevTools Network tab
+- BB: Check for hidden reload triggers (useEffect dependencies, router.refresh(), etc.)
+- GC: Search codebase for reload patterns:
+  ```bash
+  grep -r "window.location.reload" src/
+  grep -r "router.refresh" src/
+  grep -r "window.location.href" src/
+  ```
+
+---
+
 ## Rule 5: Middleware Locale Detection
 
 ### Current Implementation (Optional Enhancement)
