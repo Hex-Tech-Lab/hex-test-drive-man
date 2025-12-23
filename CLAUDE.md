@@ -68,6 +68,48 @@
 - ❌ Waiting to "dump all at once" instead of incremental updates
 - ❌ Code changes when task scope is documentation only
 
+### GLOBAL AGENT EXECUTION RULES
+
+**Added**: 2025-12-23 01:00 UTC (Architecture Coordination Session)
+
+All agents (CC/CCW/GC/BB) **MUST** follow these execution rules:
+
+**1. Step-by-Step Thinking**:
+- Break complex tasks into discrete steps
+- Verbalize reasoning before each action
+- Document decision branches taken
+- Example: "Step 1: Verify database count... Step 2: Compare with UI display... Step 3: Identify filter causing discrepancy..."
+
+**2. Self-Critique Before Implementation**:
+- For EVERY proposed solution, ask: "What could go wrong?"
+- Identify edge cases, failure modes, unintended consequences
+- Document alternatives considered and why rejected
+- Example: "Proposed fix: remove filter X. Critique: This might break Y feature. Alternative: Add conditional filter. Decision: Use alternative."
+
+**3. Quick Verification After Changes**:
+- After code changes: run build, check for errors
+- After DB updates: query to verify changes applied
+- After commits: verify clean working tree
+- After merges: check CI status
+- Example: `pnpm build && git status && gh pr checks`
+
+**4. Mandatory Timing Entry in Performance Log**:
+- For every major task (>15 min), add entry to PERFORMANCE_LOG.md
+- Include: task name, duration, outcome, blockers, metrics
+- Format:
+  ```markdown
+  ### [Agent] Task Name (YYYY-MM-DD HH:MM UTC)
+  **Duration**: X hours Y minutes
+  **Outcome**: Success/Partial/Failed
+  **Metrics**: Files changed, lines modified, issues resolved
+  **Blockers**: None / [description]
+  ```
+
+**Enforcement**:
+- Code reviews check for step-by-step documentation
+- Sessions without performance log entry flagged
+- Self-critique absence = PR rejected
+
 ### FILE NAMING & TIMESTAMP STANDARDS
 
 **Mandatory Format**:
@@ -516,43 +558,67 @@ b2b2557 [2025-12-12] docs(hex-ai): 10x CLAUDE.md restructure with full history
 ## OPEN ITEMS & NEXT ACTIONS
 
 **Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Last Updated**: 2025-12-14 20:00 UTC
+**Last Updated**: 2025-12-23 01:00 UTC (Architecture Coordination)
 
-### PRIORITY 1 (CRITICAL - Next 2 hours)
+**Consolidated Documentation**:
+- **Issues**: `docs/PR_ISSUES_CONSOLIDATED.md` (12 issues tracked)
+- **Action Items**: `docs/ACTION_ITEMS_DEC23.md` (12 items from MVP 1.0 stabilization)
+- **Locale Spec**: `docs/LOCALE_ROUTING_SPEC.md` (canonical rules for routing)
+- **Performance**: `docs/PERFORMANCE_LOG.md` (execution metrics tracking)
+- **MVP Roadmap**: `docs/MVP_ROADMAP.md` (phased delivery plan)
 
-**1. Review Dependabot Alerts** (ETA: 15 min)
-- Navigate to: https://github.com/Hex-Tech-Lab/hex-test-drive-man/security/dependabot
-- Classify: 3 high, 7 moderate
-- Apply GUARDRAILS: Check if ESLint 8→9, MUI 6→7, or other breaking changes
-- Create remediation plan for high-severity issues only
-- Document decisions in CLAUDE.md
+### PRIORITY 1 (CRITICAL - This Week)
 
-**2. Process Remaining THOS Artifacts** (As user provides)
-- Receive 1 THOS at a time
-- Update CLAUDE.md incrementally
-- Version bump after each cohesive block
-- Commit and push after each
-- Sync to GEMINI.md/BLACKBOX.md
+**1. Fix SonarCloud E Security Rating** (ETA: 15 min) [BLOCKING PR #21]
+- **Issue**: Hardcoded credentials in `scripts/complete_vehicle_image_coverage.py`
+- **Action**: Replace with environment variables (SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+- **Owner**: CC
+- **Reference**: PR_ISSUES_CONSOLIDATED.md #1
 
-### PRIORITY 2 (HIGH - After CLAUDE.md Complete)
+**2. Debug 370 vs 409 Vehicle Display Discrepancy** (ETA: 30 min)
+- **Issue**: Catalog shows 370 vehicles instead of 409 (39 missing)
+- **Action**: Check for hidden filters in repository/page components
+- **Owner**: CC
+- **Reference**: PR_ISSUES_CONSOLIDATED.md #2, ACTION_ITEMS_DEC23.md #1
 
-**3. Vehicle Image Database Sync** (ETA: 20 min) [NEW - Dec 18, 2025]
-- **Status**: 218 images downloaded but database URLs not updated
-- **Gap**: All hero_image_url and hover_image_url fields still null/old paths
-- **Action Required**:
-  ```bash
-  # Generate SQL update script mapping filenames to model IDs
-  # Example: UPDATE models SET hero_image_url = '/images/vehicles/hero/audi-a3-2025.jpg' WHERE brand='Audi' AND name='A3' AND year=2025;
-  
-  # Verify 109 models have matching images
-  # Investigate 43 missing models (28% gap from 152 target)
-  # Re-run download script for failed models
-  ```
-- **Priority**: HIGH (blocks demo visual completeness)
-- **Impact**: Images exist locally but invisible in production until DB updated
-- **Owner**: GC (script generation) + CC (DB verification)
+**3. Complete Hero Image Coverage** (ETA: 2-3 hours)
+- **Status**: Database 100% (199/199), Physical 62.3% (124/199 missing)
+- **Phase 1**: Download 124 missing images via Unsplash
+- **Phase 2**: Manual map 41 unmatched files to model IDs
+- **Owner**: GC
+- **Reference**: PR_ISSUES_CONSOLIDATED.md #3, IMAGE_COVERAGE_REPORT_DEC23.md
 
-**4. SMS/OTP/2FA End-to-End Implementation** (CCW)
+### PRIORITY 2 (HIGH - Next Week)
+
+**4. Fix Audit Script Code Quality Issues** (ETA: 1 hour)
+- **Issues**:
+  - Filesystem path assumptions (Windows compatibility)
+  - HTTP error handling (rate limits, non-JSON)
+  - SQL parsing robustness (comments, multiline)
+- **Owner**: CC
+- **Reference**: PR_ISSUES_CONSOLIDATED.md #4-6
+
+**5. Fix Search Functionality** (ETA: 1 hour)
+- **Issue**: Typing 'p' returns Nissan Sunny (incorrect)
+- **Action**: Debug filter logic in FilterPanel.tsx/page.tsx
+- **Owner**: GC
+- **Reference**: PR_ISSUES_CONSOLIDATED.md #7, ACTION_ITEMS_DEC23.md #3
+
+**6. Apply Booking Migration to Production** (ETA: 30 min)
+- **Issue**: `supabase/migrations/20251211_booking_schema.sql` not applied
+- **Impact**: Booking system using in-memory storage (data lost on restart)
+- **Owner**: CCW
+- **Reference**: PR_ISSUES_CONSOLIDATED.md #8, MVP 1.0 Blockers
+
+### PRIORITY 3 (MEDIUM - This Sprint)
+
+**7. Locale/Routing Audit** (ETA: 1 hour)
+- **Action**: Audit all router.push() calls for locale parameter
+- **Status**: Spec defined in LOCALE_ROUTING_SPEC.md
+- **Owner**: CC
+- **Reference**: PR_ISSUES_CONSOLIDATED.md #9
+
+**8. SMS/OTP/2FA End-to-End Implementation** (CCW)
 - Text templates for all OTP scenarios (booking, login, verification)
 - Full system implementation (persistence → UI/UX → KYC)
 - Quality gates + comprehensive tests
