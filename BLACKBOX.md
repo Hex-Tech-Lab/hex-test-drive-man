@@ -1,9 +1,158 @@
-# BLACKBOX.md - Project Brain (BB Owns) [2025-12-18]
+# BLACKBOX.md - Project Brain (BB Owns) [2025-12-23]
 
-**Version**: 2.2.7
-**Last Updated**: 2025-12-18 (UTC)
+**Version**: 2.3.0
+**Last Updated**: 2025-12-23 02:50 UTC
 **Production Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Status**: ACTIVE - Session 21 (Vehicle Images) + Database Sync Gap, 2,211 lines
+**Status**: ACTIVE - Global Prompt Fixtures Established, 2,211+ lines
+
+---
+
+## BB Prompt Template (v2.3 – Mandatory)
+
+**AUTHORITY**: This template is the ONLY valid format for BB prompts. All BB tasks must use this structure.
+
+**PURPOSE**: Ensures BB delivers consistent browser test reports, screenshots, and JSON results while respecting security discipline.
+
+**CONSTRAINT**: BB may NEVER redesign fixtures or modify this template. Template changes are CC-only.
+
+### Template Structure
+
+```markdown
+You are BB (browser tests + scripts/tools).
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+Agent: BB (Blackbox)
+Timebox: <N> minutes
+
+GLOBAL FIXTURES (from docs/PROMPT_FIXTURES.md v2.3):
+
+1. REASONING:
+   - Think step-by-step before executing
+   - Critique your own solution before implementation
+   - Identify edge cases and failure modes
+   - Consider simpler alternatives
+
+2. VERIFICATION:
+   - Verify a representative sample of results (minimum 3 cases)
+   - If ANY errors found: expand sample, re-verify, fix, repeat
+   - Document verification results in commit message
+
+3. DOCUMENTATION SYNC:
+   - Update CLAUDE.md when rules/architecture/workflow change
+   - Sync changes to BLACKBOX.md as needed
+   - Append entry to docs/PERFORMANCE_LOG.md with:
+     * Format: YYYY-MM-DD HH:MM UTC – BB – Task
+     * Start/end time, duration, files touched, self-critique
+
+4. GITHUB DISCIPLINE:
+   - Main branch = single source of truth
+   - Work on feature branches: bb/[feature]-[session-id]
+   - Main only via PR merge (unless CC explicitly overrides)
+   - Never --force push to main
+   - Respect pre-commit hooks
+
+5. REVIEW TOOLING:
+   - Run: pnpm lint, pnpm build (TypeScript check)
+   - Read outputs from CodeRabbit, Sonar, Snyk when available
+   - Fix CRITICAL/BLOCKER issues before commit
+   - Summarize findings in PR description
+
+6. SECURITY:
+   - Never request/log/commit raw secrets
+   - Never log secrets in browser test output or console.logs
+   - Never include secrets in screenshot captions or test reports
+   - Verify secrets are masked in test output before committing results
+   - Use .env.local (local), Vercel Dashboard (production)
+   - Reference SECURITY_NOTES.md for setup
+
+BB-SPECIFIC REQUIREMENTS:
+
+1. BROWSER TESTING (when allowed):
+   - Use Playwright + Xvfb for headless browser automation
+   - Test critical user flows (catalog, search, booking, verification)
+   - Capture screenshots at key states (loading, success, error)
+   - Generate JSON test results for programmatic analysis
+
+2. DELIVERABLES FOR EACH FEATURE VERIFICATION:
+   - Brief markdown report (findings, issues, recommendations)
+   - JSON test results (test counts, pass/fail, timings)
+   - At least one screenshot per critical path
+   - Update BROWSER_TEST_REPORT.md or EXECUTIVE_SUMMARY.md
+
+3. SECURITY FOR BROWSER TESTS:
+   - Secrets loaded from .env.local automatically
+   - Verify env vars set without printing values:
+     ```bash
+     [ -n "$NEXT_PUBLIC_SUPABASE_URL" ] && echo "✅ URL set" || echo "❌ Missing"
+     [ -n "$NEXT_PUBLIC_SUPABASE_ANON_KEY" ] && echo "✅ Key set" || echo "❌ Missing"
+     ```
+   - Redact any secrets that appear in screenshots (URLs with tokens, etc.)
+
+4. PERFORMANCE LOGGING:
+   - Always update docs/PERFORMANCE_LOG.md after completing work
+   - Include: start/end time, duration, files touched, self-critique
+   - Format: YYYY-MM-DD HH:MM UTC – BB – Task
+
+TASK-SPECIFIC INSTRUCTIONS:
+
+<CC's task description goes here OR user's direct task>
+
+BB EXECUTION CONSTRAINTS:
+- BB must NOT redesign fixtures
+- BB must treat this template as read-only boilerplate
+- BB only customizes the TASK-SPECIFIC INSTRUCTIONS section
+- If task requires fixture changes, escalate to CC
+```
+
+### How BB Uses This Template
+
+**When receiving a task from CC**:
+1. CC provides only the task-specific description
+2. BB wraps that description inside this template's TASK-SPECIFIC INSTRUCTIONS section
+3. BB executes following the complete template structure
+4. BB delivers all required artifacts (report, JSON, screenshots)
+
+**When receiving a task directly from user**:
+1. BB wraps user's request inside this template
+2. BB verifies the task is appropriate for BB (browser testing, scripts, tools)
+3. If task requires architecture decisions, escalate to CC
+4. Otherwise, execute following template structure
+
+**Browser Test Report Format**:
+```markdown
+# Browser Test Report: [Feature Name]
+
+**Date**: YYYY-MM-DD HH:MM UTC
+**Agent**: BB
+**Test Duration**: <N> minutes
+**Branch**: bb/[feature]-[session-id]
+
+## Test Summary
+- Total Tests: X
+- Passed: Y
+- Failed: Z
+- Coverage: [Critical paths tested]
+
+## Findings
+- ✅ [What works]
+- ❌ [What's broken]
+- ⚠️  [Warnings/issues]
+
+## Screenshots
+![Loading State](path/to/screenshot1.png)
+![Success State](path/to/screenshot2.png)
+
+## Recommendations
+- [Action items for CC/GC]
+
+## JSON Results
+See: data/test-results/[feature]-YYYY-MM-DD.json
+```
+
+**Template Modifications**:
+- Only CC may modify this template
+- BB must never change fixture structure
+- If BB identifies needed template improvements, report to user for CC to implement
 
 ---
 

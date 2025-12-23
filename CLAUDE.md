@@ -1,9 +1,98 @@
-# CLAUDE.md - Project Brain (CC Owns) [2025-12-18]
+# CLAUDE.md - Project Brain (CC Owns) [2025-12-23]
 
-**Version**: 2.2.7
-**Last Updated**: 2025-12-18 (UTC)
+**Version**: 2.3.0
+**Last Updated**: 2025-12-23 02:50 UTC
 **Production Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Status**: ACTIVE - Session 21 (Vehicle Images) + Database Sync Gap, 2,211 lines
+**Status**: ACTIVE - Global Prompt Fixtures Established, 2,211+ lines
+
+---
+
+## CC Prompt Template (v2.3 – Mandatory)
+
+**AUTHORITY**: This template is the ONLY valid format for CC prompts. All CC tasks must use this structure.
+
+**PURPOSE**: Ensures consistency, quality gates, and proper documentation across all CC work.
+
+### Template Structure
+
+```markdown
+You are CC (architect/mastermind).
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+Agent: CC (Claude Code)
+Timebox: <N> minutes
+
+GLOBAL FIXTURES (from docs/PROMPT_FIXTURES.md v2.3):
+
+1. REASONING:
+   - Think step-by-step before executing
+   - Critique your own solution before implementation
+   - Identify edge cases and failure modes
+   - Consider simpler alternatives
+
+2. VERIFICATION:
+   - Verify a representative sample of results (minimum 3 cases)
+   - If ANY errors found: expand sample, re-verify, fix, repeat
+   - Document verification results in commit message
+
+3. DOCUMENTATION SYNC:
+   - Update CLAUDE.md when rules/architecture/workflow change
+   - Sync changes to GEMINI.md, BLACKBOX.md as needed
+   - Append entry to docs/PERFORMANCE_LOG.md with:
+     * Format: YYYY-MM-DD HH:MM UTC – CC – Task
+     * Start/end time, duration, files touched, self-critique
+
+4. GITHUB DISCIPLINE:
+   - Main branch = single source of truth
+   - Work on feature branches: cc/[feature]-[session-id]
+   - Main only via PR merge (unless user explicitly overrides)
+   - Never --force push to main
+   - Respect pre-commit hooks
+
+5. REVIEW TOOLING:
+   - Run: pnpm lint, pnpm build (TypeScript check)
+   - Read outputs from CodeRabbit, Sonar, Snyk when available
+   - Fix CRITICAL/BLOCKER issues before commit
+   - Summarize findings in PR description
+
+6. SECURITY:
+   - Never request/log/commit raw secrets
+   - Use .env.local (local), Vercel Dashboard (production)
+   - Reference SECURITY_NOTES.md for setup
+   - Use placeholders in docs: [your-key-here]
+
+TASK-SPECIFIC INSTRUCTIONS:
+
+<User's actual task description goes here>
+
+CC-SPECIFIC RESPONSIBILITIES:
+- You are the ONLY agent authorized to modify:
+  * docs/PROMPT_FIXTURES.md
+  * Prompt templates in CLAUDE.md, GEMINI.md, BLACKBOX.md
+  * GUARDRAILS section in CLAUDE.md
+- When creating prompts for GC/BB:
+  * Use their templates from GEMINI.md/BLACKBOX.md
+  * Fill in task-specific section only
+  * Keep all fixtures intact
+```
+
+### Usage Notes
+
+**When CC receives a task**:
+1. Wrap user's request inside this template structure
+2. Follow all global fixtures during execution
+3. Update relevant docs at end of work cycle
+4. Commit with descriptive message following conventional commits format
+
+**When CC creates tasks for other agents**:
+1. Use GC Prompt Template (GEMINI.md) for git/doc/refactor work
+2. Use BB Prompt Template (BLACKBOX.md) for testing/scripts/tools work
+3. Never create ad-hoc prompts without template structure
+
+**Template Modifications**:
+- Only CC may modify this template
+- Version bump required after template changes
+- Must update docs/PROMPT_FIXTURES.md in sync
 
 ---
 
@@ -1700,6 +1789,36 @@ gh pr create --base main --head [agent]/[feature] \
 4. Incremental updates (not bulk dumps)
 5. Version bump after each cohesive work block
 
+### Prompt Template Usage (v2.3)
+
+**MANDATORY**: All agent prompts MUST use templates from docs/PROMPT_FIXTURES.md v2.3.
+
+**Authority**: Only CC may design or modify prompt templates and fixtures.
+
+**How GC Uses Templates**:
+
+When CC gives GC a task, CC will provide only the task-specific description. GC must:
+1. Locate the GC Prompt Template at the top of GEMINI.md (v2.3)
+2. Wrap CC's task description inside the "TASK-SPECIFIC INSTRUCTIONS" section
+3. Execute following the complete template structure with all global fixtures
+4. Never modify the fixtures or template boilerplate
+
+**How BB Uses Templates**:
+
+When CC gives BB a task, CC will provide only the task-specific description. BB must:
+1. Locate the BB Prompt Template at the top of BLACKBOX.md (v2.3)
+2. Wrap CC's task description inside the "TASK-SPECIFIC INSTRUCTIONS" section
+3. Execute following the complete template structure with all global fixtures
+4. Deliver all required artifacts: report (markdown), JSON results, screenshots
+
+**Template Locations**:
+- CC Prompt Template: CLAUDE.md § CC Prompt Template (v2.3)
+- GC Prompt Template: GEMINI.md § GC Prompt Template (v2.3)
+- BB Prompt Template: BLACKBOX.md § BB Prompt Template (v2.3)
+- Global Fixtures: docs/PROMPT_FIXTURES.md
+
+**Rule**: No new prompt is valid unless it uses these templates and incorporates global fixtures.
+
 ### Agent Performance Matrix
 
 📊 **Full Details**: See `docs/AGENT_PERFORMANCE_MATRIX.md` for complete history, timestamps, and performance KPIs.
@@ -2230,6 +2349,77 @@ git show HEAD@{1}:CLAUDE.md | wc -l  # 76 lines, NOT 597
 ---
 
 ## VERSION HISTORY
+
+### v2.3.0 (2025-12-23 02:50 UTC) [CC]
+
+**MAJOR RELEASE**: Global Prompt Fixtures and Agent Templates Established
+
+**Purpose**: Standardize all agent prompts to ensure consistency, quality gates, and proper documentation across CC, GC, and BB workflows.
+
+**New Files Created**:
+- `docs/PROMPT_FIXTURES.md` (v2.3): Global execution fixtures for all agents
+  - Timeboxing requirements
+  - Reasoning protocols (step-by-step, self-critique)
+  - Verification protocol (sample-based with expansion)
+  - Documentation sync cadence
+  - GitHub discipline
+  - Review tooling requirements
+  - Security and environment variable rules
+  - Agent capabilities table
+
+**Templates Added**:
+- CLAUDE.md: CC Prompt Template (v2.3) added at top of file
+  - Complete template structure with global fixtures
+  - CC-specific responsibilities (fixture design authority)
+  - Usage notes for creating GC/BB prompts
+  - Template modification rules
+
+- GEMINI.md: GC Prompt Template (v2.3) added at top of file
+  - GC-specific requirements (git/PR/doc work)
+  - Clear constraint: GC may NOT redesign fixtures
+  - How GC wraps CC's task descriptions
+
+- BLACKBOX.md: BB Prompt Template (v2.3) added at top of file
+  - BB-specific requirements (browser tests, screenshots, JSON reports)
+  - Security for browser tests (secret masking)
+  - Browser test report format template
+  - Deliverables checklist
+
+**New Section in CLAUDE.md**:
+- "Prompt Template Usage (v2.3)" added to AGENT OWNERSHIP & WORKFLOW
+  - How GC uses templates (wraps task descriptions)
+  - How BB uses templates (wraps task descriptions)
+  - Template locations reference
+  - Mandatory rule: "No new prompt is valid unless it uses these templates"
+
+**Authority Established**:
+- **CC**: Only agent authorized to modify templates and fixtures
+- **GC/BB**: Must use templates as read-only boilerplate, only customize task-specific sections
+- **Escalation**: If GC/BB identify needed improvements, report to user for CC to implement
+
+**Key Rules**:
+1. Every prompt must state a timebox
+2. Step-by-step reasoning and self-critique required
+3. Sample-based verification (expand if errors found)
+4. Documentation sync after meaningful work cycles
+5. Respect pre-commit hooks, run review tooling
+6. Never request/log/commit secrets
+
+**Files Modified**:
+- CLAUDE.md: Version 2.2.7 → 2.3.0, added template + usage section
+- GEMINI.md: Version 2.2.6 → 2.3.0, added template
+- BLACKBOX.md: Version 2.2.7 → 2.3.0, added template
+- docs/PROMPT_FIXTURES.md: Created (new file)
+
+**Impact**:
+- All future agent work must follow standardized prompt structure
+- Eliminates ad-hoc prompts and inconsistent execution
+- Ensures quality gates (linting, testing, verification) are never skipped
+- Improves documentation discipline and performance logging
+
+**Next Review**: After MVP 1.0 completion or when workflow changes require fixture updates
+
+---
 
 ### v2.2.7 (2025-12-18 UTC) [BB]
 

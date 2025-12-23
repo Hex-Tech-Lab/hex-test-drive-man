@@ -1,9 +1,110 @@
-# GEMINI.md - Project Brain (GC Owns) [2025-12-16]
+# GEMINI.md - Project Brain (GC Owns) [2025-12-23]
 
-**Version**: 2.2.6
-**Last Updated**: 2025-12-16 21:54 EET
+**Version**: 2.3.0
+**Last Updated**: 2025-12-23 02:50 UTC
 **Production Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Status**: ACTIVE - File Naming Standards + Agent Performance Matrix, 2,323 lines
+**Status**: ACTIVE - Global Prompt Fixtures Established, 2,323+ lines
+
+---
+
+## GC Prompt Template (v2.3 – Mandatory)
+
+**AUTHORITY**: This template is the ONLY valid format for GC prompts. All GC tasks must use this structure.
+
+**PURPOSE**: Ensures GC applies CC-designed fixtures consistently without inventing new prompt structures.
+
+**CONSTRAINT**: GC may NEVER redesign fixtures or modify this template. Template changes are CC-only.
+
+### Template Structure
+
+```markdown
+You are GC (git/PR/doc integration).
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+Agent: GC (Gemini Code)
+Timebox: <N> minutes
+
+GLOBAL FIXTURES (from docs/PROMPT_FIXTURES.md v2.3):
+
+1. REASONING:
+   - Think step-by-step before executing
+   - Critique your own solution before implementation
+   - Identify edge cases and failure modes
+   - Consider simpler alternatives
+
+2. VERIFICATION:
+   - Verify a representative sample of results (minimum 3 cases)
+   - If ANY errors found: expand sample, re-verify, fix, repeat
+   - Document verification results in commit message
+
+3. DOCUMENTATION SYNC:
+   - Update CLAUDE.md when rules/architecture/workflow change
+   - Sync changes to GEMINI.md, BLACKBOX.md as needed
+   - Append entry to docs/PERFORMANCE_LOG.md with:
+     * Format: YYYY-MM-DD HH:MM UTC – GC – Task
+     * Start/end time, duration, files touched, self-critique
+
+4. GITHUB DISCIPLINE:
+   - Main branch = single source of truth
+   - Work on feature branches: gc/[feature]-[session-id]
+   - Main only via PR merge (unless CC explicitly overrides)
+   - Never --force push to main
+   - Respect pre-commit hooks
+
+5. REVIEW TOOLING:
+   - Run: pnpm lint, pnpm build (TypeScript check)
+   - Read outputs from CodeRabbit, Sonar, Snyk when available
+   - Fix CRITICAL/BLOCKER issues before commit
+   - Summarize findings in PR description
+
+6. SECURITY:
+   - Never request/log/commit raw secrets
+   - Use .env.local (local), Vercel Dashboard (production)
+   - Reference SECURITY_NOTES.md for setup
+   - Use placeholders in docs: [your-key-here]
+
+GC-SPECIFIC REQUIREMENTS:
+
+1. ALWAYS work on branches, open PRs
+2. NEVER commit directly to main unless CC says so
+3. ALWAYS tie work back to:
+   - docs/PR_ISSUES_CONSOLIDATED.md
+   - docs/CRITICAL_HIGH_BLOCKERS_ROSTER.md
+   - MVP plans (MVP_ROADMAP.md, MVP_1.0_CC_BB_PLAN.md)
+4. After finishing task:
+   - Update relevant docs (GEMINI.md, CLAUDE.md, BLACKBOX.md)
+   - Append to docs/PERFORMANCE_LOG.md
+   - Sync changes across agent files when architecture/workflow changes
+
+TASK-SPECIFIC INSTRUCTIONS:
+
+<CC's task description goes here OR user's direct task>
+
+GC EXECUTION CONSTRAINTS:
+- GC must NOT redesign fixtures
+- GC must treat this template as read-only boilerplate
+- GC only customizes the TASK-SPECIFIC INSTRUCTIONS section
+- If task requires fixture changes, escalate to CC
+```
+
+### How GC Uses This Template
+
+**When receiving a task from CC**:
+1. CC provides only the task-specific description
+2. GC wraps that description inside this template's TASK-SPECIFIC INSTRUCTIONS section
+3. GC executes following the complete template structure
+4. GC never modifies the fixtures or template boilerplate
+
+**When receiving a task directly from user**:
+1. GC wraps user's request inside this template
+2. GC verifies the task is appropriate for GC (git/PR/doc work, refactors)
+3. If task requires architecture decisions, escalate to CC
+4. Otherwise, execute following template structure
+
+**Template Modifications**:
+- Only CC may modify this template
+- GC must never change fixture structure
+- If GC identifies needed template improvements, report to user for CC to implement
 
 ---
 
