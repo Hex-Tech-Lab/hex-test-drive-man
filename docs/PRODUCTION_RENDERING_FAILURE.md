@@ -38,26 +38,28 @@ createSupabaseClient(
 
 **Vercel Dashboard**:
 1. Go to: https://vercel.com/hex-tech-lab/hex-test-drive-man/settings/environment-variables
-2. Add variables:
+2. Add variables (get actual values from .env.local or password manager):
    ```
    NEXT_PUBLIC_SUPABASE_URL=https://lbttmhwckcrfdymwyuhn.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxidHRtaHdja2NyZmR5bXd5dWhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE0MjM5NTYsImV4cCI6MjA0Njk5OTk1Nn0.vqGVZE6fvJF7sYJrKd_8YZJlFcT_2bKEPmLV0cXXXXX
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=[your-supabase-anon-key-jwt-token]
    ```
+
+   **NOTE**: See SECURITY_NOTES.md for how to get these values securely.
 3. Apply to: Production, Preview, Development
 4. Redeploy: Vercel auto-triggers
 
 **Alternative (if Vercel access unavailable)**:
 ```bash
-# Create .env.production in project root:
-cat > .env.production << 'EOF'
-NEXT_PUBLIC_SUPABASE_URL=https://lbttmhwckcrfdymwyuhn.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-EOF
+# NOT RECOMMENDED: Committing .env.production is a security risk
+# Use Vercel Dashboard instead
 
-# Commit and push:
-git add .env.production
-git commit -m "fix(env): add Vercel production environment variables"
-git push origin main
+# If absolutely necessary:
+# 1. Get actual ANON_KEY from .env.local
+# 2. Create .env.production (THIS WILL BE PUBLIC IN GIT)
+# 3. Add to .gitignore before committing
+# 4. Better: Add to Vercel Dashboard instead
+
+# See SECURITY_NOTES.md for proper setup
 ```
 
 ---

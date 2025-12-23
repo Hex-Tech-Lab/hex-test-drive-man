@@ -472,6 +472,26 @@ pnpm build
 - One agent per feature branch
 - Branch naming: `[agent]/[feature]-[session-id]`
 
+### Security & Environment Variables
+
+**MANDATORY**: See `SECURITY_NOTES.md` for complete secret handling discipline.
+
+**BB-Specific Rules**:
+- **NEVER** log secrets in browser test output or console.logs
+- **NEVER** include secrets in screenshot captions or test reports
+- **NEVER** paste secrets into prompts or markdown files
+- **ALWAYS** verify secrets are masked in test output before committing results
+
+**When Running Browser Tests**:
+```bash
+# Secrets are loaded from .env.local automatically
+# Verify they're set (without printing values):
+[ -n "$NEXT_PUBLIC_SUPABASE_URL" ] && echo "✅ URL set" || echo "❌ Missing"
+[ -n "$NEXT_PUBLIC_SUPABASE_ANON_KEY" ] && echo "✅ Key set" || echo "❌ Missing"
+```
+
+**Full Documentation**: See SECURITY_NOTES.md for setup, troubleshooting, and leak remediation.
+
 ### Database Verification Protocol
 
 **Supabase REST API verification** (use before claiming row counts):

@@ -469,6 +469,42 @@ pnpm build
 - One agent per feature branch
 - Branch naming: `[agent]/[feature]-[session-id]`
 
+### Security & Environment Variables
+
+**MANDATORY**: See `SECURITY_NOTES.md` for complete secret handling discipline.
+
+**Critical Rules**:
+- **NEVER** commit secrets to git (JWT tokens, API keys, service role keys)
+- **NEVER** log secrets to terminal or console
+- **NEVER** hardcode secrets in `.ts`, `.js`, `.py`, `.md` files
+- **ALWAYS** use `.env.local` (gitignored) for local development
+- **ALWAYS** use Vercel Dashboard for production environment variables
+- **ALWAYS** use placeholders in documentation (e.g., `[your-key-here]`)
+
+**Required Environment Variables**:
+- `NEXT_PUBLIC_SUPABASE_URL` - Public Supabase endpoint
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Public anon key (JWT token)
+- `SUPABASE_SERVICE_ROLE_KEY` - Admin key (JWT token, NEVER expose to client)
+- `NEXT_PUBLIC_SENTRY_DSN` - Sentry error tracking (safe to be public)
+- `SENTRY_AUTH_TOKEN` - Sentry API token (SECRET, for builds only)
+
+**Setup**:
+```bash
+# Local development
+cp .env.example .env.local
+# Fill in actual values, then:
+pnpm dev
+
+# Vercel production
+# Add via Dashboard → Settings → Environment Variables
+# See SECURITY_NOTES.md section 3
+```
+
+**Husky Pre-commit Hook**:
+- Requires `pnpm` in PATH
+- If missing: Install globally OR use `git commit --no-verify` (emergency only)
+- See SECURITY_NOTES.md section 5 for troubleshooting
+
 ### Database Verification Protocol
 
 **Supabase REST API verification** (use before claiming row counts):
