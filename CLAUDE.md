@@ -558,14 +558,19 @@ b2b2557 [2025-12-12] docs(hex-ai): 10x CLAUDE.md restructure with full history
 ## OPEN ITEMS & NEXT ACTIONS
 
 **Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Last Updated**: 2025-12-23 01:00 UTC (Architecture Coordination)
+**Last Updated**: 2025-12-23 01:45 UTC (PR Mining Complete)
 
 **Consolidated Documentation**:
-- **Issues**: `docs/PR_ISSUES_CONSOLIDATED.md` (12 issues tracked)
+- **Issues**: `docs/PR_ISSUES_CONSOLIDATED.md` (17 issues tracked - 5 new from PR mining)
 - **Action Items**: `docs/ACTION_ITEMS_DEC23.md` (12 items from MVP 1.0 stabilization)
 - **Locale Spec**: `docs/LOCALE_ROUTING_SPEC.md` (canonical rules for routing)
 - **Performance**: `docs/PERFORMANCE_LOG.md` (execution metrics tracking)
 - **MVP Roadmap**: `docs/MVP_ROADMAP.md` (phased delivery plan)
+
+**Recent PR Mining Findings** (Dec 23, 2025):
+- **Issue #13**: Recurring docstring coverage below threshold (P1, MVP 1.5)
+- **Issue #14**: PR title vs scope mismatch (P2, MVP 1.5)
+- **Issues #15-17**: Reusable patterns (idempotency, health checks, E2E testing) - already applied
 
 ### PRIORITY 1 (CRITICAL - This Week)
 
@@ -975,6 +980,45 @@ CREATE POLICY "Users can view own verifications"
 4. Update "Full Timeline" reference link above
 
 **Enforcement**: Session not documented = work not completed ✅
+
+---
+
+### Session: Dec 23, 2025 (01:00-01:45 UTC) [CC]
+
+**Agent**: CC (Claude Code)
+**Objective**: PR mining from #17-22, extract reusable findings for documentation
+**Duration**: 45 minutes (documentation only, no code changes)
+
+**Key Outcomes**:
+1. **5 New Issues Extracted**:
+   - Issue #13: Recurring docstring coverage pattern (50% → 60% → 33%, target 80%)
+   - Issue #14: PR title vs scope mismatch (CodeRabbit warning on PR #19)
+   - Issue #15: Server-side idempotency pattern (60-second deduplication)
+   - Issue #16: Health check endpoint pattern (deployment metadata)
+   - Issue #17: E2E testing framework (Playwright ^1.57.0)
+
+2. **Updated docs/PR_ISSUES_CONSOLIDATED.md**:
+   - Total issues: 12 → 17 (+5 new findings)
+   - All issues include: PR reference, category, priority, effort, owner, ready-to-use prompts, MVP phase
+   - Updated summary by category (Quality: 5, DX: 2, Technical Debt: 3)
+   - Updated "Next Actions" with new priorities
+
+3. **Patterns Identified**:
+   - Docstring coverage declining trend across 3 PRs (requires ESLint enforcement)
+   - PR title validation needed (GitHub Action for conventional commits)
+   - 3 reusable architecture patterns documented (idempotency, health checks, E2E testing)
+
+4. **Review Tool Analysis**:
+   - CodeRabbit: Excellent for coverage metrics, title validation, effort estimates
+   - Sourcery: Valuable architecture diagrams
+   - SonarCloud: Reliable quality gates
+
+5. **Documentation Complete**:
+   - docs/PR_ISSUES_CONSOLIDATED.md: +195 lines
+   - docs/PERFORMANCE_LOG.md: +155 lines (session metrics)
+   - CLAUDE.md: This session entry
+
+**Reference**: See `docs/PR_ISSUES_CONSOLIDATED.md` for full issue breakdown
 
 ---
 

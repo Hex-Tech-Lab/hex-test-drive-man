@@ -1,8 +1,8 @@
 # PR Issues Consolidated
 
 **Generated**: 2025-12-23 01:00 UTC
-**Last Updated**: 2025-12-23 01:00 UTC
-**Sources**: PR #21, SonarCloud, CodeRabbit, Sourcery, Recent Commits
+**Last Updated**: 2025-12-23 01:30 UTC
+**Sources**: PRs #17-22, SonarCloud, CodeRabbit, Sourcery, Snyk, Recent Commits
 **Scope**: Non-credential issues only (per user directive)
 
 ---
@@ -10,15 +10,15 @@
 ## Overview
 
 This document consolidates all open issues from:
-- Open PR #21 (Vehicle Image Coverage Audit Tool)
-- Review tools (CodeRabbit, Sourcery, SonarCloud)
+- PRs #17-22 (Snyk upgrades, OTP booking, SMS fixes, image audit, duplicate prevention)
+- Review tools (CodeRabbit, Sourcery, SonarCloud, Snyk)
 - Recent commit findings (Dec 20-23, 2025)
 - ACTION_ITEMS_DEC23.md
 - FOUNDATION_CHECKLIST.md
 
-**Total Issues**: 12
-**By Priority**: P0 (3), P1 (4), P2 (3), P3 (2)
-**By Category**: Security (1), Quality (3), Performance (2), UX (4), Technical Debt (2)
+**Total Issues**: 17
+**By Priority**: P0 (3), P1 (5), P2 (4), P3 (2), Reference (3)
+**By Category**: Security (1), Quality (5), Performance (2), UX (4), DX (2), Technical Debt (3)
 
 ---
 
@@ -450,10 +450,12 @@ def test_filesystem_paths_cross_platform():
 ### Security (1)
 - P0: SonarCloud E rating (hardcoded credentials)
 
-### Quality (3)
+### Quality (5)
 - P1: Filesystem path assumptions
 - P1: HTTP error handling
 - P1: SQL parsing robustness
+- P1: Docstring coverage below threshold (RECURRING)
+- Reference: E2E testing framework (already applied)
 
 ### Performance (2)
 - P2: Locale persistence strategy
@@ -465,9 +467,14 @@ def test_filesystem_paths_cross_platform():
 - P1: Search functionality wrong results
 - (Locale issues resolved)
 
-### Technical Debt (2)
+### DX (2)
+- P2: PR title vs scope mismatch
+- Reference: Health check endpoint (already applied)
+
+### Technical Debt (3)
 - P2: Booking migration not applied
 - P3: Unit tests for audit script
+- Reference: Server-side idempotency pattern (already applied)
 
 ---
 
@@ -478,21 +485,215 @@ def test_filesystem_paths_cross_platform():
 2. Debug 370 vs 409 vehicle discrepancy (CC)
 3. Fix filesystem paths in audit script (CC)
 4. Add HTTP error handling (CC)
+5. Add JSDoc enforcement + pre-commit hook (ALL) - 30-90m
 
 **High Priority (Next Week)**:
-5. Complete image coverage (GC) - download 124 images
-6. Fix search functionality (GC)
-7. Define locale/routing canonical rules (CC)
+6. Complete image coverage (GC) - download 124 images
+7. Fix search functionality (GC)
+8. Define locale/routing canonical rules (CC)
+9. Create PR title validation GitHub Action (CC) - <30m
 
 **Medium Priority (This Sprint)**:
-8. Apply booking migration (CCW)
-9. Auto-fix ESLint warnings (CC)
+10. Apply booking migration (CCW)
+11. Auto-fix ESLint warnings (CC)
 
 **Backlog**:
-10. Unit tests for audit script (BB, MVP 2.0)
+12. Unit tests for audit script (BB, MVP 2.0)
+13. Expand E2E tests to catalog page (CCW, MVP 1.5)
+14. Enhance health check endpoint (CC, MVP 1.5)
 
 ---
 
 **Maintained By**: CC
 **Review Cadence**: Daily (during active sprint)
 **Archive Policy**: Move resolved items to RESOLVED_ISSUES.md weekly
+## NEW FINDINGS FROM PR MINING (Dec 23, 2025 01:30 UTC)
+
+### 13. [Quality] Docstring Coverage Below Threshold (RECURRING)
+**Source**: PRs #18, #19, #22 - CodeRabbit
+**Category**: Code Quality / Documentation
+**Status**: 🔴 Pattern Detected (3 PRs)
+**Owner**: ALL
+
+**Problem**: Consistent pattern of low docstring coverage across multiple PRs
+- PR #18: 50% coverage (target 80%)
+- PR #19: 60% coverage (target 80%)
+- PR #22: 33% coverage (target 80%)
+- **Impact**: Maintenance difficulty, onboarding friction
+
+**Root Cause**: No enforcement mechanism for documentation standards
+
+**Action**:
+```bash
+# Add ESLint plugin for JSDoc enforcement
+pnpm add -D eslint-plugin-jsdoc
+
+# .eslintrc.js
+module.exports = {
+  plugins: ['jsdoc'],
+  rules: {
+    'jsdoc/require-jsdoc': ['warn', {
+      require: {
+        FunctionDeclaration: true,
+        ClassDeclaration: true,
+        MethodDefinition: true
+      }
+    }]
+  }
+}
+
+# Pre-commit hook
+#!/bin/sh
+coverage=$(pnpm run check:docstrings | grep -o '[0-9]\+\.[0-9]\+%' | head -1 | tr -d '%')
+if [ $(echo "$coverage < 80" | bc) -eq 1 ]; then
+  echo "Docstring coverage $coverage% < 80% threshold"
+  exit 1
+fi
+```
+
+**ETA**: 30-90m
+**MVP Phase**: MVP 1.5 (Quality Standards)
+**Prompt for Agent**:
+> "Add JSDoc enforcement to ESLint config and create pre-commit hook to reject commits with <80% docstring coverage. Target all exported functions, classes, and methods. Provide example docstrings matching project style. Test on 3 existing files."
+
+---
+
+### 14. [Quality] PR Title vs Scope Mismatch
+**Source**: PR #19 - CodeRabbit Warning
+**Category**: DX (Developer Experience)
+**Status**: 🟡 Pattern to Watch
+**Owner**: CC
+
+**Problem**: PR #19 titled "fix(sms): sender ID capitalization" but contained major infrastructure changes (Supabase migrations, repository refactoring, OTP flow)
+
+**Impact**: 
+- Code reviewers misled about scope
+- CI/CD assumptions broken (title suggests hotfix, actually breaking change)
+- Release notes inaccurate
+
+**CodeRabbit Warning**: "The PR title refers to a trivial SMS sender ID fix, but the changeset contains major infrastructure changes"
+
+**Action**:
+- Document PR title conventions in CONTRIBUTING.md
+- Add GitHub Action to validate PR title format
+- Enforce conventional commits (feat/fix/refactor/docs)
+
+**ETA**: <30m
+**MVP Phase**: MVP 1.5 (DX Improvements)
+**Prompt for Agent**:
+> "Create GitHub Action to validate PR titles match conventional commits format and warn if title scope doesn't match files changed. Add CONTRIBUTING.md section on PR title best practices. Example: 'feat(booking): implement OTP verification flow' must touch booking-related files."
+
+---
+
+### 15. [Pattern] Server-Side Idempotency (REUSABLE)
+**Source**: PR #22 - Sourcery Architecture
+**Category**: Tech Debt / Best Practice
+**Status**: ✅ Already Fixed (PR #22 merged)
+**Owner**: Reference for future features
+
+**Problem Solved**: Duplicate OTP SMS sends from rapid button clicks
+
+**Solution Pattern** (60-second deduplication):
+```typescript
+// src/app/api/bookings/route.ts
+const supabase = createClient();
+const recentBooking = await supabase
+  .from('bookings')
+  .select('id')
+  .eq('phone_number', phone)
+  .gte('created_at', new Date(Date.now() - 60000).toISOString())
+  .single();
+
+if (recentBooking.data) {
+  return NextResponse.json({
+    id: recentBooking.data.id,
+    duplicate: true,
+    message: 'Duplicate booking prevented'
+  }, { status: 200 });
+}
+```
+
+**Reuse For**:
+- Payment processing endpoints (prevent double charges)
+- Email sending (prevent spam)
+- Any user-triggered mutation with side effects
+
+**ETA**: N/A (reference pattern)
+**MVP Phase**: MVP 1.0 (Booking System) - Applied
+**Prompt for Agent**:
+> "Apply 60-second idempotency pattern from PR #22 to /api/payments endpoint. Use phone_number + order_id as composite key. Return existing transaction if duplicate detected within window. Log duplicate attempts to Sentry."
+
+---
+
+### 16. [Enhancement] Health Check Endpoint (REUSABLE)
+**Source**: PR #22 - New Feature
+**Category**: DX / Observability
+**Status**: ✅ Already Fixed (PR #22 merged)
+**Owner**: Reference for deployment verification
+
+**Implementation**:
+```typescript
+// src/app/api/health/route.ts
+export async function GET() {
+  return NextResponse.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NEXT_PUBLIC_VERCEL_ENV || 'development',
+    version: process.env.NEXT_PUBLIC_APP_VERSION || 'unknown',
+    commit: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || 'local',
+    branch: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || 'unknown'
+  });
+}
+```
+
+**Use Cases**:
+- Vercel deployment verification
+- Load balancer health checks
+- Monitoring/alerting integration
+- Debugging production issues (commit SHA visibility)
+
+**Enhancement Opportunities**:
+- Add database connectivity check
+- Add external API status (WhySMS, Supabase)
+- Add memory/CPU usage
+- Add uptime
+
+**ETA**: N/A (reference pattern)
+**MVP Phase**: MVP 1.0 (Deployment Tools) - Applied
+**Prompt for Agent**:
+> "Enhance /api/health endpoint to include database ping, WhySMS API status, and Supabase connectivity. Return 503 if any critical service is down. Add response time metrics. Document expected response format for monitoring tools."
+
+---
+
+### 17. [Enhancement] E2E Testing Framework Added
+**Source**: PR #22 - Playwright Integration
+**Category**: Quality / Testing
+**Status**: ✅ Already Fixed (PR #22 merged)
+**Owner**: CCW
+
+**Added**:
+- Playwright ^1.57.0 (devDependency)
+- E2E test runner: `RUN_E2E_TEST.sh`
+- Booking flow test: `scripts/e2e-otp-test.mjs`
+- Test report: `E2E_TEST_REPORT.json`
+
+**Coverage**:
+- Booking submission
+- OTP SMS sending
+- Database verification
+- Supabase query validation
+
+**Next Steps**:
+- Expand to catalog browsing
+- Add compare functionality tests
+- Add locale switching tests
+- Add filter tests
+- Integrate with CI/CD
+
+**ETA**: N/A (already integrated)
+**MVP Phase**: MVP 1.0 (Testing) - Foundation Complete
+**Prompt for Agent**:
+> "Create E2E tests for catalog page using Playwright. Test: vehicle filtering by brand/category/price, search functionality, pagination, locale switching (EN/AR). Store test results in E2E_TEST_REPORT.json. Follow existing pattern from scripts/e2e-otp-test.mjs."
+
+---
+
