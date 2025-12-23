@@ -40,7 +40,7 @@ Issues that break user flows, data correctness, or trust. **Must be fixed for MV
 **Prompt for BB**:
 > Debug 370 vs 409 vehicle display discrepancy. Steps: (1) Query Supabase REST API to confirm 409 vehicle_trims exist. (2) Check src/repositories/vehicleRepository.ts for any WHERE clauses, active/published/hidden filters. (3) Inspect src/app/[locale]/page.tsx for client-side filtering. (4) Add console.log of vehicles.length before/after all filters. (5) Identify and remove the hidden filter. (6) Verify all 409 vehicles display in catalog. Report findings with fix. Branch: bb/mvp1-ui-fixes
 
-**Status**: Unstarted
+**Status**: Code Complete (Verification Pending)
 
 ---
 
@@ -97,7 +97,7 @@ Issues that break user flows, data correctness, or trust. **Must be fixed for MV
 **Prompt for BB**:
 > Fix price slider visual position bug. Issue: thumb stuck at 40% when max=3.9M EGP. (1) Test FilterPanel.tsx Slider with different max values (1M, 5M, 10M, 20M). (2) Check MUI Slider props: step, scale, marks, valueLabelDisplay. (3) Consider logarithmic scale for large ranges (scale="log" or custom scale function). (4) Verify thumb position matches selected value across full range. (5) Test on Chrome/Firefox/Safari. Commit fix with before/after screenshots. Branch: bb/mvp1-ui-fixes
 
-**Status**: Unstarted
+**Status**: Code Complete (Verification Pending)
 
 ---
 
@@ -215,7 +215,7 @@ Strong UX/quality/performance wins that materially affect demo but are not outri
 **Prompt for GC**:
 > Implement sort dropdown for catalog. (1) Add MUI Select component to src/components/FilterPanel.tsx or create new SortDropdown.tsx. (2) Options: Price Low→High, Price High→Low, Year Newest→Oldest, Brand A-Z, Category. (3) Store selection in localStorage (key: 'catalog_sort'). (4) Apply sort to vehicles array before display. (5) Support Arabic RTL (reverse arrow icons). (6) Test all sort options with 409 vehicles. (7) Verify persistence across page reloads. Commit with screenshot of dropdown.
 
-**Status**: Planned
+**Status**: Code Complete (Verification Pending)
 
 ---
 
@@ -234,7 +234,7 @@ Strong UX/quality/performance wins that materially affect demo but are not outri
 **Prompt for GC**:
 > Add grid size toggle for catalog. (1) Add MUI IconButton group to catalog header in src/app/[locale]/page.tsx. (2) Icons: ViewModule (3-col), ViewCompact (4-col), ViewQuilt (5-col) from @mui/icons-material. (3) Responsive: Mobile 1-col (always), Tablet 2-3 cols, Desktop 3-5 cols (user choice). (4) Store selection in localStorage (key: 'catalog_grid_size'). (5) Update Grid xs/sm/md/lg props dynamically. (6) Test on 1920px, 1366px, 768px viewports. Commit with demo GIF.
 
-**Status**: Planned
+**Status**: Code Complete (Verification Pending)
 
 ---
 
@@ -272,7 +272,7 @@ Strong UX/quality/performance wins that materially affect demo but are not outri
 **Prompt for GC**:
 > Refactor FilterPanel to use MUI Accordion for collapsible sections. (1) Wrap Brands, Categories, Price in separate MUI Accordion components in src/components/FilterPanel.tsx. (2) Default state: Brands expanded, Categories/Price collapsed. (3) Save expansion state to localStorage (key: 'filter_accordion_state'). (4) Ensure RTL support (Arabic collapse icons flip correctly). (5) Test on mobile (375px width): verify filters collapse, vehicles visible without scroll. (6) Verify desktop layout unchanged. Commit with mobile screenshot comparison.
 
-**Status**: Planned
+**Status**: Code Complete (Verification Pending)
 
 ---
 

@@ -1302,3 +1302,31 @@ sx={{ position: 'sticky', top: 80, zIndex: 100 }}
 
 **Last Updated**: 2025-12-23 04:10 UTC
 **Maintained By**: CC (Claude Code)
+
+
+## Session: Dec 23, 2025 (GC UI Regression Fixes)
+
+### Execution Metrics
+
+**Timeline**:
+- Start: 2025-12-23 04:15 UTC
+- End: 2025-12-23 04:30 UTC
+- **Total Duration**: 15 minutes
+
+**Agent**: GC (Gemini Code)
+**Branch**: gc/ui-regression-fixes-v2.3
+
+**Files Modified**:
+- src/components/FilterPanel.tsx: 2 modifications (removed overflowY, removed log scale)
+- docs/GC_STATUS_v2.3.1_2025-12-23.md: Created status file
+- docs/PERFORMANCE_LOG.md: Added this entry
+- docs/CRITICAL_HIGH_BLOCKERS_ROSTER.md: Updated statuses
+
+**Tasks Completed**:
+1. Addressed blockers from CC review (FilterPanel scrollbar, log scale)
+2. Documented current status in v2.3.1 format
+3. Updated project tracking documents
+
+**Self-Critique**:
+- Rapidly addressed code blockers identified by CC.
+- Ensured documentation reflects the "Code Complete" state pending browser verification.

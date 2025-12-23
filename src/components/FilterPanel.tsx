@@ -1,7 +1,8 @@
 'use client';
 
 import { useMemo } from 'react';
-import { Box, Typography, Checkbox, FormControlLabel, Slider, Paper, Divider, Button, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent } from '@mui/material';
+import { Box, Typography, Checkbox, FormControlLabel, Slider, Paper, Button, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Vehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
 import { useFilterStore } from '@/stores/filter-store';
@@ -22,7 +23,6 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
   const selectedBrands = useFilterStore((state) => state.brands);
   const selectedCategories = useFilterStore((state) => state.categories);
   const priceRange = useFilterStore((state) => state.priceRange);
-  const sortBy = useFilterStore((state) => state.sortBy);
   const setFilters = useFilterStore((state) => state.setFilters);
 
   // Extract unique brands from live data
@@ -82,16 +82,11 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
     setFilters({ priceRange: newRange });
   };
 
-  const handleSortChange = (event: SelectChangeEvent) => {
-    setFilters({ sortBy: event.target.value });
-  };
-
   const handleReset = () => {
     setFilters({
       brands: [],
       categories: [],
       priceRange: [minPrice, maxPrice],
-      sortBy: 'price_asc',
     });
   };
 
@@ -105,113 +100,144 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
     return `${value}`;
   };
 
+  // Compact styles
+  const accordionSummaryStyle = {
+    margin: '0',
+    minHeight: '40px',
+    '& .MuiAccordionSummary-content': { margin: '8px 0' },
+  };
+  
+  const sectionTitleStyle = {
+    fontSize: '12px',
+    fontWeight: 700,
+    textTransform: 'uppercase' as const,
+    color: 'text.secondary',
+  };
+
+  const checkboxLabelStyle = {
+    '& .MuiTypography-root': { fontSize: '13px' },
+    '& .MuiCheckbox-root': { padding: '4px' },
+    marginLeft: language === 'ar' ? 0 : '-8px',
+    marginRight: language === 'ar' ? '-8px' : 0,
+  };
+
   return (
-    <Paper sx={{ 
-      p: 2,
+    <Box sx={{ 
       position: { xs: 'relative', md: 'sticky' },
       top: { md: 80 },
-      maxHeight: { md: 'calc(100vh - 100px)' },
-      overflowY: { md: 'auto' },
-      zIndex: 10
+      maxHeight: { md: 'calc(100vh - 96px)' },
+      pb: 2,
     }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography variant="h6">
-          {language === 'ar' ? 'تصفية' : 'Filters'}
-        </Typography>
-        <Button size="small" onClick={handleReset}>
-          {language === 'ar' ? 'إعادة تعيين' : 'Reset'}
-        </Button>
-      </Box>
-
-      <Divider sx={{ mb: 2 }} />
-
-      {/* Sort By */}
-      <Box mb={3}>
-        <FormControl fullWidth size="small">
-          <InputLabel>{language === 'ar' ? 'ترتيب حسب' : 'Sort By'}</InputLabel>
-          <Select
-            value={sortBy || 'price_asc'}
-            label={language === 'ar' ? 'ترتيب حسب' : 'Sort By'}
-            onChange={handleSortChange}
+      <Paper elevation={0} sx={{ 
+        border: '1px solid #e0e0e0', 
+        borderRadius: 1, 
+        overflow: 'hidden',
+        bgcolor: '#fff'
+      }}>
+        <Box sx={{ 
+          p: 2, 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center', 
+          borderBottom: '1px solid #e0e0e0',
+          bgcolor: '#f9f9f9'
+        }}>
+          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            {language === 'ar' ? 'تصفية' : 'FILTERS'}
+          </Typography>
+          <Button 
+            size="small" 
+            onClick={handleReset} 
+            sx={{ fontSize: '11px', minWidth: 'auto', p: '2px 8px' }}
           >
-            <MenuItem value="price_asc">{language === 'ar' ? 'السعر: من الأقل للأعلى' : 'Price: Low to High'}</MenuItem>
-            <MenuItem value="price_desc">{language === 'ar' ? 'السعر: من الأعلى للأقل' : 'Price: High to Low'}</MenuItem>
-            <MenuItem value="year_desc">{language === 'ar' ? 'السنة: الأحدث أولاً' : 'Year: Newest First'}</MenuItem>
-            <MenuItem value="year_asc">{language === 'ar' ? 'السنة: الأقدم أولاً' : 'Year: Oldest First'}</MenuItem>
-            <MenuItem value="brand_asc">{language === 'ar' ? 'العلامة التجارية: أ-ي' : 'Brand: A-Z'}</MenuItem>
-            <MenuItem value="brand_desc">{language === 'ar' ? 'العلامة التجارية: ي-أ' : 'Brand: Z-A'}</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-
-      <Divider sx={{ mb: 2 }} />
-
-      {/* Brands */}
-      <Box mb={3}>
-        <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
-          {language === 'ar' ? 'العلامات التجارية' : 'Brands'}
-        </Typography>
-        {availableBrands.map((brand) => (
-          <FormControlLabel
-            key={brand}
-            control={
-              <Checkbox
-                checked={selectedBrands.includes(brand)}
-                onChange={() => handleBrandToggle(brand)}
-              />
-            }
-            label={brand}
-          />
-        ))}
-      </Box>
-
-      <Divider sx={{ mb: 2 }} />
-
-      {/* Categories */}
-      <Box mb={3}>
-        <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
-          {language === 'ar' ? 'الفئات' : 'Categories'}
-        </Typography>
-        {availableCategories.map((cat) => (
-          <FormControlLabel
-            key={cat}
-            control={
-              <Checkbox
-                checked={selectedCategories.includes(cat)}
-                onChange={() => handleCategoryToggle(cat)}
-              />
-            }
-            label={cat}
-          />
-        ))}
-      </Box>
-
-      <Divider sx={{ mb: 2 }} />
-
-      {/* Price Range */}
-      <Box>
-        <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
-          {language === 'ar' ? 'نطاق السعر' : 'Price Range'}
-        </Typography>
-        <Slider
-          value={priceRange}
-          onChange={handlePriceChange}
-          valueLabelDisplay="auto"
-          min={minPrice}
-          max={maxPrice}
-          step={100_000}
-          valueLabelFormat={formatPrice}
-          sx={{ mt: 2, mb: 1 }}
-        />
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="body2" color="text.secondary">
-            {formatPrice(priceRange[0])} EGP
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {formatPrice(priceRange[1])} EGP
-          </Typography>
+            {language === 'ar' ? 'مسح' : 'Clear'}
+          </Button>
         </Box>
-      </Box>
-    </Paper>
+
+        {/* Brands Accordion */}
+        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+            <Typography sx={sectionTitleStyle}>
+              {language === 'ar' ? 'العلامات التجارية' : 'Brands'}
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              {availableBrands.map((brand) => (
+                <FormControlLabel
+                  key={brand}
+                  control={
+                    <Checkbox
+                      size="small"
+                      checked={selectedBrands.includes(brand)}
+                      onChange={() => handleBrandToggle(brand)}
+                    />
+                  }
+                  label={brand}
+                  sx={checkboxLabelStyle}
+                />
+              ))}
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+
+        {/* Categories Accordion */}
+        <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+            <Typography sx={sectionTitleStyle}>
+              {language === 'ar' ? 'الفئات' : 'Categories'}
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              {availableCategories.map((cat) => (
+                <FormControlLabel
+                  key={cat}
+                  control={
+                    <Checkbox
+                      size="small"
+                      checked={selectedCategories.includes(cat)}
+                      onChange={() => handleCategoryToggle(cat)}
+                    />
+                  }
+                  label={cat}
+                  sx={checkboxLabelStyle}
+                />
+              ))}
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+
+        {/* Price Range Accordion */}
+        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' } }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+            <Typography sx={sectionTitleStyle}>
+              {language === 'ar' ? 'نطاق السعر' : 'Price Range'}
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+            <Slider
+              value={priceRange}
+              onChange={handlePriceChange}
+              valueLabelDisplay="auto"
+              min={minPrice}
+              max={maxPrice}
+              step={100_000}
+              valueLabelFormat={formatPrice}
+              size="small"
+              sx={{ mt: 1, mb: 1 }}
+            />
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Typography variant="caption" color="text.secondary" sx={{ fontSize: '11px' }}>
+                {formatPrice(priceRange[0])}
+              </Typography>
+              <Typography variant="caption" color="text.secondary" sx={{ fontSize: '11px' }}>
+                {formatPrice(priceRange[1])}
+              </Typography>
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+      </Paper>
+    </Box>
   );
 }
