@@ -31,14 +31,14 @@ Issues that break user flows, data correctness, or trust. **Must be fixed for MV
 **Category**: UX / Data Quality
 **MVP Phase**: MVP 1.0 (Blocking completion)
 **Priority**: P0
-**Owner**: CC
+**Owner**: BB (Data/UI)
 
 **Description**: Catalog displays only 370 vehicles instead of all 409 in database. 39 vehicles missing from user view despite removal of 50-vehicle limit (commit a37f3d3). Likely hidden filter in repository or page component.
 
 **Impact**: Users see incomplete catalog, missing 9.5% of available vehicles. Damages trust in platform completeness.
 
-**Prompt for CC**:
-> Debug 370 vs 409 vehicle display discrepancy. Steps: (1) Query Supabase REST API to confirm 409 vehicle_trims exist. (2) Check src/repositories/vehicleRepository.ts for any WHERE clauses, active/published/hidden filters. (3) Inspect src/app/[locale]/page.tsx for client-side filtering. (4) Add console.log of vehicles.length before/after all filters. (5) Identify and remove the hidden filter. (6) Verify all 409 vehicles display in catalog. Report findings with fix.
+**Prompt for BB**:
+> Debug 370 vs 409 vehicle display discrepancy. Steps: (1) Query Supabase REST API to confirm 409 vehicle_trims exist. (2) Check src/repositories/vehicleRepository.ts for any WHERE clauses, active/published/hidden filters. (3) Inspect src/app/[locale]/page.tsx for client-side filtering. (4) Add console.log of vehicles.length before/after all filters. (5) Identify and remove the hidden filter. (6) Verify all 409 vehicles display in catalog. Report findings with fix. Branch: bb/mvp1-ui-fixes
 
 **Status**: Unstarted
 
@@ -50,14 +50,14 @@ Issues that break user flows, data correctness, or trust. **Must be fixed for MV
 **Category**: UX / Quality
 **MVP Phase**: MVP 1.0 (Blocking completion)
 **Priority**: P1
-**Owner**: GC
+**Owner**: CC (Logic + Verification)
 
 **Description**: Typing 'p' in search returns Nissan Sunny instead of Porsche/Peugeot. Search logic broken - case sensitivity or partial match issue in FilterPanel.tsx or page.tsx.
 
 **Impact**: Users cannot find vehicles by brand/model name. Destroys search functionality credibility.
 
-**Prompt for GC**:
-> Fix search functionality returning incorrect results. Issue: typing 'p' returns Nissan Sunny, not Porsche/Peugeot. (1) Inspect filter logic in src/components/FilterPanel.tsx and src/app/[locale]/page.tsx. (2) Debug: toLowerCase(), includes(), startsWith() usage. (3) Test edge cases: single letters (a-z), numbers, Arabic text, special chars. (4) Add search term highlighting for matched text. (5) Verify 'p' matches Porsche/Peugeot, not Nissan. Commit fix with test results.
+**Prompt for CC**:
+> Fix search functionality returning incorrect results. Issue: typing 'p' returns Nissan Sunny, not Porsche/Peugeot. (1) Inspect filter logic in src/components/FilterPanel.tsx and src/app/[locale]/page.tsx. (2) Debug: toLowerCase(), includes(), startsWith() usage. (3) Test edge cases: single letters (a-z), numbers, Arabic text, special chars. (4) Add search term highlighting for matched text. (5) Verify 'p' matches Porsche/Peugeot, not Nissan. Commit fix with test results. Branch: cc/mvp1-criticals
 
 **Status**: Unstarted
 
@@ -88,14 +88,14 @@ Issues that break user flows, data correctness, or trust. **Must be fixed for MV
 **Category**: UX / Visual
 **MVP Phase**: MVP 1.0 (Polish)
 **Priority**: P2
-**Owner**: CC
+**Owner**: BB (UI Component)
 
 **Description**: MUI Slider thumb stuck at ~40% position when max=3.9M EGP, despite correct value selection. Large number range (0-3.9M) breaks MUI Slider visual calculation.
 
 **Impact**: Users see incorrect visual feedback on price filter, confusion about selected range.
 
-**Prompt for CC**:
-> Fix price slider visual position bug. Issue: thumb stuck at 40% when max=3.9M EGP. (1) Test FilterPanel.tsx Slider with different max values (1M, 5M, 10M, 20M). (2) Check MUI Slider props: step, scale, marks, valueLabelDisplay. (3) Consider logarithmic scale for large ranges (scale="log" or custom scale function). (4) Verify thumb position matches selected value across full range. (5) Test on Chrome/Firefox/Safari. Commit fix with before/after screenshots.
+**Prompt for BB**:
+> Fix price slider visual position bug. Issue: thumb stuck at 40% when max=3.9M EGP. (1) Test FilterPanel.tsx Slider with different max values (1M, 5M, 10M, 20M). (2) Check MUI Slider props: step, scale, marks, valueLabelDisplay. (3) Consider logarithmic scale for large ranges (scale="log" or custom scale function). (4) Verify thumb position matches selected value across full range. (5) Test on Chrome/Firefox/Safari. Commit fix with before/after screenshots. Branch: bb/mvp1-ui-fixes
 
 **Status**: Unstarted
 

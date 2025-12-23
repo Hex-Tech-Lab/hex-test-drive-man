@@ -23,6 +23,51 @@
 
 ---
 
+## 🎯 ACTIVE ASSIGNMENT: MVP 1.0 Critical UI Fixes (READ FIRST)
+
+**Status**: ⏳ Ready to Execute
+**Plan**: `docs/MVP_1.0_CC_BB_PLAN.md`
+**Branch**: `bb/mvp1-ui-fixes`
+**Effort**: 2-4 hours (2 issues)
+
+### Setup
+```bash
+git checkout main
+git pull origin main
+git checkout -b bb/mvp1-ui-fixes
+```
+
+### Your Issues (C1, C4 from CRITICAL_HIGH_BLOCKERS_ROSTER.md)
+
+**C1: 370 vs 409 Vehicle Display Discrepancy** (1-2 hours)
+- **Files**: `src/repositories/vehicleRepository.ts`, `src/app/[locale]/page.tsx`
+- **Issue**: Catalog shows 370 instead of 409 vehicles (39 missing)
+- **Tasks**: Query Supabase (verify 409 exist), check hidden filters, fix, verify all 409 display
+- **Acceptance**: Catalog shows 409 vehicles, root cause documented
+
+**C4: Price Slider Position Bug** (1-2 hours)
+- **Files**: `src/components/FilterPanel.tsx`
+- **Issue**: Thumb stuck at 40% when max=3.9M EGP
+- **Tasks**: Test MUI Slider props, consider logarithmic scale, verify accuracy, test browsers
+- **Acceptance**: Thumb position accurate, works all browsers, screenshots in commit
+
+### Merge Process
+```bash
+git push origin bb/mvp1-ui-fixes
+gh pr create --base main --head bb/mvp1-ui-fixes \
+  --title "fix(mvp1): 370→409 vehicles + slider position (C1,C4)" \
+  --body "Fixes 2 MVP 1.0 Critical UI issues. See CRITICAL_HIGH_BLOCKERS_ROSTER.md C1, C4."
+
+# DO NOT update CLAUDE.md (CC owns agent docs)
+```
+
+### Enforcement
+- ✅ GitHub = single source of truth (commit → push → PR)
+- ❌ Do NOT update CLAUDE.md/BLACKBOX.md (CC responsibility)
+- ✅ Include screenshots for C4
+
+---
+
 ## BB OPERATING INSTRUCTIONS (MANDATORY - READ FIRST)
 
 **Identity**: You are BB (Blackbox AI), expert full-stack developer and system architect at 0.1% expertise level globally.

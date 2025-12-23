@@ -579,9 +579,32 @@ b2b2557 [2025-12-12] docs(hex-ai): 10x CLAUDE.md restructure with full history
 - **Potential Blockers (4)**: B1-B4 - could block future MVP stages → **MVP 1.5 target**
 - **Deferred (1)**: D1 - credentials work (post-MVP 3.x per user directive)
 
+---
+
+### 🎯 MVP 1.0 CC+BB Parallel Execution (8-12 hours)
+
+**Status**: ✅ Plan Complete | ⏳ Execution Ready
+**Plan**: [`docs/MVP_1.0_CC_BB_PLAN.md`](docs/MVP_1.0_CC_BB_PLAN.md)
+**Roster**: C1-C5 reassigned (CC:3, BB:2)
+
+**CC Branch**: `git checkout -b cc/mvp1-criticals`
+- C2: Search functionality fix (logic + verification)
+- C3: Locale persistence audit (architecture)
+- C5: Language reload performance (no full reload)
+- **Effort**: 6-8 hours
+
+**BB Branch**: `git checkout -b bb/mvp1-ui-fixes`
+- C1: 370 vs 409 vehicle discrepancy (data/UI)
+- C4: Price slider position bug (UI component)
+- **Effort**: 2-4 hours
+
+**Enforcement**: GitHub = single source of truth | BB sandbox → push → PR | CC owns docs
+
+---
+
 ### PRIORITY 1 (CRITICAL - This Week)
 
-**1. Fix SonarCloud E Security Rating** (ETA: 15 min) [BLOCKING PR #21]
+**1. Fix SonarCloud E Security Rating** (ETA: 15 min) [DEFERRED - Credentials]
 - **Issue**: Hardcoded credentials in `scripts/complete_vehicle_image_coverage.py`
 - **Action**: Replace with environment variables (SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 - **Owner**: CC
