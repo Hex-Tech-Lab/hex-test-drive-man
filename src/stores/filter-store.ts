@@ -8,6 +8,7 @@ interface FilterState {
   bodyStyle?: string | null;
   segmentCode?: string | null;
   agent?: string | null;
+  sortBy: string;
   setFilters: (filters: Partial<Omit<FilterState, 'setFilters' | 'resetFilters'>>) => void;
   resetFilters: () => void;
 }
@@ -21,6 +22,7 @@ export const useFilterStore = create<FilterState>()(
       bodyStyle: null,
       segmentCode: null,
       agent: null,
+      sortBy: 'price_asc',
       setFilters: (filters) => set((state) => ({ ...state, ...filters })),
       resetFilters: () =>
         set({
@@ -30,6 +32,7 @@ export const useFilterStore = create<FilterState>()(
           bodyStyle: null,
           segmentCode: null,
           agent: null,
+          sortBy: 'price_asc',
         }),
     }),
     {

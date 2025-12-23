@@ -12,6 +12,9 @@ import { useLanguageStore } from '@/stores/language-store';
 import { useFilterStore } from '@/stores/filter-store';
 import { useParams } from 'next/navigation';
 
+/**
+ * Main catalog page component with filtering, sorting, and vehicle grid
+ */
 export default function CatalogPage() {
   const params = useParams();
   const locale = params.locale as string;
@@ -29,6 +32,7 @@ export default function CatalogPage() {
   const bodyStyle = useFilterStore((state) => state.bodyStyle);
   const segmentCode = useFilterStore((state) => state.segmentCode);
   const agent = useFilterStore((state) => state.agent);
+  const sortBy = useFilterStore((state) => state.sortBy);
   const filters = { brands, priceRange, categories, bodyStyle, segmentCode, agent };
 
   // Scroll persistence
@@ -151,6 +155,23 @@ export default function CatalogPage() {
     }
 
     return true;
+  }).sort((a, b) => {
+    switch (sortBy) {
+      case 'price_asc':
+        return a.minPrice - b.minPrice;
+      case 'price_desc':
+        return b.minPrice - a.minPrice;
+      case 'year_desc':
+        return b.model_year - a.model_year;
+      case 'year_asc':
+        return a.model_year - b.model_year;
+      case 'brand_asc':
+        return a.models.brands.name.localeCompare(b.models.brands.name);
+      case 'brand_desc':
+        return b.models.brands.name.localeCompare(a.models.brands.name);
+      default:
+        return 0;
+    }
   });
 
   if (loading) {

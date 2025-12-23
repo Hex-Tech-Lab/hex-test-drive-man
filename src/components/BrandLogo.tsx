@@ -14,6 +14,13 @@ const sizeMap = {
   large: { width: 112, height: 80 },
 };
 
+/**
+ * Brand logo component with fallback text
+ * @param props - Component props
+ * @param props.brandName - Name of the brand
+ * @param props.logoUrl - URL of the logo image
+ * @param props.size - Size variant (small, medium, large)
+ */
 export function BrandLogo({ brandName, logoUrl, size = 'medium' }: BrandLogoProps) {
   const dimensions = sizeMap[size];
 

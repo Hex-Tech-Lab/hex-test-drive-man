@@ -6,6 +6,9 @@ import { useLanguageStore } from '@/stores/language-store';
 import { useCompareStore } from '@/stores/compare-store';
 import { useRouter, usePathname } from 'next/navigation';
 
+/**
+ * Global header component with language switcher and comparison link
+ */
 export default function Header() {
   const language = useLanguageStore((state) => state.language);
   const setLanguage = useLanguageStore((state) => state.setLanguage);

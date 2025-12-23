@@ -33,6 +33,11 @@ interface VehicleCardProps {
   vehicle: AggregatedVehicle;
 }
 
+/**
+ * Vehicle card component displaying summary and booking options
+ * @param props - Component props
+ * @param props.vehicle - Aggregated vehicle data including trims
+ */
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
   const router = useRouter();
   const language = useLanguageStore((state) => state.language);

@@ -2,6 +2,7 @@ import typescriptPlugin from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import jsdocPlugin from 'eslint-plugin-jsdoc';
 
 const config = [
   {
@@ -30,6 +31,7 @@ const config = [
       '@typescript-eslint': typescriptPlugin,
       'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
+      'jsdoc': jsdocPlugin,
     },
     rules: {
       'quotes': ['warn', 'single'],
@@ -52,6 +54,18 @@ const config = [
           ],
         },
       ],
+      'jsdoc/require-jsdoc': [
+        'warn',
+        {
+          require: {
+            FunctionDeclaration: true,
+            MethodDefinition: true,
+            ClassDeclaration: true,
+            ArrowFunctionExpression: false,
+            FunctionExpression: false,
+          },
+        },
+      ],
     },
   },
   {
@@ -68,6 +82,7 @@ const config = [
     plugins: {
       'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
+      'jsdoc': jsdocPlugin,
     },
     rules: {
       'quotes': ['warn', 'single'],
@@ -86,6 +101,18 @@ const config = [
               'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.',
             },
           ],
+        },
+      ],
+      'jsdoc/require-jsdoc': [
+        'warn',
+        {
+          require: {
+            FunctionDeclaration: true,
+            MethodDefinition: true,
+            ClassDeclaration: true,
+            ArrowFunctionExpression: false,
+            FunctionExpression: false,
+          },
         },
       ],
     },

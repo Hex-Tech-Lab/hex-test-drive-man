@@ -32,7 +32,11 @@ function generateOTP(): string {
   return String(crypto.randomInt(0, 1_000_000)).padStart(6, '0');
 }
 
-// TODO: replace console-based persistence with real DB writes (sms_otps / sms_attempts)
+/**
+ * Request an OTP for a specific action
+ * @param params - OTP request parameters
+ * @returns Result object indicating success or failure
+ */
 export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpResult> {
   const { phone, subjectType, subjectId } = params;
   const code = generateOTP();
@@ -77,6 +81,12 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
   return { success: true, expiresAt };
 }
 
+/**
+ * Verify a provided OTP
+ * @param phoneNumber - Phone number to verify
+ * @param otp - The OTP code provided by user
+ * @returns True if valid, false otherwise
+ */
 export async function verifyOtp(phoneNumber: string, otp: string): Promise<boolean> {
   try {
     const supabase = createClient()

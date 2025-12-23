@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
-import { Box, Typography, Checkbox, FormControlLabel, Slider, Paper, Divider, Button } from '@mui/material';
+import { Box, Typography, Checkbox, FormControlLabel, Slider, Paper, Divider, Button, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import { Vehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
 import { useFilterStore } from '@/stores/filter-store';
@@ -10,6 +10,11 @@ interface FilterPanelProps {
   vehicles: Vehicle[];
 }
 
+/**
+ * Filter panel for the catalog page
+ * @param props - Component props
+ * @param props.vehicles - List of available vehicles for filter aggregation
+ */
 export default function FilterPanel({ vehicles }: FilterPanelProps) {
   const language = useLanguageStore((state) => state.language);
   
@@ -17,6 +22,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
   const selectedBrands = useFilterStore((state) => state.brands);
   const selectedCategories = useFilterStore((state) => state.categories);
   const priceRange = useFilterStore((state) => state.priceRange);
+  const sortBy = useFilterStore((state) => state.sortBy);
   const setFilters = useFilterStore((state) => state.setFilters);
 
   // Extract unique brands from live data
@@ -76,11 +82,16 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
     setFilters({ priceRange: newRange });
   };
 
+  const handleSortChange = (event: SelectChangeEvent) => {
+    setFilters({ sortBy: event.target.value });
+  };
+
   const handleReset = () => {
     setFilters({
       brands: [],
       categories: [],
       priceRange: [minPrice, maxPrice],
+      sortBy: 'price_asc',
     });
   };
 
@@ -110,6 +121,27 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         <Button size="small" onClick={handleReset}>
           {language === 'ar' ? 'إعادة تعيين' : 'Reset'}
         </Button>
+      </Box>
+
+      <Divider sx={{ mb: 2 }} />
+
+      {/* Sort By */}
+      <Box mb={3}>
+        <FormControl fullWidth size="small">
+          <InputLabel>{language === 'ar' ? 'ترتيب حسب' : 'Sort By'}</InputLabel>
+          <Select
+            value={sortBy || 'price_asc'}
+            label={language === 'ar' ? 'ترتيب حسب' : 'Sort By'}
+            onChange={handleSortChange}
+          >
+            <MenuItem value="price_asc">{language === 'ar' ? 'السعر: من الأقل للأعلى' : 'Price: Low to High'}</MenuItem>
+            <MenuItem value="price_desc">{language === 'ar' ? 'السعر: من الأعلى للأقل' : 'Price: High to Low'}</MenuItem>
+            <MenuItem value="year_desc">{language === 'ar' ? 'السنة: الأحدث أولاً' : 'Year: Newest First'}</MenuItem>
+            <MenuItem value="year_asc">{language === 'ar' ? 'السنة: الأقدم أولاً' : 'Year: Oldest First'}</MenuItem>
+            <MenuItem value="brand_asc">{language === 'ar' ? 'العلامة التجارية: أ-ي' : 'Brand: A-Z'}</MenuItem>
+            <MenuItem value="brand_desc">{language === 'ar' ? 'العلامة التجارية: ي-أ' : 'Brand: Z-A'}</MenuItem>
+          </Select>
+        </FormControl>
       </Box>
 
       <Divider sx={{ mb: 2 }} />

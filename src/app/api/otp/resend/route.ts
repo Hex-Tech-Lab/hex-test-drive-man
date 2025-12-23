@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { requestOtp } from '@/services/sms/engine';
 import { createClient } from '@/lib/supabase';
 
+/**
+ * Resend OTP for a booking
+ */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
