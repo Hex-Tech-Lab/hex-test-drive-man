@@ -558,19 +558,26 @@ b2b2557 [2025-12-12] docs(hex-ai): 10x CLAUDE.md restructure with full history
 ## OPEN ITEMS & NEXT ACTIONS
 
 **Deadline**: 2025-12-31 EOD UTC (or early Jan 2026)
-**Last Updated**: 2025-12-23 01:45 UTC (PR Mining Complete)
+**Last Updated**: 2025-12-23 02:00 UTC (Critical/High/Blocker Roster Complete)
 
 **Consolidated Documentation**:
+- **🎯 Action Roster**: `docs/CRITICAL_HIGH_BLOCKERS_ROSTER.md` (18 prioritized issues - 5 Critical, 9 High Impact, 4 Blockers)
 - **Issues**: `docs/PR_ISSUES_CONSOLIDATED.md` (17 issues tracked - 5 new from PR mining)
 - **Action Items**: `docs/ACTION_ITEMS_DEC23.md` (12 items from MVP 1.0 stabilization)
 - **Locale Spec**: `docs/LOCALE_ROUTING_SPEC.md` (canonical rules for routing)
 - **Performance**: `docs/PERFORMANCE_LOG.md` (execution metrics tracking)
 - **MVP Roadmap**: `docs/MVP_ROADMAP.md` (phased delivery plan)
 
-**Recent PR Mining Findings** (Dec 23, 2025):
-- **Issue #13**: Recurring docstring coverage below threshold (P1, MVP 1.5)
-- **Issue #14**: PR title vs scope mismatch (P2, MVP 1.5)
-- **Issues #15-17**: Reusable patterns (idempotency, health checks, E2E testing) - already applied
+**Critical/High-Impact/Blocker Roster** (Dec 23, 2025):
+- **Critical (5)**: C1-C5 - breaks flows, data correctness, user trust → **MVP 1.0 must clear all**
+  - C1: 370 vs 409 vehicle discrepancy (data correctness)
+  - C2: Search functionality wrong results (user trust)
+  - C3: Locale persistence audit (enforcement)
+  - C4: Price slider position bug (visual feedback)
+  - C5: Language reload performance (full page reload)
+- **High Impact (9)**: H1-H9 - strong UX/quality/performance wins → **MVP 1.1 target**
+- **Potential Blockers (4)**: B1-B4 - could block future MVP stages → **MVP 1.5 target**
+- **Deferred (1)**: D1 - credentials work (post-MVP 3.x per user directive)
 
 ### PRIORITY 1 (CRITICAL - This Week)
 

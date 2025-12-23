@@ -20,6 +20,12 @@ This document consolidates all open issues from:
 **By Priority**: P0 (3), P1 (5), P2 (4), P3 (2), Reference (3)
 **By Category**: Security (1), Quality (5), Performance (2), UX (4), DX (2), Technical Debt (3)
 
+**Critical/High-Impact/Blocker Roster**: See `docs/CRITICAL_HIGH_BLOCKERS_ROSTER.md` for prioritized action plan
+- **Critical**: 5 issues (C1-C5) - breaks flows, data correctness, user trust
+- **High Impact**: 9 issues (H1-H9) - strong UX/quality/performance wins
+- **Potential Blockers**: 4 issues (B1-B4) - could block future MVP stages
+- **Deferred**: 1 issue (D1) - credentials work (post-MVP 3.x)
+
 ---
 
 ## P0 - Critical (Blocking)
@@ -27,8 +33,9 @@ This document consolidates all open issues from:
 ### 1. [Security] SonarCloud E Rating on New Code
 **Source**: PR #21, SonarCloud
 **Category**: Security
-**Status**: 🔴 Blocking PR #21
+**Status**: 🟡 Deferred - Credentials (Post-MVP 3.x)
 **Owner**: CC
+**Roster**: D1 (Deferred)
 
 **Problem**: Quality Gate failed with E Security Rating on new audit script
 **Details**:
@@ -63,6 +70,7 @@ if not SUPABASE_URL or not SUPABASE_KEY:
 **Category**: Data Quality
 **Status**: 🔴 Not Started
 **Owner**: CC
+**Roster**: C1 (CRITICAL - MVP 1.0 Blocker)
 
 **Problem**: Catalog shows 370 vehicles instead of 409 from database
 **Investigation Needed**:
@@ -95,6 +103,7 @@ grep -n "filter\|length" src/app/[locale]/page.tsx
 **Category**: User Experience
 **Status**: 🟡 In Progress (Database 100%, Physical 62.3%)
 **Owner**: GC
+**Roster**: H1 (HIGH IMPACT - MVP 1.1)
 
 **Problem**: 124/199 models lack physical images (only database URLs exist)
 **Quality Standard**: BMW iX1 2024 (centered, 3/4 angle, 4:3 aspect, high quality)
@@ -137,6 +146,7 @@ ls -1 public/images/vehicles/hero/*.jpg | wc -l  # Should be 199
 **Category**: Code Quality
 **Status**: 🟡 Open
 **Owner**: CC
+**Roster**: B2 (POTENTIAL BLOCKER - MVP 1.5)
 
 **Problem**: Hardcoded path assumptions in audit script
 **Details**:
@@ -173,6 +183,7 @@ if not HERO_DIR.exists():
 **Category**: Reliability
 **Status**: 🟡 Open
 **Owner**: CC
+**Roster**: B3 (POTENTIAL BLOCKER - MVP 1.5)
 
 **Problem**: Audit script lacks robust error handling
 **Details**:
@@ -223,6 +234,7 @@ def query_supabase(endpoint, filters=None, count_only=False):
 **Category**: Code Quality
 **Status**: 🟡 Open
 **Owner**: CC
+**Roster**: H4 (HIGH IMPACT - MVP 1.5)
 
 **Problem**: UPDATE statement counting may be inaccurate
 **Details**:
@@ -263,6 +275,7 @@ def count_update_statements(sql_file_path):
 **Category**: User Experience
 **Status**: 🔴 Not Started
 **Owner**: GC
+**Roster**: C2 (CRITICAL - MVP 1.0 Blocker)
 
 **Problem**: Typing 'p' returns Nissan Sunny (incorrect)
 **Expected**: 'p' should match Porsche, Peugeot, etc.
@@ -292,6 +305,7 @@ grep -n "toLowerCase\|search\|query" src/components/FilterPanel.tsx
 **Category**: Infrastructure
 **Status**: 🔴 Blocking MVP 1.0
 **Owner**: CCW
+**Roster**: B1 (POTENTIAL BLOCKER - MVP 1.0)
 
 **Problem**: `supabase/migrations/20251211_booking_schema.sql` created but not applied
 **Impact**: Booking system using in-memory storage (data lost on restart)
@@ -330,6 +344,7 @@ curl -H "apikey: $ANON_KEY" "$SUPABASE_URL/rest/v1/sms_verifications?select=coun
 **Category**: Performance
 **Status**: 🟡 Partially Fixed
 **Owner**: CC
+**Roster**: C3 (CRITICAL - Audit) + B4 (BLOCKER - Enforcement)
 
 **Problem**: Locale extraction inconsistent across routes
 **Current Fixes**:
@@ -514,6 +529,7 @@ def test_filesystem_paths_cross_platform():
 **Category**: Code Quality / Documentation
 **Status**: 🔴 Pattern Detected (3 PRs)
 **Owner**: ALL
+**Roster**: H2 (HIGH IMPACT - MVP 1.5)
 
 **Problem**: Consistent pattern of low docstring coverage across multiple PRs
 - PR #18: 50% coverage (target 80%)
@@ -563,6 +579,7 @@ fi
 **Category**: DX (Developer Experience)
 **Status**: 🟡 Pattern to Watch
 **Owner**: CC
+**Roster**: H3 (HIGH IMPACT - MVP 1.5)
 
 **Problem**: PR #19 titled "fix(sms): sender ID capitalization" but contained major infrastructure changes (Supabase migrations, repository refactoring, OTP flow)
 
