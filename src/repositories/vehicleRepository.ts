@@ -6,6 +6,14 @@ const VEHICLE_SELECT = `
   trim_name,
   model_year,
   price_egp,
+  model_id,
+  category_id,
+  transmission_id,
+  fuel_type_id,
+  body_style_id,
+  segment_id,
+  country_of_origin_id,
+  agent_id,
   engine,
   seats,
   horsepower,
@@ -24,6 +32,7 @@ const VEHICLE_SELECT = `
     hero_image_url,
     hover_image_url,
     brands!inner(
+      id,
       name,
       logo_url
     )

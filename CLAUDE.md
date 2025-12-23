@@ -3077,6 +3077,210 @@ grep -r "window\.location\.href" src/
 
 ---
 
+### MULTI-AGENT HANDOFF FOR THIS TASK
+
+**Protocol**: Using wait-and-listen orchestration (docs/HANDOFF_STATUS.md)
+**Task ID**: `ui-regression-fixes-v2.3`
+**Sequence**: GC fixes → CC re-review → BB browser tests
+
+---
+
+#### Handoff Configuration
+
+**File**: `docs/HANDOFF_STATUS.md`
+
+**Stages Defined**:
+1. **GC_IMPL**: GC applies 2 blocker fixes + adds PERFORMANCE_LOG entry
+2. **CC_REVIEW**: CC re-reviews FilterPanel.tsx changes
+3. **BB_TEST**: BB runs 6 browser test scenarios from BB Prompt (v2.3.1)
+
+**Current State** (as of 2025-12-23 04:30 UTC):
+- GC_IMPL: `done` ✅ (GC completed fixes)
+- CC_REVIEW: `waiting` ⏳ (CC should start now)
+- BB_TEST: `waiting` ⏳ (blocked until CC_REVIEW done)
+
+---
+
+#### Stage Transitions
+
+**GC_IMPL** (COMPLETE):
+- Status: `done` ✅
+- Agent: GC
+- Completed: 2025-12-23 04:30 UTC
+- Deliverables:
+  - FilterPanel.tsx: Removed `overflowY: { md: 'auto' }` from line 129
+  - FilterPanel.tsx: Removed logarithmic scale from lines 229-233
+  - docs/PERFORMANCE_LOG.md: Added GC session entry
+  - docs/CRITICAL_HIGH_BLOCKERS_ROSTER.md: Updated statuses
+- Commit: Pushed to gc/ui-regression-fixes-v2.3
+
+**CC_REVIEW** (READY TO START):
+- Prerequisite: GC_IMPL `done` ✅
+- Agent: CC
+- Tasks:
+  1. Read docs/HANDOFF_STATUS.md
+  2. Verify GC_IMPL is `done`
+  3. Update CC_REVIEW to `in_progress`
+  4. Re-review FilterPanel.tsx (verify both blockers fixed)
+  5. If approved: Update CC_REVIEW to `done`, commit handoff file
+  6. If issues: Update CC_REVIEW to `changes_required`, reset GC_IMPL to `waiting`
+
+**BB_TEST** (BLOCKED):
+- Prerequisite: CC_REVIEW `done` ❌
+- Agent: BB
+- Tasks:
+  1. Read docs/HANDOFF_STATUS.md
+  2. Poll until CC_REVIEW is `done` (check every 5 min)
+  3. Update BB_TEST to `in_progress`
+  4. Run 6 browser test scenarios (from BB Prompt v2.3.1)
+  5. Generate JSON results + markdown report + screenshots
+  6. Update BB_TEST to `done`, commit handoff file
+
+---
+
+#### Ready-to-Use Sub-Prompts
+
+These prompts include handoff protocol integration for seamless orchestration.
+
+---
+
+##### CC RE-REVIEW PROMPT (Follow-up)
+
+```markdown
+You are CC (architect/mastermind). Use v2.3 CC Prompt Template.
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+Agent: CC (Claude Code)
+Timebox: 15 minutes
+
+GLOBAL FIXTURES (from docs/PROMPT_FIXTURES.md v2.3):
+- Reasoning, Verification, Documentation Sync, GitHub Discipline, Review Tooling, Security
+
+HANDOFF PROTOCOL:
+1. Read docs/HANDOFF_STATUS.md
+2. Find task_id: ui-regression-fixes-v2.3
+3. Verify GC_IMPL status = done (if not, WAIT)
+4. Update CC_REVIEW status to in_progress
+5. After review: Update to done or changes_required
+6. Commit handoff file with your changes
+
+TASK: Re-review GC's blocker fixes
+
+GC completed 2 fixes per CC review feedback:
+1. Removed overflowY: { md: 'auto' } from FilterPanel.tsx:129
+2. Removed logarithmic scale from FilterPanel.tsx:229-233
+3. Added PERFORMANCE_LOG entry
+
+YOUR REVIEW:
+1. Read src/components/FilterPanel.tsx
+2. Verify BLOCKER 1 fixed: Line 129 no longer has overflowY
+3. Verify BLOCKER 2 fixed: Lines 229-233 no longer have scale property or conflicting comments
+4. Check PERFORMANCE_LOG.md for GC session entry
+
+DECISION:
+- If both blockers fixed: APPROVE for merge
+  * Update CC_REVIEW to done
+  * Update current_stage to BB_TEST
+  * Commit handoff file
+  * Post approval comment on PR
+
+- If issues remain: REQUEST CHANGES
+  * Update CC_REVIEW to changes_required
+  * Reset GC_IMPL to waiting
+  * Document issues in deliverables
+  * Commit handoff file
+
+LOGGING:
+- Update docs/PERFORMANCE_LOG.md with CC re-review session
+- Include: Timeline, files reviewed (FilterPanel.tsx), decision
+```
+
+---
+
+##### BB BROWSER TEST PROMPT (Follow-up)
+
+```markdown
+You are BB (Blackbox). Use v2.3 BB Prompt Template.
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+Agent: BB (Blackbox)
+Timebox: 1.5 hours
+
+GLOBAL FIXTURES (from docs/PROMPT_FIXTURES.md v2.3):
+- Timeboxing, Reasoning, Verification, Documentation, GitHub, Review Tooling
+
+HANDOFF PROTOCOL:
+1. Read docs/HANDOFF_STATUS.md
+2. Find task_id: ui-regression-fixes-v2.3
+3. Poll until CC_REVIEW status = done (check every 5 min, max 30 min wait)
+4. If CC_REVIEW not done after 30 min: Report timeout and stop
+5. If CC_REVIEW = done: Update BB_TEST to in_progress
+6. After tests: Update BB_TEST to done, commit handoff file
+
+TASK: Run catalog regression browser tests
+
+Execute the 6 test scenarios from BB Prompt (v2.3.1):
+
+TEST SCENARIOS:
+1. Vehicle Aggregation:
+   - Verify X-Trail 2026 → 1 card (not 409 trims)
+   - Verify X-Trail 2025 → separate card
+   - Screenshot: Catalog showing separate year cards
+
+2. Sort Dropdown:
+   - Test Price: Low to High (should show cheapest first)
+   - Test Year: Newest First (should show 2026 first)
+   - Screenshot: Sort dropdown + sorted grid
+
+3. Grid Density Control:
+   - Test 2 columns (wide cards)
+   - Test 4 columns (default)
+   - Test 6 columns (compact)
+   - Screenshot: Each grid density
+
+4. Filter Panel Layout:
+   - Scroll page down catalog
+   - Verify filter panel becomes sticky
+   - Verify NO internal scrollbar in filter panel
+   - Screenshot: Sticky filter with long catalog
+
+5. Language Switch SPA Navigation:
+   - Start on /en/catalog
+   - Click "العربية" button
+   - Verify URL: /ar/catalog
+   - Verify NO full page reload (check Network tab)
+   - Screenshot: Network tab showing no document reload
+
+6. Compare Flow State Preservation:
+   - Apply filters (Brand=BMW, Price=1M-2M)
+   - Add 3 vehicles to compare
+   - Click "Compare" → /en/compare
+   - Click "Back to Catalog"
+   - Verify filters still applied
+   - Verify NO full page reload
+   - Screenshot: Catalog with preserved filters
+
+DELIVERABLES:
+1. JSON test results: tests/results/ui-regression-tests-[timestamp].json
+2. Markdown report: docs/BROWSER_TEST_REPORT.md
+3. Screenshots: tests/screenshots/ (one per scenario)
+4. Update handoff file: BB_TEST to done
+
+FORMAT (BROWSER_TEST_REPORT.md):
+- Executive Summary (pass/fail count)
+- Test Results (6 scenarios, each with pass/fail, evidence, screenshots)
+- Blockers Found (if any)
+- Recommendations
+
+BB EXECUTION CONSTRAINTS:
+- Use Playwright + Xvfb for browser automation
+- Capture screenshots at 1920x1080 resolution
+- Save JSON with test metadata (timestamp, duration, pass/fail)
+- If test fails: Mark BB_TEST as blocked, document issue
+```
+
+---
+
 ## VERSION HISTORY
 
 ### v2.3.1 (2025-12-23 03:00 UTC) [CC]
