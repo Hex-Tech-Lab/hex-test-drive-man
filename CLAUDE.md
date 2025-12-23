@@ -2706,6 +2706,377 @@ BB EXECUTION CONSTRAINTS:
 
 ---
 
+## MVP 1.1 / UI Regression Review (v2.3.1)
+
+**Review Date**: 2025-12-23 03:25 UTC
+**Reviewer**: CC (Claude Code)
+**PR/Branch**: gc/ui-regression-fixes-v2.3
+**Timebox**: 45 minutes
+**Status**: ⚠️ CHANGES REQUIRED
+
+---
+
+### Executive Summary
+
+GC's implementation of catalog regression fixes demonstrates **strong adherence** to the v2.3.1 specs with **2 critical issues** requiring correction before merge.
+
+**Overall Assessment**:
+- ✅ **Aggregation Logic**: CORRECT implementation with verification script passing
+- ✅ **Sort + Grid Controls**: CORRECT placement and functionality (minor deviation: extra year_asc option)
+- ⚠️ **Filter Panel**: MOSTLY CORRECT but has 2 blocking issues (internal scrollbar, incomplete log scale)
+- ✅ **Locale/Reload Safety**: CLEAN implementation with no reload violations
+
+**Decision**: **CHANGES REQUIRED** - 2 blockers must be fixed, then approved for merge.
+
+---
+
+### CHECKLIST A – AGGREGATION ✅ PASS
+
+**Spec Reference**: docs/UI_CATALOG_ARCHITECTURE.md lines 10-73
+
+**Review Findings**:
+1. **Aggregation Key** (src/app/[locale]/page.tsx:94):
+   ```typescript
+   const groupKey = `${vehicle.models.brands.id}_${vehicle.model_id}_${vehicle.model_year}`;
+   ```
+   - ✅ CORRECT: Uses (brand_id, model_id, model_year) as specified
+   - ✅ Comment on lines 92-93 explains the logic clearly
+
+2. **AggregatedVehicle Type** (src/types/vehicle.ts:111-126):
+   - ✅ Well-defined with trims array, minPrice, maxPrice, trimCount, trimNames
+   - ✅ Proper TypeScript documentation
+
+3. **Verification Script** (scripts/verify_aggregation.js):
+   - ✅ Tests same model_id (m1) with different years (2025, 2026)
+   - ✅ Expects 2 separate cards (one per year)
+   - ✅ Script execution result: **PASSED** ✅
+     ```
+     Expected 2 aggregated items, got 2
+     2025 item: trimCount=2, trimNames="Trim A, Trim B"
+     2026 item: trimCount=1, trimNames="Trim C"
+     ✅ Verification PASSED
+     ```
+
+**Sample Verification**:
+- Test case: Model 1 with years 2025 (2 trims) and 2026 (1 trim)
+- Expected: 2 aggregated items
+- Actual: 2 aggregated items ✅
+- Trim counts: 2025=2, 2026=1 ✅
+
+**Edge Cases Not Covered** (defer to BB browser tests):
+- Real X-Trail data with multiple years
+- Price range calculation across trims with different prices
+- Trim names tooltip display
+
+**Verdict**: ✅ **APPROVED** - Aggregation logic is correct and verified.
+
+---
+
+### CHECKLIST B – SORT + GRID CONTROLS ✅ PASS (minor deviation)
+
+**Spec Reference**: docs/UI_CATALOG_ARCHITECTURE.md lines 347-477
+
+**Review Findings**:
+
+1. **Controls Bar Placement** (src/app/[locale]/page.tsx:274-316):
+   - Line 277: `justifyContent: { xs: 'center', md: language === 'ar' ? 'flex-start' : 'flex-end' }`
+   - ✅ CORRECT: Right-aligned in LTR (flex-end), left-aligned in RTL (flex-start when ar)
+   - ✅ CORRECT: Above catalog grid (line 273 before grid at line 331)
+   - ✅ CORRECT: Responsive (centered on mobile, aligned on desktop)
+
+2. **Sort Dropdown** (src/app/[locale]/page.tsx:284-296):
+   - Options implemented:
+     - ✅ price_asc: "Price: Low to High"
+     - ✅ price_desc: "Price: High to Low"
+     - ✅ year_desc: "Year: Newest First"
+     - ⚠️ year_asc: "Year: Oldest First" (NOT in spec)
+     - ✅ brand_asc: "Brand: A-Z"
+   - ⚠️ **Minor Deviation**: Spec specified 4 options (price_asc/desc, brand_asc, year_desc), but implementation includes year_asc as 5th option
+   - **Assessment**: NON-BLOCKING - Extra option improves UX, does not break spec requirements
+
+3. **Sort Logic** (src/app/[locale]/page.tsx:169-186):
+   - ✅ CORRECT: Applied AFTER filtering (line 120-168) and BEFORE rendering
+   - ✅ CORRECT: Uses localeCompare for brand names (i18n-aware)
+   - ✅ CORRECT: Compares minPrice for aggregated vehicles
+
+4. **Grid Density Control** (src/app/[locale]/page.tsx:299-315):
+   - ✅ CORRECT: 2/4/6 columns options
+   - ✅ CORRECT: Default value 4 (line 300: `value={gridColumns || 4}`)
+   - ✅ CORRECT: Icons ViewStreamIcon (2), ViewModuleIcon (4), ViewCompactIcon (6) - matches spec exactly
+   - ✅ CORRECT: Hidden on mobile (`display: { xs: 'none', md: 'flex' }`)
+   - ✅ CORRECT: Grid item size calculation (line 202: `12 / (gridColumns || 4)`)
+
+5. **State Management** (src/stores/filter-store.ts):
+   - Line 11: `sortBy: string;` ✅
+   - Line 12: `gridColumns: 2 | 4 | 6;` ✅
+   - Line 26: Default `sortBy: 'price_asc'` ✅ (matches spec)
+   - Line 27: Default `gridColumns: 4` ✅ (matches spec)
+   - Lines 17-44: Uses zustand persist middleware ✅ (localStorage persistence as specified)
+
+**Verdict**: ✅ **APPROVED** - Sort and grid controls correctly implemented. Minor deviation (extra year_asc option) is a UX improvement, not a violation.
+
+---
+
+### CHECKLIST C – FILTER PANEL ⚠️ ISSUES FOUND
+
+**Spec Reference**: docs/UI_CATALOG_ARCHITECTURE.md lines 249-344
+
+**Critical Issues**:
+
+#### ❌ BLOCKER 1: Internal Scrollbar Violates Spec
+
+**Location**: src/components/FilterPanel.tsx:129
+
+**Current Code**:
+```typescript
+<Box sx={{
+  position: { xs: 'relative', md: 'sticky' },
+  top: { md: 80 },
+  maxHeight: { md: 'calc(100vh - 96px)' },
+  overflowY: { md: 'auto' },  // ← ISSUE: Creates internal scrollbar
+  pb: 2,
+}}>
+```
+
+**Spec Requirement** (docs/UI_CATALOG_ARCHITECTURE.md:254-255):
+> **REQUIRED**: Filter panel must have NO vertical or horizontal scrollbars inside the panel itself.
+
+**Spec Behavior** (lines 260-263):
+> 1. User scrolls DOWN the page
+> 2. Whole page scrolls until bottom of filter panel reaches top of viewport
+> 3. After that point: Filter panel becomes "sticky" (stops scrolling)
+> 4. Only the catalog grid continues scrolling while filter stays fixed
+
+**Impact**:
+- Current implementation: Filter panel has internal scrollbar if content exceeds `maxHeight`
+- Correct implementation: Page scrolls normally, then filter becomes sticky (no internal scroll)
+
+**Required Fix**:
+```typescript
+<Box sx={{
+  position: { xs: 'relative', md: 'sticky' },
+  top: { md: 80 },
+  // REMOVE maxHeight and overflowY - let page scroll handle it
+  pb: 2,
+}}>
+```
+
+**Verification**: After fix, scroll down catalog page and observe that:
+- Filter panel scrolls with page until its bottom reaches viewport top
+- Then filter panel sticks and only catalog grid scrolls
+- NO scrollbar appears inside the filter panel itself
+
+---
+
+#### ⚠️ BLOCKER 2: Price Slider Logarithmic Scale Incomplete
+
+**Location**: src/components/FilterPanel.tsx:229-233
+
+**Current Code**:
+```typescript
+<Slider
+  value={priceRange}
+  onChange={handlePriceChange}
+  ...
+  scale={(x) => Math.pow(10, x / 1000000)} // Logarithmic scale attempt (simple) or linear if this is too aggressive.
+  // Actually, standard linear with step is often safer unless implementation is fully tested.
+  // Reverting to linear based on previous working state but keeping C4 Option A in mind.
+  // Using standard linear for now to avoid breaking UI without testing log scale mapping logic.
+  sx={{ mt: 1, mb: 1 }}
+/>
+```
+
+**Issue**:
+- Scale function IS present (line 229)
+- BUT comments (lines 229-232) indicate it's NOT tested and should be reverted to linear
+- **Contradiction**: Code says logarithmic, comments say linear
+- **Spec Status**: C4 Option A (slider thumb position) was recommended but marked as needing testing
+
+**Options for GC**:
+
+**OPTION A - Complete Logarithmic Implementation**:
+```typescript
+scale={(x) => {
+  // Map linear slider position (0 to maxPrice) to logarithmic space
+  const logMin = Math.log10(minPrice || 1);
+  const logMax = Math.log10(maxPrice);
+  const logValue = logMin + (x - minPrice) / (maxPrice - minPrice) * (logMax - logMin);
+  return Math.pow(10, logValue);
+}}
+```
+- Requires: Full testing of thumb position accuracy
+- Effort: 30-45 minutes
+
+**OPTION B - Revert to Linear (Immediate Fix)**:
+```typescript
+// Remove scale property entirely
+<Slider
+  value={priceRange}
+  onChange={handlePriceChange}
+  valueLabelDisplay="auto"
+  min={minPrice}
+  max={maxPrice}
+  step={100_000}
+  valueLabelFormat={formatPrice}
+  size="small"
+  sx={{ mt: 1, mb: 1 }}
+/>
+```
+- Requires: Remove line 229, remove comments 229-232
+- Effort: 2 minutes
+- Trade-off: Slider thumb position may feel "sticky" at low end for large ranges (3.9M max)
+
+**RECOMMENDATION**: **OPTION B** (revert to linear) for immediate merge. Defer logarithmic scale to MVP 1.2 after proper testing.
+
+---
+
+**Non-Critical Items** (all ✅ PASS):
+
+1. **Sticky Behavior** (lines 126-127):
+   - ✅ `position: { xs: 'relative', md: 'sticky' }`
+   - ✅ `top: { md: 80 }` (below header)
+
+2. **Accordion Structure**:
+   - Line 159: Brands Accordion - `defaultExpanded` ✅
+   - Line 186: Categories Accordion - NOT `defaultExpanded` ✅
+   - Line 213: Price Accordion - `defaultExpanded` ✅
+   - ✅ Matches spec: Brand/Price expanded, Categories collapsed
+
+3. **Typography** (lines 111-118):
+   - Line 111: sectionTitleStyle - `fontSize: '12px'` ✅
+   - Line 118: checkboxLabelStyle - `fontSize: '13px'` ✅
+   - Lines 236-239: Caption - `fontSize: '11px'` ✅ (even better than spec)
+
+4. **Spacing**:
+   - Line 107: AccordionSummary - `margin: '8px 0'` ✅ (0.5rem = 8px)
+   - Lines 165, 192, 219: AccordionDetails - `pt: 0, pb: 2, px: 2` ✅
+
+5. **Visual Design**:
+   - Line 133: Border - `border: '1px solid #e0e0e0'` ✅
+   - Line 134: Border radius - `borderRadius: 1` ✅ (4px)
+   - Line 136: Background - `bgcolor: '#fff'` ✅
+
+**Verdict**: ⚠️ **CHANGES REQUIRED** - Fix Blocker 1 (remove internal scrollbar) and Blocker 2 (complete or remove log scale).
+
+---
+
+### CHECKLIST D – LOCALE/RELOAD SAFETY ✅ PASS
+
+**Spec Reference**: docs/LOCALE_ROUTING_SPEC.md lines 202-301 (Rule 4.5)
+
+**Forbidden Patterns Search**:
+```bash
+grep -r "window\.location\.reload" src/
+grep -r "router\.refresh" src/
+grep -r "window\.location\.href" src/
+```
+
+**Results**:
+- ✅ NO `window.location.reload()` in catalog, filter, or sort code
+- ✅ NO `router.refresh()` in catalog code
+- ✅ One `window.location.href` found in `src/app/en/bookings/new/page.tsx:31`
+  - **Assessment**: ACCEPTABLE - In bookings flow (out of scope), not locale switching or catalog navigation
+
+**Additional Findings**:
+- Lines 48-62 in page.tsx: Scroll persistence using sessionStorage ✅ GOOD
+  - Restores scroll position on mount
+  - Saves scroll position on scroll event
+  - Uses sessionStorage (not localStorage) to avoid cross-session persistence
+  - **Assessment**: Excellent UX addition, not in spec but improves user experience
+
+**Suspicious Patterns**: NONE
+
+**Verdict**: ✅ **APPROVED** - No reload violations detected. Scroll persistence is a positive addition.
+
+---
+
+### DOCS REVIEW
+
+**Required Documentation**:
+
+1. **PERFORMANCE_LOG.md**:
+   - ❌ MISSING: GC did not add session entry for this implementation work
+   - **Required**: GC must add entry with:
+     - Timeline (start/end/duration)
+     - Files modified (page.tsx, FilterPanel.tsx, vehicle.ts, filter-store.ts, verify_aggregation.js)
+     - Self-critique (what worked, what didn't)
+     - Blockers encountered (if any)
+
+2. **CRITICAL_HIGH_BLOCKERS_ROSTER.md**:
+   - ❌ MISSING: Not updated with C1/C4 completion status
+   - **Required**: Update issues C1 (aggregation), C4 (filter panel), H5 (sort dropdown), H6 (grid toggle) with:
+     - Status: "IMPLEMENTED - awaiting CC review"
+     - PR reference: gc/ui-regression-fixes-v2.3
+
+3. **UI_CATALOG_ARCHITECTURE.md**:
+   - ✅ UP-TO-DATE: CC added canonical specs (lines 10-73, 249-344, 347-477)
+   - ✅ No changes needed from GC
+
+4. **LOCALE_ROUTING_SPEC.md**:
+   - ✅ UP-TO-DATE: CC added Rule 4.5 (lines 202-301)
+   - ✅ No changes needed from GC
+
+**Verdict**: ⚠️ **DOCS INCOMPLETE** - GC must add PERFORMANCE_LOG entry (non-blocking for code review, but required before final merge).
+
+---
+
+### FOLLOW-UP TASKS
+
+**New Issues Discovered** (to be added to roster):
+
+1. **Issue #NEW-1: FilterPanel Internal Scrollbar** (BLOCKER)
+   - Priority: P0 (blocks MVP 1.1)
+   - Category: UX Regression
+   - Owner: GC
+   - File: src/components/FilterPanel.tsx:129
+   - Fix: Remove `overflowY: { md: 'auto' }` from Box container
+   - Effort: 2 minutes
+   - Acceptance: Filter panel has NO internal scrollbar, page scroll works as per Amazon spec
+
+2. **Issue #NEW-2: Price Slider Logarithmic Scale Incomplete** (BLOCKER)
+   - Priority: P0 (blocks MVP 1.1)
+   - Category: Code Quality
+   - Owner: GC
+   - File: src/components/FilterPanel.tsx:229-233
+   - Fix: Remove `scale` property and comments (revert to linear)
+   - Effort: 2 minutes
+   - Acceptance: Slider works with standard linear scale, no conflicting comments
+   - Defer: Logarithmic scale to MVP 1.2 with proper testing
+
+3. **Issue #NEW-3: Missing PERFORMANCE_LOG Entry** (NON-BLOCKING)
+   - Priority: P2 (documentation standard)
+   - Category: Documentation
+   - Owner: GC
+   - File: docs/PERFORMANCE_LOG.md
+   - Fix: Add session entry for ui-regression-fixes implementation
+   - Effort: 10 minutes
+   - Acceptance: Entry includes timeline, files, self-critique
+
+---
+
+### DECISION
+
+**Status**: ⚠️ **GC ui-regression-fixes-v2.3: CHANGES REQUIRED**
+
+**Required Before Merge**:
+1. ❌ Fix FilterPanel internal scrollbar (src/components/FilterPanel.tsx:129)
+2. ❌ Remove incomplete logarithmic scale (src/components/FilterPanel.tsx:229-233)
+3. ⚠️ Add PERFORMANCE_LOG entry (docs/PERFORMANCE_LOG.md)
+
+**After Fixes Applied**:
+- GC: Push updated commit to gc/ui-regression-fixes-v2.3
+- CC: Re-review changes (estimated 10 minutes)
+- If clean: APPROVE for merge → BB browser testing
+
+**Next Steps**:
+1. CC: Post review comments on PR
+2. GC: Apply 2 critical fixes + add PERFORMANCE_LOG entry
+3. GC: Push updated commit
+4. CC: Re-review and approve
+5. BB: Run browser tests per BB Prompt (v2.3.1)
+
+---
+
 ## VERSION HISTORY
 
 ### v2.3.1 (2025-12-23 03:00 UTC) [CC]
