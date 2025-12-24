@@ -95,6 +95,12 @@ Multimodal: assume top-tier expertise in ANY domain on demand until task conclud
 10. **First 100 Lines Rule**
     > This section (~100 lines) anchors every decision. Ignore at your own peril.
 
+11. **Credential Rotation**
+    > If credentials exposed in chat/logs/commits: Rotate immediately via provider dashboards.
+
+12. **Pre-Commit Hook Discipline**
+    > Husky pre-commit runs docstring coverage gate (≥80% required). If blocked: fix docstrings OR use `--no-verify` emergency-only (document reason in commit message).
+
 **Full Details**: `docs/context/CC_CORE_INSTRUCTIONS.md` (150+ lines with examples, edge cases)
 
 ***
@@ -211,6 +217,8 @@ git branch -vv | head -10
 4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
 5. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
 6. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
+7. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
+8. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
 
 ### PRIORITY 3 (MEDIUM - Next 48 Hours)
 7. **PDF Extraction Pipeline**: Cell-span detection (target 55% quality gate)
@@ -487,14 +495,34 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 - **Correct Approach**: Process each THOS as received, update CLAUDE.md incrementally, commit after each
 - **Lesson**: Incremental updates force verification at each step, prevent information overload, allow user to course-correct immediately
 
+### 4. Git Hook Environment Isolation (2025-12-24, User Fix)
+- **Problem**: Husky pre-commit failed with `pnpm not found in PATH`
+- **Root Cause**: Git hooks run non-interactively; shell init not loaded
+- **Solution**: Created `~/.config/husky/init.sh` to export `PNPM_HOME` + PATH
+- **Lesson**: Never assume interactive shell environment in Git hooks; use Husky init.sh for PATH setup
+
 **Full Forensics**: `docs/context/LESSONS_LEARNED.md` (150+ lines with all incidents, timelines, root causes, prevention strategies)
 
 ***
 
-**END OF CLAUDE.MD v2.4.0 (Pruned Edition)**
+## APPENDIX A: AGENT & MODEL TERMINOLOGY
+
+| Agent | Acronym | Typical Model | Context/Notes |
+|-------|---------|---------------|---------------|
+| **Claude Code** | CC | **CS45** (Claude 3.5 Sonnet) | Primary architect. Thinking/Reasoning enabled. |
+| **Claude Code Web** | CCW | **CS45** (Claude 3.5 Sonnet) | Web-based specialist. Thinking/Reasoning enabled. |
+| **Gemini CLI** | GC | **Gemini 3 Pro Preview** | Switches to Gemini 3 Flash for lighter tasks. |
+| **Blackbox** | BB | **Blackbox Pro** | Sometimes runs CS45. |
+| **Perplexity** | PPLX | **CS45** (90%) / **GPT-52** | Multi-model. Used GPT-52 for Husky fix. Thinking enabled on CS45. |
+
+**Terminology Note**: PPLX running CS45 may incorrectly refer to "Gemini CLI (GC)" as "Gemini Code". Correct internal name is **GC**.
+
+***
+
+**END OF CLAUDE.MD v2.4.1 (Pruned & Patched)**
 
 **Maintained By**: CC (Claude Code)  
-**Last Verified**: 2025-12-24 1756 EET  
+**Last Verified**: 2025-12-24 2000 EET  
 **Next Update**: After GEMINI.md restoration and root directory cleanup (Phase 4-6 of this task)  
 **Line Count Target**: 550-680 lines (current draft: ~650 lines estimated)
 
