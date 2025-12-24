@@ -61,3 +61,16 @@
   - `VehicleCard` updated to use `objectPosition: 'center 85%'` to reduce chopped wheels/grille.
   - Title formatting polished to avoid redundant brand names (e.g., "MG 5 2025" instead of "MG MG 5").
   - `onError` handler enhanced for robust fallback.
+
+### 5. Coverage Metrics & Metrics Script (Dec 24, 2025)
+
+- **Script Implemented**: `scripts/check_image_coverage.js` created to scan for placeholders.
+- **Status**: Script logic complete. Local execution blocked by missing `.env.local` credentials.
+- **Readiness**: All UI/UX fixes (Aggregation, Logos, Images) are implemented and verified via static analysis.
+
+### 6. Merge Readiness
+
+- **Branch**: `gc/ui-regression-fixes-v2.3`
+- **Status**: **READY TO MERGE**
+- **Verification**: `pnpm build` passed. Code review blockers resolved. Visual polish applied.
+
