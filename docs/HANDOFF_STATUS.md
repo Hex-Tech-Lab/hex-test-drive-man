@@ -14,13 +14,13 @@
 {
   "task_id": "ui-regression-fixes-v2.3",
   "description": "GC FilterPanel fixes → CC re-review → BB browser tests",
-  "current_stage": "GC_IMPL",
+  "current_stage": "GC_COMPLETE",
   "status": "done",
-  "updated_at": "2025-12-24 10:00 UTC",
+  "updated_at": "2025-12-24 11:15 UTC",
   "agent": "GC",
   "stages": {
     "GC_IMPL": {
-      "status": "done",
+      "status": "GC_COMPLETE",
       "started_at": "2025-12-23 04:15 UTC",
       "completed_at": "2025-12-24 10:00 UTC",
       "agent": "GC",
