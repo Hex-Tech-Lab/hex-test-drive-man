@@ -1,8 +1,13 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+if [ -f ~/.huskyrc ]; then
+  . ~/.huskyrc
+fi
+
+# Add pnpm to PATH
+export PATH="/home/kellyb_dev/.local/bin:$PATH"
 
 # Defensive check: Ensure pnpm is available before running checks
-if ! command -v pnpm &> /dev/null; then
+if ! command -v pnpm > /dev/null 2>&1; then
   echo ""
   echo "❌ ERROR: pnpm not found in PATH"
   echo ""
