@@ -189,18 +189,12 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 
 ## 4. GIT REPOSITORY STATUS
 
-**Branch**: `main` (096622f)
-**Last Commit**: `security: upgrade filelock to 3.20.1 (CVE-2025-68146 TOCTOU fix)` (2025-12-25 00:50 EET)
-**Working Tree**: Clean (verified at session start)
+**Branch**: `main` (4ab8441)
+**Last Commit**: `docs: GC session log + pnpm hook fix` (2025-12-27 23:54 EET)
+**Active Branches**: 2 local (main + 0 feature branches)
+**Branch Cleanup**: ✅ COMPLETE (16 → 2 branches, 87.5% reduction)
 
-**Quick Status Check**:
-```bash
-git status
-git log --oneline -5
-git branch -vv | head -10
-```
-
-**Active Branches**: 16 local (see `git branch -vv` for full list)
+**Active Branches**: 2 local (see `git branch -vv` for full list)
 
 **Recent Critical Changes**:
 - GC autonomous session (2025-12-24 02:00-06:00 EET): Logo sizing, hero image composition, coverage script
@@ -211,9 +205,14 @@ git branch -vv | head -10
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
-2. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
-3. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
+1. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
+   - Update `extraction_engine/requirements.txt`: `filelock>=3.20.1`
+   - TOCTOU race condition (CVSS 6.3)
+   - Published: 2025-12-16
+   - Impact: Python extraction pipeline only (not frontend)
+2. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
+3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
+4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
 4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
