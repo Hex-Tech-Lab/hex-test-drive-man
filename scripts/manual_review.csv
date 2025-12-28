@@ -1,0 +1,170 @@
+model_id,brand,name,type,confidence_score,matched_file
+f94a486e-ebb5-4f6a-90da-27af8b7fc571,Suzuki,Swift,hero,0.00,NO_MATCH
+f94a486e-ebb5-4f6a-90da-27af8b7fc571,Suzuki,Swift,hover,0.00,NO_MATCH
+09476a7b-562e-489e-9f6c-68ac3ec40cce,Suzuki,Fronx,hero,0.00,NO_MATCH
+09476a7b-562e-489e-9f6c-68ac3ec40cce,Suzuki,Fronx,hover,0.00,NO_MATCH
+f569afb5-a5cc-49d3-b225-6c401e28434c,Fiat,Tipo,hero,0.00,NO_MATCH
+f569afb5-a5cc-49d3-b225-6c401e28434c,Fiat,Tipo,hover,0.00,NO_MATCH
+6b74cc2f-f94d-4a6f-870e-5edbf8ba7330,BYD,F3,hero,0.00,NO_MATCH
+6b74cc2f-f94d-4a6f-870e-5edbf8ba7330,BYD,F3,hover,0.00,NO_MATCH
+dcef5492-f5ab-48c9-9c11-a8057353afd3,Peugeot,3008,hero,0.00,NO_MATCH
+dcef5492-f5ab-48c9-9c11-a8057353afd3,Peugeot,3008,hover,0.00,NO_MATCH
+797c5a10-eddc-435a-826e-4ff0ae32230a,Opel,Mokka,hero,0.00,NO_MATCH
+797c5a10-eddc-435a-826e-4ff0ae32230a,Opel,Mokka,hover,0.00,NO_MATCH
+fec1e39c-d8d4-4c59-9937-b4df43a1c3a7,Jetour,X70,hero,0.00,NO_MATCH
+fec1e39c-d8d4-4c59-9937-b4df43a1c3a7,Jetour,X70,hover,0.00,NO_MATCH
+de5111bf-e380-4060-b883-2cbe84b01fc9,Haval,Jolion,hero,0.00,NO_MATCH
+de5111bf-e380-4060-b883-2cbe84b01fc9,Haval,Jolion,hover,0.00,NO_MATCH
+f34618fa-fa74-4c3d-a6df-2dffd98a58a5,Citroën,C4,hero,0.00,NO_MATCH
+f34618fa-fa74-4c3d-a6df-2dffd98a58a5,Citroën,C4,hover,0.00,NO_MATCH
+fe909b15-f9ec-40d7-948a-51be2ca6bce8,BAIC,X3,hero,0.00,NO_MATCH
+fe909b15-f9ec-40d7-948a-51be2ca6bce8,BAIC,X3,hover,0.00,NO_MATCH
+222576a1-45ed-4bbc-a390-955f60634020,JAC,J7,hero,0.00,NO_MATCH
+222576a1-45ed-4bbc-a390-955f60634020,JAC,J7,hover,0.00,NO_MATCH
+0e77c7e9-51f5-445e-8dc3-7ed4561ed243,Renault,Kardian 2025,hero,0.69,Renault-megane-2024.jpg
+0e77c7e9-51f5-445e-8dc3-7ed4561ed243,Renault,Kardian 2025,hover,0.64,audi-a8-2025.jpg
+26de3258-a4d2-4c06-a6d2-23625b6d6efa,Renault,Kardian 2026,hero,0.69,Renault-megane-2024.jpg
+26de3258-a4d2-4c06-a6d2-23625b6d6efa,Renault,Kardian 2026,hover,0.64,audi-a5-2026.jpg
+f8705318-f23e-4ee4-a7e8-0b2f791de5c2,Renault,Taliant 2026,hero,0.69,Renault-megane-2024.jpg
+f8705318-f23e-4ee4-a7e8-0b2f791de5c2,Renault,Taliant 2026,hover,0.63,Renault-duster-2024.jpg
+cae0f472-aca5-4d34-96ae-118c0d9ec1bd,Renault,Taliant 2025,hero,0.69,Renault-megane-2024.jpg
+cae0f472-aca5-4d34-96ae-118c0d9ec1bd,Renault,Taliant 2025,hover,0.63,Renault-duster-2024.jpg
+2e74b8c3-6b2b-41ee-93eb-ad6f477b6664,HAVAL,H6 2025,hero,0.00,NO_MATCH
+2e74b8c3-6b2b-41ee-93eb-ad6f477b6664,HAVAL,H6 2025,hover,0.00,NO_MATCH
+5a18e7be-1b91-4c1a-b578-831b54a7f375,Cupra,Terramar 2026,hero,0.00,NO_MATCH
+5a18e7be-1b91-4c1a-b578-831b54a7f375,Cupra,Terramar 2026,hover,0.00,NO_MATCH
+db8d33c4-f0f7-4968-bdfc-c7c7d7a87bcf,Cupra,Leon 2025,hero,0.00,NO_MATCH
+db8d33c4-f0f7-4968-bdfc-c7c7d7a87bcf,Cupra,Leon 2025,hover,0.00,NO_MATCH
+abc3c089-850a-42eb-9641-8e67f65aa206,Cupra,Terramar 2025,hero,0.00,NO_MATCH
+abc3c089-850a-42eb-9641-8e67f65aa206,Cupra,Terramar 2025,hover,0.00,NO_MATCH
+20ee381f-54dc-4546-88f5-018b65b88ddc,Geely,Coolray,hero,0.00,NO_MATCH
+20ee381f-54dc-4546-88f5-018b65b88ddc,Geely,Coolray,hover,0.00,NO_MATCH
+e38aa971-4aa5-4fde-8067-157a69ffada1,Cupra,Formentor 2024,hero,0.69,Kia-sorento-2024.jpg
+e38aa971-4aa5-4fde-8067-157a69ffada1,Cupra,Formentor 2024,hover,0.69,Kia-sorento-2024.jpg
+4e2c951b-365b-48ba-be95-7ef311a8b7c3,Skoda,Octavia A8 2025,hero,0.61,Toyota-hiace-ace-2025.jpg
+4e2c951b-365b-48ba-be95-7ef311a8b7c3,Skoda,Octavia A8 2025,hover,0.61,Toyota-hiace-ace-2025.jpg
+c2cffcbd-9f69-4366-9b37-319dfd10094d,Volkswagen,Golf 2025,hero,0.00,NO_MATCH
+c2cffcbd-9f69-4366-9b37-319dfd10094d,Volkswagen,Golf 2025,hover,0.00,NO_MATCH
+68d96703-e7ef-43ba-b18a-c3a0bc225000,Volkswagen,Tiguan 2025,hero,0.00,NO_MATCH
+68d96703-e7ef-43ba-b18a-c3a0bc225000,Volkswagen,Tiguan 2025,hover,0.00,NO_MATCH
+58396a7b-a98a-49d6-bfb6-a27f3869fb78,Volkswagen,Touareg 2025,hero,0.00,NO_MATCH
+58396a7b-a98a-49d6-bfb6-a27f3869fb78,Volkswagen,Touareg 2025,hover,0.00,NO_MATCH
+f14971d6-d520-476f-b3bb-78d46eb5dfda,Volkswagen,T-Roc 2025,hero,0.00,NO_MATCH
+f14971d6-d520-476f-b3bb-78d46eb5dfda,Volkswagen,T-Roc 2025,hover,0.00,NO_MATCH
+4176a3d9-d2f0-416d-90bb-5811d592491f,Volkswagen,Tiguan 2026,hero,0.00,NO_MATCH
+4176a3d9-d2f0-416d-90bb-5811d592491f,Volkswagen,Tiguan 2026,hover,0.00,NO_MATCH
+7cadfc18-67c2-4ba2-81fd-8a7c159e96e6,Volkswagen,T-Roc 2026,hero,0.00,NO_MATCH
+7cadfc18-67c2-4ba2-81fd-8a7c159e96e6,Volkswagen,T-Roc 2026,hover,0.00,NO_MATCH
+383fa64e-1aec-4c58-ae1e-54b591df3006,BAIC,U5 Plus 2025,hero,0.62,mg-mg-rx5-plus-2025.jpg
+383fa64e-1aec-4c58-ae1e-54b591df3006,BAIC,U5 Plus 2025,hover,0.62,mg-mg-rx5-plus-2025.jpg
+78c2eaed-f19a-4fd1-85e6-c7fc2914f313,Skoda,Kodiaq 2025,hero,0.64,audi-q7-2025.jpg
+78c2eaed-f19a-4fd1-85e6-c7fc2914f313,Skoda,Kodiaq 2025,hover,0.64,audi-q7-2025.jpg
+9da2431a-9d8a-44e7-b596-d70500af1e29,Skoda,Karoq 2026,hero,0.00,NO_MATCH
+9da2431a-9d8a-44e7-b596-d70500af1e29,Skoda,Karoq 2026,hover,0.00,NO_MATCH
+3ce19fe8-db0b-4f86-876b-bacd710fa3f6,Skoda,Octavia A8 2026,hero,0.00,NO_MATCH
+3ce19fe8-db0b-4f86-876b-bacd710fa3f6,Skoda,Octavia A8 2026,hover,0.00,NO_MATCH
+cacfcc7f-6b34-4c9e-86f3-cd8a7331ecd1,Skoda,Superb 2026,hero,0.00,NO_MATCH
+cacfcc7f-6b34-4c9e-86f3-cd8a7331ecd1,Skoda,Superb 2026,hover,0.00,NO_MATCH
+691efb15-2926-45ae-892c-e4b2987422eb,Skoda,Kodiaq 2026,hero,0.64,audi-q8-2026.jpg
+691efb15-2926-45ae-892c-e4b2987422eb,Skoda,Kodiaq 2026,hover,0.64,audi-q8-2026.jpg
+cb140d96-1491-4d55-88ee-64be70a06e3f,Skoda,Karoq 2025,hero,0.60,Nissan-patrol-2025.jpg
+cb140d96-1491-4d55-88ee-64be70a06e3f,Skoda,Karoq 2025,hover,0.60,Nissan-patrol-2025.jpg
+62c499cf-c32f-49d4-96b6-d6cc4883deed,Suzuki,Ertiga 2024,hero,0.00,NO_MATCH
+62c499cf-c32f-49d4-96b6-d6cc4883deed,Suzuki,Ertiga 2024,hover,0.00,NO_MATCH
+0d57c556-3d6e-45b1-8a76-d6b92b119af8,Suzuki,Ciaz 2024,hero,0.00,NO_MATCH
+0d57c556-3d6e-45b1-8a76-d6b92b119af8,Suzuki,Ciaz 2024,hover,0.00,NO_MATCH
+43805524-8ad1-430a-82f5-d25c33da1105,Suzuki,Grand Vitara 2024,hero,0.67,Kia-grand-cerato-2024.jpg
+43805524-8ad1-430a-82f5-d25c33da1105,Suzuki,Grand Vitara 2024,hover,0.67,Kia-grand-cerato-2024.jpg
+b5704506-47a1-42f8-9e21-004cea507846,Suzuki,Swift 2025,hero,0.00,NO_MATCH
+b5704506-47a1-42f8-9e21-004cea507846,Suzuki,Swift 2025,hover,0.00,NO_MATCH
+b3fd66a9-84c5-4a2e-95af-2791bfdd3c0b,Suzuki,S Presso 2024,hero,0.65,Kia-sorento-2024.jpg
+b3fd66a9-84c5-4a2e-95af-2791bfdd3c0b,Suzuki,S Presso 2024,hover,0.65,Kia-sorento-2024.jpg
+7b428aba-0dec-4dd3-b277-8c8ac1fcbfee,Suzuki,Swift Dzire 2024,hero,0.60,Mitsubishi-mirage-2024.jpg
+7b428aba-0dec-4dd3-b277-8c8ac1fcbfee,Suzuki,Swift Dzire 2024,hover,0.60,Mitsubishi-mirage-2024.jpg
+cbfc281d-0d88-43b6-a75f-e6d31b8e6c6b,Suzuki,Fronx 2024,hero,0.60,audi-q8-e-tron-2024.jpg
+cbfc281d-0d88-43b6-a75f-e6d31b8e6c6b,Suzuki,Fronx 2024,hover,0.60,audi-q8-e-tron-2024.jpg
+e10b64d8-49f3-4c04-b8bc-b2e60f9cb035,Suzuki,Swift Dzire 2025,hero,0.60,Mitsubishi-mirage-2025.jpg
+e10b64d8-49f3-4c04-b8bc-b2e60f9cb035,Suzuki,Swift Dzire 2025,hover,0.60,Mitsubishi-mirage-2025.jpg
+dc3b67de-6e3a-4f3e-ae5d-3eb3c6dbfe64,Peugeot,2008 2025,hero,0.00,NO_MATCH
+dc3b67de-6e3a-4f3e-ae5d-3eb3c6dbfe64,Peugeot,2008 2025,hover,0.00,NO_MATCH
+1ba21b54-45c0-4f3f-a055-7153425355d5,Peugeot,408 2025,hero,0.00,NO_MATCH
+1ba21b54-45c0-4f3f-a055-7153425355d5,Peugeot,408 2025,hover,0.00,NO_MATCH
+13140fb7-f611-4fd2-94d7-eb4cddee97c4,Peugeot,408 2026,hero,0.00,NO_MATCH
+13140fb7-f611-4fd2-94d7-eb4cddee97c4,Peugeot,408 2026,hover,0.00,NO_MATCH
+9f42d7e5-6df7-42fa-9c21-901cf77e22d8,Peugeot,2008 2026,hero,0.00,NO_MATCH
+9f42d7e5-6df7-42fa-9c21-901cf77e22d8,Peugeot,2008 2026,hover,0.00,NO_MATCH
+0fc33935-5100-4bf5-a8ff-4bbaba56df8a,Peugeot,5008 2025,hero,0.00,NO_MATCH
+0fc33935-5100-4bf5-a8ff-4bbaba56df8a,Peugeot,5008 2025,hover,0.00,NO_MATCH
+4537a62b-7bbf-4feb-a994-29989c454eea,Peugeot,5008 2026,hero,0.00,NO_MATCH
+4537a62b-7bbf-4feb-a994-29989c454eea,Peugeot,5008 2026,hover,0.00,NO_MATCH
+b6900943-0dd0-4d41-b890-f4200aa5e16d,Peugeot,508 2025,hero,0.00,NO_MATCH
+b6900943-0dd0-4d41-b890-f4200aa5e16d,Peugeot,508 2025,hover,0.00,NO_MATCH
+07b3f691-ba13-49fd-ac3a-d19ba4cc93c9,Peugeot,3008 2025,hero,0.00,NO_MATCH
+07b3f691-ba13-49fd-ac3a-d19ba4cc93c9,Peugeot,3008 2025,hover,0.00,NO_MATCH
+70c65a7b-a26e-4cac-891f-3de5c7fc8f1f,Peugeot,3008 2026,hero,0.00,NO_MATCH
+70c65a7b-a26e-4cac-891f-3de5c7fc8f1f,Peugeot,3008 2026,hover,0.00,NO_MATCH
+00cf925b-b4b7-4afb-9b2d-68ed9d4a51fb,Fiat,Tipo 2025,hero,0.64,Kia-seltos-2025.jpg
+00cf925b-b4b7-4afb-9b2d-68ed9d4a51fb,Fiat,Tipo 2025,hover,0.64,Kia-seltos-2025.jpg
+cc10a8c7-0b85-4a0f-a90e-c5709eaae48d,Fiat,500X 2025,hero,0.64,audi-a5-2025.jpg
+cc10a8c7-0b85-4a0f-a90e-c5709eaae48d,Fiat,500X 2025,hover,0.64,audi-a5-2025.jpg
+cdbadc00-8341-4ea5-9f78-f8e9a5d52b49,Fiat,500X 2026,hero,0.64,audi-a5-2026.jpg
+cdbadc00-8341-4ea5-9f78-f8e9a5d52b49,Fiat,500X 2026,hover,0.64,audi-a5-2026.jpg
+451127de-3be3-448d-bda0-4693c503252a,Changan,Eado Plus 2026,hero,0.00,NO_MATCH
+451127de-3be3-448d-bda0-4693c503252a,Changan,Eado Plus 2026,hover,0.00,NO_MATCH
+4b716881-9c40-4b62-988e-f830a840882a,Changan,CS 35 Plus 2026,hero,0.00,NO_MATCH
+4b716881-9c40-4b62-988e-f830a840882a,Changan,CS 35 Plus 2026,hover,0.00,NO_MATCH
+7c1be881-1c04-4e46-8ada-727fc15aeba5,Changan,UNI-V 2026,hero,0.00,NO_MATCH
+7c1be881-1c04-4e46-8ada-727fc15aeba5,Changan,UNI-V 2026,hover,0.00,NO_MATCH
+e7acf7d0-af04-4aab-82fc-47229d459c14,Changan,CS55 Plus 2025,hero,0.00,NO_MATCH
+e7acf7d0-af04-4aab-82fc-47229d459c14,Changan,CS55 Plus 2025,hover,0.00,NO_MATCH
+de03179c-44c3-4c84-9662-49b018e85b3a,Changan,UNI-T 2025,hero,0.60,Nissan-urvan-2025.jpg
+de03179c-44c3-4c84-9662-49b018e85b3a,Changan,UNI-T 2025,hover,0.60,Nissan-urvan-2025.jpg
+d6ddab68-b95e-4075-bbda-a3ea7f7b8a99,Changan,CS 35 Plus 2025,hero,0.00,NO_MATCH
+d6ddab68-b95e-4075-bbda-a3ea7f7b8a99,Changan,CS 35 Plus 2025,hover,0.00,NO_MATCH
+e68e3af4-76a4-4ee5-8c35-9ca4ff90c6c6,Changan,CS55 Plus 2026,hero,0.00,NO_MATCH
+e68e3af4-76a4-4ee5-8c35-9ca4ff90c6c6,Changan,CS55 Plus 2026,hover,0.00,NO_MATCH
+6ebc5091-4ccc-4535-a782-e7589c834ef6,Changan,UNI-T 2026,hero,0.00,NO_MATCH
+6ebc5091-4ccc-4535-a782-e7589c834ef6,Changan,UNI-T 2026,hover,0.00,NO_MATCH
+fba61bf4-5da8-4f89-b6bd-cb0ab8962d83,GAC,GS3 Emzoom 2025,hero,0.00,NO_MATCH
+fba61bf4-5da8-4f89-b6bd-cb0ab8962d83,GAC,GS3 Emzoom 2025,hover,0.00,NO_MATCH
+681297b7-a846-4f96-82d9-10dbf3a2a3df,GAC,Emkoo 2025,hero,0.00,NO_MATCH
+681297b7-a846-4f96-82d9-10dbf3a2a3df,GAC,Emkoo 2025,hover,0.00,NO_MATCH
+4298fdb7-2cac-48f6-9edc-7fed95836cde,GAC,Empow 2025,hero,0.00,NO_MATCH
+4298fdb7-2cac-48f6-9edc-7fed95836cde,GAC,Empow 2025,hover,0.00,NO_MATCH
+7dbcb9d8-7400-4dce-bc0b-d905cd02b78b,GAC,GS4 Max 2025,hero,0.64,mg-mg-4-2025.jpg
+7dbcb9d8-7400-4dce-bc0b-d905cd02b78b,GAC,GS4 Max 2025,hover,0.64,mg-mg-4-2025.jpg
+7e7063e9-120d-4e3e-88bf-d2442f94d33a,HAVAL,Jolion 2026,hero,0.00,NO_MATCH
+7e7063e9-120d-4e3e-88bf-d2442f94d33a,HAVAL,Jolion 2026,hover,0.00,NO_MATCH
+626546fe-e86b-4be2-b2a0-c7af5558a16a,HAVAL,H6 HEV 2025,hero,0.00,NO_MATCH
+626546fe-e86b-4be2-b2a0-c7af5558a16a,HAVAL,H6 HEV 2025,hover,0.00,NO_MATCH
+a9a89736-5b2a-4ced-9dcd-b0860054eef7,HAVAL,H6 2026,hero,0.00,NO_MATCH
+a9a89736-5b2a-4ced-9dcd-b0860054eef7,HAVAL,H6 2026,hover,0.00,NO_MATCH
+479978a9-f6a1-4cdd-a68d-2dc6353227b7,HAVAL,H6 HEV 2026,hero,0.00,NO_MATCH
+479978a9-f6a1-4cdd-a68d-2dc6353227b7,HAVAL,H6 HEV 2026,hover,0.00,NO_MATCH
+17ebdd13-6506-4fee-b10d-27e1389a5d1c,HAVAL,Dargo 2025,hero,0.00,NO_MATCH
+17ebdd13-6506-4fee-b10d-27e1389a5d1c,HAVAL,Dargo 2025,hover,0.00,NO_MATCH
+def88937-b922-4fcd-918b-a2f59213393c,HAVAL,Dargo 2026,hero,0.00,NO_MATCH
+def88937-b922-4fcd-918b-a2f59213393c,HAVAL,Dargo 2026,hover,0.00,NO_MATCH
+6e0c5a37-6e53-41ed-ab26-cfca3ada92c4,HAVAL,Jolion Pro 2025,hero,0.00,NO_MATCH
+6e0c5a37-6e53-41ed-ab26-cfca3ada92c4,HAVAL,Jolion Pro 2025,hover,0.00,NO_MATCH
+152fecac-a2df-41a1-8614-f0a76b7936d0,HAVAL,Jolion 2025,hero,0.00,NO_MATCH
+152fecac-a2df-41a1-8614-f0a76b7936d0,HAVAL,Jolion 2025,hover,0.00,NO_MATCH
+b0e4f090-14fc-40be-913a-0799580c3caf,BYD,F3 2025,hero,0.67,bmw-x3-2025.jpg
+b0e4f090-14fc-40be-913a-0799580c3caf,BYD,F3 2025,hover,0.67,bmw-x3-2025.jpg
+2a17840b-9f0a-4a70-83d2-7a147eeb43dc,BYD,Tang Imported,hero,0.00,NO_MATCH
+2a17840b-9f0a-4a70-83d2-7a147eeb43dc,BYD,Tang Imported,hover,0.00,NO_MATCH
+eb9cefb6-f7bd-4fa8-9529-1104945bf46b,BYD,Song Plus Imported,hero,0.00,NO_MATCH
+eb9cefb6-f7bd-4fa8-9529-1104945bf46b,BYD,Song Plus Imported,hover,0.00,NO_MATCH
+aeb6131d-2ac7-4e3e-ad00-13f9c903bf53,Jeep,Grand Cherokee L 2025,hero,0.60,Kia-grand-cerato-2024.jpg
+aeb6131d-2ac7-4e3e-ad00-13f9c903bf53,Jeep,Grand Cherokee L 2025,hover,0.60,Kia-grand-cerato-2024.jpg
+163e27fa-8f96-4f11-b5d4-573ca52b5105,Renault,Megane,hover,0.00,NO_MATCH
+aec9bf5d-8671-42fb-b6a8-6a11d41c6af7,Renault,Megane 2025,hover,0.65,Renault-duster-2024.jpg
+e44b6aff-4b94-4315-98fa-d9ea54323178,Renault,Megane 2026,hover,0.65,Renault-duster-2024.jpg
+0a76f80d-5641-41a5-ac5c-c9015639dee5,BAIC,BJ30 2025,hero,0.64,audi-a3-2025.jpg
+0a76f80d-5641-41a5-ac5c-c9015639dee5,BAIC,BJ30 2025,hover,0.64,audi-a3-2025.jpg
+48764a96-7797-4af5-891b-e46a7648368b,Renault,Duster 2025 New Generation,hero,0.68,Renault-duster-2024.jpg
+48764a96-7797-4af5-891b-e46a7648368b,Renault,Duster 2025 New Generation,hover,0.68,Renault-duster-2024.jpg
+c3ecc0cc-f45a-48b1-a217-1a5ee77d98f6,Cupra,Leon 2026,hero,0.00,NO_MATCH
+c3ecc0cc-f45a-48b1-a217-1a5ee77d98f6,Cupra,Leon 2026,hover,0.00,NO_MATCH
+b50637b4-c779-4cf2-a54c-d758f4ceafdc,HAVAL,M6 2026,hero,0.60,mg-mg-6-2026.jpg
+b50637b4-c779-4cf2-a54c-d758f4ceafdc,HAVAL,M6 2026,hover,0.60,mg-mg-6-2026.jpg
