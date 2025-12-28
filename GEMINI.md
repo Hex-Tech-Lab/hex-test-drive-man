@@ -212,7 +212,7 @@ git branch -vv | head -10
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
 1. ✅ **CLAUDE.md Pruning**: Completed (Phase 3 markers detected)
-2. **Phase 4: Missing Image Audit (Active)**: Roster generated (`docs/MISSING_IMAGES_ROSTER.md`), pending download execution
+2. **Phase 4: Missing Image Audit (Active)**: Roster generated (`docs/2025-12-28-2350-GC-MISSING_IMAGES_ROSTER.md`), pending download execution
 3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
 4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
 
