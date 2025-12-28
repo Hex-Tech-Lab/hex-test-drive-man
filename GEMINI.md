@@ -211,9 +211,10 @@ git branch -vv | head -10
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
-2. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
-3. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
+1. ✅ **CLAUDE.md Pruning**: Completed (Phase 3 markers detected)
+2. **Phase 4: Missing Image Audit (Active)**: Roster generated (`docs/MISSING_IMAGES_ROSTER.md`), pending download execution
+3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
+4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
 4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
@@ -241,7 +242,7 @@ git branch -vv | head -10
 
 ### MVP 1.1 (IN PROGRESS - 80% Complete ⏳)
 - ✅ Logo sizing + hero image composition (GC autonomous session, commit 4bb3a7a)
-- ⏳ Image coverage script (logic complete, env vars pending)
+- 🔄 **Image Coverage**: Phase 3 mapping complete, Phase 4 missing image audit active
 - ⏳ Catalog UI redesign (pending user specs)
 - ⏳ Main branch consolidation (pending)
 
