@@ -1,0 +1,322 @@
+======================================================================
+FIXED PDF EXTRACTION - Embedded Images Only (NOT Full Pages)
+======================================================================
+Filters:
+  - Width >= 1000px (high-res only)
+  - Aspect ratio 1.2:1 to 2.5:1 (vehicle photos)
+  - Largest image per PDF (hero shot)
+
+📦 Backing up defective images...
+  💾 Backed up: hyundai-accent-rb-2024.jpg
+  💾 Backed up: hyundai-accent-rb-gl-dab-abs-plus-prime-equiv-2025.jpg
+  💾 Backed up: mg-mg-4-ev-2024.jpg
+  💾 Backed up: mg-mg-4-ev-2025.jpg
+
+📁 Found 84 manufacturer PDFs
+
+📄 Processing: Audi - Q3_2024-25.pdf
+  ⚠️  No suitable embedded images found in Q3_2024-25.pdf
+📄 Processing: Audi - Q3_2025.pdf
+  ⚠️  No suitable embedded images found in Q3_2025.pdf
+📄 Processing: Audi - Q7_2024-25.pdf
+  ⚠️  No suitable embedded images found in Q7_2024-25.pdf
+📄 Processing: Audi - Q7_2025.pdf
+  ⚠️  No suitable embedded images found in Q7_2025.pdf
+📄 Processing: BMW - 5_Series-i5_2025.pdf
+  📐 Found image: 1133.52x850.8px on page 2
+  ❌ Extraction failed for 5_Series-i5_2025.pdf: Bounding box (-0.0195313, -0.0001264, 1133.5004687, 850.7998736) is not fully within parent page bounding box (0, 0.0, 1133.48, 850.714)
+📄 Processing: BMW - 5_Series_-_i5_2025.pdf
+  📐 Found image: 1133.52x850.8px on page 2
+  ❌ Extraction failed for 5_Series_-_i5_2025.pdf: Bounding box (-0.0195313, -0.0001264, 1133.5004687, 850.7998736) is not fully within parent page bounding box (0, 0.0, 1133.48, 850.714)
+📄 Processing: BMW - X1-iX1_2025.pdf
+  📐 Found image: 1207.6798934x858.9599125px on page 2
+  ✅ Extracted: bmw-x1-ix1-2025.jpg (1600x1138px, 436KB)
+📄 Processing: BMW - X1_-_iX1_2025.pdf
+  📐 Found image: 1207.6798934x858.9599125px on page 2
+  ✅ Extracted: bmw-x1---ix1-2025.jpg (1600x1138px, 436KB)
+📄 Processing: BMW - X2-iX2_2025.pdf
+  ⚠️  No suitable embedded images found in X2-iX2_2025.pdf
+📄 Processing: BMW - X2_-_iX2_2024.pdf
+  ⚠️  No suitable embedded images found in X2_-_iX2_2024.pdf
+📄 Processing: BMW - X5_LCI_2024.pdf
+  📐 Found image: 1190.6399597x841.9198975px on page 2
+  ✅ Extracted: bmw-x5-lci-2024.jpg (1600x1131px, 419KB)
+📄 Processing: BMW - X5_LCI_2025.pdf
+  📐 Found image: 1190.6399597x841.9198975px on page 2
+  ✅ Extracted: bmw-x5-lci-2025.jpg (1600x1131px, 419KB)
+📄 Processing: BMW - X6_2024.pdf
+  📐 Found image: 1190.6399597x841.9198975px on page 2
+  ❌ Extraction failed for X6_2024.pdf: Bounding box (0.0, 0.0005126, 1190.6399597, 841.9204101) is not fully within parent page bounding box (0.0, 0.0, 1190.64, 841.92)
+📄 Processing: BMW - X6_2025.pdf
+  📐 Found image: 1190.6399597x841.9198975px on page 2
+  ❌ Extraction failed for X6_2025.pdf: Bounding box (0.0, 0.0005126, 1190.6399597, 841.9204101) is not fully within parent page bounding box (0.0, 0.0, 1190.64, 841.92)
+📄 Processing: BMW - X6_2025_page15.pdf
+  📐 Found image: 1190.6399597x841.9198975px on page 1
+  ❌ Extraction failed for X6_2025_page15.pdf: Bounding box (0.0, 0.0005126, 1190.6399597, 841.9204101) is not fully within parent page bounding box (0.0, 0.0, 1190.64, 841.92)
+📄 Processing: BMW - X6_2025_part1.pdf
+  📐 Found image: 1190.6399597x841.9198975px on page 2
+  ❌ Extraction failed for X6_2025_part1.pdf: Bounding box (0.0, 0.0005126, 1190.6399597, 841.9204101) is not fully within parent page bounding box (0.0, 0.0, 1190.64, 841.92)
+📄 Processing: BMW - X6_2025_part2.pdf
+  📐 Found image: 1190.6399597x841.9198975px on page 1
+  ❌ Extraction failed for X6_2025_part2.pdf: Bounding box (0.0, 0.0005126, 1190.6399597, 841.9204101) is not fully within parent page bounding box (0.0, 0.0, 1190.64, 841.92)
+📄 Processing: BMW - X6_2025_specs_only.pdf
+  📐 Found image: 1190.6400146x841.9199829px on page 1
+  ❌ Extraction failed for X6_2025_specs_only.pdf: Bounding box (1.0, 1.53e-05, 1191.6400146, 841.9199982) is not fully within parent page bounding box (0.0, 0.0, 1190.64, 841.92)
+📄 Processing: Chery - Arrizo_5_2024.pdf
+  📐 Found image: 1628.3953786x887.4754813px on page 4
+  ❌ Extraction failed for Arrizo_5_2024.pdf: Bounding box (-122.1049805, -13.5516532, 1506.2903981, 873.9238280999999) is not fully within parent page bounding box (0.0, 0.0, 595.276, 841.89)
+📄 Processing: Chery - Arrizo_8_2025.pdf
+  ⚠️  No suitable embedded images found in Arrizo_8_2025.pdf
+📄 Processing: Chery - Tiggo_3_2024.pdf
+  ⚠️  No suitable embedded images found in Tiggo_3_2024.pdf
+📄 Processing: Chery - Tiggo_4_Pro_2025.pdf
+  ⚠️  No suitable embedded images found in Tiggo_4_Pro_2025.pdf
+📄 Processing: Chery - Tiggo_7_Pro_Max_2025.pdf
+  ⚠️  No suitable embedded images found in Tiggo_7_Pro_Max_2025.pdf
+📄 Processing: Chery - Tiggo_8_Pro_2024.pdf
+  ⚠️  No suitable embedded images found in Tiggo_8_Pro_2024.pdf
+📄 Processing: Chery - Tiggo_8_Pro_Max_2025.pdf
+  ⚠️  No suitable embedded images found in Tiggo_8_Pro_Max_2025.pdf
+📄 Processing: Chery - eQ7_EV_2025.pdf
+  📐 Found image: 1190.3999939x841.9199982px on page 2
+  ✅ Extracted: chery-eq7-ev-2025.jpg (1600x1131px, 284KB)
+📄 Processing: Chevrolet - Captiva_2025.pdf
+  ⚠️  No suitable embedded images found in Captiva_2025.pdf
+📄 Processing: Chevrolet - Move_Van_2024.pdf
+  ⚠️  No suitable embedded images found in Move_Van_2024.pdf
+📄 Processing: Chevrolet - Optra_2026.pdf
+  📐 Found image: 2447.9166842x1637.0243568px on page 2
+  ❌ Extraction failed for Optra_2026.pdf: Bounding box (-1211.484346, -1253.3807722, 1236.4323382, 383.64358460000017) is not fully within parent page bounding box (0.0, 0.0, 1920.0, 1080.0)
+📄 Processing: Hyundai - Accent_RB_2024.pdf
+  📐 Found image: 1295.7886934x759.4918716px on page 1
+  ❌ Extraction failed for Accent_RB_2024.pdf: Bounding box (1569.9869385, -228.6837661, 2865.7756319, 530.8081055) is not fully within parent page bounding box (0.0, 0.0, 1683.78, 595.28)
+📄 Processing: Hyundai - Accent_RB_GL_DAB_ABS_Plus_Prime_equiv_2025.pdf
+  📐 Found image: 1295.7886934x759.4918716px on page 1
+  ❌ Extraction failed for Accent_RB_GL_DAB_ABS_Plus_Prime_equiv_2025.pdf: Bounding box (1569.9869385, -228.6837661, 2865.7756319, 530.8081055) is not fully within parent page bounding box (0.0, 0.0, 1683.78, 595.28)
+📄 Processing: Hyundai - Bayon_2024.pdf
+  ⚠️  No suitable embedded images found in Bayon_2024.pdf
+📄 Processing: Hyundai - Bayon_2025.pdf
+  ⚠️  No suitable embedded images found in Bayon_2025.pdf
+📄 Processing: Hyundai - Elantra_CN7_2024.pdf
+  📐 Found image: 1688.0188751x902.9753923px on page 4
+  ❌ Extraction failed for Elantra_CN7_2024.pdf: Bounding box (-0.9993764, -60.8317766, 1687.0194987, 842.1436156999999) is not fully within parent page bounding box (0.0, 0.0, 1683.78, 595.28)
+📄 Processing: Hyundai - Elantra_CN7_Smart-Prime_2025.pdf
+  📐 Found image: 1688.0188751x902.9753923px on page 4
+  ❌ Extraction failed for Elantra_CN7_Smart-Prime_2025.pdf: Bounding box (-0.9993764, -60.8317766, 1687.0194987, 842.1436156999999) is not fully within parent page bounding box (0.0, 0.0, 1683.78, 595.28)
+📄 Processing: Hyundai - I20_2024.pdf
+  ⚠️  No suitable embedded images found in I20_2024.pdf
+📄 Processing: Hyundai - Tucson_NX4_2024.pdf
+  ⚠️  No suitable embedded images found in Tucson_NX4_2024.pdf
+📄 Processing: Hyundai - Tucson_NX4_Premium_2025.pdf
+  ⚠️  No suitable embedded images found in Tucson_NX4_Premium_2025.pdf
+📄 Processing: Hyundai - i10_2024.pdf
+  📐 Found image: 1291.7897812x861.1931951px on page 2
+  ❌ Extraction failed for i10_2024.pdf: Bounding box (750.1052246, -714.2591131, 2041.8950058, 146.934082) is not fully within parent page bounding box (0.0, 0.0, 1683.78, 595.28)
+📄 Processing: Hyundai - i20_2025.pdf
+  ⚠️  No suitable embedded images found in i20_2025.pdf
+📄 Processing: Kia - Grand_Cerato_2024.pdf
+  📐 Found image: 1378.8023817x975.1578491px on page 1
+  ❌ Extraction failed for Grand_Cerato_2024.pdf: Bounding box (-491.6089504, -125.7990922, 887.1934313, 849.3587569) is not fully within parent page bounding box (0.0, 0.0, 595.276, 841.89)
+Cannot set gray non-stroke color because /'R13' is an invalid float value
+Cannot set gray non-stroke color because /'R22' is an invalid float value
+Cannot set gray non-stroke color because /'R30' is an invalid float value
+Cannot set gray non-stroke color because /'R39' is an invalid float value
+Cannot set gray non-stroke color because /'R46' is an invalid float value
+Cannot set gray non-stroke color because /'R54' is an invalid float value
+Cannot set gray non-stroke color because /'R63' is an invalid float value
+Cannot set gray non-stroke color because /'R71' is an invalid float value
+Cannot set gray non-stroke color because /'R75' is an invalid float value
+Cannot set gray non-stroke color because /'R81' is an invalid float value
+Cannot set gray non-stroke color because /'R84' is an invalid float value
+Cannot set gray non-stroke color because /'R85' is an invalid float value
+Cannot set gray non-stroke color because /'R89' is an invalid float value
+Cannot set gray non-stroke color because /'R93' is an invalid float value
+Cannot set gray non-stroke color because /'R13' is an invalid float value
+Cannot set gray non-stroke color because /'R22' is an invalid float value
+Cannot set gray non-stroke color because /'R30' is an invalid float value
+Cannot set gray non-stroke color because /'R39' is an invalid float value
+Cannot set gray non-stroke color because /'R46' is an invalid float value
+Cannot set gray non-stroke color because /'R54' is an invalid float value
+Cannot set gray non-stroke color because /'R63' is an invalid float value
+Cannot set gray non-stroke color because /'R71' is an invalid float value
+Cannot set gray non-stroke color because /'R75' is an invalid float value
+Cannot set gray non-stroke color because /'R81' is an invalid float value
+Cannot set gray non-stroke color because /'R84' is an invalid float value
+Cannot set gray non-stroke color because /'R85' is an invalid float value
+Cannot set gray non-stroke color because /'R89' is an invalid float value
+Cannot set gray non-stroke color because /'R93' is an invalid float value
+Cannot set gray non-stroke color because /'R13' is an invalid float value
+Cannot set gray non-stroke color because /'R22' is an invalid float value
+Cannot set gray non-stroke color because /'R30' is an invalid float value
+Cannot set gray non-stroke color because /'R39' is an invalid float value
+Cannot set gray non-stroke color because /'R46' is an invalid float value
+Cannot set gray non-stroke color because /'R54' is an invalid float value
+Cannot set gray non-stroke color because /'R63' is an invalid float value
+Cannot set gray non-stroke color because /'R71' is an invalid float value
+Cannot set gray non-stroke color because /'R75' is an invalid float value
+Cannot set gray non-stroke color because /'R81' is an invalid float value
+Cannot set gray non-stroke color because /'R84' is an invalid float value
+Cannot set gray non-stroke color because /'R85' is an invalid float value
+Cannot set gray non-stroke color because /'R89' is an invalid float value
+Cannot set gray non-stroke color because /'R93' is an invalid float value
+Cannot set gray non-stroke color because /'R13' is an invalid float value
+Cannot set gray non-stroke color because /'R22' is an invalid float value
+Cannot set gray non-stroke color because /'R30' is an invalid float value
+Cannot set gray non-stroke color because /'R39' is an invalid float value
+Cannot set gray non-stroke color because /'R46' is an invalid float value
+Cannot set gray non-stroke color because /'R54' is an invalid float value
+Cannot set gray non-stroke color because /'R63' is an invalid float value
+Cannot set gray non-stroke color because /'R71' is an invalid float value
+Cannot set gray non-stroke color because /'R75' is an invalid float value
+Cannot set gray non-stroke color because /'R81' is an invalid float value
+Cannot set gray non-stroke color because /'R84' is an invalid float value
+Cannot set gray non-stroke color because /'R85' is an invalid float value
+Cannot set gray non-stroke color because /'R89' is an invalid float value
+Cannot set gray non-stroke color because /'R93' is an invalid float value
+Cannot set gray non-stroke color because /'R13' is an invalid float value
+Cannot set gray non-stroke color because /'R22' is an invalid float value
+Cannot set gray non-stroke color because /'R30' is an invalid float value
+Cannot set gray non-stroke color because /'R39' is an invalid float value
+Cannot set gray non-stroke color because /'R46' is an invalid float value
+Cannot set gray non-stroke color because /'R54' is an invalid float value
+Cannot set gray non-stroke color because /'R63' is an invalid float value
+Cannot set gray non-stroke color because /'R71' is an invalid float value
+Cannot set gray non-stroke color because /'R75' is an invalid float value
+Cannot set gray non-stroke color because /'R81' is an invalid float value
+Cannot set gray non-stroke color because /'R84' is an invalid float value
+Cannot set gray non-stroke color because /'R85' is an invalid float value
+Cannot set gray non-stroke color because /'R89' is an invalid float value
+Cannot set gray non-stroke color because /'R93' is an invalid float value
+📄 Processing: Kia - Seltos_2025.pdf
+  📐 Found image: 1452.5171765x1047.0677839px on page 1
+  ❌ Extraction failed for Seltos_2025.pdf: Bounding box (-499.5988612, -45.5636935, 952.9183153, 1001.5040904) is not fully within parent page bounding box (0.0, 0.0, 595.276, 841.89)
+📄 Processing: Kia - Sorento_2024.pdf
+  ⚠️  No suitable embedded images found in Sorento_2024.pdf
+📄 Processing: Kia - Sportage_2025.pdf
+  ⚠️  No suitable embedded images found in Sportage_2025.pdf
+📄 Processing: Kia - XCeed_2024.pdf
+  ⚠️  No suitable embedded images found in XCeed_2024.pdf
+📄 Processing: MG - HS_2024.pdf
+  📐 Found image: 1260.9633393x708.6613587000002px on page 2
+  ❌ Extraction failed for HS_2024.pdf: Bounding box (-324.8243713, 534.4775574, 936.138968, 1243.1389161000002) is not fully within parent page bounding box (0.0, 0.0, 841.89, 595.28)
+📄 Processing: MG - MG_4_EV_2024.pdf
+  ⚠️  No suitable embedded images found in MG_4_EV_2024.pdf
+📄 Processing: MG - MG_4_EV_2025.pdf
+  ⚠️  No suitable embedded images found in MG_4_EV_2025.pdf
+📄 Processing: MG - MG_5_2025.pdf
+  ⚠️  No suitable embedded images found in MG_5_2025.pdf
+📄 Processing: MG - MG_5_Amended_2025.pdf
+  ⚠️  No suitable embedded images found in MG_5_Amended_2025.pdf
+📄 Processing: MG - MG_6_2024.pdf
+  ⚠️  No suitable embedded images found in MG_6_2024.pdf
+📄 Processing: MG - MG_HS_2025.pdf
+  📐 Found image: 1260.9633393x708.6613587000002px on page 2
+  ❌ Extraction failed for MG_HS_2025.pdf: Bounding box (-324.8243713, 534.4775574, 936.138968, 1243.1389161000002) is not fully within parent page bounding box (0.0, 0.0, 841.89, 595.28)
+📄 Processing: MG - MG_ZS_Lux_2025.pdf
+  ⚠️  No suitable embedded images found in MG_ZS_Lux_2025.pdf
+📄 Processing: MG - RX5_2025.pdf
+  ⚠️  No suitable embedded images found in RX5_2025.pdf
+📄 Processing: MG - ZS_2024.pdf
+  ⚠️  No suitable embedded images found in ZS_2024.pdf
+📄 Processing: Mercedes - C-Class_W206_2025.pdf
+  ⚠️  No suitable embedded images found in C-Class_W206_2025.pdf
+📄 Processing: Mitsubishi - Accessories_2025.pdf
+  ⚠️  No suitable embedded images found in Accessories_2025.pdf
+📄 Processing: Mitsubishi - Attrage_2024.pdf
+  📐 Found image: 1192.7425597x645.3311046px on page 3
+  ❌ Extraction failed for Attrage_2024.pdf: Bounding box (-1.0445248, 197.8461377, 1191.6980348999998, 843.1772423) is not fully within parent page bounding box (0.0, 0.0, 1190.55, 841.89)
+📄 Processing: Mitsubishi - Attrage_2025.pdf
+  📐 Found image: 1192.7425597x645.3311046px on page 3
+  ❌ Extraction failed for Attrage_2025.pdf: Bounding box (-1.0445248, 197.8461377, 1191.6980348999998, 843.1772423) is not fully within parent page bounding box (0.0, 0.0, 1190.55, 841.89)
+📄 Processing: Mitsubishi - Mirage_2024.pdf
+  📐 Found image: 1192.8856698x645.0915857px on page 3
+  ❌ Extraction failed for Mirage_2024.pdf: Bounding box (-1.1585279, 198.0969516, 1191.7271418999999, 843.1885373) is not fully within parent page bounding box (0.0, 0.0, 1190.55, 841.89)
+📄 Processing: Mitsubishi - Mirage_2025.pdf
+  📐 Found image: 1192.8856698x645.0915857px on page 3
+  ❌ Extraction failed for Mirage_2025.pdf: Bounding box (-1.1585279, 198.0969516, 1191.7271418999999, 843.1885373) is not fully within parent page bounding box (0.0, 0.0, 1190.55, 841.89)
+📄 Processing: Nissan - Juke_2025.pdf
+  📐 Found image: 1736.1929746x1116.8572249px on page 2
+  ❌ Extraction failed for Juke_2025.pdf: Bounding box (-215.5818176, -231.3560042, 1520.611157, 885.5012206999999) is not fully within parent page bounding box (0.0, 0.0, 992.12, 668.97)
+📄 Processing: Nissan - Patrol_2025.pdf
+  📐 Found image: 1472.395601x814.6284771px on page 1
+  ❌ Extraction failed for Patrol_2025.pdf: Bounding box (-8.5039063, -182.5025005, 1463.8916947, 632.1259766000001) is not fully within parent page bounding box (0.0, 0.0, 1247.24, 623.622)
+📄 Processing: Nissan - Qashqai_2025.pdf
+  📐 Found image: 1483.8996077x1097.8295476px on page 1
+  ❌ Extraction failed for Qashqai_2025.pdf: Bounding box (-262.0180969, -257.6491277, 1221.8815108, 840.1804199000001) is not fully within parent page bounding box (0.0, 0.0, 992.12, 668.97)
+📄 Processing: Nissan - Sentra_2024-25.pdf
+  📐 Found image: 1156.6544465x628.2673925px on page 1
+  ❌ Extraction failed for Sentra_2024-25.pdf: Bounding box (-304.4228516, 5.1387354, 852.2315948999999, 633.4061279) is not fully within parent page bounding box (0.0, 0.0, 583.937, 583.938)
+📄 Processing: Nissan - Sentra_2025.pdf
+  📐 Found image: 1156.6544465x628.2673925px on page 1
+  ❌ Extraction failed for Sentra_2025.pdf: Bounding box (-304.4228516, 5.1387354, 852.2315948999999, 633.4061279) is not fully within parent page bounding box (0.0, 0.0, 583.937, 583.938)
+📄 Processing: Nissan - Sunny_2025.pdf
+  ⚠️  No suitable embedded images found in Sunny_2025.pdf
+📄 Processing: Nissan - Urvan_2025.pdf
+  📐 Found image: 1156.9164081x771.4228914px on page 3
+  ❌ Extraction failed for Urvan_2025.pdf: Bounding box (481.3630066, -337.0369051, 1638.2794147, 434.3859863) is not fully within parent page bounding box (0.0, 0.0, 1133.86, 566.929)
+📄 Processing: Nissan - X-Trail_e-POWER_2025.pdf
+  ⚠️  No suitable embedded images found in X-Trail_e-POWER_2025.pdf
+📄 Processing: Renault - Duster_2024.pdf
+  📐 Found image: 1126.7926912x858.8976002px on page 1
+  ❌ Extraction failed for Duster_2024.pdf: Bounding box (-414.199707, -8.5043507, 712.5929842, 850.3932495) is not fully within parent page bounding box (0.0, 0.0, 595.276, 841.89)
+📄 Processing: Renault - Megane_2024.pdf
+  📐 Found image: 1318.1101323x878.7401812px on page 5
+  ❌ Extraction failed for Megane_2024.pdf: Bounding box (-591.4399414, -73.7782672, 726.6701909000001, 804.9619140000001) is not fully within parent page bounding box (0.0, 0.0, 581.1, 737.01)
+📄 Processing: Renault - Megane_Grand_Coupé_2025.pdf
+  📐 Found image: 1318.1101323x878.7401812px on page 5
+  ❌ Extraction failed for Megane_Grand_Coupé_2025.pdf: Bounding box (-591.4399414, -73.7782672, 726.6701909000001, 804.9619140000001) is not fully within parent page bounding box (0.0, 0.0, 581.1, 737.01)
+📄 Processing: Toyota - Belta_2024.pdf
+  📐 Found image: 3705.5307036999993x2620.2381997px on page 4
+  ❌ Extraction failed for Belta_2024.pdf: Bounding box (-1104.5783691, -777.0785317, 2600.9523345999996, 1843.1596680000002) is not fully within parent page bounding box (0.0, 0.0, 595.276, 841.89)
+📄 Processing: Toyota - Camry_2024.pdf
+  ⚠️  No suitable embedded images found in Camry_2024.pdf
+📄 Processing: Toyota - Camry_2025.pdf
+  ⚠️  No suitable embedded images found in Camry_2025.pdf
+📄 Processing: Toyota - Coaster_2024.pdf
+  ⚠️  No suitable embedded images found in Coaster_2024.pdf
+📄 Processing: Toyota - Corolla_2026.pdf
+  ⚠️  No suitable embedded images found in Corolla_2026.pdf
+📄 Processing: Toyota - Corolla_all_trims_2026.pdf
+  ⚠️  No suitable embedded images found in Corolla_all_trims_2026.pdf
+📄 Processing: Toyota - Hiace_Ace_2025.pdf
+  ⚠️  No suitable embedded images found in Hiace_Ace_2025.pdf
+📄 Processing: Toyota - Hilux_2025.pdf
+  ⚠️  No suitable embedded images found in Hilux_2025.pdf
+📄 Processing: Toyota - Hilux_GLX_2025.pdf
+  ⚠️  No suitable embedded images found in Hilux_GLX_2025.pdf
+📄 Processing: Toyota - Land_Cruiser_250_2025.pdf
+  ⚠️  No suitable embedded images found in Land_Cruiser_250_2025.pdf
+📄 Processing: Toyota - RAV4_2024.pdf
+  ⚠️  No suitable embedded images found in RAV4_2024.pdf
+📄 Processing: Toyota - RAV4_2025.pdf
+  ⚠️  No suitable embedded images found in RAV4_2025.pdf
+
+======================================================================
+📊 EXTRACTION SUMMARY
+======================================================================
+✅ Successfully extracted: 5 models
+❌ Failed (no embedded images): 79 PDFs
+📁 Total PDFs processed: 84
+======================================================================
+
+⚠️  PDFs without suitable embedded images:
+   - pdfs/Audi/audi_official/Q3_2024-25.pdf
+   - pdfs/Audi/audi_official/Q3_2025.pdf
+   - pdfs/Audi/audi_official/Q7_2024-25.pdf
+   - pdfs/Audi/audi_official/Q7_2025.pdf
+   - pdfs/BMW/bmw_official/5_Series-i5_2025.pdf
+   - pdfs/BMW/bmw_official/5_Series_-_i5_2025.pdf
+   - pdfs/BMW/bmw_official/X2-iX2_2025.pdf
+   - pdfs/BMW/bmw_official/X2_-_iX2_2024.pdf
+   - pdfs/BMW/bmw_official/X6_2024.pdf
+   - pdfs/BMW/bmw_official/X6_2025.pdf
+   ... and 69 more
+
+📝 Failed PDFs list saved to: docs/2025-12-29-0210-CC-failed-pdf-extractions.txt
+
+✅ FIXED EXTRACTION COMPLETE
+
+Next steps:
+1. Verify quality of re-extracted images (Hyundai Accent, MG 4 EV)
+2. Compare with reference quality (BMW X6, Toyota LC)
+3. If all pass, execute Phase 3 SQL mapping

@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "date": "2025-12-30 00:30 EET",
+    "status": "audit_complete",
+    "total_brands": 35,
+    "total_models_estimated": 300,
+    "scanned_directories": ["pdfs_comprehensive"]
+  },
+  "agents": {
+    "agent_1": {
+      "name": "Luxury Tier A",
+      "brands": ["Mercedes-Benz", "BMW"],
+      "status": "partial",
+      "models": [
+        {
+          "brand": "Mercedes-Benz",
+          "status": "MISSING",
+          "count": 0,
+          "action_required": "Manual download from https://www.mercedes-benz.com.eg/en/passengercars/buy/brochure-download.html"
+        },
+        {
+          "brand": "BMW",
+          "status": "PARTIAL",
+          "count": 14,
+          "files": [
+            "BMW_2_Series_Gran_Coupe.pdf", "BMW_3_Series_2025.pdf", "BMW_4_Series_Convertible.pdf",
+            "BMW_5_Series_i5.pdf", "BMW_7_Series_i7.pdf", "BMW_8_Series.pdf", "BMW_X1_iX1.pdf",
+            "BMW_X2_iX2_Aug2024.pdf", "BMW_X2_iX2.pdf", "BMW_X3.pdf", "BMW_X4.pdf",
+            "BMW_X5_MY2024.pdf", "BMW_X6.pdf", "BMW_X7_2024.pdf"
+          ]
+        }
+      ]
+    },
+    "agent_2": {
+      "name": "Luxury Tier B",
+      "brands": ["Audi", "Volvo"],
+      "status": "pending_audit",
+      "models": []
+    },
+    "agent_6": {
+      "name": "Chinese Volume 1",
+      "brands": ["BYD", "Geely"],
+      "status": "critical_missing",
+      "models": [
+        {
+          "brand": "BYD",
+          "status": "MISSING_DIR",
+          "count": 0,
+          "action_required": "Create directory, download F3 from https://bydegypt.com/byd-f3/"
+        },
+        {
+          "brand": "Geely",
+          "status": "MISSING_DIR",
+          "count": 0,
+          "action_required": "Create directory, download Coolray/GX3 Pro"
+        }
+      ]
+    },
+    "agent_10": {
+      "name": "Chery Group",
+      "brands": ["Chery", "EXEED", "Jetour"],
+      "status": "critical_missing",
+      "models": [
+        {
+          "brand": "Chery",
+          "status": "MISSING_DIR",
+          "count": 0,
+          "action_required": "Verify previous 21 models claim"
+        }
+      ]
+    },
+    "agent_15": {
+      "name": "Verification",
+      "brands": ["MG"],
+      "status": "failed",
+      "models": [
+        {
+          "brand": "MG",
+          "status": "EMPTY_DIR",
+          "count": 0,
+          "action_required": "Re-download all MG models"
+        }
+      ]
+    }
+  }
+}

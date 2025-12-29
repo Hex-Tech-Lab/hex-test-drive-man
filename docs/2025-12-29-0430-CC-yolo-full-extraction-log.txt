@@ -1,0 +1,203 @@
+======================================================================
+YOLO-BASED FULL EXTRACTION - 84 Manufacturer PDFs
+======================================================================
+
+📥 Loading YOLOv8n model...
+   ✅ Model loaded successfully
+
+📁 Found 84 manufacturer PDFs
+
+[1/84] 🔄 Audi - Q3_2024-25.pdf
+        ✅ Page 0 (conf 0.87) → 350KB
+[2/84] 🔄 Audi - Q3_2025.pdf
+        ✅ Page 0 (conf 0.87) → 350KB
+[3/84] 🔄 Audi - Q7_2024-25.pdf
+        ✅ Page 1 (conf 0.95) → 190KB
+[4/84] 🔄 Audi - Q7_2025.pdf
+        ✅ Page 1 (conf 0.95) → 190KB
+[5/84] 🔄 BMW - 5_Series-i5_2025.pdf
+        ✅ Page 2 (conf 0.95) → 192KB
+[6/84] 🔄 BMW - 5_Series_-_i5_2025.pdf
+        ✅ Page 2 (conf 0.95) → 192KB
+[7/84] 🔄 BMW - X1-iX1_2025.pdf
+        ✅ Page 2 (conf 0.92) → 277KB
+[8/84] 🔄 BMW - X1_-_iX1_2025.pdf
+        ✅ Page 2 (conf 0.92) → 277KB
+[9/84] 🔄 BMW - X2-iX2_2025.pdf
+        ✅ Page 1 (conf 0.90) → 135KB
+[10/84] 🔄 BMW - X2_-_iX2_2024.pdf
+        ✅ Page 1 (conf 0.90) → 135KB
+[11/84] 🔄 BMW - X5_LCI_2024.pdf
+        ✅ Page 1 (conf 0.94) → 237KB
+[12/84] 🔄 BMW - X5_LCI_2025.pdf
+        ✅ Page 1 (conf 0.94) → 237KB
+[13/84] 🔄 BMW - X6_2024.pdf
+        ✅ Page 1 (conf 0.95) → 194KB
+[14/84] 🔄 BMW - X6_2025.pdf
+        ✅ Page 1 (conf 0.95) → 194KB
+[15/84] 🔄 BMW - X6_2025_page15.pdf
+        ✅ Page 0 (conf 0.91) → 219KB
+[16/84] 🔄 BMW - X6_2025_part1.pdf
+        ✅ Page 1 (conf 0.95) → 194KB
+[17/84] 🔄 BMW - X6_2025_part2.pdf
+        ✅ Page 1 (conf 0.94) → 126KB
+[18/84] 🔄 BMW - X6_2025_specs_only.pdf
+        ✅ Page 1 (conf 0.91) → 219KB
+[19/84] 🔄 Chery - Arrizo_5_2024.pdf
+        ✅ Page 0 (conf 0.92) → 190KB
+[20/84] 🔄 Chery - Arrizo_8_2025.pdf
+        ✅ Page 2 (conf 0.91) → 82KB
+[21/84] 🔄 Chery - Tiggo_3_2024.pdf
+        ✅ Page 0 (conf 0.93) → 308KB
+[22/84] 🔄 Chery - Tiggo_4_Pro_2025.pdf
+        ✅ Page 1 (conf 0.96) → 177KB
+[23/84] 🔄 Chery - Tiggo_7_Pro_Max_2025.pdf
+        ✅ Page 1 (conf 0.94) → 206KB
+[24/84] 🔄 Chery - Tiggo_8_Pro_2024.pdf
+        ✅ Page 2 (conf 0.88) → 195KB
+[25/84] 🔄 Chery - Tiggo_8_Pro_Max_2025.pdf
+        ✅ Page 0 (conf 0.96) → 272KB
+[26/84] 🔄 Chery - eQ7_EV_2025.pdf
+        ✅ Page 0 (conf 0.62) → 292KB
+[27/84] 🔄 Chevrolet - Captiva_2025.pdf
+        ✅ Page 2 (conf 0.93) → 236KB
+[28/84] 🔄 Chevrolet - Move_Van_2024.pdf
+        ✅ Page 0 (conf 0.51) → 427KB
+[29/84] 🔄 Chevrolet - Optra_2026.pdf
+        ✅ Page 2 (conf 0.95) → 226KB
+[30/84] 🔄 Hyundai - Accent_RB_2024.pdf
+        ✅ Page 0 (conf 0.95) → 244KB
+[31/84] 🔄 Hyundai - Accent_RB_GL_DAB_ABS_Plus_Prime_equiv_2025.pdf
+        ✅ Page 0 (conf 0.95) → 244KB
+[32/84] 🔄 Hyundai - Bayon_2024.pdf
+        ✅ Page 0 (conf 0.95) → 232KB
+[33/84] 🔄 Hyundai - Bayon_2025.pdf
+        ✅ Page 0 (conf 0.95) → 232KB
+[34/84] 🔄 Hyundai - Elantra_CN7_2024.pdf
+        ✅ Page 1 (conf 0.94) → 232KB
+[35/84] 🔄 Hyundai - Elantra_CN7_Smart-Prime_2025.pdf
+        ✅ Page 1 (conf 0.94) → 232KB
+[36/84] 🔄 Hyundai - I20_2024.pdf
+        ✅ Page 0 (conf 0.90) → 213KB
+[37/84] 🔄 Hyundai - Tucson_NX4_2024.pdf
+        ✅ Page 1 (conf 0.94) → 238KB
+[38/84] 🔄 Hyundai - Tucson_NX4_Premium_2025.pdf
+        ✅ Page 1 (conf 0.94) → 238KB
+[39/84] 🔄 Hyundai - i10_2024.pdf
+        ✅ Page 0 (conf 0.96) → 188KB
+[40/84] 🔄 Hyundai - i20_2025.pdf
+        ✅ Page 0 (conf 0.90) → 213KB
+[41/84] 🔄 Kia - Grand_Cerato_2024.pdf
+        ✅ Page 1 (conf 0.96) → 135KB
+[42/84] 🔄 Kia - Seltos_2025.pdf
+        ✅ Page 1 (conf 0.90) → 78KB
+[43/84] 🔄 Kia - Sorento_2024.pdf
+        ✅ Page 1 (conf 0.95) → 111KB
+[44/84] 🔄 Kia - Sportage_2025.pdf
+        ✅ Page 1 (conf 0.89) → 108KB
+[45/84] 🔄 Kia - XCeed_2024.pdf
+        ✅ Page 2 (conf 0.95) → 129KB
+[46/84] 🔄 MG - HS_2024.pdf
+        ✅ Page 1 (conf 0.92) → 190KB
+[47/84] 🔄 MG - MG_4_EV_2024.pdf
+        ✅ Page 1 (conf 0.93) → 86KB
+[48/84] 🔄 MG - MG_4_EV_2025.pdf
+        ✅ Page 1 (conf 0.93) → 86KB
+[49/84] 🔄 MG - MG_5_2025.pdf
+        ✅ Page 1 (conf 0.96) → 114KB
+[50/84] 🔄 MG - MG_5_Amended_2025.pdf
+        ✅ Page 1 (conf 0.96) → 114KB
+[51/84] 🔄 MG - MG_6_2024.pdf
+        ✅ Page 0 (conf 0.94) → 235KB
+[52/84] 🔄 MG - MG_HS_2025.pdf
+        ✅ Page 1 (conf 0.92) → 190KB
+[53/84] 🔄 MG - MG_ZS_Lux_2025.pdf
+        ✅ Page 1 (conf 0.95) → 294KB
+[54/84] 🔄 MG - RX5_2025.pdf
+        ✅ Page 0 (conf 0.94) → 183KB
+[55/84] 🔄 MG - ZS_2024.pdf
+        ✅ Page 1 (conf 0.95) → 294KB
+[56/84] 🔄 Mercedes - C-Class_W206_2025.pdf
+        ✅ Page 0 (conf 0.91) → 243KB
+[57/84] 🔄 Mitsubishi - Accessories_2025.pdf
+        ✅ Page 0 (conf 0.91) → 199KB
+[58/84] 🔄 Mitsubishi - Attrage_2024.pdf
+        ✅ Page 1 (conf 0.93) → 221KB
+[59/84] 🔄 Mitsubishi - Attrage_2025.pdf
+        ✅ Page 1 (conf 0.93) → 221KB
+[60/84] 🔄 Mitsubishi - Mirage_2024.pdf
+        ✅ Page 0 (conf 0.93) → 306KB
+[61/84] 🔄 Mitsubishi - Mirage_2025.pdf
+        ✅ Page 0 (conf 0.93) → 306KB
+[62/84] 🔄 Nissan - Juke_2025.pdf
+        ✅ Page 1 (conf 0.93) → 134KB
+[63/84] 🔄 Nissan - Patrol_2025.pdf
+        ✅ Page 0 (conf 0.76) → 173KB
+[64/84] 🔄 Nissan - Qashqai_2025.pdf
+        ✅ Page 0 (conf 0.94) → 136KB
+[65/84] 🔄 Nissan - Sentra_2024-25.pdf
+        ✅ Page 2 (conf 0.92) → 109KB
+[66/84] 🔄 Nissan - Sentra_2025.pdf
+        ✅ Page 2 (conf 0.92) → 109KB
+[67/84] 🔄 Nissan - Sunny_2025.pdf
+        ✅ Page 0 (conf 0.96) → 167KB
+[68/84] 🔄 Nissan - Urvan_2025.pdf
+        ✅ Page 1 (conf 0.83) → 174KB
+[69/84] 🔄 Nissan - X-Trail_e-POWER_2025.pdf
+        ✅ Page 2 (conf 0.95) → 490KB
+[70/84] 🔄 Renault - Duster_2024.pdf
+        ✅ Page 2 (conf 0.92) → 68KB
+[71/84] 🔄 Renault - Megane_2024.pdf
+        ✅ Page 0 (conf 0.95) → 164KB
+[72/84] 🔄 Renault - Megane_Grand_Coupé_2025.pdf
+        ✅ Page 0 (conf 0.95) → 164KB
+[73/84] 🔄 Toyota - Belta_2024.pdf
+        ✅ Page 0 (conf 0.94) → 302KB
+[74/84] 🔄 Toyota - Camry_2024.pdf
+        ✅ Page 0 (conf 0.96) → 273KB
+[75/84] 🔄 Toyota - Camry_2025.pdf
+        ✅ Page 0 (conf 0.96) → 273KB
+[76/84] 🔄 Toyota - Coaster_2024.pdf
+        ✅ Page 1 (conf 0.95) → 49KB
+[77/84] 🔄 Toyota - Corolla_2026.pdf
+        ✅ Page 0 (conf 0.89) → 259KB
+[78/84] 🔄 Toyota - Corolla_all_trims_2026.pdf
+        ✅ Page 0 (conf 0.89) → 259KB
+[79/84] 🔄 Toyota - Hiace_Ace_2025.pdf
+        ✅ Page 0 (conf 0.41) → 342KB
+[80/84] 🔄 Toyota - Hilux_2025.pdf
+        ✅ Page 0 (conf 0.58) → 346KB
+[81/84] 🔄 Toyota - Hilux_GLX_2025.pdf
+        ✅ Page 0 (conf 0.58) → 346KB
+[82/84] 🔄 Toyota - Land_Cruiser_250_2025.pdf
+        ✅ Page 1 (conf 0.88) → 28KB
+[83/84] 🔄 Toyota - RAV4_2024.pdf
+        ✅ Page 1 (conf 0.94) → 48KB
+[84/84] 🔄 Toyota - RAV4_2025.pdf
+        ✅ Page 1 (conf 0.94) → 48KB
+
+======================================================================
+📊 FULL EXTRACTION RESULTS
+======================================================================
+
+✅ Successful: 84/84 (100.0%)
+❌ Failed: 0/84
+
+📈 SUCCESS BY BRAND:
+   Audi             4/ 4 (100.0%)
+   BMW             14/14 (100.0%)
+   Chery            8/ 8 (100.0%)
+   Chevrolet        3/ 3 (100.0%)
+   Hyundai         11/11 (100.0%)
+   Kia              5/ 5 (100.0%)
+   MG              10/10 (100.0%)
+   Mercedes         1/ 1 (100.0%)
+   Mitsubishi       5/ 5 (100.0%)
+   Nissan           8/ 8 (100.0%)
+   Renault          3/ 3 (100.0%)
+   Toyota          12/12 (100.0%)
+
+======================================================================
+📈 Overall Success Rate: 100.0%
+✅ TARGET ACHIEVED - 80%+ success rate
+======================================================================
