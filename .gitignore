@@ -81,3 +81,5 @@ venv/
 
 # Credentials file (local only)
 credentials.env
+.env.*
+.local_scratch/
