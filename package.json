@@ -9,7 +9,6 @@
     "start": "next start",
     "lint": "eslint .",
     "check:docstrings": "python3 scripts/check_docstring_coverage.py",
-    "prepare": "husky install",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -38,13 +37,13 @@
     "@types/react-dom": "19.0.3",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
-    "eslint": "9.0.0",
+    "eslint": "8.57.0",
     "eslint-plugin-jsdoc": "61.5.0",
     "eslint-plugin-react": "7.37.4",
     "eslint-plugin-react-hooks": "5.2.0",
+    "husky": "^8.0.0",
     "node-fetch": "2.7.0",
     "playwright": "^1.57.0",
-    "typescript": "5.7.3",
-    "husky": "^8.0.0"
+    "typescript": "5.7.3"
   }
 }
