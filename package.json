@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "check:docstrings": "python3 scripts/check_docstring_coverage.py",
     "prepare": "husky install"
   },
