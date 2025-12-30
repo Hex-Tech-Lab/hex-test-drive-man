@@ -33,6 +33,8 @@ if not SUPABASE_ANON_KEY:
     print("-- Or: export SUPABASE_ANON_KEY='your_key'", file=sys.stderr)
     sys.exit(1)
 
+# Cache for brands (loaded once at startup)
+BRAND_CACHE = None
 
 def query_supabase(table, select_fields, filters=None):
     """Query Supabase REST API."""
@@ -115,20 +117,33 @@ def normalize_model_name(model):
     return normalized
 
 
+def load_brand_cache():
+    """Load all brands once at startup for case-insensitive matching."""
+    global BRAND_CACHE
+    if BRAND_CACHE is None:
+        BRAND_CACHE = {}
+        all_brands = query_supabase('brands', 'id,name')
+        for db_brand in all_brands:
+            # Store by lowercase name for case-insensitive lookup
+            BRAND_CACHE[db_brand['name'].lower()] = db_brand
+    return BRAND_CACHE
+
 def find_matching_models(brand, model, year):
     """
     Find matching models in database.
 
     Returns list of model IDs with their current image URLs.
     """
-    # Get brand ID first
-    brands = query_supabase('brands', 'id,name', {'name': brand})
+    # Load brand cache if not already loaded
+    brand_cache = load_brand_cache()
 
-    if not brands:
+    # Try case-insensitive lookup in cache
+    brand_lower = brand.lower()
+    if brand_lower in brand_cache:
+        brand_id = brand_cache[brand_lower]['id']
+    else:
         print(f"-- WARNING: Brand not found: {brand}", file=sys.stderr)
         return []
-
-    brand_id = brands[0]['id']
 
     # Query models for this brand
     models = query_supabase(

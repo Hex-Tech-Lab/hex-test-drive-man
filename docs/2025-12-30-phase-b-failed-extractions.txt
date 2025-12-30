@@ -1,0 +1,19 @@
+Phase B: Failed PDF Extractions (YOLO)
+Timestamp: 2025-12-30 10:01:03
+================================================================================
+
+Changan              Changan_CS55_Plus_Hybrid.pdf                       → No vehicles detected in first 3 pages
+Changan              Changan_UNI-V_Spec_Sheet.pdf                       → No vehicles detected in first 3 pages
+Changan              Changan_UNI-V_Sport.pdf                            → No vehicles detected in first 3 pages
+Chevrolet            Chevrolet_Captiva_2024_Egypt.pdf                   → No /Root object! - Is this really a PDF?
+Chevrolet            Chevrolet_Captiva_2026_Egypt.pdf                   → No /Root object! - Is this really a PDF?
+Chevrolet            Chevrolet_N-Series_2026_Egypt.pdf                  → No /Root object! - Is this really a PDF?
+Chevrolet            Chevrolet_N300_2025_Egypt.pdf                      → No /Root object! - Is this really a PDF?
+Chevrolet            Chevrolet_Optra_2025_Egypt.pdf                     → No /Root object! - Is this really a PDF?
+Chevrolet            Chevrolet_Optra_2026_Egypt.pdf                     → No /Root object! - Is this really a PDF?
+Chevrolet            Chevrolet_Optra_Egypt.pdf                          → No /Root object! - Is this really a PDF?
+Chevrolet            Chevrolet_T-Series_2026_Egypt.pdf                  → No /Root object! - Is this really a PDF?
+Dongfeng             dongfeng-passenger-vehicles-global-brand-brochure.pdf → No vehicles detected in first 3 pages
+Nissan               chevrolet-optra-2025-egypt.pdf                     → No /Root object! - Is this really a PDF?
+Zeekr                zeekr-001-2024-eu-specifications.pdf               → No /Root object! - Is this really a PDF?
+Zeekr                zeekr-001-technical-data-sheet.pdf                 → No vehicles detected in first 3 pages
