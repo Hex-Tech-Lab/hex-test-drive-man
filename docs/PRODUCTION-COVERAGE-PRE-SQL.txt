@@ -1,0 +1,78 @@
+# Production Image Coverage - Pre-SQL Application
+
+**Date**: 2025-12-30
+**Branch**: cce/production-images-fast
+**Status**: Ready for SQL application
+
+## Current State
+
+### Image Counts:
+- Hero images: 362 files
+- Hover images: 359 files
+- Total: 721 images available
+
+### SQL Ready:
+- File: scripts/update_image_urls.sql
+- Size: 122KB (2182 lines)
+- UPDATE statements: 702
+  - Hero: 352 mappings
+  - Hover: 350 mappings
+- Match rate: 65% (acceptable for MVP)
+
+## Database Coverage (Before SQL Application)
+
+**Current models table** (expected):
+- Total models: 199
+- Hero images: ~0-10 (mostly empty)
+- Hover images: ~0-10 (mostly empty)
+- Coverage: <5%
+
+**After SQL Application** (expected):
+- Total models: 199
+- Hero images: ~352 (177%)
+- Hover images: ~350 (176%)
+- Coverage: ~65%
+
+Note: Percentage >100% because some models have multiple year variants sharing images.
+
+## Manual Application Required
+
+DATABASE_URL not configured in .env.local
+
+### Steps:
+1. Open: https://supabase.com/dashboard/project/lbttmhwckcrfdymwyuhn/editor
+2. Copy: scripts/update_image_urls.sql (all 702 lines)
+3. Paste into SQL Editor
+4. Click "Run"
+5. Verify: "702 rows affected" or similar message
+
+### Verification Query (run after SQL):
+```sql
+SELECT 
+  COUNT(*) as total_models,
+  COUNT(hero_image_url) as hero_count,
+  COUNT(hover_image_url) as hover_count,
+  ROUND(100.0 * COUNT(hero_image_url) / COUNT(*), 1) as hero_pct,
+  ROUND(100.0 * COUNT(hover_image_url) / COUNT(*), 1) as hover_pct
+FROM models;
+```
+
+Expected output:
+- total_models: 199
+- hero_count: ~352
+- hover_count: ~350
+- hero_pct: ~177%
+- hover_pct: ~176%
+
+## Next Steps After SQL Application
+
+1. Run verification query above
+2. Save results to docs/PRODUCTION-COVERAGE-POST-SQL.txt
+3. Commit both pre/post coverage reports
+4. Push to branch
+5. Create PR to orchestrator/grand-reconciliation-dec29
+
+---
+
+Generated: 2025-12-30 10:37 UTC
+Status: ⏳ Awaiting manual SQL application
