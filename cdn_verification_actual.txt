@@ -1,0 +1,32 @@
+=== TESTING ACTUAL DATABASE URLS ===
+
+=== TEST 1: Audi A3 2025 ===
+HTTP/2 307 
+content-type: text/plain
+HTTP/2 200 
+content-type: image/jpeg
+
+=== TEST 2: Toyota Camry 2024 ===
+HTTP/2 307 
+content-type: text/plain
+HTTP/2 200 
+content-type: image/jpeg
+
+=== TEST 3: Chery Tiggo 4 Pro 2026 ===
+HTTP/2 307 
+content-type: text/plain
+HTTP/2 200 
+content-type: image/jpeg
+
+=== TEST 4: Haval Jolion ===
+HTTP/2 307 
+content-type: text/plain
+HTTP/2 200 
+content-type: image/jpeg
+
+=== TEST 5: Mercedes C-Class (known working) ===
+HTTP/2 307 
+content-type: text/plain
+HTTP/2 200 
+content-type: image/jpeg
+

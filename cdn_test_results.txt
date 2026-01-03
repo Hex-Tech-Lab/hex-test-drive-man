@@ -1,0 +1,283 @@
+=== CDN AVAILABILITY TEST ===
+Date: Sat Jan  3 21:26:12 UTC 2026
+
+=== TEST 1: BMW X1 iX1 Hero ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:13 GMT
+location: https://hex-test-drive-man.vercel.app/images/vehicles/hero/bmw-x1-ix1.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::tv4g8-1767475573963-bc39d06a9e0f
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 0
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Sat, 03 Jan 2026 21:26:15 GMT
+etag: "37cb057adac1c1cfb78a5b6cceacc430"
+last-modified: Sat, 03 Jan 2026 21:26:15 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: dxb1::hdv7c-1767475574399-73bd3e5ae472
+content-length: 6001
+
+
+=== TEST 2: Toyota Camry Hero ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:16 GMT
+location: https://hex-test-drive-man.vercel.app/images/vehicles/hero/toyota-camry-egypt.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::tv4g8-1767475576562-1c09ab35b6e0
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 1
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Sat, 03 Jan 2026 21:26:17 GMT
+etag: "37cb057adac1c1cfb78a5b6cceacc430"
+last-modified: Sat, 03 Jan 2026 21:26:15 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: dxb1::4slbq-1767475576954-50e5a9b51f29
+content-length: 6001
+
+
+=== TEST 3: Mercedes C-Class Hero ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:18 GMT
+location: https://hex-test-drive-man.vercel.app/images/vehicles/hero/mercedes-benz-c-class.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::tv4g8-1767475578763-4ee93056e527
+
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 0
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="mercedes-benz-c-class.jpg"
+content-type: image/jpeg
+date: Sat, 03 Jan 2026 21:26:19 GMT
+etag: "5a687a59113f2c12afeaba7e60933f11"
+last-modified: Sat, 03 Jan 2026 21:26:19 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /images/vehicles/hero/mercedes-benz-c-class.jpg
+x-vercel-cache: HIT
+x-vercel-id: dxb1::vrhxw-1767475579104-2a79dd25be43
+content-length: 180071
+
+
+=== TEST 4: Toyota Camry Hover ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:20 GMT
+location: https://hex-test-drive-man.vercel.app/images/vehicles/hover/toyota-camry-egypt.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::kkkg6-1767475580743-f0bdce16a14a
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 5
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Sat, 03 Jan 2026 21:26:21 GMT
+etag: "37cb057adac1c1cfb78a5b6cceacc430"
+last-modified: Sat, 03 Jan 2026 21:26:15 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: dxb1::pnq2s-1767475581128-a59fc0ba2613
+content-length: 6001
+
+
+=== TEST 5: Fallback Vintage Car ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:22 GMT
+location: https://hex-test-drive-man.vercel.app/images/fallback-vintage-car.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::tv4g8-1767475582427-891864bc3c7f
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 7
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Sat, 03 Jan 2026 21:26:22 GMT
+etag: "37cb057adac1c1cfb78a5b6cceacc430"
+last-modified: Sat, 03 Jan 2026 21:26:15 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: dxb1::lhtjn-1767475582792-fa125e74e23e
+content-length: 6001
+
+
+=== TEST 6: Suzuki S-Presso Hero ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:24 GMT
+location: https://hex-test-drive-man.vercel.app/images/vehicles/hero/suzuki-s-presso-2024.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::p6bj7-1767475584151-ba15cb8a8211
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 9
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Sat, 03 Jan 2026 21:26:24 GMT
+etag: "37cb057adac1c1cfb78a5b6cceacc430"
+last-modified: Sat, 03 Jan 2026 21:26:15 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: dxb1::pnq2s-1767475584512-87909027578c
+content-length: 6001
+
+
+=== TEST 7: BYD F3 Hero ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:25 GMT
+location: https://hex-test-drive-man.vercel.app/images/vehicles/hero/byd-f3-2025.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::dnkhg-1767475585824-14846dfa89ab
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 10
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Sat, 03 Jan 2026 21:26:26 GMT
+etag: "37cb057adac1c1cfb78a5b6cceacc430"
+last-modified: Sat, 03 Jan 2026 21:26:15 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: dxb1::5q69h-1767475586203-e6b0c56428db
+content-length: 6001
+
+
+=== TEST 8: Chery Arrizo 5 Hero ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:27 GMT
+location: https://hex-test-drive-man.vercel.app/images/vehicles/hero/chery-arrizo-5-2025.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::p6bj7-1767475587706-c0302db23b10
+
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 0
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="chery-arrizo-5-2025.jpg"
+content-type: image/jpeg
+date: Sat, 03 Jan 2026 21:26:28 GMT
+etag: "86f1778954b0ba31e4c86ab32c25083e"
+last-modified: Sat, 03 Jan 2026 21:26:28 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /images/vehicles/hero/chery-arrizo-5-2025.jpg
+x-vercel-cache: HIT
+x-vercel-id: dxb1::lhtjn-1767475588089-b229abcd196d
+content-length: 10007
+
+
+=== TEST 9: Nissan Sunny Hero ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:29 GMT
+location: https://hex-test-drive-man.vercel.app/images/vehicles/hero/nissan-sunny-2025.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::dnbzb-1767475589746-00994f68d172
+
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 388332
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="nissan-sunny-2025.jpg"
+content-type: image/jpeg
+date: Sat, 03 Jan 2026 21:26:30 GMT
+etag: "538e800ed1dbe169a1cf73aee144b9ff"
+last-modified: Tue, 30 Dec 2025 09:34:18 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /images/vehicles/hero/nissan-sunny-2025.jpg
+x-vercel-cache: HIT
+x-vercel-id: dxb1::hdv7c-1767475590151-ed8eb21edf05
+content-length: 170879
+
+
+=== TEST 10: BYD Dolphin Hero ===
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 03 Jan 2026 21:26:31 GMT
+location: https://hex-test-drive-man.vercel.app/images/vehicles/hero/byd-dolphin-2024.jpg
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: dxb1::tzs95-1767475591518-a408f564aa81
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 16
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Sat, 03 Jan 2026 21:26:31 GMT
+etag: "37cb057adac1c1cfb78a5b6cceacc430"
+last-modified: Sat, 03 Jan 2026 21:26:15 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: dxb1::6pqng-1767475591884-4cfc25d325a7
+content-length: 6001
+
+
