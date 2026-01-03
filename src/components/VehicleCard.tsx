@@ -213,7 +213,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
             // Automatic fallback to placeholder on 404/corrupt image
             const img = e.currentTarget;
             // Prevent infinite loop: only set placeholder if not already showing it
-            if (!img.src.includes('placeholder.webp')) {
+            if (!img.src.includes('/images/vehicles/hero/placeholder')) {
               img.src = '/images/vehicles/hero/placeholder.webp';
               img.srcset = getPlaceholderSrcSet();
             }

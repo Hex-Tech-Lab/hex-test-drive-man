@@ -20,34 +20,19 @@ export function getVehicleImage(imageUrl: string | null | undefined): string {
 }
 
 /**
- * Get retina-ready srcSet for vehicle images with fallback
+ * Get srcSet for vehicle images (only for placeholders with known retina variants)
  * @param imageUrl - The image URL from the database
- * @returns srcSet string with 1x, 2x, 3x variants, or placeholder srcSet
+ * @returns srcSet string for placeholder trio, or undefined for real vehicle images
  */
-export function getVehicleImageSrcSet(imageUrl: string | null | undefined): string {
-  // If no image or invalid, return placeholder srcSet
+export function getVehicleImageSrcSet(imageUrl: string | null | undefined): string | undefined {
+  // If no image or invalid, return placeholder srcSet (only these have @2x/@3x variants)
   if (!imageUrl || (!imageUrl.startsWith('/') && !imageUrl.startsWith('http://') && !imageUrl.startsWith('https://'))) {
     return `${PLACEHOLDER_IMAGE} 1x, ${PLACEHOLDER_IMAGE_2X} 2x, ${PLACEHOLDER_IMAGE_3X} 3x`;
   }
 
-  // For valid images, try to generate retina variants
-  // Check if URL already has @2x or @3x suffix
-  if (imageUrl.includes('@2x') || imageUrl.includes('@3x')) {
-    // Already a retina image, return as-is
-    return `${imageUrl} 1x`;
-  }
-
-  // Generate retina variants by inserting @2x/@3x before extension
-  const lastDot = imageUrl.lastIndexOf('.');
-  if (lastDot === -1) {
-    // No extension found, use as-is
-    return `${imageUrl} 1x`;
-  }
-
-  const basePath = imageUrl.substring(0, lastDot);
-  const extension = imageUrl.substring(lastDot);
-
-  return `${imageUrl} 1x, ${basePath}@2x${extension} 2x, ${basePath}@3x${extension} 3x`;
+  // For real vehicle images, don't generate srcSet (retina variants don't exist)
+  // Browser will use the single image URL from the 'image' prop
+  return undefined;
 }
 
 /**
