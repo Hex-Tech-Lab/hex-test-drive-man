@@ -232,16 +232,21 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
           {displayTitle}
         </Typography>
 
-        <Tooltip 
-          title={vehicle.trimCount > 1 ? vehicle.trimNames : ''} 
-          arrow 
+        <Tooltip
+          title={vehicle.trimCount > 1 ? vehicle.trimNames : ''}
+          arrow
           placement="top"
         >
-          <Typography variant="body2" color="text.secondary" gutterBottom>
-            {vehicle.trimCount > 1 
-              ? `${vehicle.trimCount} ${language === 'ar' ? 'إصدارات' : 'trims'}` 
-              : vehicle.trims[0].trim_name} • {vehicle.categories?.name ?? (language === 'ar' ? 'غير مصنف' : 'Uncategorized')}
-          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.5 }}>
+            <Typography variant="body2" color="text.secondary">
+              {vehicle.trimCount > 1
+                ? `${vehicle.trimCount} ${language === 'ar' ? 'إصدارات' : 'trims'}`
+                : `1 ${language === 'ar' ? 'إصدار' : 'trim'}`}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {vehicle.categories?.name ?? (language === 'ar' ? 'غير مصنف' : 'Uncategorized')}
+            </Typography>
+          </Box>
         </Tooltip>
 
         <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap', mb: 2 }}>
