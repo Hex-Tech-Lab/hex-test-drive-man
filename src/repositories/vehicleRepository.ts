@@ -57,10 +57,8 @@ const VEHICLE_SELECT = `
 
 export const vehicleRepository = {
   async getAllVehicles() {
-    const { data, error } = await supabase
-      .from('vehicle_trims')
-      .select(VEHICLE_SELECT)
-      .order('model_year', { ascending: false });
+    // Use RPC function for year-specific images from model_year_images table
+    const { data, error } = await supabase.rpc('get_vehicle_catalog');
 
     return { data: data as Vehicle[] | null, error };
   },
