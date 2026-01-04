@@ -26,7 +26,7 @@ import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { BrandLogo } from '@/components/BrandLogo';
-import { getVehicleImage, formatEGP } from '@/lib/imageHelper';
+import { getVehicleImage, getVehicleImageSrcSet, getPlaceholderSrcSet, formatEGP } from '@/lib/imageHelper';
 import { requestBookingOtp } from '@/actions/bookingActions';
 
 interface VehicleCardProps {
@@ -206,13 +206,16 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
           component="img"
           height="200"
           image={getVehicleImage(vehicle.models.hero_image_url)}
+          srcSet={getVehicleImageSrcSet(vehicle.models.hero_image_url)}
           alt={displayTitle}
           sx={{ objectFit: 'cover', objectPosition: 'center 85%' }}
           onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
             // Automatic fallback to placeholder on 404/corrupt image
             const img = e.currentTarget;
-            if (img.src !== '/images/vehicles/hero/placeholder.webp') {
+            // Prevent infinite loop: only set placeholder if not already showing it
+            if (!img.src.includes('/images/vehicles/hero/placeholder')) {
               img.src = '/images/vehicles/hero/placeholder.webp';
+              img.srcset = getPlaceholderSrcSet();
             }
           }}
         />

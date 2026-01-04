@@ -208,6 +208,9 @@ git branch -vv | head -10
 
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
+### RECENTLY COMPLETED (Last 24 Hours)
+- ✅ **Card Image Fallback Fix** (2026-01-03, CC): Gray placeholders eliminated, retina srcSet added (@2x/@3x), PR#25 created + performance log documented
+
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
 1. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
 2. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
@@ -295,8 +298,12 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 
 ## 8. SESSION TIMELINE (Last 10 Sessions - Compressed)
 
-**Format**: Main bullet (1 line) + sub-bullet (1 line) = 2 lines per session  
+**Format**: Main bullet (1 line) + sub-bullet (1 line) = 2 lines per session
 **Space Saved**: 300 lines → 30-40 lines (87% reduction)
+
+- **2026-01-03 21:35 UTC (CC UX Bug Fix)**
+  - Fixed gray card placeholders: Added retina srcSet support (@2x/@3x) + improved onError handler (infinite loop prevention) + PR#25 created (dd8a462, branch: cc/fix-card-image-fallback)
+  - Files: src/lib/imageHelper.ts (+44 lines), src/components/VehicleCard.tsx (+2 lines) + Performance log: docs/PERFORMANCE_LOG_2026-01-03_CARD_FALLBACK_FIX.md + Timebox: 30 min actual / 45 min allocated (67% efficiency)
 
 - **2025-12-24 02:00 EET (GC Autonomous)**
   - Logo sizing (aspect-ratio aware) + hero image objectPosition 85% + naming fixes ("MG MG 5" → "MG 5 2025") + coverage script created + merged to main

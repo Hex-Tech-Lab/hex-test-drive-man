@@ -83,3 +83,4 @@ venv/
 credentials.env
 .env.*
 .local_scratch/
+yolov8n.pt
