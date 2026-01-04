@@ -213,6 +213,7 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 2. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
 3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
 4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
+5. ✅ **[FIXED 2026-01-04] Workflow Failure**: Disabled `.github/workflows/collect-ai-prompts.yml` (script never existed, failing since 2025-12-10)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
 4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
