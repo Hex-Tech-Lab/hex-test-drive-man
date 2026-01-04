@@ -4,6 +4,9 @@ import { persist } from 'zustand/middleware';
 interface FilterState {
   brands: string[];
   categories: string[];
+  bodyStyles: string[];
+  fuelTypes: string[];
+  transmissions: string[];
   priceRange: [number, number];
   bodyStyle?: string | null;
   segmentCode?: string | null;
@@ -18,6 +21,9 @@ export const useFilterStore = create<FilterState>()(
     (set) => ({
       brands: [],
       categories: [],
+      bodyStyles: [],
+      fuelTypes: [],
+      transmissions: [],
       priceRange: [0, 20_000_000],
       bodyStyle: null,
       segmentCode: null,
@@ -28,6 +34,9 @@ export const useFilterStore = create<FilterState>()(
         set({
           brands: [],
           categories: [],
+          bodyStyles: [],
+          fuelTypes: [],
+          transmissions: [],
           priceRange: [0, 20_000_000],
           bodyStyle: null,
           segmentCode: null,

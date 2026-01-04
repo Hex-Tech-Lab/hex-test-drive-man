@@ -22,6 +22,9 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
   // Use persistent filter store
   const selectedBrands = useFilterStore((state) => state.brands);
   const selectedCategories = useFilterStore((state) => state.categories);
+  const selectedBodyStyles = useFilterStore((state) => state.bodyStyles);
+  const selectedFuelTypes = useFilterStore((state) => state.fuelTypes);
+  const selectedTransmissions = useFilterStore((state) => state.transmissions);
   const priceRange = useFilterStore((state) => state.priceRange);
   const setFilters = useFilterStore((state) => state.setFilters);
 
@@ -45,6 +48,39 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
       }
     });
     return Array.from(catSet).sort();
+  }, [vehicles]);
+
+  // Extract unique body styles from live data
+  const availableBodyStyles = useMemo(() => {
+    const styleSet = new Set<string>();
+    vehicles.forEach((v) => {
+      if (v.body_styles?.name_en) {
+        styleSet.add(v.body_styles.name_en);
+      }
+    });
+    return Array.from(styleSet).sort();
+  }, [vehicles]);
+
+  // Extract unique fuel types from live data
+  const availableFuelTypes = useMemo(() => {
+    const fuelSet = new Set<string>();
+    vehicles.forEach((v) => {
+      if (v.fuel_types?.name) {
+        fuelSet.add(v.fuel_types.name);
+      }
+    });
+    return Array.from(fuelSet).sort();
+  }, [vehicles]);
+
+  // Extract unique transmissions from live data
+  const availableTransmissions = useMemo(() => {
+    const transSet = new Set<string>();
+    vehicles.forEach((v) => {
+      if (v.transmissions?.name) {
+        transSet.add(v.transmissions.name);
+      }
+    });
+    return Array.from(transSet).sort();
   }, [vehicles]);
 
   // Dynamic max price based on available vehicles
@@ -73,8 +109,32 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
     const newCategories = selectedCategories.includes(category)
       ? selectedCategories.filter((c) => c !== category)
       : [...selectedCategories, category];
-      
+
     setFilters({ categories: newCategories });
+  };
+
+  const handleBodyStyleToggle = (style: string) => {
+    const newStyles = selectedBodyStyles.includes(style)
+      ? selectedBodyStyles.filter((s) => s !== style)
+      : [...selectedBodyStyles, style];
+
+    setFilters({ bodyStyles: newStyles });
+  };
+
+  const handleFuelTypeToggle = (fuel: string) => {
+    const newFuels = selectedFuelTypes.includes(fuel)
+      ? selectedFuelTypes.filter((f) => f !== fuel)
+      : [...selectedFuelTypes, fuel];
+
+    setFilters({ fuelTypes: newFuels });
+  };
+
+  const handleTransmissionToggle = (trans: string) => {
+    const newTrans = selectedTransmissions.includes(trans)
+      ? selectedTransmissions.filter((t) => t !== trans)
+      : [...selectedTransmissions, trans];
+
+    setFilters({ transmissions: newTrans });
   };
 
   const handlePriceChange = (_event: Event, newValue: number | number[]) => {
@@ -86,6 +146,9 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
     setFilters({
       brands: [],
       categories: [],
+      bodyStyles: [],
+      fuelTypes: [],
+      transmissions: [],
       priceRange: [minPrice, maxPrice],
     });
   };
@@ -122,11 +185,18 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
   };
 
   return (
-    <Box sx={{ 
+    <Box sx={{
       position: { xs: 'relative', md: 'sticky' },
       top: { md: 80 },
       maxHeight: { md: 'calc(100vh - 96px)' },
+      overflowY: { md: 'auto' },
+      overflowX: 'hidden',
       pb: 2,
+      '&::-webkit-scrollbar': { width: 8 },
+      '&::-webkit-scrollbar-thumb': {
+        backgroundColor: 'rgba(0,0,0,0.2)',
+        borderRadius: 4
+      },
     }}>
       <Paper elevation={0} sx={{ 
         border: '1px solid #e0e0e0', 
@@ -209,7 +279,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         </Accordion>
 
         {/* Price Range Accordion */}
-        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' } }}>
+        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
               {language === 'ar' ? 'نطاق السعر' : 'Price Range'}
@@ -234,6 +304,87 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
               <Typography variant="caption" color="text.secondary" sx={{ fontSize: '11px' }}>
                 {formatPrice(priceRange[1])}
               </Typography>
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+
+        {/* Body Styles Accordion */}
+        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+            <Typography sx={sectionTitleStyle}>
+              {language === 'ar' ? 'نوع الهيكل' : 'Body Types'}
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              {availableBodyStyles.map((style) => (
+                <FormControlLabel
+                  key={style}
+                  control={
+                    <Checkbox
+                      size="small"
+                      checked={selectedBodyStyles.includes(style)}
+                      onChange={() => handleBodyStyleToggle(style)}
+                    />
+                  }
+                  label={style}
+                  sx={checkboxLabelStyle}
+                />
+              ))}
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+
+        {/* Fuel Types Accordion */}
+        <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+            <Typography sx={sectionTitleStyle}>
+              {language === 'ar' ? 'نوع الوقود' : 'Fuel Type'}
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              {availableFuelTypes.map((fuel) => (
+                <FormControlLabel
+                  key={fuel}
+                  control={
+                    <Checkbox
+                      size="small"
+                      checked={selectedFuelTypes.includes(fuel)}
+                      onChange={() => handleFuelTypeToggle(fuel)}
+                    />
+                  }
+                  label={fuel}
+                  sx={checkboxLabelStyle}
+                />
+              ))}
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+
+        {/* Transmissions Accordion */}
+        <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' } }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+            <Typography sx={sectionTitleStyle}>
+              {language === 'ar' ? 'ناقل الحركة' : 'Transmission'}
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              {availableTransmissions.map((trans) => (
+                <FormControlLabel
+                  key={trans}
+                  control={
+                    <Checkbox
+                      size="small"
+                      checked={selectedTransmissions.includes(trans)}
+                      onChange={() => handleTransmissionToggle(trans)}
+                    />
+                  }
+                  label={trans}
+                  sx={checkboxLabelStyle}
+                />
+              ))}
             </Box>
           </AccordionDetails>
         </Accordion>

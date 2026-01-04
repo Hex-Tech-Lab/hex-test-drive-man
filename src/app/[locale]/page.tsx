@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { Container, Grid, Typography, Box, TextField, InputAdornment, CircularProgress } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import { Container, Grid, Typography, Box, CircularProgress } from '@mui/material';
 import Header from '@/components/Header';
 import VehicleCard from '@/components/VehicleCard';
 import FilterPanel from '@/components/FilterPanel';
+import VehicleSearch, { SearchFilters } from '@/components/catalog/VehicleSearch';
+import CatalogToolbar from '@/components/catalog/CatalogToolbar';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
@@ -23,17 +24,22 @@ export default function CatalogPage() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  
+  const [searchFilters, setSearchFilters] = useState<SearchFilters>({ searchTerm: '' });
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [gridColumns, setGridColumns] = useState<3 | 4 | 5>(4);
+
   // Use persistent filter store
   const brands = useFilterStore((state) => state.brands);
   const priceRange = useFilterStore((state) => state.priceRange);
   const categories = useFilterStore((state) => state.categories);
+  const bodyStyles = useFilterStore((state) => state.bodyStyles);
+  const fuelTypes = useFilterStore((state) => state.fuelTypes);
+  const transmissions = useFilterStore((state) => state.transmissions);
   const bodyStyle = useFilterStore((state) => state.bodyStyle);
   const segmentCode = useFilterStore((state) => state.segmentCode);
   const agent = useFilterStore((state) => state.agent);
   const sortBy = useFilterStore((state) => state.sortBy);
-  const filters = { brands, priceRange, categories, bodyStyle, segmentCode, agent };
+  const filters = { brands, priceRange, categories, bodyStyles, fuelTypes, transmissions, bodyStyle, segmentCode, agent };
 
   // Scroll persistence
   useEffect(() => {
@@ -107,44 +113,9 @@ export default function CatalogPage() {
   }, [vehicles]);
 
   const filteredVehicles = aggregatedVehicles.filter((vehicle: AggregatedVehicle) => {
-    // Brand filter
-    if (filters.brands.length > 0 && !filters.brands.includes(vehicle.models.brands.name)) {
-      return false;
-    }
-
-    // Price filter (check if price range overlaps with filter range)
-    if (vehicle.maxPrice < filters.priceRange[0] || vehicle.minPrice > filters.priceRange[1]) {
-      return false;
-    }
-
-    // Category filter
-    if (filters.categories.length > 0 && !vehicle.categories?.name) {
-      return false;
-    }
-    if (filters.categories.length > 0 && !filters.categories.includes(vehicle.categories!.name)) {
-      return false;
-    }
-
-    // Body style filter
-    if (filters.bodyStyle && vehicle.body_styles?.name_en !== filters.bodyStyle) {
-      return false;
-    }
-
-    // Segment filter
-    if (filters.segmentCode && vehicle.segments?.code !== filters.segmentCode) {
-      return false;
-    }
-
-    // Agent filter
-    if (filters.agent && vehicle.agents?.name_en !== filters.agent) {
-      return false;
-    }
-
-    // Search filter (exact substring matching - case insensitive)
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase().trim();
-
-      // Build searchable text: brand + model + year
+    // Search filters from VehicleSearch component
+    if (searchFilters.searchTerm) {
+      const query = searchFilters.searchTerm.toLowerCase().trim();
       const brandName = vehicle.models.brands.name?.toLowerCase() || '';
       const modelName = vehicle.models.name?.toLowerCase() || '';
       const modelYear = vehicle.model_year?.toString() || '';
@@ -158,6 +129,108 @@ export default function CatalogPage() {
       if (!matchesSearch) {
         return false;
       }
+    }
+
+    if (searchFilters.brandId && vehicle.models.brands.name !== searchFilters.brandId) {
+      return false;
+    }
+
+    if (searchFilters.modelId && vehicle.model_id !== searchFilters.modelId) {
+      return false;
+    }
+
+    if (searchFilters.year && vehicle.model_year !== searchFilters.year) {
+      return false;
+    }
+
+    if (searchFilters.bodyType && vehicle.body_styles?.name_en !== searchFilters.bodyType) {
+      return false;
+    }
+
+    if (searchFilters.fuelType && vehicle.fuel_types?.name !== searchFilters.fuelType) {
+      return false;
+    }
+
+    if (searchFilters.transmission && vehicle.transmissions?.name !== searchFilters.transmission) {
+      return false;
+    }
+
+    if (searchFilters.minPrice && vehicle.maxPrice < searchFilters.minPrice) {
+      return false;
+    }
+
+    if (searchFilters.maxPrice && vehicle.minPrice > searchFilters.maxPrice) {
+      return false;
+    }
+
+    if (searchFilters.minHorsepower) {
+      const hasEnoughPower = vehicle.trims.some(t => t.horsepower && t.horsepower >= searchFilters.minHorsepower!);
+      if (!hasEnoughPower) {
+        return false;
+      }
+    }
+
+    if (searchFilters.maxHorsepower) {
+      const withinPowerLimit = vehicle.trims.some(t => t.horsepower && t.horsepower <= searchFilters.maxHorsepower!);
+      if (!withinPowerLimit) {
+        return false;
+      }
+    }
+
+    if (searchFilters.seats) {
+      const hasSeats = vehicle.trims.some(t => t.seats === searchFilters.seats);
+      if (!hasSeats) {
+        return false;
+      }
+    }
+
+    // FilterPanel filters (multi-select)
+    if (filters.brands.length > 0 && !filters.brands.includes(vehicle.models.brands.name)) {
+      return false;
+    }
+
+    if (vehicle.maxPrice < filters.priceRange[0] || vehicle.minPrice > filters.priceRange[1]) {
+      return false;
+    }
+
+    if (filters.categories.length > 0 && !vehicle.categories?.name) {
+      return false;
+    }
+    if (filters.categories.length > 0 && !filters.categories.includes(vehicle.categories!.name)) {
+      return false;
+    }
+
+    if (filters.bodyStyles.length > 0 && !vehicle.body_styles?.name_en) {
+      return false;
+    }
+    if (filters.bodyStyles.length > 0 && !filters.bodyStyles.includes(vehicle.body_styles!.name_en)) {
+      return false;
+    }
+
+    if (filters.fuelTypes.length > 0 && !vehicle.fuel_types?.name) {
+      return false;
+    }
+    if (filters.fuelTypes.length > 0 && !filters.fuelTypes.includes(vehicle.fuel_types!.name)) {
+      return false;
+    }
+
+    if (filters.transmissions.length > 0 && !vehicle.transmissions?.name) {
+      return false;
+    }
+    if (filters.transmissions.length > 0 && !filters.transmissions.includes(vehicle.transmissions!.name)) {
+      return false;
+    }
+
+    if (filters.bodyStyle && vehicle.body_styles?.name_en !== filters.bodyStyle) {
+      return false;
+    }
+
+    if (filters.segmentCode && vehicle.segments?.code !== filters.segmentCode) {
+      return false;
+    }
+
+    if (filters.agent && vehicle.agents?.name_en !== filters.agent) {
+      return false;
     }
 
     return true;
@@ -214,23 +287,11 @@ export default function CatalogPage() {
     <>
       <Header />
       <Container maxWidth="xl" sx={{ py: 4 }}>
-        <Typography variant="h4" gutterBottom sx={{ mb: 3, fontWeight: 600 }}>
-          {language === 'ar' ? 'استكشف المركبات' : 'Explore Vehicles'}
-        </Typography>
-
-        <TextField
-          fullWidth
-          placeholder={language === 'ar' ? 'ابحث عن مركبة...' : 'Search for a vehicle...'}
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-          sx={{ mb: 3 }}
+        {/* Vehicle Search Component */}
+        <VehicleSearch
+          vehicles={vehicles}
+          onSearch={setSearchFilters}
+          totalResults={filteredVehicles.length}
         />
 
         <Grid
@@ -248,11 +309,16 @@ export default function CatalogPage() {
           </Grid>
 
           <Grid item sx={{ xs: 12 }}>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-              {language === 'ar'
-                ? `${filteredVehicles.length} طراز متاح`
-                : `${filteredVehicles.length} models available`}
-            </Typography>
+            {/* Catalog Toolbar */}
+            <CatalogToolbar
+              totalCount={filteredVehicles.length}
+              viewMode={viewMode}
+              gridColumns={gridColumns}
+              sortBy={sortBy}
+              onViewModeChange={setViewMode}
+              onGridColumnsChange={setGridColumns}
+              onSortChange={(sort) => useFilterStore.getState().setFilters({ sortBy: sort })}
+            />
 
             {filteredVehicles.length === 0 ? (
               <Box sx={{ textAlign: 'center', py: 8 }}>
@@ -263,7 +329,7 @@ export default function CatalogPage() {
             ) : (
               <Grid container spacing={3}>
                 {filteredVehicles.map((vehicle) => (
-                  <Grid item key={vehicle.id} xs={12} sm={6} md={4}>
+                  <Grid item key={vehicle.id} xs={12} sm={12 / gridColumns}>
                     <VehicleCard vehicle={vehicle} />
                   </Grid>
                 ))}
