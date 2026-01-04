@@ -212,6 +212,7 @@ git branch -vv | head -10
 - ✅ **Card Image Fallback Fix - Catalog Page** (2026-01-03, CC): Gray placeholders eliminated on catalog, retina srcSet added (@2x/@3x), PR#25 merged (56ece88)
 - ✅ **Card Image Fallback Fix - Compare Page** (2026-01-04, CC): Fixed grey "No+Image" boxes on /compare, comprehensive audit completed, ESLint guard added, PR#26 created (b74b911)
 - ✅ **Production Image Audit** (2026-01-04, CC): Audited 135 DB hero_image_url refs vs 362 git files → 0 orphaned references found, all DB refs valid, BYD F3 already NULL
+- ✅ **Source of Truth Established** (2026-01-04, CC): VEHICLE_TRIMS=409 (catalog), MODELS=199, BRANDS=95, HERO=359 git files, HOVER=359 git files → 224 unmapped images identified
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
 1. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
@@ -219,11 +220,13 @@ git branch -vv | head -10
 3. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
-5. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
-6. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
-7. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
-8. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
+4. **Unmapped Images Investigation**: 224 hero + 224 hover images exist in git but have NO model records → decide: create models OR NULL orphaned images (see docs/SOURCE_OF_TRUTH_2026-01-04.md)
+5. **Fix aggregated_vehicles View**: Returns 4 rows (broken) instead of 409 → review view definition in Supabase dashboard
+6. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
+7. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
+8. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
+9. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
+10. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
 
 ### PRIORITY 3 (MEDIUM - Next 48 Hours)
 7. **PDF Extraction Pipeline**: Cell-span detection (target 55% quality gate)
