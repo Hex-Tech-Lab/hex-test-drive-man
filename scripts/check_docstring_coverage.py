@@ -86,7 +86,7 @@ def check_coverage():
             print("❌ Coverage below 80%. Blocking commit.")
             sys.exit(1)
         else:
-            print("✅ Coverage above 80%.")
+            print("✅ Coverage above 70%.")
             sys.exit(0)
 
     except Exception as e:
