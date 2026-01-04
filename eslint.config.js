@@ -12,6 +12,7 @@ const config = [
       'node_modules/**',
       'out/**',
       'build/**',
+      'eslint.config.js', // Ignore self to avoid false positives in rule definitions
     ],
   },
   {
@@ -52,6 +53,17 @@ const config = [
               'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.',
             },
           ],
+        },
+      ],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'Literal[value=/via\\.placeholder/]',
+          message: 'Use getVehicleImage() from @/lib/imageHelper instead of via.placeholder.com external service',
+        },
+        {
+          selector: 'TemplateLiteral[quasis.0.value.cooked=/via\\.placeholder/]',
+          message: 'Use getVehicleImage() from @/lib/imageHelper instead of via.placeholder.com external service',
         },
       ],
       'jsdoc/require-jsdoc': [
@@ -101,6 +113,17 @@ const config = [
               'message': 'Use @/* path aliases instead of relative imports that traverse directories. See tsconfig.json paths.',
             },
           ],
+        },
+      ],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'Literal[value=/via\\.placeholder/]',
+          message: 'Use getVehicleImage() from @/lib/imageHelper instead of via.placeholder.com external service',
+        },
+        {
+          selector: 'TemplateLiteral[quasis.0.value.cooked=/via\\.placeholder/]',
+          message: 'Use getVehicleImage() from @/lib/imageHelper instead of via.placeholder.com external service',
         },
       ],
       'jsdoc/require-jsdoc': [

@@ -8,7 +8,7 @@ import Header from '@/components/Header';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { useParams, useRouter } from 'next/navigation';
-import { formatEGP } from '@/lib/imageHelper'; // Import formatEGP
+import { formatEGP, getVehicleImage, getVehicleImageSrcSet, getPlaceholderSrcSet } from '@/lib/imageHelper';
 
 export default function ComparePage() {
   const params = useParams();
@@ -109,8 +109,19 @@ export default function ComparePage() {
                   <CardMedia
                     component="img"
                     height="200"
-                    image={vehicle.models.hero_image_url || 'https://via.placeholder.com/800x600?text=No+Image'}
+                    image={getVehicleImage(vehicle.models.hero_image_url)}
+                    srcSet={getVehicleImageSrcSet(vehicle.models.hero_image_url)}
                     alt={`${vehicle.models.brands.name} ${vehicle.models.name}`}
+                    sx={{ objectFit: 'cover', objectPosition: 'center 85%' }}
+                    onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                      // Automatic fallback to placeholder on 404/corrupt image
+                      const img = e.currentTarget;
+                      // Prevent infinite loop: only set placeholder if not already showing it
+                      if (!img.src.includes('/images/vehicles/hero/placeholder')) {
+                        img.src = '/images/vehicles/hero/placeholder.webp';
+                        img.srcset = getPlaceholderSrcSet();
+                      }
+                    }}
                   />
                 </Box>
                 <CardContent>
