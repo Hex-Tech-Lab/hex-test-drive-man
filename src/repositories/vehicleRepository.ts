@@ -29,13 +29,17 @@ const VEHICLE_SELECT = `
   is_hybrid,
   models!inner(
     name,
-    hero_image_url,
-    hover_image_url,
     brands!inner(
       id,
       name,
       logo_url
     )
+  ),
+  model_year_images(
+    hero_image_url,
+    hover_image_url,
+    model_year,
+    source_filename
   ),
   categories(name),
   transmissions(name),
@@ -57,10 +61,32 @@ const VEHICLE_SELECT = `
 
 export const vehicleRepository = {
   async getAllVehicles() {
-    // Use RPC function for year-specific images from model_year_images table
-    const { data, error } = await supabase.rpc('get_vehicle_catalog');
+    const { data, error } = await supabase
+      .from('vehicle_trims')
+      .select(VEHICLE_SELECT)
+      .order('model_year', { ascending: false });
 
-    return { data: data as Vehicle[] | null, error };
+    if (error || !data) {
+      return { data: null, error };
+    }
+
+    // Match year-specific images from model_year_images
+    const processedData = data.map((vehicle: any) => {
+      const yearImage = vehicle.model_year_images?.find(
+        (img: any) => img.model_year === vehicle.model_year
+      );
+
+      return {
+        ...vehicle,
+        models: {
+          ...vehicle.models,
+          hero_image_url: yearImage?.hero_image_url ?? '/images/vehicles/hero/placeholder.webp',
+          hover_image_url: yearImage?.hover_image_url ?? null,
+        }
+      };
+    });
+
+    return { data: processedData as Vehicle[] | null, error };
   },
 
   async getVehicleById(id: string) {
