@@ -220,7 +220,7 @@ git branch -vv | head -10
 3. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-4. **Unmapped Images Investigation**: 224 hero + 224 hover images exist in git but have NO model records → decide: create models OR NULL orphaned images (see docs/SOURCE_OF_TRUTH_2026-01-04.md)
+4. **Unmapped Images Cleanup** (2026-01-04, CC): 275 unmapped hero images found → 45 broken (< 20KB), 230 legitimate → DECISION NEEDED: delete broken + create models for 230 OR delete all (see docs/UNMAPPED_IMAGES_INVESTIGATION_2026-01-04.md)
 5. **Fix aggregated_vehicles View**: Returns 4 rows (broken) instead of 409 → review view definition in Supabase dashboard
 6. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
 7. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
