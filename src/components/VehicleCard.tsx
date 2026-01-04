@@ -37,13 +37,19 @@ interface VehicleCardProps {
 const formatVehicleTitle = (brand: string, model: string, year: number) => {
   const brandLower = brand.toLowerCase();
   const modelLower = model.toLowerCase();
-  
+
   // If model name starts with brand name (e.g. "MG 5"), use model name only
   // Otherwise combine them (e.g. "Toyota" + "Corolla" -> "Toyota Corolla")
-  const displayModel = modelLower.startsWith(brandLower) 
-    ? model 
+  const displayModel = modelLower.startsWith(brandLower)
+    ? model
     : `${brand} ${model}`;
-    
+
+  // Check if year is already in the model name (avoid "Tiggo 4 Pro 2026 2026")
+  const yearStr = year.toString();
+  if (displayModel.endsWith(yearStr)) {
+    return displayModel;
+  }
+
   return `${displayModel} ${year}`;
 };
 
