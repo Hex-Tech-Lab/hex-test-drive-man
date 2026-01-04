@@ -209,7 +209,8 @@ git branch -vv | head -10
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### RECENTLY COMPLETED (Last 24 Hours)
-- ✅ **Card Image Fallback Fix** (2026-01-03, CC): Gray placeholders eliminated, retina srcSet added (@2x/@3x), PR#25 created + performance log documented
+- ✅ **Card Image Fallback Fix - Catalog Page** (2026-01-03, CC): Gray placeholders eliminated on catalog, retina srcSet added (@2x/@3x), PR#25 merged (56ece88)
+- ✅ **Card Image Fallback Fix - Compare Page** (2026-01-04, CC): Fixed grey "No+Image" boxes on /compare, comprehensive audit completed, ESLint guard added, PR#26 created (b74b911)
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
 1. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
@@ -300,6 +301,10 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 
 **Format**: Main bullet (1 line) + sub-bullet (1 line) = 2 lines per session
 **Space Saved**: 300 lines → 30-40 lines (87% reduction)
+
+- **2026-01-04 01:15 UTC (CC PR Gatekeeper + Comprehensive Audit)**
+  - ROOT CAUSE: PR#25 fixed catalog but missed compare page - production showed grey "No+Image" via.placeholder.com boxes on /compare route + comprehensive audit revealed compare page as ONLY remaining instance
+  - FIX: Applied same fallback pattern to compare page (getVehicleImage, srcSet, onError) + added ESLint no-restricted-syntax rule (blocks via.placeholder) + created audit doc (500+ lines) + PR#26 created (b74b911) + Timebox: 120 min actual
 
 - **2026-01-03 21:35 UTC (CC UX Bug Fix)**
   - Fixed gray card placeholders: Added retina srcSet support (@2x/@3x) + improved onError handler (infinite loop prevention) + PR#25 created (dd8a462, branch: cc/fix-card-image-fallback)
