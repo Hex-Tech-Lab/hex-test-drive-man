@@ -213,6 +213,7 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 2. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
 3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
 4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
+5. ✅ **Vintage Car Images Investigation** (BB, 2026-01-04 0953 UTC): NO ISSUE FOUND - Database clean, production verified, already fixed via PR #25
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
 4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
