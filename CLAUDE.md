@@ -212,7 +212,8 @@ git branch -vv | head -10
 - ✅ **Card Image Fallback Fix - Catalog Page** (2026-01-03, CC): Gray placeholders eliminated on catalog, retina srcSet added (@2x/@3x), PR#25 merged (56ece88)
 - ✅ **Card Image Fallback Fix - Compare Page** (2026-01-04, CC): Fixed grey "No+Image" boxes on /compare, comprehensive audit completed, ESLint guard added, PR#26 created (b74b911)
 - ✅ **Production Image Audit** (2026-01-04, CC): Audited 135 DB hero_image_url refs vs 362 git files → 0 orphaned references found, all DB refs valid, BYD F3 already NULL
-- ✅ **Source of Truth Established** (2026-01-04, CC): VEHICLE_TRIMS=409 (catalog), MODELS=199, BRANDS=95, HERO=359 git files, HOVER=359 git files → 224 unmapped images identified
+- ✅ **Source of Truth Established** (2026-01-04, CC): VEHICLE_TRIMS=409 (catalog), MODELS=199, BRANDS=95, HERO=359 git files, HOVER=359 git files → 275 unmapped images identified
+- ✅ **Image Mapping Investigation** (2026-01-04, CC): Fuzzy-matched 230 legitimate images to database → 56 matched existing models (all already have images) → 174 have NO matching models (75.7%) → 0 updates needed, requires MODEL CREATION instead (see docs/IMAGE_MAPPING_RESULTS_2026-01-04.md)
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
 1. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
@@ -220,7 +221,11 @@ git branch -vv | head -10
 3. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-4. **Unmapped Images Cleanup** (2026-01-04, CC): 275 unmapped hero images found → 45 broken (< 20KB), 230 legitimate → DECISION NEEDED: delete broken + create models for 230 OR delete all (see docs/UNMAPPED_IMAGES_INVESTIGATION_2026-01-04.md)
+4. **Unmapped Images Actions** (2026-01-04, CC): ⚠️ DECISION REQUIRED
+   - Delete 45 broken images (< 20KB download failures) - script ready
+   - Create 174 missing model records (expand catalog 199 → 373, +87% growth)
+   - Options: A) Create all 174 models, B) Delete unmapped (not recommended), C) Phased (BMW+Mercedes+Audi first = 70 models)
+   - Details: docs/IMAGE_MAPPING_RESULTS_2026-01-04.md
 5. **Fix aggregated_vehicles View**: Returns 4 rows (broken) instead of 409 → review view definition in Supabase dashboard
 6. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
 7. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
@@ -305,6 +310,10 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 
 **Format**: Main bullet (1 line) + sub-bullet (1 line) = 2 lines per session
 **Space Saved**: 300 lines → 30-40 lines (87% reduction)
+
+- **2026-01-04 02:50 UTC (CC Image Mapping Investigation)**
+  - Investigated 230 legitimate unmapped images: Parsed filenames (brand/model/year extraction) → fuzzy-matched to database → 56 matched existing models (all already have images, 0 updates needed) → 174 have NO matching models (75.7%)
+  - CRITICAL FINDING: 174 images require MODEL CREATION, not image mapping → potential catalog growth 199 → 373 models (+87%) → 3 options documented (create all, delete, phased BMW+Mercedes+Audi) → awaiting user decision + docs/IMAGE_MAPPING_RESULTS_2026-01-04.md (306 lines) + Timebox: 90 min actual
 
 - **2026-01-04 01:15 UTC (CC PR Gatekeeper + Comprehensive Audit)**
   - ROOT CAUSE: PR#25 fixed catalog but missed compare page - production showed grey "No+Image" via.placeholder.com boxes on /compare route + comprehensive audit revealed compare page as ONLY remaining instance
