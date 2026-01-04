@@ -140,13 +140,19 @@ export default function CatalogPage() {
       return false;
     }
 
-    // Search filter
+    // Search filter (exact substring matching - case insensitive)
     if (searchQuery) {
-      const query = searchQuery.toLowerCase();
+      const query = searchQuery.toLowerCase().trim();
+
+      // Build searchable text: brand + model + year
+      const brandName = vehicle.models.brands.name?.toLowerCase() || '';
+      const modelName = vehicle.models.name?.toLowerCase() || '';
+      const modelYear = vehicle.model_year?.toString() || '';
+
       const matchesSearch = (
-        vehicle.models.brands.name.toLowerCase().includes(query) ||
-        vehicle.models.name.toLowerCase().includes(query) ||
-        vehicle.trimNames.toLowerCase().includes(query)
+        brandName.includes(query) ||
+        modelName.includes(query) ||
+        modelYear.includes(query)
       );
 
       if (!matchesSearch) {
