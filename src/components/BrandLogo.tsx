@@ -47,6 +47,7 @@ export function BrandLogo({ brandName, logoUrl, size = 'medium' }: BrandLogoProp
           component="img"
           src={logoUrl}
           alt={`${brandName} logo`}
+          loading="eager"
           sx={{
             width: '100%',
             height: '100%',

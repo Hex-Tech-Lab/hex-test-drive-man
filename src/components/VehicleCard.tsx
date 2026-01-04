@@ -33,7 +33,7 @@ interface VehicleCardProps {
   vehicle: AggregatedVehicle;
 }
 
-// Helper to format vehicle title (e.g. "MG 5 2025" instead of "MG MG 5")
+// Helper to format vehicle title - ALWAYS shows explicit year
 const formatVehicleTitle = (brand: string, model: string, year: number) => {
   const brandLower = brand.toLowerCase();
   const modelLower = model.toLowerCase();
@@ -44,13 +44,11 @@ const formatVehicleTitle = (brand: string, model: string, year: number) => {
     ? model
     : `${brand} ${model}`;
 
-  // Check if year is already in the model name (avoid "Tiggo 4 Pro 2026 2026")
+  // ALWAYS show year explicitly - remove from name if present to avoid "2025 2025"
   const yearStr = year.toString();
-  if (displayModel.endsWith(yearStr)) {
-    return displayModel;
-  }
+  const cleanName = displayModel.replace(new RegExp(`\\s*${yearStr}\\s*$`), '').trim();
 
-  return `${displayModel} ${year}`;
+  return `${cleanName} ${yearStr}`;
 };
 
 /**
