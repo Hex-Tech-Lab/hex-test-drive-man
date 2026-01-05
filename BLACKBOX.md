@@ -221,9 +221,10 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 10. ✅ **UX Enhancement Sprint** (BB, 2026-01-05 1336 UTC): SUCCESS - 4 tasks completed: RTL verification, skeleton screens (3 components), mobile responsiveness (audit + fixes), error message UX (5 improvements), commit da7dde1
 11. ✅ **RTL Reload Fix (Root Cause)** (BB, 2026-01-05 1351 UTC): SUCCESS - Removed router.push() from Header toggleLanguage(), language now client-state only, all pages switch instantly, commit e61bfe2
 
+12. ✅ **Mobile-First Catalog Redesign** (BB, 2026-01-05 1045 UTC): SUCCESS - Hero section, category cards, quick filters, bottom nav implemented, +721 lines, 90 min (75% under estimate), commit 7008ad0
+
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
-5. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
+4. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
 6. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
 7. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
 8. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
