@@ -46,7 +46,7 @@ export default function VerifyBookingPage() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to resend OTP')
+        throw new Error(data.error || 'We couldn\'t resend the code. Please try again in a moment.')
       }
 
       // Reset timer
@@ -54,7 +54,7 @@ export default function VerifyBookingPage() {
       setTimer(60)
       setError('')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to resend OTP')
+      setError(err instanceof Error ? err.message : 'We couldn\'t resend the code. Please try again in a moment.')
     } finally {
       setResending(false)
     }
@@ -74,13 +74,13 @@ export default function VerifyBookingPage() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || 'Verification failed')
+        throw new Error(data.error || 'The code you entered is incorrect. Please check and try again.')
       }
 
       // Success - redirect to confirmation
       router.push(`/${locale}/bookings/${bookingId}/confirmed`)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Verification failed')
+      setError(err instanceof Error ? err.message : 'The code you entered is incorrect. Please check and try again.')
     } finally {
       setLoading(false)
     }
@@ -98,7 +98,15 @@ export default function VerifyBookingPage() {
         </Typography>
 
         {error && (
-          <Alert severity="error" sx={{ mb: 2 }}>
+          <Alert
+            severity="error"
+            sx={{ mb: 2 }}
+            action={
+              <Button color="inherit" size="small" onClick={() => setError('')}>
+                Dismiss
+              </Button>
+            }
+          >
             {error}
           </Alert>
         )}

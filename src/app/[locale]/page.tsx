@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { Container, Grid, Typography, Box, CircularProgress } from '@mui/material';
+import { Container, Grid, Typography, Box, Button } from '@mui/material';
 import Header from '@/components/Header';
 import VehicleCard from '@/components/VehicleCard';
 import FilterPanel from '@/components/FilterPanel';
 import VehicleSearch, { SearchFilters } from '@/components/catalog/VehicleSearch';
 import CatalogToolbar from '@/components/catalog/CatalogToolbar';
+import { SkeletonCard } from '@/components/skeletons';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
@@ -257,11 +258,39 @@ export default function CatalogPage() {
     return (
       <>
         <Header />
-        <Container maxWidth="xl" sx={{ py: 4, textAlign: 'center' }}>
-          <CircularProgress />
-          <Typography variant="h6" sx={{ mt: 2 }}>
-            {language === 'ar' ? 'جاري التحميل...' : 'Loading...'}
-          </Typography>
+        <Container maxWidth="xl" sx={{ py: 4 }}>
+          {/* Skeleton search bar */}
+          <Box sx={{ mb: 4 }}>
+            <Typography variant="h5" sx={{ mb: 2 }}>
+              {language === 'ar' ? 'جاري التحميل...' : 'Loading...'}
+            </Typography>
+          </Box>
+
+          <Grid
+            container
+            spacing={3}
+            sx={{
+              display: { xs: 'block', md: 'grid' },
+              gridTemplateColumns: { xs: '1fr', md: '250px 1fr' },
+              gap: 3,
+            }}
+          >
+            {/* Filter panel placeholder */}
+            <Grid item sx={{ xs: 12 }}>
+              <Box sx={{ height: 400, bgcolor: 'background.paper', borderRadius: 1 }} />
+            </Grid>
+
+            {/* Skeleton vehicle cards */}
+            <Grid item sx={{ xs: 12 }}>
+              <Grid container spacing={3}>
+                {Array.from({ length: 8 }).map((_, index) => (
+                  <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
+                    <SkeletonCard />
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
         </Container>
       </>
     );
@@ -272,12 +301,38 @@ export default function CatalogPage() {
       <>
         <Header />
         <Container maxWidth="xl" sx={{ py: 4 }}>
-          <Typography variant="h6" color="error">
-            {language === 'ar' ? 'فشل تحميل المركبات' : 'Failed to load vehicles'}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {error}
-          </Typography>
+          <Box
+            sx={{
+              textAlign: 'center',
+              py: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 2,
+            }}
+          >
+            <Typography variant="h5" color="error" gutterBottom>
+              {language === 'ar' ? 'عذراً، حدث خطأ' : 'Oops! Something went wrong'}
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600 }}>
+              {language === 'ar'
+                ? 'لم نتمكن من تحميل المركبات. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.'
+                : "We couldn't load the vehicles. Please check your internet connection and try again."}
+            </Typography>
+            <Button
+              variant="contained"
+              onClick={() => window.location.reload()}
+              sx={{ mt: 2 }}
+            >
+              {language === 'ar' ? 'إعادة المحاولة' : 'Try Again'}
+            </Button>
+            {error && (
+              <Typography variant="caption" color="text.disabled" sx={{ mt: 2 }}>
+                {language === 'ar' ? 'تفاصيل الخطأ: ' : 'Error details: '}
+                {error}
+              </Typography>
+            )}
+          </Box>
         </Container>
       </>
     );
@@ -329,7 +384,13 @@ export default function CatalogPage() {
             ) : (
               <Grid container spacing={3}>
                 {filteredVehicles.map((vehicle) => (
-                  <Grid item key={vehicle.id} xs={12} sm={12 / gridColumns}>
+                  <Grid
+                    item
+                    key={vehicle.id}
+                    xs={12}
+                    sm={6}
+                    md={gridColumns === 3 ? 4 : gridColumns === 4 ? 3 : 2.4}
+                  >
                     <VehicleCard vehicle={vehicle} />
                   </Grid>
                 ))}

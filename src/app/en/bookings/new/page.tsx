@@ -2,6 +2,15 @@
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { requestBookingOtp } from '@/actions/bookingActions';
+import {
+  Container,
+  Box,
+  Typography,
+  TextField,
+  Button,
+  CircularProgress,
+  Paper,
+} from '@mui/material';
 
 export default function NewBooking() {
   const [vehicleId, setVehicleId] = useState('');
@@ -34,41 +43,83 @@ export default function NewBooking() {
   }
 
   return (
-    <div className="max-w-md mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">Book Test Drive</h1>
-      <form onSubmit={(e) => { e.preventDefault(); createBooking(); }} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Vehicle ID"
-          value={vehicleId}
-          onChange={(e) => setVehicleId(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-          min={new Date().toISOString().split('T')[0]}
-        />
-        <input
-          type="tel"
-          placeholder="Phone (+20...)"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <button 
-          type="submit" 
-          disabled={loading}
-          className="w-full bg-blue-500 text-white p-2 rounded disabled:opacity-50"
+    <Container maxWidth="sm" sx={{ py: 4 }}>
+      <Paper elevation={2} sx={{ p: { xs: 3, md: 4 } }}>
+        <Typography variant="h4" component="h1" gutterBottom sx={{ mb: 3 }}>
+          Book Test Drive
+        </Typography>
+        
+        <Box
+          component="form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            createBooking();
+          }}
+          sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
         >
-          {loading ? 'Creating...' : 'Book Test Drive'}
-        </button>
-      </form>
-    </div>
+          <TextField
+            label="Vehicle ID"
+            type="text"
+            value={vehicleId}
+            onChange={(e) => setVehicleId(e.target.value)}
+            required
+            fullWidth
+            sx={{
+              '& .MuiInputBase-root': {
+                minHeight: { xs: 48, md: 56 },
+              },
+            }}
+          />
+          
+          <TextField
+            label="Test Drive Date"
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            inputProps={{
+              min: new Date().toISOString().split('T')[0],
+            }}
+            sx={{
+              '& .MuiInputBase-root': {
+                minHeight: { xs: 48, md: 56 },
+              },
+            }}
+          />
+          
+          <TextField
+            label="Phone Number"
+            type="tel"
+            placeholder="+20..."
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+            fullWidth
+            sx={{
+              '& .MuiInputBase-root': {
+                minHeight: { xs: 48, md: 56 },
+              },
+            }}
+          />
+          
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            disabled={loading}
+            fullWidth
+            sx={{
+              minHeight: { xs: 48, md: 56 },
+              mt: 2,
+            }}
+          >
+            {loading && <CircularProgress size={20} sx={{ color: 'white', mr: 1 }} />}
+            {loading ? 'Creating...' : 'Book Test Drive'}
+          </Button>
+        </Box>
+      </Paper>
+    </Container>
   );
 }
