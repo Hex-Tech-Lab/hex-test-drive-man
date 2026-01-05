@@ -383,7 +383,7 @@ export default function CatalogPage() {
               </Box>
             ) : (
               <Grid container spacing={3}>
-                {filteredVehicles.map((vehicle) => (
+                {filteredVehicles.map((vehicle, index) => (
                   <Grid
                     item
                     key={vehicle.id}
@@ -391,7 +391,7 @@ export default function CatalogPage() {
                     sm={6}
                     md={gridColumns === 3 ? 4 : gridColumns === 4 ? 3 : 2.4}
                   >
-                    <VehicleCard vehicle={vehicle} />
+                    <VehicleCard vehicle={vehicle} position={index} />
                   </Grid>
                 ))}
               </Grid>

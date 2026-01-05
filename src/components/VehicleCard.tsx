@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Card,
-  CardMedia,
   CardContent,
   Typography,
   Box,
@@ -27,11 +27,12 @@ import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { BrandLogo } from '@/components/BrandLogo';
-import { getVehicleImage, getVehicleImageSrcSet, getPlaceholderSrcSet, formatEGP } from '@/lib/imageHelper';
+import { getVehicleImage, formatEGP } from '@/lib/imageHelper';
 import { requestBookingOtp } from '@/actions/bookingActions';
 
 interface VehicleCardProps {
   vehicle: AggregatedVehicle;
+  position?: number;
 }
 
 // Helper to format vehicle title - ALWAYS shows explicit year
@@ -56,13 +57,17 @@ const formatVehicleTitle = (brand: string, model: string, year: number) => {
  * Vehicle card component displaying summary and booking options
  * @param props - Component props
  * @param props.vehicle - Aggregated vehicle data including trims
+ * @param props.position - Card position in grid (for priority loading)
  */
-export default function VehicleCard({ vehicle }: VehicleCardProps) {
+export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProps) {
   const router = useRouter();
   const params = useParams();
   const locale = (params.locale as string) || 'en';
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
+
+  // Prioritize first 8 cards (above fold on desktop: 4 cols x 2 rows)
+  const isAboveFold = position < 8;
 
   // Generate detail page URL
   const brandSlug = vehicle.models.brands.name.toLowerCase().replace(/\s+/g, '-');
@@ -211,24 +216,26 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
       </IconButton>
 
       <Link href={detailUrl} style={{ textDecoration: 'none', color: 'inherit' }}>
-        <Box sx={{ position: 'relative', cursor: 'pointer' }}>
-          <Box sx={{ position: 'absolute', top: 8, left: language === 'ar' ? 'auto' : 8, right: language === 'ar' ? 8 : 'auto', zIndex: 1 }}>
+        <Box sx={{ position: 'relative', cursor: 'pointer', height: 200 }}>
+          <Box sx={{ position: 'absolute', top: 8, left: language === 'ar' ? 'auto' : 8, right: language === 'ar' ? 8 : 'auto', zIndex: 2 }}>
             <BrandLogo brandName={vehicle.models.brands.name} logoUrl={vehicle.models.brands.logo_url} size="small" />
           </Box>
-          <CardMedia
-            component="img"
-            height="200"
-            image={getVehicleImage(vehicle.models.hero_image_url)}
-            srcSet={getVehicleImageSrcSet(vehicle.models.hero_image_url)}
+          <Image
+            src={getVehicleImage(vehicle.models.hero_image_url)}
             alt={displayTitle}
-            sx={{ objectFit: 'cover', objectPosition: 'center 85%' }}
+            fill
+            priority={isAboveFold}
+            sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, (max-width: 1280px) 33vw, 25vw"
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center 85%',
+            }}
             onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
               // Automatic fallback to placeholder on 404/corrupt image
               const img = e.currentTarget;
               // Prevent infinite loop: only set placeholder if not already showing it
               if (!img.src.includes('/images/vehicles/hero/placeholder')) {
                 img.src = '/images/vehicles/hero/placeholder.webp';
-                img.srcset = getPlaceholderSrcSet();
               }
             }}
           />
