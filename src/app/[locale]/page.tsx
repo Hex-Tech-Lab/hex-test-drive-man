@@ -126,16 +126,23 @@ export default function CatalogPage() {
       const brandName = vehicle.models.brands.name?.toLowerCase() || '';
       const modelName = vehicle.models.name?.toLowerCase() || '';
       const modelYear = vehicle.model_year?.toString() || '';
+      // Also search trim names for better coverage
+      const trimNames = vehicle.trimNames?.toLowerCase() || '';
 
       const matchesSearch = (
         brandName.includes(query) ||
         modelName.includes(query) ||
-        modelYear.includes(query)
+        modelYear.includes(query) ||
+        trimNames.includes(query)
       );
 
       if (!matchesSearch) {
         return false;
       }
+
+      // When search term is active, skip FilterPanel filters to search ALL vehicles
+      // This prevents confusion when persistent FilterPanel selections interfere
+      // Apply only VehicleSearch advanced filters below
     }
 
     if (searchFilters.brandId && vehicle.models.brands.name !== searchFilters.brandId) {
@@ -192,52 +199,58 @@ export default function CatalogPage() {
     }
 
     // FilterPanel filters (multi-select)
-    if (filters.brands.length > 0 && !filters.brands.includes(vehicle.models.brands.name)) {
-      return false;
-    }
+    // Skip FilterPanel filters when VehicleSearch has an active search term
+    // This allows searching across ALL vehicles, not just the filtered subset
+    const hasActiveSearch = searchFilters.searchTerm?.trim().length > 0;
 
-    if (vehicle.maxPrice < filters.priceRange[0] || vehicle.minPrice > filters.priceRange[1]) {
-      return false;
-    }
+    if (!hasActiveSearch) {
+      if (filters.brands.length > 0 && !filters.brands.includes(vehicle.models.brands.name)) {
+        return false;
+      }
 
-    if (filters.categories.length > 0 && !vehicle.categories?.name) {
-      return false;
-    }
-    if (filters.categories.length > 0 && !filters.categories.includes(vehicle.categories!.name)) {
-      return false;
-    }
+      if (vehicle.maxPrice < filters.priceRange[0] || vehicle.minPrice > filters.priceRange[1]) {
+        return false;
+      }
 
-    if (filters.bodyStyles.length > 0 && !vehicle.body_styles?.name_en) {
-      return false;
-    }
-    if (filters.bodyStyles.length > 0 && !filters.bodyStyles.includes(vehicle.body_styles!.name_en)) {
-      return false;
-    }
+      if (filters.categories.length > 0 && !vehicle.categories?.name) {
+        return false;
+      }
+      if (filters.categories.length > 0 && !filters.categories.includes(vehicle.categories!.name)) {
+        return false;
+      }
 
-    if (filters.fuelTypes.length > 0 && !vehicle.fuel_types?.name) {
-      return false;
-    }
-    if (filters.fuelTypes.length > 0 && !filters.fuelTypes.includes(vehicle.fuel_types!.name)) {
-      return false;
-    }
+      if (filters.bodyStyles.length > 0 && !vehicle.body_styles?.name_en) {
+        return false;
+      }
+      if (filters.bodyStyles.length > 0 && !filters.bodyStyles.includes(vehicle.body_styles!.name_en)) {
+        return false;
+      }
 
-    if (filters.transmissions.length > 0 && !vehicle.transmissions?.name) {
-      return false;
-    }
-    if (filters.transmissions.length > 0 && !filters.transmissions.includes(vehicle.transmissions!.name)) {
-      return false;
-    }
+      if (filters.fuelTypes.length > 0 && !vehicle.fuel_types?.name) {
+        return false;
+      }
+      if (filters.fuelTypes.length > 0 && !filters.fuelTypes.includes(vehicle.fuel_types!.name)) {
+        return false;
+      }
 
-    if (filters.bodyStyle && vehicle.body_styles?.name_en !== filters.bodyStyle) {
-      return false;
-    }
+      if (filters.transmissions.length > 0 && !vehicle.transmissions?.name) {
+        return false;
+      }
+      if (filters.transmissions.length > 0 && !filters.transmissions.includes(vehicle.transmissions!.name)) {
+        return false;
+      }
 
-    if (filters.segmentCode && vehicle.segments?.code !== filters.segmentCode) {
-      return false;
-    }
+      if (filters.bodyStyle && vehicle.body_styles?.name_en !== filters.bodyStyle) {
+        return false;
+      }
 
-    if (filters.agent && vehicle.agents?.name_en !== filters.agent) {
-      return false;
+      if (filters.segmentCode && vehicle.segments?.code !== filters.segmentCode) {
+        return false;
+      }
+
+      if (filters.agent && vehicle.agents?.name_en !== filters.agent) {
+        return false;
+      }
     }
 
     return true;
