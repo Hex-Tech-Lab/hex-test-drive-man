@@ -101,6 +101,9 @@ Multimodal: assume top-tier expertise in ANY domain on demand until task conclud
 12. **Pre-Commit Hook Discipline**
     > Husky pre-commit runs docstring coverage gate (≥80% required). If blocked: fix docstrings OR use `--no-verify` emergency-only (document reason in commit message).
 
+13. **Best Practices First (NEW - 2026-01-05)**
+    > Before troubleshooting: search `docs/best-practices/INDEX.md` by symptom (e.g., "git push rejected", "404 pages"). Before implementing: check category lessons (git-workflows, debugging, performance, documentation). If solution found: apply pattern, cite source (e.g., "per best-practices/debugging/SLUG_PARSING_MISMATCH.md"). If no solution: investigate, document new lesson after success using LESSON_ENTRY_TEMPLATE.md.
+
 **Full Details**: `docs/context/CC_CORE_INSTRUCTIONS.md` (150+ lines with examples, edge cases)
 
 ***
