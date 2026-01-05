@@ -1,6 +1,7 @@
 # RTL Reload Fix - Root Cause Analysis
-**Date**: 2026-01-05  
+**Date**: 2026-01-05 1351 UTC  
 **Agent**: BB (Blackbox AI)  
+**Version**: v1.0.0  
 **Issue**: Language switch causes full page reload on catalog/search pages  
 **Status**: ✅ FIXED
 

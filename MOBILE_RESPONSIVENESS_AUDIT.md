@@ -1,6 +1,7 @@
 # Mobile Responsiveness Audit Report
-**Date**: 2026-01-05  
+**Date**: 2026-01-05 1336 UTC  
 **Agent**: BB (Blackbox AI)  
+**Version**: v1.0.0  
 **Scope**: 4 pages tested across 3 breakpoints (375px, 768px, 1024px)
 
 ---
