@@ -263,11 +263,11 @@ git branch -vv | head -10
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### RECENTLY COMPLETED (Last 24 Hours)
+- ✅ **Performance Architecture Design** (2026-01-05, CC): 3 deliverable docs (6,200+ lines) → Amazon.eg analysis (FCP 1.1s pattern), frame architecture, 3-phase roadmap (9-11 weeks) → Target: LCP 3.84s → < 1.5s (61% improvement), bundle 341 KB → 90 KB (see docs/PERFORMANCE_ARCHITECTURE_SESSION_2026-01-05.md, PERFORMANCE_ARCHITECTURE_DESIGN.md, AMAZON_PERFORMANCE_ANALYSIS.md, OPTIMIZATION_ROADMAP.md)
+- ✅ **TypeScript Alias Enforcement** (2026-01-05, CC): ESLint no-restricted-imports verified working (blocks ../* patterns), CLAUDE.md Section 12 expanded with path alias documentation, 0 violations found (100% compliant), commit aab71b2
 - ✅ **Card Image Fallback Fix - Catalog Page** (2026-01-03, CC): Gray placeholders eliminated on catalog, retina srcSet added (@2x/@3x), PR#25 merged (56ece88)
 - ✅ **Card Image Fallback Fix - Compare Page** (2026-01-04, CC): Fixed grey "No+Image" boxes on /compare, comprehensive audit completed, ESLint guard added, PR#26 created (b74b911)
 - ✅ **Production Image Audit** (2026-01-04, CC): Audited 135 DB hero_image_url refs vs 362 git files → 0 orphaned references found, all DB refs valid, BYD F3 already NULL
-- ✅ **Source of Truth Established** (2026-01-04, CC): VEHICLE_TRIMS=409 (catalog), MODELS=199, BRANDS=95, HERO=359 git files, HOVER=359 git files → 275 unmapped images identified
-- ✅ **Image Mapping Investigation** (2026-01-04, CC): Fuzzy-matched 230 legitimate images to database → 56 matched existing models (all already have images) → 174 have NO matching models (75.7%) → 0 updates needed, requires MODEL CREATION instead (see docs/IMAGE_MAPPING_RESULTS_2026-01-04.md)
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
 1. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
@@ -275,13 +275,18 @@ git branch -vv | head -10
 3. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-4. **Unmapped Images Actions** (2026-01-04, CC): ⚠️ DECISION REQUIRED
+4. **Performance Optimization Phase 1** (2026-01-05, BB): Start implementation per OPTIMIZATION_ROADMAP.md
+   - Task 1.1: Image optimization (fetchpriority, lazy loading) - 3 days
+   - Task 1.2: Lazy load FilterPanel, Footer - 4 days
+   - Task 1.3: Defer Sentry, analytics - 2 days
+   - Target: FCP 3.84s → 2.0-2.3s (40-50% improvement)
+5. **Unmapped Images Actions** (2026-01-04, CC): ⚠️ DECISION REQUIRED
    - Delete 45 broken images (< 20KB download failures) - script ready
    - Create 174 missing model records (expand catalog 199 → 373, +87% growth)
    - Options: A) Create all 174 models, B) Delete unmapped (not recommended), C) Phased (BMW+Mercedes+Audi first = 70 models)
    - Details: docs/IMAGE_MAPPING_RESULTS_2026-01-04.md
-5. **Fix aggregated_vehicles View**: Returns 4 rows (broken) instead of 409 → review view definition in Supabase dashboard
-6. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
+6. **Fix aggregated_vehicles View**: Returns 4 rows (broken) instead of 409 → review view definition in Supabase dashboard
+7. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
 7. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
 8. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
 9. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
