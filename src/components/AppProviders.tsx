@@ -21,21 +21,24 @@ const cacheLtr = createCache({
 
 export default function AppProviders({ children }: { children: React.ReactNode }) {
   const language = useLanguageStore((state) => state.language);
+  const hasHydrated = useLanguageStore((state) => state._hasHydrated);
   const [mounted, setMounted] = useState(false);
 
+  // Wait for client-side mount
   useEffect(() => {
-
     setMounted(true);
   }, []);
 
+  // Apply RTL direction only after Zustand persist has hydrated
   useEffect(() => {
-    if (mounted) {
+    if (mounted && hasHydrated) {
       document.dir = language === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = language;
     }
-  }, [language, mounted]);
+  }, [language, mounted, hasHydrated]);
 
-  if (!mounted) {
+  // Don't render until both mounted and hydrated
+  if (!mounted || !hasHydrated) {
     return null;
   }
 
