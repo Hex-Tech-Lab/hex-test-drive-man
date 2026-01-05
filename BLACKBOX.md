@@ -222,6 +222,17 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 11. ✅ **UX Enhancement Sprint** (BB, 2026-01-05 1336 UTC): SUCCESS - 4 tasks completed: RTL verification, skeleton screens (3 components), mobile responsiveness (audit + fixes), error message UX (5 improvements), commit da7dde1
 12. ✅ **RTL Reload Fix (Root Cause)** (BB, 2026-01-05 1351 UTC): SUCCESS - Removed router.push() from Header toggleLanguage(), language now client-state only, all pages switch instantly, commit e61bfe2
 13. ✅ **Create PRs for Tonight's Work** (BB, 2026-01-05 2243 UTC): SUCCESS - Created 3 PRs: #29 (RTL/i18n fixes), #30 (Performance architecture), #31 (Cart drawer feature), all ready for review
+2. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
+3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
+4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
+5. ✅ **Vintage Car Images Investigation** (BB, 2026-01-04 0953 UTC): NO ISSUE FOUND - Database clean, production verified, already fixed via PR #25
+6. ✅ **Mercedes-Benz + Hongqi Data Fix** (BB, 2026-01-05 0015 UTC): SUCCESS - 24 Mercedes models + 1 Hongqi model added, catalog now 427 models (+6.2%)
+7. ✅ **Cart Drawer System** (BB, 2026-01-05 1045 UTC): SUCCESS - Shopping cart icon + slide-out drawer with bookings/comparisons tabs, commit 520c392
+8. ✅ **RTL Reload Fix** (BB, 2026-01-05 0338 UTC): SUCCESS - Changed router.push() to router.replace() in Header.tsx, prevents full page reload on language switch, commit 6c55ac0
+9. ✅ **Detail Page Redesign** (BB, 2026-01-05 0338 UTC): SUCCESS - Image gallery, favorites, share, expandable specs, enhanced UI, +2 kB bundle, commit a5b8396
+10. ✅ **UX Enhancement Sprint** (BB, 2026-01-05 1336 UTC): SUCCESS - 4 tasks completed: RTL verification, skeleton screens (3 components), mobile responsiveness (audit + fixes), error message UX (5 improvements), commit da7dde1
+11. ✅ **RTL Reload Fix (Root Cause)** (BB, 2026-01-05 1351 UTC): SUCCESS - Removed router.push() from Header toggleLanguage(), language now client-state only, all pages switch instantly, commit e61bfe2
+12. ✅ **Vehicle Count Discrepancy Fix (CRIT-003)** (BB, 2026-01-05 2202 UTC): SUCCESS - Changed "vehicles" → "models" in count labels (CatalogToolbar + VehicleSearch), clarified 197 models vs 433 trims, 22 min (-27%), commit d626697
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
 4. **[BLOCKER] Close PR #24**: ESLint 8→9 upgrade violates GUARDRAILS (Section 3), close with architectural decision comment
