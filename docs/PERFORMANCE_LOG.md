@@ -83,6 +83,57 @@ This file tracks agent performance metrics for all tasks.
 - ✅ Good: Proper PR descriptions with context
 - ✅ Good: Verified all PRs successfully created
 - ⚠️ Could improve: Could have checked for existing PRs first
+## 2026-01-05 2202 UTC - BB - Vehicle Count Discrepancy Fix (CRIT-003)
+**Timebox**: 30 minutes (planned)  
+**Start**: 2026-01-05 2140 UTC  
+**End**: 2026-01-05 2202 UTC  
+**Actual Duration**: 22 minutes  
+**Variance**: -8 minutes (-27%)  
+**Agent**: BB (Blackbox)  
+**Outcome**: SUCCESS
+
+**Task**: Fix vehicle count discrepancy (370 vs 409 issue from PR_ISSUES_CONSOLIDATED.md)
+
+**Actions Taken**:
+
+### Investigation (12 min)
+1. ✅ Read issue description: "Catalog shows 370 vehicles instead of 409 from database"
+2. ✅ Queried Supabase: Database has **433 trims** (not 409 - data grew)
+3. ✅ Analyzed page.tsx aggregation logic (lines 82-103)
+   - Groups trims by `model_id` into model-level cards
+   - 433 trims → 197 unique models
+4. ✅ Created test script to verify aggregation
+   - Confirmed: 433 trims correctly aggregate to 197 models
+   - No data loss, no filtering issues
+5. ✅ Found root cause: UI labels say "vehicles" but show "models"
+   - CatalogToolbar.tsx line 135: `"vehicles"` (ambiguous)
+   - VehicleSearch.tsx line 487: `"vehicles"` (ambiguous)
+   - Commit 7b2867c intended to update labels but missed these two
+
+### Fix Applied (5 min)
+1. ✅ Changed `"vehicles"` → `"models"` in CatalogToolbar.tsx
+2. ✅ Changed `"vehicles"` → `"models"` in VehicleSearch.tsx
+3. ✅ Updated Arabic: `"مركبة"` → `"موديل"`
+4. ✅ Build verification: SUCCESS (0 errors, 281 warnings unchanged)
+5. ✅ Docstring coverage: 84.06% (above 70% threshold)
+
+### Documentation (5 min)
+1. ✅ Commit: d626697 "fix(catalog): clarify count displays models not trims (CRIT-003)"
+2. ✅ Pushed to branch: `bb/fix-vehicle-count-discrepancy-crit003`
+3. ✅ Updated PERFORMANCE_LOG.md (this entry)
+
+**Key Insight**:
+- Issue was NOT a bug - aggregation works correctly
+- Issue was UX confusion: labels didn't clarify "models" vs "trims"
+- Database grew 409 → 433 trims since issue was filed
+- 197 model cards is correct (avg 2.2 trims per model)
+
+**Files Modified**:
+- `src/components/catalog/CatalogToolbar.tsx` (1 line)
+- `src/components/catalog/VehicleSearch.tsx` (1 line)
+
+**Branch**: `bb/fix-vehicle-count-discrepancy-crit003`  
+**Commit**: d626697
 
 ---
 
