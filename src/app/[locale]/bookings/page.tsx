@@ -3,7 +3,9 @@
 import { useState, useEffect } from 'react';
 import { Container, Typography, Box, Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import EventNoteIcon from '@mui/icons-material/EventNote';
 import Header from '@/components/Header';
+import EmptyState from '@/components/EmptyState';
 import { SkeletonTable } from '@/components/skeletons';
 import { useLanguageStore } from '@/stores/language-store';
 import { useRouter, useParams } from 'next/navigation';
@@ -51,24 +53,19 @@ export default function BookingsPage() {
         {loading ? (
           <SkeletonTable rows={5} />
         ) : (
-          <Box sx={{ textAlign: 'center', py: 8 }}>
-            <Typography variant="h6" color="text.secondary">
-              {language === 'ar' ? 'لا توجد حجوزات بعد' : 'No bookings yet'}
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-              {language === 'ar' 
-                ? 'ابدأ بحجز أول تجربة قيادة لك' 
-                : 'Start by booking your first test drive'}
-            </Typography>
-            <Button
-              variant="contained"
-              startIcon={<AddIcon />}
-              onClick={handleNewBooking}
-              sx={{ mt: 3 }}
-            >
-              {language === 'ar' ? 'احجز الآن' : 'Book Now'}
-            </Button>
-          </Box>
+          <EmptyState
+            icon={<EventNoteIcon />}
+            title={language === 'ar' ? 'لا توجد حجوزات بعد' : 'No bookings yet'}
+            description={
+              language === 'ar'
+                ? 'ابدأ بحجز أول تجربة قيادة لك واستكشف المركبات المتاحة'
+                : 'Start by booking your first test drive and explore available vehicles'
+            }
+            actionLabel={language === 'ar' ? 'تصفح المركبات' : 'Browse Vehicles'}
+            onAction={() => router.push(`/${locale}`)}
+            secondaryActionLabel={language === 'ar' ? 'احجز الآن' : 'Book Now'}
+            onSecondaryAction={handleNewBooking}
+          />
         )}
       </Container>
     </>

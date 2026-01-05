@@ -1,12 +1,15 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { Container, Grid, Typography, Box, Button } from '@mui/material';
+import { Container, Grid, Typography, Box, Button, Paper } from '@mui/material';
+import SearchOffIcon from '@mui/icons-material/SearchOff';
 import Header from '@/components/Header';
 import VehicleCard from '@/components/VehicleCard';
 import FilterPanel from '@/components/FilterPanel';
 import VehicleSearch, { SearchFilters } from '@/components/catalog/VehicleSearch';
+import VehicleAutocomplete from '@/components/catalog/VehicleAutocomplete';
 import CatalogToolbar from '@/components/catalog/CatalogToolbar';
+import EmptyState from '@/components/EmptyState';
 import { SkeletonCard } from '@/components/skeletons';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
@@ -342,7 +345,16 @@ export default function CatalogPage() {
     <>
       <Header />
       <Container maxWidth="xl" sx={{ py: 4 }}>
-        {/* Vehicle Search Component */}
+        {/* Quick Search Autocomplete */}
+        <Paper elevation={2} sx={{ p: 2, mb: 3 }}>
+          <VehicleAutocomplete
+            vehicles={aggregatedVehicles}
+            language={language}
+            locale={locale}
+          />
+        </Paper>
+
+        {/* Advanced Vehicle Search Component */}
         <VehicleSearch
           vehicles={vehicles}
           onSearch={setSearchFilters}
@@ -376,11 +388,20 @@ export default function CatalogPage() {
             />
 
             {filteredVehicles.length === 0 ? (
-              <Box sx={{ textAlign: 'center', py: 8 }}>
-                <Typography variant="h6" color="text.secondary">
-                  {language === 'ar' ? 'لا توجد نتائج' : 'No results found'}
-                </Typography>
-              </Box>
+              <EmptyState
+                icon={<SearchOffIcon />}
+                title={language === 'ar' ? 'لا توجد نتائج' : 'No results found'}
+                description={
+                  language === 'ar'
+                    ? 'جرب تعديل معايير البحث أو الفلاتر للعثور على مركبات أخرى'
+                    : 'Try adjusting your search criteria or filters to find other vehicles'
+                }
+                actionLabel={language === 'ar' ? 'مسح الفلاتر' : 'Clear Filters'}
+                onAction={() => {
+                  setSearchFilters({ searchTerm: '' });
+                  useFilterStore.getState().resetFilters();
+                }}
+              />
             ) : (
               <Grid container spacing={3}>
                 {filteredVehicles.map((vehicle) => (

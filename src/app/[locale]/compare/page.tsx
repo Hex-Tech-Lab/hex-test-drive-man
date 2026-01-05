@@ -1,10 +1,13 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Container, Typography, Grid, Card, CardMedia, CardContent, Box, Button, IconButton, Table, TableBody, TableRow, TableCell, Divider } from '@mui/material';
+import { Container, Typography, Grid, Card, CardMedia, CardContent, Box, Button, IconButton, Table, TableBody, TableRow, TableCell, Divider, useMediaQuery, useTheme } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import Header from '@/components/Header';
+import EmptyState from '@/components/EmptyState';
+import MobileComparisonView from '@/components/compare/MobileComparisonView';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { useParams, useRouter } from 'next/navigation';
@@ -14,6 +17,8 @@ export default function ComparePage() {
   const params = useParams();
   const locale = params.locale as string;
   const router = useRouter();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const language = useLanguageStore((state) => state.language);
   const setLanguage = useLanguageStore((state) => state.setLanguage);
   const { compareItems, removeFromCompare, clearCompare } = useCompareStore();
@@ -29,22 +34,13 @@ export default function ComparePage() {
       <>
         <Header />
         <Container maxWidth="xl" sx={{ py: 4 }}>
-          <Box sx={{ textAlign: 'center', py: 8 }}>
-            <Typography variant="h5" gutterBottom>
-              {language === 'ar' ? 'لا توجد مركبات للمقارنة' : 'No vehicles to compare'}
-            </Typography>
-            <Typography variant="body1" color="text.secondary" gutterBottom>
-              {language === 'ar' ? 'أضف ما يصل إلى 3 مركبات للمقارنة' : 'Add up to 3 vehicles to compare'}
-            </Typography>
-            <Button
-              variant="contained"
-              startIcon={<ArrowBackIcon />}
-              onClick={() => router.push(`/${language}`)}
-              sx={{ mt: 2 }}
-            >
-              {language === 'ar' ? 'العودة إلى الكتالوج' : 'Back to Catalog'}
-            </Button>
-          </Box>
+          <EmptyState
+            icon={<CompareArrowsIcon />}
+            title={language === 'ar' ? 'لا توجد مركبات للمقارنة' : 'No vehicles to compare'}
+            description={language === 'ar' ? 'أضف ما يصل إلى 3 مركبات للمقارنة بينها' : 'Add up to 3 vehicles to compare their specifications'}
+            actionLabel={language === 'ar' ? 'تصفح المركبات' : 'Browse Vehicles'}
+            onAction={() => router.push(`/${language}`)}
+          />
         </Container>
       </>
     );
@@ -57,23 +53,34 @@ export default function ComparePage() {
     <>
       <Header />
       <Container maxWidth="xl" sx={{ py: 4 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3, flexWrap: 'wrap', gap: 2 }}>
           <Typography variant="h4" sx={{ fontWeight: 600 }}>
             {language === 'ar' ? 'مقارنة المركبات' : 'Compare Vehicles'}
           </Typography>
-          <Box>
+          <Box sx={{ display: 'flex', gap: 1 }}>
             <Button
               startIcon={<ArrowBackIcon />}
               onClick={() => router.push(`/${language}`)}
-              sx={{ mr: 2 }}
+              size={isMobile ? 'small' : 'medium'}
             >
               {language === 'ar' ? 'عودة' : 'Back'}
             </Button>
-            <Button variant="outlined" color="error" onClick={clearCompare}>
+            <Button variant="outlined" color="error" onClick={clearCompare} size={isMobile ? 'small' : 'medium'}>
               {language === 'ar' ? 'مسح الكل' : 'Clear All'}
             </Button>
           </Box>
         </Box>
+
+        {/* Mobile View: Tab-based comparison */}
+        {isMobile ? (
+          <MobileComparisonView
+            vehicles={compareItems}
+            language={language}
+            onRemove={removeFromCompare}
+          />
+        ) : (
+          /* Desktop View: Grid-based comparison */
+          <Box>
 
         {/* Unified Grid for Cards and Specs */}
         <Box
@@ -263,7 +270,9 @@ export default function ComparePage() {
               {v.seats || '-'}
             </Typography>
           ))}
+          </Box>
         </Box>
+        )}
       </Container>
     </>
   );
