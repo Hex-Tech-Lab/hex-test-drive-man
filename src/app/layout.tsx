@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import AppProviders from '@/components/AppProviders';
+import AnalyticsWrapper from '@/components/AnalyticsWrapper';
 
 export const metadata: Metadata = {
   title: 'HEX Test Drive Platform',
@@ -19,8 +18,7 @@ export default function RootLayout({
         <AppProviders>
           {children}
         </AppProviders>
-        <Analytics />
-        <SpeedInsights />
+        <AnalyticsWrapper />
       </body>
     </html>
   );
