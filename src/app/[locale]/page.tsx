@@ -7,6 +7,7 @@ import VehicleCard from '@/components/VehicleCard';
 import FilterPanel from '@/components/FilterPanel';
 import VehicleSearch, { SearchFilters } from '@/components/catalog/VehicleSearch';
 import CatalogToolbar from '@/components/catalog/CatalogToolbar';
+import LiquidHeroHybrid from '@/components/LiquidHeroHybrid';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
@@ -14,7 +15,7 @@ import { useFilterStore } from '@/stores/filter-store';
 import { useParams } from 'next/navigation';
 
 /**
- * Main catalog page component with filtering, sorting, and vehicle grid
+ * Main catalog page component with liquid hero section, filtering, sorting, and vehicle grid
  */
 export default function CatalogPage() {
   const params = useParams();
@@ -285,14 +286,19 @@ export default function CatalogPage() {
 
   return (
     <>
-      <Header />
-      <Container maxWidth="xl" sx={{ py: 4 }}>
-        {/* Vehicle Search Component */}
-        <VehicleSearch
-          vehicles={vehicles}
-          onSearch={setSearchFilters}
-          totalResults={filteredVehicles.length}
-        />
+      {/* Liquid Hero Section */}
+      <LiquidHeroHybrid />
+      
+      {/* Catalog Section */}
+      <Box id="catalog-section">
+        <Header />
+        <Container maxWidth="xl" sx={{ py: 4 }}>
+          {/* Vehicle Search Component */}
+          <VehicleSearch
+            vehicles={vehicles}
+            onSearch={setSearchFilters}
+            totalResults={filteredVehicles.length}
+          />
 
         <Grid
           container
@@ -338,6 +344,7 @@ export default function CatalogPage() {
           </Grid>
         </Grid>
       </Container>
+      </Box>
     </>
   );
 }
