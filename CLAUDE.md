@@ -314,6 +314,10 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 **Format**: Main bullet (1 line) + sub-bullet (1 line) = 2 lines per session
 **Space Saved**: 300 lines → 30-40 lines (87% reduction)
 
+- **2026-01-05 (CC Critical Fixes - Partial Session)**
+  - Fixed 404 pages for hyphenated models (Uni-T, Uni-V): Dual-query fallback (space→hyphen) resolves slug mismatch + Investigated Mercedes visibility: 24 models exist but 0 trims (migration partially failed) + Created fix script (scripts/fix-mercedes-trims.mjs, needs manual execution) + **DEFERRED 4 tasks** (60 min): Container/flyout system, state persistence, breadcrumb bug, favorites button, language switch
+  - Files: 1 modified (page.tsx: +48/-48 lines, extracted VEHICLE_DETAIL_SELECT constant), 2 scripts created (debug-vehicles.mjs, fix-mercedes-trims.mjs) + Build ✓ (411e243) + Docstring 83.54% + Timebox: 30 min actual / 90 min allocated (67% under budget, 2 of 4 tasks completed) + Handoff: docs/NEXT_SESSION_DEFERRED_TASKS.md (200 lines)
+
 - **2026-01-05 (CC Vehicle Detail Page + Trim Comparison)**
   - Implemented Priority 1: Complete vehicle detail page with /[locale]/vehicles/[slug] route + trim comparison table (max 5 selections) + difference highlighting + comparison/booking stores (max 5 cross-model, max 3 in 90 days) + similar vehicles grid + catalog navigation integration
   - Files: 7 created (995 lines: page.tsx, VehicleHero, TrimComparison, VehicleDetailLayout, useComparisonStore, useBookingStore), 1 modified (VehicleCard) + Type assertion pattern: as unknown as Vehicle[] for Supabase joins + Build ✓ (12f9e2f) + Docstring 84.21% + Timebox: 105 min actual / 90 min allocated (+16.7% variance, TypeScript debugging) + Performance log: docs/PERFORMANCE_LOG_2026-01-05_VEHICLE_DETAIL_PAGE.md
