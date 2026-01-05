@@ -4,6 +4,61 @@ This file tracks agent performance metrics for all tasks.
 
 ---
 
+## 2026-01-05 1630 UTC - BB - Comparison State Desync Fix
+**Timebox**: 45 minutes (planned)  
+**Start**: 2026-01-05 1630 UTC  
+**End**: 2026-01-05 1650 UTC  
+**Actual Duration**: 20 minutes  
+**Variance**: -25 minutes (-56%)  
+**Agent**: BB (Blackbox)  
+**Outcome**: SUCCESS
+
+**Task**: Fix comparison state desync between cart drawer and compare page
+
+**Root Cause Analysis**:
+1. ✅ Cart drawer used `useComparisonStore` (localStorage key: `comparison-storage`)
+2. ✅ Compare page used `useCompareStore` (localStorage key: `compare-storage`)
+3. ✅ VehicleCard added to `useCompareStore`
+4. ✅ **Result:** Two different stores = complete desync
+
+**Solution Implemented**:
+1. ✅ Updated `CartDrawer.tsx` to use `useCompareStore` (single source of truth)
+2. ✅ Mapped Vehicle properties correctly:
+   - `item.trimId` → `item.id`
+   - `item.brandName` → `item.models.brands.name`
+   - `item.modelName` → `item.models.name`
+   - `item.trimName` → `item.trim_name`
+   - `item.year` → `item.model_year`
+   - `item.price` → `item.price_egp`
+   - `item.imageUrl` → `item.models.hero_image_url`
+3. ✅ Deleted unused `src/stores/useComparisonStore.ts` (101 lines removed)
+
+**Files Modified**:
+- `src/components/CartDrawer.tsx` (3 changes: import, selectors, mapping)
+- `src/stores/useComparisonStore.ts` (deleted)
+
+**Impact**:
+- Cart and compare page now show same vehicles
+- Add/remove from cart reflects on compare page instantly
+- Single localStorage key: `compare-storage`
+- -101 lines of code (removed duplicate store)
+
+**Build Status**: ✅ SUCCESS  
+**Docstring Coverage**: 84.85% (above 70% threshold)
+
+**Commit**: `46a8a0d` - "fix(cart): unify comparison stores to fix state desync"  
+**Branch**: `bb/fix-comparison-desync`  
+**Pushed**: ✅ YES (2026-01-05 1650 UTC)
+
+**Self-Critique**:
+- ✅ Fast root cause identification (5 min)
+- ✅ Minimal change (single source of truth)
+- ✅ Immediate push (no delay)
+- ✅ 56% under time budget
+- 📝 Note: BAIC X3 vs X35 are both valid models in database (not a bug)
+
+---
+
 ## 2026-01-05 1405 UTC - BB - Multi-Task Sprint (Tasks 5-8)
 **Timebox**: 120 minutes (planned: 30+15+45+30)  
 **Start**: 2026-01-05 1405 UTC  

@@ -225,7 +225,12 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
     - Task 6: Search clear button (X icon in search field)
     - Task 7: Cascading filters (brand → year → body type)
     - Task 8: Landing page versions (/landing-v1, /landing-v2, /landing-versions)
-    - Branch: bb/tasks-5-8-consolidated
+    - Branch: bb/tasks-5-8-consolidated (PUSHED ✅)
+13. ✅ **Comparison State Desync Fix** (BB, 2026-01-05 1630 UTC): SUCCESS - Fixed in 20 minutes (56% under budget)
+    - Root cause: Cart drawer used useComparisonStore, compare page used useCompareStore (two different stores)
+    - Solution: Unified to single store (useCompareStore), deleted duplicate
+    - Impact: Cart and compare page now synced, -101 lines of code
+    - Branch: bb/fix-comparison-desync (PUSHED ✅)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
 4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
