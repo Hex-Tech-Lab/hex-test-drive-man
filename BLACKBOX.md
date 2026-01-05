@@ -116,6 +116,7 @@ Multimodal: assume top-tier expertise in ANY domain on demand until task conclud
 - **React 19.2.0** - Line 26
 - **TypeScript 5.7.3** (strict mode) - Line 41
 - **MUI 6.4.3** (NOT v7; see Architecture Decisions #1) - Lines 17-18
+- **Framer Motion 12.23.26** (fluid animations, parallax, scroll triggers) - Added 2026-01-05
 - **Zustand 5.0.3** (state, localStorage) - Line 30
   - ⚠️ **Critical Anti-Pattern**: Object selectors cause React 19 infinite loops
   - ✅ **Required**: Primitive selectors only (`const brands = useFilterStore(s => s.brands)`)
@@ -216,6 +217,7 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 5. ✅ **Vintage Car Images Investigation** (BB, 2026-01-04 0953 UTC): NO ISSUE FOUND - Database clean, production verified, already fixed via PR #25
 6. ✅ **Mercedes-Benz + Hongqi Data Fix** (BB, 2026-01-05 0015 UTC): SUCCESS - 24 Mercedes models + 1 Hongqi model added, catalog now 427 models (+6.2%)
 7. ✅ **Cart Drawer System** (BB, 2026-01-05 1045 UTC): SUCCESS - Shopping cart icon + slide-out drawer with bookings/comparisons tabs, commit 520c392
+8. ✅ **Grok-Inspired Landing Page** (BB, 2026-01-05 0247 UTC): SUCCESS - World-class marketing landing page with fluid animations, Material Design 3, parallax scrolling, animated counters, 5 sections, bilingual EN/AR, commit 7cbfd96
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
 4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
