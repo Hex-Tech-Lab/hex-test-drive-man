@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
+import Link from 'next/link';
 import {
   Card,
   CardMedia,
@@ -58,8 +59,15 @@ const formatVehicleTitle = (brand: string, model: string, year: number) => {
  */
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
   const router = useRouter();
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
+
+  // Generate detail page URL
+  const brandSlug = vehicle.models.brands.name.toLowerCase().replace(/\s+/g, '-');
+  const modelSlug = vehicle.models.name.toLowerCase().replace(/\s+/g, '-');
+  const detailUrl = `/${locale}/vehicles/${brandSlug}-${modelSlug}-${vehicle.model_year}`;
 
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -202,33 +210,37 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
         {isInCompare ? <CheckCircleIcon color="primary" /> : <CompareArrowsIcon />}
       </IconButton>
 
-      <Box sx={{ position: 'relative' }}>
-        <Box sx={{ position: 'absolute', top: 8, left: language === 'ar' ? 'auto' : 8, right: language === 'ar' ? 8 : 'auto', zIndex: 1 }}>
-          <BrandLogo brandName={vehicle.models.brands.name} logoUrl={vehicle.models.brands.logo_url} size="small" />
+      <Link href={detailUrl} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Box sx={{ position: 'relative', cursor: 'pointer' }}>
+          <Box sx={{ position: 'absolute', top: 8, left: language === 'ar' ? 'auto' : 8, right: language === 'ar' ? 8 : 'auto', zIndex: 1 }}>
+            <BrandLogo brandName={vehicle.models.brands.name} logoUrl={vehicle.models.brands.logo_url} size="small" />
+          </Box>
+          <CardMedia
+            component="img"
+            height="200"
+            image={getVehicleImage(vehicle.models.hero_image_url)}
+            srcSet={getVehicleImageSrcSet(vehicle.models.hero_image_url)}
+            alt={displayTitle}
+            sx={{ objectFit: 'cover', objectPosition: 'center 85%' }}
+            onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+              // Automatic fallback to placeholder on 404/corrupt image
+              const img = e.currentTarget;
+              // Prevent infinite loop: only set placeholder if not already showing it
+              if (!img.src.includes('/images/vehicles/hero/placeholder')) {
+                img.src = '/images/vehicles/hero/placeholder.webp';
+                img.srcset = getPlaceholderSrcSet();
+              }
+            }}
+          />
         </Box>
-        <CardMedia
-          component="img"
-          height="200"
-          image={getVehicleImage(vehicle.models.hero_image_url)}
-          srcSet={getVehicleImageSrcSet(vehicle.models.hero_image_url)}
-          alt={displayTitle}
-          sx={{ objectFit: 'cover', objectPosition: 'center 85%' }}
-          onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-            // Automatic fallback to placeholder on 404/corrupt image
-            const img = e.currentTarget;
-            // Prevent infinite loop: only set placeholder if not already showing it
-            if (!img.src.includes('/images/vehicles/hero/placeholder')) {
-              img.src = '/images/vehicles/hero/placeholder.webp';
-              img.srcset = getPlaceholderSrcSet();
-            }
-          }}
-        />
-      </Box>
+      </Link>
 
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-        <Typography variant="h6" gutterBottom>
-          {displayTitle}
-        </Typography>
+        <Link href={detailUrl} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Typography variant="h6" gutterBottom sx={{ cursor: 'pointer', '&:hover': { color: 'primary.main' } }}>
+            {displayTitle}
+          </Typography>
+        </Link>
 
         <Tooltip
           title={vehicle.trimCount > 1 ? vehicle.trimNames : ''}
