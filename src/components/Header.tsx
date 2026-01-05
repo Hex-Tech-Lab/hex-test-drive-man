@@ -7,7 +7,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useLanguageStore } from '@/stores/language-store';
 import { useCompareStore } from '@/stores/compare-store';
 import { useBookingStore } from '@/stores/useBookingStore';
-import { useComparisonStore } from '@/stores/useComparisonStore';
 import { useRouter, usePathname } from 'next/navigation';
 import CartDrawer from '@/components/CartDrawer';
 
@@ -21,7 +20,7 @@ export default function Header() {
   
   // Cart counts - primitive selectors to avoid React 19 infinite loops
   const bookingCount = useBookingStore((state) => state.items.length);
-  const comparisonCount = useComparisonStore((state) => state.items.length);
+  const comparisonCount = useCompareStore((state) => state.compareItems.length);
   
   const router = useRouter();
   const pathname = usePathname();

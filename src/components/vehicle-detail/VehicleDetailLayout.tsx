@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/navigation';
 import VehicleHero from './VehicleHero';
 import TrimComparison from './TrimComparison';
-import { useComparisonStore, vehicleToComparisonItem } from '@/stores/useComparisonStore';
+import { useCompareStore } from '@/stores/compare-store';
 import { useBookingStore, vehicleToBookingItem } from '@/stores/useBookingStore';
 import { Vehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
@@ -36,15 +36,13 @@ export default function VehicleDetailLayout({
 }: VehicleDetailLayoutProps) {
   const router = useRouter();
   const language = useLanguageStore((state) => state.language);
-  const addToComparison = useComparisonStore((state) => state.addItem);
+  const addToComparison = useCompareStore((state) => state.addToCompare);
   const addToBooking = useBookingStore((state) => state.addItem);
 
   const handleAddToComparison = (trim: Vehicle) => {
-    const success = addToComparison(vehicleToComparisonItem(trim));
-    if (success) {
-      // Optional: Show success message or navigate to comparison page
-      console.log('Added to comparison:', trim.trim_name);
-    }
+    addToComparison(trim);
+    // Optional: Show success message or navigate to comparison page
+    console.log('Added to comparison:', trim.trim_name);
   };
 
   const handleBookTrim = (trim: Vehicle) => {
