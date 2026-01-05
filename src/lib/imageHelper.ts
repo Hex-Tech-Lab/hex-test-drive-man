@@ -46,9 +46,15 @@ export function getPlaceholderSrcSet(): string {
 /**
  * Format price in Egyptian Pounds to nearest 1,000
  * @param price - Price in EGP
- * @returns Formatted price string
+ * @param lang - Language for formatting
+ * @returns Formatted price string or "Price on Request" for zero prices
  */
 export function formatEGP(price: number, lang: 'en' | 'ar'): string {
+  // Handle zero prices (Price on Request)
+  if (price === 0) {
+    return lang === 'ar' ? 'السعر عند الطلب' : 'Price on Request';
+  }
+  
   // Round to nearest 1,000
   const rounded = Math.round(price / 1000) * 1000;
   

@@ -156,11 +156,12 @@ export default function CatalogPage() {
       return false;
     }
 
-    if (searchFilters.minPrice && vehicle.maxPrice < searchFilters.minPrice) {
+    // Include zero-price vehicles in search price filters
+    if (searchFilters.minPrice && vehicle.maxPrice > 0 && vehicle.maxPrice < searchFilters.minPrice) {
       return false;
     }
 
-    if (searchFilters.maxPrice && vehicle.minPrice > searchFilters.maxPrice) {
+    if (searchFilters.maxPrice && vehicle.minPrice > 0 && vehicle.minPrice > searchFilters.maxPrice) {
       return false;
     }
 
@@ -190,7 +191,8 @@ export default function CatalogPage() {
       return false;
     }
 
-    if (vehicle.maxPrice < filters.priceRange[0] || vehicle.minPrice > filters.priceRange[1]) {
+    // Include zero-price vehicles (Price on Request) in all price ranges
+    if (vehicle.maxPrice > 0 && (vehicle.maxPrice < filters.priceRange[0] || vehicle.minPrice > filters.priceRange[1])) {
       return false;
     }
 
