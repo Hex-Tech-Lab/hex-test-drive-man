@@ -104,6 +104,18 @@ Multimodal: assume top-tier expertise in ANY domain on demand until task conclud
 13. **Best Practices First (NEW - 2026-01-05)**
     > Before troubleshooting: search `docs/best-practices/INDEX.md` by symptom (e.g., "git push rejected", "404 pages"). Before implementing: check category lessons (git-workflows, debugging, performance, documentation). If solution found: apply pattern, cite source (e.g., "per best-practices/debugging/SLUG_PARSING_MISMATCH.md"). If no solution: investigate, document new lesson after success using LESSON_ENTRY_TEMPLATE.md.
 
+14. **Pre-Response Self-Validation (MANDATORY - 2026-01-05)**
+    > Before submitting ANY response to user: Open `docs/standards/AGENT_RESPONSE_VALIDATION.md`, check each required field (Task Summary, Timebox, Deliverables, Self-Critique, Next Steps). If missing → add it NOW (don't submit without). Required format:
+    ```
+    ✅ Task Complete - [Task Name]
+    **Timebox**: Allocated/Actual/Variance/Tokens
+    **Deliverables**: Files/Commits/Build/Coverage
+    **Self-Critique**: What went well/What could improve/Lesson learned
+    **Next Steps**: Immediate/Blocked by
+    ```
+    > Optional validation script: `python scripts/validate-agent-response.py --agent CC --input response.md`
+    > **This is NOT optional. Missing metrics = incomplete response.**
+
 **Full Details**: `docs/context/CC_CORE_INSTRUCTIONS.md` (150+ lines with examples, edge cases)
 
 ***

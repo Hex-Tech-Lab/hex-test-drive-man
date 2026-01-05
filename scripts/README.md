@@ -80,10 +80,89 @@ export WHYSMS_API_TOKEN="your_whysms_token"
 
 ---
 
+## Agent Response Validation
+
+### Quick Start
+
+```bash
+# Validate from file
+python scripts/validate-agent-response.py --agent CC --input response.md
+
+# Validate from clipboard (macOS)
+pbpaste | python scripts/validate-agent-response.py --agent BB
+
+# Validate from clipboard (Linux)
+xclip -o | python scripts/validate-agent-response.py --agent GC
+
+# Verbose mode (detailed results)
+python scripts/validate-agent-response.py --agent CC --input response.md --verbose
+```
+
+### Purpose
+
+Validates agent responses against mandatory format checklist to ensure all required fields are present before submission to user.
+
+### Files
+
+- **`validate-agent-response.py`** - Python validation script (367 lines)
+- **`docs/standards/AGENT_RESPONSE_VALIDATION.md`** - Validation checklist (363 lines)
+- **`docs/standards/VALIDATION_SCRIPT_SPEC.md`** - Technical specification (499 lines)
+- **`docs/standards/VALIDATION_USAGE_GUIDE.md`** - Usage guide (442 lines)
+- **`tests/validation/*.md`** - Test cases (3 files)
+
+### Required Fields
+
+Every agent response MUST include:
+
+1. **Task Summary**: `✅ Task Complete - [Task Name]`
+2. **Timebox**: Allocated/Actual/Variance/Tokens
+3. **Deliverables**: Files/Commits/Build/Coverage
+4. **Self-Critique**: What went well/What could improve/Lesson learned
+5. **Next Steps**: Immediate/Blocked by
+
+### Output
+
+**Success**:
+```
+✅ PASS: All required fields present
+```
+
+**Failure**:
+```
+❌ FAIL: Missing 3 required fields:
+- Timebox: Time allocated not found
+- Timebox: Variance not calculated
+- Self-critique: "Lesson learned" section missing
+
+Fix these issues and re-validate before submitting.
+```
+
+### Requirements
+
+- Python 3.8+ (standard library only, no external dependencies)
+- Valid agent identifier: CC, BB, GC, CCW, MSC, GPT, KWSL
+
+### Integration
+
+**Agent Files Updated**:
+- `CLAUDE.md` Section 1 item #14 (CC mandatory instructions)
+- `BLACKBOX.md` Section 1 item #14 (BB mandatory instructions)
+- `GEMINI.md` Section 1 (pending GC sync)
+
+**Enforcement**: User will reject responses missing required fields.
+
+### Documentation
+
+- **Full Checklist**: `docs/standards/AGENT_RESPONSE_VALIDATION.md`
+- **Usage Guide**: `docs/standards/VALIDATION_USAGE_GUIDE.md`
+- **Technical Spec**: `docs/standards/VALIDATION_SCRIPT_SPEC.md`
+
+---
+
 ## Other Scripts
 
 (Add documentation for other scripts as they are created)
 
 ---
 
-**Last Updated**: 2025-12-18 by CC
+**Last Updated**: 2026-01-05 by BB
