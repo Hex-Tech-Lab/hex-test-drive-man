@@ -1,12 +1,20 @@
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import { Container, Grid, Typography, Box, Button } from '@mui/material';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import ElectricCarIcon from '@mui/icons-material/ElectricCar';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import Header from '@/components/Header';
 import VehicleCard from '@/components/VehicleCard';
 import FilterPanel from '@/components/FilterPanel';
 import VehicleSearch, { SearchFilters } from '@/components/catalog/VehicleSearch';
 import CatalogToolbar from '@/components/catalog/CatalogToolbar';
+import HeroSection from '@/components/HeroSection';
+import CategoryCard from '@/components/CategoryCard';
+import QuickFilters from '@/components/QuickFilters';
+import BottomNav from '@/components/BottomNav';
 import { SkeletonCard } from '@/components/skeletons';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
@@ -28,6 +36,7 @@ export default function CatalogPage() {
   const [searchFilters, setSearchFilters] = useState<SearchFilters>({ searchTerm: '' });
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [gridColumns, setGridColumns] = useState<3 | 4 | 5>(4);
+  const searchRef = useRef<HTMLDivElement>(null);
 
   // Use persistent filter store
   const brands = useFilterStore((state) => state.brands);
@@ -338,17 +347,87 @@ export default function CatalogPage() {
     );
   }
 
+  const handleSearchClick = () => {
+    searchRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <>
       <Header />
-      <Container maxWidth="xl" sx={{ py: 4 }}>
-        {/* Vehicle Search Component */}
-        <VehicleSearch
-          vehicles={vehicles}
-          onSearch={setSearchFilters}
-          totalResults={filteredVehicles.length}
-        />
+      
+      {/* Hero Section - Mobile First */}
+      <HeroSection onSearchClick={handleSearchClick} />
 
+      {/* Category Cards - Mobile First */}
+      <Container maxWidth="xl" sx={{ mb: 4 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={6} sm={3}>
+            <CategoryCard
+              icon={DirectionsCarIcon}
+              labelEn="New Cars"
+              labelAr="سيارات جديدة"
+              count={filteredVehicles.length}
+              onClick={() => {
+                // Filter logic can be added here
+                handleSearchClick();
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <CategoryCard
+              icon={ElectricCarIcon}
+              labelEn="Electric"
+              labelAr="كهربائية"
+              count={vehicles.filter(v => v.fuel_types?.name === 'Electric').length}
+              onClick={() => {
+                useFilterStore.getState().setFilters({ fuelTypes: ['Electric'] });
+                handleSearchClick();
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <CategoryCard
+              icon={LocalShippingIcon}
+              labelEn="SUVs"
+              labelAr="دفع رباعي"
+              count={vehicles.filter(v => v.body_styles?.name_en === 'SUV').length}
+              onClick={() => {
+                useFilterStore.getState().setFilters({ bodyStyles: ['SUV'] });
+                handleSearchClick();
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <CategoryCard
+              icon={TwoWheelerIcon}
+              labelEn="Sedans"
+              labelAr="سيدان"
+              count={vehicles.filter(v => v.body_styles?.name_en === 'Sedan').length}
+              onClick={() => {
+                useFilterStore.getState().setFilters({ bodyStyles: ['Sedan'] });
+                handleSearchClick();
+              }}
+            />
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* Search & Filters Section */}
+      <Box ref={searchRef}>
+        <Container maxWidth="xl" sx={{ mb: 2 }}>
+          <VehicleSearch
+            vehicles={vehicles}
+            onSearch={setSearchFilters}
+            totalResults={filteredVehicles.length}
+          />
+        </Container>
+
+        {/* Quick Filters - Sticky on Mobile */}
+        <QuickFilters />
+      </Box>
+
+      {/* Main Content Area */}
+      <Container maxWidth="xl" sx={{ py: { xs: 2, md: 4 }, pb: { xs: 10, md: 4 } }}>
         <Grid
           container
           spacing={3}
@@ -356,13 +435,14 @@ export default function CatalogPage() {
             display: { xs: 'block', md: 'grid' },
             gridTemplateColumns: { xs: '1fr', md: '250px 1fr' },
             gap: 3,
-            mt: 2, // Add some top margin
           }}
         >
-          <Grid item sx={{ xs: 12 }}>
+          {/* Filter Panel - Desktop Only */}
+          <Grid item sx={{ display: { xs: 'none', md: 'block' } }}>
             <FilterPanel vehicles={vehicles} />
           </Grid>
 
+          {/* Vehicle Grid */}
           <Grid item sx={{ xs: 12 }}>
             {/* Catalog Toolbar */}
             <CatalogToolbar
@@ -382,7 +462,7 @@ export default function CatalogPage() {
                 </Typography>
               </Box>
             ) : (
-              <Grid container spacing={3}>
+              <Grid container spacing={{ xs: 2, md: 3 }}>
                 {filteredVehicles.map((vehicle) => (
                   <Grid
                     item
@@ -399,6 +479,9 @@ export default function CatalogPage() {
           </Grid>
         </Grid>
       </Container>
+
+      {/* Bottom Navigation - Mobile Only */}
+      <BottomNav />
     </>
   );
 }
