@@ -1,6 +1,10 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-. ~/.config/husky/init.sh  # Load PATH for pnpm
+
+# Load PATH for pnpm (conditional - only if init.sh exists)
+if [ -f ~/.config/husky/init.sh ]; then
+  . ~/.config/husky/init.sh
+fi
 
 BRANCH=$(git branch --show-current)
 
