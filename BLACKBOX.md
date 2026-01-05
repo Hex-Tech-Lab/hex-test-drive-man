@@ -216,11 +216,12 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 5. ✅ **Vintage Car Images Investigation** (BB, 2026-01-04 0953 UTC): NO ISSUE FOUND - Database clean, production verified, already fixed via PR #25
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
-5. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
-6. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
-7. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
-8. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
+4. ✅ **Landing Page Implementation** (BB, 2026-01-05 0059-0159 UTC): COMPLETE - 1,138 lines, PixiJS liquid animation, 8 sections, bilingual EN/AR, SEO optimized, build verified
+5. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
+6. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
+7. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
+8. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
+9. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
 
 ### PRIORITY 3 (MEDIUM - Next 48 Hours)
 7. **PDF Extraction Pipeline**: Cell-span detection (target 55% quality gate)
