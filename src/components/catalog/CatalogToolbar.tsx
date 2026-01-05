@@ -132,7 +132,7 @@ export default function CatalogToolbar({
         </FormControl>
 
         <Chip
-          label={`${totalCount} ${language === 'ar' ? 'مركبة' : 'vehicles'}`}
+          label={`${totalCount} ${language === 'ar' ? 'موديل' : 'models'}`}
           color="primary"
           variant="outlined"
           sx={{ fontWeight: 600, height: 36 }}

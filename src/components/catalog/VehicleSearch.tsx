@@ -484,7 +484,7 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
                   {language === 'ar' ? 'مسح الكل' : 'Reset All'}
                 </Button>
                 <Typography variant="body2" color="primary" sx={{ fontWeight: 600 }}>
-                  {totalResults} {language === 'ar' ? 'مركبة' : 'vehicles'}
+                  {totalResults} {language === 'ar' ? 'موديل' : 'models'}
                 </Typography>
               </Box>
             </Grid>
