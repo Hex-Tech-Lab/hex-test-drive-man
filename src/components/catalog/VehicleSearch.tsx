@@ -17,6 +17,7 @@ import {
   SelectChangeEvent,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Vehicle } from '@/types/vehicle';
@@ -188,6 +189,25 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
                 startAdornment: (
                   <InputAdornment position="start">
                     <SearchIcon />
+                  </InputAdornment>
+                ),
+                endAdornment: filters.searchTerm && (
+                  <InputAdornment position="end">
+                    <Button
+                      size="small"
+                      onClick={() => handleFilterChange('searchTerm', '')}
+                      sx={{
+                        minWidth: 'auto',
+                        p: 0.5,
+                        color: 'text.secondary',
+                        '&:hover': {
+                          backgroundColor: 'action.hover',
+                        },
+                      }}
+                      aria-label={language === 'ar' ? 'مسح البحث' : 'Clear search'}
+                    >
+                      <ClearIcon fontSize="small" />
+                    </Button>
                   </InputAdornment>
                 ),
               }}
