@@ -539,6 +539,11 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 ### Code Standards
 - **TypeScript**: Strict mode enabled, interfaces over types for public APIs, no `@ts-ignore` without documented justification
 - **Imports**: Organize (React→libraries→local), use path aliases exclusively (enforced by ESLint rule), no unused imports
+  - **Path Alias Enforcement**: `no-restricted-imports` ESLint rule blocks `../*` patterns
+  - **Configuration**: `tsconfig.json` maps `@/*` to `./src/*`, `eslint.config.js` enforces usage
+  - **Correct**: `import { getVehicleImage } from '@/lib/imageHelper';`
+  - **Forbidden**: `import { getVehicleImage } from '../lib/imageHelper';` (ESLint error)
+  - **Status**: 100% compliant (0 violations, verified 2026-01-05)
 - **Style**: Single quotes, trailing commas, 2-space indentation, 100-char line limit
 - **MUI Only**: FORBIDDEN Tailwind, shadcn, Lucide icons (rationale: better RTL/Arabic support)
 
