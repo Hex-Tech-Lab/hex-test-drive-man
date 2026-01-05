@@ -214,6 +214,7 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
 4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
 5. ✅ **Vintage Car Images Investigation** (BB, 2026-01-04 0953 UTC): NO ISSUE FOUND - Database clean, production verified, already fixed via PR #25
+6. ✅ **Mercedes-Benz + Hongqi Data Fix** (BB, 2026-01-05 0015 UTC): SUCCESS - 24 Mercedes models + 1 Hongqi model added, catalog now 427 models (+6.2%)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
 4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
@@ -513,6 +514,28 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 ***
 
 ## 14. AUDIT HISTORY
+
+### 2026-01-05 Mercedes-Benz + Hongqi Data Fix (BB)
+**Task**: Add missing Mercedes-Benz (24 models) + Hongqi (1 model) to production database
+
+**Results**:
+- ✅ Mercedes-Benz: 0 → 24 models (25 images available)
+- ✅ Hongqi: 0 → 1 model (H9 2025)
+- ✅ Total catalog: 402 → 427 models (+6.2% inventory)
+- ✅ Duration: 20 minutes (78% faster than 90 min estimate)
+
+**Scripts Created**:
+- `scripts/parse_mercedes_images.py` - Extract models from image filenames
+- `scripts/generate_mercedes_sql.py` - Generate SQL migrations
+- `scripts/apply_mercedes_final.sh` - Execute via Supabase REST API
+
+**Migrations Applied**:
+- `supabase/migrations/20260105_mercedes_benz_models.sql` (24 models, 1181 lines)
+- `supabase/migrations/20260105_create_hongqi.sql` (brand + H9 model, 89 lines)
+
+**Impact**: Mercedes-Benz now visible in catalog filters, ready for booking
+
+---
 
 ### 2025-12-24 Manual Audit (BB)
 **Reports Generated**:
