@@ -15,6 +15,7 @@ import {
   Grid,
   Typography,
   SelectChangeEvent,
+  CircularProgress,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -59,6 +60,7 @@ export interface SearchFilters {
 export default function VehicleSearch({ vehicles, onSearch, totalResults }: VehicleSearchProps) {
   const language = useLanguageStore((state) => state.language);
   const [isAdvanced, setIsAdvanced] = useState(false);
+  const [isFiltering, setIsFiltering] = useState(false);
   const [filters, setFilters] = useState<SearchFilters>({
     searchTerm: '',
   });
@@ -95,27 +97,39 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
     return Array.from(modelMap.values()).sort((a, b) => a.name.localeCompare(b.name));
   }, [vehicles, filters.brandId]);
 
-  // Extract unique years
+  // Extract unique years (cascading: filtered by selected brand)
   const years = useMemo(() => {
     const yearSet = new Set<number>();
     vehicles.forEach((v) => {
+      // If brand is selected, only show years for that brand
+      if (filters.brandId && v.models?.brands?.name !== filters.brandId) {
+        return;
+      }
       if (v.model_year) {
         yearSet.add(v.model_year);
       }
     });
     return Array.from(yearSet).sort((a, b) => b - a); // Newest first
-  }, [vehicles]);
+  }, [vehicles, filters.brandId]);
 
-  // Extract unique body types
+  // Extract unique body types (cascading: filtered by selected brand and year)
   const bodyTypes = useMemo(() => {
     const typeSet = new Set<string>();
     vehicles.forEach((v) => {
+      // If brand is selected, only show body types for that brand
+      if (filters.brandId && v.models?.brands?.name !== filters.brandId) {
+        return;
+      }
+      // If year is selected, only show body types for that year
+      if (filters.year && v.model_year !== filters.year) {
+        return;
+      }
       if (v.body_styles?.name_en) {
         typeSet.add(v.body_styles.name_en);
       }
     });
     return Array.from(typeSet).sort();
-  }, [vehicles]);
+  }, [vehicles, filters.brandId, filters.year]);
 
   // Extract unique fuel types
   const fuelTypes = useMemo(() => {
@@ -153,12 +167,27 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
   const handleFilterChange = (key: keyof SearchFilters, value: string | number | boolean | undefined) => {
     const newFilters = { ...filters, [key]: value };
 
-    // Reset model when brand changes
+    // Cascading filter logic: Reset dependent filters when parent changes
     if (key === 'brandId') {
+      // Reset model, year, and body type when brand changes
       newFilters.modelId = undefined;
+      newFilters.year = undefined;
+      newFilters.bodyType = undefined;
+    }
+
+    if (key === 'year') {
+      // Reset body type when year changes
+      newFilters.bodyType = undefined;
     }
 
     setFilters(newFilters);
+    
+    // Show loading state briefly for cascading filters
+    if (key === 'brandId' || key === 'year') {
+      setIsFiltering(true);
+      setTimeout(() => setIsFiltering(false), 300);
+    }
+    
     onSearch(newFilters);
   };
 
@@ -237,12 +266,19 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
               </Grid>
 
               <Grid item xs={12} sm={4} md={2}>
-                <FormControl fullWidth size="small">
+                <FormControl fullWidth size="small" disabled={isFiltering}>
                   <InputLabel>{language === 'ar' ? 'السنة' : 'All Years'}</InputLabel>
                   <Select
                     value={filters.year || ''}
                     onChange={handleSelectChange('year')}
                     label={language === 'ar' ? 'السنة' : 'All Years'}
+                    endAdornment={
+                      isFiltering && (
+                        <InputAdornment position="end" sx={{ mr: 3 }}>
+                          <CircularProgress size={16} />
+                        </InputAdornment>
+                      )
+                    }
                   >
                     <MenuItem value="">
                       <em>{language === 'ar' ? 'الكل' : 'All'}</em>
@@ -257,12 +293,19 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
               </Grid>
 
               <Grid item xs={12} sm={4} md={2.5}>
-                <FormControl fullWidth size="small">
+                <FormControl fullWidth size="small" disabled={isFiltering}>
                   <InputLabel>{language === 'ar' ? 'نوع الهيكل' : 'All Body Types'}</InputLabel>
                   <Select
                     value={filters.bodyType || ''}
                     onChange={handleSelectChange('bodyType')}
                     label={language === 'ar' ? 'نوع الهيكل' : 'All Body Types'}
+                    endAdornment={
+                      isFiltering && (
+                        <InputAdornment position="end" sx={{ mr: 3 }}>
+                          <CircularProgress size={16} />
+                        </InputAdornment>
+                      )
+                    }
                   >
                     <MenuItem value="">
                       <em>{language === 'ar' ? 'الكل' : 'All'}</em>
