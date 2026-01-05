@@ -250,10 +250,12 @@ git branch -vv | head -10
 - Compare functionality (up to 3 vehicles)
 - Filter system (type/brand/price)
 
-### MVP 1.1 (IN PROGRESS - 80% Complete ⏳)
+### MVP 1.1 (IN PROGRESS - 90% Complete ⏳)
 - ✅ Logo sizing + hero image composition (GC autonomous session, commit 4bb3a7a)
+- ✅ Vehicle detail page + trim comparison (CC, commit 12f9e2f)
+- ✅ Catalog UI overhaul (search, filters, toolbar) (CC, commit 6331c4d)
 - ⏳ Image coverage script (logic complete, env vars pending)
-- ⏳ Catalog UI redesign (pending user specs)
+- ⏳ Catalog UI redesign phase 2 (pending user specs)
 - ⏳ Main branch consolidation (pending)
 
 ### MVP 1.5 (PLANNED 📋)
@@ -311,6 +313,10 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 
 **Format**: Main bullet (1 line) + sub-bullet (1 line) = 2 lines per session
 **Space Saved**: 300 lines → 30-40 lines (87% reduction)
+
+- **2026-01-05 (CC Vehicle Detail Page + Trim Comparison)**
+  - Implemented Priority 1: Complete vehicle detail page with /[locale]/vehicles/[slug] route + trim comparison table (max 5 selections) + difference highlighting + comparison/booking stores (max 5 cross-model, max 3 in 90 days) + similar vehicles grid + catalog navigation integration
+  - Files: 7 created (995 lines: page.tsx, VehicleHero, TrimComparison, VehicleDetailLayout, useComparisonStore, useBookingStore), 1 modified (VehicleCard) + Type assertion pattern: as unknown as Vehicle[] for Supabase joins + Build ✓ (12f9e2f) + Docstring 84.21% + Timebox: 105 min actual / 90 min allocated (+16.7% variance, TypeScript debugging) + Performance log: docs/PERFORMANCE_LOG_2026-01-05_VEHICLE_DETAIL_PAGE.md
 
 - **2026-01-04 02:50 UTC (CC Image Mapping Investigation)**
   - Investigated 230 legitimate unmapped images: Parsed filenames (brand/model/year extraction) → fuzzy-matched to database → 56 matched existing models (all already have images, 0 updates needed) → 174 have NO matching models (75.7%)
