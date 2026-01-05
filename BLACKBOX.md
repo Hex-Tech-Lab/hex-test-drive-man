@@ -205,7 +205,7 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **PR Scraper Audit & Completion** (BB, 2026-01-05 2243 UTC): SUCCESS - Analyzed PRs #24,27,28 (3 open PRs), created MERGE_BLOCKERS.md, identified PR #24 GUARDRAILS violation (ESLint 8→9 blocked), PR #28 has 2 critical issues
+1. ✅ **PR Scraper Audit & Completion** (BB, 2026-01-05 2243-2305 UTC): SUCCESS - Analyzed ALL 12 PRs #17-28 (3 open + 9 closed), created MERGE_BLOCKERS.md (46 findings total), identified PR #24 GUARDRAILS violation (ESLint 8→9 blocked), PR #28 has 2 critical issues, enhanced scraper to support closed PRs
 2. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
    - Update `extraction_engine/requirements.txt`: `filelock>=3.20.1`
    - TOCTOU race condition (CVSS 6.3)

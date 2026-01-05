@@ -115,6 +115,23 @@ async function getAllOpenPRs() {
   return prs;
 }
 
+async function getSpecificPRs(prNumbers: number[]) {
+  const prs = [];
+  for (const prNum of prNumbers) {
+    try {
+      const { data: pr } = await octokit.pulls.get({
+        owner: REPO_OWNER,
+        repo: REPO_NAME,
+        pull_number: prNum,
+      });
+      prs.push(pr);
+    } catch (error) {
+      console.error(`❌ Failed to fetch PR #${prNum}:`, error);
+    }
+  }
+  return prs;
+}
+
 async function getPRComments(prNumber: number) {
   const [comments, reviewComments, reviews] = await Promise.all([
     octokit.issues.listComments({
@@ -235,10 +252,17 @@ function calculateTotalEffort(findings: PRFinding[]): string {
   return `${mins}m`;
 }
 
-async function scrapeAllPRs(): Promise<PRReport> {
-  console.log('🔍 Fetching all open PRs...');
-  const prs = await getAllOpenPRs();
-  console.log(`Found ${prs.length} open PRs`);
+async function scrapeAllPRs(prNumbers?: number[]): Promise<PRReport> {
+  let prs;
+  if (prNumbers && prNumbers.length > 0) {
+    console.log(`🔍 Fetching specific PRs: ${prNumbers.join(', ')}...`);
+    prs = await getSpecificPRs(prNumbers);
+    console.log(`Found ${prs.length} PRs (${prNumbers.length} requested)`);
+  } else {
+    console.log('🔍 Fetching all open PRs...');
+    prs = await getAllOpenPRs();
+    console.log(`Found ${prs.length} open PRs`);
+  }
 
   const report: PRReport = {
     generated_at: new Date().toISOString(),
@@ -373,7 +397,8 @@ function determineScope(title: string, findings: PRFinding[]): string {
 }
 
 // Execute
-scrapeAllPRs().then(report => {
+const prNumbers = process.argv.slice(2).map(n => parseInt(n, 10)).filter(n => !isNaN(n));
+scrapeAllPRs(prNumbers.length > 0 ? prNumbers : undefined).then(report => {
   // Save full JSON report
   fs.writeFileSync(
     '/tmp/pr_review_complete.json',
