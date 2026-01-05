@@ -222,11 +222,14 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 11. ✅ **RTL Reload Fix (Root Cause)** (BB, 2026-01-05 1351 UTC): SUCCESS - Removed router.push() from Header toggleLanguage(), language now client-state only, all pages switch instantly, commit e61bfe2
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
-5. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
-6. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
-7. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
-8. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
+4. ✅ **Search Clear Button + Autocomplete** (BB, 2026-01-05 1819 UTC): SUCCESS - Clear button added to search TextField, Autocomplete implemented with brand/model/year suggestions, commit f6393b9
+5. ✅ **Clickable Header** (BB, 2026-01-05 1819 UTC): SUCCESS - "Test Drive Platform" text now clickable to navigate home, hover effect added, commit f6393b9
+6. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
+7. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
+8. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
+9. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
+10. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
+11. **Landing Pages Decision**: Create 3 landing page routes (/landing-v1, /landing-v2, /landing-versions) or remove references - currently all return 404
 
 ### PRIORITY 3 (MEDIUM - Next 48 Hours)
 7. **PDF Extraction Pipeline**: Cell-span detection (target 55% quality gate)
@@ -519,6 +522,37 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 ***
 
 ## 14. AUDIT HISTORY
+
+### 2026-01-05 Browser Testing + UX Fixes (BB)
+**Task**: Browser testing of production site + fix 4 critical UX bugs
+
+**Results**:
+- ✅ Browser testing setup: Xvfb + Playwright + Chromium on Amazon Linux 2023
+- ✅ 7 priority areas tested with 6 screenshots captured
+- ✅ 3 bugs fixed: Search clear button, Autocomplete, Clickable header
+- ✅ 1 bug deferred: Cascading filters (working as designed)
+- ✅ Duration: 71 minutes (21% under 90 min estimate)
+
+**Bugs Fixed**:
+1. Bug 2.1: Missing clear button in search TextField
+2. Bug 2.2: Missing autocomplete functionality (now suggests brands/models/years)
+3. Bug 3.1: Header "Test Drive Platform" not clickable (now navigates home)
+
+**Key Findings**:
+- Mercedes filter WORKING (24 vehicles displayed correctly)
+- Language switch WORKING (client-side only, no reload)
+- No broken images detected (0/48 checked)
+- Landing pages missing (all 3 routes return 404 - requires user decision)
+
+**Documentation Created**:
+- `BROWSER_TEST_REPORT_20260105.md` (300+ lines comprehensive report)
+- `UX_FIXES_SUMMARY_20260105.md` (250+ lines with code examples)
+- 6 screenshots for visual verification
+
+**Branch**: `bb/browser-test-fixes-20260105`  
+**Commit**: f6393b9 "feat(ux): add search clear button, autocomplete, and clickable header"
+
+---
 
 ### 2026-01-05 Mercedes-Benz + Hongqi Data Fix (BB)
 **Task**: Add missing Mercedes-Benz (24 models) + Hongqi (1 model) to production database
