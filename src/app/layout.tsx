@@ -1,7 +1,17 @@
 import type { Metadata } from 'next';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import dynamic from 'next/dynamic';
 import AppProviders from '@/components/AppProviders';
+
+// Lazy load analytics after page interactive (non-blocking)
+const Analytics = dynamic(
+  () => import('@vercel/analytics/react').then((mod) => mod.Analytics),
+  { ssr: false }
+);
+
+const SpeedInsights = dynamic(
+  () => import('@vercel/speed-insights/next').then((mod) => mod.SpeedInsights),
+  { ssr: false }
+);
 
 export const metadata: Metadata = {
   title: 'HEX Test Drive Platform',
