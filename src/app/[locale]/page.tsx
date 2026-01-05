@@ -2,9 +2,9 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import { Container, Grid, Typography, Box, Button } from '@mui/material';
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import VehicleCard from '@/components/VehicleCard';
-import FilterPanel from '@/components/FilterPanel';
 import VehicleSearch, { SearchFilters } from '@/components/catalog/VehicleSearch';
 import CatalogToolbar from '@/components/catalog/CatalogToolbar';
 import { SkeletonCard } from '@/components/skeletons';
@@ -13,6 +13,12 @@ import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
 import { useFilterStore } from '@/stores/filter-store';
 import { useParams } from 'next/navigation';
+
+// Lazy load FilterPanel (client-side only, uses localStorage)
+const FilterPanel = dynamic(() => import('@/components/FilterPanel'), {
+  ssr: false,
+  loading: () => null,
+});
 
 /**
  * Main catalog page component with filtering, sorting, and vehicle grid
