@@ -43,8 +43,9 @@ export default function Header() {
     }
     const newPath = `/${currentPathSegments.join('/')}`;
     
-    // Navigate to the same path with new locale, preserving scroll
-    router.push(newPath, { scroll: false });
+    // Use replace instead of push to avoid full page reload
+    // Shallow routing keeps client-side state intact
+    router.replace(newPath);
   };
 
   const goToCompare = () => {
