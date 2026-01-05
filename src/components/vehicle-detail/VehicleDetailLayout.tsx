@@ -62,8 +62,8 @@ export default function VehicleDetailLayout({
 
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
-      {/* Breadcrumbs */}
-      <Breadcrumbs sx={{ mb: 3 }}>
+      {/* Breadcrumbs - Hidden on mobile to save space */}
+      <Breadcrumbs sx={{ mb: 3, display: { xs: 'none', sm: 'flex' } }}>
         <Link component={NextLink} href={`/${locale}`} underline="hover" color="inherit">
           {language === 'ar' ? 'الرئيسية' : 'Home'}
         </Link>

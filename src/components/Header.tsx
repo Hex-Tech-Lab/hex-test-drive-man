@@ -30,21 +30,11 @@ export default function Header() {
 
   const toggleLanguage = () => {
     const newLang = language === 'ar' ? 'en' : 'ar';
-    setLanguage(newLang); // Update store for immediate UI feedback
-
-    // Replace the current locale in the pathname with the new locale
-    const currentPathSegments = pathname.split('/').filter(Boolean); // Remove empty strings
-    // If the first segment is the current language, replace it
-    if (currentPathSegments.length > 0 && currentPathSegments[0] === language) {
-      currentPathSegments[0] = newLang;
-    } else {
-      // If no locale in path, prepend new locale
-      currentPathSegments.unshift(newLang);
-    }
-    const newPath = `/${currentPathSegments.join('/')}`;
     
-    // Navigate to the same path with new locale, preserving scroll
-    router.push(newPath, { scroll: false });
+    // Update language in Zustand store ONLY (client-state)
+    // This triggers AppProviders to update document.dir and document.lang
+    // NO navigation needed - language is purely a UI state change
+    setLanguage(newLang);
   };
 
   const goToCompare = () => {
