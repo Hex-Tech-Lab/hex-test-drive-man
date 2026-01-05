@@ -10,6 +10,8 @@ import {
   FormControl,
   InputLabel,
   InputAdornment,
+  IconButton,
+  Autocomplete,
   Paper,
   Collapse,
   Grid,
@@ -17,6 +19,7 @@ import {
   SelectChangeEvent,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Vehicle } from '@/types/vehicle';
@@ -149,6 +152,29 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
     return Array.from(seatSet).sort((a, b) => a - b);
   }, [vehicles]);
 
+  // Extract vehicle names for autocomplete
+  const vehicleNames = useMemo(() => {
+    const nameSet = new Set<string>();
+    vehicles.forEach((v) => {
+      // Add brand name
+      if (v.models?.brands?.name) {
+        nameSet.add(v.models.brands.name);
+      }
+      // Add model name
+      if (v.models?.name) {
+        nameSet.add(v.models.name);
+      }
+      // Add full vehicle name (brand + model + year)
+      const brandName = v.models?.brands?.name || '';
+      const modelName = v.models?.name || '';
+      const year = v.model_year || '';
+      if (brandName && modelName) {
+        nameSet.add(`${brandName} ${modelName} ${year}`.trim());
+      }
+    });
+    return Array.from(nameSet).sort();
+  }, [vehicles]);
+
   const handleFilterChange = (key: keyof SearchFilters, value: string | number | boolean | undefined) => {
     const newFilters = { ...filters, [key]: value };
 
@@ -178,19 +204,30 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
       <Box sx={{ p: 2, backgroundColor: 'background.paper' }}>
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} md={isAdvanced ? 12 : 4}>
-            <TextField
-              fullWidth
-              size="small"
-              placeholder={language === 'ar' ? 'ابحث عن مركبة...' : 'Search vehicle...'}
+            <Autocomplete
+              freeSolo
+              options={vehicleNames}
               value={filters.searchTerm}
-              onChange={(e) => handleFilterChange('searchTerm', e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
+              onChange={(event, newValue) => handleFilterChange('searchTerm', newValue || '')}
+              onInputChange={(event, newInputValue) => handleFilterChange('searchTerm', newInputValue)}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  size="small"
+                  placeholder={language === 'ar' ? 'ابحث عن مركبة...' : 'Search vehicle...'}
+                  InputProps={{
+                    ...params.InputProps,
+                    startAdornment: (
+                      <>
+                        <InputAdornment position="start">
+                          <SearchIcon />
+                        </InputAdornment>
+                        {params.InputProps.startAdornment}
+                      </>
+                    ),
+                  }}
+                />
+              )}
             />
           </Grid>
 

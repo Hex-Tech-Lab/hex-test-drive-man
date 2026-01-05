@@ -55,12 +55,26 @@ export default function Header() {
       ? `${bookingCount} حجوزات | ${comparisonCount} مقارنات`
       : `${bookingCount} bookings | ${comparisonCount} comparisons`;
 
+  const goToHome = () => {
+    router.push(`/${language}`);
+  };
+
   return (
     <>
       <AppBar position="sticky" color="default" elevation={1}>
         <Container maxWidth="xl">
           <Toolbar>
-            <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                flexGrow: 1, 
+                fontWeight: 600,
+                cursor: 'pointer',
+                '&:hover': { opacity: 0.8 },
+                transition: 'opacity 0.2s'
+              }}
+              onClick={goToHome}
+            >
               {language === 'ar' ? 'منصة اختبار القيادة' : 'Test Drive Platform'}
             </Typography>
 
