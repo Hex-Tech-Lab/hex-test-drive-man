@@ -1,20 +1,32 @@
 'use client';
 
-import { AppBar, Toolbar, Typography, IconButton, Badge, Button, Container } from '@mui/material';
+import { useState } from 'react';
+import { AppBar, Toolbar, Typography, IconButton, Badge, Button, Container, Tooltip } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useLanguageStore } from '@/stores/language-store';
 import { useCompareStore } from '@/stores/compare-store';
+import { useBookingStore } from '@/stores/useBookingStore';
+import { useComparisonStore } from '@/stores/useComparisonStore';
 import { useRouter, usePathname } from 'next/navigation';
+import CartDrawer from '@/components/CartDrawer';
 
 /**
- * Global header component with language switcher and comparison link
+ * Global header component with language switcher, cart, and comparison link
  */
 export default function Header() {
   const language = useLanguageStore((state) => state.language);
   const setLanguage = useLanguageStore((state) => state.setLanguage);
   const compareItems = useCompareStore((state) => state.compareItems);
+  
+  // Cart counts - primitive selectors to avoid React 19 infinite loops
+  const bookingCount = useBookingStore((state) => state.items.length);
+  const comparisonCount = useComparisonStore((state) => state.items.length);
+  
   const router = useRouter();
-  const pathname = usePathname(); // Get current pathname
+  const pathname = usePathname();
+  
+  const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
 
   const toggleLanguage = () => {
     const newLang = language === 'ar' ? 'en' : 'ar';
@@ -31,36 +43,63 @@ export default function Header() {
     }
     const newPath = `/${currentPathSegments.join('/')}`;
     
-    router.push(newPath, { scroll: false }); // Navigate to the same path with new locale, preserving scroll
+    // Navigate to the same path with new locale, preserving scroll
+    router.push(newPath, { scroll: false });
   };
 
   const goToCompare = () => {
     router.push(`/${language}/compare`);
   };
 
+  const openCartDrawer = () => {
+    setCartDrawerOpen(true);
+  };
+
+  const closeCartDrawer = () => {
+    setCartDrawerOpen(false);
+  };
+
+  const totalCartItems = bookingCount + comparisonCount;
+  const cartBadgeLabel =
+    language === 'ar'
+      ? `${bookingCount} حجوزات | ${comparisonCount} مقارنات`
+      : `${bookingCount} bookings | ${comparisonCount} comparisons`;
+
   return (
-    <AppBar position="sticky" color="default" elevation={1}>
-      <Container maxWidth="xl">
-        <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>
-            {language === 'ar' ? 'منصة اختبار القيادة' : 'Test Drive Platform'}
-          </Typography>
+    <>
+      <AppBar position="sticky" color="default" elevation={1}>
+        <Container maxWidth="xl">
+          <Toolbar>
+            <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>
+              {language === 'ar' ? 'منصة اختبار القيادة' : 'Test Drive Platform'}
+            </Typography>
 
-          <Button
-            variant="outlined"
-            onClick={toggleLanguage}
-            sx={{ mr: 2 }}
-          >
-            {language === 'ar' ? 'English' : 'العربية'}
-          </Button>
+            <Button
+              variant="outlined"
+              onClick={toggleLanguage}
+              sx={{ mr: 2 }}
+            >
+              {language === 'ar' ? 'English' : 'العربية'}
+            </Button>
 
-          <IconButton color="primary" onClick={goToCompare}>
-            <Badge badgeContent={compareItems.length} color="error">
-              <CompareArrowsIcon />
-            </Badge>
-          </IconButton>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <Tooltip title={cartBadgeLabel} arrow>
+              <IconButton color="primary" onClick={openCartDrawer} sx={{ mr: 1 }}>
+                <Badge badgeContent={totalCartItems} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+            </Tooltip>
+
+            <IconButton color="primary" onClick={goToCompare}>
+              <Badge badgeContent={compareItems.length} color="error">
+                <CompareArrowsIcon />
+              </Badge>
+            </IconButton>
+          </Toolbar>
+        </Container>
+      </AppBar>
+
+      <CartDrawer open={cartDrawerOpen} onClose={closeCartDrawer} />
+    </>
   );
 }
