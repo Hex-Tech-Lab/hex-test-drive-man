@@ -1,0 +1,39 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+. ~/.config/husky/init.sh  # Load PATH for pnpm
+
+BRANCH=$(git branch --show-current)
+
+if [ "$BRANCH" = "main" ]; then
+  echo "🛡️  Pre-push safety check: main branch"
+
+  # Fetch latest from remote
+  echo "   Fetching origin/main..."
+  git fetch origin main --quiet 2>/dev/null || {
+    echo "⚠️  Warning: Could not fetch origin (offline?)"
+    echo "   Proceeding anyway..."
+    exit 0
+  }
+
+  # Check if local is behind remote
+  LOCAL=$(git rev-parse HEAD 2>/dev/null)
+  REMOTE=$(git rev-parse origin/main 2>/dev/null)
+  BASE=$(git merge-base HEAD origin/main 2>/dev/null)
+
+  if [ "$LOCAL" != "$REMOTE" ] && [ "$BASE" != "$REMOTE" ]; then
+    echo ""
+    echo "❌ BLOCKED: origin/main has moved ahead"
+    echo ""
+    echo "Remote commits you don't have:"
+    git log --oneline --color=always HEAD..origin/main | head -5
+    echo ""
+    echo "Fix with:"
+    echo "  git pull --rebase origin main"
+    echo "  pnpm build  # Re-verify after rebase"
+    echo "  git push origin main"
+    echo ""
+    exit 1
+  fi
+
+  echo "✅ Safe to push to main"
+fi

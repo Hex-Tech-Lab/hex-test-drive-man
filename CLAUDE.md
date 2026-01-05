@@ -167,6 +167,57 @@ curl -X GET "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/vehicle_trims?sele
 - **Never** `--force` push to main (use `--force-with-lease` on feature branches only)
 - GPG signing: ENABLED (but user prefers disabled)
 
+### Git Push & Rebase Protocol (CRITICAL)
+
+**Mandatory Pre-Push Sequence** (enforced by `.husky/pre-push` hook):
+
+```bash
+# Step 1: Fetch remote (check for concurrent changes)
+git fetch origin
+
+# Step 2: Verify not behind remote
+git log HEAD..origin/main --oneline
+# If ANY commits shown: STOP, rebase first
+
+# Step 3: If behind, rebase (not merge!)
+git pull --rebase origin main
+pnpm build && pnpm lint  # Re-verify after rebase
+
+# Step 4: Push (only if above checks pass)
+git push origin main
+```
+
+**Automated Safety** (installed):
+- Pre-push hook blocks unsafe pushes automatically
+- Detects remote changes before push attempt
+- Forces rebase before allowing push
+
+**Helper Script** (for complex scenarios):
+```bash
+./scripts/safe-push.sh
+# Interactive prompts guide through all checks
+```
+
+**If Push Rejected**:
+```bash
+# Error: ! [rejected] main -> main (fetch first)
+
+# Solution (rebase, not merge):
+git pull --rebase origin main  # Replay your commits on top
+pnpm build  # Re-verify
+git push origin main  # Try again
+```
+
+**Multi-Agent Coordination**:
+- Check `docs/HANDOFF_STATUS.md` before pushing
+- Update HANDOFF_STATUS after successful push
+- If another agent pushed in last 5 min, fetch + rebase first
+
+**References**:
+- Full policy: `docs/policies/GIT_WORKFLOW_RULES.md`
+- Emergency procedures: Section 7 of policy doc
+- 2026-01-05 Git workflow analysis (educational): `docs/incidents/2026-01-05-REBASE-INCIDENT.md`
+
 ### Database Verification Protocol
 ```bash
 # Before claiming row counts
