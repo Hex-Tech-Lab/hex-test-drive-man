@@ -30,8 +30,7 @@ export default function Header() {
 
   const toggleLanguage = () => {
     const newLang = language === 'ar' ? 'en' : 'ar';
-    setLanguage(newLang); // Update store for immediate UI feedback
-
+    
     // Replace the current locale in the pathname with the new locale
     const currentPathSegments = pathname.split('/').filter(Boolean); // Remove empty strings
     // If the first segment is the current language, replace it
@@ -43,8 +42,15 @@ export default function Header() {
     }
     const newPath = `/${currentPathSegments.join('/')}`;
     
-    // Navigate to the same path with new locale, preserving scroll
-    router.push(newPath, { scroll: false });
+    // CRITICAL: Use window.history to prevent scroll reset
+    window.history.replaceState(null, '', newPath);
+    
+    // Update Zustand store (triggers React re-render)
+    setLanguage(newLang);
+    
+    // Force DOM updates for RTL/LTR
+    document.documentElement.lang = newLang;
+    document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
   };
 
   const goToCompare = () => {
