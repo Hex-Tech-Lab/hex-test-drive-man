@@ -1,4 +1,5 @@
 import { createTheme, ThemeOptions } from '@mui/material/styles';
+import { getTransitionDuration } from './accessibility';
 
 const baseThemeOptions: ThemeOptions = {
   palette: {
@@ -19,15 +20,16 @@ const baseThemeOptions: ThemeOptions = {
     borderRadius: 8,
   },
   // Performance optimizations for animations
+  // Honor prefers-reduced-motion for accessibility (Sourcery suggestion PR #37)
   transitions: {
     duration: {
-      shortest: 150,
-      shorter: 200,
-      short: 250,
-      standard: 300,
-      complex: 375,
-      enteringScreen: 225,
-      leavingScreen: 195,
+      shortest: getTransitionDuration(150),
+      shorter: getTransitionDuration(200),
+      short: getTransitionDuration(250),
+      standard: getTransitionDuration(300),
+      complex: getTransitionDuration(375),
+      enteringScreen: getTransitionDuration(225),
+      leavingScreen: getTransitionDuration(195),
     },
     easing: {
       easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
