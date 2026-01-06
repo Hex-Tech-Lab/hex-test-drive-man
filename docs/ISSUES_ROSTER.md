@@ -1,290 +1,462 @@
-# ISSUES ROSTER - Living Document
+# ISSUES ROSTER - Living Bug & Improvement Tracker
 
-**Purpose:** Capture all issues mentioned in daily conversation ("verbal voice scraper")  
-**Owner:** PPLX (updated every session)  
-**Last Updated:** 2026-01-06 17:42 EET (PPLX)  
-**Status:** Active - continuous updates
-
----
-
-## How This Works
-
-This document tracks every bug, improvement, complaint, or design gap mentioned during sessions. Think of it as a "verbal voice scraper" that distills your 15-20 daily observations into a structured, actionable roster.
-
-**Update frequency:** Every session  
-**Classification:** Critical → High → Medium → Low + Lessons Learned  
-**Action tracking:** Each item has status (🔴 Open, ⏳ In Progress, ✅ Fixed, ❌ Won't Fix)
+**Version:** 1.0.0  
+**Last Updated:** 2026-01-06 1808 EET PPLX CS45  
+**Owner:** All Agents (CC audits, others add)  
+**Purpose:** Single source of truth for all bugs, improvements, and technical debt
 
 ---
 
-## CRITICAL BLOCKERS (Shipping Stoppers)
+## TABLE OF CONTENTS
 
-### CB-001: Production React Hooks Error (**ACTIVE**)
-**Status:** 🔴 Open → ⏳ BB investigating (Jan 6, 17:50 EET)  
-**Severity:** CRITICAL  
-**Impact:** 100% of catalog page visits failing  
-**Error:** `Rendered more hooks than during the previous render` at `page.tsx:395`  
-**Root cause:** CC's Phase 1 deployment (commits 648f31d, 2a19266) introduced conditional hook usage  
-**First reported:** 2026-01-06 01:12 UTC (Sentry alert)  
-**User frustration:** "Latest deployment is a repeat of what was happening all last night"  
-**Action:** BB fixing hooks violation or reverting Phase 1 (30 min timebox)  
-**Related:** Sentry issue #7b7556a3214a482597d11c2bc02ec094
+1. CRITICAL (Production Broken)
+2. HIGH Priority (Next 24 Hours)
+3. MEDIUM Priority (Next Week)
+4. LOW Priority (Backlog)
+5. RECENTLY RESOLVED (Last 7 Days)
+6. RECURRING ISSUES (Pattern Recognition)
 
 ---
 
-## HIGH PRIORITY (UX Broken, Visible to Users)
+## 1. CRITICAL (Production Broken) 🚨
 
-### HP-001: Arabic Font Inter-Character Spacing (White Streaks)
-**Status:** 🔴 Open  
-**Severity:** HIGH  
-**Impact:** Arabic text looks unprofessional, "very unbecoming"  
-**Description:** White streaks of spacing connecting words in Arabic fonts on web  
-**Observed:** Catalog hero section, general Arabic typography  
-**User quote:** "The fonts are not displaying properly on the mobile, on the web, yeah, they look much nicer, but there's inter-character spacing which is very annoying, like white streaks of spacing that are connecting the words."  
-**Root cause:** Likely artificial letter-spacing applied via CSS  
-**Solution needed:** Use high-quality Arabic webfont without CSS letter-spacing hacks  
-**First reported:** 2026-01-06 (catalog redesign review)  
-**Related:** Front-end LLM task (need design-savvy solution)
+### ISSUE-001: React Hooks Violation - Catalog Page
+**Status:** 🔴 IN PROGRESS (BB assigned)  
+**Discovered:** 2026-01-06 01:12 AM UTC (Sentry alert)  
+**Severity:** BLOCKER (100% catalog page failure)  
+**Root Cause:** CC's Phase 1 deployment (commits 648f31d, 2a19266) introduced conditional hook usage
 
-### HP-002: Search Box Duplication
-**Status:** 🔴 Open  
-**Severity:** HIGH  
-**Impact:** Confusing UX, two search boxes visible  
-**Description:** Two search boxes appearing on catalog page  
-**Observed:** Screenshot shows duplicate search placement  
-**User quote:** "The search box is placed in a very weird way, and there are two search boxes which is again interesting."  
-**Solution needed:** Single search component (either in header OR hero, not both)  
-**First reported:** 2026-01-06 (catalog redesign review)  
-**Related:** BB's catalog redesign (multiple commits Jan 6)
+**Error:**
+```
+Error: Rendered more hooks than during the previous render.
+at CatalogPage (./src/app/[locale]/page.tsx:395:31)
+```
 
-### HP-003: Top Tab System Alignment Issue
-**Status:** 🔴 Open  
-**Severity:** HIGH  
-**Impact:** Visual inconsistency, looks unfinished  
-**Description:** Tab system (SUV/Sedan/Hatchback/Electric) not aligned properly  
-**Observed:** Screenshot at 50% scale shows misalignment clearly  
-**User quote:** "There's an alignment issue with the top tap system."  
-**First reported:** 2026-01-06 (catalog redesign review)  
-**Related:** BB's CatalogTabs.tsx component
+**Impact:**
+- All catalog page visits failing
+- Users see white screen / error boundary
+- 0% catalog page availability
 
-### HP-004: Column Grid Logic Wrong for Mobile
-**Status:** 🔴 Open  
-**Severity:** HIGH  
-**Impact:** Mobile UX broken (too many columns)  
-**Description:** Grid offers 3/4/5 column options, but mobile can only display 1-2 columns comfortably  
-**User quote:** "On the web, the number of columns should be changing instead of having three options of three, four, or five columns. It should be one and two because on the mobile, you can't actually see more than that."  
-**Solution needed:** Responsive column logic (1-2 cols mobile, 3-5 cols desktop)  
-**First reported:** 2026-01-06 (catalog redesign review)  
-**Related:** BB's grid defaults commit (fa4d6f4)
+**Likely Culprit:**
+- `src/app/[locale]/page.tsx` line 395 (hooks called after early returns)
+- FilterPanel lazy loading may have conditionally rendered hooks
+- Mobile-first layout changes introduced conditional hook calls
 
-### HP-005: List View Broken on Web/Mobile-Web
-**Status:** 🔴 Open  
-**Severity:** HIGH  
-**Impact:** Feature doesn't work on primary platform (web)  
-**Description:** List view works on mobile app but not on web or mobile version of web  
-**User quote:** "The list for some reason seems to work on the mobile, but not on the web or at least on the mobile version of the web."  
-**First reported:** 2026-01-06 (catalog redesign review)
+**Fix Options:**
+1. **Option A:** Revert Phase 1 entirely (safest, 5 min)
+2. **Option B:** Fix hooks violation (15-30 min, requires code review)
+
+**Assigned To:** BB  
+**Time Budget:** 30 min max (then revert if stuck)  
+**Verification:** `pnpm dev` → test /en and /ar → no console errors → deploy
+
+**Related:**
+- Sentry Issue: 7b7556a3214a482597d11c2bc02ec094
+- Commits: 648f31d, 2a19266
+- Working state: ed36d64 (before Phase 1)
 
 ---
 
-## MEDIUM (Polish, Sophistication Gaps)
+## 2. HIGH Priority (Next 24 Hours) ⚡
 
-### MP-001: Icons Lacking - No Visual Richness
-**Status:** 🔴 Open  
-**Severity:** MEDIUM  
-**Impact:** Looks "simply done", not premium  
-**Description:** Brand filter buttons show only text names, no logos, no sophisticated layout  
-**User vision:** Brand name right-aligned, large logo taking 30-40% of button width (partially cut off for elegance)  
-**User quote:** "For example, the icons are really lacking. When you choose, for example, to sort by brand name, you will find buttons for the brands, and just their names written. Nothing created there. I would imagine, for example, the brand would be right-aligned, and then a big logo would take over the rest of that order, that say that I up to 30% of the button, and sort of as if it's cut off. Something elegant, but you don't get that here."  
-**First reported:** 2026-01-06 (catalog redesign review)  
-**Related:** Front-end LLM task (design sophistication)
+### ISSUE-002: CLAUDE.md Header Outdated
+**Status:** 🟡 NEW  
+**Discovered:** 2026-01-06 1800 EET (this session)  
+**Severity:** MEDIUM (documentation drift)
 
-### MP-002: No Fluid Motion / Accordion / Slider Feel
-**Status:** 🔴 Open  
-**Severity:** MEDIUM  
-**Impact:** Doesn't feel sophisticated, static/cheap  
-**Description:** Tab system and filters lack smooth animations, sliding indicators, accordion effects  
-**User quote:** "There's no accordion or slider for this functionality, and it's not fluid motion, so you don't feel really something sophisticated."  
-**First reported:** 2026-01-06 (catalog redesign review)  
-**Related:** Front-end LLM task (interaction design)
+**Problem:**
+- Header says "Last Updated: 2025-12-24 1756 EET" (wrong date)
+- Version: 2.4.0 (should be 2.4.1 after today's updates)
+- Missing today's sessions (Jan 5-6 Performance Architecture, Jan 6 Production Crisis)
+- Not using proper timestamp format (should be YYYY-MM-DD HHmm Agent Model)
 
-### MP-003: Inconsistent "By" Prefix in Labels
-**Status:** 🔴 Open  
-**Severity:** MEDIUM  
-**Impact:** Confusing, unprofessional labeling  
-**Description:** Three tabs use "by" prefix (by brand, by price, by...), but fourth tab (Electric/Hybrid) doesn't  
-**User quote:** "You should make a brand (by price). You make it price for example, electrical hybrid, because you're using 'buy' in 3, and you're not using the word 'buy' in the 4th system (by price again). Blocks and that would make sense."  
-**Solution needed:** Consistent labeling: "Brand", "Body Type", "Price", "Powertrain" (no "by" prefix anywhere)  
-**First reported:** 2026-01-06 (catalog redesign review)  
-**Related:** BB's CatalogTabs.tsx component
+**Fix:**
+```markdown
+Version: 2.4.1 | Last Updated: 2026-01-06 1808 EET PPLX CS45
+```
 
-### MP-004: Filter Collapse Button Spans Full Screen (Wrong on Desktop)
-**Status:** 🔴 Open  
-**Severity:** MEDIUM  
-**Impact:** Desktop UX looks wrong (mobile pattern on desktop)  
-**Description:** When collapsing filter from advanced to simple, button becomes full-width (works mobile, wrong for desktop)  
-**User quote:** "When you want to collapse the filter from advanced to simple, the button becomes across the whole screen, which obviously works for mobile, but definitely doesn't work for web."  
-**First reported:** 2026-01-06 (catalog redesign review)  
-**Related:** BB's FilterPanel component
+**Assigned To:** PPLX (after creating this file)  
+**Time Budget:** 5 min
 
 ---
 
-## LOW PRIORITY (Nice-to-Have, Future Iterations)
+### ISSUE-003: Search Box Duplication
+**Status:** 🟡 NEW  
+**Discovered:** 2026-01-06 (user screenshot feedback on CC's Phase 1)  
+**Severity:** MEDIUM (UX issue)
 
-### LP-001: Search Component Should Be Extractable to Header
-**Status:** 🔴 Open  
-**Severity:** LOW  
-**Impact:** Architecture improvement (not blocking)  
-**Description:** Search currently embedded in catalog; should be a standalone component placeable in header  
-**User quote:** "It mentioned something about creating the component out of the search so it can be placed in the header bar, which makes a lot more sense."  
-**First reported:** 2026-01-06 (catalog redesign review)  
-**Related:** Architecture refactor (post-MVP 1.5)
+**Problem:**
+- Two search boxes visible on catalog page
+- One in header, one in hero/toolbar
+- Should be single component (in header OR hero, not both)
 
----
+**Impact:**
+- Confusing UX
+- Layout clutter on mobile
+- Inconsistent behavior between two search boxes
 
-## LESSONS LEARNED (Recurring Patterns)
+**Fix:**
+- Remove duplicate search box
+- Keep single instance (user to decide: header vs hero)
 
-### LL-001: Performance Defaults Not Automatic (**RECURRING**)
-**Pattern:** User has to explicitly request deferring non-critical JS, lazy loading, FCP/LCP optimization  
-**Frequency:** Every 2-3 sessions  
-**Core Issue:** LLMs (including world-class ones like CC) don't apply 2026 best practices by default  
-**User frustration statement:**  
-> "Isn't it normal that when you create a page, you defer the loading of the unnecessary J scripts to later? Is this something that you need to ask for in 2026? I mean, it's kind of utterly stupid for me that I need to ask and now I'm not asking even a junior developer. I'm asking an LLM who's supposed to be acting as a world-class developer. Do you need to ask a world-class full-stack developer to defer loading the unnecessary things until everything necessary is loaded and to prioritize what is loaded and to ensure that the FCP is under an industry standard. Is that even conceivable?"  
-**Status:** 🔴 Still recurring  
-**What would actually fix this:**  
-- Add "Performance Defaults Checklist" to PROMPT_FIXTURES.md  
-- Mandatory pre-task check: "Does this page touch rendering? If yes, verify FCP/LCP targets first."  
-- CC/BB/CCW must reference performance baseline (Amazon analysis) before writing any component  
-**First reported:** 2026-01-06 (Amazon baseline discussion context)  
-**Related:** Amazon performance analysis (docs/AMAZON_PERFORMANCE_ANALYSIS.md)
-
-### LL-002: PR Scraping Exists But Not Used (**RECURRING**)
-**Pattern:** User asks "Why do we have PR scraping if we don't use it?"  
-**Frequency:** Every 2-3 sessions (last: Jan 5, Jan 4, Jan 2)  
-**Core Issue:** PR scraper runs and outputs MERGE_BLOCKERS.md, but no one checks it before starting work  
-**User frustration statement:**  
-> "We have all these review tooling and we're not going to use it - why do we have it? And why did the people make it? Because actually you catch the problems before they happen."  
-**Status:** 🔴 Still recurring  
-**What would actually fix this:**  
-- Agent checklist item (mandatory): "Before accepting any task, read latest MERGE_BLOCKERS.md"  
-- OR: Auto-post summary at session start (Slack/Discord bot)  
-- OR: GitHub Action comments on new PR with blockers from previous PRs  
-**First reported:** Multiple sessions (Dec 2025, Jan 2026)  
-**Related:** PR scraping workflow, MERGE_BLOCKERS.md output
-
-### LL-003: Systems Created But Not Enforced (**RECURRING**)
-**Pattern:** Great systems designed (Best Practices Repo, Self-Validating Agent Response System, Performance Targets Matrix) but never enforced  
-**Examples:**  
-1. **Best Practices Repository:** Created, documented, not referenced in agent prompts  
-2. **Self-Validating Agent Response System:** Designed by PPLX, implemented by BB, never audited by CC, not enforced  
-3. **Performance Targets Matrix:** Created during Amazon analysis, not in repo, not referenced by CC during Phase 1  
-**Core Issue:** No follow-up loop to verify systems are actually being used  
-**Status:** 🔴 Still recurring  
-**What would actually fix this:**  
-- Lifecycle tracking for all systems (🟢 Active, 🟡 Created but not enforced, 🔴 Abandoned)  
-- Quarterly audit: "Which systems exist? Which are enforced? Which should be retired?"  
-- Integration status required for any new system (not just "documented")  
-**First reported:** 2026-01-06 (THOS redesign discussion)  
-**Related:** Section 4 of new THOS prompt (Knowledge Cycles)
-
-### LL-004: RTL Bug Took 2 Weeks Due to Incomplete Testing (**RESOLVED**)
-**Pattern:** Bug fixed on one page (comparison), not tested on other pages (catalog)  
-**Timeline:**  
-- Fixed on comparison page: ~2 weeks before Jan 5  
-- Discovered still broken on catalog page: Jan 5  
-- Root cause: Different router.push() usage between pages  
-- BB fixed in 15 min once given comparison page as reference  
-**User frustration statement:**  
-> "The RTL issue that was plaguing the system for over two weeks, we had fixed it two weeks ago or something like that before my vacation, and everything for the comparison page. So when you press the language button, you are automatically switched immediately without reload, but the reload kept happening on the catalog page, and we only discovered that yesterday."  
-**Status:** ✅ Resolved (BB fixed Jan 5)  
-**What prevented this:**  
-- Comprehensive testing checklist: "If fixing bug on Page A, test Pages B, C, D with similar code"  
-- Smoke test suite: "Language switch works on ALL pages" (automated)  
-**Lesson:** Partial fixes are hidden time bombs  
-**Related:** BB's RTL fix commit (Jan 5)
-
-### LL-005: Cycles Not Tracked in THOSs (**NEW FINDING**)
-**Pattern:** Multi-hour sessions contain multiple knowledge cycles (design reviews, baseline creation, system design), but THOS only captures linear timeline  
-**Examples from recent sessions:**  
-1. **Amazon Performance Baseline Cycle:** User got dump, PPLX analyzed, created performance target matrix → matrix not in repo, CC didn't reference it during Phase 1  
-2. **Self-Validating Agent Response System Cycle:** PPLX designed, BB implemented, CC was supposed to audit → audit never happened  
-3. **Best Practices Repository Cycle:** Discussed, designed, created → not enforced in agent prompts  
-**Core Issue:** These cycles create valuable artifacts (tables, systems, baselines) but they get lost because THOS doesn't highlight them as discrete knowledge areas  
-**Status:** 🟡 Improving (new THOS prompt includes Section 4: Knowledge Cycles)  
-**What would actually fix this:**  
-- THOS Section 4: Knowledge Cycles (now included in re-engineered prompt)  
-- Lifecycle status for each cycle artifact (🟢 Active, 🟡 Created but not enforced, 🔴 Abandoned)  
-- Integration status tracking (✅ In repo, ⏳ Documented but not enforced, ❌ Not integrated)  
-**First reported:** 2026-01-06 (THOS re-engineering discussion)  
-**Related:** Re-engineered THOS prompt (Section 4 addition)
-
-### LL-006: "Agree First, Then Full Plan" Not Always Followed (**RECURRING**)
-**Pattern:** LLM generates full-blown plan without getting user agreement first, wasting context/money  
-**Example:** Security audit prompt generated without confirming user's "zero security on credentials until MVP 3.x" policy  
-**User frustration statement:**  
-> "Well before going ahead and giving me a full-blown plan, agree with me first because you are wasting so many resources for no reason - time and money. You have to agree with me and then you give me the full blown thing. You gave me a prompt and I didn't agree on security. Security has one clear distinction: I am all in for security except for credentials."  
-**Status:** 🔴 Still recurring  
-**What would actually fix this:**  
-- Communication protocol: "For any plan >200 words, propose 1-2 sentence approach first, get approval, THEN elaborate"  
-- User's documented working style: "Skip option offered → user usually says 'do it anyway' → learn this pattern"  
-**First reported:** Multiple sessions (user referenced recent example today)  
-**Related:** Communication preferences in Space Instructions
+**Assigned To:** TBD (after production stabilizes)  
+**Time Budget:** 15 min
 
 ---
 
-## HOUSEKEEPING REMINDERS (Process Enforcement)
+### ISSUE-004: Tab Alignment Inconsistency
+**Status:** 🟡 NEW  
+**Discovered:** 2026-01-06 (user screenshot feedback)  
+**Severity:** LOW (cosmetic)
 
-### HR-001: CLAUDE.md Out of Sync (**ACTIVE**)
-**Status:** 🔴 Open  
-**Issue:** CLAUDE.md last updated Dec 24 (13 days ago), missing Jan 3-6 sessions  
-**Impact:** Other LLMs (like CW) working with outdated context  
-**User quote:** "I'm not sure if this is supposed to be the latest version or not, the one currently on the GitHub repo. Can you check that for me and ensure that this is actually the latest version?"  
-**Solution needed:** Update CLAUDE.md with recent sessions, fix header timestamp format  
-**First reported:** 2026-01-06 17:50 EET  
-**Action:** PPLX updating now
+**Problem:**
+- Tab labels inconsistent (some have "by", some don't)
+- Example: "By Brand" vs "Type" (should be "By Type" or "Brand")
+- No fluid motion (sliding indicator, animated underline)
 
-### HR-002: CLAUDE.md Header Uses Wrong Timestamp Format (**ACTIVE**)
-**Status:** 🔴 Open  
-**Current format:** "Last Updated: 2025-12-24 1756 EET"  
-**Correct format:** "2026-01-06 17:42 EET (Agent: PPLX, Version: 2.4.1)"  
-**User requirement:** "It should be updated to use the proper time stamp which is date-time-agent and version if possible."  
-**First reported:** 2026-01-06 17:50 EET  
-**Action:** PPLX fixing in next commit
+**Impact:**
+- Looks unpolished
+- Not premium automotive brand feel
 
----
+**Fix:**
+- Standardize tab labels (remove "by" or add consistently)
+- Add fluid motion animations (MUI Tab indicator)
 
-## ARCHIVE (Fixed or Won't Fix)
-
-### FIXED-001: RTL Language Switch Reload (✅ Fixed Jan 5, BB)
-**Original issue:** Catalog page reloaded on language switch (comparison page didn't)  
-**Root cause:** Used router.push() instead of router.replace()  
-**Fix:** BB changed to router.replace() in Header.tsx  
-**Commit:** bb/rtl-reload-fix-20260105  
-**Verified:** Jan 5 in production
-
-### FIXED-002: Gray Placeholder Images (✅ Fixed Jan 4, CC)
-**Original issue:** 59 gray placeholder images in production  
-**Root cause:** Actual IMAGE FILES committed, not NULL URLs  
-**Fix:** CC's comprehensive script (PIL RGB analysis → delete files → update DB)  
-**Commits:** 648f31d, 2a19266  
-**Verified:** Jan 4 (0 gray boxes remaining, 59% coverage achieved)
+**Assigned To:** TBD (design refinement phase)  
+**Time Budget:** 30 min
 
 ---
 
-## USAGE NOTES
+### ISSUE-005: Arabic Font White Streaks
+**Status:** 🟡 NEW  
+**Discovered:** 2026-01-06 (user business discussion)  
+**Severity:** HIGH (premium positioning)
 
-**For agents:**  
-- Check this document at session start (like reading MERGE_BLOCKERS.md)  
-- Update your section after completing work  
-- Move items to ARCHIVE when fixed  
-- Add new items as user mentions them verbally
+**Problem:**
+- Arabic fonts render with white streaks (inter-character spacing issues)
+- Likely artificial letter-spacing applied
+- Unprofessional appearance for Arabic-first market
 
-**For user:**  
-- This is your "memory" of all the little things mentioned in conversation  
-- Reference by ID when assigning tasks (e.g., "Fix HP-002 and MP-001")  
-- Review weekly to identify recurring patterns (→ becomes Lesson Learned)
+**Impact:**
+- Lower perceived quality
+- Not premium brand positioning
+- Competitors have better Arabic typography
 
-**Update protocol:**  
-- Every session: Add new items from user's verbal feedback  
-- Every fix: Move to ARCHIVE with resolution details  
-- Every week: Review MEDIUM/LOW for candidates to close or escalate
+**Fix:**
+- Audit font stack (check if letter-spacing applied)
+- Integrate high-quality Arabic webfont
+- Zero artificial letter-spacing
+- Proper fallback chain
+
+**Assigned To:** TBD (front-end LLM trial or CCW)  
+**Time Budget:** 60 min (research + implementation)
+
+---
+
+## 3. MEDIUM Priority (Next Week) 📋
+
+### ISSUE-006: 166 Models Missing Hero Images
+**Status:** 🟡 NEW  
+**Discovered:** 2026-01-04 (CC's comprehensive fix)  
+**Severity:** MEDIUM (user experience)
+
+**Current State:**
+- 408 models total
+- 242 with valid hero_image_url (59% coverage)
+- 166 with NULL → show vintage car fallback (41%)
+
+**Impact:**
+- Generic fallback not brand-specific
+- Lower perceived catalog quality
+- Users expect real vehicle images
+
+**Fix Options:**
+1. Manual sourcing (manufacturer brochures)
+2. Web scraping (legal/copyright check)
+3. Stock image purchase (budget approval)
+4. Accept 41% fallback (defer until user feedback)
+
+**Assigned To:** TBD (after user decision on sourcing approach)  
+**Time Budget:** TBD (depends on sourcing method)
+
+---
+
+### ISSUE-007: Mercedes-Benz Not in Filters
+**Status:** ✅ RESOLVED (working as intended)  
+**Discovered:** 2026-01-06 (user screenshot feedback)  
+**Severity:** N/A
+
+**Investigation:**
+- Query: `SELECT COUNT(*) FROM models WHERE brand_id IN (SELECT id FROM brands WHERE slug='mercedes-benz')`
+- Result: 0 vehicles
+- **Working as intended:** Brand correctly hidden when no vehicles available
+
+**Resolution:** No fix needed (24 Mercedes models exist but 0 trims due to partial migration)
+
+---
+
+### ISSUE-008: Wrong Image Orientations
+**Status:** 🟡 NEW  
+**Discovered:** 2026-01-04 (user report)  
+**Severity:** MEDIUM (quality issue)
+
+**Problem:**
+- Some hero images show side/rear views (not 3/4 front)
+- Examples: Suzuki Grand Vitara, VW Tiguan
+- No automated quality checks for orientation/resolution
+
+**Impact:**
+- Inconsistent catalog presentation
+- Users expect consistent 3/4 front views (automotive standard)
+
+**Fix:**
+- Audit all 242 existing hero images
+- Replace wrong orientations
+- Add quality gate script (check orientation, resolution, brand logo visible)
+
+**Assigned To:** TBD (image sourcing strategy needed first)  
+**Time Budget:** TBD (depends on replacement image availability)
+
+---
+
+## 4. LOW Priority (Backlog) 📦
+
+### ISSUE-009: Performance Optimization Phase 1 Incomplete
+**Status:** 🔴 BLOCKED (Phase 1 broke production)  
+**Discovered:** 2026-01-06 (ISSUE-001)  
+**Severity:** LOW (optimization deferred)
+
+**Original Plan:**
+- Task 1.1: Image optimization (fetchpriority, lazy loading) - 3 days
+- Task 1.2: Lazy load FilterPanel, Footer - 4 days
+- Task 1.3: Defer Sentry, analytics - 2 days
+- Target: FCP 3.84s → 2.0-2.3s (40-50% improvement)
+
+**Current State:**
+- Phase 1 implemented (commits 648f31d, 2a19266)
+- **Broke production** (React hooks violation)
+- Must fix ISSUE-001 first, then re-evaluate Phase 1
+
+**Next Steps:**
+1. Fix ISSUE-001
+2. Review Phase 1 changes (identify what's salvageable)
+3. Re-implement performance gains without breaking hooks
+
+**Assigned To:** BB (after ISSUE-001 resolved)  
+**Time Budget:** TBD (re-plan after production stable)
+
+---
+
+### ISSUE-010: Brand Button Redesign
+**Status:** 🟡 NEW  
+**Discovered:** 2026-01-06 (user business discussion)  
+**Severity:** LOW (design enhancement)
+
+**Problem:**
+- Brand buttons = text only (no logos)
+- Not premium automotive showroom feel
+- User wants large logo (30-40% of button) partially cut off
+
+**Impact:**
+- Lower perceived quality
+- Misses opportunity for visual brand recognition
+
+**Fix:**
+- Right-align brand name
+- Add large brand logo (30-40% of button width)
+- Partially cut off logo (premium feel)
+- Test with front-end LLM prompt
+
+**Assigned To:** TBD (front-end LLM trial)  
+**Time Budget:** 45 min (design + implementation)
+
+---
+
+## 5. RECENTLY RESOLVED (Last 7 Days) ✅
+
+### ISSUE-011: Gray Placeholder Images (59 deleted)
+**Status:** ✅ RESOLVED  
+**Discovered:** 2026-01-04 (user screenshot feedback)  
+**Resolved:** 2026-01-04 2018 UTC (CC comprehensive fix)  
+**Severity:** CRITICAL
+
+**Problem:**
+- Gray placeholder boxes instead of vehicle images
+- BMW X7, 320i showing gray placeholders
+- Wrong images (Suzuki showing Kia image, VW Tiguan showing van)
+
+**Root Cause:**
+- Gray placeholder IMAGE FILES committed to Git (not NULL URLs)
+- Initial diagnosis missed larger placeholders (only deleted <10KB)
+
+**Fix:**
+- Python PIL RGB analysis (detect gray dominance, not filesize)
+- Deleted 59 gray placeholder files
+- Set 9 wrong mappings to NULL
+- Updated database records
+
+**Outcome:**
+- 0 gray placeholders remaining
+- 59% coverage (242 valid images)
+- 41% fallback (vintage car)
+
+**Commits:** 648f31d, 2a19266
+
+---
+
+### ISSUE-012: Duplicate Year Display in Card Titles
+**Status:** ✅ RESOLVED  
+**Discovered:** 2026-01-06 (user screenshot feedback)  
+**Resolved:** 2026-01-04 2018 UTC (CC comprehensive fix)  
+**Severity:** MEDIUM
+
+**Problem:**
+- Card titles showing "Toyota Corolla 2026 2026" (year duplicated)
+
+**Root Cause:**
+- `formatVehicleTitle()` appended year without checking if already in name
+
+**Fix:**
+```typescript
+const formatVehicleTitle = (name: string, year: number) => {
+  const yearStr = year.toString();
+  if (name.includes(yearStr)) return name; // Don't append if already present
+  return `${name} ${yearStr}`;
+};
+```
+
+**Location:** `src/components/VehicleCard.tsx:225`  
+**Commits:** 648f31d
+
+---
+
+### ISSUE-013: Single-Trim Cards Showing Trim Name
+**Status:** ✅ RESOLVED  
+**Discovered:** 2026-01-06 (user screenshot feedback)  
+**Resolved:** 2026-01-04 2018 UTC (CC comprehensive fix)  
+**Severity:** LOW
+
+**Problem:**
+- Single-trim cards showed actual trim name (e.g., "GLS")
+- Inconsistent with multi-trim cards (which showed "X trims")
+
+**Fix:**
+- Changed to show "1 trim" for consistency
+- Arabic support: "إصدار" (single) / "إصدارات" (multi)
+
+**Location:** `src/components/VehicleCard.tsx:235-250`  
+**Commits:** 648f31d
+
+---
+
+## 6. RECURRING ISSUES (Pattern Recognition) 🔁
+
+### PATTERN-001: Agents Not Using PR Scraper Outputs
+**Frequency:** Every 2-3 sessions (last: 2026-01-05, 2026-01-04, 2026-01-02)  
+**Severity:** PROCESS
+
+**User's Frustration:**
+> "Why are we doing the PR scraper if we're not going to scrape? We have all these review tooling and we're not going to use it - why do we have it? You catch the problems before they happen."
+
+**Core Issue:**
+- PR scraper exists and runs (CodeRabbit, Sourcery, Sonar, Snyk, Sentry)
+- Outputs (MERGE_BLOCKERS.md, action rosters) not integrated into workflow
+- User has to manually remember to check outputs
+
+**Attempted Solutions:**
+1. Created PR scraper script → Works, but no reminder to check output
+2. Added to documentation → Passive, agents don't enforce checking
+
+**Status:** 🔴 Still recurring
+
+**What Would Fix This:**
+- Auto-post MERGE_BLOCKERS.md summary to Slack/Discord at session start
+- OR: Agent checklist: "Before accepting task, read latest MERGE_BLOCKERS.md"
+- OR: GitHub Action comments on new PR with latest blockers
+
+**Assigned To:** TBD (process automation needed)
+
+---
+
+### PATTERN-002: Agents Not Self-Critiquing Before Responding
+**Frequency:** Daily (multiple times per session)  
+**Severity:** PROCESS
+
+**User's Frustration:**
+> "Every time you respond, you have to self-critique. You're not doing that."
+
+**Core Issue:**
+- CLAUDE.md Section 1 mandates self-critique
+- Agents forget or skip this step
+- User has to repeatedly remind
+
+**Attempted Solutions:**
+1. Added to CLAUDE.md "Core Rules" → Still forgotten
+2. Added to "Mandatory Instructions" → Still forgotten
+
+**Status:** 🔴 Still recurring
+
+**What Would Fix This:**
+- Pre-response validation hook (like pre-commit hook)
+- Python script validates output includes "Self-Critique:" section
+- Blocks response submission if missing
+
+**Assigned To:** TBD (Self-Validating Agent Response System - ISSUE-015)
+
+---
+
+### PATTERN-003: CLAUDE.md Timestamp Drift
+**Frequency:** Every session (header not updated)  
+**Severity:** DOCUMENTATION
+
+**Problem:**
+- Header shows "Last Updated: 2025-12-24" (wrong)
+- Actual updates happen (content changes, new sections)
+- No enforcement to update header timestamp
+
+**Attempted Solutions:**
+1. Added to "Session End Protocol" → Still forgotten
+2. Added to "Housekeeping Reminder" → Still forgotten
+
+**Status:** 🔴 Still recurring (ISSUE-002 is current instance)
+
+**What Would Fix This:**
+- Git pre-commit hook checks CLAUDE.md header
+- Compares "Last Updated" to current date
+- Blocks commit if outdated (or auto-updates)
+
+**Assigned To:** TBD (automation script needed)
+
+---
+
+## APPENDIX: Issue Template
+
+```markdown
+### ISSUE-XXX: [Title]
+**Status:** 🔴 NEW / 🟡 IN PROGRESS / ✅ RESOLVED / 🔵 BLOCKED  
+**Discovered:** YYYY-MM-DD (source)  
+**Severity:** CRITICAL / HIGH / MEDIUM / LOW
+
+**Problem:**
+[What's wrong, 1-3 bullets]
+
+**Impact:**
+[Why it matters, user/business impact]
+
+**Fix:**
+[What needs to be done]
+
+**Assigned To:** Agent / TBD  
+**Time Budget:** X min
+
+**Related:**
+[Links to commits, Sentry issues, PRs, etc.]
+```
+
+---
+
+**END OF ISSUES_ROSTER.md v1.0.0**
+
+**Maintained By:** All Agents (CC audits)  
+**Update Frequency:** Real-time (add issues as discovered)  
+**Next Review:** After production stabilizes (ISSUE-001 resolved)
