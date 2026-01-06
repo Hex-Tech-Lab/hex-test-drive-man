@@ -17,7 +17,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useBookingStore } from '@/stores/useBookingStore';
-import { useComparisonStore } from '@/stores/useComparisonStore';
+import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { formatEGP } from '@/lib/imageHelper';
 
@@ -63,9 +63,9 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
   // Primitive selectors to avoid React 19 infinite loops
   const bookingItems = useBookingStore((state) => state.items);
   const removeBooking = useBookingStore((state) => state.removeItem);
-  
-  const comparisonItems = useComparisonStore((state) => state.items);
-  const removeComparison = useComparisonStore((state) => state.removeItem);
+
+  const comparisonItems = useCompareStore((state) => state.compareItems);
+  const removeComparison = useCompareStore((state) => state.removeFromCompare);
   
   const language = useLanguageStore((state) => state.language);
 

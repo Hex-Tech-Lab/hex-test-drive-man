@@ -10,6 +10,7 @@ import {
   FormControl,
   InputLabel,
   InputAdornment,
+  IconButton,
   Paper,
   Collapse,
   Grid,
@@ -17,6 +18,7 @@ import {
   SelectChangeEvent,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Vehicle } from '@/types/vehicle';
@@ -188,6 +190,17 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
                 startAdornment: (
                   <InputAdornment position="start">
                     <SearchIcon />
+                  </InputAdornment>
+                ),
+                endAdornment: filters.searchTerm && (
+                  <InputAdornment position="end">
+                    <IconButton
+                      size="small"
+                      onClick={() => handleFilterChange('searchTerm', '')}
+                      edge="end"
+                    >
+                      <ClearIcon fontSize="small" />
+                    </IconButton>
                   </InputAdornment>
                 ),
               }}

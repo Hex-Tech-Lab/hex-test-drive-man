@@ -39,63 +39,100 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
     return Array.from(brandSet).sort();
   }, [vehicles]);
 
-  // Extract unique categories from live data
+  // Extract unique categories from live data (cascaded by brand selection)
   const availableCategories = useMemo(() => {
     const catSet = new Set<string>();
     vehicles.forEach((v) => {
+      // Cascade: Only include categories from selected brands (if any selected)
+      if (selectedBrands.length > 0 && !selectedBrands.includes(v.models?.brands?.name || '')) {
+        return;
+      }
       if (v.categories?.name) {
         catSet.add(v.categories.name);
       }
     });
     return Array.from(catSet).sort();
-  }, [vehicles]);
+  }, [vehicles, selectedBrands]);
 
-  // Extract unique body styles from live data
+  // Extract unique body styles from live data (cascaded by brand selection)
   const availableBodyStyles = useMemo(() => {
     const styleSet = new Set<string>();
     vehicles.forEach((v) => {
+      // Cascade: Only include body styles from selected brands (if any selected)
+      if (selectedBrands.length > 0 && !selectedBrands.includes(v.models?.brands?.name || '')) {
+        return;
+      }
       if (v.body_styles?.name_en) {
         styleSet.add(v.body_styles.name_en);
       }
     });
     return Array.from(styleSet).sort();
-  }, [vehicles]);
+  }, [vehicles, selectedBrands]);
 
-  // Extract unique fuel types from live data
+  // Extract unique fuel types from live data (cascaded by brand selection)
   const availableFuelTypes = useMemo(() => {
     const fuelSet = new Set<string>();
     vehicles.forEach((v) => {
+      // Cascade: Only include fuel types from selected brands (if any selected)
+      if (selectedBrands.length > 0 && !selectedBrands.includes(v.models?.brands?.name || '')) {
+        return;
+      }
       if (v.fuel_types?.name) {
         fuelSet.add(v.fuel_types.name);
       }
     });
     return Array.from(fuelSet).sort();
-  }, [vehicles]);
+  }, [vehicles, selectedBrands]);
 
-  // Extract unique transmissions from live data
+  // Extract unique transmissions from live data (cascaded by brand selection)
   const availableTransmissions = useMemo(() => {
     const transSet = new Set<string>();
     vehicles.forEach((v) => {
+      // Cascade: Only include transmissions from selected brands (if any selected)
+      if (selectedBrands.length > 0 && !selectedBrands.includes(v.models?.brands?.name || '')) {
+        return;
+      }
       if (v.transmissions?.name) {
         transSet.add(v.transmissions.name);
       }
     });
     return Array.from(transSet).sort();
-  }, [vehicles]);
+  }, [vehicles, selectedBrands]);
 
-  // Dynamic max price based on available vehicles
+  // Extract unique years from live data (cascaded by brand selection)
+  const availableYears = useMemo(() => {
+    const yearSet = new Set<number>();
+    vehicles.forEach((v) => {
+      // Cascade: Only include years from selected brands (if any selected)
+      if (selectedBrands.length > 0 && !selectedBrands.includes(v.models?.brands?.name || '')) {
+        return;
+      }
+      if (v.model_year) {
+        yearSet.add(v.model_year);
+      }
+    });
+    return Array.from(yearSet).sort((a, b) => b - a); // Newest first
+  }, [vehicles, selectedBrands]);
+
+  // Dynamic max price based on available vehicles (cascaded by brand selection)
   const maxPrice = useMemo(() => {
     if (vehicles.length === 0) return 20_000_000;
-    const prices = vehicles.map(v => v.price_egp).filter(p => p > 0);
+    const filteredForPrice = selectedBrands.length > 0
+      ? vehicles.filter(v => selectedBrands.includes(v.models?.brands?.name || ''))
+      : vehicles;
+    const prices = filteredForPrice.map(v => v.price_egp).filter(p => p > 0);
     return prices.length > 0 ? Math.max(...prices) : 20_000_000;
-  }, [vehicles]);
+  }, [vehicles, selectedBrands]);
 
-  // Dynamic min price based on available vehicles
+  // Dynamic min price based on available vehicles (cascaded by brand selection)
   const minPrice = useMemo(() => {
     if (vehicles.length === 0) return 0;
-    const prices = vehicles.map(v => v.price_egp).filter(p => p > 0);
+    const filteredForPrice = selectedBrands.length > 0
+      ? vehicles.filter(v => selectedBrands.includes(v.models?.brands?.name || ''))
+      : vehicles;
+    const prices = filteredForPrice.map(v => v.price_egp).filter(p => p > 0);
     return prices.length > 0 ? Math.min(...prices) : 0;
-  }, [vehicles]);
+  }, [vehicles, selectedBrands]);
 
   const handleBrandToggle = (brand: string) => {
     const newBrands = selectedBrands.includes(brand)
