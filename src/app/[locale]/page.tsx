@@ -33,7 +33,7 @@ export default function CatalogPage() {
   const [error, setError] = useState<string | null>(null);
   const [searchFilters, setSearchFilters] = useState<SearchFilters>({ searchTerm: '' });
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [gridColumns, setGridColumns] = useState<3 | 4 | 5>(4);
+  const [gridColumns, setGridColumns] = useState<3 | 4 | 5>(3); // Changed default from 4 to 3 for better spacing
 
   // Use persistent filter store
   const brands = useFilterStore((state) => state.brands);
@@ -412,14 +412,16 @@ export default function CatalogPage() {
                 </Typography>
               </Box>
             ) : (
-              <Grid container spacing={3}>
+              <Grid container spacing={4}>
                 {filteredVehicles.map((vehicle, index) => (
                   <Grid
                     item
                     key={vehicle.id}
                     xs={12}
                     sm={6}
-                    md={gridColumns === 3 ? 4 : gridColumns === 4 ? 3 : 2.4}
+                    md={6}
+                    lg={gridColumns === 3 ? 4 : gridColumns === 4 ? 3 : 2.4}
+                    xl={gridColumns === 3 ? 3 : gridColumns === 4 ? 2.4 : 2}
                   >
                     <VehicleCard vehicle={vehicle} position={index} />
                   </Grid>
