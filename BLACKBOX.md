@@ -205,19 +205,25 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **[COMPLETE 2026-01-06] PR #28 Audit**: BB acting as CC deputy - PR #28 closed (duplicate of PR #33, already merged)
+1. ✅ **[COMPLETE 2026-01-06 2300 UTC] RTL Drawer + Skeleton Flash UX Fixes**: BB - PR #38 created
+   - BUG-001 (Cart drawer RTL): Verified already correct (no changes needed)
+   - BUG-002 (Skeleton flash): Fixed with 300ms delay pattern
+   - PR #38: https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/38
+   - Status: Open, mergeable, awaiting CI checks
+   - Duration: 15 minutes (on target)
+2. ✅ **[COMPLETE 2026-01-06] PR #28 Audit**: BB acting as CC deputy - PR #28 closed (duplicate of PR #33, already merged)
    - Audit report: `docs/PR28_AUDIT_REPORT.md`
    - Decision: ❌ CLOSE (merge conflicts, duplicate content, CI failure)
    - PR #33 (identical changes) merged 2026-01-05 23:42 UTC
    - Follow-up: Verify 48% FCP improvement claim via Lighthouse
-2. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
+3. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
    - Update `extraction_engine/requirements.txt`: `filelock>=3.20.1`
    - TOCTOU race condition (CVSS 6.3)
    - Published: 2025-12-16
    - Impact: Python extraction pipeline only (not frontend)
-3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
-4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
-5. ✅ **[FIXED 2026-01-04] Workflow Failure**: Disabled `.github/workflows/collect-ai-prompts.yml` (script never existed, failing since 2025-12-10)
+4. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
+5. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
+6. ✅ **[FIXED 2026-01-04] Workflow Failure**: Disabled `.github/workflows/collect-ai-prompts.yml` (script never existed, failing since 2025-12-10)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
 4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
