@@ -130,6 +130,33 @@ export default function CatalogPage() {
     return Object.values(grouped);
   }, [vehicles]);
 
+  // Get unique brands count - MUST be before early returns
+  const uniqueBrands = useMemo(() => {
+    const brandSet = new Set(vehicles.map(v => v.models?.brands?.name).filter(Boolean));
+    return brandSet.size;
+  }, [vehicles]);
+
+  // Get unique brands and types for tab panels - MUST be before early returns
+  const uniqueBrandsList = useMemo(() => {
+    const brandSet = new Set(vehicles.map(v => v.models?.brands?.name).filter(Boolean));
+    return Array.from(brandSet) as string[];
+  }, [vehicles]);
+
+  const uniqueTypesList = useMemo(() => {
+    const typeSet = new Set(vehicles.map(v => v.categories?.name).filter(Boolean));
+    return Array.from(typeSet) as string[];
+  }, [vehicles]);
+
+  const priceStats = useMemo(() => {
+    if (vehicles.length === 0) return { min: 0, max: 5000000 };
+    const prices = vehicles.map(v => v.price_egp).filter(p => p > 0);
+    if (prices.length === 0) return { min: 0, max: 5000000 };
+    return {
+      min: Math.min(...prices),
+      max: Math.max(...prices),
+    };
+  }, [vehicles]);
+
   const filteredVehicles = aggregatedVehicles.filter((vehicle: AggregatedVehicle) => {
     // Search filters from VehicleSearch component
     if (searchFilters.searchTerm) {
@@ -390,32 +417,6 @@ export default function CatalogPage() {
       useFilterStore.getState().setFilters({ fuelTypes: ['Electric'] });
     }
   };
-
-  // Get unique brands count
-  const uniqueBrands = useMemo(() => {
-    const brandSet = new Set(vehicles.map(v => v.models.brands.name));
-    return brandSet.size;
-  }, [vehicles]);
-
-  // Get unique brands and types for tab panels
-  const uniqueBrandsList = useMemo(() => {
-    const brandSet = new Set(vehicles.map(v => v.models.brands.name));
-    return Array.from(brandSet);
-  }, [vehicles]);
-
-  const uniqueTypesList = useMemo(() => {
-    const typeSet = new Set(vehicles.map(v => v.categories?.name).filter(Boolean));
-    return Array.from(typeSet) as string[];
-  }, [vehicles]);
-
-  const priceStats = useMemo(() => {
-    if (vehicles.length === 0) return { min: 0, max: 5000000 };
-    const prices = vehicles.map(v => v.price_egp);
-    return {
-      min: Math.min(...prices),
-      max: Math.max(...prices),
-    };
-  }, [vehicles]);
 
   // Handle tab change
   const handleTabChange = (tab: string) => {
