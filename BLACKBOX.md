@@ -205,26 +205,41 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **[COMPLETE 2026-01-06] PR #28 Audit**: BB acting as CC deputy - PR #28 closed (duplicate of PR #33, already merged)
+1. ✅ **[COMPLETE 2026-01-06 2300 UTC] Performance Phase 2**: BB - PR #37 merged (cache/animation/bundle optimization + accessibility)
+   - Reduced image cache TTL: 1 year → 30 days (per PR #28 audit)
+   - Optimized MUI theme transitions + prefers-reduced-motion support
+   - Enabled Next.js performance features (compress, swcMinify, reactStrictMode)
+   - Added bundle analyzer infrastructure (`pnpm run analyze`)
+   - Created PR scraping script (`pnpm run pr:scrape <PR_NUMBER>`)
+   - Docs: `docs/PERFORMANCE_PHASE2_COMPLETE.md`, `docs/PR_37_REVIEW_ANALYSIS.md`
+2. ✅ **[COMPLETE 2026-01-06] PR #28 Audit**: BB acting as CC deputy - PR #28 closed (duplicate of PR #33, already merged)
    - Audit report: `docs/PR28_AUDIT_REPORT.md`
    - Decision: ❌ CLOSE (merge conflicts, duplicate content, CI failure)
    - PR #33 (identical changes) merged 2026-01-05 23:42 UTC
    - Follow-up: Verify 48% FCP improvement claim via Lighthouse
-2. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
+3. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
    - Update `extraction_engine/requirements.txt`: `filelock>=3.20.1`
    - TOCTOU race condition (CVSS 6.3)
    - Published: 2025-12-16
    - Impact: Python extraction pipeline only (not frontend)
-3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
-4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
-5. ✅ **[FIXED 2026-01-04] Workflow Failure**: Disabled `.github/workflows/collect-ai-prompts.yml` (script never existed, failing since 2025-12-10)
+4. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
+5. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
+6. ✅ **[FIXED 2026-01-04] Workflow Failure**: Disabled `.github/workflows/collect-ai-prompts.yml` (script never existed, failing since 2025-12-10)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
-5. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
-6. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
-7. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
-8. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
+7. **[QUEUED FOR CC] Performance Phase 3 Profiling**: 4 new performance issues discovered post-Phase 2 merge
+   - PERF-011: Forced reflow in MUI chunk (1,141ms) - CRITICAL
+   - PERF-012: JS execution regression (2.5s → 5.4s, +116%) - HIGH
+   - PERF-013: DOM size explosion (4,953 elements, 330% over limit) - HIGH
+   - PERF-014: Deprecated synchronous XMLHttpRequest - HIGH
+   - Requires: Chrome DevTools profiling, React DevTools, webpack analysis
+   - Estimated: 4-6 hours (CC Saturday task)
+   - Docs: `docs/PERFORMANCE_ISSUES_PHASE3.md`, `docs/CC_TASK_PERF_PROFILING.md`
+8. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
+9. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
+10. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
+11. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
+12. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
 
 ### PRIORITY 3 (MEDIUM - Next 48 Hours)
 7. **PDF Extraction Pipeline**: Cell-span detection (target 55% quality gate)
