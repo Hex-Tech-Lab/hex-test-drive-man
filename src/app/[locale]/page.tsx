@@ -451,8 +451,18 @@ export default function CatalogPage() {
 
       {/* Catalog Tabs */}
       <CatalogTabs onTabChange={handleTabChange} />
-      
-      <Container maxWidth="xl" sx={{ py: 4 }}>
+
+      <Container
+        maxWidth="xl"
+        sx={{
+          // Mobile-first responsive padding (Expo-compatible approach)
+          // Mobile: Tight padding (12px) - maximize screen real estate
+          // Tablet: Comfortable padding (24px) - more breathing room
+          // Desktop: Generous padding (32px) - professional spacing
+          px: { xs: 1.5, sm: 3, md: 4 },
+          py: { xs: 2, sm: 3, md: 4 },
+        }}
+      >
         {/* Tab Panels */}
         <TabPanel value={activeTab} index={0}>
           {/* All Vehicles - Show search and filters */}
@@ -500,8 +510,11 @@ export default function CatalogPage() {
           sx={{
             display: { xs: 'block', md: 'grid' },
             gridTemplateColumns: { xs: '1fr', md: '250px 1fr' },
-            gap: 3,
-            mt: 2, // Add some top margin
+            // Mobile-first responsive gap (Expo-compatible approach)
+            // Mobile: Stacked layout (no gap needed)
+            // Tablet/Desktop: 24px gap between filter panel and content
+            gap: { xs: 2, md: 3 },
+            mt: 2,
           }}
         >
           <Grid item sx={{ xs: 12 }}>
@@ -527,11 +540,31 @@ export default function CatalogPage() {
                 </Typography>
               </Box>
             ) : (
-              <Grid container spacing={4}>
+              <Grid
+                container
+                spacing={{
+                  xs: 2, // Mobile: 16px spacing (tight but comfortable for small screens)
+                  sm: 3, // Tablet: 24px spacing (more breathing room)
+                  md: 4, // Desktop: 32px spacing (generous spacing for clarity)
+                }}
+                sx={{
+                  // Mobile-first responsive grid
+                  // Touch-friendly: Minimum 44px tap targets (iOS/Android HIG compliant)
+                  '& .MuiGrid-item': {
+                    minHeight: { xs: 44, sm: 'auto' },
+                  },
+                }}
+              >
                 {filteredVehicles.map((vehicle, index) => (
                   <Grid
                     item
                     key={vehicle.id}
+                    // Mobile-first column distribution (Expo-compatible approach)
+                    // xs (0-600px): 1 column (100% width) - Phones
+                    // sm (600-900px): 2 columns (50% width) - Large phones/small tablets
+                    // md (900-1200px): 2 columns (50% width) - Tablets
+                    // lg (1200-1536px): Dynamic (3-5 columns) - Small desktops
+                    // xl (1536px+): Dynamic (3-5 columns) - Large desktops
                     xs={12}
                     sm={6}
                     md={6}
