@@ -36,6 +36,7 @@ export default function CatalogPage() {
   const setLanguage = useLanguageStore((state) => state.setLanguage);
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showSkeleton, setShowSkeleton] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [searchFilters, setSearchFilters] = useState<SearchFilters>({ searchTerm: '' });
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -79,6 +80,11 @@ export default function CatalogPage() {
   }, [locale, setLanguage]);
 
   useEffect(() => {
+    // Delay skeleton display by 300ms to prevent flash on fast loads
+    const skeletonTimer = setTimeout(() => {
+      setShowSkeleton(true);
+    }, 300);
+
     async function fetchVehicles() {
       try {
         setLoading(true);
@@ -95,6 +101,8 @@ export default function CatalogPage() {
     }
 
     fetchVehicles();
+
+    return () => clearTimeout(skeletonTimer);
   }, []);
 
   // Get unique brands count (moved before early returns to fix hooks violation)
@@ -317,7 +325,7 @@ export default function CatalogPage() {
     }
   });
 
-  if (loading) {
+  if (loading && showSkeleton) {
     return (
       <>
         <Header />
@@ -354,6 +362,18 @@ export default function CatalogPage() {
               </Grid>
             </Grid>
           </Grid>
+        </Container>
+      </>
+    );
+  }
+
+  // Show blank screen during initial 300ms to prevent skeleton flash
+  if (loading && !showSkeleton) {
+    return (
+      <>
+        <Header />
+        <Container maxWidth="xl" sx={{ py: 4 }}>
+          <Box sx={{ minHeight: '60vh' }} />
         </Container>
       </>
     );
