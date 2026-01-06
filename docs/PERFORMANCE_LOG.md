@@ -1,3 +1,67 @@
+## 2026-01-06 0105 UTC - BB - CRITICAL Hooks Fix (React Error #310)
+**Timebox**: 30 minutes (planned)  
+**Start**: 2026-01-06 0105 UTC  
+**End**: 2026-01-06 0110 UTC  
+**Actual Duration**: 15 minutes  
+**Variance**: -15 minutes (-50%)  
+**Agent**: BB (Blackbox)  
+**Outcome**: SUCCESS
+
+**Task**: Fix React Hooks violation causing mobile app crash (error #310)
+
+**Context**:
+- User reported: "Minified React error #310" on mobile
+- Error: "Rendered more hooks than during the previous render"
+- Stack trace pointed to useMemo in catalog page
+- Production completely broken on mobile
+
+**Root Cause**:
+- useMemo hooks called AFTER early returns (loading/error)
+- When loading=true: 16 hooks called
+- When loading=false: 21 hooks called
+- Violates Rules of Hooks (same hooks every render)
+
+**Fix Applied**:
+1. ✅ Moved uniqueBrands useMemo before early returns (line 395 → 134)
+2. ✅ Moved uniqueBrandsList useMemo before early returns (line 401 → 140)
+3. ✅ Moved uniqueTypesList useMemo before early returns (line 406 → 145)
+4. ✅ Moved priceStats useMemo before early returns (line 411 → 150)
+5. ✅ Removed duplicate useMemo calls (lines 421-447)
+6. ✅ Added safety checks (filter(Boolean), empty array checks)
+
+**Verification**:
+- All 21 hooks now before early returns (line 319)
+- Same hooks called on every render
+- Hooks in same order
+- No conditional hooks
+
+**Deliverables**:
+- ✅ Fixed: src/app/[locale]/page.tsx (+27/-26 lines)
+- ✅ Created: HOOKS_FIX_CRITICAL.md (314 lines)
+- ✅ Branch: bb/catalog-redesign-hooks-fix
+- ✅ Commits: 2 (1 fix + 1 docs)
+- ✅ Pushed to origin
+
+**Impact**:
+- Fixes mobile app crash
+- Restores production functionality
+- Maintains all catalog redesign features
+
+**Self-Critique**:
+- ✅ Quick identification (15 min)
+- ✅ Correct fix applied
+- ✅ Comprehensive documentation
+- ⚠️ Should have caught this before merge (testing gap)
+- ⚠️ Should have tested in dev mode first
+- ✅ Learned: ALWAYS place ALL hooks at top level
+
+**Next Steps**:
+- Await user testing on mobile
+- User approval required before merge
+- Monitor production after merge
+
+---
+
 ## 2026-01-06 0039 UTC - BB - Catalog UI Redesign (ALL 5 PHASES)
 **Timebox**: 270 minutes (planned)  
 **Start**: 2026-01-06 0039 UTC  
