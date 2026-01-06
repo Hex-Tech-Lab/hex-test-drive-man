@@ -224,22 +224,30 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
   return (
     <Box sx={{
       position: { xs: 'relative', md: 'sticky' },
-      top: { md: 80 },
-      maxHeight: { md: 'calc(100vh - 96px)' },
+      top: { md: 184 }, // Updated: Below header (64) + sticky search (60) + tabs (60)
+      maxHeight: { md: 'calc(100vh - 200px)' }, // Adjusted for new sticky elements
       overflowY: { md: 'auto' },
       overflowX: 'hidden',
       pb: 2,
-      '&::-webkit-scrollbar': { width: 8 },
+      '&::-webkit-scrollbar': { width: 6 }, // Thinner scrollbar
+      '&::-webkit-scrollbar-track': {
+        backgroundColor: 'transparent',
+      },
       '&::-webkit-scrollbar-thumb': {
-        backgroundColor: 'rgba(0,0,0,0.2)',
-        borderRadius: 4
+        backgroundColor: 'rgba(0,0,0,0.15)', // Lighter scrollbar
+        borderRadius: 3,
+        '&:hover': {
+          backgroundColor: 'rgba(0,0,0,0.25)',
+        },
       },
     }}>
       <Paper elevation={0} sx={{ 
-        border: '1px solid #e0e0e0', 
-        borderRadius: 1, 
+        border: '1px solid',
+        borderColor: 'divider',
+        borderRadius: 2, // Slightly more rounded
         overflow: 'hidden',
-        bgcolor: '#fff'
+        bgcolor: 'background.paper',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.05)', // Subtle shadow
       }}>
         <Box sx={{ 
           p: 2, 
@@ -262,13 +270,13 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         </Box>
 
         {/* Brands Accordion */}
-        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
               {language === 'ar' ? 'العلامات التجارية' : 'Brands'}
             </Typography>
           </AccordionSummary>
-          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+          <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               {availableBrands.map((brand) => (
                 <FormControlLabel
@@ -316,13 +324,13 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         </Accordion>
 
         {/* Price Range Accordion */}
-        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
               {language === 'ar' ? 'نطاق السعر' : 'Price Range'}
             </Typography>
           </AccordionSummary>
-          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+          <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>
             <Slider
               value={priceRange}
               onChange={handlePriceChange}
@@ -346,13 +354,13 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         </Accordion>
 
         {/* Body Styles Accordion */}
-        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
               {language === 'ar' ? 'نوع الهيكل' : 'Body Types'}
             </Typography>
           </AccordionSummary>
-          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+          <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               {availableBodyStyles.map((style) => (
                 <FormControlLabel
@@ -373,13 +381,13 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         </Accordion>
 
         {/* Fuel Types Accordion */}
-        <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+        <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
               {language === 'ar' ? 'نوع الوقود' : 'Fuel Type'}
             </Typography>
           </AccordionSummary>
-          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+          <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               {availableFuelTypes.map((fuel) => (
                 <FormControlLabel
@@ -401,12 +409,12 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
 
         {/* Transmissions Accordion */}
         <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' } }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
               {language === 'ar' ? 'ناقل الحركة' : 'Transmission'}
             </Typography>
           </AccordionSummary>
-          <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+          <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               {availableTransmissions.map((trans) => (
                 <FormControlLabel
