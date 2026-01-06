@@ -205,7 +205,20 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **[COMPLETE 2026-01-06 2330 UTC] Transparent Skeleton Fix (BUG-002 CORRECTED)**: BB - PR #39 MERGED
+1. ✅ **[COMPLETE 2026-01-06 2355 UTC] Phase 6: Cairo Font Loading Fix (BUG-003/004)**: BB - PR #40 MERGED
+   - ✅ Added Next.js font optimization for Cairo (weights 400/700, arabic+latin subsets)
+   - ✅ Added CSS variable `--font-cairo` to root layout
+   - ✅ Updated theme.ts to use CSS variable for Arabic locale
+   - ✅ Verified no letter-spacing issues (none found)
+   - ✅ PR #40 scraped using 3-bucket classification system
+   - ✅ Classification: BUCKET 1 (SAFE TO MERGE) - 0 CRITICAL, 0 HIGH, 0 MEDIUM, 2 LOW
+   - ✅ Merged via squash merge (commit 08d2afe)
+   - ✅ Branch deleted: bb/phase6-fix-cairo-font
+   - **Performance Impact**: Saves 21 KB (Cairo 70KB vs Roboto 91KB = 23% reduction)
+   - Files: `src/app/layout.tsx`, `src/lib/theme.ts`
+   - Docs: `docs/PR_40_REVIEW_ANALYSIS.md`
+   - Duration: 6 minutes (40% under 10-minute timebox)
+2. ✅ **[COMPLETE 2026-01-06 2330 UTC] Transparent Skeleton Fix (BUG-002 CORRECTED)**: BB - PR #39 MERGED
    - ❌ Closed PR #38 (incorrect: 300ms delay + skeleton flash)
    - ✅ Implemented transparent skeleton (Amazon-style: opacity: 0)
    - ✅ PR #39 scraped using 3-bucket classification system
@@ -215,29 +228,29 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
    - Files: `src/app/[locale]/page.tsx`, `src/components/skeletons/FilterPanelSkeleton.tsx`
    - Docs: `docs/PR_39_REVIEW_ANALYSIS.md`, `TRANSPARENT_SKELETON_FIX_SUMMARY.md`
    - Duration: 15 minutes total (10 min fix + 5 min scrape/merge)
-2. ✅ **[COMPLETE 2026-01-06 2300 UTC] Performance Phase 2**: BB - PR #37 merged (cache/animation/bundle optimization + accessibility)
+3. ✅ **[COMPLETE 2026-01-06 2300 UTC] Performance Phase 2**: BB - PR #37 merged (cache/animation/bundle optimization + accessibility)
    - Reduced image cache TTL: 1 year → 30 days (per PR #28 audit)
    - Optimized MUI theme transitions + prefers-reduced-motion support
    - Enabled Next.js performance features (compress, swcMinify, reactStrictMode)
    - Added bundle analyzer infrastructure (`pnpm run analyze`)
    - Created PR scraping script (`pnpm run pr:scrape <PR_NUMBER>`)
    - Docs: `docs/PERFORMANCE_PHASE2_COMPLETE.md`, `docs/PR_37_REVIEW_ANALYSIS.md`
-3. ✅ **[COMPLETE 2026-01-06] PR #28 Audit**: BB acting as CC deputy - PR #28 closed (duplicate of PR #33, already merged)
+4. ✅ **[COMPLETE 2026-01-06] PR #28 Audit**: BB acting as CC deputy - PR #28 closed (duplicate of PR #33, already merged)
    - Audit report: `docs/PR28_AUDIT_REPORT.md`
    - Decision: ❌ CLOSE (merge conflicts, duplicate content, CI failure)
    - PR #33 (identical changes) merged 2026-01-05 23:42 UTC
    - Follow-up: Verify 48% FCP improvement claim via Lighthouse
-4. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
+5. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
    - Update `extraction_engine/requirements.txt`: `filelock>=3.20.1`
    - TOCTOU race condition (CVSS 6.3)
    - Published: 2025-12-16
    - Impact: Python extraction pipeline only (not frontend)
-4. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
-5. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
-6. ✅ **[FIXED 2026-01-04] Workflow Failure**: Disabled `.github/workflows/collect-ai-prompts.yml` (script never existed, failing since 2025-12-10)
+6. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
+7. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
+8. ✅ **[FIXED 2026-01-04] Workflow Failure**: Disabled `.github/workflows/collect-ai-prompts.yml` (script never existed, failing since 2025-12-10)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-7. **[QUEUED FOR CC] Performance Phase 3 Profiling**: 4 new performance issues discovered post-Phase 2 merge
+9. **[QUEUED FOR CC] Performance Phase 3 Profiling**: 4 new performance issues discovered post-Phase 2 merge
    - PERF-011: Forced reflow in MUI chunk (1,141ms) - CRITICAL
    - PERF-012: JS execution regression (2.5s → 5.4s, +116%) - HIGH
    - PERF-013: DOM size explosion (4,953 elements, 330% over limit) - HIGH
@@ -245,16 +258,16 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
    - Requires: Chrome DevTools profiling, React DevTools, webpack analysis
    - Estimated: 4-6 hours (CC Saturday task)
    - Docs: `docs/PERFORMANCE_ISSUES_PHASE3.md`, `docs/CC_TASK_PERF_PROFILING.md`
-8. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
-9. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
-10. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
-11. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
-12. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
+10. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
+11. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
+12. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
+13. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
+14. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
 
 ### PRIORITY 3 (MEDIUM - Next 48 Hours)
-7. **PDF Extraction Pipeline**: Cell-span detection (target 55% quality gate)
-8. **Smart Rules Engine**: Expand to 50% coverage (add 10 safety/ADAS specs)
-9. **Booking Migration**: Apply `20251211_booking_schema.sql` to production
+15. **PDF Extraction Pipeline**: Cell-span detection (target 55% quality gate)
+16. **Smart Rules Engine**: Expand to 50% coverage (add 10 safety/ADAS specs)
+17. **Booking Migration**: Apply `20251211_booking_schema.sql` to production
 
 **Full Backlog**: `docs/OPEN_ITEMS_FULL.md` (if exists) or refer to GitHub Issues/Projects
 
