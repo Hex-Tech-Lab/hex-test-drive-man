@@ -225,26 +225,30 @@ export default function LandingV3() {
             </Grid>
           ) : (
             <Grid container spacing={3}>
-              {featuredVehicles.map((vehicle, index) => (
-                <Grid item xs={12} sm={6} md={4} key={vehicle.id}>
-                  <Card
-                    sx={{
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      cursor: 'pointer',
-                      opacity: mounted ? 1 : 0,
-                      transform: mounted ? 'translateY(0)' : 'translateY(20px)',
-                      transition: `all 0.6s ease-out ${0.1 + index * 0.1}s`,
-                      '&:hover': {
-                        transform: 'translateY(-8px)',
-                        boxShadow: theme.shadows[8],
-                      },
-                    }}
-                    onClick={() =>
-                      router.push(`/${locale}/vehicles/${vehicle.slug}`)
-                    }
-                  >
+              {featuredVehicles.map((vehicle, index) => {
+                // Generate detail page URL
+                const brandSlug = vehicle.models.brands.name.toLowerCase().replace(/\s+/g, '-');
+                const modelSlug = vehicle.models.name.toLowerCase().replace(/\s+/g, '-');
+                const detailUrl = `/${locale}/vehicles/${brandSlug}-${modelSlug}-${vehicle.model_year}`;
+
+                return (
+                  <Grid item xs={12} sm={6} md={4} key={vehicle.id}>
+                    <Card
+                      sx={{
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        cursor: 'pointer',
+                        opacity: mounted ? 1 : 0,
+                        transform: mounted ? 'translateY(0)' : 'translateY(20px)',
+                        transition: `all 0.6s ease-out ${0.1 + index * 0.1}s`,
+                        '&:hover': {
+                          transform: 'translateY(-8px)',
+                          boxShadow: theme.shadows[8],
+                        },
+                      }}
+                      onClick={() => router.push(detailUrl)}
+                    >
                     <CardMedia
                       component="img"
                       height="200"
@@ -303,7 +307,8 @@ export default function LandingV3() {
                     </CardContent>
                   </Card>
                 </Grid>
-              ))}
+                );
+              })}
             </Grid>
           )}
 

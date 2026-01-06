@@ -217,7 +217,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
             ) : (
               <Stack spacing={2}>
                 {comparisonItems.map((item) => (
-                  <Card key={item.trimId} variant="outlined">
+                  <Card key={item.id} variant="outlined">
                     <Box sx={{ display: 'flex', gap: 1.5, p: 1.5 }}>
                       {/* Vehicle Image */}
                       <CardMedia
@@ -229,8 +229,8 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
                           borderRadius: 1,
                           flexShrink: 0,
                         }}
-                        image={item.imageUrl || '/placeholder-car.jpg'}
-                        alt={`${item.brandName} ${item.modelName}`}
+                        image={item.models?.hero_image_url || '/placeholder-car.jpg'}
+                        alt={`${item.models?.brands?.name} ${item.models?.name}`}
                       />
 
                       {/* Vehicle Info */}
@@ -241,13 +241,13 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
                           noWrap
                           sx={{ mb: 0.5 }}
                         >
-                          {item.brandName} {item.modelName}
+                          {item.models?.brands?.name} {item.models?.name}
                         </Typography>
                         <Typography variant="caption" color="text.secondary" noWrap>
-                          {item.trimName} {item.year}
+                          {item.trim_name} {item.model_year}
                         </Typography>
                         <Typography variant="body2" fontWeight={600} sx={{ mt: 0.5 }}>
-                          {formatEGP(item.price, language)}
+                          {formatEGP(item.price_egp, language)}
                         </Typography>
                       </Box>
 
@@ -255,7 +255,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
                       <IconButton
                         size="small"
                         color="error"
-                        onClick={() => removeComparison(item.trimId)}
+                        onClick={() => removeComparison(item.id)}
                         sx={{ alignSelf: 'flex-start' }}
                       >
                         <DeleteIcon fontSize="small" />
