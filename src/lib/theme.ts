@@ -18,6 +18,37 @@ const baseThemeOptions: ThemeOptions = {
   shape: {
     borderRadius: 8,
   },
+  // Performance optimizations for animations
+  transitions: {
+    duration: {
+      shortest: 150,
+      shorter: 200,
+      short: 250,
+      standard: 300,
+      complex: 375,
+      enteringScreen: 225,
+      leavingScreen: 195,
+    },
+    easing: {
+      easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
+      easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
+      sharp: 'cubic-bezier(0.4, 0, 0.6, 1)',
+    },
+  },
+  // Reduce component overhead
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: false, // Keep ripple for UX, but optimize
+      },
+    },
+    MuiCard: {
+      defaultProps: {
+        elevation: 1, // Reduce shadow complexity
+      },
+    },
+  },
 };
 
 export const lightTheme = createTheme(baseThemeOptions);
