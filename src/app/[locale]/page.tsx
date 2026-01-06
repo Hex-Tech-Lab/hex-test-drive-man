@@ -9,6 +9,7 @@ import VehicleSearch, { SearchFilters } from '@/components/catalog/VehicleSearch
 import CatalogToolbar from '@/components/catalog/CatalogToolbar';
 import CatalogHero from '@/components/catalog/CatalogHero';
 import CatalogTabs from '@/components/catalog/CatalogTabs';
+import StickySearchBar from '@/components/catalog/StickySearchBar';
 import { TabPanel, BrandTabPanel, TypeTabPanel, PriceTabPanel, ElectricTabPanel } from '@/components/catalog/TabPanels';
 import { SkeletonCard } from '@/components/skeletons';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
@@ -438,6 +439,12 @@ export default function CatalogPage() {
         totalModels={aggregatedVehicles.length}
         totalBrands={uniqueBrands}
         onCategoryClick={handleCategoryClick}
+      />
+
+      {/* Sticky Search Bar */}
+      <StickySearchBar
+        vehicles={vehicles}
+        onSearch={(query) => setSearchFilters({ searchTerm: query })}
       />
 
       {/* Catalog Tabs */}
