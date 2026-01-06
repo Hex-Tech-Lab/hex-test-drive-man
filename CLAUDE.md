@@ -1,6 +1,6 @@
 # CLAUDE.md - Project Brain (CC Owns)
 
-Version: 2.4.0 | Last Updated: 2025-12-24 1756 EET | Production Deadline: 2025-12-31 EOD UTC
+Version: 2.4.1 | Last Updated: 2026-01-06 2100 EET | Agent: PPLX | Status: ACTIVE
 Status: ACTIVE - Pruned Edition (550-680 lines target)
 
 ***
@@ -374,6 +374,10 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 **Space Saved**: 300 lines → 30-40 lines (87% reduction)
 
 - **2026-01-05 (CC Critical Fixes - Partial Session)**
+
+- **2026-01-06 (Multi-Agent Production Triage + PR Stabilization)**
+  - Emergency: React hooks violation fixed (BB commit 793486f) + catalog page restored + BB scraper: 2 open PRs (#28 CC perf, #27 BB workflow) + CC Phase 1 NOT in production (PR #28 pending) + CLAUDE.md sync violation discovered (last update Dec 24, missing 13 days of work) + Terminology: "timebox" → "time assessment/audit"
+  - Files: 1 critical fix (page.tsx hooks), 3 reports (MERGE_STATUS, CC_PHASE1_IMPACT_ANALYSIS, ISSUES_ROSTER), docs by BB + Production verified working + Time Assessment: 25 min (BB hooks fix, -50% variance), 25 min (BB reports, -50% variance)
   - Fixed 404 pages for hyphenated models (Uni-T, Uni-V): Dual-query fallback (space→hyphen) resolves slug mismatch + Investigated Mercedes visibility: 24 models exist but 0 trims (migration partially failed) + Created fix script (scripts/fix-mercedes-trims.mjs, needs manual execution) + **DEFERRED 4 tasks** (60 min): Container/flyout system, state persistence, breadcrumb bug, favorites button, language switch
   - Files: 1 modified (page.tsx: +48/-48 lines, extracted VEHICLE_DETAIL_SELECT constant), 2 scripts created (debug-vehicles.mjs, fix-mercedes-trims.mjs) + Build ✓ (411e243) + Docstring 83.54% + Timebox: 30 min actual / 90 min allocated (67% under budget, 2 of 4 tasks completed) + Handoff: docs/NEXT_SESSION_DEFERRED_TASKS.md (200 lines)
 
