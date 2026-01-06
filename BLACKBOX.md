@@ -205,19 +205,26 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **[COMPLETE 2026-01-06 2300 UTC] Performance Phase 2**: BB - PR #37 merged (cache/animation/bundle optimization + accessibility)
+1. ✅ **[COMPLETE 2026-01-06 2326 UTC] Transparent Skeleton Fix (BUG-002 CORRECTED)**: BB - PR #39 created
+   - ❌ Closed PR #38 (incorrect: 300ms delay + skeleton flash)
+   - ✅ Implemented transparent skeleton (Amazon-style: opacity: 0)
+   - Files: `src/app/[locale]/page.tsx`, `src/components/skeletons/FilterPanelSkeleton.tsx`
+   - PR #39: https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/39
+   - Status: Open, awaiting CI checks
+   - Duration: 10 minutes (33% under timebox)
+2. ✅ **[COMPLETE 2026-01-06 2300 UTC] Performance Phase 2**: BB - PR #37 merged (cache/animation/bundle optimization + accessibility)
    - Reduced image cache TTL: 1 year → 30 days (per PR #28 audit)
    - Optimized MUI theme transitions + prefers-reduced-motion support
    - Enabled Next.js performance features (compress, swcMinify, reactStrictMode)
    - Added bundle analyzer infrastructure (`pnpm run analyze`)
    - Created PR scraping script (`pnpm run pr:scrape <PR_NUMBER>`)
    - Docs: `docs/PERFORMANCE_PHASE2_COMPLETE.md`, `docs/PR_37_REVIEW_ANALYSIS.md`
-2. ✅ **[COMPLETE 2026-01-06] PR #28 Audit**: BB acting as CC deputy - PR #28 closed (duplicate of PR #33, already merged)
+3. ✅ **[COMPLETE 2026-01-06] PR #28 Audit**: BB acting as CC deputy - PR #28 closed (duplicate of PR #33, already merged)
    - Audit report: `docs/PR28_AUDIT_REPORT.md`
    - Decision: ❌ CLOSE (merge conflicts, duplicate content, CI failure)
    - PR #33 (identical changes) merged 2026-01-05 23:42 UTC
    - Follow-up: Verify 48% FCP improvement claim via Lighthouse
-3. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
+4. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
    - Update `extraction_engine/requirements.txt`: `filelock>=3.20.1`
    - TOCTOU race condition (CVSS 6.3)
    - Published: 2025-12-16

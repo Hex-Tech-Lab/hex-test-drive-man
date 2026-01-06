@@ -19,11 +19,11 @@ import { useLanguageStore } from '@/stores/language-store';
 import { useFilterStore } from '@/stores/filter-store';
 import { useParams } from 'next/navigation';
 
-// Lazy load FilterPanel with skeleton (prevents CLS during load)
+// Lazy load FilterPanel with transparent skeleton (Amazon-style: no visible flash)
 // Client-side only: uses localStorage for filter persistence
 const FilterPanel = dynamic(() => import('@/components/FilterPanel'), {
   ssr: false,
-  loading: () => <FilterPanelSkeleton />,
+  loading: () => <FilterPanelSkeleton sx={{ opacity: 0 }} />,
 });
 
 /**
@@ -322,8 +322,8 @@ export default function CatalogPage() {
       <>
         <Header />
         <Container maxWidth="xl" sx={{ py: 4 }}>
-          {/* Skeleton search bar */}
-          <Box sx={{ mb: 4 }}>
+          {/* Transparent skeleton - reserves space without visible flash (Amazon-style) */}
+          <Box sx={{ mb: 4, opacity: 0 }}>
             <Typography variant="h5" sx={{ mb: 2 }}>
               {language === 'ar' ? 'جاري التحميل...' : 'Loading...'}
             </Typography>
@@ -336,14 +336,15 @@ export default function CatalogPage() {
               display: { xs: 'block', md: 'grid' },
               gridTemplateColumns: { xs: '1fr', md: '250px 1fr' },
               gap: 3,
+              opacity: 0, // Transparent skeleton layer
             }}
           >
-            {/* Filter panel placeholder */}
+            {/* Filter panel placeholder - invisible but reserves space */}
             <Grid item sx={{ xs: 12 }}>
               <Box sx={{ height: 400, bgcolor: 'background.paper', borderRadius: 1 }} />
             </Grid>
 
-            {/* Skeleton vehicle cards */}
+            {/* Skeleton vehicle cards - invisible but reserves layout space */}
             <Grid item sx={{ xs: 12 }}>
               <Grid container spacing={3}>
                 {Array.from({ length: 8 }).map((_, index) => (

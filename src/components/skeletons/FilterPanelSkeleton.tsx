@@ -1,4 +1,4 @@
-import { Box, Paper, Skeleton, Divider } from '@mui/material';
+import { Box, Paper, Skeleton, Divider, SxProps, Theme } from '@mui/material';
 
 /**
  * Loading skeleton for FilterPanel component
@@ -6,8 +6,10 @@ import { Box, Paper, Skeleton, Divider } from '@mui/material';
  *
  * Design: Matches FilterPanel structure (accordions, checkboxes, slider)
  * Performance: Prevents CLS (Cumulative Layout Shift) during load
+ *
+ * @param sx - Optional sx prop for custom styling (e.g., opacity: 0 for transparent skeleton)
  */
-export default function FilterPanelSkeleton() {
+export default function FilterPanelSkeleton({ sx }: { sx?: SxProps<Theme> }) {
   return (
     <Box
       sx={{
@@ -16,6 +18,7 @@ export default function FilterPanelSkeleton() {
         maxHeight: { md: 'calc(100vh - 96px)' },
         overflowY: { md: 'auto' },
         pb: 2,
+        ...sx, // Merge custom sx prop (allows opacity: 0 for transparent skeleton)
       }}
     >
       <Paper
