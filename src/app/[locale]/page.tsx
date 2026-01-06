@@ -8,6 +8,8 @@ import VehicleCard from '@/components/VehicleCard';
 import VehicleSearch, { SearchFilters } from '@/components/catalog/VehicleSearch';
 import CatalogToolbar from '@/components/catalog/CatalogToolbar';
 import CatalogHero from '@/components/catalog/CatalogHero';
+import CatalogTabs from '@/components/catalog/CatalogTabs';
+import { TabPanel, BrandTabPanel, TypeTabPanel, PriceTabPanel, ElectricTabPanel } from '@/components/catalog/TabPanels';
 import { SkeletonCard } from '@/components/skeletons';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
@@ -35,6 +37,7 @@ export default function CatalogPage() {
   const [searchFilters, setSearchFilters] = useState<SearchFilters>({ searchTerm: '' });
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [gridColumns, setGridColumns] = useState<3 | 4 | 5>(3); // Changed default from 4 to 3 for better spacing
+  const [activeTab, setActiveTab] = useState(0);
 
   // Use persistent filter store
   const brands = useFilterStore((state) => state.brands);
@@ -393,6 +396,39 @@ export default function CatalogPage() {
     return brandSet.size;
   }, [vehicles]);
 
+  // Get unique brands and types for tab panels
+  const uniqueBrandsList = useMemo(() => {
+    const brandSet = new Set(vehicles.map(v => v.models.brands.name));
+    return Array.from(brandSet);
+  }, [vehicles]);
+
+  const uniqueTypesList = useMemo(() => {
+    const typeSet = new Set(vehicles.map(v => v.categories?.name).filter(Boolean));
+    return Array.from(typeSet) as string[];
+  }, [vehicles]);
+
+  const priceStats = useMemo(() => {
+    if (vehicles.length === 0) return { min: 0, max: 5000000 };
+    const prices = vehicles.map(v => v.price_egp);
+    return {
+      min: Math.min(...prices),
+      max: Math.max(...prices),
+    };
+  }, [vehicles]);
+
+  // Handle tab change
+  const handleTabChange = (tab: string) => {
+    // Map tab to appropriate view
+    const tabMap: Record<string, number> = {
+      all: 0,
+      brand: 1,
+      type: 2,
+      price: 3,
+      electric: 4,
+    };
+    setActiveTab(tabMap[tab] || 0);
+  };
+
   return (
     <>
       <Header />
@@ -403,14 +439,51 @@ export default function CatalogPage() {
         totalBrands={uniqueBrands}
         onCategoryClick={handleCategoryClick}
       />
+
+      {/* Catalog Tabs */}
+      <CatalogTabs onTabChange={handleTabChange} />
       
       <Container maxWidth="xl" sx={{ py: 4 }}>
-        {/* Vehicle Search Component */}
-        <VehicleSearch
-          vehicles={vehicles}
-          onSearch={setSearchFilters}
-          totalResults={filteredVehicles.length}
-        />
+        {/* Tab Panels */}
+        <TabPanel value={activeTab} index={0}>
+          {/* All Vehicles - Show search and filters */}
+          <VehicleSearch
+            vehicles={vehicles}
+            onSearch={setSearchFilters}
+            totalResults={filteredVehicles.length}
+          />
+        </TabPanel>
+
+        <TabPanel value={activeTab} index={1}>
+          {/* By Brand */}
+          <BrandTabPanel brands={uniqueBrandsList} />
+        </TabPanel>
+
+        <TabPanel value={activeTab} index={2}>
+          {/* By Type */}
+          <TypeTabPanel types={uniqueTypesList} />
+        </TabPanel>
+
+        <TabPanel value={activeTab} index={3}>
+          {/* By Price */}
+          <PriceTabPanel minPrice={priceStats.min} maxPrice={priceStats.max} />
+        </TabPanel>
+
+        <TabPanel value={activeTab} index={4}>
+          {/* Electric/Hybrid */}
+          <ElectricTabPanel />
+        </TabPanel>
+
+        {/* Show search for non-All tabs */}
+        {activeTab !== 0 && (
+          <Box sx={{ mt: 3 }}>
+            <VehicleSearch
+              vehicles={vehicles}
+              onSearch={setSearchFilters}
+              totalResults={filteredVehicles.length}
+            />
+          </Box>
+        )}
 
         <Grid
           container
