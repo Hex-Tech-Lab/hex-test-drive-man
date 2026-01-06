@@ -5,16 +5,18 @@ import { AppBar, Toolbar, Typography, IconButton, Badge, Button, Container, Tool
 import dynamic from 'next/dynamic';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CartDrawerSkeleton from '@/components/skeletons/CartDrawerSkeleton';
 import { useLanguageStore } from '@/stores/language-store';
 import { useCompareStore } from '@/stores/compare-store';
 import { useBookingStore } from '@/stores/useBookingStore';
 import { useComparisonStore } from '@/stores/useComparisonStore';
 import { useRouter, usePathname } from 'next/navigation';
 
-// Lazy load CartDrawer (only loads when user opens cart)
+// Lazy load CartDrawer with skeleton (prevents CLS during load)
+// Only loads when user clicks cart icon (deferred until interaction)
 const CartDrawer = dynamic(() => import('@/components/CartDrawer'), {
   ssr: false,
-  loading: () => null,
+  loading: () => <CartDrawerSkeleton />,
 });
 
 /**
