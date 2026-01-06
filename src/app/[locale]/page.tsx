@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import VehicleCard from '@/components/VehicleCard';
 import VehicleSearch, { SearchFilters } from '@/components/catalog/VehicleSearch';
 import CatalogToolbar from '@/components/catalog/CatalogToolbar';
+import CatalogHero from '@/components/catalog/CatalogHero';
 import { SkeletonCard } from '@/components/skeletons';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
@@ -368,9 +369,41 @@ export default function CatalogPage() {
     );
   }
 
+  // Handle category click from hero
+  const handleCategoryClick = (category: string) => {
+    // Map category to body style filter
+    const categoryMap: Record<string, string> = {
+      suv: 'SUV',
+      sedan: 'Sedan',
+      hatchback: 'Hatchback',
+      electric: 'Electric', // This would need fuel type filter
+    };
+    
+    const bodyStyleName = categoryMap[category];
+    if (bodyStyleName && bodyStyleName !== 'Electric') {
+      useFilterStore.getState().setFilters({ bodyStyles: [bodyStyleName] });
+    } else if (bodyStyleName === 'Electric') {
+      useFilterStore.getState().setFilters({ fuelTypes: ['Electric'] });
+    }
+  };
+
+  // Get unique brands count
+  const uniqueBrands = useMemo(() => {
+    const brandSet = new Set(vehicles.map(v => v.models.brands.name));
+    return brandSet.size;
+  }, [vehicles]);
+
   return (
     <>
       <Header />
+      
+      {/* Catalog Hero Section */}
+      <CatalogHero
+        totalModels={aggregatedVehicles.length}
+        totalBrands={uniqueBrands}
+        onCategoryClick={handleCategoryClick}
+      />
+      
       <Container maxWidth="xl" sx={{ py: 4 }}>
         {/* Vehicle Search Component */}
         <VehicleSearch
