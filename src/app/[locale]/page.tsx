@@ -93,8 +93,14 @@ export default function CatalogPage() {
   // Aggregate trims into model-level cards
   const aggregatedVehicles = useMemo(() => {
     const grouped = vehicles.reduce((acc, vehicle) => {
+      // Skip vehicles without model_id or essential data
+      if (!vehicle.model_id || !vehicle.models?.name || !vehicle.models?.brands?.name) {
+        console.warn('Skipping vehicle with incomplete data:', vehicle.id, vehicle.trim_name);
+        return acc;
+      }
+
       const modelKey = vehicle.model_id;
-      
+
       if (!acc[modelKey]) {
         acc[modelKey] = {
           ...vehicle,
@@ -112,7 +118,7 @@ export default function CatalogPage() {
         acc[modelKey].trimCount++;
         acc[modelKey].trimNames += `, ${vehicle.trim_name}`;
       }
-      
+
       return acc;
     }, {} as Record<string, AggregatedVehicle>);
 
