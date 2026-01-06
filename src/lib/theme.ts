@@ -66,7 +66,7 @@ export function getTheme(locale: string) {
     direction: locale === 'ar' ? 'rtl' : 'ltr',
     typography: {
       fontFamily: locale === 'ar' 
-        ? 'Cairo, Roboto, Arial, sans-serif' 
+        ? 'var(--font-cairo), Cairo, Roboto, Arial, sans-serif' 
         : 'Roboto, Arial, sans-serif',
     },
   });
