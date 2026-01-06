@@ -126,14 +126,13 @@ export default function CatalogPage() {
       const brandName = vehicle.models.brands.name?.toLowerCase() || '';
       const modelName = vehicle.models.name?.toLowerCase() || '';
       const modelYear = vehicle.model_year?.toString() || '';
-      // Also search trim names for better coverage
-      const trimNames = vehicle.trimNames?.toLowerCase() || '';
 
+      // Search brand, model, year only (NOT trim names - too many false positives)
+      // Example: "AU" in "AUTO", "LUXURY" caused BYD F3 to match "Audi"
       const matchesSearch = (
         brandName.includes(query) ||
         modelName.includes(query) ||
-        modelYear.includes(query) ||
-        trimNames.includes(query)
+        modelYear.includes(query)
       );
 
       if (!matchesSearch) {
@@ -204,7 +203,13 @@ export default function CatalogPage() {
     const hasActiveSearch = searchFilters.searchTerm?.trim().length > 0;
 
     if (!hasActiveSearch) {
-      if (filters.brands.length > 0 && !filters.brands.includes(vehicle.models.brands.name)) {
+      // Normalize brand name for comparison (handle "Mercedes-Benz" vs "Mercedes Benz" etc.)
+      const normalizeBrand = (name: string) => name.replace(/[-–—\s]/g, '').toLowerCase();
+      const vehicleBrandNormalized = normalizeBrand(vehicle.models.brands.name);
+      const hasBrandMatch = filters.brands.length === 0 ||
+        filters.brands.some(b => normalizeBrand(b) === vehicleBrandNormalized);
+
+      if (!hasBrandMatch) {
         return false;
       }
 
