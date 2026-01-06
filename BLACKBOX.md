@@ -205,25 +205,22 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **Landing Pages Integration** (BB, 2026-01-06 0023 UTC): SUCCESS - Merged 3 landing page versions to main with selector system, 4 new routes (/landing-selector, /landing-v1, /landing-v2, /landing-v3), 10 files added (2,157 insertions), 8 min (-93%), commit 0f01504
-2. ✅ **React Hooks Violation Emergency Fix** (BB, 2026-01-06 0030 UTC): SUCCESS - Fixed "Rendered more hooks than during previous render" error, moved 4 useMemo hooks before early returns, 25 min (-17%), PR ready for merge, commit 793486f
-3. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
+1. **[HIGH] Fix Dependabot Alert #46** (filelock CVE-2025-68146)
    - Update `extraction_engine/requirements.txt`: `filelock>=3.20.1`
    - TOCTOU race condition (CVSS 6.3)
    - Published: 2025-12-16
    - Impact: Python extraction pipeline only (not frontend)
+2. ✅ **CLAUDE.md Pruning**: This task (GC executing now)
 3. **GEMINI.md Restoration**: Investigate truncation (commit c29e2ed), restore from pre-deletion state or replicate from pruned CLAUDE.md
-4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure
+4. **Root Directory Cleanup**: Move 15+ MD files to SDLC structure (Phase 4 of this task)
+5. ✅ **[FIXED 2026-01-04] Workflow Failure**: Disabled `.github/workflows/collect-ai-prompts.yml` (script never existed, failing since 2025-12-10)
 
 ### PRIORITY 2 (HIGH - Next 24 Hours)
-4. **[BLOCKER] Close PR #24**: ESLint 8→9 upgrade violates GUARDRAILS (Section 3), close with architectural decision comment
-5. **[CRITICAL] Review PR #28**: Investigate 2 CRITICAL CodeRabbit issues, fix minimumCacheTTL (1 year → 30 days), verify 48% FCP improvement
-6. **[APPROVED] Merge PR #27**: CI workflow fix, low risk, no blockers detected
-7. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
-8. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
-9. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
-10. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
-11. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
+4. **Catalog UI Redesign Research**: Investigate filter tabs, search box placement, grid defaults per user directive
+5. **Image Coverage**: Fix MG5 negative image, improve hero positioning (objectPosition tuning)
+6. **Branch Consolidation**: Merge `gc/ui-regression-fixes-v2.3` to main after verification
+7. **Fix npm References in Docs**: Grep README/CONTRIBUTING for `npm install`, replace with `pnpm install` (violates pnpm-only policy)
+8. **Formalize Docstring Policy**: Document ≥80% coverage requirement in CONTRIBUTING.md + ESLint enforcement plan
 
 ### PRIORITY 3 (MEDIUM - Next 48 Hours)
 7. **PDF Extraction Pipeline**: Cell-span detection (target 55% quality gate)
@@ -516,28 +513,6 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 ***
 
 ## 14. AUDIT HISTORY
-
-### 2026-01-05 Mercedes-Benz + Hongqi Data Fix (BB)
-**Task**: Add missing Mercedes-Benz (24 models) + Hongqi (1 model) to production database
-
-**Results**:
-- ✅ Mercedes-Benz: 0 → 24 models (25 images available)
-- ✅ Hongqi: 0 → 1 model (H9 2025)
-- ✅ Total catalog: 402 → 427 models (+6.2% inventory)
-- ✅ Duration: 20 minutes (78% faster than 90 min estimate)
-
-**Scripts Created**:
-- `scripts/parse_mercedes_images.py` - Extract models from image filenames
-- `scripts/generate_mercedes_sql.py` - Generate SQL migrations
-- `scripts/apply_mercedes_final.sh` - Execute via Supabase REST API
-
-**Migrations Applied**:
-- `supabase/migrations/20260105_mercedes_benz_models.sql` (24 models, 1181 lines)
-- `supabase/migrations/20260105_create_hongqi.sql` (brand + H9 model, 89 lines)
-
-**Impact**: Mercedes-Benz now visible in catalog filters, ready for booking
-
----
 
 ### 2025-12-24 Manual Audit (BB)
 **Reports Generated**:
