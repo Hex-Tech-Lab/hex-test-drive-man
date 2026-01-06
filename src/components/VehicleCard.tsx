@@ -66,7 +66,8 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
 
-  // Prioritize first 8 cards (above fold on desktop: 4 cols x 2 rows)
+  // Mobile-first priority loading: First 8 cards above fold
+  // Mobile: 1 col x 8 rows | Tablet: 2 cols x 4 rows | Desktop: 4 cols x 2 rows
   const isAboveFold = position < 8;
 
   // Generate detail page URL
@@ -225,11 +226,16 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
             alt={displayTitle}
             fill
             priority={isAboveFold}
-            sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, (max-width: 1280px) 33vw, 25vw"
+            loading={isAboveFold ? 'eager' : 'lazy'}
+            // Mobile-first responsive sizes (Expo-compatible breakpoints)
+            // 640px: Mobile, 1024px: Tablet, 1536px: Desktop
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
             style={{
               objectFit: 'cover',
               objectPosition: 'center 85%',
             }}
+            // HTML5 fetch priority hint (performance optimization)
+            {...(isAboveFold && { fetchPriority: 'high' as const })}
             onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
               // Automatic fallback to placeholder on 404/corrupt image
               const img = e.currentTarget;
