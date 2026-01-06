@@ -95,6 +95,32 @@ export default function CatalogPage() {
     fetchVehicles();
   }, []);
 
+  // Get unique brands count (moved before early returns to fix hooks violation)
+  const uniqueBrands = useMemo(() => {
+    const brandSet = new Set(vehicles.map(v => v.models.brands.name));
+    return brandSet.size;
+  }, [vehicles]);
+
+  // Get unique brands and types for tab panels (moved before early returns)
+  const uniqueBrandsList = useMemo(() => {
+    const brandSet = new Set(vehicles.map(v => v.models.brands.name));
+    return Array.from(brandSet);
+  }, [vehicles]);
+
+  const uniqueTypesList = useMemo(() => {
+    const typeSet = new Set(vehicles.map(v => v.categories?.name).filter(Boolean));
+    return Array.from(typeSet) as string[];
+  }, [vehicles]);
+
+  const priceStats = useMemo(() => {
+    if (vehicles.length === 0) return { min: 0, max: 5000000 };
+    const prices = vehicles.map(v => v.price_egp);
+    return {
+      min: Math.min(...prices),
+      max: Math.max(...prices),
+    };
+  }, [vehicles]);
+
   // Aggregate trims into model-level cards
   const aggregatedVehicles = useMemo(() => {
     const grouped = vehicles.reduce((acc, vehicle) => {
@@ -390,32 +416,6 @@ export default function CatalogPage() {
       useFilterStore.getState().setFilters({ fuelTypes: ['Electric'] });
     }
   };
-
-  // Get unique brands count
-  const uniqueBrands = useMemo(() => {
-    const brandSet = new Set(vehicles.map(v => v.models.brands.name));
-    return brandSet.size;
-  }, [vehicles]);
-
-  // Get unique brands and types for tab panels
-  const uniqueBrandsList = useMemo(() => {
-    const brandSet = new Set(vehicles.map(v => v.models.brands.name));
-    return Array.from(brandSet);
-  }, [vehicles]);
-
-  const uniqueTypesList = useMemo(() => {
-    const typeSet = new Set(vehicles.map(v => v.categories?.name).filter(Boolean));
-    return Array.from(typeSet) as string[];
-  }, [vehicles]);
-
-  const priceStats = useMemo(() => {
-    if (vehicles.length === 0) return { min: 0, max: 5000000 };
-    const prices = vehicles.map(v => v.price_egp);
-    return {
-      min: Math.min(...prices),
-      max: Math.max(...prices),
-    };
-  }, [vehicles]);
 
   // Handle tab change
   const handleTabChange = (tab: string) => {
