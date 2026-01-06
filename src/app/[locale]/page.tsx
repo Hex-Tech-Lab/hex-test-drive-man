@@ -12,16 +12,18 @@ import CatalogTabs from '@/components/catalog/CatalogTabs';
 import StickySearchBar from '@/components/catalog/StickySearchBar';
 import { TabPanel, BrandTabPanel, TypeTabPanel, PriceTabPanel, ElectricTabPanel } from '@/components/catalog/TabPanels';
 import { SkeletonCard } from '@/components/skeletons';
+import FilterPanelSkeleton from '@/components/skeletons/FilterPanelSkeleton';
 import { vehicleRepository } from '@/repositories/vehicleRepository';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
 import { useFilterStore } from '@/stores/filter-store';
 import { useParams } from 'next/navigation';
 
-// Lazy load FilterPanel (client-side only, uses localStorage)
+// Lazy load FilterPanel with skeleton (prevents CLS during load)
+// Client-side only: uses localStorage for filter persistence
 const FilterPanel = dynamic(() => import('@/components/FilterPanel'), {
   ssr: false,
-  loading: () => null,
+  loading: () => <FilterPanelSkeleton />,
 });
 
 /**
