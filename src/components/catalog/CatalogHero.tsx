@@ -55,8 +55,8 @@ export default function CatalogHero({ totalModels, totalBrands, onCategoryClick 
       label: language === 'ar' ? 'علامة تجارية' : 'Brands',
     },
     {
-      value: '24/7',
-      label: language === 'ar' ? 'دعم' : 'Support',
+      value: '2',
+      label: language === 'ar' ? 'موقعين' : 'Locations',
     },
   ];
 
