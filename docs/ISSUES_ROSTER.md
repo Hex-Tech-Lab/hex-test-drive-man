@@ -1032,15 +1032,19 @@ const formatVehicleTitle = (name: string, year: number) => {
 **Update Frequency:** Real-time (add issues as discovered)  
 **Next Review:** After Sprint 1 completes (BUG-005-010 resolved)
 
-### BUG-011: Transparent Skeleton Flash on Reload
-**Severity**: MEDIUM
-**Status**: FIXED
-**Affected**: FilterPanel, VehicleCard, CartDrawer skeletons
-**Fix**: 
-- CartDrawerSkeleton: Changed open={true} to open={false}
-- FilterPanelSkeleton: Added visibility: hidden during SSR/hydration
-- Both skeletons now properly hidden until content loads (Amazon-style)
-**PR**: #45
+### BUG-011: Transparent Skeleton Flash on Reload (REOPENED & PROPERLY FIXED)
+**Severity**: HIGH (UX bug, production deployed but broken)
+**Status**: FIXED (properly)
+**Affected**: CartDrawer skeleton visible on page reload
+**Previous attempt**: PR #45 (wrong approach - hid skeleton instead of fixing transparency)
+**Proper fix**: PR #47
+- Root cause: Skeleton had `open={true}` hardcoded, making it visible during SSR/hydration
+- Solution: CartDrawerSkeleton now accepts `open` and `onClose` props (defaults to `open=false`)
+- Header.tsx only renders CartDrawer when `cartDrawerOpen=true` using conditional rendering
+- Uses Suspense with skeleton fallback that only shows when drawer is actually opening
+- Removed skeleton from `dynamic()` loading prop to prevent SSR flash
+**Testing**: Hard reload on /ar and /en routes - no transparent flash ✓
+**PR**: #47
 **Date**: 2026-01-07
 **Agent**: BB
 
