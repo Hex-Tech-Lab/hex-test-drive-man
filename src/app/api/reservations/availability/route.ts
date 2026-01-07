@@ -35,13 +35,27 @@ export async function GET(request: NextRequest) {
     const { data, error } = await getAvailableTimeSlots(vehicleId, date);
 
     if (error) {
+      // Check if table doesn't exist - return all slots as available
+      if (error.message.includes('table') && error.message.includes('not') && error.message.includes('exist')) {
+        // Generate default available slots (9 AM - 6 PM)
+        const defaultSlots = [];
+        for (let hour = 9; hour <= 17; hour++) {
+          const time = `${hour.toString().padStart(2, '0')}:00`;
+          defaultSlots.push({ time, available: true });
+        }
+        return NextResponse.json({ 
+          slots: defaultSlots,
+          message: 'Showing all time slots as available. Booking system is being set up.'
+        });
+      }
+      
       return NextResponse.json(
         { error: error.message },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ slots: data });
+    return NextResponse.json({ slots: data || [] });
   } catch (error) {
     console.error('GET /api/reservations/availability error:', error);
     return NextResponse.json(
