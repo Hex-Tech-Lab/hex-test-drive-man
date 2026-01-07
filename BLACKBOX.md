@@ -205,7 +205,30 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **[COMPLETE 2026-01-07 1130 AM EET] MVP Roadmap Update + Issue Roster + 2H Sprint Plan**: BB - All deliverables created
+1. ✅ **[COMPLETE 2026-01-07 1820 UTC] Document All Production Bugs (BUG-013 to BUG-028)**: BB - Comprehensive documentation created
+   - ✅ Created docs/BUGS_PRODUCTION_COMPREHENSIVE_2026-01-07.md (1467 lines)
+     - 16 bugs documented across 3 testing sessions
+     - Severity: 9 CRITICAL, 4 HIGH, 2 MEDIUM, 1 LOW
+     - Detailed reproduction steps for each bug
+     - Fix approaches with code examples
+     - Time estimates for each fix
+   - ✅ Created docs/BUG_FIX_MASTER_PLAN_2026-01-07.md (1541 lines)
+     - 5 sprints planned (Sprint 0 completed, 1-4 pending)
+     - Sprint 0: Emergency revert (5 min) - ✅ COMPLETED
+     - Sprint 1: Critical booking bugs (365 min / 6h 5min)
+     - Sprint 2: Navigation & UX (150 min / 2h 30min)
+     - Sprint 3: Polish (75 min / 1h 15min)
+     - Sprint 4: PR #47 investigation (105 min / 1h 45min)
+     - Total effort: 700 minutes (11h 40min)
+   - ✅ Updated docs/ISSUES_ROSTER.md (v1.3.0, added 16 bugs)
+   - ✅ Updated docs/PERFORMANCE_LOG.md (session entry)
+   - ✅ Updated BLACKBOX.md Section 5 (this entry)
+   - ✅ Committed and pushed to GitHub (commit 7d033d4)
+   - Duration: 25 minutes (planned: 30 min, variance: -17%)
+   - Files: 2 new, 2 updated, 3136 insertions
+   - Performance: 83% time used (17% under budget)
+   - **PR #47 Failure**: Documented revert (commit aa6d1a1), investigation needed
+2. ✅ **[COMPLETE 2026-01-07 1130 AM EET] MVP Roadmap Update + Issue Roster + 2H Sprint Plan**: BB - All deliverables created
    - ✅ Created MVP_ROADMAP.md (7 tables: MVP 1.0-3.5 + Backlog, 22 active items, 168h effort)
    - ✅ Updated docs/ISSUES_ROSTER.md (added 12 features: FEAT-001 to FEAT-012)
    - ✅ Created SPRINT_PLAN_2H.md (2-hour sprint plan for BUG-005 to BUG-010)
