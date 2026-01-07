@@ -1,14 +1,19 @@
 'use client';
 
-import { Box, Typography, Chip, Grid, Paper } from '@mui/material';
+import { useState, useCallback } from 'react';
+import { Box, Typography, Chip, Grid, Paper, IconButton } from '@mui/material';
 import Image from 'next/image';
 import SpeedIcon from '@mui/icons-material/Speed';
 import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EventSeatIcon from '@mui/icons-material/EventSeat';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Vehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
+import { useFavoriteStore } from '@/stores/useFavoriteStore';
 import { getVehicleImage } from '@/lib/imageHelper';
+import FavoriteLoginModal from '@/components/FavoriteLoginModal';
 
 interface VehicleHeroProps {
   vehicle: Vehicle;
@@ -23,15 +28,54 @@ interface VehicleHeroProps {
  */
 export default function VehicleHero({ vehicle, trims }: VehicleHeroProps) {
   const language = useLanguageStore((state) => state.language);
+  const { toggleFavorite, isFavorite } = useFavoriteStore();
+
+  const [favoriteModalOpen, setFavoriteModalOpen] = useState(false);
+  const [pendingFavoriteId, setPendingFavoriteId] = useState<string | null>(null);
 
   // Calculate price range
   const minPrice = Math.min(...trims.map((t) => t.price_egp));
   const maxPrice = Math.max(...trims.map((t) => t.price_egp));
 
   const displayTitle = `${vehicle.models.brands.name} ${vehicle.models.name} ${vehicle.model_year}`;
+  const isFavorited = isFavorite(vehicle.id);
+
+  const handleFavoriteToggle = useCallback(() => {
+    const success = toggleFavorite(vehicle.id);
+    
+    // If toggleFavorite returns false, it means soft-gate is needed
+    if (!success) {
+      setPendingFavoriteId(vehicle.id);
+      setFavoriteModalOpen(true);
+    }
+  }, [vehicle.id, toggleFavorite]);
+
+  const handleFavoriteModalSuccess = useCallback(() => {
+    // After authentication, add the pending favorite
+    if (pendingFavoriteId) {
+      toggleFavorite(pendingFavoriteId);
+      setPendingFavoriteId(null);
+    }
+  }, [pendingFavoriteId, toggleFavorite]);
 
   return (
-    <Paper elevation={2} sx={{ p: { xs: 2, md: 4 }, mb: 4 }}>
+    <Paper elevation={2} sx={{ p: { xs: 2, md: 4 }, mb: 4, position: 'relative' }}>
+      {/* Favorite Icon - Top Right */}
+      <IconButton
+        onClick={handleFavoriteToggle}
+        sx={{
+          position: 'absolute',
+          top: 16,
+          right: language === 'ar' ? 'auto' : 16,
+          left: language === 'ar' ? 16 : 'auto',
+          zIndex: 1,
+          bgcolor: 'background.paper',
+          '&:hover': { bgcolor: 'background.paper' },
+        }}
+      >
+        {isFavorited ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
+      </IconButton>
+
       <Grid container spacing={4}>
         {/* Left: Hero Image */}
         <Grid item xs={12} md={7}>
@@ -141,6 +185,13 @@ export default function VehicleHero({ vehicle, trims }: VehicleHeroProps) {
           </Typography>
         </Grid>
       </Grid>
+
+      {/* Favorite Login Modal */}
+      <FavoriteLoginModal
+        open={favoriteModalOpen}
+        onClose={() => setFavoriteModalOpen(false)}
+        onSuccess={handleFavoriteModalSuccess}
+      />
     </Paper>
   );
 }
