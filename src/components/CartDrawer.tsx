@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import {
   Drawer,
@@ -60,6 +60,9 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
   const params = useParams();
   const locale = (params.locale as string) || 'en';
   
+  // BUG-008 FIX: Prevent SSR visibility flash
+  const [isClient, setIsClient] = useState(false);
+  
   // Primitive selectors to avoid React 19 infinite loops
   const bookingItems = useBookingStore((state) => state.items);
   const removeBooking = useBookingStore((state) => state.removeItem);
@@ -70,6 +73,11 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
   const language = useLanguageStore((state) => state.language);
 
   const [activeTab, setActiveTab] = useState(0);
+
+  // BUG-008 FIX: Only render drawer after client hydration
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
@@ -86,6 +94,11 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
   };
 
   const isRTL = language === 'ar';
+
+  // BUG-008 FIX: Don't render drawer during SSR to prevent flash
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <Drawer

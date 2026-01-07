@@ -82,7 +82,7 @@ export default function LandingV1() {
     { value: '427', label: language === 'ar' ? 'موديل' : 'Models' },
     { value: '95', label: language === 'ar' ? 'علامة تجارية' : 'Brands' },
     { value: '20', label: language === 'ar' ? 'وكيل' : 'Dealers' },
-    { value: '24/7', label: language === 'ar' ? 'دعم' : 'Support' },
+    { value: '2', label: language === 'ar' ? 'موقعين' : 'Locations' },
   ];
 
   return (

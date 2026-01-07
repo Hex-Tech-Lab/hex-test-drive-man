@@ -289,8 +289,8 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
           </Button>
         </Box>
 
-        {/* Brands Accordion */}
-        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
+        {/* Brands Accordion - BUG-007 FIX: Collapsed by default */}
+        <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
               {language === 'ar' ? 'العلامات التجارية' : 'Brands'}
@@ -343,8 +343,8 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
           </AccordionDetails>
         </Accordion>
 
-        {/* Price Range Accordion */}
-        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
+        {/* Price Range Accordion - BUG-007 FIX: Collapsed by default */}
+        <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
               {language === 'ar' ? 'نطاق السعر' : 'Price Range'}
@@ -373,8 +373,8 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
           </AccordionDetails>
         </Accordion>
 
-        {/* Body Styles Accordion */}
-        <Accordion defaultExpanded disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
+        {/* Body Styles Accordion - BUG-007 FIX: Collapsed by default */}
+        <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
               {language === 'ar' ? 'نوع الهيكل' : 'Body Types'}

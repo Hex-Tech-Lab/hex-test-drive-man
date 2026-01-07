@@ -20,6 +20,8 @@ import {
   Alert,
   Snackbar,
   Tooltip,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -67,6 +69,11 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
   const locale = (params.locale as string) || 'en';
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
+  const theme = useTheme();
+  
+  // COMPARISON LIMIT FIX: Device-aware limits (5 on web/tablet, 2 on mobile)
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const MAX_COMPARE = isMobile ? 2 : 5;
 
   // Mobile-first priority loading: First 8 cards above fold
   // Mobile: 1 col x 8 rows | Tablet: 2 cols x 4 rows | Desktop: 4 cols x 2 rows
@@ -100,7 +107,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
   const minPreferredDate = `${year}-${month}-${day}`;
 
   const isInCompare = compareItems.some((item) => item.id === vehicle.id);
-  const canAddMore = compareItems.length < 3;
+  const canAddMore = compareItems.length < MAX_COMPARE;
   
   const displayTitle = formatVehicleTitle(vehicle.models.brands.name, vehicle.models.name, vehicle.model_year);
 
