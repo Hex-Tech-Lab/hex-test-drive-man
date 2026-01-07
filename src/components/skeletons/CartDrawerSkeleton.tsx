@@ -1,22 +1,32 @@
 import { Drawer, Box, Typography, IconButton, Tabs, Tab, Skeleton, Stack } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
+interface CartDrawerSkeletonProps {
+  open?: boolean;
+  onClose?: () => void;
+}
+
 /**
  * Loading skeleton for CartDrawer component
  * Shows placeholder UI while CartDrawer lazy loads
  *
  * Design: Matches CartDrawer structure (header, tabs, scrollable content, action button)
  * Performance: Prevents CLS (Cumulative Layout Shift) during load
+ * 
+ * BUG-011 FIX: Skeleton now respects open prop to prevent transparent flash on page load
  */
-export default function CartDrawerSkeleton() {
+export default function CartDrawerSkeleton({ open = false, onClose }: CartDrawerSkeletonProps) {
   return (
     <Drawer
       anchor="right"
-      open={true}
+      open={open}
+      onClose={onClose}
       sx={{
         '& .MuiDrawer-paper': {
           width: { xs: '85vw', sm: '400px' },
           maxWidth: '100%',
+          bgcolor: 'background.paper',
+          opacity: 1,
         },
       }}
     >
