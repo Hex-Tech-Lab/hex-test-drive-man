@@ -17,7 +17,21 @@
 - **BUG-009**: Slow navigation between screens - 🔴 NEW (0.5-1s delay, needs prefetch)
 - **BUG-010**: 24/7 support button exists - 🔴 NEW (no actual support, remove or replace)
 
-**Full Details**: Section 2 (HIGH Priority)
+### New Features (MVP 1.0-3.5)
+- **FEAT-001**: Collapse filters by default (mobile) - 🔴 NEW (MVP 1.0)
+- **FEAT-002**: Fix reservation counter logic - 🔴 NEW (MVP 1.0)
+- **FEAT-003**: Implement prefetch for instant navigation - 🔴 NEW (MVP 1.0)
+- **FEAT-004**: Separate comparison flyout (independent from reservations) - 🔴 NEW (MVP 1.5)
+- **FEAT-005**: Double-fold animated flyout (2-panel slide + flip UX) - 🔴 NEW (MVP 1.5)
+- **FEAT-006**: Mobile comparison limit (2 cars) with red text warning - 🔴 NEW (MVP 1.5)
+- **FEAT-007**: Desktop comparison limit (5 cars) - 🔴 NEW (MVP 1.5)
+- **FEAT-008**: Drag-drop or mark-and-place for one-hand operation - 🔴 NEW (MVP 1.5)
+- **FEAT-009**: Replace pill buttons with animated icons - 🔴 NEW (MVP 2.0)
+- **FEAT-010**: Catalog page redesign (icon-first approach) - 🔴 NEW (MVP 2.0)
+- **FEAT-011**: Segment-based comparison ("Find my segment") - 🔴 NEW (MVP 2.5)
+- **FEAT-012**: Cross-brand similarity engine - 🔴 NEW (MVP 2.5)
+
+**Full Details**: Section 2 (HIGH Priority) + MVP_ROADMAP.md
 
 ---
 
@@ -472,6 +486,308 @@ Version: 2.4.2 | Last Updated: 2026-01-07 1106 EET PPLX CS45
 
 **Assigned To:** TBD (image sourcing strategy needed first)  
 **Time Budget:** TBD (depends on replacement image availability)
+
+---
+
+### FEAT-001: Collapse Filters by Default (Mobile)
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (mobile UX)  
+**MVP:** 1.0
+
+**Problem:**
+- Filters expanded on page load (mobile)
+- Takes up significant screen space
+- User must manually collapse to see catalog
+
+**Impact:**
+- Poor mobile first-impression
+- Extra tap required on every visit
+- Not following mobile-first design principle
+
+**Fix:**
+```typescript
+const [expanded, setExpanded] = useState(() => !isMobile);
+```
+
+**Assigned To:** BB (Sprint 1)  
+**Time Budget:** 1h  
+**Priority:** HIGH
+
+---
+
+### FEAT-002: Fix Reservation Counter Logic
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** CRITICAL (state management)  
+**MVP:** 1.0
+
+**Problem:**
+- Counter stuck at 1 when all reservations removed
+- Should decrement to 0
+
+**Impact:**
+- User cannot tell if reservations exist
+- Confusing UX
+
+**Fix:**
+```typescript
+setCount(Math.max(0, count - 1)); // Remove min(1) constraint
+```
+
+**Assigned To:** BB (Sprint 1)  
+**Time Budget:** 2h  
+**Priority:** CRITICAL
+
+---
+
+### FEAT-003: Implement Prefetch for Instant Navigation
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (performance)  
+**MVP:** 1.0
+
+**Problem:**
+- Navigation between screens takes 0.5-1s
+- Comparison view transition noticeably slow
+- Expected: <200ms for instant feel
+
+**Impact:**
+- App feels sluggish on mobile
+- Users perceive low quality
+
+**Fix:**
+```typescript
+useEffect(() => {
+  prefetch(`/${locale}?page=${currentPage + 1}`);
+  prefetch(`/${locale}/compare`);
+}, [currentPage, locale]);
+```
+
+**Assigned To:** BB (Sprint 1)  
+**Time Budget:** 4h  
+**Priority:** HIGH
+
+---
+
+### FEAT-004: Separate Comparison Flyout
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (UX enhancement)  
+**MVP:** 1.5
+
+**Problem:**
+- Comparison and reservations share same drawer
+- User wants independent flyouts
+
+**Impact:**
+- Confusing UX (mixing two different actions)
+- Cannot compare while viewing reservations
+
+**Fix:**
+- Create separate ComparisonDrawer component
+- Independent state management
+- Separate icons/buttons
+
+**Assigned To:** CC (Sprint 2)  
+**Time Budget:** 8h  
+**Priority:** HIGH
+
+---
+
+### FEAT-005: Double-Fold Animated Flyout
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (premium UX)  
+**MVP:** 1.5
+
+**Problem:**
+- User wants premium animated UX
+- 2-panel slide + flip animation
+- Like luxury car configurators
+
+**Impact:**
+- Competitive differentiator
+- Premium brand positioning
+
+**Fix:**
+- Implement 2-panel animation (slide + flip)
+- <300ms total animation time
+- Use CSS transforms (not layout changes)
+
+**Assigned To:** CC (Sprint 2)  
+**Time Budget:** 12h  
+**Priority:** HIGH
+
+---
+
+### FEAT-006: Mobile Comparison Limit (2 Cars)
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (mobile UX)  
+**MVP:** 1.5
+
+**Problem:**
+- No limit on mobile comparisons
+- Screen too small for 3+ cars
+
+**Impact:**
+- Poor mobile UX (cramped layout)
+
+**Fix:**
+- Max 2 cars on mobile
+- Red warning text when limit reached
+- Disable add button after 2
+
+**Assigned To:** BB (Sprint 2)  
+**Time Budget:** 3h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-007: Desktop Comparison Limit (5 Cars)
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (desktop UX)  
+**MVP:** 1.5
+
+**Problem:**
+- No limit on desktop comparisons
+- Layout breaks with 6+ cars
+
+**Impact:**
+- Poor desktop UX (horizontal scroll)
+
+**Fix:**
+- Max 5 cars on desktop
+- Warning text when limit reached
+
+**Assigned To:** BB (Sprint 2)  
+**Time Budget:** 2h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-008: Drag-Drop or Mark-and-Place
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (mobile UX)  
+**MVP:** 1.5
+
+**Problem:**
+- User wants one-hand operation
+- Drag-drop OR mark-and-place
+
+**Impact:**
+- Better mobile UX
+- Competitive advantage
+
+**Fix:**
+- Implement mark-and-place (tap to mark, tap flyout to place)
+- OR: Drag-drop with scroll gesture detection
+
+**Assigned To:** CC (Sprint 2)  
+**Time Budget:** 10h  
+**Priority:** HIGH
+
+---
+
+### FEAT-009: Replace Pill Buttons with Animated Icons
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (visual polish)  
+**MVP:** 2.0
+
+**Problem:**
+- Pill buttons = text only (no logos)
+- Not premium automotive feel
+
+**Impact:**
+- Lower perceived quality
+- Misses visual brand recognition opportunity
+
+**Fix:**
+- Replace with animated icons
+- Brand logos (30-40% button width, partially cut off)
+- Hover/tap effects
+
+**Assigned To:** CC (Sprint 3)  
+**Time Budget:** 8h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-010: Catalog Page Redesign (Icon-First)
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (visual polish)  
+**MVP:** 2.0
+
+**Problem:**
+- Current catalog = text-heavy
+- User wants icon-first approach
+
+**Impact:**
+- Not premium automotive showroom feel
+
+**Fix:**
+- Icon-first catalog page
+- Brand logos prominent
+- Consistent animation language (300ms ease-in-out)
+
+**Assigned To:** CC (Sprint 3)  
+**Time Budget:** 12h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-011: Segment-Based Comparison
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (discovery enhancement)  
+**MVP:** 2.5
+
+**Problem:**
+- User wants "Find my segment" button
+- Example: Q3 → show X3, GLC, XC60
+
+**Impact:**
+- Better discovery
+- Cross-brand comparison
+
+**Fix:**
+- Segment detection algorithm (price + body type + features)
+- "Find my segment" button on vehicle cards
+- Show top 5 competitors
+
+**Assigned To:** CC (Sprint 4)  
+**Time Budget:** 16h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-012: Cross-Brand Similarity Engine
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (discovery enhancement)  
+**MVP:** 2.5
+
+**Problem:**
+- User wants automatic competitor suggestions
+- Example: luxury compact SUV → all competitors
+
+**Impact:**
+- Better discovery
+- Competitive intelligence
+
+**Fix:**
+- Similarity scoring algorithm (0-100%)
+- Automatic competitor suggestions
+- Bilingual support (EN/AR)
+
+**Assigned To:** CC (Sprint 4)  
+**Time Budget:** 20h  
+**Priority:** MEDIUM
 
 ---
 
