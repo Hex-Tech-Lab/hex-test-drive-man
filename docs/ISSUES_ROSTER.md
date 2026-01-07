@@ -1,9 +1,29 @@
 # ISSUES ROSTER - Living Bug & Improvement Tracker
 
-**Version:** 1.0.0  
-**Last Updated:** 2026-01-06 1808 EET PPLX CS45  
+**Version:** 1.1.0  
+**Last Updated:** 2026-01-07 0000 UTC BB (Blackbox AI)  
 **Owner:** All Agents (CC audits, others add)  
 **Purpose:** Single source of truth for all bugs, improvements, and technical debt
+
+---
+
+## SESSION: 2026-01-07 00:00-01:53 - Performance Sprint (4 Phases)
+
+### Visual Bugs
+- **BUG-003**: Mobile font regression (heavier weight) - ❌ NOT ANALYZED (Phase 4 not executed)
+- **BUG-004**: Desktop font issues - ❌ NOT ANALYZED (Phase 4 not executed)
+
+### UX Issues
+- **BUG-001**: RTL cart drawer - ✅ VERIFIED CORRECT (no fix needed)
+- **BUG-002**: Skeleton flash - ✅ FIXED (PR #39 merged, commit 0839887)
+
+### Performance Issues (Phase 2 Discoveries)
+- **PERF-011**: Forced reflow in MUI chunk (1,141ms) - CRITICAL (queued for CC Saturday)
+- **PERF-012**: JS execution regression (2.5s → 5.4s, +116%) - HIGH (queued for CC Saturday)
+- **PERF-013**: DOM size explosion (4,953 elements, 330% over limit) - HIGH (queued for CC Saturday)
+- **PERF-014**: Deprecated synchronous XMLHttpRequest - HIGH (queued for CC Saturday)
+
+**Full Details**: `docs/SESSION_2026-01-07_COMPLETE.md`
 
 ---
 
