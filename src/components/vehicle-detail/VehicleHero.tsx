@@ -1,13 +1,17 @@
 'use client';
 
-import { Box, Typography, Chip, Grid, Paper } from '@mui/material';
+import { useCallback } from 'react';
+import { Box, Typography, Chip, Grid, Paper, IconButton } from '@mui/material';
 import Image from 'next/image';
 import SpeedIcon from '@mui/icons-material/Speed';
 import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EventSeatIcon from '@mui/icons-material/EventSeat';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Vehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
+import { useFavoriteStore } from '@/stores/favorite-store';
 import { getVehicleImage } from '@/lib/imageHelper';
 
 interface VehicleHeroProps {
@@ -23,15 +27,39 @@ interface VehicleHeroProps {
  */
 export default function VehicleHero({ vehicle, trims }: VehicleHeroProps) {
   const language = useLanguageStore((state) => state.language);
+  const { toggleFavorite, isFavorite } = useFavoriteStore();
 
   // Calculate price range
   const minPrice = Math.min(...trims.map((t) => t.price_egp));
   const maxPrice = Math.max(...trims.map((t) => t.price_egp));
 
   const displayTitle = `${vehicle.models.brands.name} ${vehicle.models.name} ${vehicle.model_year}`;
+  const isFavorited = isFavorite(vehicle.id);
+
+  const handleFavoriteToggle = useCallback(() => {
+    toggleFavorite(vehicle.id);
+  }, [vehicle.id, toggleFavorite]);
 
   return (
-    <Paper elevation={2} sx={{ p: { xs: 2, md: 4 }, mb: 4 }}>
+    <Paper elevation={2} sx={{ p: { xs: 2, md: 4 }, mb: 4, position: 'relative' }}>
+      {/* Favorite Icon - Top Right/Left (RTL aware) */}
+      <IconButton
+        onClick={handleFavoriteToggle}
+        sx={{
+          position: 'absolute',
+          top: 16,
+          right: language === 'ar' ? 'auto' : 16,
+          left: language === 'ar' ? 16 : 'auto',
+          zIndex: 1,
+          bgcolor: 'background.paper',
+          '&:hover': { bgcolor: 'background.paper' },
+          boxShadow: 2,
+        }}
+        aria-label={language === 'ar' ? 'إضافة إلى المفضلة' : 'Add to favorites'}
+      >
+        {isFavorited ? <FavoriteIcon color="error" sx={{ fontSize: 32 }} /> : <FavoriteBorderIcon sx={{ fontSize: 32 }} />}
+      </IconButton>
+
       <Grid container spacing={4}>
         {/* Left: Hero Image */}
         <Grid item xs={12} md={7}>

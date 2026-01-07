@@ -25,12 +25,16 @@ import {
 } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
+import { useFavoriteStore } from '@/stores/favorite-store';
 import { BrandLogo } from '@/components/BrandLogo';
 import { getVehicleImage, formatEGP } from '@/lib/imageHelper';
 import { requestBookingOtp } from '@/actions/bookingActions';
+import FavoriteLoginModal from '@/components/FavoriteLoginModal';
 
 interface VehicleCardProps {
   vehicle: AggregatedVehicle;
@@ -69,6 +73,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
   const locale = (params.locale as string) || 'en';
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
+  const { toggleFavorite, isFavorite } = useFavoriteStore();
   const theme = useTheme();
   
   // COMPARISON LIMIT FIX: Device-aware limits (5 on web/tablet, 2 on mobile)
@@ -85,6 +90,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
   const detailUrl = `/${locale}/vehicles/${brandSlug}-${modelSlug}-${vehicle.model_year}`;
 
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [favoriteLoginModalOpen, setFavoriteLoginModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -108,6 +114,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
 
   const isInCompare = compareItems.some((item) => item.id === vehicle.id);
   const canAddMore = compareItems.length < MAX_COMPARE;
+  const isFavorited = isFavorite(vehicle.id);
   
   const displayTitle = formatVehicleTitle(vehicle.models.brands.name, vehicle.models.name, vehicle.model_year);
 
@@ -207,11 +214,27 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
     setSnackbar((prev) => ({ ...prev, open: false }));
   }, []);
 
+  const handleFavoriteToggle = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Check if adding (not removing) and count will exceed 2
+    const currentCount = useFavoriteStore.getState().getFavoriteCount();
+    const willExceedLimit = !isFavorited && currentCount >= 2;
+    
+    toggleFavorite(vehicle.id);
+    
+    // Trigger soft-gate modal if >2 favorites after toggle
+    if (willExceedLimit) {
+      setFavoriteLoginModalOpen(true);
+    }
+  }, [vehicle.id, toggleFavorite, isFavorited]);
+
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      {/* Favorite Icon - Top Left/Right (RTL aware) */}
       <IconButton
-        onClick={handleCompareToggle}
-        disabled={!isInCompare && !canAddMore}
+        onClick={handleFavoriteToggle}
         sx={{
           position: 'absolute',
           top: 8,
@@ -221,6 +244,25 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
           bgcolor: 'background.paper',
           '&:hover': { bgcolor: 'background.paper' },
         }}
+        aria-label={language === 'ar' ? 'إضافة إلى المفضلة' : 'Add to favorites'}
+      >
+        {isFavorited ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
+      </IconButton>
+
+      {/* Compare Icon - Top Right/Left (opposite of favorite, RTL aware) */}
+      <IconButton
+        onClick={handleCompareToggle}
+        disabled={!isInCompare && !canAddMore}
+        sx={{
+          position: 'absolute',
+          top: 8,
+          right: language === 'ar' ? 8 : 'auto',
+          left: language === 'ar' ? 'auto' : 8,
+          zIndex: 1,
+          bgcolor: 'background.paper',
+          '&:hover': { bgcolor: 'background.paper' },
+        }}
+        aria-label={language === 'ar' ? 'إضافة للمقارنة' : 'Add to compare'}
       >
         {isInCompare ? <CheckCircleIcon color="primary" /> : <CompareArrowsIcon />}
       </IconButton>
@@ -403,6 +445,13 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
           {snackbar.message}
         </Alert>
       </Snackbar>
+
+      {/* Favorite Login Modal (Soft Gate) */}
+      <FavoriteLoginModal
+        open={favoriteLoginModalOpen}
+        onClose={() => setFavoriteLoginModalOpen(false)}
+        favoriteCount={useFavoriteStore.getState().getFavoriteCount()}
+      />
     </Card>
   );
 });
