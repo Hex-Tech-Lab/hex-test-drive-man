@@ -25,12 +25,16 @@ import {
 } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
+import { useFavoriteStore } from '@/stores/useFavoriteStore';
 import { BrandLogo } from '@/components/BrandLogo';
 import { getVehicleImage, formatEGP } from '@/lib/imageHelper';
 import { requestBookingOtp } from '@/actions/bookingActions';
+import FavoriteLoginModal from '@/components/FavoriteLoginModal';
 
 interface VehicleCardProps {
   vehicle: AggregatedVehicle;
@@ -69,6 +73,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
   const locale = (params.locale as string) || 'en';
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
+  const { toggleFavorite, isFavorite } = useFavoriteStore();
   const theme = useTheme();
   
   // COMPARISON LIMIT FIX: Device-aware limits (5 on web/tablet, 2 on mobile)
@@ -85,6 +90,8 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
   const detailUrl = `/${locale}/vehicles/${brandSlug}-${modelSlug}-${vehicle.model_year}`;
 
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [favoriteModalOpen, setFavoriteModalOpen] = useState(false);
+  const [pendingFavoriteId, setPendingFavoriteId] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -108,6 +115,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
 
   const isInCompare = compareItems.some((item) => item.id === vehicle.id);
   const canAddMore = compareItems.length < MAX_COMPARE;
+  const isFavorited = isFavorite(vehicle.id);
   
   const displayTitle = formatVehicleTitle(vehicle.models.brands.name, vehicle.models.name, vehicle.model_year);
 
@@ -120,6 +128,24 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
       addToCompare(vehicle.trims[0]);
     }
   }, [isInCompare, canAddMore, vehicle.id, vehicle.trims, addToCompare, removeFromCompare]);
+
+  const handleFavoriteToggle = useCallback(() => {
+    const success = toggleFavorite(vehicle.id);
+    
+    // If toggleFavorite returns false, it means soft-gate is needed
+    if (!success) {
+      setPendingFavoriteId(vehicle.id);
+      setFavoriteModalOpen(true);
+    }
+  }, [vehicle.id, toggleFavorite]);
+
+  const handleFavoriteModalSuccess = useCallback(() => {
+    // After authentication, add the pending favorite
+    if (pendingFavoriteId) {
+      toggleFavorite(pendingFavoriteId);
+      setPendingFavoriteId(null);
+    }
+  }, [pendingFavoriteId, toggleFavorite]);
 
   const handleBookingModalOpen = useCallback(() => {
     setBookingModalOpen(true);
@@ -209,14 +235,31 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
 
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      {/* Favorite Icon - Top Left */}
+      <IconButton
+        onClick={handleFavoriteToggle}
+        sx={{
+          position: 'absolute',
+          top: 8,
+          left: language === 'ar' ? 'auto' : 8,
+          right: language === 'ar' ? 8 : 'auto',
+          zIndex: 1,
+          bgcolor: 'background.paper',
+          '&:hover': { bgcolor: 'background.paper' },
+        }}
+      >
+        {isFavorited ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
+      </IconButton>
+
+      {/* Compare Icon - Top Right */}
       <IconButton
         onClick={handleCompareToggle}
         disabled={!isInCompare && !canAddMore}
         sx={{
           position: 'absolute',
           top: 8,
-          right: language === 'ar' ? 'auto' : 8,
-          left: language === 'ar' ? 8 : 'auto',
+          right: language === 'ar' ? 'auto' : 56,
+          left: language === 'ar' ? 56 : 'auto',
           zIndex: 1,
           bgcolor: 'background.paper',
           '&:hover': { bgcolor: 'background.paper' },
@@ -403,6 +446,13 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
           {snackbar.message}
         </Alert>
       </Snackbar>
+
+      {/* Favorite Login Modal */}
+      <FavoriteLoginModal
+        open={favoriteModalOpen}
+        onClose={() => setFavoriteModalOpen(false)}
+        onSuccess={handleFavoriteModalSuccess}
+      />
     </Card>
   );
 });
