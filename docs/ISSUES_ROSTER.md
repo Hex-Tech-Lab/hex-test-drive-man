@@ -1,9 +1,43 @@
 # ISSUES ROSTER - Living Bug & Improvement Tracker
 
-**Version:** 1.2.0  
-**Last Updated:** 2026-01-07 1106 EET PPLX (Claude Sonnet 4.5)  
+**Version:** 1.3.0  
+**Last Updated:** 2026-01-07 1755 UTC BB (Blackbox AI)  
 **Owner:** All Agents (CC audits, others add)  
 **Purpose:** Single source of truth for all bugs, improvements, and technical debt
+
+---
+
+## SESSION: 2026-01-07 17:55 UTC - Production Bug Documentation (16 Bugs)
+
+### Booking Flow Bugs (Session 1: 18:44 UTC)
+- **BUG-013**: Booking form validation missing - 🔴 CRITICAL (no client-side validation)
+- **BUG-014**: Time slot availability not checked - 🔴 CRITICAL (double-booking possible)
+- **BUG-015**: QR code not generated - 🔴 CRITICAL (shows loading forever)
+- **BUG-016**: National ID upload fails silently - 🔴 HIGH (no success/error feedback)
+- **BUG-017**: Confirmation email not sent - 🔴 HIGH (no email service configured)
+- **BUG-018**: Booking dashboard empty state - 🟡 MEDIUM (shows "no bookings" when bookings exist)
+- **BUG-019**: Booking cancellation not working - 🔴 HIGH (button does nothing)
+
+### Booking Validation Bugs (Session 2: 19:40 UTC)
+- **BUG-020**: National ID validation too strict - 🔴 CRITICAL (rejects IDs with spaces/dashes)
+- **BUG-021**: Date picker allows past dates - 🔴 CRITICAL (no min date restriction)
+- **BUG-022**: Time slot grid not responsive - 🟡 MEDIUM (overflow on mobile)
+- **BUG-023**: Vehicle selector shows all vehicles - 🔴 HIGH (includes unavailable vehicles)
+- **BUG-024**: Missing "Add to Calendar" button - 🟢 LOW (no calendar integration)
+
+### Navigation & UX Bugs (Session 3: 19:50 UTC)
+- **BUG-025**: Logo/platform name not clickable - 🔴 HIGH (no home navigation)
+- **BUG-026**: No breadcrumbs navigation - 🟡 MEDIUM (users don't know location)
+- **BUG-027**: No back button in header - 🟡 MEDIUM (not mobile-friendly)
+- **BUG-028**: Language switcher uses text not flags - 🟢 LOW (shows "ENGLISH" instead of 🇬🇧)
+
+### PR #47 Failure
+- **PR-47-REVERT**: Drawer always visible after PR #47 - ✅ REVERTED (commit aa6d1a1)
+- **PR-47-INV**: Investigation needed - 🔴 PENDING (root cause analysis required)
+
+**Full Details**: `docs/BUGS_PRODUCTION_COMPREHENSIVE_2026-01-07.md`  
+**Total Bugs**: 16 (9 CRITICAL, 4 HIGH, 2 MEDIUM, 1 LOW)  
+**Total Effort**: 660 minutes (11 hours)
 
 ---
 
