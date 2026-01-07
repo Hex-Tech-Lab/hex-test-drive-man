@@ -18,6 +18,14 @@ export async function GET(
     const { data, error } = await getReservationById(id);
 
     if (error) {
+      // Check if table doesn't exist
+      if (error.message.includes('table') && error.message.includes('not') && error.message.includes('exist')) {
+        return NextResponse.json(
+          { error: 'Reservations feature is being set up. Please check back soon.' },
+          { status: 503 }
+        );
+      }
+      
       return NextResponse.json(
         { error: error.message },
         { status: 500 }

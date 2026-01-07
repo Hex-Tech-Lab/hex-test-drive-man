@@ -20,23 +20,32 @@ export async function GET(request: NextRequest) {
     // Get authenticated user
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     
+    // MVP 1.0: Auth not implemented yet, return empty array for unauthenticated users
     if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+      return NextResponse.json({ 
+        reservations: [],
+        message: 'Authentication required. Please log in to view your reservations.'
+      });
     }
 
     const { data, error } = await getUserReservations(user.id);
 
     if (error) {
+      // Check if table doesn't exist
+      if (error.message.includes('table') && error.message.includes('not') && error.message.includes('exist')) {
+        return NextResponse.json({ 
+          reservations: [],
+          message: 'Reservations feature is being set up. Please check back soon.'
+        });
+      }
+      
       return NextResponse.json(
         { error: error.message },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ reservations: data });
+    return NextResponse.json({ reservations: data || [] });
   } catch (error) {
     console.error('GET /api/reservations error:', error);
     return NextResponse.json(
