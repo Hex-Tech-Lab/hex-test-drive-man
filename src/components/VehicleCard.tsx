@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -58,8 +58,10 @@ const formatVehicleTitle = (brand: string, model: string, year: number) => {
  * @param props - Component props
  * @param props.vehicle - Aggregated vehicle data including trims
  * @param props.position - Card position in grid (for priority loading)
+ * 
+ * PERF-012 FIX: Memoized to prevent re-renders when parent re-renders
  */
-export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProps) {
+const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: VehicleCardProps) {
   const router = useRouter();
   const params = useParams();
   const locale = (params.locale as string) || 'en';
@@ -102,29 +104,29 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
   
   const displayTitle = formatVehicleTitle(vehicle.models.brands.name, vehicle.models.name, vehicle.model_year);
 
-  const handleCompareToggle = () => {
+  // PERF-012 FIX: Memoize event handlers to prevent re-renders
+  const handleCompareToggle = useCallback(() => {
     if (isInCompare) {
       removeFromCompare(vehicle.id);
     } else if (canAddMore) {
       // Add first trim to compare (compare store expects Vehicle type)
       addToCompare(vehicle.trims[0]);
     }
-  };
+  }, [isInCompare, canAddMore, vehicle.id, vehicle.trims, addToCompare, removeFromCompare]);
 
-
-  const handleBookingModalOpen = () => {
+  const handleBookingModalOpen = useCallback(() => {
     setBookingModalOpen(true);
     setFormData({ name: '', phone: '', preferredDate: '', notes: '' });
     setFormErrors({});
-  };
+  }, []);
 
-  const handleBookingModalClose = () => {
+  const handleBookingModalClose = useCallback(() => {
     setBookingModalOpen(false);
     setFormData({ name: '', phone: '', preferredDate: '', notes: '' });
     setFormErrors({});
-  };
+  }, []);
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     const errors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
@@ -141,9 +143,9 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
 
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
-  };
+  }, [formData, language]);
 
-  const handleSubmitBooking = async () => {
+  const handleSubmitBooking = useCallback(async () => {
     if (!validateForm()) {
       return;
     }
@@ -192,11 +194,11 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
       });
       setSubmitting(false);
     }
-  };
+  }, [validateForm, submitting, vehicle.id, router, language]);
 
-  const handleSnackbarClose = () => {
+  const handleSnackbarClose = useCallback(() => {
     setSnackbar((prev) => ({ ...prev, open: false }));
-  };
+  }, []);
 
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
@@ -396,4 +398,6 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
       </Snackbar>
     </Card>
   );
-}
+});
+
+export default VehicleCard;

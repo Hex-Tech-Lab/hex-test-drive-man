@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import { Box, Typography, Checkbox, FormControlLabel, Slider, Paper, Button, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Vehicle } from '@/types/vehicle';
@@ -134,61 +134,77 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
     return prices.length > 0 ? Math.min(...prices) : 0;
   }, [vehicles, selectedBrands]);
 
-  const handleBrandToggle = (brand: string) => {
+  // PERF-011 FIX: Memoize handlers to prevent re-renders and batch DOM updates
+  const handleBrandToggle = useCallback((brand: string) => {
     const newBrands = selectedBrands.includes(brand)
       ? selectedBrands.filter((b) => b !== brand)
       : [...selectedBrands, brand];
     
-    setFilters({ brands: newBrands });
-  };
+    // Use requestAnimationFrame to batch DOM updates and prevent forced reflow
+    requestAnimationFrame(() => {
+      setFilters({ brands: newBrands });
+    });
+  }, [selectedBrands, setFilters]);
 
-  const handleCategoryToggle = (category: string) => {
+  const handleCategoryToggle = useCallback((category: string) => {
     const newCategories = selectedCategories.includes(category)
       ? selectedCategories.filter((c) => c !== category)
       : [...selectedCategories, category];
 
-    setFilters({ categories: newCategories });
-  };
+    requestAnimationFrame(() => {
+      setFilters({ categories: newCategories });
+    });
+  }, [selectedCategories, setFilters]);
 
-  const handleBodyStyleToggle = (style: string) => {
+  const handleBodyStyleToggle = useCallback((style: string) => {
     const newStyles = selectedBodyStyles.includes(style)
       ? selectedBodyStyles.filter((s) => s !== style)
       : [...selectedBodyStyles, style];
 
-    setFilters({ bodyStyles: newStyles });
-  };
+    requestAnimationFrame(() => {
+      setFilters({ bodyStyles: newStyles });
+    });
+  }, [selectedBodyStyles, setFilters]);
 
-  const handleFuelTypeToggle = (fuel: string) => {
+  const handleFuelTypeToggle = useCallback((fuel: string) => {
     const newFuels = selectedFuelTypes.includes(fuel)
       ? selectedFuelTypes.filter((f) => f !== fuel)
       : [...selectedFuelTypes, fuel];
 
-    setFilters({ fuelTypes: newFuels });
-  };
+    requestAnimationFrame(() => {
+      setFilters({ fuelTypes: newFuels });
+    });
+  }, [selectedFuelTypes, setFilters]);
 
-  const handleTransmissionToggle = (trans: string) => {
+  const handleTransmissionToggle = useCallback((trans: string) => {
     const newTrans = selectedTransmissions.includes(trans)
       ? selectedTransmissions.filter((t) => t !== trans)
       : [...selectedTransmissions, trans];
 
-    setFilters({ transmissions: newTrans });
-  };
-
-  const handlePriceChange = (_event: Event, newValue: number | number[]) => {
-    const newRange = newValue as [number, number];
-    setFilters({ priceRange: newRange });
-  };
-
-  const handleReset = () => {
-    setFilters({
-      brands: [],
-      categories: [],
-      bodyStyles: [],
-      fuelTypes: [],
-      transmissions: [],
-      priceRange: [minPrice, maxPrice],
+    requestAnimationFrame(() => {
+      setFilters({ transmissions: newTrans });
     });
-  };
+  }, [selectedTransmissions, setFilters]);
+
+  const handlePriceChange = useCallback((_event: Event, newValue: number | number[]) => {
+    const newRange = newValue as [number, number];
+    requestAnimationFrame(() => {
+      setFilters({ priceRange: newRange });
+    });
+  }, [setFilters]);
+
+  const handleReset = useCallback(() => {
+    requestAnimationFrame(() => {
+      setFilters({
+        brands: [],
+        categories: [],
+        bodyStyles: [],
+        fuelTypes: [],
+        transmissions: [],
+        priceRange: [minPrice, maxPrice],
+      });
+    });
+  }, [minPrice, maxPrice, setFilters]);
 
   const formatPrice = (value: number): string => {
     if (value >= 1_000_000) {
@@ -229,6 +245,10 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
       overflowY: { md: 'auto' },
       overflowX: 'hidden',
       pb: 2,
+      // PERF-011 FIX: Use CSS containment to isolate layout calculations
+      contain: 'layout style',
+      // PERF-011 FIX: Use will-change to hint browser about scroll optimization
+      willChange: 'scroll-position',
       '&::-webkit-scrollbar': { width: 6 }, // Thinner scrollbar
       '&::-webkit-scrollbar-track': {
         backgroundColor: 'transparent',
