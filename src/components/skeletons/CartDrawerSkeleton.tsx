@@ -7,16 +7,23 @@ import CloseIcon from '@mui/icons-material/Close';
  *
  * Design: Matches CartDrawer structure (header, tabs, scrollable content, action button)
  * Performance: Prevents CLS (Cumulative Layout Shift) during load
+ * 
+ * BUG-011 FIX: Skeleton no longer visible by default (was hardcoded open={true})
+ * Changed to open={false} to prevent transparent skeleton flash on page reload
+ * Skeleton only shows when user explicitly opens the drawer
  */
 export default function CartDrawerSkeleton() {
   return (
     <Drawer
       anchor="right"
-      open={true}
+      open={false}
       sx={{
         '& .MuiDrawer-paper': {
           width: { xs: '85vw', sm: '400px' },
           maxWidth: '100%',
+          // Ensure skeleton is opaque (not transparent) when visible
+          bgcolor: 'background.paper',
+          opacity: 1,
         },
       }}
     >

@@ -6,6 +6,11 @@ import { Box, Paper, Skeleton, Divider, SxProps, Theme } from '@mui/material';
  *
  * Design: Matches FilterPanel structure (accordions, checkboxes, slider)
  * Performance: Prevents CLS (Cumulative Layout Shift) during load
+ * 
+ * BUG-011 FIX: Ensure skeleton is truly invisible during SSR/hydration
+ * - opacity: 0 makes it transparent but still in layout (prevents CLS)
+ * - visibility: hidden ensures no flash during hydration
+ * - Amazon-style: No visible skeleton flash on page load
  *
  * @param sx - Optional sx prop for custom styling (e.g., opacity: 0 for transparent skeleton)
  */
@@ -18,6 +23,8 @@ export default function FilterPanelSkeleton({ sx }: { sx?: SxProps<Theme> }) {
         maxHeight: { md: 'calc(100vh - 96px)' },
         overflowY: { md: 'auto' },
         pb: 2,
+        // Ensure skeleton is invisible during SSR/hydration (BUG-011 fix)
+        visibility: 'hidden',
         ...sx, // Merge custom sx prop (allows opacity: 0 for transparent skeleton)
       }}
     >

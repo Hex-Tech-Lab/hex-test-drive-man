@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Box, Tabs, Tab, Chip, alpha, useTheme } from '@mui/material';
+import { Box, Container, Tabs, Tab, Chip, alpha, useTheme } from '@mui/material';
 import {
   ViewModule,
   DirectionsCar,
@@ -20,6 +20,9 @@ interface CatalogTabsProps {
  * Catalog Tabs Component
  * Amazon.eg / Noon.com style filter tabs
  * Categories: All, By Brand, By Type, By Price, Electric/Hybrid
+ * 
+ * BUG-012 FIX: Wrapped tabs in Container maxWidth="xl" to align with page content
+ * Previously tabs were full-width while content below was constrained
  */
 export default function CatalogTabs({ onTabChange }: CatalogTabsProps) {
   const theme = useTheme();
@@ -82,63 +85,65 @@ export default function CatalogTabs({ onTabChange }: CatalogTabsProps) {
         boxShadow: 1,
       }}
     >
-      <Tabs
-        value={activeTab}
-        onChange={handleTabChange}
-        variant="scrollable"
-        scrollButtons="auto"
-        sx={{
-          minHeight: 56,
-          '& .MuiTab-root': {
+      <Container maxWidth="xl">
+        <Tabs
+          value={activeTab}
+          onChange={handleTabChange}
+          variant="scrollable"
+          scrollButtons="auto"
+          sx={{
             minHeight: 56,
-            textTransform: 'none',
-            fontSize: '0.95rem',
-            fontWeight: 500,
-            px: 3,
-            '&.Mui-selected': {
-              color: theme.palette.primary.main,
-              fontWeight: 600,
+            '& .MuiTab-root': {
+              minHeight: 56,
+              textTransform: 'none',
+              fontSize: '0.95rem',
+              fontWeight: 500,
+              px: 3,
+              '&.Mui-selected': {
+                color: theme.palette.primary.main,
+                fontWeight: 600,
+              },
             },
-          },
-          '& .MuiTabs-indicator': {
-            height: 3,
-            borderRadius: '3px 3px 0 0',
-          },
-        }}
-      >
-        {tabs.map((tab, index) => (
-          <Tab
-            key={tab.id}
-            icon={tab.icon}
-            iconPosition="start"
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                {tab.label}
-                {tab.count > 0 && (
-                  <Chip
-                    label={tab.count}
-                    size="small"
-                    sx={{
-                      height: 20,
-                      minWidth: 20,
-                      fontSize: '0.75rem',
-                      bgcolor:
-                        activeTab === index
-                          ? theme.palette.primary.main
-                          : alpha(theme.palette.primary.main, 0.1),
-                      color:
-                        activeTab === index
-                          ? theme.palette.primary.contrastText
-                          : theme.palette.primary.main,
-                      fontWeight: 600,
-                    }}
-                  />
-                )}
-              </Box>
-            }
-          />
-        ))}
-      </Tabs>
+            '& .MuiTabs-indicator': {
+              height: 3,
+              borderRadius: '3px 3px 0 0',
+            },
+          }}
+        >
+          {tabs.map((tab, index) => (
+            <Tab
+              key={tab.id}
+              icon={tab.icon}
+              iconPosition="start"
+              label={
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  {tab.label}
+                  {tab.count > 0 && (
+                    <Chip
+                      label={tab.count}
+                      size="small"
+                      sx={{
+                        height: 20,
+                        minWidth: 20,
+                        fontSize: '0.75rem',
+                        bgcolor:
+                          activeTab === index
+                            ? theme.palette.primary.main
+                            : alpha(theme.palette.primary.main, 0.1),
+                        color:
+                          activeTab === index
+                            ? theme.palette.primary.contrastText
+                            : theme.palette.primary.main,
+                        fontWeight: 600,
+                      }}
+                    />
+                  )}
+                </Box>
+              }
+            />
+          ))}
+        </Tabs>
+      </Container>
     </Box>
   );
 }

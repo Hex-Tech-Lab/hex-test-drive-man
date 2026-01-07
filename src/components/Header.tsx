@@ -14,6 +14,7 @@ import { useRouter, usePathname } from 'next/navigation';
 
 // Lazy load CartDrawer with skeleton (prevents CLS during load)
 // Only loads when user clicks cart icon (deferred until interaction)
+// BUG-011 FIX: Skeleton no longer shows by default (was hardcoded open={true})
 const CartDrawer = dynamic(() => import('@/components/CartDrawer'), {
   ssr: false,
   loading: () => <CartDrawerSkeleton />,
