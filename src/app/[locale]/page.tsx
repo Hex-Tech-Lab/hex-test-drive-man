@@ -158,203 +158,186 @@ export default function CatalogPage() {
     return Object.values(grouped);
   }, [vehicles]);
 
-  const filteredVehicles = aggregatedVehicles.filter((vehicle: AggregatedVehicle) => {
-    // Search filters from VehicleSearch component
-    if (searchFilters.searchTerm) {
-      const query = searchFilters.searchTerm.toLowerCase().trim();
-      const brandName = vehicle.models.brands.name?.toLowerCase() || '';
-      const modelName = vehicle.models.name?.toLowerCase() || '';
-      const modelYear = vehicle.model_year?.toString() || '';
+  // PERF-012 FIX: Memoize filtered vehicles to prevent re-computation on every render
+  const filteredVehicles = useMemo(() => {
+    return aggregatedVehicles.filter((vehicle: AggregatedVehicle) => {
+      // Search filters from VehicleSearch component
+      if (searchFilters.searchTerm) {
+        const query = searchFilters.searchTerm.toLowerCase().trim();
+        const brandName = vehicle.models.brands.name?.toLowerCase() || '';
+        const modelName = vehicle.models.name?.toLowerCase() || '';
+        const modelYear = vehicle.model_year?.toString() || '';
 
-      // Search brand, model, year only (NOT trim names - too many false positives)
-      // Example: "AU" in "AUTO", "LUXURY" caused BYD F3 to match "Audi"
-      const matchesSearch = (
-        brandName.includes(query) ||
-        modelName.includes(query) ||
-        modelYear.includes(query)
-      );
+        // Search brand, model, year only (NOT trim names - too many false positives)
+        // Example: "AU" in "AUTO", "LUXURY" caused BYD F3 to match "Audi"
+        const matchesSearch = (
+          brandName.includes(query) ||
+          modelName.includes(query) ||
+          modelYear.includes(query)
+        );
 
-      if (!matchesSearch) {
+        if (!matchesSearch) {
+          return false;
+        }
+
+        // When search term is active, skip FilterPanel filters to search ALL vehicles
+        // This prevents confusion when persistent FilterPanel selections interfere
+        // Apply only VehicleSearch advanced filters below
+      }
+
+      if (searchFilters.brandId && vehicle.models.brands.name !== searchFilters.brandId) {
         return false;
       }
 
-      // When search term is active, skip FilterPanel filters to search ALL vehicles
-      // This prevents confusion when persistent FilterPanel selections interfere
-      // Apply only VehicleSearch advanced filters below
-    }
-
-    if (searchFilters.brandId && vehicle.models.brands.name !== searchFilters.brandId) {
-      return false;
-    }
-
-    if (searchFilters.modelId && vehicle.model_id !== searchFilters.modelId) {
-      return false;
-    }
-
-    if (searchFilters.year && vehicle.model_year !== searchFilters.year) {
-      return false;
-    }
-
-    if (searchFilters.bodyType && vehicle.body_styles?.name_en !== searchFilters.bodyType) {
-      return false;
-    }
-
-    if (searchFilters.fuelType && vehicle.fuel_types?.name !== searchFilters.fuelType) {
-      return false;
-    }
-
-    if (searchFilters.transmission && vehicle.transmissions?.name !== searchFilters.transmission) {
-      return false;
-    }
-
-    if (searchFilters.minPrice && vehicle.maxPrice < searchFilters.minPrice) {
-      return false;
-    }
-
-    if (searchFilters.maxPrice && vehicle.minPrice > searchFilters.maxPrice) {
-      return false;
-    }
-
-    if (searchFilters.minHorsepower) {
-      const hasEnoughPower = vehicle.trims.some(t => t.horsepower && t.horsepower >= searchFilters.minHorsepower!);
-      if (!hasEnoughPower) {
-        return false;
-      }
-    }
-
-    if (searchFilters.maxHorsepower) {
-      const withinPowerLimit = vehicle.trims.some(t => t.horsepower && t.horsepower <= searchFilters.maxHorsepower!);
-      if (!withinPowerLimit) {
-        return false;
-      }
-    }
-
-    if (searchFilters.seats) {
-      const hasSeats = vehicle.trims.some(t => t.seats === searchFilters.seats);
-      if (!hasSeats) {
-        return false;
-      }
-    }
-
-    // FilterPanel filters (multi-select)
-    // Skip FilterPanel filters when VehicleSearch has an active search term
-    // This allows searching across ALL vehicles, not just the filtered subset
-    const hasActiveSearch = searchFilters.searchTerm?.trim().length > 0;
-
-    if (!hasActiveSearch) {
-      // Normalize brand name for comparison (handle "Mercedes-Benz" vs "Mercedes Benz" etc.)
-      const normalizeBrand = (name: string) => name.replace(/[-–—\s]/g, '').toLowerCase();
-      const vehicleBrandNormalized = normalizeBrand(vehicle.models.brands.name);
-      const hasBrandMatch = filters.brands.length === 0 ||
-        filters.brands.some(b => normalizeBrand(b) === vehicleBrandNormalized);
-
-      if (!hasBrandMatch) {
+      if (searchFilters.modelId && vehicle.model_id !== searchFilters.modelId) {
         return false;
       }
 
-      if (vehicle.maxPrice < filters.priceRange[0] || vehicle.minPrice > filters.priceRange[1]) {
+      if (searchFilters.year && vehicle.model_year !== searchFilters.year) {
         return false;
       }
 
-      if (filters.categories.length > 0 && !vehicle.categories?.name) {
-        return false;
-      }
-      if (filters.categories.length > 0 && !filters.categories.includes(vehicle.categories!.name)) {
+      if (searchFilters.bodyType && vehicle.body_styles?.name_en !== searchFilters.bodyType) {
         return false;
       }
 
-      if (filters.bodyStyles.length > 0 && !vehicle.body_styles?.name_en) {
-        return false;
-      }
-      if (filters.bodyStyles.length > 0 && !filters.bodyStyles.includes(vehicle.body_styles!.name_en)) {
+      if (searchFilters.fuelType && vehicle.fuel_types?.name !== searchFilters.fuelType) {
         return false;
       }
 
-      if (filters.fuelTypes.length > 0 && !vehicle.fuel_types?.name) {
-        return false;
-      }
-      if (filters.fuelTypes.length > 0 && !filters.fuelTypes.includes(vehicle.fuel_types!.name)) {
+      if (searchFilters.transmission && vehicle.transmissions?.name !== searchFilters.transmission) {
         return false;
       }
 
-      if (filters.transmissions.length > 0 && !vehicle.transmissions?.name) {
-        return false;
-      }
-      if (filters.transmissions.length > 0 && !filters.transmissions.includes(vehicle.transmissions!.name)) {
+      if (searchFilters.minPrice && vehicle.maxPrice < searchFilters.minPrice) {
         return false;
       }
 
-      if (filters.bodyStyle && vehicle.body_styles?.name_en !== filters.bodyStyle) {
+      if (searchFilters.maxPrice && vehicle.minPrice > searchFilters.maxPrice) {
         return false;
       }
 
-      if (filters.segmentCode && vehicle.segments?.code !== filters.segmentCode) {
-        return false;
+      if (searchFilters.minHorsepower) {
+        const hasEnoughPower = vehicle.trims.some(t => t.horsepower && t.horsepower >= searchFilters.minHorsepower!);
+        if (!hasEnoughPower) {
+          return false;
+        }
       }
 
-      if (filters.agent && vehicle.agents?.name_en !== filters.agent) {
-        return false;
+      if (searchFilters.maxHorsepower) {
+        const withinPowerLimit = vehicle.trims.some(t => t.horsepower && t.horsepower <= searchFilters.maxHorsepower!);
+        if (!withinPowerLimit) {
+          return false;
+        }
       }
-    }
 
-    return true;
-  }).sort((a, b) => {
-    switch (sortBy) {
-      case 'price_asc':
-        return a.minPrice - b.minPrice;
-      case 'price_desc':
-        return b.minPrice - a.minPrice;
-      case 'year_desc':
-        return b.model_year - a.model_year;
-      case 'year_asc':
-        return a.model_year - b.model_year;
-      case 'brand_asc':
-        return a.models.brands.name.localeCompare(b.models.brands.name);
-      case 'brand_desc':
-        return b.models.brands.name.localeCompare(a.models.brands.name);
-      default:
-        return 0;
-    }
-  });
+      if (searchFilters.seats) {
+        const hasSeats = vehicle.trims.some(t => t.seats === searchFilters.seats);
+        if (!hasSeats) {
+          return false;
+        }
+      }
 
+      // FilterPanel filters (multi-select)
+      // Skip FilterPanel filters when VehicleSearch has an active search term
+      // This allows searching across ALL vehicles, not just the filtered subset
+      const hasActiveSearch = searchFilters.searchTerm?.trim().length > 0;
+
+      if (!hasActiveSearch) {
+        // Normalize brand name for comparison (handle "Mercedes-Benz" vs "Mercedes Benz" etc.)
+        const normalizeBrand = (name: string) => name.replace(/[-–—\s]/g, '').toLowerCase();
+        const vehicleBrandNormalized = normalizeBrand(vehicle.models.brands.name);
+        const hasBrandMatch = filters.brands.length === 0 ||
+          filters.brands.some(b => normalizeBrand(b) === vehicleBrandNormalized);
+
+        if (!hasBrandMatch) {
+          return false;
+        }
+
+        if (vehicle.maxPrice < filters.priceRange[0] || vehicle.minPrice > filters.priceRange[1]) {
+          return false;
+        }
+
+        if (filters.categories.length > 0 && !vehicle.categories?.name) {
+          return false;
+        }
+        if (filters.categories.length > 0 && !filters.categories.includes(vehicle.categories!.name)) {
+          return false;
+        }
+
+        if (filters.bodyStyles.length > 0 && !vehicle.body_styles?.name_en) {
+          return false;
+        }
+        if (filters.bodyStyles.length > 0 && !filters.bodyStyles.includes(vehicle.body_styles!.name_en)) {
+          return false;
+        }
+
+        if (filters.fuelTypes.length > 0 && !vehicle.fuel_types?.name) {
+          return false;
+        }
+        if (filters.fuelTypes.length > 0 && !filters.fuelTypes.includes(vehicle.fuel_types!.name)) {
+          return false;
+        }
+
+        if (filters.transmissions.length > 0 && !vehicle.transmissions?.name) {
+          return false;
+        }
+        if (filters.transmissions.length > 0 && !filters.transmissions.includes(vehicle.transmissions!.name)) {
+          return false;
+        }
+
+        if (filters.bodyStyle && vehicle.body_styles?.name_en !== filters.bodyStyle) {
+          return false;
+        }
+
+        if (filters.segmentCode && vehicle.segments?.code !== filters.segmentCode) {
+          return false;
+        }
+
+        if (filters.agent && vehicle.agents?.name_en !== filters.agent) {
+          return false;
+        }
+      }
+
+      return true;
+    }).sort((a, b) => {
+      switch (sortBy) {
+        case 'price_asc':
+          return a.minPrice - b.minPrice;
+        case 'price_desc':
+          return b.minPrice - a.minPrice;
+        case 'year_desc':
+          return b.model_year - a.model_year;
+        case 'year_asc':
+          return a.model_year - b.model_year;
+        case 'brand_asc':
+          return a.models.brands.name.localeCompare(b.models.brands.name);
+        case 'brand_desc':
+          return b.models.brands.name.localeCompare(a.models.brands.name);
+        default:
+          return 0;
+      }
+    });
+  }, [aggregatedVehicles, searchFilters, filters, sortBy]);
+
+  // PERF-013 FIX: Simplified loading state - no skeleton cards to reduce DOM size
   if (loading) {
     return (
       <>
         <Header />
         <Container maxWidth="xl" sx={{ py: 4 }}>
-          {/* Transparent skeleton - reserves space without visible flash (Amazon-style) */}
-          <Box sx={{ mb: 4, opacity: 0 }}>
+          <Box sx={{ 
+            textAlign: 'center', 
+            py: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 2,
+          }}>
             <Typography variant="h5" sx={{ mb: 2 }}>
               {language === 'ar' ? 'جاري التحميل...' : 'Loading...'}
             </Typography>
           </Box>
-
-          <Grid
-            container
-            spacing={3}
-            sx={{
-              display: { xs: 'block', md: 'grid' },
-              gridTemplateColumns: { xs: '1fr', md: '250px 1fr' },
-              gap: 3,
-              opacity: 0, // Transparent skeleton layer
-            }}
-          >
-            {/* Filter panel placeholder - invisible but reserves space */}
-            <Grid item sx={{ xs: 12 }}>
-              <Box sx={{ height: 400, bgcolor: 'background.paper', borderRadius: 1 }} />
-            </Grid>
-
-            {/* Skeleton vehicle cards - invisible but reserves layout space */}
-            <Grid item sx={{ xs: 12 }}>
-              <Grid container spacing={3}>
-                {Array.from({ length: 8 }).map((_, index) => (
-                  <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-                    <SkeletonCard />
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          </Grid>
         </Container>
       </>
     );
