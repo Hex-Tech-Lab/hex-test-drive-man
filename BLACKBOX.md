@@ -205,7 +205,17 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **[COMPLETE 2026-01-07 1130 AM EET] MVP Roadmap Update + Issue Roster + 2H Sprint Plan**: BB - All deliverables created
+1. ✅ **[COMPLETE 2026-01-07 1813 UTC] Sprint 1: Critical API Fixes + Migration Docs**: BB - PR #48 created
+   - ✅ Fixed BUG-020: /api/reservations GET graceful degradation
+   - ✅ Fixed BUG-021: /api/reservations/[id] GET graceful degradation
+   - ✅ Fixed BUG-022: /api/reservations/availability graceful degradation
+   - ✅ Verified BUG-015, 016, 017: No navigation 404s found (false positives)
+   - ✅ Created comprehensive migration guide (docs/RESERVATIONS_MIGRATION_GUIDE.md)
+   - ✅ Added migration scripts (Node.js + Bash)
+   - ⚠️ **PENDING:** Apply migration via Supabase SQL Editor (manual step)
+   - Branch: bb/sprint1-critical-api-fixes | PR: #48 | Commit: 268ff8f
+   - Duration: 20 min (78% under 90 min timebox)
+2. ✅ **[COMPLETE 2026-01-07 1130 AM EET] MVP Roadmap Update + Issue Roster + 2H Sprint Plan**: BB - All deliverables created
    - ✅ Created MVP_ROADMAP.md (7 tables: MVP 1.0-3.5 + Backlog, 22 active items, 168h effort)
    - ✅ Updated docs/ISSUES_ROSTER.md (added 12 features: FEAT-001 to FEAT-012)
    - ✅ Created SPRINT_PLAN_2H.md (2-hour sprint plan for BUG-005 to BUG-010)
