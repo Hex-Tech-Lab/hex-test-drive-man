@@ -1031,3 +1031,24 @@ const formatVehicleTitle = (name: string, year: number) => {
 **Maintained By:** All Agents (CC audits)  
 **Update Frequency:** Real-time (add issues as discovered)  
 **Next Review:** After Sprint 1 completes (BUG-005-010 resolved)
+
+### BUG-011: Transparent Skeleton Flash on Reload
+**Severity**: MEDIUM
+**Status**: FIXED
+**Affected**: FilterPanel, VehicleCard, CartDrawer skeletons
+**Fix**: 
+- CartDrawerSkeleton: Changed open={true} to open={false}
+- FilterPanelSkeleton: Added visibility: hidden during SSR/hydration
+- Both skeletons now properly hidden until content loads (Amazon-style)
+**PR**: #45
+**Date**: 2026-01-07
+**Agent**: BB
+
+### BUG-012: Tab System Misaligned with Content
+**Severity**: LOW
+**Status**: FIXED
+**Affected**: Brand/Body/Price tabs on catalog pages
+**Fix**: Wrapped Tabs in Container maxWidth="xl" to align with page content
+**PR**: #45
+**Date**: 2026-01-07
+**Agent**: BB

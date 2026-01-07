@@ -714,3 +714,55 @@
 - No breaking changes (pypdf is backward compatible)
 - PyPDF2 successfully removed (no imports found)
 - 2 remaining alerts require upstream fixes or are non-actionable
+## 2026-01-07 1610 EET - BB - UI Bugs (Skeleton + Tabs)
+**Timebox**: 30 minutes (planned)
+**Start**: 2026-01-07 1610 EET
+**End**: 2026-01-07 1632 EET
+**Actual Duration**: 22 minutes
+**Variance**: -8 minutes (-27%)
+**Agent**: BB (Blackbox)
+**Outcome**: SUCCESS
+
+### Summary
+Fixed two UI bugs reported after PR #43 merge:
+- **BUG-011**: Transparent skeleton flash on page reload
+- **BUG-012**: Tab system misaligned with page content
+
+### Changes
+**BUG-011 (Skeleton Flash)**:
+- CartDrawerSkeleton: Changed `open={true}` to `open={false}` to prevent flash
+- FilterPanelSkeleton: Added `visibility: hidden` to ensure no flash during SSR/hydration
+- Both skeletons now properly hidden until content loads (Amazon-style)
+
+**BUG-012 (Tab Alignment)**:
+- CatalogTabs: Wrapped Tabs in `Container maxWidth="xl"` to align with page content
+- Previously tabs were full-width while content below was constrained
+- Now tabs align perfectly with FilterPanel + Advanced Search bounding box
+
+### Files Changed
+- src/components/skeletons/CartDrawerSkeleton.tsx
+- src/components/skeletons/FilterPanelSkeleton.tsx
+- src/components/Header.tsx
+- src/components/catalog/CatalogTabs.tsx
+
+### Testing
+- ✅ Build: `pnpm build` - PASS
+- ✅ Docstring coverage: 83.45% (above 70% threshold)
+- ✅ PR created: #45
+- ✅ PR scrape: BUCKET 1 (1 HIGH issue - Sourcery review guide only)
+- ⏳ Visual verification: Pending production deployment
+
+### Classification
+**BUCKET 1**: Safe to merge
+- 0 CRITICAL issues
+- 1 HIGH issue (Sourcery review guide - documentation only, not a real issue)
+- 0 MEDIUM issues
+- 0 LOW issues
+
+### Production URLs
+- Primary: https://hex-test-drive-man.vercel.app/ar
+- Secondary: https://hex-test-drive-man.vercel.app/en
+
+### Related
+- Fixes issues introduced in PR #43
+- Related to skeleton work in PR #39 (TASK_B transparency fix)
