@@ -1,9 +1,57 @@
 # ISSUES ROSTER - Living Bug & Improvement Tracker
 
-**Version:** 1.0.0  
-**Last Updated:** 2026-01-06 1808 EET PPLX CS45  
+**Version:** 1.2.0  
+**Last Updated:** 2026-01-07 1106 EET PPLX (Claude Sonnet 4.5)  
 **Owner:** All Agents (CC audits, others add)  
 **Purpose:** Single source of truth for all bugs, improvements, and technical debt
+
+---
+
+## SESSION: 2026-01-07 10:38-11:06 - Mobile Review & MVP Prioritization
+
+### UX Bugs (Mobile)
+- **BUG-005**: Reservation counter stuck at 1 - 🔴 NEW (won't decrement to 0 after removing all reservations)
+- **BUG-006**: Retry button not working - 🔴 NEW (internet error screen shows retry button but non-functional)
+- **BUG-007**: Filters expanded by default - 🔴 NEW (should be collapsed on mobile)
+- **BUG-008**: Drawer displays on full page reload - 🔴 NEW (should not appear until user action)
+- **BUG-009**: Slow navigation between screens - 🔴 NEW (0.5-1s delay, needs prefetch)
+- **BUG-010**: 24/7 support button exists - 🔴 NEW (no actual support, remove or replace)
+
+### New Features (MVP 1.0-3.5)
+- **FEAT-001**: Collapse filters by default (mobile) - 🔴 NEW (MVP 1.0)
+- **FEAT-002**: Fix reservation counter logic - 🔴 NEW (MVP 1.0)
+- **FEAT-003**: Implement prefetch for instant navigation - 🔴 NEW (MVP 1.0)
+- **FEAT-004**: Separate comparison flyout (independent from reservations) - 🔴 NEW (MVP 1.5)
+- **FEAT-005**: Double-fold animated flyout (2-panel slide + flip UX) - 🔴 NEW (MVP 1.5)
+- **FEAT-006**: Mobile comparison limit (2 cars) with red text warning - 🔴 NEW (MVP 1.5)
+- **FEAT-007**: Desktop comparison limit (5 cars) - 🔴 NEW (MVP 1.5)
+- **FEAT-008**: Drag-drop or mark-and-place for one-hand operation - 🔴 NEW (MVP 1.5)
+- **FEAT-009**: Replace pill buttons with animated icons - 🔴 NEW (MVP 2.0)
+- **FEAT-010**: Catalog page redesign (icon-first approach) - 🔴 NEW (MVP 2.0)
+- **FEAT-011**: Segment-based comparison ("Find my segment") - 🔴 NEW (MVP 2.5)
+- **FEAT-012**: Cross-brand similarity engine - 🔴 NEW (MVP 2.5)
+
+**Full Details**: Section 2 (HIGH Priority) + MVP_ROADMAP.md
+
+---
+
+## SESSION: 2026-01-07 00:00-01:53 - Performance Sprint (4 Phases)
+
+### Visual Bugs
+- **BUG-003**: Mobile font regression (heavier weight) - ✅ FIXED (PR #40 merged, Cairo font loaded)
+- **BUG-004**: Desktop font issues - ✅ FIXED (PR #40 merged, Cairo font loaded)
+
+### UX Issues
+- **BUG-001**: RTL cart drawer - ✅ VERIFIED CORRECT (no fix needed)
+- **BUG-002**: Skeleton flash - ✅ FIXED (PR #39 merged, commit 0839887)
+
+### Performance Issues (Phase 2 Discoveries)
+- **PERF-011**: Forced reflow in MUI chunk (1,141ms) - CRITICAL (assigned to BB, Sprint 1)
+- **PERF-012**: JS execution regression (2.5s → 5.4s, +116%) - HIGH (assigned to BB, Sprint 1)
+- **PERF-013**: DOM size explosion (4,953 elements, 330% over limit) - HIGH (assigned to BB, Sprint 1)
+- **PERF-014**: Deprecated synchronous XMLHttpRequest - HIGH (assigned to BB, Sprint 1)
+
+**Full Details**: `docs/SESSION_2026-01-07_COMPLETE.md`
 
 ---
 
@@ -59,9 +107,231 @@ at CatalogPage (./src/app/[locale]/page.tsx:395:31)
 
 ## 2. HIGH Priority (Next 24 Hours) ⚡
 
+### BUG-005: Reservation Counter Stuck at 1
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1038 EET (mobile review session)  
+**Severity:** HIGH (broken state management)
+
+**Problem:**
+- User removes all reservations from drawer
+- Counter decrements from 2 → 1
+- Stuck at 1 even when no reservations remain
+- Expected: Counter should show 0 when empty
+
+**Impact:**
+- User cannot tell if reservations exist
+- Confusing UX (shows "1" but drawer is empty)
+- State sync issue between drawer and counter
+
+**Root Cause (Hypothesis):**
+- Counter state not updated on last item removal
+- Possible off-by-one error in decrement logic
+- OR: Minimum value check preventing 0
+
+**Fix:**
+```typescript
+// Likely in src/components/ReservationDrawer.tsx or src/contexts/ReservationContext.tsx
+const removeReservation = (id: string) => {
+  setReservations(prev => prev.filter(r => r.id !== id));
+  // Ensure counter updates to 0 when last item removed
+  setCount(Math.max(0, count - 1)); // Remove any min(1) constraint
+};
+```
+
+**Assigned To:** BB (Sprint 1, Hour 1)  
+**Time Budget:** 15 min  
+**Priority:** HIGH (user-facing state bug)
+
+---
+
+### BUG-006: Retry Button Not Working
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1038 EET (mobile review session, screenshot provided)  
+**Severity:** HIGH (error recovery blocked)
+
+**Problem:**
+- Internet connection error screen appears ("عذراً، حدث خطأ")
+- "إعادة المحاولة" (Retry) button visible
+- Clicking retry button does nothing
+- User cannot recover from transient network errors
+
+**Screenshot Evidence:**
+- Error message: "لم نتمكن من تحميل المركبات. يُرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى."
+- Technical error: "TypeError: Failed to fetch :تفاصيل الخطأ"
+
+**Impact:**
+- User must reload entire page to retry
+- Poor UX for mobile users (common network issues)
+- No graceful error recovery
+
+**Root Cause (Hypothesis):**
+- Retry button onClick handler not wired
+- OR: Handler exists but doesn't refetch data
+- OR: Error boundary catches but doesn't reset state
+
+**Fix:**
+```typescript
+// Likely in src/components/ErrorBoundary.tsx or error.tsx
+const handleRetry = () => {
+  resetErrorBoundary(); // Reset error state
+  router.refresh(); // Refetch data
+  // OR: Call original fetch function directly
+};
+
+<Button onClick={handleRetry}>إعادة المحاولة</Button>
+```
+
+**Assigned To:** BB (Sprint 1, Hour 1)  
+**Time Budget:** 20 min  
+**Priority:** HIGH (error recovery critical for mobile)
+
+---
+
+### BUG-007: Filters Expanded by Default
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1038 EET (mobile review session)  
+**Severity:** MEDIUM (mobile UX issue)
+
+**Problem:**
+- FilterPanel expanded on page load (mobile)
+- Takes up significant screen space
+- User must manually collapse to see catalog
+- Expected: Collapsed by default on mobile, expanded on desktop
+
+**Impact:**
+- Poor mobile first-impression (filters block content)
+- Extra tap required on every visit
+- Not following mobile-first design principle
+
+**Fix:**
+```typescript
+// src/components/FilterPanel.tsx
+const [expanded, setExpanded] = useState(() => {
+  // Collapsed by default on mobile, expanded on desktop
+  return !isMobile; // or window.innerWidth > 768
+});
+```
+
+**Assigned To:** BB (Sprint 1, Hour 1)  
+**Time Budget:** 10 min  
+**Priority:** MEDIUM (mobile UX polish)
+
+---
+
+### BUG-008: Drawer Displays on Full Page Reload
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1038 EET (mobile review session)  
+**Severity:** MEDIUM (unexpected behavior)
+
+**Problem:**
+- Reservation/comparison drawer appears on page reload
+- User did not trigger drawer open action
+- Expected: Drawer only opens when user clicks icon/button
+
+**Impact:**
+- Jarring UX (drawer "flashes" on load)
+- Obscures catalog content immediately
+- Inconsistent with user-initiated action pattern
+
+**Root Cause (Hypothesis):**
+- Drawer state persisted in localStorage
+- Page reload restores "open" state
+- No check for user-initiated vs restored state
+
+**Fix:**
+```typescript
+// src/components/ReservationDrawer.tsx
+const [open, setOpen] = useState(false); // Always start closed
+// Remove any localStorage.getItem('drawerOpen') on mount
+useEffect(() => {
+  localStorage.removeItem('drawerOpen'); // Don't persist drawer state
+}, []);
+```
+
+**Assigned To:** BB (Sprint 1, Hour 1)  
+**Time Budget:** 15 min  
+**Priority:** MEDIUM (UX polish)
+
+---
+
+### BUG-009: Slow Navigation Between Screens
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1038 EET (mobile review session)  
+**Severity:** HIGH (performance regression)
+
+**Problem:**
+- Navigation between catalog screens takes 0.5-1 second
+- Comparison view transition noticeably slow
+- Expected: <200ms for instant feel
+
+**User Quote:**
+> "Going from one screen to one screen is very slow... takes half a second or second to take place and that's not smart these should be prefetched."
+
+**Impact:**
+- App feels sluggish on mobile
+- Users perceive low quality
+- Competitors (Amazon, Carvana) have instant transitions
+
+**Root Cause:**
+- No prefetching of next/prev catalog pages
+- No route preloading for comparison view
+- Possible: Images not lazy loaded properly
+
+**Fix:**
+```typescript
+// src/app/[locale]/page.tsx
+import { prefetch } from 'next/navigation';
+
+useEffect(() => {
+  // Prefetch adjacent pages
+  prefetch(`/${locale}?page=${currentPage + 1}`);
+  if (currentPage > 1) prefetch(`/${locale}?page=${currentPage - 1}`);
+  
+  // Prefetch comparison route
+  prefetch(`/${locale}/compare`);
+}, [currentPage, locale]);
+```
+
+**Assigned To:** BB (Sprint 1, Hour 2)  
+**Time Budget:** 30 min  
+**Priority:** HIGH (mobile performance critical)
+
+---
+
+### BUG-010: 24/7 Support Button Exists But No Support
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1038 EET (mobile review session)  
+**Severity:** LOW (misleading UI)
+
+**Problem:**
+- Button/link promises "24/7 support"
+- No actual support infrastructure exists
+- Clicking leads nowhere or shows placeholder
+
+**User Quote:**
+> "Is no 24 by 7 support so we need to remove that button and put something else instead"
+
+**Impact:**
+- User frustration (false promise)
+- Trust issue (claims feature that doesn't exist)
+- Unprofessional appearance
+
+**Fix Options:**
+1. Remove button entirely
+2. Replace with "Contact Us" (email form)
+3. Replace with FAQ link
+4. Replace with WhatsApp business link (if available)
+
+**Assigned To:** BB (Sprint 1, Hour 2)  
+**Time Budget:** 10 min  
+**Priority:** LOW (remove false promise)
+
+---
+
 ### ISSUE-002: CLAUDE.md Header Outdated
-**Status:** 🟡 NEW  
+**Status:** ✅ RESOLVED  
 **Discovered:** 2026-01-06 1800 EET (this session)  
+**Resolved:** 2026-01-07 1106 EET (PPLX update)  
 **Severity:** MEDIUM (documentation drift)
 
 **Problem:**
@@ -72,11 +342,10 @@ at CatalogPage (./src/app/[locale]/page.tsx:395:31)
 
 **Fix:**
 ```markdown
-Version: 2.4.1 | Last Updated: 2026-01-06 1808 EET PPLX CS45
+Version: 2.4.2 | Last Updated: 2026-01-07 1106 EET PPLX CS45
 ```
 
-**Assigned To:** PPLX (after creating this file)  
-**Time Budget:** 5 min
+**Resolution:** Updated in this commit
 
 ---
 
@@ -128,8 +397,9 @@ Version: 2.4.1 | Last Updated: 2026-01-06 1808 EET PPLX CS45
 ---
 
 ### ISSUE-005: Arabic Font White Streaks
-**Status:** 🟡 NEW  
+**Status:** ✅ RESOLVED  
 **Discovered:** 2026-01-06 (user business discussion)  
+**Resolved:** 2026-01-06 2350 UTC (BB Phase 6, PR #40)  
 **Severity:** HIGH (premium positioning)
 
 **Problem:**
@@ -143,13 +413,13 @@ Version: 2.4.1 | Last Updated: 2026-01-06 1808 EET PPLX CS45
 - Competitors have better Arabic typography
 
 **Fix:**
-- Audit font stack (check if letter-spacing applied)
-- Integrate high-quality Arabic webfont
+- Implemented Cairo font with Next.js font optimization
 - Zero artificial letter-spacing
 - Proper fallback chain
+- 21 KB savings (Cairo 70KB vs Roboto 91KB)
 
-**Assigned To:** TBD (front-end LLM trial or CCW)  
-**Time Budget:** 60 min (research + implementation)
+**Location:** `src/app/[locale]/layout.tsx`, `src/lib/theme.ts`  
+**Commits:** 08d2afe (PR #40)
 
 ---
 
@@ -216,6 +486,308 @@ Version: 2.4.1 | Last Updated: 2026-01-06 1808 EET PPLX CS45
 
 **Assigned To:** TBD (image sourcing strategy needed first)  
 **Time Budget:** TBD (depends on replacement image availability)
+
+---
+
+### FEAT-001: Collapse Filters by Default (Mobile)
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (mobile UX)  
+**MVP:** 1.0
+
+**Problem:**
+- Filters expanded on page load (mobile)
+- Takes up significant screen space
+- User must manually collapse to see catalog
+
+**Impact:**
+- Poor mobile first-impression
+- Extra tap required on every visit
+- Not following mobile-first design principle
+
+**Fix:**
+```typescript
+const [expanded, setExpanded] = useState(() => !isMobile);
+```
+
+**Assigned To:** BB (Sprint 1)  
+**Time Budget:** 1h  
+**Priority:** HIGH
+
+---
+
+### FEAT-002: Fix Reservation Counter Logic
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** CRITICAL (state management)  
+**MVP:** 1.0
+
+**Problem:**
+- Counter stuck at 1 when all reservations removed
+- Should decrement to 0
+
+**Impact:**
+- User cannot tell if reservations exist
+- Confusing UX
+
+**Fix:**
+```typescript
+setCount(Math.max(0, count - 1)); // Remove min(1) constraint
+```
+
+**Assigned To:** BB (Sprint 1)  
+**Time Budget:** 2h  
+**Priority:** CRITICAL
+
+---
+
+### FEAT-003: Implement Prefetch for Instant Navigation
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (performance)  
+**MVP:** 1.0
+
+**Problem:**
+- Navigation between screens takes 0.5-1s
+- Comparison view transition noticeably slow
+- Expected: <200ms for instant feel
+
+**Impact:**
+- App feels sluggish on mobile
+- Users perceive low quality
+
+**Fix:**
+```typescript
+useEffect(() => {
+  prefetch(`/${locale}?page=${currentPage + 1}`);
+  prefetch(`/${locale}/compare`);
+}, [currentPage, locale]);
+```
+
+**Assigned To:** BB (Sprint 1)  
+**Time Budget:** 4h  
+**Priority:** HIGH
+
+---
+
+### FEAT-004: Separate Comparison Flyout
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (UX enhancement)  
+**MVP:** 1.5
+
+**Problem:**
+- Comparison and reservations share same drawer
+- User wants independent flyouts
+
+**Impact:**
+- Confusing UX (mixing two different actions)
+- Cannot compare while viewing reservations
+
+**Fix:**
+- Create separate ComparisonDrawer component
+- Independent state management
+- Separate icons/buttons
+
+**Assigned To:** CC (Sprint 2)  
+**Time Budget:** 8h  
+**Priority:** HIGH
+
+---
+
+### FEAT-005: Double-Fold Animated Flyout
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (premium UX)  
+**MVP:** 1.5
+
+**Problem:**
+- User wants premium animated UX
+- 2-panel slide + flip animation
+- Like luxury car configurators
+
+**Impact:**
+- Competitive differentiator
+- Premium brand positioning
+
+**Fix:**
+- Implement 2-panel animation (slide + flip)
+- <300ms total animation time
+- Use CSS transforms (not layout changes)
+
+**Assigned To:** CC (Sprint 2)  
+**Time Budget:** 12h  
+**Priority:** HIGH
+
+---
+
+### FEAT-006: Mobile Comparison Limit (2 Cars)
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (mobile UX)  
+**MVP:** 1.5
+
+**Problem:**
+- No limit on mobile comparisons
+- Screen too small for 3+ cars
+
+**Impact:**
+- Poor mobile UX (cramped layout)
+
+**Fix:**
+- Max 2 cars on mobile
+- Red warning text when limit reached
+- Disable add button after 2
+
+**Assigned To:** BB (Sprint 2)  
+**Time Budget:** 3h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-007: Desktop Comparison Limit (5 Cars)
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (desktop UX)  
+**MVP:** 1.5
+
+**Problem:**
+- No limit on desktop comparisons
+- Layout breaks with 6+ cars
+
+**Impact:**
+- Poor desktop UX (horizontal scroll)
+
+**Fix:**
+- Max 5 cars on desktop
+- Warning text when limit reached
+
+**Assigned To:** BB (Sprint 2)  
+**Time Budget:** 2h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-008: Drag-Drop or Mark-and-Place
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** HIGH (mobile UX)  
+**MVP:** 1.5
+
+**Problem:**
+- User wants one-hand operation
+- Drag-drop OR mark-and-place
+
+**Impact:**
+- Better mobile UX
+- Competitive advantage
+
+**Fix:**
+- Implement mark-and-place (tap to mark, tap flyout to place)
+- OR: Drag-drop with scroll gesture detection
+
+**Assigned To:** CC (Sprint 2)  
+**Time Budget:** 10h  
+**Priority:** HIGH
+
+---
+
+### FEAT-009: Replace Pill Buttons with Animated Icons
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (visual polish)  
+**MVP:** 2.0
+
+**Problem:**
+- Pill buttons = text only (no logos)
+- Not premium automotive feel
+
+**Impact:**
+- Lower perceived quality
+- Misses visual brand recognition opportunity
+
+**Fix:**
+- Replace with animated icons
+- Brand logos (30-40% button width, partially cut off)
+- Hover/tap effects
+
+**Assigned To:** CC (Sprint 3)  
+**Time Budget:** 8h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-010: Catalog Page Redesign (Icon-First)
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (visual polish)  
+**MVP:** 2.0
+
+**Problem:**
+- Current catalog = text-heavy
+- User wants icon-first approach
+
+**Impact:**
+- Not premium automotive showroom feel
+
+**Fix:**
+- Icon-first catalog page
+- Brand logos prominent
+- Consistent animation language (300ms ease-in-out)
+
+**Assigned To:** CC (Sprint 3)  
+**Time Budget:** 12h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-011: Segment-Based Comparison
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (discovery enhancement)  
+**MVP:** 2.5
+
+**Problem:**
+- User wants "Find my segment" button
+- Example: Q3 → show X3, GLC, XC60
+
+**Impact:**
+- Better discovery
+- Cross-brand comparison
+
+**Fix:**
+- Segment detection algorithm (price + body type + features)
+- "Find my segment" button on vehicle cards
+- Show top 5 competitors
+
+**Assigned To:** CC (Sprint 4)  
+**Time Budget:** 16h  
+**Priority:** MEDIUM
+
+---
+
+### FEAT-012: Cross-Brand Similarity Engine
+**Status:** 🔴 NEW  
+**Discovered:** 2026-01-07 1118 AM EET (MVP roadmap planning)  
+**Severity:** MEDIUM (discovery enhancement)  
+**MVP:** 2.5
+
+**Problem:**
+- User wants automatic competitor suggestions
+- Example: luxury compact SUV → all competitors
+
+**Impact:**
+- Better discovery
+- Competitive intelligence
+
+**Fix:**
+- Similarity scoring algorithm (0-100%)
+- Automatic competitor suggestions
+- Bilingual support (EN/AR)
+
+**Assigned To:** CC (Sprint 4)  
+**Time Budget:** 20h  
+**Priority:** MEDIUM
 
 ---
 
@@ -418,14 +990,13 @@ const formatVehicleTitle = (name: string, year: number) => {
 1. Added to "Session End Protocol" → Still forgotten
 2. Added to "Housekeeping Reminder" → Still forgotten
 
-**Status:** 🔴 Still recurring (ISSUE-002 is current instance)
+**Status:** ✅ RESOLVED (auto-update in this session)
 
-**What Would Fix This:**
-- Git pre-commit hook checks CLAUDE.md header
-- Compares "Last Updated" to current date
-- Blocks commit if outdated (or auto-updates)
+**What Fixed This:**
+- PPLX auto-updates timestamp in every doc commit
+- Timestamp format: YYYY-MM-DD HHmm Agent Model
 
-**Assigned To:** TBD (automation script needed)
+**Assigned To:** N/A (process now enforced)
 
 ---
 
@@ -434,7 +1005,7 @@ const formatVehicleTitle = (name: string, year: number) => {
 ```markdown
 ### ISSUE-XXX: [Title]
 **Status:** 🔴 NEW / 🟡 IN PROGRESS / ✅ RESOLVED / 🔵 BLOCKED  
-**Discovered:** YYYY-MM-DD (source)  
+**Discovered:** YYYY-MM-DD HHmm EET (source)  
 **Severity:** CRITICAL / HIGH / MEDIUM / LOW
 
 **Problem:**
@@ -455,8 +1026,8 @@ const formatVehicleTitle = (name: string, year: number) => {
 
 ---
 
-**END OF ISSUES_ROSTER.md v1.0.0**
+**END OF ISSUES_ROSTER.md v1.2.0**
 
 **Maintained By:** All Agents (CC audits)  
 **Update Frequency:** Real-time (add issues as discovered)  
-**Next Review:** After production stabilizes (ISSUE-001 resolved)
+**Next Review:** After Sprint 1 completes (BUG-005-010 resolved)
