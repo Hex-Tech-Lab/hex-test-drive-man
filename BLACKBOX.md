@@ -205,6 +205,21 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
+1. ⏳ **[IN PROGRESS 2026-01-08 2245 EET] MVP 1.6 Phase 2 - Smart Scanner PR Review**: BB - BUCKET 2 (NEEDS REVIEW)
+   - ✅ PR #58 verified: OPEN, mergeable=TRUE, state=UNSTABLE (CI pending)
+   - ✅ PR scraper executed: docs/PR_58_REVIEW_ANALYSIS.md (1378 lines, 17 issues)
+   - ❌ **CRITICAL #1**: Video metadata race condition (processFrames before video ready)
+     - Fix: Add onloadedmetadata event listener (5 min, CodeRabbit provided code)
+   - ❌ **CRITICAL #2**: SonarCloud 0.0% test coverage on new code
+     - Requires investigation: Does this block merge per project policy?
+   - ⚠️ **HIGH #1**: Canvas resized every frame (performance overhead)
+   - ⚠️ **HIGH #2**: Missing OpenCV cleanup on unmount (memory leak)
+   - ⚠️ **HIGH #3**: No CDN fallback logging (debugging blind spot)
+   - 📋 12 MEDIUM/LOW issues documented
+   - **Recommendation**: DO NOT MERGE until CRITICAL fixes applied
+   - **Next Actions**: Fix CRITICAL #1 (5 min), investigate CRITICAL #2 policy
+   - Duration: 18 minutes (planned: 30 min, variance: -40%)
+   - Performance: 60% time used (40% under budget)
 1. ✅ **[COMPLETE 2026-01-08 1822 UTC] MVP 1.6 Unified Booking Service Layer**: BB - Service layer deployed
    - ✅ Created BookingWorkflowService.ts (171 lines) consolidating booking + OTP logic
    - ✅ Updated /api/bookings route to use service (reduced duplication by ~50 lines)
