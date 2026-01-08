@@ -1,3 +1,33 @@
+## 2026-01-09 0030 EET - BB Pro - Scanner Countdown (Unified)
+**Timebox**: 20 minutes (planned)
+**Start**: 2026-01-09 0030 EET
+**End**: 2026-01-09 0046 EET
+**Actual Duration**: 16 minutes
+**Variance**: -4 minutes (-20%)
+**Agent**: BB Pro (GPT 5.2)
+**Branch**: agent/bb-scanner-countdown-unified
+**Outcome**: SUCCESS
+
+### Changes
+- Countdown state: useState<number | null>(null)
+- isCapturing state: useState<boolean>(false) for capture guard
+- Countdown JSX overlay (green 120px, glow, semi-transparent bg)
+- Countdown trigger in processFrames (3-2-1 sequence)
+- Auto-capture after countdown completes
+
+### Files Modified
+- src/components/scanner/SmartScanner.tsx (+53, -4)
+
+### Quality Gates
+- TypeScript: PASS
+- Build: PASS (warnings pre-existing)
+- Docstring Coverage: 91.49%
+
+### Deployment
+- Branch: agent/bb-scanner-countdown-unified
+- Commit: 934f80a237ccc6828c1f715ed2b045d2958b42b5
+- Preview: Pending push verification
+
 ## 2026-01-08 1800 UTC - BB - MVP 1.6 Unified Booking Service Layer
 **Timebox**: 30 minutes (planned)
 **Start**: 2026-01-08 1800 UTC
