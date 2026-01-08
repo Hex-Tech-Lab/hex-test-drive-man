@@ -30,6 +30,14 @@ const nextConfig = {
     // Exclude jscanify from server-side bundle (has Node.js dependencies)
     if (isServer) {
       config.externals = [...(config.externals || []), 'jscanify'];
+    } else {
+      // Don't resolve 'fs' module on the client to prevent this error on build
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        crypto: false,
+      };
     }
     return config;
   },
