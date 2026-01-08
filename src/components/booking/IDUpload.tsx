@@ -22,7 +22,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import Image from 'next/image';
-import SmartScanner from '@/components/scanner/SmartScanner';
+import { SmartScanner } from '@/components/scanner/SmartScanner';
 
 interface IDUploadProps {
   onUploadComplete: (nationalId: string, imageUrl: string) => void;
@@ -257,17 +257,27 @@ export default function IDUpload({ onUploadComplete, language = 'en' }: IDUpload
         <Box>
           {scanStep === 'front' && (
             <SmartScanner
-              mode="front"
-              onScanComplete={handleScanComplete}
-              language={language}
+              side="front"
+              onCapture={(blob) => {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                  handleScanComplete({ imageData: reader.result as string, data: {} });
+                };
+                reader.readAsDataURL(blob);
+              }}
             />
           )}
 
           {scanStep === 'back' && (
             <SmartScanner
-              mode="back"
-              onScanComplete={handleScanComplete}
-              language={language}
+              side="back"
+              onCapture={(blob) => {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                  handleScanComplete({ imageData: reader.result as string, data: {} });
+                };
+                reader.readAsDataURL(blob);
+              }}
             />
           )}
 
