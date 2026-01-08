@@ -120,6 +120,7 @@ export async function POST(request: NextRequest) {
       // Return existing booking ID to prevent duplicate OTP
       return NextResponse.json(
         {
+          bookingId: recentBooking.id,
           id: recentBooking.id,
           message: 'Booking already exists',
           duplicate: true
@@ -142,7 +143,8 @@ export async function POST(request: NextRequest) {
       // Booking created but SMS failed - return partial success
       return NextResponse.json(
         {
-          booking,
+          bookingId: booking.id,
+          ...booking,
           warning: 'Booking created but SMS failed to send',
           smsError: otpResult.error
         },
@@ -151,7 +153,10 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      booking,
+      {
+        bookingId: booking.id,
+        ...booking
+      },
       { status: 201 }
     );
   } catch (error) {
