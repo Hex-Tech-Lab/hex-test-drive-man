@@ -3,7 +3,7 @@
 // Agent: BB
 // Pattern: Repository pattern with Supabase
 
-import { createClient } from '../supabase';
+import { createClient } from '@/lib/supabase';
 import type { Reservation, ReservationInput, TimeSlot } from '@/types/reservation';
 
 const supabase = createClient();
