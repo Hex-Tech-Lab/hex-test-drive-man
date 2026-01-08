@@ -73,7 +73,8 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
   const locale = (params.locale as string) || 'en';
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
-  const { toggleFavorite, isFavorite } = useFavoriteStore();
+  const toggleFavorite = useFavoriteStore((s) => s.toggleFavorite);
+  const isFavorite = useFavoriteStore((s) => s.isFavorite);
   const theme = useTheme();
   
   // COMPARISON LIMIT FIX: Device-aware limits (5 on web/tablet, 2 on mobile)
@@ -222,12 +223,14 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
     const currentCount = useFavoriteStore.getState().getFavoriteCount();
     const willExceedLimit = !isFavorited && currentCount >= 2;
     
-    toggleFavorite(vehicle.id);
-    
-    // Trigger soft-gate modal if >2 favorites after toggle
+    // Trigger soft-gate modal if >2 favorites BEFORE toggle
     if (willExceedLimit) {
       setFavoriteLoginModalOpen(true);
+      return; // Don't toggle if limit exceeded
     }
+    
+    // Only toggle if within limit or removing
+    toggleFavorite(vehicle.id);
   }, [vehicle.id, toggleFavorite, isFavorited]);
 
   return (

@@ -27,7 +27,8 @@ interface VehicleHeroProps {
  */
 export default function VehicleHero({ vehicle, trims }: VehicleHeroProps) {
   const language = useLanguageStore((state) => state.language);
-  const { toggleFavorite, isFavorite } = useFavoriteStore();
+  const toggleFavorite = useFavoriteStore((s) => s.toggleFavorite);
+  const isFavorite = useFavoriteStore((s) => s.isFavorite);
 
   // Calculate price range
   const minPrice = Math.min(...trims.map((t) => t.price_egp));
