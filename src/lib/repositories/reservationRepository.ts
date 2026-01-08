@@ -16,16 +16,27 @@ export async function createReservation(
   input: ReservationInput
 ): Promise<{ data: Reservation | null; error: Error | null }> {
   try {
+    const insertData: any = {
+      user_id: userId,
+      vehicle_id: input.vehicle_id,
+      reservation_datetime: input.reservation_datetime,
+      national_id: input.national_id,
+      id_image_url: input.id_image_url || input.id_front_url || null,
+      status: 'pending',
+    };
+
+    // Add optional fields if provided
+    if (input.name) insertData.name = input.name;
+    if (input.birth_date) insertData.birth_date = input.birth_date;
+    if (input.phone) insertData.phone = input.phone;
+    if (input.id_front_url) insertData.id_front_url = input.id_front_url;
+    if (input.id_back_url) insertData.id_back_url = input.id_back_url;
+    if (input.ocr_confidence !== undefined) insertData.ocr_confidence = input.ocr_confidence;
+    if (input.barcode_verified !== undefined) insertData.barcode_verified = input.barcode_verified;
+
     const { data, error } = await supabase
       .from('reservations')
-      .insert({
-        user_id: userId,
-        vehicle_id: input.vehicle_id,
-        reservation_datetime: input.reservation_datetime,
-        national_id: input.national_id,
-        id_image_url: input.id_image_url || null,
-        status: 'pending'
-      })
+      .insert(insertData)
       .select()
       .single();
 

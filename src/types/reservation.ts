@@ -22,6 +22,13 @@ export interface ReservationInput {
   reservation_datetime: string;
   national_id: string;
   id_image_url?: string;
+  name?: string;
+  birth_date?: string;
+  phone?: string;
+  id_front_url?: string;
+  id_back_url?: string;
+  ocr_confidence?: number;
+  barcode_verified?: boolean;
 }
 
 export interface TimeSlot {
