@@ -64,7 +64,18 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { vehicle_id, reservation_datetime, national_id, id_image_url } = body;
+    const {
+      vehicle_id,
+      reservation_datetime,
+      national_id,
+      name,
+      birth_date,
+      phone,
+      id_front_url,
+      id_back_url,
+      ocr_confidence,
+      barcode_verified,
+    } = body;
 
     // Validate required fields
     if (!vehicle_id || !reservation_datetime || !national_id) {
@@ -78,7 +89,14 @@ export async function POST(request: NextRequest) {
       vehicle_id,
       reservation_datetime,
       national_id,
-      id_image_url
+      id_image_url: id_front_url, // Keep backward compatibility
+      name,
+      birth_date,
+      phone,
+      id_front_url,
+      id_back_url,
+      ocr_confidence,
+      barcode_verified,
     });
 
     if (error) {
