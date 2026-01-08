@@ -346,7 +346,8 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
           variant="contained"
           fullWidth
           sx={{ mt: 2 }}
-          onClick={handleBookingModalOpen}
+          component={Link}
+          href={`/${locale}/booking/new?vehicle_id=${vehicle.id}`}
         >
           {language === 'ar' ? 'احجز تجربة قيادة' : 'Book Test Drive'}
         </Button>

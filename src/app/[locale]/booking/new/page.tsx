@@ -20,7 +20,7 @@ import {
   Tab,
   Divider,
 } from '@mui/material';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import Header from '@/components/Header';
 import ReservationForm from '@/components/booking/ReservationForm';
 import CameraCapture from '@/components/booking/CameraCapture';
@@ -29,6 +29,8 @@ import BarcodeReader from '@/components/booking/BarcodeReader';
 import ManualEntryForm from '@/components/booking/ManualEntryForm';
 import { useLanguageStore } from '@/stores/language-store';
 import { useBookingStore } from '@/stores/useBookingStore';
+import { vehicleRepository } from '@/repositories/vehicleRepository';
+import type { Vehicle } from '@/types/vehicle';
 
 const steps = ['Select Date & Time', 'Capture ID', 'Verify Data', 'Confirm'];
 const stepsAr = ['اختر التاريخ والوقت', 'التقاط البطاقة', 'التحقق من البيانات', 'تأكيد'];
@@ -38,9 +40,13 @@ type CaptureMode = 'camera' | 'manual';
 export default function NewBookingPage() {
   const router = useRouter();
   const params = useParams();
+  const searchParams = useSearchParams();
   const locale = (params.locale as string) || 'en';
   const language = useLanguageStore((state) => state.language);
   const isArabic = language === 'ar';
+
+  const vehicleId = searchParams.get('vehicle_id');
+  const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
 
   const {
     bookingFlow,
@@ -54,6 +60,20 @@ export default function NewBookingPage() {
   const [capturingSide, setCapturingSide] = useState<'front' | 'back'>('front');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Fetch vehicle details if vehicle_id is provided
+  useEffect(() => {
+    const fetchVehicle = async () => {
+      if (vehicleId) {
+        const { data, error } = await vehicleRepository.getVehicleById(vehicleId);
+        if (data && !error) {
+          setSelectedVehicle(data);
+        }
+      }
+    };
+
+    fetchVehicle();
+  }, [vehicleId]);
 
   // Sync active step with store
   useEffect(() => {
@@ -259,7 +279,8 @@ export default function NewBookingPage() {
         {/* Step 0: Reservation Form */}
         {activeStep === 0 && (
           <ReservationForm
-            vehicleId={bookingFlow?.vehicleId}
+            vehicleId={bookingFlow?.vehicleId || vehicleId || undefined}
+            selectedVehicle={selectedVehicle}
             onSubmit={handleReservationSubmit}
             language={language}
           />

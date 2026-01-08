@@ -19,7 +19,11 @@ import {
   Alert,
   CircularProgress,
   Chip,
-  Grid
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  IconButton
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -27,10 +31,14 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import EventIcon from '@mui/icons-material/Event';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import CloseIcon from '@mui/icons-material/Close';
 import type { TimeSlot } from '@/types/reservation';
+import type { Vehicle } from '@/types/vehicle';
+import { getVehicleImage } from '@/lib/imageHelper';
 
 interface ReservationFormProps {
   vehicleId?: string;
+  selectedVehicle?: Vehicle | null;
   onSubmit: (data: {
     vehicleId: string;
     datetime: string;
@@ -45,10 +53,12 @@ interface ReservationFormProps {
  */
 export default function ReservationForm({
   vehicleId: initialVehicleId,
+  selectedVehicle: initialSelectedVehicle,
   onSubmit,
   language = 'en'
 }: ReservationFormProps) {
   const [vehicleId, setVehicleId] = useState(initialVehicleId || '');
+  const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(initialSelectedVehicle || null);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string>('');
   const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([]);
@@ -57,6 +67,14 @@ export default function ReservationForm({
   const [vehicles, setVehicles] = useState<Array<{ id: string; name: string }>>([]);
 
   const isArabic = language === 'ar';
+
+  // Sync initial vehicle selection
+  useEffect(() => {
+    if (initialSelectedVehicle) {
+      setSelectedVehicle(initialSelectedVehicle);
+      setVehicleId(initialSelectedVehicle.id);
+    }
+  }, [initialSelectedVehicle]);
 
   // Fetch available vehicles
   useEffect(() => {
@@ -129,6 +147,13 @@ export default function ReservationForm({
     });
   };
 
+  const handleClearVehicle = () => {
+    setSelectedVehicle(null);
+    setVehicleId('');
+    setSelectedDate(null);
+    setSelectedTime('');
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Paper elevation={2} sx={{ p: 3 }}>
@@ -142,8 +167,48 @@ export default function ReservationForm({
           </Alert>
         )}
 
+        {/* Pre-selected Vehicle Preview */}
+        {selectedVehicle && (
+          <Card sx={{ mb: 3, position: 'relative' }}>
+            <IconButton
+              onClick={handleClearVehicle}
+              sx={{
+                position: 'absolute',
+                top: 8,
+                right: isArabic ? 'auto' : 8,
+                left: isArabic ? 8 : 'auto',
+                zIndex: 1,
+                bgcolor: 'background.paper',
+                '&:hover': { bgcolor: 'background.paper' }
+              }}
+              size="small"
+            >
+              <CloseIcon fontSize="small" />
+            </IconButton>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' } }}>
+              <CardMedia
+                component="img"
+                sx={{ width: { xs: '100%', sm: 200 }, height: { xs: 150, sm: 120 }, objectFit: 'cover' }}
+                image={getVehicleImage(selectedVehicle.models.hero_image_url)}
+                alt={`${selectedVehicle.models.brands.name} ${selectedVehicle.models.name}`}
+              />
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6" gutterBottom>
+                  {selectedVehicle.models.brands.name} {selectedVehicle.models.name} {selectedVehicle.model_year}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {selectedVehicle.trim_name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+                  {isArabic ? 'السعر:' : 'Price:'} {selectedVehicle.price_egp?.toLocaleString()} {isArabic ? 'جنيه' : 'EGP'}
+                </Typography>
+              </CardContent>
+            </Box>
+          </Card>
+        )}
+
         {/* Vehicle Selector */}
-        {!initialVehicleId && (
+        {!selectedVehicle && (
           <FormControl fullWidth sx={{ mb: 3 }}>
             <InputLabel>
               {isArabic ? 'اختر السيارة' : 'Select Vehicle'}
