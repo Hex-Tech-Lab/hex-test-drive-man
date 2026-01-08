@@ -26,6 +26,8 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { level, state, detectIDCard } = useSmartScanner();
   const [error, setError] = useState<string | null>(null);
+  const [countdown, setCountdown] = useState<number | null>(null);
+  const [isCapturing, setIsCapturing] = useState(false);
   const animationFrameRef = useRef<number | null>(null);
   const isArabic = language === 'ar';
 
@@ -80,10 +82,27 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
       ctx.drawImage(video, 0, 0);
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const shouldCapture = detectIDCard(imageData);
-      if (shouldCapture) {
-        canvas.toBlob(async (blob) => { 
-          if (blob) await handleCapture(blob); 
-        }, 'image/jpeg', 0.9);
+      if (shouldCapture && !isCapturing && countdown === null) {
+        setIsCapturing(true);
+        let count = 3;
+        setCountdown(count);
+        
+        const timer = setInterval(() => {
+          count--;
+          if (count > 0) {
+            setCountdown(count);
+          } else {
+            clearInterval(timer);
+            setCountdown(null);
+            canvas.toBlob(async (blob) => {
+              if (blob) {
+                await handleCapture(blob);
+                setIsCapturing(false);
+              }
+            }, 'image/jpeg', 0.9);
+          }
+        }, 1000);
+        
         return;
       }
       animationFrameRef.current = requestAnimationFrame(processFrame);
@@ -162,6 +181,36 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
       <Typography variant="h6" gutterBottom sx={{ textAlign: 'center' }}>
         {isArabic ? `مسح ${sideLabel}` : `Scan ${sideLabel}`}
       </Typography>
+
+      {countdown !== null && (
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 1000,
+            pointerEvents: 'none'
+          }}
+        >
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: 120,
+              fontWeight: 900,
+              color: '#00ff00',
+              textShadow: '0 0 30px #00ff00, 0 0 60px #00ff00'
+            }}
+          >
+            {countdown}
+          </Typography>
+        </Box>
+      )}
       
       {state === 'loading' && (
         <Box sx={{ textAlign: 'center', py: 4 }}>
