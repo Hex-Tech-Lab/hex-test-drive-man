@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cairo } from 'next/font/google';
 import AppProviders from '@/components/AppProviders';
 import { AnalyticsWrapper } from '@/components/AnalyticsWrapper';
+import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 
 const cairo = Cairo({
   weight: ['400', '700'],
@@ -22,11 +23,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl" className={cairo.variable} suppressHydrationWarning>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#1976d2" />
+      </head>
       <body suppressHydrationWarning>
         <AppProviders>
           {children}
         </AppProviders>
         <AnalyticsWrapper />
+        <ServiceWorkerRegistration />
       </body>
     </html>
   );
