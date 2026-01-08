@@ -1,0 +1,14 @@
+COMPLETE 2026-01-08T17:30:00Z
+Agent: BB
+Task: Vehicle Pre-Selection (P0)
+Duration: 18 minutes
+PR: #54
+Branch: agent/bb/fix-vehicle-preselection
+Commit: 7ac186c
+
+Files Changed:
+- src/components/VehicleCard.tsx (1 line)
+- src/app/[locale]/booking/new/page.tsx (15 lines)
+- src/components/booking/ReservationForm.tsx (76 lines)
+
+Total: 3 files, 92 insertions, 5 deletions
