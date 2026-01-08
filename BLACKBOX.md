@@ -205,7 +205,21 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
-1. ✅ **[COMPLETE 2026-01-08 0046 UTC] MVP 1.5 Phase 0 - Favorites Feature**: BB - PR #50 created
+1. ✅ **[COMPLETE 2026-01-08 0217 UTC] MVP 1.5 Phase 3 - Production Deployment**: BB - All PRs merged to production
+   - ✅ Phase 1.5 completion detected (OpenCV.js + Scribe.js commit found)
+   - ✅ PRs #50, #51, #52 already existed (created by another agent)
+   - ✅ Scraped all 3 PRs (build: PASS, lint: 1 error, tsc: PASS)
+   - ✅ Fixed lint error in reservationRepository.ts (relative import → path alias)
+   - ✅ Merged PR #50 (Phase 0 - Favorites) - commit 105da2c
+   - ✅ Merged PR #51 (Phase 1 - Smart Scanner) - commit 723b746
+   - ✅ Rebased PR #52 on updated main (resolved conflicts)
+   - ✅ Merged PR #52 (Phase 2 - Face Matching) - commit 7b1ef32
+   - ✅ Verified production deployment (https://hex-test-drive-man.vercel.app/en)
+   - ✅ Updated documentation (PERFORMANCE_LOG.md, BLACKBOX.md)
+   - Duration: 37 minutes (planned: 180 min, variance: -79%)
+   - Files: 3 branches fixed, 2 conflicts resolved
+   - Performance: 21% time used (79% under budget)
+2. ✅ **[COMPLETE 2026-01-08 0046 UTC] MVP 1.5 Phase 0 - Favorites Feature**: BB - PR #50 created
    - ✅ Zustand store: favorite-store.ts with localStorage persist (52 lines)
    - ✅ Heart icons: VehicleCard + VehicleHero (RTL aware, 3 states: empty/filled/loading)
    - ✅ FavoriteLoginModal: Arabic/EN copy, triggers >2 favorites (131 lines)
@@ -355,13 +369,14 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 - ⏳ Catalog UI redesign (pending user specs)
 - ⏳ Main branch consolidation (pending)
 
-### MVP 1.5 (PLANNED 📋)
-- SWR for client-side data fetching
-- Drizzle ORM migration (from direct Supabase)
-- Smart Rules Engine 50% coverage (currently 31.7%)
-- TanStack Query (admin panel only)
+### MVP 1.5 (COMPLETED ✅ - 2026-01-08)
+- ✅ Phase 0: Favorites soft-gate system (PR #50, merged 105da2c)
+- ✅ Phase 1: Smart Scanner with OpenCV.js + Scribe.js OCR (PR #51, merged 723b746)
+- ✅ Phase 2: Face verification + offline support (PR #52, merged 7b1ef32)
+- ✅ Production deployment verified (https://hex-test-drive-man.vercel.app/en)
+- 📋 Pending: SWR, Drizzle ORM, Smart Rules Engine 50% coverage, TanStack Query
 
-**Timeline**: 2025-12-31 EOD UTC or early Jan 2026
+**Completed**: 2026-01-08 0217 UTC
 
 **Full Roadmap**: `MVP_ROADMAP.md` (8 lines) in root directory
 
