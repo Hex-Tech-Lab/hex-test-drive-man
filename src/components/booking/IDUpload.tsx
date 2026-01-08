@@ -22,7 +22,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import Image from 'next/image';
-import SmartScanner from '@/components/scanner/SmartScanner';
+import { SmartScanner } from '@/components/scanner/SmartScanner';
 
 interface IDUploadProps {
   onUploadComplete: (nationalId: string, imageUrl: string) => void;
