@@ -11,12 +11,32 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    const image = formData.get('image') as Blob;
+    const imageField = formData.get('image');
     
-    if (!image) {
+    // Validate image exists and is a Blob
+    if (!imageField || !(imageField instanceof Blob)) {
       return NextResponse.json(
-        { error: 'No image provided' },
+        { error: 'No valid image provided' },
         { status: 400 }
+      );
+    }
+    
+    const image = imageField as Blob;
+    
+    // Validate file size (max 5MB)
+    const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+    if (image.size > MAX_FILE_SIZE) {
+      return NextResponse.json(
+        { error: 'Image too large. Maximum size is 5MB' },
+        { status: 413 }
+      );
+    }
+    
+    // Validate MIME type
+    if (!image.type.startsWith('image/')) {
+      return NextResponse.json(
+        { error: 'Invalid file type. Only images are allowed' },
+        { status: 415 }
       );
     }
     
