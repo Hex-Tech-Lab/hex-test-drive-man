@@ -205,6 +205,18 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
+1. ✅ **[COMPLETE 2026-01-08 1822 UTC] MVP 1.6 Unified Booking Service Layer**: BB - Service layer deployed
+   - ✅ Created BookingWorkflowService.ts (171 lines) consolidating booking + OTP logic
+   - ✅ Updated /api/bookings route to use service (reduced duplication by ~50 lines)
+   - ✅ Updated /api/bookings/[id]/verify route to use service
+   - ✅ Idempotency check at service level (60s window)
+   - ✅ Unified error handling with Sentry integration
+   - ✅ Quality gates: TypeScript PASS, ESLint 0 errors, Docstring 91.82%
+   - ✅ PR #56 created: https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/56
+   - ✅ Flag created: .github/SERVICE_LAYER_COMPLETE
+   - Duration: 22 minutes (planned: 30 min, variance: -27%)
+   - Performance: 73% time used (27% under budget)
+   - Impact: Centralized booking logic, improved testability, reduced duplication
 1. ✅ **[COMPLETE 2026-01-08 1403 UTC] MVP 1.5 Fix Time Slots - Apply Migration**: BB - Migration applied successfully
    - ✅ Git sync completed (main branch, commit 7b1ef32)
    - ✅ Migration executed via Supabase Management API (20260107_mvp15_reservations.sql)

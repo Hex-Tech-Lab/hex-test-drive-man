@@ -1,57 +1,52 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { verifyOtp } from '@/services/sms/engine';
-import { createClient as createSupabaseClient } from '@supabase/supabase-js';
+/**
+ * Booking OTP Verification Endpoint
+ * Created: 2025-12-07
+ * Updated: 2026-01-08 (MVP 1.6 - Unified service layer)
+ * Handles POST requests to verify OTP for bookings
+ */
 
+import { NextRequest, NextResponse } from 'next/server';
+import { bookingWorkflow } from '@/services/BookingWorkflowService';
+
+/**
+ * POST /api/bookings/[id]/verify
+ * Verify OTP code for a booking
+ */
 export async function POST(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> },
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id: bookingId } = await params;
-    const { otp } = await request.json();
+    const body = await request.json();
 
-    if (!otp || otp.length !== 6) {
+    // Validate OTP format
+    if (!body.otp || typeof body.otp !== 'string' || body.otp.length !== 6) {
       return NextResponse.json(
         { error: 'Invalid OTP format. Must be 6 digits.' },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
-    // Create client inside handler (has env vars at runtime)
-    const supabase = createSupabaseClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    );
+    // Use unified workflow service
+    const result = await bookingWorkflow.verifyBooking(bookingId, body.otp);
 
-    const { data: booking, error: bookingError } = await supabase
-      .from('bookings')
-      .select('phone_number')
-      .eq('id', bookingId)
-      .single();
-
-    if (bookingError || !booking) {
-      return NextResponse.json({ error: 'Booking not found' }, { status: 404 });
-    }
-
-    const verified = await verifyOtp(booking.phone_number, otp);
-
-    if (!verified) {
+    if (!result.success) {
       return NextResponse.json(
-        { error: 'Invalid or expired OTP code' },
-        { status: 400 },
+        { error: result.error || 'Verification failed' },
+        { status: 400 }
       );
     }
 
-    const { error: updateError } = await supabase
-      .from('bookings')
-      .update({ verified_at: new Date().toISOString(), status: 'confirmed' })
-      .eq('id', bookingId);
-
-    if (updateError) throw updateError;
-
-    return NextResponse.json({ success: true, bookingId });
+    return NextResponse.json({
+      success: true,
+      bookingId: result.bookingId,
+    });
   } catch (error) {
-    console.error('Verification error:', error);
-    return NextResponse.json({ error: 'Verification failed' }, { status: 500 });
+    console.error('[VERIFY_ENDPOINT] Unexpected error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

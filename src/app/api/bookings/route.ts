@@ -1,13 +1,14 @@
-// Bookings API endpoint
-// Created: 2025-12-07
-// Handles POST requests to create new test drive bookings
+/**
+ * Bookings API endpoint
+ * Created: 2025-12-07
+ * Updated: 2026-01-08 (MVP 1.6 - Unified service layer)
+ * Handles POST requests to create new test drive bookings
+ */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { bookingRepository } from '@/repositories/bookingRepository';
+import { bookingWorkflow } from '@/services/BookingWorkflowService';
 import { BookingInput } from '@/types/booking';
 import { captureSentryError } from '@/lib/sentry-user';
-import { requestOtp } from '@/services/sms/engine';
-import { createClient } from '@/lib/supabase';
 
 interface ValidationData {
   name?: unknown;
@@ -92,7 +93,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create booking
+    // Prepare booking input
     const bookingInput: BookingInput = {
       name: body.name.trim(),
       phone: body.phone.trim(),
@@ -101,61 +102,40 @@ export async function POST(request: NextRequest) {
       notes: body.notes?.trim(),
     };
 
-    // Idempotency check: prevent duplicate bookings within 60 seconds
-    const supabase = createClient();
-    const { data: recentBooking } = await supabase
-      .from('bookings')
-      .select('id, created_at')
-      .eq('phone_number', bookingInput.phone)
-      .gte('created_at', new Date(Date.now() - 60000).toISOString())
-      .maybeSingle();
+    // Use unified workflow service
+    const result = await bookingWorkflow.initiateBooking(bookingInput);
 
-    if (recentBooking) {
-      console.log('[BOOKING] Duplicate booking attempt prevented:', {
-        phone: bookingInput.phone,
-        existingBookingId: recentBooking.id,
-        createdAt: recentBooking.created_at
-      });
-
-      // Return existing booking ID to prevent duplicate OTP
+    // Handle duplicate booking
+    if (result.duplicate) {
       return NextResponse.json(
         {
-          bookingId: recentBooking.id,
-          id: recentBooking.id,
+          bookingId: result.bookingId,
+          id: result.bookingId,
           message: 'Booking already exists',
-          duplicate: true
+          duplicate: true,
         },
         { status: 200 }
       );
     }
 
-    const booking = await bookingRepository.createBooking(bookingInput);
-
-    // Send OTP via SMS
-    const otpResult = await requestOtp({
-      phone: booking.phone,
-      subjectType: 'booking',
-      subjectId: booking.id
-    });
-
-    if (!otpResult.success) {
-      console.error('[BOOKING] OTP send failed:', otpResult.error);
-      // Booking created but SMS failed - return partial success
+    // Handle SMS failure (partial success)
+    if (result.warning) {
       return NextResponse.json(
         {
-          bookingId: booking.id,
-          ...booking,
-          warning: 'Booking created but SMS failed to send',
-          smsError: otpResult.error
+          bookingId: result.bookingId,
+          ...result.booking,
+          warning: result.warning,
+          smsError: result.smsError,
         },
         { status: 201 }
       );
     }
 
+    // Success
     return NextResponse.json(
       {
-        bookingId: booking.id,
-        ...booking
+        bookingId: result.bookingId,
+        ...result.booking,
       },
       { status: 201 }
     );
