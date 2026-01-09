@@ -9,6 +9,15 @@ const OPENCV_CDN_PRIORITY = [
 type ScannerLevel = 1 | 2 | 3 | 4;
 type ScannerState = 'loading' | 'ready' | 'detecting' | 'locked' | 'error';
 
+// Detection thresholds
+const MIN_CARD_AREA = 5000;
+const MIN_ASPECT_RATIO = 1.3;
+const MAX_ASPECT_RATIO = 1.9;
+const STABLE_FRAME_THRESHOLD = 10;
+const DETECTION_TIMEOUT = 30000;
+const CANNY_THRESHOLD_1 = 50;
+const CANNY_THRESHOLD_2 = 150;
+
 /**
  * Progressive smart scanner hook with OpenCV.js integration
  * Implements 4-level progressive enhancement for ID card detection
@@ -21,6 +30,12 @@ export function useSmartScanner() {
   const cvRef = useRef<any>(null);
   const stableFrameCount = useRef(0);
   const startTimeRef = useRef(Date.now());
+  const stateRef = useRef<ScannerState>('loading');
+
+  // Sync state ref with state
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
 
   useEffect(() => {
     loadOpenCVWithFallback()
@@ -118,7 +133,7 @@ export function useSmartScanner() {
       hierarchy = new cv.Mat();
 
       cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY);
-      cv.Canny(gray, edges, 50, 150);
+      cv.Canny(gray, edges, CANNY_THRESHOLD_1, CANNY_THRESHOLD_2);
       cv.findContours(edges, contours, hierarchy, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE);
 
       let foundCard = false;
@@ -129,7 +144,7 @@ export function useSmartScanner() {
         const aspectRatio = rect.width / rect.height;
         
         // Egyptian ID card aspect ratio: ~1.586 (85.6mm x 54mm)
-        if (area > 5000 && aspectRatio > 1.3 && aspectRatio < 1.9) {
+        if (area > MIN_CARD_AREA && aspectRatio > MIN_ASPECT_RATIO && aspectRatio < MAX_ASPECT_RATIO) {
           foundCard = true;
           stableFrameCount.current++;
           break;
@@ -140,24 +155,27 @@ export function useSmartScanner() {
 
       const elapsedTime = Date.now() - startTimeRef.current;
       
-      // Lock after 10 stable frames or 30 seconds timeout
-      if (stableFrameCount.current >= 10 || elapsedTime > 30000) {
-        setState('locked');
-        
-        // Haptic feedback
-        if ('vibrate' in navigator) navigator.vibrate(200);
-        
-        // Audio feedback (Arabic)
-        if ('speechSynthesis' in window) {
-          const utterance = new SpeechSynthesisUtterance('ثابت');
-          utterance.lang = 'ar-EG';
-          speechSynthesis.speak(utterance);
+      // Lock after stable frames or timeout
+      if (stableFrameCount.current >= STABLE_FRAME_THRESHOLD || elapsedTime > DETECTION_TIMEOUT) {
+        if (stateRef.current !== 'locked') {
+          setState('locked');
+          
+          // Haptic feedback
+          if ('vibrate' in navigator) navigator.vibrate(200);
+          
+          // Audio feedback (Arabic)
+          if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance('ثابت');
+            utterance.lang = 'ar-EG';
+            speechSynthesis.speak(utterance);
+          }
         }
-        
         return true;
       }
 
-      if (foundCard) setState('detecting');
+      if (foundCard && stateRef.current !== 'detecting') {
+        setState('detecting');
+      }
       return false;
     } catch (error) {
       console.error('OpenCV detection error:', error);

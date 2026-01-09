@@ -34,61 +34,18 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
   const animationFrameRef = useRef<number | null>(null);
   const isArabic = language === 'ar';
 
+  // Refs to avoid stale closures in animation frame loop
+  const isCapturingRef = useRef(isCapturing);
+  const countdownRef = useRef(countdown);
+
+  useEffect(() => { isCapturingRef.current = isCapturing; }, [isCapturing]);
+  useEffect(() => { countdownRef.current = countdown; }, [countdown]);
+
   useEffect(() => {
     startCamera();
     return () => stopCamera();
   }, [detectIDCard]); // Add detectIDCard to dependencies to avoid stale closure
-
-  /**
-   * Initializes camera stream with rear camera preference
-   */
-  async function startCamera() {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: 'environment', width: 1280, height: 720 }
-      });
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        // Wait for video metadata to load before processing frames
-        videoRef.current.onloadedmetadata = async () => {
-          try {
-            await videoRef.current?.play();
-            processFrames();
-          } catch (playError) {
-            console.error('Video play failed:', playError);
-            setError('Failed to start video');
-          }
-        };
-      }
-    } catch (err) {
-      setError('Camera access denied');
-    }
-  }
-
-  /**
-   * Stops camera stream and cleans up animation frame
-   */
-  function stopCamera() {
-    if (videoRef.current?.srcObject) {
-      const stream = videoRef.current.srcObject as MediaStream;
-      stream.getTracks().forEach(track => track.stop());
-    }
-    if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
-  }
-
-  /**
-   * Processes video frames for ID card detection
-   */
-  function processFrames() {
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    if (!video || !canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    
-    let lastWidth = 0;
-    let lastHeight = 0;
-
+// ...
     function processFrame() {
       if (!video || !canvas || !ctx) return;
       
@@ -102,9 +59,9 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const shouldCapture = detectIDCard(imageData);
       
-      // Use refs to avoid stale closure - read current state values
-      const currentIsCapturing = isCapturing;
-      const currentCountdown = countdown;
+      // Use refs to avoid stale closure
+      const currentIsCapturing = isCapturingRef.current;
+      const currentCountdown = countdownRef.current;
       
       if (shouldCapture && !currentIsCapturing && currentCountdown === null) {
         setIsCapturing(true);

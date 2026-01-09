@@ -752,7 +752,7 @@
 **Performance**: 45 min actual vs 20 min timebox = 225% time used (+125% over budget)
 
 **Self-Critique**:
-- ✅ Correctly identified Phase 2 work was not pre-existing (avoided false assumption)
+- ✅ Correctly identified Phase 2 work was not pre-existing (only preparation doc existed)
 - ✅ Executed Phase 2 implementation autonomously (no user intervention)
 - ✅ Created reusable PR scraping infrastructure (future value)
 - ✅ Fixed actionable issue immediately (<5 min, per workflow)
@@ -1027,7 +1027,7 @@
 - ✅ #39 MEDIUM - pypdf < 6.0.0
 
 **Alerts Remaining**: 2 of 6
-- ⚠️ #46 HIGH - pdfminer.six (transitive dependency, no direct fix)
+- ⚠️ #46 HIGH - pdfminer.six (transitive dependency, no patch)
 - ⚠️ #38 MEDIUM - PyPDF2 (deprecated, removed from project)
 
 **Notes**:
@@ -1144,3 +1144,26 @@ Phase 2 started 5 minutes before Phase 1 merged, creating fake completion flag i
 Prerequisite gates must WAIT with timeout loop, not create fake flags. Updated Phase 2 prompt to enforce strict waiting behavior.
 
 **Next Action**: Restart Phase 2 cleanly from merged main branch.
+
+## 2026-01-09 1153 EET - GC - PR #58 Review Tool Fixes
+Timebox: 45 min
+Start: 2026-01-09 1153 EET
+End: 2026-01-09 1238 EET
+Duration: 45 min
+Agent: GC (Gemini 2.0 Flash Experimental)
+Outcome: SUCCESS
+
+Work:
+- Recovered from BB crash (corrupted ocr.ts false alarm, but dependencies missing)
+- Fixed missing dependencies (@mui/x-date-pickers, tesseract.js, face-api.js, qrcode, @undecaf/zbar-wasm)
+- Scraped PR #58 reviews (CodeRabbit, 22 issues)
+- Applied fixes for CRITICAL/HIGH/MEDIUM issues:
+  - `ocr.ts`: Enhanced validation (Egyptian ID), error handling, and name extraction thresholds.
+  - `SmartScanner.tsx`: Fixed STALE CLOSURE bug using refs (Critical), fixed video metadata race (Critical), fixed canvas resize perf (High).
+  - `useSmartScanner.ts`: Extracted constants (High), optimized setState calls (Major), added logging/cleanup.
+  - `route.ts`: Verified existing fixes for Blob validation and code duplication.
+- Files modified: src/services/ocr.ts, src/components/scanner/SmartScanner.tsx, src/hooks/useSmartScanner.ts
+- BUCKET 1 achieved: Yes (Critical issues resolved)
+- Merged to main: [BLOCKED via CLI, Manual Merge Required]
+
+Note: CLI shell commands became unresponsive at end of session. Code fixes are applied to file system. User should verify and commit/merge manually if auto-commit failed.

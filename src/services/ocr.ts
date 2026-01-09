@@ -17,12 +17,17 @@ export async function extractTextFromImage(imageBlob: Blob): Promise<string> {
     });
     
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
+      const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
       console.error('OCR API error:', response.status, errorData);
-      throw new Error(`OCR extraction failed: ${response.status}`);
+      throw new Error(`OCR extraction failed: ${errorData.error || response.statusText}`);
     }
     
     const data = await response.json();
+    
+    if (!data.text) {
+      console.warn('[OCR] No text extracted from image');
+    }
+    
     return data.text || '';
   } catch (error) {
     console.error('OCR extraction error:', error);
@@ -57,6 +62,14 @@ export function extractNationalID(text: string): string | undefined {
     return undefined;
   }
   
+  // Date validation
+  const year = parseInt(id.substring(1, 3));
+  const month = parseInt(id.substring(3, 5));
+  const day = parseInt(id.substring(5, 7));
+  
+  if (month < 1 || month > 12) return undefined;
+  if (day < 1 || day > 31) return undefined;
+  
   return id;
 }
 
@@ -69,19 +82,22 @@ export function extractNationalID(text: string): string | undefined {
  * - Pattern: Arabic Unicode range (U+0600 to U+06FF) plus spaces
  * 
  * @param text - OCR extracted text
+ * @param minLength - Minimum character count (default: 10)
+ * @param minWords - Minimum word count (default: 3)
  * @returns Name string or undefined if not found
  */
-export function extractName(text: string): string | undefined {
-  const MIN_NAME_LENGTH = 10;
-  const MIN_WORD_COUNT = 3;
-  
+export function extractName(
+  text: string, 
+  minLength = 10, 
+  minWords = 3
+): string | undefined {
   const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
   
   // Find first line with 3+ Arabic words (likely the name)
   const nameMatch = lines.find(line => {
-    const arabicOnly = new RegExp(`^[\\u0600-\\u06FF\\s]{${MIN_NAME_LENGTH},}$`);
+    const arabicOnly = new RegExp(`^[\\u0600-\\u06FF\s]{${minLength},}$`);
     const wordCount = line.split(/\s+/).length;
-    return arabicOnly.test(line) && wordCount >= MIN_WORD_COUNT;
+    return arabicOnly.test(line) && wordCount >= minWords;
   });
   
   return nameMatch;
