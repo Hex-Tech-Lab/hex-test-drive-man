@@ -32,7 +32,31 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
   const isArabic = language === 'ar';
 
   useEffect(() => {
-    startCamera();
+    let retryCount = 0;
+    const maxRetries = 3;
+    
+    const initWithRetry = async () => {
+      while (retryCount < maxRetries) {
+        try {
+          await startCamera();
+          return; // Success
+        } catch (err) {
+          retryCount++;
+          console.warn(`Camera init attempt ${retryCount}/${maxRetries} failed:`, err);
+          
+          if (retryCount < maxRetries) {
+            // Wait 1 second before retry
+            await new Promise(resolve => setTimeout(resolve, 1000));
+          } else {
+            // Final failure
+            setError('Camera initialization failed after 3 attempts');
+          }
+        }
+      }
+    };
+    
+    initWithRetry();
+    
     return () => stopCamera();
   }, []);
 
@@ -42,15 +66,46 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
   async function startCamera() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: 'environment', width: 1280, height: 720 }
+        video: { 
+          facingMode: 'environment', 
+          width: { ideal: 1280 }, 
+          height: { ideal: 720 } 
+        }
       });
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        videoRef.current.play();
-        processFrames();
+      
+      if (!videoRef.current) return;
+      
+      videoRef.current.srcObject = stream;
+      
+      // CRITICAL: Wait for video metadata before playing
+      await new Promise<void>((resolve, reject) => {
+        if (!videoRef.current) return reject(new Error('Video element lost'));
+        
+        videoRef.current.onloadedmetadata = () => {
+          resolve();
+        };
+        
+        videoRef.current.onerror = () => {
+          reject(new Error('Video metadata load failed'));
+        };
+        
+        // Timeout after 5 seconds
+        setTimeout(() => reject(new Error('Video metadata timeout')), 5000);
+      });
+      
+      // Play video with error handling
+      try {
+        await videoRef.current.play();
+      } catch (playError) {
+        console.error('Video play failed:', playError);
+        throw new Error('Autoplay blocked - tap to enable camera');
       }
-    } catch (err) {
-      setError('Camera access denied');
+      
+      // Only start processing after video is ready
+      processFrames();
+    } catch (err: any) {
+      console.error('Camera initialization failed:', err);
+      setError(err.message || 'Camera access denied');
     }
   }
 
@@ -58,11 +113,21 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
    * Stops camera stream and cleans up animation frame
    */
   function stopCamera() {
+    // Cancel animation frame first
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = null;
+    }
+    
+    // Stop all media tracks
     if (videoRef.current?.srcObject) {
       const stream = videoRef.current.srcObject as MediaStream;
-      stream.getTracks().forEach(track => track.stop());
+      stream.getTracks().forEach(track => {
+        track.stop();
+        console.log('Stopped track:', track.kind, track.label);
+      });
+      videoRef.current.srcObject = null;
     }
-    if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
   }
 
   /**
