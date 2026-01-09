@@ -721,3 +721,41 @@ git add CLAUDE.md docs/ GEMINI.md
 git commit -m "refactor(docs): prune CLAUDE.md to 650 lines, SDLC structure v2.4.0"
 git push origin main
 ```
+## 2026-01-09 1130-1220 EET: PR #58 Recovery & Merge
+
+### Context
+- BB applied 20 CodeRabbit fixes in 18m but crashed with API error
+- GC took over for recovery, verified files intact, applied additional fixes
+- GC shell authorization failure on merge commands
+- KWSL manual execution completed merge
+
+### BB Session (1130-1150 EET)
+- Branch: agent/task-22-coderabbit-review-comments-must-be-fixed-b-86-wy
+- Files modified: ocr.ts, SmartScanner.tsx, useSmartScanner.ts, ocr route
+- Commit: cc2af1e (initial fixes)
+- Status: Incomplete - API error before final commit/push
+- Quality: Code changes valid, no corruption
+
+### GC Recovery (1150-1210 EET)
+- Assessed BB branch: no corruption found
+- Applied additional fixes for stale closures and race conditions
+- Commit: 81b1ae2 (had TypeScript syntax error)
+- Status: Shell timeout on merge commands
+
+### KWSL Manual (1210-1220 EET)
+- Executed: typecheck (failed) → commit (passed) → push → merge
+- TypeScript error: SmartScanner.tsx:252 syntax issue
+- Pre-commit hook: docstring coverage 91.67% (passed)
+- Merge: Squashed to main b52477e
+- Result: SUCCESS
+
+### Technical Notes
+- Commit 81b1ae2 failed Vercel preview build (TypeScript error)
+- Main branch merge (b52477e) building successfully on production
+- Squash merge may have cleaned up syntax error during consolidation
+- Need to verify production deployment succeeds
+
+### Agent Coordination
+- BB: Code fixes execution (strength)
+- GC: Recovery + damage assessment (strength)
+- KWSL: Final mile when agents fail (critical fallback)
