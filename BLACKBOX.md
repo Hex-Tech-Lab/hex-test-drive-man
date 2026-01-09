@@ -205,6 +205,15 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
+1. ✅ **[COMPLETE 2026-01-09 1305 EET] Cart Counter Fix**: BB - Counter now shows correct sum
+   - ✅ Root cause: Header.tsx used TWO comparison stores (useCompareStore + useComparisonStore)
+   - ✅ Fix: Changed comparisonCount to use compareItems.length from active store
+   - ✅ Removed unused useComparisonStore import
+   - ✅ Counter now correctly sums: bookings (3) + comparisons (3) = 6
+   - Commit: 4cb8122
+   - Files: src/components/Header.tsx (-2 lines, +1 line)
+   - Duration: 11 minutes (planned: 15 min, variance: -27%)
+   - Performance: 73% time used (27% under budget)
 1. ✅ **[COMPLETE 2026-01-09 0046 EET] MVP 1.6 Phase 2.5 - Scanner Countdown**: BB Pro - Countdown feature complete
    - ✅ Countdown state: useState<number | null>(null)
    - ✅ isCapturing guard: useState<boolean>(false) prevents re-trigger

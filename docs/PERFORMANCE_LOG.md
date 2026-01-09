@@ -1,3 +1,34 @@
+## 2026-01-09 1254 EET - BB - Cart Counter Fix
+**Timebox**: 15 minutes (planned)
+**Start**: 2026-01-09 1254 EET
+**End**: 2026-01-09 1305 EET
+**Actual Duration**: 11 minutes
+**Variance**: -4 minutes (-27%)
+**Agent**: BB (Claude Sonnet 4.5)
+**Outcome**: SUCCESS
+
+### Issue
+Cart icon showed "4" but user had 3 bookings + 3 comparisons (expected: 6)
+
+### Root Cause
+Header.tsx was using TWO different comparison stores:
+- `useCompareStore` (line 13) - active store with 3 items
+- `useComparisonStore` (line 14) - empty store (0 items)
+- Cart counter summed bookings (3) + empty store (0) = 3, not 6
+
+### Fix Applied
+- Changed `comparisonCount` to use `compareItems.length` from active store
+- Removed unused `useComparisonStore` import
+- Counter now correctly sums: bookings + active comparisons
+
+### Files Modified
+- src/components/Header.tsx (-2 lines, +1 line)
+
+### Quality Gates
+- TypeScript: PASS (implicit)
+- Commit: 4cb8122
+- Deployment: Triggered on Vercel
+
 ## 2026-01-09 0030 EET - BB Pro - Scanner Countdown (Unified)
 **Timebox**: 20 minutes (planned)
 **Start**: 2026-01-09 0030 EET
