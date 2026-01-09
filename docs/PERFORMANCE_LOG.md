@@ -1284,3 +1284,39 @@ Prerequisite gates must WAIT with timeout loop, not create fake flags. Updated P
 - Wait for PR review/merge
 - Test on Vercel preview deployment
 - Verify vehicle images load from API
+
+## 2026-01-09 1254 EET - KWSL - Booking Dropdown Fix + Vehicle Image
+**Timebox**: 30 minutes (planned)
+**Start**: 2026-01-09 1254 EET
+**End**: 2026-01-09 1318 EET
+**Actual Duration**: 24 minutes
+**Variance**: -6 minutes (-20%)
+**Agent**: KWSL (Manual execution)
+**Outcome**: SUCCESS
+
+### Work Completed
+- Fixed ReservationForm to hide dropdown when vehicle pre-selected
+- Added vehicle image card display for catalog → book flow
+- Conditional rendering: dropdown only for bookings without vehicle context
+- Fetches vehicle details including image from /api/vehicles
+- Created PR #59 (kwsl/fix-booking-dropdown-with-image)
+- Commit db5d1a6, docs update 7901fb3
+
+### Issue Analysis
+**Bug**: Clicking "Book Test Drive" from Nissan Sunny shows dropdown with ALL 500 vehicles
+**Root Cause**: ReservationForm ignored initialVehicleId prop for display logic
+**Expected Flow**: Catalog → Book → Shows selected vehicle (no dropdown)
+**Actual Flow**: Catalog → Book → Dropdown with 500 cars
+
+### Files Modified
+- src/components/booking/ReservationForm.tsx: +43 lines, -5 lines
+  - Added selectedVehicle state
+  - Added Card component with CardMedia for image
+  - Conditional: {!initialVehicleId && vehicles.length > 0} for dropdown
+  - New: Vehicle image + name card when pre-selected
+
+### Visual Improvements
+- Vehicle image (120x80px, rounded corners)
+- Selected vehicle label + name with DirectionsCarIcon
+- Clean Card layout with background.default color
+- Responsive design (image on left, text on right)
