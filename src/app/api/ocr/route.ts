@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { extractNationalID, extractName } from '@/services/ocr';
 
 /**
  * OCR API endpoint for extracting text from ID card images
@@ -11,14 +12,17 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    const image = formData.get('image') as Blob;
+    const imageField = formData.get('image');
     
-    if (!image) {
+    // Validate that image is actually a Blob
+    if (!imageField || !(imageField instanceof Blob)) {
       return NextResponse.json(
-        { error: 'No image provided' },
+        { error: 'Invalid image: must be a Blob' },
         { status: 400 }
       );
     }
+    
+    const image = imageField as Blob;
     
     // TODO: Implement actual OCR using Tesseract.js or cloud OCR service
     // For now, return mock data to unblock development
@@ -32,20 +36,14 @@ export async function POST(request: NextRequest) {
       تاريخ الميلاد: 1990/01/15
     `;
     
-    // Extract National ID (14 digits)
-    const idMatch = mockText.match(/\b\d{14}\b/);
-    const nationalId = idMatch ? idMatch[0] : undefined;
-    
-    // Extract name (simplified - first Arabic line with 3+ words)
-    const lines = mockText.split('\n').map(l => l.trim()).filter(Boolean);
-    const nameMatch = lines.find(line => 
-      /^[\u0600-\u06FF\s]{10,}$/.test(line) && line.split(/\s+/).length >= 3
-    );
+    // Extract National ID and name using service functions
+    const nationalId = extractNationalID(mockText);
+    const name = extractName(mockText);
     
     return NextResponse.json({
       text: mockText,
       nationalId,
-      name: nameMatch,
+      name,
       warning: 'Mock OCR data - actual implementation pending'
     });
     

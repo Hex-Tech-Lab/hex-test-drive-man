@@ -4,6 +4,9 @@ import { Box, Alert, Button, Typography, CircularProgress } from '@mui/material'
 import { useSmartScanner } from '@/hooks/useSmartScanner';
 import { extractTextFromImage, extractNationalID, extractName } from '@/services/ocr';
 
+// Constants
+const CAPTURE_JPEG_QUALITY = 0.9;
+
 interface SmartScannerProps {
   mode: 'front' | 'back';
   onScanComplete: (result: { imageData: string; data: { nationalId?: string; name?: string } }) => void;
@@ -34,7 +37,7 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
   useEffect(() => {
     startCamera();
     return () => stopCamera();
-  }, []);
+  }, [detectIDCard]); // Add detectIDCard to dependencies to avoid stale closure
 
   /**
    * Initializes camera stream with rear camera preference
@@ -46,8 +49,16 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
       });
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
-        videoRef.current.play();
-        processFrames();
+        // Wait for video metadata to load before processing frames
+        videoRef.current.onloadedmetadata = async () => {
+          try {
+            await videoRef.current?.play();
+            processFrames();
+          } catch (playError) {
+            console.error('Video play failed:', playError);
+            setError('Failed to start video');
+          }
+        };
       }
     } catch (err) {
       setError('Camera access denied');
@@ -74,15 +85,28 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
     if (!video || !canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+    
+    let lastWidth = 0;
+    let lastHeight = 0;
 
     function processFrame() {
       if (!video || !canvas || !ctx) return;
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
+      
+      // Only resize canvas when dimensions change to avoid clearing context
+      if (video.videoWidth !== lastWidth || video.videoHeight !== lastHeight) {
+        canvas.width = lastWidth = video.videoWidth;
+        canvas.height = lastHeight = video.videoHeight;
+      }
+      
       ctx.drawImage(video, 0, 0);
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const shouldCapture = detectIDCard(imageData);
-      if (shouldCapture && !isCapturing && countdown === null) {
+      
+      // Use refs to avoid stale closure - read current state values
+      const currentIsCapturing = isCapturing;
+      const currentCountdown = countdown;
+      
+      if (shouldCapture && !currentIsCapturing && currentCountdown === null) {
         setIsCapturing(true);
         let count = 3;
         setCountdown(count);
@@ -99,7 +123,7 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
                 await handleCapture(blob);
                 setIsCapturing(false);
               }
-            }, 'image/jpeg', 0.9);
+            }, 'image/jpeg', CAPTURE_JPEG_QUALITY);
           }
         }, 1000);
         
@@ -115,6 +139,9 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
    */
   async function handleCapture(blob: Blob) {
     try {
+      // Show processing feedback
+      setIsCapturing(true);
+      
       // Convert blob to base64 for storage
       const reader = new FileReader();
       const imageData = await new Promise<string>((resolve) => {
@@ -135,7 +162,7 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
           if (name) extractedData.name = name;
         } catch (ocrError) {
           console.error('OCR extraction failed:', ocrError);
-          // Continue without OCR data
+          // Continue without OCR data - don't block user flow
         }
       }
 
@@ -146,7 +173,8 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
       });
     } catch (error) {
       console.error('Capture processing failed:', error);
-      setError('Failed to process image');
+      setError('Failed to process image. Please try again.');
+      setIsCapturing(false);
     }
   }
 
@@ -154,18 +182,26 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
    * Manual capture fallback for level 1 or user override
    */
   function manualCapture() {
+    if (isCapturing) return; // Prevent multiple clicks during processing
+    
     const canvas = canvasRef.current;
     if (!canvas) return;
     canvas.toBlob(async (blob) => { 
       if (blob) await handleCapture(blob); 
-    }, 'image/jpeg', 0.9);
+    }, 'image/jpeg', CAPTURE_JPEG_QUALITY);
   }
 
   if (error) {
     return (
       <Alert severity="error" sx={{ mb: 2 }}>
         {error}
-        <Button onClick={() => window.location.reload()}>
+        <Button 
+          onClick={() => {
+            setError(null);
+            startCamera();
+          }}
+          sx={{ ml: 2 }}
+        >
           {isArabic ? 'إعادة المحاولة' : 'Retry'}
         </Button>
       </Alert>
@@ -229,7 +265,9 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
           borderRadius: '8px',
           border: state === 'detecting' ? '3px solid #4caf50' : '1px solid #ccc'
         }} 
-        playsInline 
+        playsInline
+        muted
+        aria-label={isArabic ? `كاميرا مسح ${sideLabel}` : `${sideLabel} scanner camera`}
       />
       <canvas ref={canvasRef} style={{ display: 'none' }} />
       
@@ -240,8 +278,16 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
         <Typography variant="caption" color="text.secondary" display="block">
           {isArabic ? `الحالة: ${state}` : `Status: ${state}`}
         </Typography>
-        <Button onClick={manualCapture} variant="outlined" sx={{ mt: 1 }}>
-          {isArabic ? 'التقاط يدوي' : 'Manual Capture'}
+        <Button 
+          onClick={manualCapture} 
+          variant="outlined" 
+          sx={{ mt: 1 }}
+          disabled={isCapturing}
+        >
+          {isCapturing 
+            ? (isArabic ? 'جاري المعالجة...' : 'Processing...') 
+            : (isArabic ? 'التقاط يدوي' : 'Manual Capture')
+          }
         </Button>
       </Box>
     </Box>

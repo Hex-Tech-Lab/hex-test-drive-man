@@ -33,6 +33,12 @@ export function useSmartScanner() {
         // Fallback to level 1 (manual capture only)
         setState('ready');
       });
+    
+    // Cleanup: remove OpenCV script on unmount
+    return () => {
+      const scripts = document.querySelectorAll('script[src*="opencv"]');
+      scripts.forEach(script => script.remove());
+    };
   }, []);
 
   /**
@@ -43,12 +49,16 @@ export function useSmartScanner() {
   async function loadOpenCVWithFallback() {
     for (const url of OPENCV_CDN_PRIORITY) {
       try {
+        console.log(`Attempting to load OpenCV from: ${url}`);
         await loadScript(url, 3000);
+        console.log(`Successfully loaded OpenCV from: ${url}`);
         return;
-      } catch {
+      } catch (error) {
+        console.warn(`Failed to load OpenCV from ${url}:`, error);
         // Try next CDN
       }
     }
+    console.error('All OpenCV CDNs failed');
     throw new Error('All CDNs failed');
   }
 
@@ -83,19 +93,30 @@ export function useSmartScanner() {
   /**
    * Detects ID card in image using OpenCV edge detection and contour analysis
    * 
+   * Magic numbers explained:
+   * - Canny thresholds (50, 150): Standard edge detection values for ID cards
+   * - Area threshold (5000): Minimum pixels for ID card at 720p
+   * - Aspect ratio (1.3-1.9): Egyptian ID card is 1.586 (85.6mm x 54mm) with tolerance
+   * - Stable frames (10): Ensures card is steady before capture
+   * - Timeout (30s): Fallback to manual capture if auto-detection fails
+   * 
    * @param imageData - Canvas ImageData to analyze
    * @returns True if card detected and locked, false otherwise
    */
   function detectIDCard(imageData: ImageData): boolean {
     if (!cvRef.current || level < 2) return false;
     const cv = cvRef.current;
-    const src = cv.matFromImageData(imageData);
-    const gray = new cv.Mat();
-    const edges = new cv.Mat();
-    const contours = new cv.MatVector();
-    const hierarchy = new cv.Mat();
-
+    
+    // Wrap OpenCV operations in try-catch to handle errors gracefully
+    let src, gray, edges, contours, hierarchy;
+    
     try {
+      src = cv.matFromImageData(imageData);
+      gray = new cv.Mat();
+      edges = new cv.Mat();
+      contours = new cv.MatVector();
+      hierarchy = new cv.Mat();
+
       cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY);
       cv.Canny(gray, edges, 50, 150);
       cv.findContours(edges, contours, hierarchy, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE);
@@ -138,12 +159,19 @@ export function useSmartScanner() {
 
       if (foundCard) setState('detecting');
       return false;
+    } catch (error) {
+      console.error('OpenCV detection error:', error);
+      // Gracefully degrade to level 1 on OpenCV errors
+      setLevel(1);
+      setState('ready');
+      return false;
     } finally {
-      src.delete();
-      gray.delete();
-      edges.delete();
-      contours.delete();
-      hierarchy.delete();
+      // Clean up OpenCV matrices to prevent memory leaks
+      if (src) src.delete();
+      if (gray) gray.delete();
+      if (edges) edges.delete();
+      if (contours) contours.delete();
+      if (hierarchy) hierarchy.delete();
     }
   }
 
