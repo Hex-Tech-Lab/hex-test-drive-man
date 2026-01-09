@@ -9,7 +9,6 @@ import CartDrawerSkeleton from '@/components/skeletons/CartDrawerSkeleton';
 import { useLanguageStore } from '@/stores/language-store';
 import { useCompareStore } from '@/stores/compare-store';
 import { useBookingStore } from '@/stores/useBookingStore';
-import { useComparisonStore } from '@/stores/useComparisonStore';
 import { useRouter, usePathname } from 'next/navigation';
 
 // Lazy load CartDrawer with skeleton (prevents CLS during load)
@@ -29,7 +28,7 @@ export default function Header() {
   
   // Cart counts - primitive selectors to avoid React 19 infinite loops
   const bookingCount = useBookingStore((state) => state.items.length);
-  const comparisonCount = useComparisonStore((state) => state.items.length);
+  const comparisonCount = compareItems.length; // Use same store as compare badge
   
   const router = useRouter();
   const pathname = usePathname();
