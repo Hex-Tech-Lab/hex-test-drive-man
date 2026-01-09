@@ -1,49 +1,54 @@
-/**
- * OCR API Endpoint - Server-side text extraction
- * Created: 2026-01-08
- * Agent: BB
- * MVP 1.5: Smart Document Capture
- * 
- * This endpoint handles OCR processing server-side to avoid
- * bundling Node.js dependencies in the browser.
- * 
- * Future: Integrate with Scribe.js or cloud OCR service
- */
-
 import { NextRequest, NextResponse } from 'next/server';
 
 /**
+ * OCR API endpoint for extracting text from ID card images
+ * Currently returns mock data - will be implemented with Tesseract.js or cloud OCR
+ * 
  * POST /api/ocr
- * Extract text from image using OCR
+ * Body: FormData with 'image' field (Blob)
+ * Returns: { text: string, nationalId?: string, name?: string }
  */
 export async function POST(request: NextRequest) {
   try {
-    const { imageData } = await request.json();
-
-    if (!imageData) {
+    const formData = await request.formData();
+    const image = formData.get('image') as Blob;
+    
+    if (!image) {
       return NextResponse.json(
-        { error: 'Image data is required' },
+        { error: 'No image provided' },
         { status: 400 }
       );
     }
-
-    // TODO: Implement actual OCR processing
-    // Options:
-    // 1. Use Scribe.js server-side (requires worker setup)
-    // 2. Use cloud OCR service (Google Vision, AWS Textract, Azure)
-    // 3. Use Tesseract.js server-side
     
+    // TODO: Implement actual OCR using Tesseract.js or cloud OCR service
     // For now, return mock data to unblock development
-    // This should be replaced with actual OCR implementation
-    const mockResult = {
-      nationalId: undefined, // Will be extracted from image
-      name: undefined, // Will be extracted from image
-      licenseNo: undefined, // Will be extracted from image
-      text: '', // Full extracted text
-      confidence: 0
-    };
-
-    return NextResponse.json(mockResult);
+    
+    // Mock extracted text (Egyptian National ID format)
+    const mockText = `
+      جمهورية مصر العربية
+      بطاقة تحقيق شخصية
+      محمد أحمد علي
+      12345678901234
+      تاريخ الميلاد: 1990/01/15
+    `;
+    
+    // Extract National ID (14 digits)
+    const idMatch = mockText.match(/\b\d{14}\b/);
+    const nationalId = idMatch ? idMatch[0] : undefined;
+    
+    // Extract name (simplified - first Arabic line with 3+ words)
+    const lines = mockText.split('\n').map(l => l.trim()).filter(Boolean);
+    const nameMatch = lines.find(line => 
+      /^[\u0600-\u06FF\s]{10,}$/.test(line) && line.split(/\s+/).length >= 3
+    );
+    
+    return NextResponse.json({
+      text: mockText,
+      nationalId,
+      name: nameMatch,
+      warning: 'Mock OCR data - actual implementation pending'
+    });
+    
   } catch (error) {
     console.error('OCR API error:', error);
     return NextResponse.json(

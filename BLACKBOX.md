@@ -205,6 +205,17 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
+1. ✅ **[COMPLETE 2026-01-09 0046 EET] MVP 1.6 Phase 2.5 - Scanner Countdown**: BB Pro - Countdown feature complete
+   - ✅ Countdown state: useState<number | null>(null)
+   - ✅ isCapturing guard: useState<boolean>(false) prevents re-trigger
+   - ✅ Green overlay JSX (120px font, glow effect, z-index 1000)
+   - ✅ Countdown trigger in processFrames (3-2-1 sequence)
+   - ✅ Auto-capture after countdown completes
+   - ✅ Quality gates: TypeScript PASS, Build PASS, Docstring 91.49%
+   - Branch: agent/bb-scanner-countdown-unified (commit 934f80a)
+   - Duration: 16 minutes (planned: 20 min, variance: -20%)
+   - Performance: 80% time used (20% under budget)
+   - **Next**: Push to GitHub, verify deployment, merge to bb/mvp1.6-smart-scanner
 1. ✅ **[COMPLETE 2026-01-08 1822 UTC] MVP 1.6 Unified Booking Service Layer**: BB - Service layer deployed
    - ✅ Created BookingWorkflowService.ts (171 lines) consolidating booking + OTP logic
    - ✅ Updated /api/bookings route to use service (reduced duplication by ~50 lines)
