@@ -1292,3 +1292,38 @@ Prerequisite gates must WAIT with timeout loop, not create fake flags. Updated P
 - PR scraper must check ALL review tools (CodeRabbit + Sourcery + Sonar + Snyk)
 - BB prompt incorrectly scoped to CodeRabbit only
 - Need verification step before merge: `pnpm run build` locally
+## 2026-01-09 1533 UTC - [BB] - MVP 1.6 Unified SMS Service Layer
+**Timebox**: 45 minutes (planned)
+**Start**: 2026-01-09 1533 UTC
+**End**: 2026-01-09 1607 UTC
+**Actual Duration**: 34 minutes
+**Variance**: -11 minutes (-24%)
+**Agent**: BB (Claude Sonnet 4.5)
+**Outcome**: SUCCESS
+
+### Summary
+Created unified SMS service layer (`SmsService.ts`) mirroring `BookingWorkflowService` architecture for consolidated OTP operations.
+
+### Deliverables
+- **File**: `src/services/SmsService.ts` (287 lines)
+- **Methods**: sendOtp, verifyOtp, resendOtp
+- **Features**: Graceful degradation, rate limiting (60s), Sentry integration
+- **Branch**: `bb/mvp1.6-sms-service-layer` (commit 08d2a07)
+- **PR**: https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/61
+
+### Quality Gates
+- ✅ TypeScript strict mode: PASS
+- ✅ ESLint: PASS (0 errors, 0 warnings in SmsService.ts)
+- ✅ Build: PASS (compiled with warnings unrelated to SmsService)
+- ✅ Docstring coverage: 91.68% (above 70% threshold)
+- ✅ All exported functions documented with JSDoc
+
+### Performance
+- 24% under timebox (34/45 minutes)
+- Zero regression risk (no existing files modified)
+- Ready for integration in booking/reservation flows
+
+### Next Steps
+- Await CodeRabbit review on PR #61
+- Integration with booking/reservation API routes
+- Update API routes to use `smsService` singleton
