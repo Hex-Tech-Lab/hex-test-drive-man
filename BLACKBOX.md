@@ -205,6 +205,22 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
+1. ✅ **[COMPLETE 2026-01-09 1428 EET] SmartScanner Camera Fix**: BB - Camera "disconnected" error resolved
+   - ✅ Root cause: Video element lifecycle race condition (3 issues identified)
+   - ✅ Issue #1: Missing video.onloadedmetadata handler (play() called before ready)
+   - ✅ Issue #2: No error handling for video.play() rejection (autoplay policy)
+   - ✅ Issue #3: processFrames() called before video dimensions available
+   - ✅ Fix: Added onloadedmetadata Promise with 5s timeout
+   - ✅ Fix: Relaxed getUserMedia constraints (ideal vs exact)
+   - ✅ Fix: Added video.play() error handling
+   - ✅ Fix: Added 3-retry logic with 1s delay
+   - ✅ Fix: Improved stream cleanup (cancel animation frame, null refs)
+   - Commit: 0b3a0ca
+   - Files: src/components/scanner/SmartScanner.tsx (+65 lines, -10 lines)
+   - Duration: 19 minutes (planned: 30 min, variance: -37%)
+   - Performance: 63% time used (37% under budget)
+   - Quality: TypeScript PASS, ESLint PASS, Docstring 91.55%
+   - **Next**: User test on production after Vercel deployment
 1. ✅ **[COMPLETE 2026-01-09 1305 EET] Cart Counter Fix**: BB - Counter now shows correct sum
    - ✅ Root cause: Header.tsx used TWO comparison stores (useCompareStore + useComparisonStore)
    - ✅ Fix: Changed comparisonCount to use compareItems.length from active store

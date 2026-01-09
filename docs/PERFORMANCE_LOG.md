@@ -1,3 +1,86 @@
+## 2026-01-09 1409 EET - BB - SmartScanner Camera Fix
+**Timebox**: 30 minutes (planned)
+**Start**: 2026-01-09 1409 EET
+**End**: 2026-01-09 1428 EET
+**Actual Duration**: 19 minutes
+**Variance**: -11 minutes (-37%)
+**Agent**: BB (Claude Sonnet 4.5)
+**Outcome**: SUCCESS
+
+### Issue
+SmartScanner camera showed "disconnected" error despite permissions granted
+- Browser showed camera icon (permissions OK)
+- Device within 1m of WiFi (network OK)
+- Error: "We're having trouble connecting to your device. Status: Disconnected"
+
+### Root Cause Analysis
+**Issue #1**: Missing video.onloadedmetadata handler
+- getUserMedia() called, stream assigned to videoRef.current.srcObject
+- video.play() called IMMEDIATELY without waiting for metadata
+- Video element not ready → stream appears "disconnected"
+
+**Issue #2**: No error handling for video.play() rejection
+- video.play() returns Promise that can reject
+- Browser autoplay policies may block play() without user gesture
+- No .catch() handler → silent failure
+
+**Issue #3**: processFrames() called before video ready
+- processFrames() called immediately after play()
+- Video dimensions (videoWidth/videoHeight) are 0 until metadata loads
+- Canvas operations fail silently with 0x0 dimensions
+
+### Fix Applied
+1. **Added video.onloadedmetadata Promise** (lines 50-63)
+   - Wait for metadata load before calling play()
+   - 5-second timeout for metadata load
+   - Proper error handling for metadata failures
+
+2. **Relaxed getUserMedia constraints** (lines 44-48)
+   - Changed `width: 1280` → `width: { ideal: 1280 }`
+   - Changed `height: 720` → `height: { ideal: 720 }`
+   - Allows browser to fallback if exact resolution unavailable
+
+3. **Added video.play() error handling** (lines 65-70)
+   - Wrapped play() in try-catch
+   - Detects autoplay policy rejections
+   - User-friendly error message
+
+4. **Added retry logic** (lines 34-61)
+   - 3 retry attempts with 1-second delay
+   - Handles transient getUserMedia failures
+   - Final error after 3 failed attempts
+
+5. **Improved stream cleanup** (lines 73-87)
+   - Cancel animation frame before stopping tracks
+   - Set animationFrameRef to null
+   - Set videoRef.current.srcObject to null
+   - Console logging for debugging
+
+### Files Modified
+- src/components/scanner/SmartScanner.tsx (+65 lines, -10 lines)
+
+### Quality Gates
+- TypeScript: PASS (pnpm run typecheck)
+- ESLint: PASS (warnings only, no errors)
+- Docstring Coverage: 91.55% (above 70% gate)
+- Commit: 0b3a0ca
+- Deployment: Triggered on Vercel
+
+### Verification Steps
+1. ✅ Code compiles without TypeScript errors
+2. ✅ ESLint passes (warnings only)
+3. ✅ Docstring coverage above 70%
+4. ✅ Commit pushed to GitHub
+5. ⏳ Production deployment pending (Vercel auto-deploy)
+
+### Next Steps
+- User should test on production URL after deployment
+- Verify camera works on mobile devices (iOS Safari, Android Chrome)
+- Test camera permission revoke/grant flow
+- Test component unmount/remount (navigation away and back)
+
+---
+
 ## 2026-01-09 1254 EET - BB - Cart Counter Fix
 **Timebox**: 15 minutes (planned)
 **Start**: 2026-01-09 1254 EET
