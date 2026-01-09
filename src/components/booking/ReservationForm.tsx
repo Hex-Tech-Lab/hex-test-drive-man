@@ -1,6 +1,7 @@
 // Reservation form with date/time slots and vehicle selector
 // Created: 2026-01-07
 // Agent: BB
+// Updated: 2026-01-09 (KWSL - fix dropdown + add vehicle image)
 // MVP 1.5: Booking System
 
 'use client';
@@ -19,7 +20,9 @@ import {
   Alert,
   CircularProgress,
   Chip,
-  Grid
+  Grid,
+  Card,
+  CardMedia
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -42,6 +45,7 @@ interface ReservationFormProps {
  * Reservation form component
  * Features: date picker, time slots (9AM-6PM, 1hr blocks), vehicle selector
  * Validates: no double-booking same vehicle/time
+ * When vehicleId provided: hides dropdown, shows vehicle image + name
  */
 export default function ReservationForm({
   vehicleId: initialVehicleId,
@@ -54,7 +58,8 @@ export default function ReservationForm({
   const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [vehicles, setVehicles] = useState<Array<{ id: string; name: string }>>([]);
+  const [vehicles, setVehicles] = useState<Array<{ id: string; name: string; image?: string }>>([]);
+  const [selectedVehicle, setSelectedVehicle] = useState<{ id: string; name: string; image?: string } | null>(null);
 
   const isArabic = language === 'ar';
 
@@ -66,13 +71,21 @@ export default function ReservationForm({
         if (!response.ok) throw new Error('Failed to fetch vehicles');
         const data = await response.json();
         setVehicles(data.vehicles || []);
+        
+        // If initialVehicleId provided, find and set the vehicle
+        if (initialVehicleId) {
+          const vehicle = (data.vehicles || []).find((v: any) => v.id === initialVehicleId);
+          if (vehicle) {
+            setSelectedVehicle(vehicle);
+          }
+        }
       } catch (err) {
         console.error('Error fetching vehicles:', err);
       }
     };
 
     fetchVehicles();
-  }, []);
+  }, [initialVehicleId]);
 
   // Fetch available time slots when date or vehicle changes
   useEffect(() => {
@@ -142,8 +155,33 @@ export default function ReservationForm({
           </Alert>
         )}
 
-        {/* Vehicle Selector */}
-        {!initialVehicleId && (
+        {/* Vehicle Image + Name (when pre-selected from catalog) */}
+        {initialVehicleId && selectedVehicle && (
+          <Card sx={{ mb: 3, bgcolor: 'background.default' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', p: 2 }}>
+              {selectedVehicle.image && (
+                <CardMedia
+                  component="img"
+                  sx={{ width: 120, height: 80, objectFit: 'cover', borderRadius: 1, mr: 2 }}
+                  image={selectedVehicle.image}
+                  alt={selectedVehicle.name}
+                />
+              )}
+              <Box sx={{ flex: 1 }}>
+                <Typography variant="subtitle2" color="text.secondary">
+                  {isArabic ? 'السيارة المختارة' : 'Selected Vehicle'}
+                </Typography>
+                <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
+                  <DirectionsCarIcon sx={{ mr: 1, color: 'primary.main' }} />
+                  {selectedVehicle.name}
+                </Typography>
+              </Box>
+            </Box>
+          </Card>
+        )}
+
+        {/* Vehicle Selector (only when NOT pre-selected) */}
+        {!initialVehicleId && vehicles.length > 0 && (
           <FormControl fullWidth sx={{ mb: 3 }}>
             <InputLabel>
               {isArabic ? 'اختر السيارة' : 'Select Vehicle'}
