@@ -743,109 +743,198 @@ git push origin main
 - Update agent prompt templates with multi-tool scraping
 - Add `pnpm run build` to pre-merge checklist
 
-## MVP1.6 3-Step Booking UI Rebuild PR#66 2026-01-11 1533 EET
-Post Perf65 7f27831. Deleted old /new. Added step1 OTP step2 vehicle step3 confirm.
-SmsService BookingWorkflowService API routes draft confirm.
-Build OK 306 lines. Bucket 1 (0/0/0/1). Docstring 95.07%.
-Next: Merge test /step1 prod.
+## 2026-01-09 1254-1318 EET: Booking Dropdown Fix (Parallel BB + KWSL)
 
-## CC PR Audit 54-60 + PR59 Critical Fix (2026-01-11 1835 EET)
+### Context
+User testing session revealed critical booking flow bugs:
+1. **Booking dropdown**: Shows all 500 vehicles even when pre-selected from catalog
+2. **Cart counter**: Shows 4 but user has 3 bookings + 3 comparisons (should be 6)
+3. **Camera access**: Still failing with "disconnected" error (deferred)
+4. **Language switching**: EN↔AR random switches during flow (deferred)
 
-**Session**: PR Audit + Critical Image Fallback Fix
-**Agent**: CC (Auditor)
-**Duration**: 18 minutes (2 min under budget)
+Priority: Fix booking dropdown FIRST (blocks entire flow), counter SECOND
 
-### PR59 Critical Fix: ✅ RESOLVED
-**Issue**: ReservationForm.tsx:169 CardMedia used selectedVehicle.image directly
-**Fix**: Implemented getVehicleImage() helper pattern
-**Commit**: 8f20fff (kwsl/fix-booking-dropdown-with-image)
-**Changes**:
-- Added import: `getVehicleImage` from `@/lib/imageHelper`
-- Line 167: `image={getVehicleImage(selectedVehicle.image)}`
-**Build**: ✅ PASS (91.53% docstring coverage)
+### Execution Strategy
+**Parallel Tasks**:
+- **BB**: Fix cart counter (simple, isolated, low hallucination risk) - 15min timebox
+- **KWSL**: Fix booking dropdown + add vehicle image (complex UI) - 30min timebox
 
-### PR Status & Bucket Recommendations:
+### BB Session: Cart Counter Fix (1254-1305 EET, 11 min)
 
-| PR# | Title | Mergeable | Issues | Bucket | Action |
-|-----|-------|-----------|--------|--------|--------|
-| **60** | fix(routing): remove booking route collision | ✅ MERGEABLE | 0 CRITICAL, 0 HIGH | **Bucket 1** | Ready to merge |
-| **54** | feat: Pre-select vehicle in booking form | ⚠️ CONFLICTING | 0 CRITICAL, 1 HIGH | **Bucket 2** | Rebase on main, review HIGH |
-| **55** | feat: Add GET endpoint for bookings API | ⚠️ CONFLICTING | 0 CRITICAL, 1 HIGH | **Bucket 2** | Rebase on main, review HIGH |
-| **59** | fix(booking): hide dropdown + image | ⚠️ CONFLICTING | 0 CRITICAL (FIXED), 2 HIGH | **Bucket 2** | Rebase on main, review HIGH |
+**Investigation**:
+- Located counter in Header.tsx line 85
+- Found dual comparison store imports (architectural issue)
+- Identified: useCompareStore (active, 3 items) vs useComparisonStore (empty, 0 items)
 
-### Merge Recommendations (Priority Order):
-1. **PR#60** - Immediate merge (Bucket 1, no conflicts, 0 critical issues)
-2. **PR#54** - Rebase + review HIGH issue, then merge (Bucket 2)
-3. **PR#55** - Rebase + review HIGH issue, then merge (Bucket 2)
-4. **PR#59** - Rebase + review HIGH issues, then merge (Bucket 2, critical FIXED)
+**Fix Applied**:
+```typescript
+// BEFORE:
+const comparisonCount = useComparisonStore((state) => state.items.length);
+// Result: bookingCount (3) + comparisonCount (0) = 3 ❌
 
-### Conflict Root Cause:
-All booking-related PRs (54, 55, 59) conflict with main due to:
-- BB's 3-step booking flow merged (PR#66, commit a6d1155)
-- Deleted: `src/app/[locale]/bookings/new/page.tsx`
-- Added: step1/step2/step3 pages + draft API routes
+// AFTER:
+const comparisonCount = compareItems.length; // uses useCompareStore
+// Result: bookingCount (3) + compareItems.length (3) = 6 ✓
+Commits:
 
-**Next Actions**:
-- Merge PR#60 immediately (ready)
-- Rebase PRs 54, 55, 59 on latest main
-- Re-review after rebase
+4cb8122: Code fix (Header.tsx)
 
+43c4bcd: Documentation (PERFORMANCE_LOG + BLACKBOX.md)
 
-## CC PR60 Merge + Deploy Debug (2026-01-11 2125 EET)
+Pushed to main, deployment triggered
 
-**Session**: PR60 Merge + Production Deployment Investigation
-**Agent**: CC (Auditor)
-**Duration**: 13 minutes (2 min under budget)
+Analysis:
+This reveals a larger architectural issue: duplicate comparison stores exist
 
-### PR60 Merge: ✅ COMPLETED
-**SHA**: f7100d9 (fix(routing): remove /en/bookings/new route collision #60)
-**Branch**: pplx/fix-booking-route-collision (deleted)
-**Status**: Merged via squash merge
-**Changes**:
-- Deleted: `src/app/en/bookings/new/page.tsx` (old static route)
-- Note: Dynamic route `/[locale]/bookings/new/page.tsx` still exists
-- Added: PR_58_REVIEW_ANALYSIS.md, CLAUDE.md backup
+useCompareStore (active) used by compare badge
 
-### Production Deploy Status:
+useComparisonStore (empty) unused but imported
 
-| Metric | Value | Status |
-|--------|-------|--------|
-| **Main SHA** | f7100d9 | ✅ Merged |
-| **Prod Deploy** | 1c94572 | ⏳ Outdated (pre-PR60) |
-| **Vercel Status** | PENDING | ⏳ Build in progress |
-| **Deploy Time** | 16:46:50 UTC | 4 hours 40 min ago |
+Need store audit to prevent future conflicts
 
-### Route Status (Production):
+KWSL Session: Booking Dropdown Fix (1254-1318 EET, 24 min)
+Investigation:
 
-| Route | HTTP | Expected | Actual | Note |
-|-------|------|----------|--------|------|
-| `/en` | 200 | 200 | ✅ OK | Catalog working |
-| `/en/bookings/step1` | 200 | 200 | ✅ OK | 3-step flow live |
-| `/en/bookings/new` | 200 | 404 (after deploy) | ⚠️ OLD | Still on 1c94572 |
+bash
+grep -r "Select Vehicle" src/components/booking/
+# Found: ReservationForm.tsx line 157
+# Issue: {!initialVehicleId && (dropdown)} condition existed BUT
+# Still rendered dropdown even when initialVehicleId provided
+Root Cause:
+ReservationForm accepted initialVehicleId prop but didn't respect it for display
 
-**Root Cause**: Production still on commit 1c94572 (before PR60 merge). Vercel deploy for f7100d9 is PENDING.
+Prop used for internal state only
 
-### Vercel Deployment Timeline:
-```
-1c94572 (Production) - 2026-01-11 16:46:50 UTC - CURRENT
-8f20fff (Preview) - 2026-01-11 16:43:52 UTC - PR59 fix
-a6d1155 (Production) - 2026-01-11 16:31:11 UTC - 3-step flow
-f7100d9 (Main) - PENDING deployment
-```
+Dropdown always rendered when vehicles.length > 0
 
-### Next Actions:
-1. ⏳ **Wait for Vercel**: f7100d9 deploy pending (auto-deploy enabled)
-2. 🔄 **Monitor**: Check Vercel dashboard for build progress
-3. ✅ **Verify**: Once deployed, `/en/bookings/new` should return 404
-4. 📋 **Rebase PRs**: After f7100d9 deploy, rebase PRs 54, 55, 59
+No visual indication of selected vehicle
 
-**Expected Post-Deploy**:
-- `/en/bookings/new` → 404 (static route deleted)
-- `/ar/bookings/new` → 200 (dynamic route exists)
-- All other routes → unchanged
+Solution Implemented:
 
-**Deploy Lag Explanation**: Normal Vercel behavior - builds trigger on push, take 3-5 minutes. Current delay ~30 minutes suggests:
-- Build queue/backlog
-- Or manual intervention required
-- Check: https://vercel.com/hex-tech-lab/hex-test-drive-man/deployments
+Hide dropdown when initialVehicleId provided
 
+Add vehicle image card showing:
+
+Vehicle image (120x80px, rounded, left-aligned)
+
+"Selected Vehicle" label
+
+Vehicle name with DirectionsCarIcon
+
+Card with background.default for visual distinction
+
+Fetch vehicle details including image from /api/vehicles
+
+Conditional rendering:
+
+initialVehicleId → Vehicle card (no dropdown)
+
+No initialVehicleId → Dropdown with all vehicles
+
+Code Changes (ReservationForm.tsx):
+
+typescript
+// Added state
+const [selectedVehicle, setSelectedVehicle] = useState<...>(null);
+
+// Fetch vehicle details in useEffect when initialVehicleId changes
+if (initialVehicleId) {
+  const vehicle = vehicles.find(v => v.id === initialVehicleId);
+  setSelectedVehicle(vehicle);
+}
+
+// Render vehicle card (NEW)
+{initialVehicleId && selectedVehicle && (
+  <Card>
+    <CardMedia image={selectedVehicle.image} />
+    <Typography>{selectedVehicle.name}</Typography>
+  </Card>
+)}
+
+// Render dropdown (UPDATED condition)
+{!initialVehicleId && vehicles.length > 0 && (
+  <Select>...</Select>
+)}
+User Requirements Met:
+✅ Hide dropdown when vehicle pre-selected from catalog
+✅ Show vehicle image in reservation form
+✅ Clear visual indication of selected vehicle
+✅ Preserve dropdown for bookings started without vehicle context
+
+Branch: kwsl/fix-booking-dropdown-with-image
+Commit: db5d1a6
+Status: PR created, awaiting review
+
+Technical Debt Identified
+Duplicate Comparison Stores:
+
+Need to audit all store imports
+
+Consolidate to single comparison store
+
+Update all components using comparisons
+
+Document canonical store in architecture docs
+
+Vehicle Data Fetching:
+
+ReservationForm fetches ALL vehicles even when only 1 needed
+
+Should fetch single vehicle details when initialVehicleId provided
+
+API optimization opportunity: /api/vehicles/${id} endpoint
+
+Missing Prop Types:
+
+Vehicle type lacks image field in TypeScript interface
+
+Need to update @/types/vehicle.ts with image property
+
+Ensure API response matches interface
+
+Next Priority Bugs (Deferred)
+Camera Access Denied (HIGH):
+
+SmartScanner shows "disconnected" despite browser permissions
+
+WebRTC media stream issue
+
+Device within 1m of WiFi AP (not network issue)
+
+Likely: video element lifecycle bug or constraint mismatch
+
+Language Switching (MEDIUM):
+
+Reservation flow randomly switches EN↔AR
+
+Occurs during: Catalog → Booking → Cart → Back navigation
+
+Need to audit language state persistence
+
+Check if localStorage/context sync properly
+
+Search Bar Features (LOW):
+
+User wants recent searches preserved
+
+Need save search button
+
+Current search remembers recent (don't lose this)
+
+Move search functionality to top bar icon
+
+Documentation Status
+PERFORMANCE_LOG.md: Both sessions added ✓
+
+BLACKBOX.md: BB session recorded (by BB) ✓
+
+CLAUDE.md: This comprehensive summary ✓
+
+GEMINI.md: Needs update (GC offline)
+
+Deployment Status
+BB fix: Merged to main, building on production
+
+KWSL fix: PR created, preview deploying
+
+Monitor both for build success

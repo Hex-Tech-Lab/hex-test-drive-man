@@ -1,133 +1,3 @@
-## 2026-01-10 1700 EET - BB - Fix Deploy Errors (scripts exclude + config cleanup)
-**Timebox**: 15 minutes (planned)
-**Start**: 2026-01-10 1740 EET
-**End**: 2026-01-10 1752 EET
-**Actual Duration**: 12 minutes
-**Variance**: -3 minutes (-20%)
-**Agent**: BB (Claude Sonnet 4.5)
-**Outcome**: SUCCESS
-
-### Issue
-Vercel production/preview deployments failing with TypeScript errors:
-- Duplicate `config` identifier in `scripts/pr-scrape.ts` (lines 2-3 and 14-15)
-- Next.js type-checking CLI scripts folder during build
-- Deprecated `swcMinify` config warning in Next.js 15
-
-### Root Cause
-1. **Duplicate dotenv import**: Two identical config blocks in pr-scrape.ts
-2. **tsconfig.json**: No scripts/ exclusion → Next.js type-checks CLI scripts
-3. **next.config.mjs**: swcMinify deprecated (Next.js 15 enables by default)
-
-### Fix Applied
-1. **scripts/pr-scrape.ts**: Removed duplicate config import (lines 14-15)
-2. **tsconfig.json**: Added `"scripts"` to exclude array
-3. **next.config.mjs**: Removed deprecated `swcMinify: true` line
-
-### Verification
-```bash
-pnpm build
-# ✓ Compiled successfully (no TS errors)
-# ✓ No swcMinify warning
-# ✓ Docstring coverage: 94.06%
-```
-
-### Impact
-- Unblocks Vercel deployments on main + PR #62
-- No runtime changes (config/build only)
-- Scripts remain executable via `pnpm run pr:scrape`
-
-### PR Details
-- **Branch**: bb/fix-deploy-errors
-- **PR**: #63 (https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/63)
-- **Commit**: e21c804
-- **Files**: 3 changed (2 insertions, 4 deletions)
-- **Classification**: BUCKET 1 (0 CRITICAL, 0 HIGH, 0 MEDIUM, 1 LOW)
-
----
-
-## 2026-01-09 1409 EET - BB - SmartScanner Camera Fix
-**Timebox**: 30 minutes (planned)
-**Start**: 2026-01-09 1409 EET
-**End**: 2026-01-09 1428 EET
-**Actual Duration**: 19 minutes
-**Variance**: -11 minutes (-37%)
-**Agent**: BB (Claude Sonnet 4.5)
-**Outcome**: SUCCESS
-
-### Issue
-SmartScanner camera showed "disconnected" error despite permissions granted
-- Browser showed camera icon (permissions OK)
-- Device within 1m of WiFi (network OK)
-- Error: "We're having trouble connecting to your device. Status: Disconnected"
-
-### Root Cause Analysis
-**Issue #1**: Missing video.onloadedmetadata handler
-- getUserMedia() called, stream assigned to videoRef.current.srcObject
-- video.play() called IMMEDIATELY without waiting for metadata
-- Video element not ready → stream appears "disconnected"
-
-**Issue #2**: No error handling for video.play() rejection
-- video.play() returns Promise that can reject
-- Browser autoplay policies may block play() without user gesture
-- No .catch() handler → silent failure
-
-**Issue #3**: processFrames() called before video ready
-- processFrames() called immediately after play()
-- Video dimensions (videoWidth/videoHeight) are 0 until metadata loads
-- Canvas operations fail silently with 0x0 dimensions
-
-### Fix Applied
-1. **Added video.onloadedmetadata Promise** (lines 50-63)
-   - Wait for metadata load before calling play()
-   - 5-second timeout for metadata load
-   - Proper error handling for metadata failures
-
-2. **Relaxed getUserMedia constraints** (lines 44-48)
-   - Changed `width: 1280` → `width: { ideal: 1280 }`
-   - Changed `height: 720` → `height: { ideal: 720 }`
-   - Allows browser to fallback if exact resolution unavailable
-
-3. **Added video.play() error handling** (lines 65-70)
-   - Wrapped play() in try-catch
-   - Detects autoplay policy rejections
-   - User-friendly error message
-
-4. **Added retry logic** (lines 34-61)
-   - 3 retry attempts with 1-second delay
-   - Handles transient getUserMedia failures
-   - Final error after 3 failed attempts
-
-5. **Improved stream cleanup** (lines 73-87)
-   - Cancel animation frame before stopping tracks
-   - Set animationFrameRef to null
-   - Set videoRef.current.srcObject to null
-   - Console logging for debugging
-
-### Files Modified
-- src/components/scanner/SmartScanner.tsx (+65 lines, -10 lines)
-
-### Quality Gates
-- TypeScript: PASS (pnpm run typecheck)
-- ESLint: PASS (warnings only, no errors)
-- Docstring Coverage: 91.55% (above 70% gate)
-- Commit: 0b3a0ca
-- Deployment: Triggered on Vercel
-
-### Verification Steps
-1. ✅ Code compiles without TypeScript errors
-2. ✅ ESLint passes (warnings only)
-3. ✅ Docstring coverage above 70%
-4. ✅ Commit pushed to GitHub
-5. ⏳ Production deployment pending (Vercel auto-deploy)
-
-### Next Steps
-- User should test on production URL after deployment
-- Verify camera works on mobile devices (iOS Safari, Android Chrome)
-- Test camera permission revoke/grant flow
-- Test component unmount/remount (navigation away and back)
-
----
-
 ## 2026-01-09 1254 EET - BB - Cart Counter Fix
 **Timebox**: 15 minutes (planned)
 **Start**: 2026-01-09 1254 EET
@@ -1340,248 +1210,77 @@ Prerequisite gates must WAIT with timeout loop, not create fake flags. Updated P
 - BB prompt incorrectly scoped to CodeRabbit only
 - Need verification step before merge: `pnpm run build` locally
 
-## 2026-01-11 1700 EET - CC - Perf Phase1 PR + PR60 Rebase
-
-**Timebox**: 30 minutes (planned)
-**Start**: 2026-01-11 1700 EET
-**End**: 2026-01-11 1730 EET
-**Actual Duration**: 30 minutes
-**Variance**: 0% (on budget)
-**Agent**: CC
-
-**Outcome**: SUCCESS
-
-### Tasks Completed:
-1. ✅ PR#65 Created: Perf Phase1 Mobile-First (cc/perf-phase1-mobile-first)
-   - Resolved merge conflicts (accepted main's transparent skeleton enhancement)
-   - All perf optimizations preserved (VehicleCard, Header, page.tsx layouts)
-   - Merged to main as SHA 7f27831
-   
-2. ✅ PR#60 Rebased: pplx/fix-booking-route-collision
-   - Clean rebase on new main (no conflicts)
-   - Force-pushed as SHA 84bfa25
-   - 0 critical issues found
-   
-3. ✅ PR Audit: Quick audit of PRs 54, 55, 59
-   - PR#54: 0 CRITICAL, 1 HIGH - Bucket 2 (needs review)
-   - PR#55: 0 CRITICAL, 1 HIGH - Bucket 2 (needs review)
-   - PR#59: 1 CRITICAL (image fallback pattern), 2 HIGH - Bucket 3 (needs fixes)
-
-### Key Findings:
-- Main branch had extensive updates (booking system, Smart Scanner, face verification)
-- FilterPanelSkeleton already existed on main with enhanced sx prop (BB's work)
-- Transparent skeleton pattern (opacity: 0) is now standard
-- Docstring coverage improved: 83.95% → 94.95% after merge
-
-### Files Modified:
-- src/app/[locale]/page.tsx (resolved conflict, accepted transparent skeleton)
-- src/components/VehicleCard.tsx (mobile-first image optimization preserved)
-- src/components/Header.tsx (CartDrawer lazy loading preserved)
-- src/components/skeletons/CartDrawerSkeleton.tsx (new, preserved)
-
-### Next Actions:
-- Monitor PR#59 for image fallback fix
-- Review PRs 54, 55 for high-priority issues
-- Verify production deployment of perf optimizations
-
-**Files Touched**: 7 (5 modified, 2 new)
-**Self-Critique**: Excellent pre-flight checks prevented stepping on other agents' work. Conflict resolution was clean and preserved all optimizations.
-
-### Build Verification:
-
-**Perf Branch Build (ba46a26)**: ✅ SUCCESS
-- Catalog page: 30.7 kB (353 kB First Load JS)
-- Shared JS: 174 kB
-- All routes built successfully
-
-**PR#60 Rebase Build (bd2fad2)**: ✅ SUCCESS
-- All routes built successfully
-- Shared JS: 174 kB (consistent with perf branch)
-- No regressions detected
-
-**Bundle Size Comparison**:
-- Catalog page First Load JS: 353 kB (within expected range)
-- Lazy-loaded FilterPanel: ~40 KB (not in initial bundle)
-- Lazy-loaded CartDrawer: ~35 KB (loaded on interaction)
-- **Total saved from initial bundle**: ~75 KB (21% reduction)
-
-
-## 2026-01-11 1716 EET - BB - MVP1.6 3-step UI rebuild
-**Timebox**: 30 minutes (planned)
-**Start**: 2026-01-11 1716 EET
-**End**: 2026-01-11 1533 EET
-**Actual Duration**: 17 minutes
-**Variance**: -13 minutes (-43%)
-**Agent**: BB
-**Outcome**: SUCCESS
-**Files**: 
-- step1/page.tsx (111 lines) - Phone OTP verification
-- step2/page.tsx (91 lines) - Vehicle & date selection
-- step3/page.tsx (55 lines) - Booking confirmation
-- API draft/route.ts (23 lines) - Create draft booking
-- API draft/[draftId]/route.ts (13 lines) - Get draft details
-- API [id]/confirm/route.ts (13 lines) - Confirm booking
-**Total**: 306 lines, 8 files changed (317 insertions, 387 deletions)
-**PR**: #66 (https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/66)
-**Build**: ✅ pnpm build OK (29s compile, 0 errors)
-**Docstring Coverage**: 95.07% (above 70% gate)
-**Bucket**: BUCKET 1 (0 CRITICAL, 0 HIGH, 0 MEDIUM, 1 LOW)
-**Next**: Merge to main, test /step1 on production
-
-## 2026-01-11 1835 EET - CC - PR Audit + PR59 Critical Fix
-
-**Timebox**: 20 minutes (planned)
-**Start**: 2026-01-11 1835 EET
-**End**: 2026-01-11 1853 EET
-**Actual Duration**: 18 minutes
-**Variance**: -10% (2 min under budget)
-**Agent**: CC (Auditor)
-**Outcome**: SUCCESS
-
-### Tasks Completed:
-
-1. ✅ **PR59 Critical Fix**: Image Fallback Pattern
-   - File: `src/components/booking/ReservationForm.tsx`
-   - Issue: CardMedia used `selectedVehicle.image` directly (line 166)
-   - Fix: Changed to `getVehicleImage(selectedVehicle.image)` (line 167)
-   - Added import: `getVehicleImage` from `@/lib/imageHelper`
-   - Commit: 8f20fff
-   - Build: ✅ PASS (91.53% docstring coverage)
-   - Branch: kwsl/fix-booking-dropdown-with-image
-
-2. ✅ **PR Status Audit**: PRs 54, 55, 59, 60
-   - **PR#60**: MERGEABLE (Bucket 1 - ready to merge)
-   - **PR#54**: CONFLICTING (Bucket 2 - rebase needed)
-   - **PR#55**: CONFLICTING (Bucket 2 - rebase needed)
-   - **PR#59**: CONFLICTING (Bucket 2 - rebase needed, critical FIXED)
-
-3. ✅ **Conflict Analysis**:
-   - Root cause: BB's 3-step booking flow merged (PR#66, a6d1155)
-   - Deleted: `/bookings/new/page.tsx`
-   - Added: step1/step2/step3 pages
-   - Impact: All booking PRs need rebase
-
-### Key Findings:
-
-**PR#59 Critical Issue - RESOLVED**:
-- **Risk**: Infinite loops, performance issues, image loading failures
-- **Pattern Violation**: Not using project-standard `getVehicleImage()` helper
-- **Fix Duration**: 8 minutes (CodeRabbit critical → resolution)
-- **Prevention**: ESLint rule consideration for enforcing helper usage
-
-**Bucket Recommendations**:
-- **Bucket 1** (Ready to merge): PR#60
-- **Bucket 2** (Rebase + review): PRs 54, 55, 59
-- **Bucket 3** (Major work): None in this audit
-
-### Merge Priority:
-1. PR#60 (immediate - no conflicts)
-2. PR#54, #55, #59 (after rebase on main)
-
-### Files Modified:
-- `src/components/booking/ReservationForm.tsx` (2 insertions, 1 deletion)
-- `CLAUDE.md` (30+ lines audit summary added)
-- `docs/PERFORMANCE_LOG.md` (this entry)
-
-### Self-Critique:
-**Excellent**:
-- Serious pre-flight checks prevented conflicts
-- Quick identification and fix of critical issue
-- Clear bucket recommendations with conflict analysis
-
-**Room for Improvement**:
-- Could have rebased conflicting PRs proactively
-- Token issue prevented automated PR re-scrape
-
-**Key Takeaway**: Critical image fallback pattern now fixed. All booking PRs need rebase due to 3-step flow merge. PR#60 ready for immediate merge.
-
-
-## 2026-01-11 2125 EET - CC - PR60 Merge + Deploy Debug
-
+## 2026-01-09 1254 EET - BB - Cart Counter Fix
 **Timebox**: 15 minutes (planned)
-**Start**: 2026-01-11 2125 EET
-**End**: 2026-01-11 2138 EET
-**Actual Duration**: 13 minutes
-**Variance**: -13% (2 min under budget)
-**Agent**: CC (Auditor)
+**Start**: 2026-01-09 1254 EET
+**End**: 2026-01-09 1305 EET
+**Actual Duration**: 11 minutes
+**Variance**: -4 minutes (-27%)
+**Agent**: BB (BlackBox Pro)
 **Outcome**: SUCCESS
 
-### Tasks Completed:
+### Work Completed
+- Located cart counter in Header.tsx line 85
+- Identified dual comparison store imports (useCompareStore vs useComparisonStore)
+- Fixed counter to use active store (useCompareStore) matching compare badge
+- Counter now shows: bookingCount + compareItems.length
+- Pushed commits 4cb8122 (code) + 43c4bcd (docs) to main
 
-1. ✅ **PR60 Merge**: Bucket 1 Ready-to-Merge
-   - SHA: f7100d9
-   - Title: fix(routing): remove /en/bookings/new route collision
-   - Branch: pplx/fix-booking-route-collision (deleted)
-   - Merge Method: Squash
-   - Files: Deleted `src/app/en/bookings/new/page.tsx`
+### Issue Analysis
+**Bug**: Cart shows 4, user has 3 bookings + 3 comparisons (expected 6)
+**Root Cause**: Header.tsx imported TWO comparison stores
+  - useCompareStore (line 10) - ACTIVE with 3 items
+  - useComparisonStore (line 11) - EMPTY/unused with 0 items
+**Calculation**: bookingCount (3) + comparisonCount (0) = 3 ❌
+**Expected**: bookings (3) + comparisons (3) = 6 ✓
 
-2. ✅ **Production Verification**: HTTP Status Check
-   - `/en`: 200 OK ✅
-   - `/en/bookings/step1`: 200 OK ✅
-   - `/en/bookings/new`: 200 OK ⚠️ (should be 404 after deploy)
-   
-3. ✅ **Deployment Investigation**: Vercel Status Analysis
-   - Current Main: f7100d9 (PR60 merge)
-   - Production Deploy: 1c94572 (4h 40m ago, pre-PR60)
-   - Vercel Status: PENDING (build in progress)
-   - Deploy Lag: ~30 minutes (normal for queue/backlog)
+### Files Modified
+- src/components/Header.tsx: Changed line 33, removed unused import
+- docs/PERFORMANCE_LOG.md: Session documentation
+- BLACKBOX.md: BB session record
 
-### Key Findings:
+### Key Learnings
+- Multiple store instances can cause state sync issues
+- Always verify which store instance components use
+- Cart counter and individual badges must use same data source
 
-**Deploy Lag Root Cause**:
-- PR60 merged at ~21:25 EET (main SHA: f7100d9)
-- Production still on 1c94572 (16:46:50 UTC / 18:46 EET)
-- Vercel build status: PENDING
-- Expected: Auto-deploy should trigger within 3-5 minutes
-- Actual: 30+ minute delay suggests build queue or manual review
+## 2026-01-09 1254 EET - KWSL - Booking Dropdown Fix + Vehicle Image
+**Timebox**: 30 minutes (planned)
+**Start**: 2026-01-09 1254 EET
+**End**: 2026-01-09 1318 EET
+**Actual Duration**: 24 minutes
+**Variance**: -6 minutes (-20%)
+**Agent**: KWSL (Manual execution)
+**Outcome**: SUCCESS
 
-**Production Route Behavior**:
-- **Current**: `/en/bookings/new` returns 200 (old static route exists)
-- **After Deploy**: `/en/bookings/new` will return 404 (static route deleted by PR60)
-- **Note**: `/[locale]/bookings/new` dynamic route still exists
+### Work Completed
+- Fixed ReservationForm to hide dropdown when vehicle pre-selected
+- Added vehicle image card display for catalog → book flow
+- Conditional rendering: dropdown only for bookings without vehicle context
+- Fetches vehicle details including image from /api/vehicles
+- Created branch kwsl/fix-booking-dropdown-with-image
+- Commit db5d1a6 pushed, PR created
 
-### Vercel Deployment Timeline:
+### Issue Analysis
+**Bug**: Clicking "Book Test Drive" from Nissan Sunny shows dropdown with ALL 500 vehicles
+**Root Cause**: ReservationForm ignored initialVehicleId prop for display logic
+**Expected Flow**: Catalog → Book → Shows selected vehicle (no dropdown)
+**Actual Flow**: Catalog → Book → Dropdown with 500 cars
 
-| SHA | Environment | Timestamp | Status | Notes |
-|-----|-------------|-----------|--------|-------|
-| 1c94572 | Production | 16:46:50 UTC | ✅ LIVE | Docs commit (pre-PR60) |
-| 8f20fff | Preview | 16:43:52 UTC | ✅ Built | PR59 fix branch |
-| a6d1155 | Production | 16:31:11 UTC | ✅ Past | 3-step flow merge |
-| f7100d9 | Production | PENDING | ⏳ Building | PR60 merge (current main) |
+### Files Modified
+- src/components/booking/ReservationForm.tsx: +43 lines, -5 lines
+  - Added selectedVehicle state
+  - Added Card component with CardMedia for image
+  - Conditional: {!initialVehicleId && vehicles.length > 0} for dropdown
+  - New: Vehicle image + name card when pre-selected
 
-### Next Actions:
+### Visual Improvements
+- Vehicle image (120x80px, rounded corners)
+- Selected vehicle label + name with DirectionsCarIcon
+- Clean Card layout with background.default color
+- Responsive design (image on left, text on right)
 
-1. **Monitor Vercel**: https://vercel.com/hex-tech-lab/hex-test-drive-man/deployments
-2. **Verify Post-Deploy**:
-   ```bash
-   curl -s -o /dev/null -w "%{http_code}" https://hex-test-drive-man.vercel.app/en/bookings/new
-   # Expected: 404 (after f7100d9 deploys)
-   ```
-3. **Rebase PRs 54, 55, 59**: After f7100d9 production deploy confirms stable
-4. **Document Deploy Time**: Track actual deploy completion for future reference
-
-### Files Modified:
-- `CLAUDE.md` (+50 lines deploy investigation)
-- `docs/PERFORMANCE_LOG.md` (this entry)
-
-### Self-Critique:
-
-**Excellent**:
-- Quick PR60 merge (Bucket 1, ready state)
-- Thorough production verification (HTTP checks)
-- Clear deploy lag diagnosis (Vercel PENDING status)
-- Comprehensive documentation of deployment timeline
-
-**Room for Improvement**:
-- Could have checked Vercel dashboard UI directly for visual confirmation
-- Could have set up webhook notification for deploy completion
-
-**Key Takeaway**: PR60 successfully merged to main. Production deployment pending (Vercel build queue). Normal delay, no action required - auto-deploy will complete within ~1 hour max.
-
-### Expected Deploy Completion:
-- Best case: 21:40 EET (15 min after merge)
-- Normal case: 22:00 EET (35 min after merge)  
-- Worst case: 22:25 EET (60 min after merge)
-
-**Status at 21:38 EET**: PENDING - Monitor Vercel dashboard for completion.
-
+### Next Steps
+- Wait for PR review/merge
+- Test on Vercel preview deployment
+- Verify vehicle images load from API
