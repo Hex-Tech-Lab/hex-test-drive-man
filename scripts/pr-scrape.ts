@@ -9,6 +9,7 @@
  * Output: docs/PR_<NUMBER>_REVIEW_ANALYSIS.md
  */
 
+import 'dotenv/config';
 import { Octokit } from '@octokit/rest';
 import * as fs from 'fs';
 import * as path from 'path';
