@@ -7,6 +7,11 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    // Disable ESLint during builds (run separately via pnpm lint)
+    // Next.js 15 has compatibility issues with flat config (eslint.config.js)
+    ignoreDuringBuilds: true,
+  },
   images: {
     domains: ['getmytestdrive.com'],
     remotePatterns: [
