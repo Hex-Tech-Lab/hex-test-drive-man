@@ -11,8 +11,6 @@ config({ path: ".env.local" });
  * Output: docs/PR_<NUMBER>_REVIEW_ANALYSIS.md
  */
 
-import { config } from 'dotenv';
-config({ path: '.env.local' });
 import { Octokit } from '@octokit/rest';
 import * as fs from 'fs';
 import * as path from 'path';
