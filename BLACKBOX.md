@@ -205,6 +205,21 @@ curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/{table}?select=*&limit=5"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (BLOCKERS - Next 2 Hours)
+1. ✅ **[COMPLETE 2026-01-10 1752 EET] Fix Deploy Errors**: BB - Vercel build errors resolved
+   - ✅ Root cause: Duplicate config import + scripts/ type-checking + deprecated swcMinify
+   - ✅ Fix: Removed duplicate dotenv config in scripts/pr-scrape.ts (lines 14-15)
+   - ✅ Fix: Added scripts/ to tsconfig.json exclude array
+   - ✅ Fix: Removed deprecated swcMinify from next.config.mjs
+   - ✅ Build: ✓ Compiled successfully (no TS errors, no warnings)
+   - ✅ Docstring coverage: 94.06% (above 70% gate)
+   - Commit: e21c804
+   - Branch: bb/fix-deploy-errors
+   - PR: #63 (https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/63)
+   - Classification: BUCKET 1 (0 CRITICAL, 0 HIGH, 0 MEDIUM, 1 LOW)
+   - Files: 3 changed (2 insertions, 4 deletions)
+   - Duration: 12 minutes (planned: 15 min, variance: -20%)
+   - Performance: 80% time used (20% under budget)
+   - **Impact**: Unblocks Vercel deployments on main + PR #62
 1. ✅ **[COMPLETE 2026-01-09 1428 EET] SmartScanner Camera Fix**: BB - Camera "disconnected" error resolved
    - ✅ Root cause: Video element lifecycle race condition (3 issues identified)
    - ✅ Issue #1: Missing video.onloadedmetadata handler (play() called before ready)

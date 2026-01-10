@@ -24,7 +24,6 @@ const nextConfig = {
   compress: true, // Enable gzip compression
   poweredByHeader: false, // Remove X-Powered-By header (security + performance)
   reactStrictMode: true, // Enable strict mode for better performance warnings
-  swcMinify: true, // Use SWC for faster minification
   // Webpack configuration
   webpack: (config, { isServer }) => {
     // Exclude jscanify from server-side bundle (has Node.js dependencies)

@@ -1,3 +1,50 @@
+## 2026-01-10 1700 EET - BB - Fix Deploy Errors (scripts exclude + config cleanup)
+**Timebox**: 15 minutes (planned)
+**Start**: 2026-01-10 1740 EET
+**End**: 2026-01-10 1752 EET
+**Actual Duration**: 12 minutes
+**Variance**: -3 minutes (-20%)
+**Agent**: BB (Claude Sonnet 4.5)
+**Outcome**: SUCCESS
+
+### Issue
+Vercel production/preview deployments failing with TypeScript errors:
+- Duplicate `config` identifier in `scripts/pr-scrape.ts` (lines 2-3 and 14-15)
+- Next.js type-checking CLI scripts folder during build
+- Deprecated `swcMinify` config warning in Next.js 15
+
+### Root Cause
+1. **Duplicate dotenv import**: Two identical config blocks in pr-scrape.ts
+2. **tsconfig.json**: No scripts/ exclusion → Next.js type-checks CLI scripts
+3. **next.config.mjs**: swcMinify deprecated (Next.js 15 enables by default)
+
+### Fix Applied
+1. **scripts/pr-scrape.ts**: Removed duplicate config import (lines 14-15)
+2. **tsconfig.json**: Added `"scripts"` to exclude array
+3. **next.config.mjs**: Removed deprecated `swcMinify: true` line
+
+### Verification
+```bash
+pnpm build
+# ✓ Compiled successfully (no TS errors)
+# ✓ No swcMinify warning
+# ✓ Docstring coverage: 94.06%
+```
+
+### Impact
+- Unblocks Vercel deployments on main + PR #62
+- No runtime changes (config/build only)
+- Scripts remain executable via `pnpm run pr:scrape`
+
+### PR Details
+- **Branch**: bb/fix-deploy-errors
+- **PR**: #63 (https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/63)
+- **Commit**: e21c804
+- **Files**: 3 changed (2 insertions, 4 deletions)
+- **Classification**: BUCKET 1 (0 CRITICAL, 0 HIGH, 0 MEDIUM, 1 LOW)
+
+---
+
 ## 2026-01-09 1409 EET - BB - SmartScanner Camera Fix
 **Timebox**: 30 minutes (planned)
 **Start**: 2026-01-09 1409 EET
