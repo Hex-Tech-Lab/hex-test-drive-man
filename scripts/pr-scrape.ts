@@ -50,12 +50,14 @@ function classifySeverity(body: string): 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW' 
   const lowerBody = body.toLowerCase();
   
   // CRITICAL: Security vulnerabilities, data loss, breaking changes
+  // BUT: Exclude false positives like "quality gate passed"
   if (
-    lowerBody.includes('security') ||
+    (lowerBody.includes('security') ||
     lowerBody.includes('vulnerability') ||
     lowerBody.includes('critical') ||
     lowerBody.includes('data loss') ||
-    lowerBody.includes('breaking change')
+    lowerBody.includes('breaking change')) &&
+    !lowerBody.includes('quality gate passed')
   ) {
     return 'CRITICAL';
   }
