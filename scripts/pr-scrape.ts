@@ -1,4 +1,6 @@
 #!/usr/bin/env tsx
+import { config } from "dotenv";
+config({ path: ".env.local" });
 /**
  * PR Review Scraper
  * 

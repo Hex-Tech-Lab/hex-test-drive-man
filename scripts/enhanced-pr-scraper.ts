@@ -1,4 +1,6 @@
 import { Octokit } from '@octokit/rest';
+import { config } from "dotenv";
+config({ path: ".env.local" });
 import * as fs from 'fs';
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { config } from "dotenv";
+config({ path: ".env.local" });
 /**
  * Apply SQL migrations to Supabase via REST API
  * Uses service role key for admin operations

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { config } from "dotenv";
+config({ path: ".env.local" });
 /**
  * Apply Mercedes-Benz + Hongqi migrations via Supabase client
  * Inserts models and trims directly using the service role key

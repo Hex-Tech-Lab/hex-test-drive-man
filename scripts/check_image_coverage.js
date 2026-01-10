@@ -1,4 +1,6 @@
 import fs from 'fs';
+import { config } from "dotenv";
+config({ path: ".env.local" });
 import path from 'path';
 
 // Load env vars manually to avoid dependencies
