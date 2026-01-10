@@ -56,9 +56,13 @@ export class SmsService {
         subjectType,
       });
 
+      // Map reservation to booking for engine compatibility
+      const engineSubjectType: 'booking' | 'login' =
+        subjectType === 'reservation' ? 'booking' : subjectType;
+
       const params: RequestOtpParams = {
         phone: phone.trim(),
-        subjectType: subjectType as 'booking' | 'login', // Map to engine types
+        subjectType: engineSubjectType,
         subjectId,
       };
 
