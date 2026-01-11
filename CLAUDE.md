@@ -578,6 +578,11 @@ psql $SUPABASE_URL -f supabase/migrations/20251211_booking_schema.sql
 8. Waiting to dump all at once (incremental updates only)
 9. Code changes when task scope is documentation only
 10. Passive VERIFY tags without attempting verification
+11. **Using `npx pnpm` instead of `pnpm` directly** (violates pnpm-only policy)
+    - **Reason**: Adds npm wrapper overhead, increases build time
+    - **Infrastructure Issue**: pnpm not in PATH on current system
+    - **Correct**: Use `pnpm` directly once PATH configured
+    - **Emergency**: Use `npx pnpm` only if pnpm unavailable, document in commit
 
 **Full Standards**: `docs/context/QUALITY_STANDARDS_EXTENDED.md` (if created) or refer to ESLint config + `.prettierrc`
 
