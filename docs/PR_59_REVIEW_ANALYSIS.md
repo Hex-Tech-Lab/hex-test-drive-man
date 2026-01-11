@@ -1,8 +1,8 @@
 # PR #59 Review Analysis
 
-**Generated**: 2026-01-11T20:29:49.607Z  
-**Total Issues**: 10  
-**Breakdown**: 1 CRITICAL, 1 HIGH, 3 MEDIUM, 5 LOW
+**Generated**: 2026-01-11T21:25:08.143Z  
+**Total Issues**: 11  
+**Breakdown**: 2 CRITICAL, 1 HIGH, 2 MEDIUM, 6 LOW
 
 ---
 
@@ -10,14 +10,14 @@
 
 | Severity | Count | Action Required |
 |----------|-------|-----------------|
-| CRITICAL | 1 | Fix immediately before merge |
+| CRITICAL | 2 | Fix immediately before merge |
 | HIGH | 1 | Fix if <5 min each |
-| MEDIUM | 3 | Document for later |
-| LOW | 5 | Optional (style/formatting) |
+| MEDIUM | 2 | Document for later |
+| LOW | 6 | Optional (style/formatting) |
 
 ---
 
-## CRITICAL Issues (1)
+## CRITICAL Issues (2)
 
 
 ### 1. CodeRabbit - src/components/booking/ReservationForm.tsx:170
@@ -95,6 +95,70 @@ selectedVehicle image.
 ```
 
 
+### 2. CodeRabbit - src/components/booking/ReservationForm.tsx:82
+
+```
+_⚠️ Potential issue_ | _🔴 Critical_
+
+**Critical: Handle case when initialVehicleId doesn't match any vehicle.**
+
+If `initialVehicleId` is provided but no matching vehicle is found, `selectedVehicle` remains null. This creates a broken UI state where:
+- Line 160: Vehicle card won't render (selectedVehicle is null)
+- Line 185: Vehicle dropdown won't render (!initialVehicleId is false)
+
+The user has no way to select a vehicle and cannot proceed with booking.
+
+
+
+<details>
+<summary>🐛 Proposed fix to handle invalid vehicle ID</summary>
+
+```diff
+         // If initialVehicleId provided, find and set the vehicle
+         if (initialVehicleId) {
+           const vehicle = (data.vehicles || []).find((v: any) => v.id === initialVehicleId);
+           if (vehicle) {
+             setSelectedVehicle(vehicle);
++          } else {
++            // Vehicle not found - clear initialVehicleId to show dropdown
++            console.warn(`Vehicle with ID ${initialVehicleId} not found`);
++            setError(
++              isArabic
++                ? 'السيارة المحددة غير متوفرة'
++                : 'Selected vehicle is not available'
++            );
+           }
+         }
+```
+
+Alternatively, you could clear the `vehicleId` state to allow the user to select from the dropdown, but this requires refactoring the component to use a ref or different state management since `initialVehicleId` is a prop.
+</details>
+
+<details>
+<summary>🤖 Prompt for AI Agents</summary>
+
+```
+In @src/components/booking/ReservationForm.tsx around lines 75 - 82, When
+initialVehicleId is provided but find(...) returns no match, ensure the
+component falls back to allowing manual selection instead of leaving
+selectedVehicle null and blocking the UI: inside the block that checks
+initialVehicleId update state to clear any locked vehicle selection (call
+setSelectedVehicle(null) if not already and also reset the vehicleId selection
+state via setVehicleId('') or a similar setter) so the vehicle dropdown renders;
+alternatively set a flag like allowManualVehicleSelection to true when no match
+is found and use that to render the dropdown. Make the change near the existing
+initialVehicleId handling (the code using initialVehicleId, selectedVehicle,
+setSelectedVehicle) so the UI can recover when the provided ID is invalid.
+```
+
+</details>
+
+<!-- fingerprinting:phantom:poseidon:puma -->
+
+<!-- This is an auto-generated comment by CodeRabbit -->
+```
+
+
 ---
 
 ## HIGH Issues (1)
@@ -111,7 +175,7 @@ Because `selectedVehicle` stays null when no fetched vehicle matches `initialVeh
 
 ---
 
-## MEDIUM Issues (3)
+## MEDIUM Issues (2)
 
 
 ### 1. SonarCloud
@@ -136,81 +200,32 @@ Measures
 ### 2. CodeRabbit - src/components/booking/ReservationForm.tsx:63
 
 ```
-_🛠️ Refactor suggestion_ | _🟠 Major_
+_🧹 Nitpick_ | _🔵 Trivial_
 
-**Use canonical Vehicle type from types file.**
+**Consider extracting vehicle type to an interface.**
 
-The state declarations use inline types instead of the canonical `Vehicle` type from `src/types/vehicle.ts`. This creates type inconsistency across the codebase.
+The inline type definition `{ id: string; name: string; image?: string }` is repeated for both `vehicles` and `selectedVehicle`. Extracting to an interface improves type safety and maintainability.
 
 
-Based on learnings, vehicle types should be imported from the canonical types file.
 
 <details>
-<summary>♻️ Proposed fix to use canonical types</summary>
-
-Add import at the top of the file:
+<summary>♻️ Proposed refactor to extract vehicle type</summary>
 
 ```diff
- import type { TimeSlot } from '@/types/reservation';
-+import type { Vehicle } from '@/types/vehicle';
-```
-
-Then update the state declarations:
-
-```diff
++interface VehicleOption {
++  id: string;
++  name: string;
++  image?: string;
++}
++
 -  const [vehicles, setVehicles] = useState<Array<{ id: string; name: string; image?: string }>>([]);
 -  const [selectedVehicle, setSelectedVehicle] = useState<{ id: string; name: string; image?: string } | null>(null);
-+  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-+  const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
++  const [vehicles, setVehicles] = useState<VehicleOption[]>([]);
++  const [selectedVehicle, setSelectedVehicle] = useState<VehicleOption | null>(null);
 ```
 </details>
 
-<details>
-<summary>🤖 Prompt for AI Agents</summary>
-
-```
-In @src/components/booking/ReservationForm.tsx around lines 61 - 62, The
-component is using inline vehicle types for vehicles and selectedVehicle; import
-and use the canonical Vehicle type from src/types/vehicle.ts instead of inline
-definitions to ensure consistency. Update the top of ReservationForm.tsx to
-import { Vehicle } and change the state declarations for vehicles
-(useState<Array<Vehicle>>) and selectedVehicle (useState<Vehicle | null>) so
-they reference the Vehicle type rather than the inline shape.
-```
-
-</details>
-
-<!-- fingerprinting:phantom:poseidon:puma -->
-
-<!-- This is an auto-generated comment by CodeRabbit -->
-```
-
-
-### 3. CodeRabbit - src/components/booking/ReservationForm.tsx:82
-
-```
-_⚠️ Potential issue_ | _🟡 Minor_
-
-**Replace `any` type with proper typing.**
-
-Line 77 uses `(v: any)` which bypasses TypeScript's type safety. This violates strict mode guidelines.
-
-
-<details>
-<summary>🔧 Proposed fix to use proper typing</summary>
-
-```diff
-         // If initialVehicleId provided, find and set the vehicle
-         if (initialVehicleId) {
--          const vehicle = (data.vehicles || []).find((v: any) => v.id === initialVehicleId);
-+          const vehicle = (data.vehicles || []).find((v) => v.id === initialVehicleId);
-           if (vehicle) {
-             setSelectedVehicle(vehicle);
-           }
-```
-
-The type will be inferred from the `vehicles` state type (or from the canonical `Vehicle` type once refactored).
-</details>
+As per coding guidelines: prefer interface over type for defining object shapes in TypeScript.
 
 <!-- suggestion_start -->
 
@@ -221,14 +236,14 @@ The type will be inferred from the `vehicles` state type (or from the canonical 
 > Carefully review the code before committing. Ensure that it accurately replaces the highlighted code, contains no missing lines, and has no issues with indentation. Thoroughly test & benchmark the code to ensure it meets the requirements.
 
 ```suggestion
-        
-        // If initialVehicleId provided, find and set the vehicle
-        if (initialVehicleId) {
-          const vehicle = (data.vehicles || []).find((v) => v.id === initialVehicleId);
-          if (vehicle) {
-            setSelectedVehicle(vehicle);
-          }
-        }
+  interface VehicleOption {
+    id: string;
+    name: string;
+    image?: string;
+  }
+
+  const [vehicles, setVehicles] = useState<VehicleOption[]>([]);
+  const [selectedVehicle, setSelectedVehicle] = useState<VehicleOption | null>(null);
 ```
 
 </details>
@@ -239,14 +254,14 @@ The type will be inferred from the `vehicles` state type (or from the canonical 
 <summary>🤖 Prompt for AI Agents</summary>
 
 ```
-In @src/components/booking/ReservationForm.tsx around lines 74 - 81, The find
-callback is using an unsafe any cast; update the search to use the proper
-vehicle type instead of (v: any) — e.g. use the project's Vehicle interface (or
-the inferred type of data.vehicles) in the callback so the line becomes (v:
-Vehicle) => v.id === initialVehicleId; keep the surrounding logic
-(initialVehicleId check, data.vehicles access, and setSelectedVehicle) unchanged
-and ensure Vehicle is imported or the correct type alias is referenced where
-ReservationForm.tsx defines selectedVehicle/setSelectedVehicle.
+In @src/components/booking/ReservationForm.tsx around lines 62 - 63, The
+repeated inline object type used for vehicles and selectedVehicle should be
+extracted into a shared interface to improve reuse and maintainability: create
+an interface (e.g., Vehicle) describing { id: string; name: string; image?:
+string } and replace the inline types in the useState calls for vehicles
+(useState<Array<...>>) and selectedVehicle (useState<... | null>) with the new
+interface; update any other occurrences that use the same shape to reference
+Vehicle, following the project guideline to prefer interface over inline types.
 ```
 
 </details>
@@ -259,7 +274,7 @@ ReservationForm.tsx defines selectedVehicle/setSelectedVehicle.
 
 ---
 
-## LOW Issues (5)
+## LOW Issues (6)
 
 
 ### 1. Sourcery
@@ -408,13 +423,13 @@ Access your [dashboard](https://app.sourcery.ai) to:
 
 ## Walkthrough
 
-The ReservationForm now supports a pre-selected vehicle display when a `vehicleId` prop is provided. Vehicle objects may include an optional `image` field; the component fetches vehicles, sets `selectedVehicle` when an initial id exists, and conditionally renders a vehicle Card (with image) or the existing dropdown selector.
+The ReservationForm now supports displaying a pre-selected vehicle (with optional image) when a `vehicleId` prop is provided. Vehicles are fetched on mount, `selectedVehicle` is set when the initial id exists, and the component conditionally renders a vehicle Card with image or the existing dropdown selector.
 
 ## Changes
 
 | Cohort / File(s) | Summary |
 |---|---|
-| **Vehicle Selection UI Enhancement** <br> `src/components/booking/ReservationForm.tsx` | Add optional `image` on vehicle items and a `selectedVehicle` state. On mount, fetch vehicles and pre-select when `initialVehicleId` (aliased from `vehicleId`) is provided. Render a Card with `CardMedia` and localized "Selected Vehicle" label when pre-selected; otherwise render the vehicle dropdown selector. Minor text localization for Arabic included. |
+| **Vehicle Selection UI Enhancement** <br> `src/components/booking/ReservationForm.tsx` | Add optional `image` to vehicle items and `selectedVehicle` state. Fetch vehicles on mount and pre-select when `vehicleId` (internally `initialVehicleId`) is provided. Render a `Card` with `CardMedia` and localized "Selected Vehicle" label when pre-selected; otherwise show the vehicle dropdown selector. Minor Arabic localization text added. |
 
 ## Estimated code review effort
 
@@ -431,11 +446,11 @@ The ReservationForm now supports a pre-selected vehicle display when a `vehicleI
 <details>
 <summary>✅ Passed checks (3 passed)</summary>
 
-|     Check name     | Status   | Explanation                                                                                                                                                         |
-| :----------------: | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|  Description Check | ✅ Passed | Check skipped - CodeRabbit’s high-level summary is enabled.                                                                                                         |
-|     Title check    | ✅ Passed | The title accurately captures the main change: hiding the vehicle dropdown when a vehicle is pre-selected and adding vehicle image display to the reservation form. |
-| Docstring Coverage | ✅ Passed | Docstring coverage is 100.00% which is sufficient. The required threshold is 80.00%.                                                                                |
+|     Check name     | Status   | Explanation                                                                                                                                                  |
+| :----------------: | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  Description Check | ✅ Passed | Check skipped - CodeRabbit’s high-level summary is enabled.                                                                                                  |
+|     Title check    | ✅ Passed | The title accurately summarizes the main changes: hiding the vehicle dropdown when a vehicle is pre-selected and adding vehicle image display functionality. |
+| Docstring Coverage | ✅ Passed | Docstring coverage is 100.00% which is sufficient. The required threshold is 80.00%.                                                                         |
 
 </details>
 
@@ -487,7 +502,7 @@ Thanks for using [CodeRabbit](https://coderabbit.ai?utm_source=oss&utm_medium=gi
 <!-- internal state start -->
 
 
-<!-- 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 -->
+<!-- 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 -->
 
 <!-- internal state end -->
 ```
@@ -775,11 +790,82 @@ this typed onError fallback.
 ```
 
 
+### 6. CodeRabbit - src/components/booking/ReservationForm.tsx:78
+
+```
+_⚠️ Potential issue_ | _🟠 Major_
+
+**Remove `any` type and use proper typing.**
+
+Using `any` type without justification violates coding guidelines. The vehicle parameter type can be inferred from the vehicles array or properly typed.
+
+
+
+<details>
+<summary>🔧 Proposed fix</summary>
+
+```diff
+-          const vehicle = (data.vehicles || []).find((v: any) => v.id === initialVehicleId);
++          const vehicle = (data.vehicles || []).find(
++            (v: { id: string; name: string; image?: string }) => v.id === initialVehicleId
++          );
+```
+
+Even better with the extracted interface from the previous comment:
+
+```diff
+-          const vehicle = (data.vehicles || []).find((v: any) => v.id === initialVehicleId);
++          const vehicle = (data.vehicles || []).find((v: VehicleOption) => v.id === initialVehicleId);
+```
+</details>
+
+As per coding guidelines: Never use @ts-ignore (or `any`) without documented justification.
+
+<!-- suggestion_start -->
+
+<details>
+<summary>📝 Committable suggestion</summary>
+
+> ‼️ **IMPORTANT**
+> Carefully review the code before committing. Ensure that it accurately replaces the highlighted code, contains no missing lines, and has no issues with indentation. Thoroughly test & benchmark the code to ensure it meets the requirements.
+
+```suggestion
+          const vehicle = (data.vehicles || []).find(
+            (v: { id: string; name: string; image?: string }) => v.id === initialVehicleId
+          );
+```
+
+</details>
+
+<!-- suggestion_end -->
+
+<details>
+<summary>🤖 Prompt for AI Agents</summary>
+
+```
+In @src/components/booking/ReservationForm.tsx at line 78, The line declaring
+vehicle uses an untyped parameter "(v: any)" — replace the any by the real
+vehicle type (e.g., Vehicle) or infer it from the vehicles array type so
+TypeScript knows the element shape; update the vehicles collection typing
+(data.vehicles: Vehicle[] or similar) or extract an interface (Vehicle) used
+across the component, then change the find callback to (v: Vehicle) => v.id ===
+initialVehicleId (or use typeof data.vehicles[number]) so the value of vehicle
+is properly typed and no any/@ts-ignore remains.
+```
+
+</details>
+
+<!-- fingerprinting:phantom:poseidon:puma -->
+
+<!-- This is an auto-generated comment by CodeRabbit -->
+```
+
+
 ---
 
 ## Next Steps
 
-1. **Fix CRITICAL issues** (1 found) - Block merge until resolved
+1. **Fix CRITICAL issues** (2 found) - Block merge until resolved
 2. **Fix HIGH issues** (1 found) - Fix if <5 min each, otherwise document
 3. **Document MEDIUM/LOW** (8 found) - Create follow-up issues
 
