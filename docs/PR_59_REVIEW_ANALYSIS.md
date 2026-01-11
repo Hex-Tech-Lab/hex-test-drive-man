@@ -1,8 +1,8 @@
 # PR #59 Review Analysis
 
-**Generated**: 2026-01-11T15:00:36.684Z  
-**Total Issues**: 9  
-**Breakdown**: 1 CRITICAL, 2 HIGH, 3 MEDIUM, 3 LOW
+**Generated**: 2026-01-11T20:29:49.607Z  
+**Total Issues**: 10  
+**Breakdown**: 1 CRITICAL, 1 HIGH, 3 MEDIUM, 5 LOW
 
 ---
 
@@ -11,16 +11,16 @@
 | Severity | Count | Action Required |
 |----------|-------|-----------------|
 | CRITICAL | 1 | Fix immediately before merge |
-| HIGH | 2 | Fix if <5 min each |
+| HIGH | 1 | Fix if <5 min each |
 | MEDIUM | 3 | Document for later |
-| LOW | 3 | Optional (style/formatting) |
+| LOW | 5 | Optional (style/formatting) |
 
 ---
 
 ## CRITICAL Issues (1)
 
 
-### 1. CodeRabbit - src/components/booking/ReservationForm.tsx:169
+### 1. CodeRabbit - src/components/booking/ReservationForm.tsx:170
 
 ```
 _⚠️ Potential issue_ | _🔴 Critical_
@@ -97,103 +97,10 @@ selectedVehicle image.
 
 ---
 
-## HIGH Issues (2)
+## HIGH Issues (1)
 
 
-### 1. CodeRabbit
-
-```
-<!-- This is an auto-generated comment: summarize by coderabbit.ai -->
-<!-- walkthrough_start -->
-
-## Walkthrough
-
-The ReservationForm component now supports displaying a pre-selected vehicle when a vehicleId is provided via props. Vehicle data is extended to include an optional image field, and conditional rendering shows either a vehicle card display or a dropdown selector based on whether an initial vehicle is specified.
-
-## Changes
-
-| Cohort / File(s) | Summary |
-|---|---|
-| **Vehicle Selection UI Enhancement** <br> `src/components/booking/ReservationForm.tsx` | Added vehicle image support with optional image field in vehicle data shape. Introduces selectedVehicle state to pre-select vehicles when initialVehicleId is provided. Replaces dropdown with Card display (including CardMedia for images) when vehicle is pre-selected; otherwise renders vehicle selector. Updated text labels for selected vehicle display with language-aware support (English and Arabic). |
-
-## Estimated code review effort
-
-🎯 3 (Moderate) | ⏱️ ~20 minutes
-
-<!-- walkthrough_end -->
-
-
-<!-- pre_merge_checks_walkthrough_start -->
-
-<details>
-<summary>🚥 Pre-merge checks | ✅ 3</summary>
-
-<details>
-<summary>✅ Passed checks (3 passed)</summary>
-
-|     Check name     | Status   | Explanation                                                                                                                                                       |
-| :----------------: | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  Description Check | ✅ Passed | Check skipped - CodeRabbit’s high-level summary is enabled.                                                                                                       |
-|     Title check    | ✅ Passed | The title accurately describes the main changes: hiding the vehicle dropdown when a vehicle is pre-selected and adding vehicle image support to the booking form. |
-| Docstring Coverage | ✅ Passed | Docstring coverage is 100.00% which is sufficient. The required threshold is 80.00%.                                                                              |
-
-</details>
-
-<sub>✏️ Tip: You can configure your own custom pre-merge checks in the settings.</sub>
-
-</details>
-
-<!-- pre_merge_checks_walkthrough_end -->
-
-<!-- finishing_touch_checkbox_start -->
-
-<details>
-<summary>✨ Finishing touches</summary>
-
-- [ ] <!-- {"checkboxId": "7962f53c-55bc-4827-bfbf-6a18da830691"} --> 📝 Generate docstrings
-<details>
-<summary>🧪 Generate unit tests (beta)</summary>
-
-- [ ] <!-- {"checkboxId": "f47ac10b-58cc-4372-a567-0e02b2c3d479", "radioGroupId": "utg-output-choice-group-unknown_comment_id"} -->   Create PR with unit tests
-- [ ] <!-- {"checkboxId": "07f1e7d6-8a8e-4e23-9900-8731c2c87f58", "radioGroupId": "utg-output-choice-group-unknown_comment_id"} -->   Post copyable unit tests in a comment
-- [ ] <!-- {"checkboxId": "6ba7b810-9dad-11d1-80b4-00c04fd430c8", "radioGroupId": "utg-output-choice-group-unknown_comment_id"} -->   Commit unit tests in branch `kwsl/fix-booking-dropdown-with-image`
-
-</details>
-
-</details>
-
-<!-- finishing_touch_checkbox_end -->
-
-<!-- tips_start -->
-
----
-
-Thanks for using [CodeRabbit](https://coderabbit.ai?utm_source=oss&utm_medium=github&utm_campaign=Hex-Tech-Lab/hex-test-drive-man&utm_content=59)! It's free for OSS, and your support helps us grow. If you like it, consider giving us a shout-out.
-
-<details>
-<summary>❤️ Share</summary>
-
-- [X](https://twitter.com/intent/tweet?text=I%20just%20used%20%40coderabbitai%20for%20my%20code%20review%2C%20and%20it%27s%20fantastic%21%20It%27s%20free%20for%20OSS%20and%20offers%20a%20free%20trial%20for%20the%20proprietary%20code.%20Check%20it%20out%3A&url=https%3A//coderabbit.ai)
-- [Mastodon](https://mastodon.social/share?text=I%20just%20used%20%40coderabbitai%20for%20my%20code%20review%2C%20and%20it%27s%20fantastic%21%20It%27s%20free%20for%20OSS%20and%20offers%20a%20free%20trial%20for%20the%20proprietary%20code.%20Check%20it%20out%3A%20https%3A%2F%2Fcoderabbit.ai)
-- [Reddit](https://www.reddit.com/submit?title=Great%20tool%20for%20code%20review%20-%20CodeRabbit&text=I%20just%20used%20CodeRabbit%20for%20my%20code%20review%2C%20and%20it%27s%20fantastic%21%20It%27s%20free%20for%20OSS%20and%20offers%20a%20free%20trial%20for%20proprietary%20code.%20Check%20it%20out%3A%20https%3A//coderabbit.ai)
-- [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcoderabbit.ai&mini=true&title=Great%20tool%20for%20code%20review%20-%20CodeRabbit&summary=I%20just%20used%20CodeRabbit%20for%20my%20code%20review%2C%20and%20it%27s%20fantastic%21%20It%27s%20free%20for%20OSS%20and%20offers%20a%20free%20trial%20for%20proprietary%20code)
-
-</details>
-
-<sub>Comment `@coderabbitai help` to get the list of available commands and usage tips.</sub>
-
-<!-- tips_end -->
-
-<!-- internal state start -->
-
-
-<!-- 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= -->
-
-<!-- internal state end -->
-```
-
-
-### 2. Sourcery - src/components/booking/ReservationForm.tsx:168
+### 1. Sourcery - src/components/booking/ReservationForm.tsx:169
 
 ```
 **issue (bug_risk):** When the initialVehicleId is not found in the fetched list, users are left without any vehicle UI or a way to select one.
@@ -226,7 +133,7 @@ Measures
 ```
 
 
-### 2. CodeRabbit - src/components/booking/ReservationForm.tsx:62
+### 2. CodeRabbit - src/components/booking/ReservationForm.tsx:63
 
 ```
 _🛠️ Refactor suggestion_ | _🟠 Major_
@@ -279,7 +186,7 @@ they reference the Vehicle type rather than the inline shape.
 ```
 
 
-### 3. CodeRabbit - src/components/booking/ReservationForm.tsx:81
+### 3. CodeRabbit - src/components/booking/ReservationForm.tsx:82
 
 ```
 _⚠️ Potential issue_ | _🟡 Minor_
@@ -352,7 +259,7 @@ ReservationForm.tsx defines selectedVehicle/setSelectedVehicle.
 
 ---
 
-## LOW Issues (3)
+## LOW Issues (5)
 
 
 ### 1. Sourcery
@@ -493,7 +400,100 @@ Access your [dashboard](https://app.sourcery.ai) to:
 ```
 
 
-### 2. Sourcery - src/components/booking/ReservationForm.tsx:81
+### 2. CodeRabbit
+
+```
+<!-- This is an auto-generated comment: summarize by coderabbit.ai -->
+<!-- walkthrough_start -->
+
+## Walkthrough
+
+The ReservationForm now supports a pre-selected vehicle display when a `vehicleId` prop is provided. Vehicle objects may include an optional `image` field; the component fetches vehicles, sets `selectedVehicle` when an initial id exists, and conditionally renders a vehicle Card (with image) or the existing dropdown selector.
+
+## Changes
+
+| Cohort / File(s) | Summary |
+|---|---|
+| **Vehicle Selection UI Enhancement** <br> `src/components/booking/ReservationForm.tsx` | Add optional `image` on vehicle items and a `selectedVehicle` state. On mount, fetch vehicles and pre-select when `initialVehicleId` (aliased from `vehicleId`) is provided. Render a Card with `CardMedia` and localized "Selected Vehicle" label when pre-selected; otherwise render the vehicle dropdown selector. Minor text localization for Arabic included. |
+
+## Estimated code review effort
+
+🎯 3 (Moderate) | ⏱️ ~20 minutes
+
+<!-- walkthrough_end -->
+
+
+<!-- pre_merge_checks_walkthrough_start -->
+
+<details>
+<summary>🚥 Pre-merge checks | ✅ 3</summary>
+
+<details>
+<summary>✅ Passed checks (3 passed)</summary>
+
+|     Check name     | Status   | Explanation                                                                                                                                                         |
+| :----------------: | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|  Description Check | ✅ Passed | Check skipped - CodeRabbit’s high-level summary is enabled.                                                                                                         |
+|     Title check    | ✅ Passed | The title accurately captures the main change: hiding the vehicle dropdown when a vehicle is pre-selected and adding vehicle image display to the reservation form. |
+| Docstring Coverage | ✅ Passed | Docstring coverage is 100.00% which is sufficient. The required threshold is 80.00%.                                                                                |
+
+</details>
+
+<sub>✏️ Tip: You can configure your own custom pre-merge checks in the settings.</sub>
+
+</details>
+
+<!-- pre_merge_checks_walkthrough_end -->
+
+<!-- finishing_touch_checkbox_start -->
+
+<details>
+<summary>✨ Finishing touches</summary>
+
+- [ ] <!-- {"checkboxId": "7962f53c-55bc-4827-bfbf-6a18da830691"} --> 📝 Generate docstrings
+<details>
+<summary>🧪 Generate unit tests (beta)</summary>
+
+- [ ] <!-- {"checkboxId": "f47ac10b-58cc-4372-a567-0e02b2c3d479", "radioGroupId": "utg-output-choice-group-unknown_comment_id"} -->   Create PR with unit tests
+- [ ] <!-- {"checkboxId": "07f1e7d6-8a8e-4e23-9900-8731c2c87f58", "radioGroupId": "utg-output-choice-group-unknown_comment_id"} -->   Post copyable unit tests in a comment
+- [ ] <!-- {"checkboxId": "6ba7b810-9dad-11d1-80b4-00c04fd430c8", "radioGroupId": "utg-output-choice-group-unknown_comment_id"} -->   Commit unit tests in branch `kwsl/fix-booking-dropdown-with-image`
+
+</details>
+
+</details>
+
+<!-- finishing_touch_checkbox_end -->
+
+<!-- tips_start -->
+
+---
+
+Thanks for using [CodeRabbit](https://coderabbit.ai?utm_source=oss&utm_medium=github&utm_campaign=Hex-Tech-Lab/hex-test-drive-man&utm_content=59)! It's free for OSS, and your support helps us grow. If you like it, consider giving us a shout-out.
+
+<details>
+<summary>❤️ Share</summary>
+
+- [X](https://twitter.com/intent/tweet?text=I%20just%20used%20%40coderabbitai%20for%20my%20code%20review%2C%20and%20it%27s%20fantastic%21%20It%27s%20free%20for%20OSS%20and%20offers%20a%20free%20trial%20for%20the%20proprietary%20code.%20Check%20it%20out%3A&url=https%3A//coderabbit.ai)
+- [Mastodon](https://mastodon.social/share?text=I%20just%20used%20%40coderabbitai%20for%20my%20code%20review%2C%20and%20it%27s%20fantastic%21%20It%27s%20free%20for%20OSS%20and%20offers%20a%20free%20trial%20for%20the%20proprietary%20code.%20Check%20it%20out%3A%20https%3A%2F%2Fcoderabbit.ai)
+- [Reddit](https://www.reddit.com/submit?title=Great%20tool%20for%20code%20review%20-%20CodeRabbit&text=I%20just%20used%20CodeRabbit%20for%20my%20code%20review%2C%20and%20it%27s%20fantastic%21%20It%27s%20free%20for%20OSS%20and%20offers%20a%20free%20trial%20for%20proprietary%20code.%20Check%20it%20out%3A%20https%3A//coderabbit.ai)
+- [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcoderabbit.ai&mini=true&title=Great%20tool%20for%20code%20review%20-%20CodeRabbit&summary=I%20just%20used%20CodeRabbit%20for%20my%20code%20review%2C%20and%20it%27s%20fantastic%21%20It%27s%20free%20for%20OSS%20and%20offers%20a%20free%20trial%20for%20proprietary%20code)
+
+</details>
+
+<sub>Comment `@coderabbitai help` to get the list of available commands and usage tips.</sub>
+
+<!-- tips_end -->
+
+<!-- internal state start -->
+
+
+<!-- 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 -->
+
+<!-- internal state end -->
+```
+
+
+### 3. Sourcery - src/components/booking/ReservationForm.tsx:82
 
 ```
 **suggestion:** Avoid using `any` for the vehicle type in the `find` call and reuse the existing vehicle type instead.
@@ -514,7 +514,7 @@ Since `vehicles` is already typed as `{ id: string; name: string; image?: string
 ```
 
 
-### 3. CodeRabbit - src/components/booking/ReservationForm.tsx:184
+### 4. CodeRabbit - src/components/booking/ReservationForm.tsx:185
 
 ```
 _⚠️ Potential issue_ | _🟠 Major_
@@ -582,12 +582,205 @@ Update dropdown condition to show when vehicle not found:
 ```
 
 
+### 5. CodeRabbit - src/components/booking/ReservationForm.tsx:182
+
+```
+_⚠️ Potential issue_ | _🟡 Minor_
+
+<details>
+<summary>🧩 Analysis chain</summary>
+
+🏁 Script executed:
+
+```shell
+# Find getVehicleImage helper function
+rg -t ts -t tsx "export.*getVehicleImage|function\s+getVehicleImage" -A 15
+```
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+
+Length of output: 102
+
+---
+
+🏁 Script executed:
+
+```shell
+# Search for how getVehicleImage is currently used in codebase
+rg -t ts -t tsx "getVehicleImage" -B 2 -A 2
+```
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+
+Length of output: 102
+
+---
+
+🏁 Script executed:
+
+```shell
+# Check the ReservationForm.tsx file in full to understand the context
+wc -l src/components/booking/ReservationForm.tsx
+```
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+
+Length of output: 121
+
+---
+
+🏁 Script executed:
+
+```shell
+# Find getVehicleImage without type restriction
+rg "export.*getVehicleImage|function\s+getVehicleImage" -A 15
+```
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+
+Length of output: 2141
+
+---
+
+🏁 Script executed:
+
+```shell
+# View the ReservationForm.tsx around the flagged lines
+sed -n '150,190p' src/components/booking/ReservationForm.tsx
+```
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+
+Length of output: 1720
+
+---
+
+🏁 Script executed:
+
+```shell
+# Search for existing onError patterns in components
+rg "onError.*=>" --max-count 10 -B 2 -A 4
+```
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+
+Length of output: 1564
+
+---
+
+🏁 Script executed:
+
+```shell
+# Check the line lengths in proposed onError handler
+python3 << 'EOF'
+lines = [
+'                onError={(e) => {',
+'                  const img = e.currentTarget;',
+'                  if (img.dataset.fallbackApplied) return;',
+'                  img.dataset.fallbackApplied = \'1\';',
+'                  img.src = getVehicleImage(null);',
+'                }}',
+]
+for i, line in enumerate(lines, 1):
+    # Count actual characters (not indentation spaces count as per guidelines)
+    content = line.rstrip()
+    print(f"Line {i}: {len(content)} chars | {content}")
+EOF
+```
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+
+Length of output: 161
+
+---
+
+🏁 Script executed:
+
+```shell
+# Check PLACEHOLDER_IMAGE constant definition
+rg "PLACEHOLDER_IMAGE\s*=" -A 2 src/lib/imageHelper.ts
+```
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+
+Length of output: 290
+
+---
+
+🏁 Script executed:
+
+```shell
+# View full imageHelper.ts to understand all image helpers
+cat -n src/lib/imageHelper.ts | head -50
+```
+
+Repository: Hex-Tech-Lab/hex-test-drive-man
+
+Length of output: 2352
+
+---
+
+
+
+</details>
+
+**Add onError fallback and always render the image element to prevent gaps in the "Selected Vehicle" card.**
+
+The card currently hides the image area when `selectedVehicle.image` is missing or falsy. Removing the conditional is safe because `getVehicleImage()` handles null/undefined by returning the placeholder image (`/images/vehicles/hero/placeholder.webp`). However, the proposed `onError` handler is missing the TypeScript type annotation required by strict mode. Use `React.SyntheticEvent<HTMLImageElement>` to match the existing pattern in `VehicleCard.tsx` and `compare/page.tsx`. Also, align the fallback detection with the established codebase pattern: check `if (!img.src.includes('/images/vehicles/hero/placeholder'))` rather than using a dataset flag, for consistency.
+
+<details>
+<summary>Corrected approach</summary>
+
+```diff
+              <CardMedia
+                component="img"
+                sx={{
+                  width: 120,
+                  height: 80,
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  borderRadius: 1,
+                  mr: 2,
+                }}
+                image={getVehicleImage(selectedVehicle.image)}
+                alt={selectedVehicle.name}
+                onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                  const img = e.currentTarget;
+                  if (!img.src.includes('/images/vehicles/hero/placeholder')) {
+                    img.src = getVehicleImage(null);
+                  }
+                }}
+              />
+```
+</details>
+
+<details>
+<summary>🤖 Prompt for AI Agents</summary>
+
+```
+In @src/components/booking/ReservationForm.tsx around lines 159 - 182, The
+Selected Vehicle card conditionally omits the image when selectedVehicle.image
+is falsy, causing layout gaps; always render the img using
+getVehicleImage(selectedVehicle.image) and add an onError handler typed as
+React.SyntheticEvent<HTMLImageElement> (matching VehicleCard.tsx and
+compare/page.tsx) that replaces the broken src with the placeholder only if the
+current src does not already include '/images/vehicles/hero/placeholder' to
+avoid infinite loops; remove the conditional around the CardMedia and implement
+this typed onError fallback.
+```
+
+</details>
+
+<!-- This is an auto-generated comment by CodeRabbit -->
+```
+
+
 ---
 
 ## Next Steps
 
 1. **Fix CRITICAL issues** (1 found) - Block merge until resolved
-2. **Fix HIGH issues** (2 found) - Fix if <5 min each, otherwise document
-3. **Document MEDIUM/LOW** (6 found) - Create follow-up issues
+2. **Fix HIGH issues** (1 found) - Fix if <5 min each, otherwise document
+3. **Document MEDIUM/LOW** (8 found) - Create follow-up issues
 
 **Generated by**: `pnpm run pr:scrape 59`
