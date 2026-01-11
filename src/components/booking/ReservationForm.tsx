@@ -28,6 +28,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import EventIcon from '@mui/icons-material/Event';
+import { getVehicleImage } from '@/lib/imageHelper';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import type { TimeSlot } from '@/types/reservation';
@@ -163,7 +164,7 @@ export default function ReservationForm({
                 <CardMedia
                   component="img"
                   sx={{ width: 120, height: 80, objectFit: 'cover', borderRadius: 1, mr: 2 }}
-                  image={selectedVehicle.image}
+                  image={getVehicleImage(selectedVehicle.image)}
                   alt={selectedVehicle.name}
                 />
               )}
