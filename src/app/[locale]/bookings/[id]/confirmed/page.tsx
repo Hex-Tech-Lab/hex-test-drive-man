@@ -7,6 +7,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import Link from 'next/link'
 import BookingQRCode from '@/components/booking/BookingQRCode'
 import type { Reservation } from '@/types/reservation'
+import type { Booking } from '@/types/booking'
 
 export default function BookingConfirmedPage() {
   const params = useParams()
@@ -15,26 +16,40 @@ export default function BookingConfirmedPage() {
   const locale = (params.locale as string) || 'en'
 
   const [reservation, setReservation] = useState<Reservation | null>(null)
+  const [booking, setBooking] = useState<Booking | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const fetchReservation = async () => {
+    const fetchBookingData = async () => {
       try {
-        const response = await fetch(`/api/reservations/${bookingId}`)
-        if (!response.ok) throw new Error('Failed to fetch reservation')
+        // Try reservations API first (MVP 1.5 system)
+        let response = await fetch(`/api/reservations/${bookingId}`)
+        
+        if (response.ok) {
+          const data = await response.json()
+          setReservation(data.reservation)
+          return
+        }
+
+        // Fallback to bookings API (legacy system)
+        response = await fetch(`/api/bookings/${bookingId}`)
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch booking details')
+        }
         
         const data = await response.json()
-        setReservation(data.reservation)
+        setBooking(data)
       } catch (err) {
-        console.error('Error fetching reservation:', err)
+        console.error('Error fetching booking:', err)
         setError('Failed to load booking details')
       } finally {
         setLoading(false)
       }
     }
 
-    fetchReservation()
+    fetchBookingData()
   }, [bookingId])
 
   if (loading) {
@@ -45,7 +60,7 @@ export default function BookingConfirmedPage() {
     )
   }
 
-  if (error || !reservation) {
+  if (error || (!reservation && !booking)) {
     return (
       <Container maxWidth="sm" sx={{ mt: 8 }}>
         <Alert severity="error">{error || 'Booking not found'}</Alert>
@@ -59,6 +74,10 @@ export default function BookingConfirmedPage() {
       </Container>
     )
   }
+
+  // Display data from either system
+  const displayDate = reservation?.reservation_datetime || booking?.preferredDate || ''
+  const displayId = bookingId.slice(0, 8)
 
   return (
     <Container maxWidth="sm" sx={{ mt: 8 }}>
@@ -95,18 +114,32 @@ export default function BookingConfirmedPage() {
             Booking Reference
           </Typography>
           <Typography variant="body2" fontWeight="bold">
-            {bookingId.slice(0, 8)}
+            {displayId}
           </Typography>
+          {displayDate && (
+            <>
+              <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 1 }}>
+                Date
+              </Typography>
+              <Typography variant="body2">
+                {new Date(displayDate).toLocaleDateString()}
+              </Typography>
+            </>
+          )}
         </Paper>
 
-        {/* QR Code */}
-        <Box sx={{ mb: 3, display: 'flex', justifyContent: 'center' }}>
-          <BookingQRCode reservation={reservation} size={256} />
-        </Box>
+        {/* QR Code - only for reservations system */}
+        {reservation && (
+          <>
+            <Box sx={{ mb: 3, display: 'flex', justifyContent: 'center' }}>
+              <BookingQRCode reservation={reservation} size={256} />
+            </Box>
 
-        <Typography variant="caption" color="text.secondary" display="block" sx={{ mb: 3 }}>
-          Show this QR code at the venue
-        </Typography>
+            <Typography variant="caption" color="text.secondary" display="block" sx={{ mb: 3 }}>
+              Show this QR code at the venue
+            </Typography>
+          </>
+        )}
 
         <Button
           component={Link}
