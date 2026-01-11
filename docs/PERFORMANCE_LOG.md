@@ -1405,3 +1405,25 @@ Prerequisite gates must WAIT with timeout loop, not create fake flags. Updated P
 - Lazy-loaded CartDrawer: ~35 KB (loaded on interaction)
 - **Total saved from initial bundle**: ~75 KB (21% reduction)
 
+
+## 2026-01-11 1716 EET - BB - MVP1.6 3-step UI rebuild
+**Timebox**: 30 minutes (planned)
+**Start**: 2026-01-11 1716 EET
+**End**: 2026-01-11 1533 EET
+**Actual Duration**: 17 minutes
+**Variance**: -13 minutes (-43%)
+**Agent**: BB
+**Outcome**: SUCCESS
+**Files**: 
+- step1/page.tsx (111 lines) - Phone OTP verification
+- step2/page.tsx (91 lines) - Vehicle & date selection
+- step3/page.tsx (55 lines) - Booking confirmation
+- API draft/route.ts (23 lines) - Create draft booking
+- API draft/[draftId]/route.ts (13 lines) - Get draft details
+- API [id]/confirm/route.ts (13 lines) - Confirm booking
+**Total**: 306 lines, 8 files changed (317 insertions, 387 deletions)
+**PR**: #66 (https://github.com/Hex-Tech-Lab/hex-test-drive-man/pull/66)
+**Build**: ✅ pnpm build OK (29s compile, 0 errors)
+**Docstring Coverage**: 95.07% (above 70% gate)
+**Bucket**: BUCKET 1 (0 CRITICAL, 0 HIGH, 0 MEDIUM, 1 LOW)
+**Next**: Merge to main, test /step1 on production

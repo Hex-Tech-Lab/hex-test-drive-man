@@ -742,3 +742,9 @@ git push origin main
 - If build fails: investigate SmartScanner.tsx syntax issue
 - Update agent prompt templates with multi-tool scraping
 - Add `pnpm run build` to pre-merge checklist
+
+## MVP1.6 3-Step Booking UI Rebuild PR#66 2026-01-11 1533 EET
+Post Perf65 7f27831. Deleted old /new. Added step1 OTP step2 vehicle step3 confirm.
+SmsService BookingWorkflowService API routes draft confirm.
+Build OK 306 lines. Bucket 1 (0/0/0/1). Docstring 95.07%.
+Next: Merge test /step1 prod.
