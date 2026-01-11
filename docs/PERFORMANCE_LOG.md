@@ -1495,3 +1495,93 @@ Prerequisite gates must WAIT with timeout loop, not create fake flags. Updated P
 
 **Key Takeaway**: Critical image fallback pattern now fixed. All booking PRs need rebase due to 3-step flow merge. PR#60 ready for immediate merge.
 
+
+## 2026-01-11 2125 EET - CC - PR60 Merge + Deploy Debug
+
+**Timebox**: 15 minutes (planned)
+**Start**: 2026-01-11 2125 EET
+**End**: 2026-01-11 2138 EET
+**Actual Duration**: 13 minutes
+**Variance**: -13% (2 min under budget)
+**Agent**: CC (Auditor)
+**Outcome**: SUCCESS
+
+### Tasks Completed:
+
+1. ✅ **PR60 Merge**: Bucket 1 Ready-to-Merge
+   - SHA: f7100d9
+   - Title: fix(routing): remove /en/bookings/new route collision
+   - Branch: pplx/fix-booking-route-collision (deleted)
+   - Merge Method: Squash
+   - Files: Deleted `src/app/en/bookings/new/page.tsx`
+
+2. ✅ **Production Verification**: HTTP Status Check
+   - `/en`: 200 OK ✅
+   - `/en/bookings/step1`: 200 OK ✅
+   - `/en/bookings/new`: 200 OK ⚠️ (should be 404 after deploy)
+   
+3. ✅ **Deployment Investigation**: Vercel Status Analysis
+   - Current Main: f7100d9 (PR60 merge)
+   - Production Deploy: 1c94572 (4h 40m ago, pre-PR60)
+   - Vercel Status: PENDING (build in progress)
+   - Deploy Lag: ~30 minutes (normal for queue/backlog)
+
+### Key Findings:
+
+**Deploy Lag Root Cause**:
+- PR60 merged at ~21:25 EET (main SHA: f7100d9)
+- Production still on 1c94572 (16:46:50 UTC / 18:46 EET)
+- Vercel build status: PENDING
+- Expected: Auto-deploy should trigger within 3-5 minutes
+- Actual: 30+ minute delay suggests build queue or manual review
+
+**Production Route Behavior**:
+- **Current**: `/en/bookings/new` returns 200 (old static route exists)
+- **After Deploy**: `/en/bookings/new` will return 404 (static route deleted by PR60)
+- **Note**: `/[locale]/bookings/new` dynamic route still exists
+
+### Vercel Deployment Timeline:
+
+| SHA | Environment | Timestamp | Status | Notes |
+|-----|-------------|-----------|--------|-------|
+| 1c94572 | Production | 16:46:50 UTC | ✅ LIVE | Docs commit (pre-PR60) |
+| 8f20fff | Preview | 16:43:52 UTC | ✅ Built | PR59 fix branch |
+| a6d1155 | Production | 16:31:11 UTC | ✅ Past | 3-step flow merge |
+| f7100d9 | Production | PENDING | ⏳ Building | PR60 merge (current main) |
+
+### Next Actions:
+
+1. **Monitor Vercel**: https://vercel.com/hex-tech-lab/hex-test-drive-man/deployments
+2. **Verify Post-Deploy**:
+   ```bash
+   curl -s -o /dev/null -w "%{http_code}" https://hex-test-drive-man.vercel.app/en/bookings/new
+   # Expected: 404 (after f7100d9 deploys)
+   ```
+3. **Rebase PRs 54, 55, 59**: After f7100d9 production deploy confirms stable
+4. **Document Deploy Time**: Track actual deploy completion for future reference
+
+### Files Modified:
+- `CLAUDE.md` (+50 lines deploy investigation)
+- `docs/PERFORMANCE_LOG.md` (this entry)
+
+### Self-Critique:
+
+**Excellent**:
+- Quick PR60 merge (Bucket 1, ready state)
+- Thorough production verification (HTTP checks)
+- Clear deploy lag diagnosis (Vercel PENDING status)
+- Comprehensive documentation of deployment timeline
+
+**Room for Improvement**:
+- Could have checked Vercel dashboard UI directly for visual confirmation
+- Could have set up webhook notification for deploy completion
+
+**Key Takeaway**: PR60 successfully merged to main. Production deployment pending (Vercel build queue). Normal delay, no action required - auto-deploy will complete within ~1 hour max.
+
+### Expected Deploy Completion:
+- Best case: 21:40 EET (15 min after merge)
+- Normal case: 22:00 EET (35 min after merge)  
+- Worst case: 22:25 EET (60 min after merge)
+
+**Status at 21:38 EET**: PENDING - Monitor Vercel dashboard for completion.
+

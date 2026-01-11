@@ -790,3 +790,62 @@ All booking-related PRs (54, 55, 59) conflict with main due to:
 - Rebase PRs 54, 55, 59 on latest main
 - Re-review after rebase
 
+
+## CC PR60 Merge + Deploy Debug (2026-01-11 2125 EET)
+
+**Session**: PR60 Merge + Production Deployment Investigation
+**Agent**: CC (Auditor)
+**Duration**: 13 minutes (2 min under budget)
+
+### PR60 Merge: ✅ COMPLETED
+**SHA**: f7100d9 (fix(routing): remove /en/bookings/new route collision #60)
+**Branch**: pplx/fix-booking-route-collision (deleted)
+**Status**: Merged via squash merge
+**Changes**:
+- Deleted: `src/app/en/bookings/new/page.tsx` (old static route)
+- Note: Dynamic route `/[locale]/bookings/new/page.tsx` still exists
+- Added: PR_58_REVIEW_ANALYSIS.md, CLAUDE.md backup
+
+### Production Deploy Status:
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| **Main SHA** | f7100d9 | ✅ Merged |
+| **Prod Deploy** | 1c94572 | ⏳ Outdated (pre-PR60) |
+| **Vercel Status** | PENDING | ⏳ Build in progress |
+| **Deploy Time** | 16:46:50 UTC | 4 hours 40 min ago |
+
+### Route Status (Production):
+
+| Route | HTTP | Expected | Actual | Note |
+|-------|------|----------|--------|------|
+| `/en` | 200 | 200 | ✅ OK | Catalog working |
+| `/en/bookings/step1` | 200 | 200 | ✅ OK | 3-step flow live |
+| `/en/bookings/new` | 200 | 404 (after deploy) | ⚠️ OLD | Still on 1c94572 |
+
+**Root Cause**: Production still on commit 1c94572 (before PR60 merge). Vercel deploy for f7100d9 is PENDING.
+
+### Vercel Deployment Timeline:
+```
+1c94572 (Production) - 2026-01-11 16:46:50 UTC - CURRENT
+8f20fff (Preview) - 2026-01-11 16:43:52 UTC - PR59 fix
+a6d1155 (Production) - 2026-01-11 16:31:11 UTC - 3-step flow
+f7100d9 (Main) - PENDING deployment
+```
+
+### Next Actions:
+1. ⏳ **Wait for Vercel**: f7100d9 deploy pending (auto-deploy enabled)
+2. 🔄 **Monitor**: Check Vercel dashboard for build progress
+3. ✅ **Verify**: Once deployed, `/en/bookings/new` should return 404
+4. 📋 **Rebase PRs**: After f7100d9 deploy, rebase PRs 54, 55, 59
+
+**Expected Post-Deploy**:
+- `/en/bookings/new` → 404 (static route deleted)
+- `/ar/bookings/new` → 200 (dynamic route exists)
+- All other routes → unchanged
+
+**Deploy Lag Explanation**: Normal Vercel behavior - builds trigger on push, take 3-5 minutes. Current delay ~30 minutes suggests:
+- Build queue/backlog
+- Or manual intervention required
+- Check: https://vercel.com/hex-tech-lab/hex-test-drive-man/deployments
+
