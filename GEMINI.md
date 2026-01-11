@@ -585,3 +585,43 @@ git push origin main
 - GC weakness: Shell authorization fragility on KWSL
 - TypeScript error in 81b1ae2 passed local checks but failed Vercel build
 - Squash merge resolved syntax issue in final main commit
+
+**Session**: PR Audit + Critical Image Fallback Fix
+**Agent**: CC (Auditor)
+**Duration**: 18 minutes (2 min under budget)
+
+### PR59 Critical Fix: ✅ RESOLVED
+**Issue**: ReservationForm.tsx:169 CardMedia used selectedVehicle.image directly
+**Fix**: Implemented getVehicleImage() helper pattern
+**Commit**: 8f20fff (kwsl/fix-booking-dropdown-with-image)
+**Changes**:
+- Added import: `getVehicleImage` from `@/lib/imageHelper`
+- Line 167: `image={getVehicleImage(selectedVehicle.image)}`
+**Build**: ✅ PASS (91.53% docstring coverage)
+
+### PR Status & Bucket Recommendations:
+
+| PR# | Title | Mergeable | Issues | Bucket | Action |
+|-----|-------|-----------|--------|--------|--------|
+| **60** | fix(routing): remove booking route collision | ✅ MERGEABLE | 0 CRITICAL, 0 HIGH | **Bucket 1** | Ready to merge |
+| **54** | feat: Pre-select vehicle in booking form | ⚠️ CONFLICTING | 0 CRITICAL, 1 HIGH | **Bucket 2** | Rebase on main, review HIGH |
+| **55** | feat: Add GET endpoint for bookings API | ⚠️ CONFLICTING | 0 CRITICAL, 1 HIGH | **Bucket 2** | Rebase on main, review HIGH |
+| **59** | fix(booking): hide dropdown + image | ⚠️ CONFLICTING | 0 CRITICAL (FIXED), 2 HIGH | **Bucket 2** | Rebase on main, review HIGH |
+
+### Merge Recommendations (Priority Order):
+1. **PR#60** - Immediate merge (Bucket 1, no conflicts, 0 critical issues)
+2. **PR#54** - Rebase + review HIGH issue, then merge (Bucket 2)
+3. **PR#55** - Rebase + review HIGH issue, then merge (Bucket 2)
+4. **PR#59** - Rebase + review HIGH issues, then merge (Bucket 2, critical FIXED)
+
+### Conflict Root Cause:
+All booking-related PRs (54, 55, 59) conflict with main due to:
+- BB's 3-step booking flow merged (PR#66, commit a6d1155)
+- Deleted: `src/app/[locale]/bookings/new/page.tsx`
+- Added: step1/step2/step3 pages + draft API routes
+
+**Next Actions**:
+- Merge PR#60 immediately (ready)
+- Rebase PRs 54, 55, 59 on latest main
+- Re-review after rebase
+
