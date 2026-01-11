@@ -3,11 +3,13 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Box, Button, TextField, Typography, CircularProgress, Alert } from '@mui/material'
-import { smsService } from '@/services/SmsService'
 
 /**
  * Step 1: Phone verification with OTP
  * User enters phone number, receives OTP, verifies code
+ *
+ * Fixed: 2026-01-11 (CC) - Use API routes instead of direct smsService import
+ * Reason: smsService imports Node.js crypto module which breaks client-side
  */
 export default function Step1() {
   const router = useRouter()
@@ -18,7 +20,7 @@ export default function Step1() {
   const [error, setError] = useState('')
 
   /**
-   * Send OTP to user's phone
+   * Send OTP to user's phone via API route
    */
   const sendOtp = async () => {
     if (!phone) return setError('Phone required')
@@ -26,12 +28,25 @@ export default function Step1() {
     setError('')
     try {
       const tempId = crypto.randomUUID()
-      const result = await smsService.sendOtp(phone.replace(/\D/g, ''), tempId, 'booking')
+
+      const response = await fetch('/api/otp/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          phone: phone.replace(/\D/g, ''),
+          subjectId: tempId,
+          subjectType: 'booking',
+        }),
+      })
+
+      const result = await response.json()
+
       if (!result.success) {
         setError(result.error || 'OTP failed')
         setLoading(false)
         return
       }
+
       localStorage.setItem('bookingTempId', tempId)
       setOtpSent(true)
     } catch (e: any) {
@@ -41,18 +56,30 @@ export default function Step1() {
   }
 
   /**
-   * Verify OTP code and proceed to step 2
+   * Verify OTP code and proceed to step 2 via API route
    */
   const verify = async () => {
     setLoading(true)
     const tempId = localStorage.getItem('bookingTempId') || ''
     try {
-      const result = await smsService.verifyOtp(phone.replace(/\D/g, ''), otp, tempId)
+      const response = await fetch('/api/otp/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          phone: phone.replace(/\D/g, ''),
+          code: otp,
+          subjectId: tempId,
+        }),
+      })
+
+      const result = await response.json()
+
       if (!result.valid) {
         setError(result.error || 'Invalid OTP')
         setLoading(false)
         return
       }
+
       router.push('/bookings/step2?phone=' + encodeURIComponent(phone))
     } catch (e: any) {
       setError('Invalid OTP')
