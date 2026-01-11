@@ -14,6 +14,32 @@ interface BookingItem {
   addedAt: number; // timestamp in milliseconds
 }
 
+interface BookingFlowData {
+  vehicleId: string;
+  datetime: string;
+  idFrontImage: string | null;
+  idBackImage: string | null;
+  ocrData: {
+    name: string;
+    nationalId: string;
+    birthDate: string;
+    confidence: number;
+  } | null;
+  barcodeData: {
+    nationalId: string;
+    name: string;
+    birthDate: string;
+    verified: boolean;
+  } | null;
+  manualData: {
+    name: string;
+    nationalId: string;
+    birthDate: string;
+    phone: string;
+  } | null;
+  currentStep: number;
+}
+
 interface BookingStore {
   items: BookingItem[];
   addItem: (item: Omit<BookingItem, 'addedAt'>) => boolean;
@@ -21,6 +47,12 @@ interface BookingStore {
   clearAll: () => void;
   isInCart: (trimId: string) => boolean;
   getRecentItems: () => BookingItem[];
+  
+  // Booking flow state
+  bookingFlow: BookingFlowData | null;
+  setBookingFlow: (data: Partial<BookingFlowData>) => void;
+  clearBookingFlow: () => void;
+  setCurrentStep: (step: number) => void;
 }
 
 const NINETY_DAYS_MS = 90 * 24 * 60 * 60 * 1000;
@@ -74,6 +106,37 @@ export const useBookingStore = create<BookingStore>()(
         const now = Date.now();
         const ninetyDaysAgo = now - NINETY_DAYS_MS;
         return items.filter((i) => i.addedAt > ninetyDaysAgo);
+      },
+
+      // Booking flow state
+      bookingFlow: null,
+
+      setBookingFlow: (data) => {
+        set((state) => ({
+          bookingFlow: state.bookingFlow
+            ? { ...state.bookingFlow, ...data }
+            : {
+                vehicleId: '',
+                datetime: '',
+                idFrontImage: null,
+                idBackImage: null,
+                ocrData: null,
+                barcodeData: null,
+                manualData: null,
+                currentStep: 0,
+                ...data,
+              },
+        }));
+      },
+
+      clearBookingFlow: () => set({ bookingFlow: null }),
+
+      setCurrentStep: (step) => {
+        set((state) => ({
+          bookingFlow: state.bookingFlow
+            ? { ...state.bookingFlow, currentStep: step }
+            : null,
+        }));
       },
     }),
     {

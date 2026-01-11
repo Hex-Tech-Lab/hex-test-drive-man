@@ -375,10 +375,10 @@ export default function LandingV3() {
               <Grid item xs={6} md={3}>
                 <Box sx={{ textAlign: 'center' }}>
                   <Typography variant="h3" color="primary" sx={{ fontWeight: 700 }}>
-                    24/7
+                    2
                   </Typography>
                   <Typography variant="body1" color="text.secondary">
-                    {language === 'ar' ? 'دعم' : 'Support'}
+                    {language === 'ar' ? 'موقعين' : 'Locations'}
                   </Typography>
                 </Box>
               </Grid>

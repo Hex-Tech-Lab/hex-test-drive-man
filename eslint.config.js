@@ -12,6 +12,7 @@ const config = [
       'node_modules/**',
       'out/**',
       'build/**',
+      'scripts/**', // Exclude scripts directory (not in tsconfig.json project)
       'eslint.config.js', // Ignore self to avoid false positives in rule definitions
     ],
   },

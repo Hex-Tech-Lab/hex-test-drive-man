@@ -1,3 +1,6 @@
+import { config } from "dotenv";
+import "dotenv/config";
+config({ path: ".env.local" });
 /**
  * Apply Mercedes-Benz + Hongqi migrations
  * Inserts models and trims using Supabase service role

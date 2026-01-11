@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -20,15 +20,21 @@ import {
   Alert,
   Snackbar,
   Tooltip,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
+import { useFavoriteStore } from '@/stores/favorite-store';
 import { BrandLogo } from '@/components/BrandLogo';
 import { getVehicleImage, formatEGP } from '@/lib/imageHelper';
 import { requestBookingOtp } from '@/actions/bookingActions';
+import FavoriteLoginModal from '@/components/FavoriteLoginModal';
 
 interface VehicleCardProps {
   vehicle: AggregatedVehicle;
@@ -58,13 +64,22 @@ const formatVehicleTitle = (brand: string, model: string, year: number) => {
  * @param props - Component props
  * @param props.vehicle - Aggregated vehicle data including trims
  * @param props.position - Card position in grid (for priority loading)
+ * 
+ * PERF-012 FIX: Memoized to prevent re-renders when parent re-renders
  */
-export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProps) {
+const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: VehicleCardProps) {
   const router = useRouter();
   const params = useParams();
   const locale = (params.locale as string) || 'en';
   const language = useLanguageStore((state) => state.language);
   const { compareItems, addToCompare, removeFromCompare } = useCompareStore();
+  const toggleFavorite = useFavoriteStore((s) => s.toggleFavorite);
+  const isFavorite = useFavoriteStore((s) => s.isFavorite);
+  const theme = useTheme();
+  
+  // COMPARISON LIMIT FIX: Device-aware limits (5 on web/tablet, 2 on mobile)
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const MAX_COMPARE = isMobile ? 2 : 5;
 
   // Mobile-first priority loading: First 8 cards above fold
   // Mobile: 1 col x 8 rows | Tablet: 2 cols x 4 rows | Desktop: 4 cols x 2 rows
@@ -76,6 +91,7 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
   const detailUrl = `/${locale}/vehicles/${brandSlug}-${modelSlug}-${vehicle.model_year}`;
 
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [favoriteLoginModalOpen, setFavoriteLoginModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -98,33 +114,34 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
   const minPreferredDate = `${year}-${month}-${day}`;
 
   const isInCompare = compareItems.some((item) => item.id === vehicle.id);
-  const canAddMore = compareItems.length < 3;
+  const canAddMore = compareItems.length < MAX_COMPARE;
+  const isFavorited = isFavorite(vehicle.id);
   
   const displayTitle = formatVehicleTitle(vehicle.models.brands.name, vehicle.models.name, vehicle.model_year);
 
-  const handleCompareToggle = () => {
+  // PERF-012 FIX: Memoize event handlers to prevent re-renders
+  const handleCompareToggle = useCallback(() => {
     if (isInCompare) {
       removeFromCompare(vehicle.id);
     } else if (canAddMore) {
       // Add first trim to compare (compare store expects Vehicle type)
       addToCompare(vehicle.trims[0]);
     }
-  };
+  }, [isInCompare, canAddMore, vehicle.id, vehicle.trims, addToCompare, removeFromCompare]);
 
-
-  const handleBookingModalOpen = () => {
+  const handleBookingModalOpen = useCallback(() => {
     setBookingModalOpen(true);
     setFormData({ name: '', phone: '', preferredDate: '', notes: '' });
     setFormErrors({});
-  };
+  }, []);
 
-  const handleBookingModalClose = () => {
+  const handleBookingModalClose = useCallback(() => {
     setBookingModalOpen(false);
     setFormData({ name: '', phone: '', preferredDate: '', notes: '' });
     setFormErrors({});
-  };
+  }, []);
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     const errors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
@@ -141,9 +158,9 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
 
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
-  };
+  }, [formData, language]);
 
-  const handleSubmitBooking = async () => {
+  const handleSubmitBooking = useCallback(async () => {
     if (!validateForm()) {
       return;
     }
@@ -192,17 +209,35 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
       });
       setSubmitting(false);
     }
-  };
+  }, [validateForm, submitting, vehicle.id, router, language]);
 
-  const handleSnackbarClose = () => {
+  const handleSnackbarClose = useCallback(() => {
     setSnackbar((prev) => ({ ...prev, open: false }));
-  };
+  }, []);
+
+  const handleFavoriteToggle = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Check if adding (not removing) and count will exceed 2
+    const currentCount = useFavoriteStore.getState().getFavoriteCount();
+    const willExceedLimit = !isFavorited && currentCount >= 2;
+    
+    // Trigger soft-gate modal if >2 favorites BEFORE toggle
+    if (willExceedLimit) {
+      setFavoriteLoginModalOpen(true);
+      return; // Don't toggle if limit exceeded
+    }
+    
+    // Only toggle if within limit or removing
+    toggleFavorite(vehicle.id);
+  }, [vehicle.id, toggleFavorite, isFavorited]);
 
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      {/* Favorite Icon - Top Left/Right (RTL aware) */}
       <IconButton
-        onClick={handleCompareToggle}
-        disabled={!isInCompare && !canAddMore}
+        onClick={handleFavoriteToggle}
         sx={{
           position: 'absolute',
           top: 8,
@@ -212,6 +247,25 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
           bgcolor: 'background.paper',
           '&:hover': { bgcolor: 'background.paper' },
         }}
+        aria-label={language === 'ar' ? 'إضافة إلى المفضلة' : 'Add to favorites'}
+      >
+        {isFavorited ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
+      </IconButton>
+
+      {/* Compare Icon - Top Right/Left (opposite of favorite, RTL aware) */}
+      <IconButton
+        onClick={handleCompareToggle}
+        disabled={!isInCompare && !canAddMore}
+        sx={{
+          position: 'absolute',
+          top: 8,
+          right: language === 'ar' ? 8 : 'auto',
+          left: language === 'ar' ? 'auto' : 8,
+          zIndex: 1,
+          bgcolor: 'background.paper',
+          '&:hover': { bgcolor: 'background.paper' },
+        }}
+        aria-label={language === 'ar' ? 'إضافة للمقارنة' : 'Add to compare'}
       >
         {isInCompare ? <CheckCircleIcon color="primary" /> : <CompareArrowsIcon />}
       </IconButton>
@@ -394,6 +448,15 @@ export default function VehicleCard({ vehicle, position = 999 }: VehicleCardProp
           {snackbar.message}
         </Alert>
       </Snackbar>
+
+      {/* Favorite Login Modal (Soft Gate) */}
+      <FavoriteLoginModal
+        open={favoriteLoginModalOpen}
+        onClose={() => setFavoriteLoginModalOpen(false)}
+        favoriteCount={useFavoriteStore.getState().getFavoriteCount()}
+      />
     </Card>
   );
-}
+});
+
+export default VehicleCard;

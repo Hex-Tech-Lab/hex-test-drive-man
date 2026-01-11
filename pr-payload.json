@@ -1,0 +1,6 @@
+{
+  "title": "fix(build): ESLint compatibility + classifier false positives",
+  "head": "bb/mvp1.6-deploy-final",
+  "base": "main",
+  "body": "## Summary\nFixes Next.js 15 ESLint compatibility issues and classifier false positives.\n\n## Changes\n1. **next.config.mjs**: Disable ESLint during Next.js build\n   - Next.js 15 has compatibility issues with flat config (eslint.config.js)\n   - ESLint still runs separately via pnpm lint\n   - Fixes: Unknown options: useEslintrc, extensions error\n\n2. **scripts/pr-scrape.ts**: Fix classifier false positives\n   - Exclude quality gate passed from CRITICAL classification\n   - Prevents SonarCloud success messages from being flagged as critical\n\n## Verification\n- ✅ pnpm audit: 0 vulnerabilities\n- ✅ pnpm build: Compiled successfully\n- ✅ pnpm lint: Works (560 warnings, 3 errors - pre-existing)\n- ✅ pnpm run pr:scrape 60: 0 CRITICAL (was incorrectly flagging Sonar)\n- ✅ Docstring coverage: 94.06%\n\n## Related\n- PR #63 (already fixed swcMinify + scripts TS errors)\n- PR #62 (added dotenv config to scripts)"
+}

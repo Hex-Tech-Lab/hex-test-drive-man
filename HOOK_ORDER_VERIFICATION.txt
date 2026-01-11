@@ -1,0 +1,64 @@
+REACT HOOKS ORDER VERIFICATION - src/app/[locale]/page.tsx
+================================================================
+
+✅ CORRECT ORDER (After Fix):
+
+Line 35-41:   useState declarations (7 hooks)
+              - vehicles, loading, error, searchFilters, viewMode, gridColumns, activeTab
+
+Line 43-55:   useFilterStore selectors (10 primitive selectors)
+              - brands, priceRange, categories, bodyStyles, fuelTypes, transmissions, bodyStyle, segmentCode, agent, sortBy
+
+Line 57-70:   useEffect #1 - Scroll persistence
+
+Line 73-77:   useEffect #2 - Language sync
+
+Line 79-97:   useEffect #3 - Fetch vehicles
+
+Line 99-103:  useMemo #1 - uniqueBrands ← MOVED HERE (was line 395)
+
+Line 105-108: useMemo #2 - uniqueBrandsList ← MOVED HERE (was line 401)
+
+Line 110-113: useMemo #3 - uniqueTypesList ← MOVED HERE (was line 406)
+
+Line 115-121: useMemo #4 - priceStats ← MOVED HERE (was line 411)
+
+Line 125-156: useMemo #5 - aggregatedVehicles (existing, unchanged)
+
+Line 159-316: Computed values (filteredVehicles) - NOT a hook
+
+Line 318:     FIRST EARLY RETURN - if (loading) { return ... }
+
+Line 333:     SECOND EARLY RETURN - if (error) { return ... }
+
+Line 376+:    Main render (no more hooks after this point)
+
+================================================================
+
+❌ PREVIOUS INCORRECT ORDER (Before Fix):
+
+Line 35-97:   All useState, useEffect hooks
+Line 99:      useMemo - aggregatedVehicles
+Line 159-316: Computed values
+Line 270:     EARLY RETURN - if (loading) ← HOOKS AFTER THIS VIOLATED RULES
+Line 333:     EARLY RETURN - if (error)
+Line 395:     useMemo - uniqueBrands ← VIOLATION: Hook after early return
+Line 401:     useMemo - uniqueBrandsList ← VIOLATION
+Line 406:     useMemo - uniqueTypesList ← VIOLATION
+Line 411:     useMemo - priceStats ← VIOLATION
+
+================================================================
+
+VERIFICATION COMMANDS:
+
+# Count hooks before first early return
+awk '/^export default/,/if \(loading\)/ {print}' src/app/[locale]/page.tsx | grep -c "useMemo\|useState\|useEffect"
+Expected: 22 (7 useState + 3 useEffect + 5 useMemo + 7 useFilterStore)
+
+# Verify no hooks after early returns
+awk '/if \(loading\)/,EOF {print NR": "$0}' src/app/[locale]/page.tsx | grep "useMemo\|useState\|useEffect"
+Expected: (empty) - no hooks after line 318
+
+================================================================
+
+RESULT: ✅ ALL HOOKS NOW EXECUTE BEFORE ANY EARLY RETURNS
