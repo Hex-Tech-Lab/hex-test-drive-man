@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter, useParams } from 'next/navigation';
-import { Box, Stepper, Step, StepLabel, Button, Container, CircularProgress, Alert } from '@mui/material';
+import { Box, Stepper, Step, StepLabel, Button, Container, CircularProgress, Alert, Typography } from '@mui/material';
 import { useBookingWizardStore } from '@/stores/useBookingWizardStore';
 import DateTimeStep from '@/components/booking/wizard/DateTimeStep';
 import DocumentUploadStep from '@/components/booking/wizard/DocumentUploadStep';
