@@ -18,10 +18,14 @@ import { getVehicleImage } from '@/lib/imageHelper';
 
 interface VehicleData {
   id: string;
-  model_name: string;
-  brand_name: string;
-  year: number;
-  hero_image_url: string | null;
+  model_year: number;
+  models: {
+    name: string;
+    hero_image_url: string | null;
+  } | null;
+  brands: {
+    name: string;
+  } | null;
 }
 
 /**
@@ -51,14 +55,15 @@ export default function DateTimeStep() {
         const supabase = createClient();
         const { data, error: fetchError } = await supabase
           .from('vehicle_trims')
-          .select('id, model_name, brand_name, year, hero_image_url')
+          .select('id, model_year, models!inner(name, hero_image_url), brands!inner(name)')
           .eq('id', vehicleId)
           .single();
 
         if (fetchError) throw fetchError;
         if (!data) throw new Error('Vehicle not found');
+        if (!data.models || !data.brands) throw new Error('Vehicle data incomplete');
 
-        setVehicle(data);
+        setVehicle(data as VehicleData);
       } catch (err) {
         console.error('Failed to fetch vehicle:', err);
         setError('Failed to load vehicle details. Please try again.');
@@ -123,8 +128,8 @@ export default function DateTimeStep() {
         <CardMedia
           component="img"
           sx={{ width: 200, height: 150, objectFit: 'contain' }}
-          image={getVehicleImage(vehicle.hero_image_url)}
-          alt={`${vehicle.brand_name} ${vehicle.model_name}`}
+          image={getVehicleImage(vehicle.models?.hero_image_url || null)}
+          alt={`${vehicle.brands?.name || ''} ${vehicle.models?.name || ''}`}
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.src = '/images/placeholder-vehicle.png';
@@ -132,10 +137,10 @@ export default function DateTimeStep() {
         />
         <CardContent>
           <Typography variant="h6">
-            {vehicle.brand_name} {vehicle.model_name}
+            {vehicle.brands?.name} {vehicle.models?.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {vehicle.year}
+            {vehicle.model_year}
           </Typography>
         </CardContent>
       </Card>

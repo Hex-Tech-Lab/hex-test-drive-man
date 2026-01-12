@@ -23,10 +23,14 @@ import { getVehicleImage } from '@/lib/imageHelper';
 
 interface VehicleData {
   id: string;
-  model_name: string;
-  brand_name: string;
-  year: number;
-  hero_image_url: string | null;
+  model_year: number;
+  models: {
+    name: string;
+    hero_image_url: string | null;
+  } | null;
+  brands: {
+    name: string;
+  } | null;
 }
 
 /**
