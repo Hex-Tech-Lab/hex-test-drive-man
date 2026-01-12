@@ -36,7 +36,7 @@ export default function BookingWizardPage() {
   // Initialize vehicleId from URL on mount
   useEffect(() => {
     const urlVehicleId = searchParams.get('vehicleId');
-    if (urlVehicleId && !vehicleId) {
+    if (urlVehicleId) {
       setVehicleId(urlVehicleId);
     }
   }, [searchParams, vehicleId, setVehicleId]);
