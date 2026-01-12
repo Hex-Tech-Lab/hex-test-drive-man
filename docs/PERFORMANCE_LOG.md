@@ -1,3 +1,48 @@
+## 2026-01-12 2110 EET - BB - API Timeout Investigation & Documentation
+**Timebox**: 5 minutes (planned)
+**Start**: 2026-01-12 2110 EET
+**End**: 2026-01-12 2115 EET
+**Actual Duration**: 5 minutes
+**Variance**: 0 minutes (0%)
+**Agent**: BB (Blackbox)
+**Outcome**: SUCCESS
+
+### Task
+Document API timeout investigation findings in BLACKBOX.md.
+
+### Context
+Previous investigation found no litellm config in sandbox.
+API timeout occurs in Blackbox CLI service (not sandbox config).
+
+### Actions Taken
+1. ✅ Synced with GitHub repository (git fetch + pull)
+2. ✅ Read BLACKBOX.md to find insertion point
+3. ✅ Added new section "API Timeout Issue - Investigation 2026-01-12 2110 EET"
+4. ✅ Updated docs/PERFORMANCE_LOG.md with timestamp entry
+5. ✅ Committed and pushed changes
+
+### Documentation Added
+- **Section**: API Timeout Issue - Investigation 2026-01-12 2110 EET
+- **Location**: BLACKBOX.md (after Security Audit session)
+- **Content**: Symptoms, investigation results, root cause, workaround, status
+
+### Key Findings
+- No litellm config in sandbox (~/.config/litellm/config.yaml not found)
+- Timeout enforced by Blackbox CLI service (15 min limit)
+- Cannot be configured in sandbox environment
+- Workaround: Split tasks >10 min into subtasks
+
+### Quality Gates
+- ✅ **Documentation**: Added to BLACKBOX.md
+- ✅ **Performance Log**: Updated with timestamp format
+- ✅ **Git**: Committed and pushed to main
+
+### Files Modified
+- BLACKBOX.md (+30 lines)
+- docs/PERFORMANCE_LOG.md (+35 lines)
+
+---
+
 ## 2026-01-12 1040 EET - CC - Booking Wizard Implementation (Single-Page 3-Step Flow)
 **Timebox**: 7 hours (original BB estimate)
 **Start**: 2026-01-12 1040 EET

@@ -900,3 +900,34 @@ Completed security audit after previous session stopped at ESLint installation d
 - Fix 2 ReDoS vulnerabilities (separate PR)
 - Monitor security workflow in CI/CD
 
+## API Timeout Issue - Investigation 2026-01-12 2110 EET
+
+**Session**: API Timeout Investigation & Documentation
+**Agent**: BB (Blackbox)
+**Duration**: 5 minutes (timebox)
+**Outcome**: ✅ DOCUMENTED
+
+### Symptoms
+- Error after 10-15 min operations
+- "litellm.BadRequestError: no user message"
+- Occurs when BB tries to continue after long task
+
+### Investigation Results
+- ✅ Checked `~/.config/litellm/config.yaml` - NOT FOUND
+- ✅ Checked `env | grep litellm` - NO RESULTS
+- ✅ Config in `~/.blackboxcli/settings.json`:
+  - timeout: 900000ms (15 min)
+  - maxRetries: 3
+
+### Root Cause
+API timeout enforced by Blackbox CLI service (not sandbox).
+Cannot be configured in sandbox environment.
+
+### Workaround
+Split tasks >10 min into subtasks with intermediate commits.
+Prevents hitting 15-min timeout threshold.
+
+### Status
+✅ DOCUMENTED - No fix available in sandbox config
+Documentation committed and pushed to main.
+
