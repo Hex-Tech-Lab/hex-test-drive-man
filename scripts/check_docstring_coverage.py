@@ -60,7 +60,7 @@ def check_coverage():
         # class Name
         # method()
         
-        grep_cmd = "grep -rE 'function\s+\w+|const\s+\w+\s*=\s*(\(|async\s*\()|class\s+\w+|\w+\s*\(.*\)\s*{' src --include='*.ts' --include='*.tsx' | wc -l"
+        grep_cmd = r"grep -rE 'function\s+\w+|const\s+\w+\s*=\s*(\(|async\s*\()|class\s+\w+|\w+\s*\(.*\)\s*{' src --include='*.ts' --include='*.tsx' | wc -l"
         grep_result = subprocess.run(grep_cmd, shell=True, capture_output=True, text=True)
         estimated_total = int(grep_result.stdout.strip())
         
