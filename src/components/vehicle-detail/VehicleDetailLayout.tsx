@@ -50,8 +50,8 @@ export default function VehicleDetailLayout({
   const handleBookTrim = (trim: Vehicle) => {
     const success = addToBooking(vehicleToBookingItem(trim));
     if (success) {
-      // Navigate to booking page
-      router.push(`/${locale}/bookings/new?trim=${trim.id}`);
+      // Navigate to booking page with vehicleId param (matches wizard expectation)
+      router.push(`/${locale}/bookings/new?vehicleId=${trim.id}`);
     }
   };
 
