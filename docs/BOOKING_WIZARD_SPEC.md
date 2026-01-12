@@ -52,129 +52,147 @@
 
 ## Step-by-Step Flow Specification
 
-### Step 1: Vehicle Selection
+**⚠️ CORRECTED PER USER FEEDBACK (2026-01-12)**
 
-**Purpose**: Select vehicle for test drive
-**Entry**: Direct link or catalog pre-selection
+### Step 1: Date/Time/Venue Selection
+
+**Purpose**: Schedule test drive appointment (vehicle INHERITED from catalog)
+**Entry**: `/bookings/new?vehicleId=X` (vehicleId passed from catalog)
 
 **UI Components**:
-- Reuse `AdvancedSearch` component from catalog
-- Show pre-selected vehicle if `?vehicleId=X` in URL
-- Allow changing selection via search/filters
-- "Next" button enabled when vehicle selected
+- Display small vehicle photo (readonly, inherited from query param)
+- Display vehicle name/brand (readonly)
+- Date picker for test drive date
+- Time slot selection dropdown (from API)
+- Venue dropdown (Cairo Showroom, Alexandria Showroom, etc)
+- "Next" button enabled when all filled
 
 **State**:
 ```typescript
 {
   step: 1,
-  selectedVehicle: {
-    id: string,
-    name: string,
-    image: string,
-    brand: string,
-  } | null,
+  vehicleId: string,  // Inherited from URL, not selected by user
+  appointment: {
+    date: string,      // ISO 8601
+    time: string,      // HH:mm
+    venue: string,     // Location name
+  },
 }
 ```
 
 **Validation**:
-- Required: `selectedVehicle !== null`
+- Required: `vehicleId` (from URL), `appointment.date`, `appointment.time`, `appointment.venue`
+- Date must be future (minimum: tomorrow)
+- Time slots based on venue availability
 
 **Navigation**:
-- Next → Step 2 (customer info)
+- Next → Step 2 (ID upload)
 - Cancel → Catalog
 
 ---
 
-### Step 2: Customer Info + ID Upload
+### Step 2: ID + Driver's License Upload
 
-**Purpose**: Collect customer details and ID verification
-**Dependencies**: Step 1 complete
+**Purpose**: Upload and verify identity documents
+**Dependencies**: Step 1 complete (appointment scheduled)
 
 **UI Components**:
-- Phone number field (E.164 format)
-- Name field
-- ID upload (camera/manual/scan via SmartScanner)
-- Date/time picker for test drive
+- SmartScanner component for National ID capture (reuse from document-verify)
+- SmartScanner component for Driver's License capture
+- OCR auto-extraction of ID data (name, national ID number, DOB)
+- Preview of captured documents
+- "Next" button enabled when both documents uploaded
 
 **State**:
 ```typescript
 {
   step: 2,
-  customer: {
-    phone: string,
-    name: string,
-    idDocument: File | null,
-    idData: {
-      nationalId: string,
-      dateOfBirth: string,
-      expiryDate: string,
-    } | null,
-  },
-  appointment: {
-    date: string, // ISO 8601
-    time: string, // HH:mm
-    location: string,
+  documents: {
+    nationalId: File | null,
+    driversLicense: File | null,
+    extractedData: {
+      nationalIdNumber: string | null,
+      name: string | null,
+      dateOfBirth: string | null,
+    },
   },
 }
 ```
 
 **Validation**:
-- Required: `phone`, `name`, `idDocument`, `date`, `time`
-- Optional: Auto-extracted ID data (from OCR)
-- Phone format: `+20` prefix, 10-11 digits
+- Required: Both `nationalId` and `driversLicense` files must be uploaded
+- Optional: OCR-extracted data (if available, used for confirmation step)
+- File size limit: 5MB per image
+- Supported formats: JPEG, PNG
 
 **Navigation**:
-- Back → Step 1 (vehicle selection)
-- Next → Step 3 (OTP verification)
+- Back → Step 1 (date/time selection)
+- Next → Step 3 (confirm + OTP)
 - Cancel → Catalog
 
 ---
 
-### Step 3: OTP Verification (LAST STEP)
+### Step 3: Confirm + OTP Verification (FINAL STEP)
 
-**Purpose**: Verify phone ownership and finalize booking
-**Dependencies**: Step 1 + 2 complete
+**Purpose**: Review booking details, verify phone, and finalize booking
+**Dependencies**: Step 1 + 2 complete (appointment + documents)
 
 **UI Components**:
-- Display: Selected vehicle summary
-- Display: Customer name + phone
-- Display: Appointment date/time
-- OTP input field (6 digits)
-- "Send OTP" button (with 60s cooldown)
-- "Verify & Book" button
+- Summary display:
+  - Vehicle photo, name, brand
+  - Appointment date, time, venue
+  - Document previews (National ID + Driver's License thumbnails)
+- Phone number input field (E.164 format, +20 prefix)
+- "Send OTP" button (enabled when phone valid)
+- OTP input field (6 digits, shown after OTP sent)
+- "Confirm Booking" button (enabled when OTP entered)
+- Success display (after confirmation):
+  - Reservation details (booking ID, date/time, venue)
+  - SMS confirmation message sent
+  - "Done" button → returns to catalog
 
 **Flow**:
-1. User clicks "Send OTP"
-2. API call to `/api/otp/send` (fixed in PR#67)
-3. User receives SMS with 6-digit code
-4. User enters code
-5. API call to `/api/otp/verify`
-6. If valid: Create booking, redirect to confirmation page
-7. If invalid: Show error, allow retry (max 3 attempts)
+1. User reviews summary
+2. User enters phone number
+3. User clicks "Send OTP"
+4. API call to `/api/otp/send` (from PR#67)
+5. User receives SMS with 6-digit code
+6. User enters code and clicks "Confirm Booking"
+7. API call to `/api/otp/verify`
+8. If valid: Create booking, show reservation details + SMS sent
+9. If invalid: Show error, allow retry (max 3 attempts)
 
 **State**:
 ```typescript
 {
   step: 3,
+  customer: {
+    phone: string,  // Collected in this step
+  },
   otp: {
     sent: boolean,
     code: string,
     verified: boolean,
     attempts: number,
-    expiresAt: string, // ISO 8601
+    expiresAt: string | null,
+  },
+  booking: {
+    id: string | null,
+    confirmed: boolean,
   },
 }
 ```
 
 **Validation**:
+- Required: `phone` (E.164, +20 prefix, 10-11 digits)
 - Required: `otp.code.length === 6 && /^\d{6}$/.test(otp.code)`
-- Rate limiting: 60s between resends
+- Rate limiting: 60s between OTP resends
 - Max attempts: 3 failed verifications = lock for 5 minutes
 
 **Navigation**:
-- Back → Step 2 (customer info)
-- Success → `/bookings/[id]/confirmed`
-- Cancel → Catalog
+- Back → Step 2 (document upload)
+- Success → Display reservation details, "Done" returns to catalog
+- Cancel → Catalog (with confirmation dialog)
 
 ---
 
@@ -193,36 +211,35 @@ export interface BookingWizardState {
   step: 1 | 2 | 3;
   setStep: (step: 1 | 2 | 3) => void;
 
-  // Step 1: Vehicle
-  selectedVehicle: {
-    id: string;
-    name: string;
-    image: string;
-    brand: string;
-  } | null;
-  setSelectedVehicle: (vehicle: BookingWizardState['selectedVehicle']) => void;
-
-  // Step 2: Customer + Appointment
-  customer: {
-    phone: string;
-    name: string;
-    idDocument: File | null;
-    idData: {
-      nationalId: string;
-      dateOfBirth: string;
-      expiryDate: string;
-    } | null;
-  };
-  setCustomer: (customer: Partial<BookingWizardState['customer']>) => void;
+  // Step 1: Vehicle + Appointment (vehicle inherited from URL)
+  vehicleId: string | null;
+  setVehicleId: (id: string) => void;
 
   appointment: {
-    date: string;
-    time: string;
-    location: string;
+    date: string;      // ISO 8601 date
+    time: string;      // HH:mm format
+    venue: string;     // Location name
   };
   setAppointment: (appointment: Partial<BookingWizardState['appointment']>) => void;
 
-  // Step 3: OTP
+  // Step 2: Documents
+  documents: {
+    nationalId: File | null;
+    driversLicense: File | null;
+    extractedData: {
+      nationalIdNumber: string | null;
+      name: string | null;
+      dateOfBirth: string | null;
+    };
+  };
+  setDocuments: (documents: Partial<BookingWizardState['documents']>) => void;
+
+  // Step 3: Customer + OTP
+  customer: {
+    phone: string;
+  };
+  setCustomer: (customer: Partial<BookingWizardState['customer']>) => void;
+
   otp: {
     sent: boolean;
     code: string;
@@ -231,6 +248,13 @@ export interface BookingWizardState {
     expiresAt: string | null;
   };
   setOtp: (otp: Partial<BookingWizardState['otp']>) => void;
+
+  // Booking result
+  booking: {
+    id: string | null;
+    confirmed: boolean;
+  };
+  setBooking: (booking: Partial<BookingWizardState['booking']>) => void;
 
   // Actions
   reset: () => void;
@@ -243,17 +267,23 @@ export const useBookingWizardStore = create<BookingWizardState>()(
     (set, get) => ({
       // Initial state
       step: 1,
-      selectedVehicle: null,
-      customer: {
-        phone: '',
-        name: '',
-        idDocument: null,
-        idData: null,
-      },
+      vehicleId: null,
       appointment: {
         date: '',
         time: '',
-        location: 'Cairo Showroom', // Default
+        venue: 'Cairo Showroom', // Default
+      },
+      documents: {
+        nationalId: null,
+        driversLicense: null,
+        extractedData: {
+          nationalIdNumber: null,
+          name: null,
+          dateOfBirth: null,
+        },
+      },
+      customer: {
+        phone: '',
       },
       otp: {
         sent: false,
@@ -262,50 +292,67 @@ export const useBookingWizardStore = create<BookingWizardState>()(
         attempts: 0,
         expiresAt: null,
       },
+      booking: {
+        id: null,
+        confirmed: false,
+      },
 
       // Setters
       setStep: (step) => set({ step }),
-      setSelectedVehicle: (vehicle) => set({ selectedVehicle: vehicle }),
-      setCustomer: (customer) => set((state) => ({
-        customer: { ...state.customer, ...customer },
-      })),
+      setVehicleId: (id) => set({ vehicleId: id }),
       setAppointment: (appointment) => set((state) => ({
         appointment: { ...state.appointment, ...appointment },
+      })),
+      setDocuments: (documents) => set((state) => ({
+        documents: { ...state.documents, ...documents },
+      })),
+      setCustomer: (customer) => set((state) => ({
+        customer: { ...state.customer, ...customer },
       })),
       setOtp: (otp) => set((state) => ({
         otp: { ...state.otp, ...otp },
       })),
+      setBooking: (booking) => set((state) => ({
+        booking: { ...state.booking, ...booking },
+      })),
 
       // Validation
       canProceedToStep2: () => {
-        const { selectedVehicle } = get();
-        return selectedVehicle !== null;
+        const { appointment } = get();
+        return (
+          appointment.date.length > 0 &&
+          appointment.time.length > 0 &&
+          appointment.venue.length > 0
+        );
       },
       canProceedToStep3: () => {
-        const { customer, appointment } = get();
+        const { documents } = get();
         return (
-          customer.phone.length >= 10 &&
-          customer.name.length > 0 &&
-          customer.idDocument !== null &&
-          appointment.date.length > 0 &&
-          appointment.time.length > 0
+          documents.nationalId !== null &&
+          documents.driversLicense !== null
         );
       },
 
       // Reset
       reset: () => set({
         step: 1,
-        selectedVehicle: null,
-        customer: {
-          phone: '',
-          name: '',
-          idDocument: null,
-          idData: null,
-        },
+        vehicleId: null,
         appointment: {
           date: '',
           time: '',
-          location: 'Cairo Showroom',
+          venue: 'Cairo Showroom',
+        },
+        documents: {
+          nationalId: null,
+          driversLicense: null,
+          extractedData: {
+            nationalIdNumber: null,
+            name: null,
+            dateOfBirth: null,
+          },
+        },
+        customer: {
+          phone: '',
         },
         otp: {
           sent: false,
@@ -314,15 +361,19 @@ export const useBookingWizardStore = create<BookingWizardState>()(
           attempts: 0,
           expiresAt: null,
         },
+        booking: {
+          id: null,
+          confirmed: false,
+        },
       }),
     }),
     {
       name: 'booking-wizard-storage',
       partialize: (state) => ({
-        // Only persist step and vehicle selection
+        // Only persist step and vehicleId
         step: state.step,
-        selectedVehicle: state.selectedVehicle,
-        // Don't persist sensitive data (phone, ID, OTP)
+        vehicleId: state.vehicleId,
+        // Don't persist sensitive data (phone, documents, OTP)
       }),
     }
   )
@@ -342,9 +393,9 @@ export const useBookingWizardStore = create<BookingWizardState>()(
 
 import { Box, Stepper, Step, StepLabel, Button } from '@mui/material';
 import { useBookingWizardStore } from '@/stores/useBookingWizardStore';
-import VehicleSelectionStep from '@/components/booking/wizard/VehicleSelectionStep';
-import CustomerInfoStep from '@/components/booking/wizard/CustomerInfoStep';
-import OtpVerificationStep from '@/components/booking/wizard/OtpVerificationStep';
+import DateTimeStep from '@/components/booking/wizard/DateTimeStep';
+import DocumentUploadStep from '@/components/booking/wizard/DocumentUploadStep';
+import ConfirmStep from '@/components/booking/wizard/ConfirmStep';
 
 export default function BookingWizardPage() {
   const step = useBookingWizardStore((s) => s.step);
@@ -352,7 +403,7 @@ export default function BookingWizardPage() {
   const canProceedToStep2 = useBookingWizardStore((s) => s.canProceedToStep2);
   const canProceedToStep3 = useBookingWizardStore((s) => s.canProceedToStep3);
 
-  const steps = ['Select Vehicle', 'Customer Info', 'Verify OTP'];
+  const steps = ['Date & Time', 'ID Upload', 'Confirm'];
 
   return (
     <Box sx={{ maxWidth: 900, mx: 'auto', p: 4 }}>
@@ -364,9 +415,9 @@ export default function BookingWizardPage() {
         ))}
       </Stepper>
 
-      {step === 1 && <VehicleSelectionStep />}
-      {step === 2 && <CustomerInfoStep />}
-      {step === 3 && <OtpVerificationStep />}
+      {step === 1 && <DateTimeStep />}
+      {step === 2 && <DocumentUploadStep />}
+      {step === 3 && <ConfirmStep />}
 
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>
         {step > 1 && (
