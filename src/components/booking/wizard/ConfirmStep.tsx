@@ -71,7 +71,8 @@ export default function ConfirmStep() {
     };
 
     fetchVehicle();
-  }, [vehicleId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // vehicleId shouldn't change during wizard session - fetch once on mount
 
   // Cooldown timer for OTP resend
   useEffect(() => {

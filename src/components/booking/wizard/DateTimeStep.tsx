@@ -68,7 +68,8 @@ export default function DateTimeStep() {
     };
 
     fetchVehicle();
-  }, [vehicleId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // vehicleId shouldn't change during wizard session - fetch once on mount
 
   // Time slots (example - could come from API)
   const timeSlots = [
