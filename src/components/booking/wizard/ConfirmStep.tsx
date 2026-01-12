@@ -266,10 +266,7 @@ export default function ConfirmStep() {
                   <CardMedia
                     component="img"
                     sx={{ width: 100, height: 75, objectFit: 'contain' }}
-                    image={getVehicleImage(
-                      vehicle.hero_image_url,
-                      vehicle.brand_name
-                    )}
+                    image={getVehicleImage(vehicle.hero_image_url)}
                     alt={`${vehicle.brand_name} ${vehicle.model_name}`}
                   />
                   <Box>

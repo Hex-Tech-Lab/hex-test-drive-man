@@ -122,7 +122,7 @@ export default function DateTimeStep() {
         <CardMedia
           component="img"
           sx={{ width: 200, height: 150, objectFit: 'contain' }}
-          image={getVehicleImage(vehicle.hero_image_url, vehicle.brand_name)}
+          image={getVehicleImage(vehicle.hero_image_url)}
           alt={`${vehicle.brand_name} ${vehicle.model_name}`}
           onError={(e) => {
             const target = e.target as HTMLImageElement;
