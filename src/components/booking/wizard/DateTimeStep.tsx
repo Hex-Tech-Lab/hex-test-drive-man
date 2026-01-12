@@ -22,6 +22,7 @@ interface VehicleData {
   brand_name: string;
   year: number;
   hero_image_url: string | null;
+  trim_name: string;
 }
 
 export default function DateTimeStep({ vehicleId }: { vehicleId: string }) {
@@ -49,6 +50,7 @@ export default function DateTimeStep({ vehicleId }: { vehicleId: string }) {
           brand_name: data.models.brands.name,
           year: data.model_year,
           hero_image_url: data.models.hero_image_url,
+          trim_name: data.trim_name,
         };
 
         setVehicle(flatVehicle);

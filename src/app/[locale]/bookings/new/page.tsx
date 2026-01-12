@@ -134,9 +134,9 @@ export default function BookingWizardPage() {
 
         {/* Step content */}
         <Box sx={{ minHeight: 400, mb: 4 }}>
-          {step === 1 && <DateTimeStep />}
+          {step === 1 && vehicleId && <DateTimeStep vehicleId={vehicleId} />}
           {step === 2 && <DocumentUploadStep />}
-          {step === 3 && <ConfirmStep />}
+          {step === 3 && vehicleId && <ConfirmStep vehicleId={vehicleId} />}
         </Box>
 
         {/* Navigation buttons */}
