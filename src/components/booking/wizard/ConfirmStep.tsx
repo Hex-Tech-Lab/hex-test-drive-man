@@ -74,12 +74,12 @@ export default function ConfirmStep() {
 
       if (data) {
         // Transform nested data to flat structure for component
-        const vehicle = {
-          id: data.id,
-          model_name: data.models?.name || 'Unknown Model',
-          brand_name: data.models?.brands?.name || 'Unknown Brand',
-          year: data.model_year,
-          hero_image_url: data.models?.hero_image_url || null,
+        const vehicle: VehicleData = {
+          id: data.id as string,
+          model_name: (data.models as any)?.name || 'Unknown Model',
+          brand_name: ((data.models as any)?.brands as any)?.name || 'Unknown Brand',
+          year: data.model_year as number,
+          hero_image_url: ((data.models as any)?.hero_image_url as string | null) || null,
         };
         setVehicle(vehicle);
       }
