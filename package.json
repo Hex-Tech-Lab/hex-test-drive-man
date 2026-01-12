@@ -58,6 +58,7 @@
     "eslint-plugin-jsdoc": "61.5.0",
     "eslint-plugin-react": "7.37.4",
     "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-security": "^3.0.1",
     "husky": "^8.0.0",
     "node-fetch": "2.7.0",
     "playwright": "^1.57.0",

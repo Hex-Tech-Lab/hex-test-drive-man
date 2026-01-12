@@ -3,6 +3,7 @@ import typescriptParser from '@typescript-eslint/parser';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import jsdocPlugin from 'eslint-plugin-jsdoc';
+import securityPlugin from 'eslint-plugin-security';
 
 const config = [
   {
@@ -34,6 +35,7 @@ const config = [
       'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
       'jsdoc': jsdocPlugin,
+      'security': securityPlugin,
     },
     rules: {
       'quotes': ['warn', 'single'],
@@ -79,6 +81,15 @@ const config = [
           },
         },
       ],
+      // Security rules
+      'security/detect-object-injection': 'warn',
+      'security/detect-non-literal-regexp': 'warn',
+      'security/detect-unsafe-regex': 'error',
+      'security/detect-buffer-noassert': 'error',
+      'security/detect-eval-with-expression': 'error',
+      'security/detect-no-csrf-before-method-override': 'error',
+      'security/detect-possible-timing-attacks': 'warn',
+      'security/detect-pseudoRandomBytes': 'error',
     },
   },
   {
@@ -96,6 +107,7 @@ const config = [
       'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
       'jsdoc': jsdocPlugin,
+      'security': securityPlugin,
     },
     rules: {
       'quotes': ['warn', 'single'],
@@ -139,6 +151,15 @@ const config = [
           },
         },
       ],
+      // Security rules
+      'security/detect-object-injection': 'warn',
+      'security/detect-non-literal-regexp': 'warn',
+      'security/detect-unsafe-regex': 'error',
+      'security/detect-buffer-noassert': 'error',
+      'security/detect-eval-with-expression': 'error',
+      'security/detect-no-csrf-before-method-override': 'error',
+      'security/detect-possible-timing-attacks': 'warn',
+      'security/detect-pseudoRandomBytes': 'error',
     },
   },
 ];
