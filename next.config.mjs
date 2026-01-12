@@ -45,6 +45,14 @@ const nextConfig = {
     }
     return config;
   },
+  // Redirects for old booking routes
+  redirects: async () => [
+    {
+      source: '/:locale/bookings/step:num(1|2|3)',
+      destination: '/:locale/bookings/new',
+      permanent: true,
+    },
+  ],
 };
 
 export default withBundleAnalyzer(
