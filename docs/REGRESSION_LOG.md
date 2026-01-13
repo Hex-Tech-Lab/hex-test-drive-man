@@ -13,3 +13,9 @@
 - Never accept "simplified" versions during merge conflicts
 - Always verify production functionality after merge
 - Add regression test: wizard vehicle load must succeed
+
+### Troubleshooting Loop #5 (2026-01-13 2059-2120 EET)
+**Duration**: 21 minutes, 6 failed deployments
+**Cause**: PPLX used sed for TypeScript fixes instead of full-file operations
+**Resolution**: GC completed one-pass fix with proper verification
+**Lesson**: Complex TypeScript reconciliation = architecture agent (CC/GC), not crisis sed patches
