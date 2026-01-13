@@ -22,6 +22,19 @@ import { createClient } from '@/lib/supabase';
 import { getVehicleImage } from '@/lib/imageHelper';
 
 interface VehicleData {
+interface Models {
+  name: string;
+  brands: { name: string };
+  hero_image_url: string | null;
+}
+
+interface VehicleDataRaw {
+  id: string;
+  trim_name: string;
+  model_year: number;
+  models: Models | null;
+}
+
   id: string;
   model_name: string;
   brand_name: string;
@@ -65,7 +78,7 @@ export default function ConfirmStep() {
         .from('vehicle_trims')
         .select('id, trim_name, model_year, models(name, brands(name), hero_image_url)')
         .eq('id', vehicleId)
-        .single();
+        .single() as { data: VehicleDataRaw | null; error: any };
 
       if (error) {
         console.error('Failed to fetch vehicle:', error);
@@ -189,7 +202,7 @@ export default function ConfirmStep() {
           status: 'confirmed',
         })
         .select('id')
-        .single();
+        .single() as { data: VehicleDataRaw | null; error: any };
 
       if (bookingError) throw bookingError;
 
