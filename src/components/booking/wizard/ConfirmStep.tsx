@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter, useParams } from 'next/navigation';
 import {
   Box,
   Typography,
@@ -11,15 +12,42 @@ import {
   CardMedia,
   Alert,
   CircularProgress,
+  Divider,
+  Grid,
+  Button,
 } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import SendIcon from '@mui/icons-material/Send';
 import { useBookingWizardStore } from '@/stores/useBookingWizardStore';
 import { createClient } from '@/lib/supabase';
 import { getVehicleImage } from '@/lib/imageHelper';
+
+interface Models {
+  name: string;
+  brands: { name: string };
+  hero_image_url: string | null;
+}
+
+interface VehicleDataRaw {
+  id: string;
+  trim_name: string;
+  model_year: number;
+  models: Models | null;
+}
 
 interface VehicleData {
   id: string;
   model_name: string;
   brand_name: string;
+  year: number;
+  hero_image_url: string | null;
+}
+
+/**
+ * Confirmation step (Step 3)
+ * OTP verification and final booking creation
+ */
+export default function ConfirmStep() {
   const router = useRouter();
   const params = useParams();
   const locale = params.locale as string;
@@ -46,28 +74,28 @@ interface VehicleData {
     if (!vehicleId) return;
 
     const fetchVehicle = async () => {
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from('vehicle_trims')
-        .select('id, trim_name, model_year, models(name, brands(name), hero_image_url)')
-        .eq('id', vehicleId)
-        .single() as { data: VehicleDataRaw | null; error: any };
+      try {
+        const supabase = createClient();
+        const { data, error } = await supabase
+          .from('vehicle_trims')
+          .select('id, trim_name, model_year, models(name, brands(name), hero_image_url)')
+          .eq('id', vehicleId)
+          .single() as { data: VehicleDataRaw | null; error: any };
 
-      if (error) {
-        console.error('Failed to fetch vehicle:', error);
-        return;
-      }
+        if (error) throw error;
+        if (!data || !data.models) throw new Error('Vehicle not found');
 
-      if (data) {
         // Transform nested data to flat structure for component
         const vehicle = {
           id: data.id,
-          model_name: data.models?.name || 'Unknown Model',
-          brand_name: data.models?.brands?.name || 'Unknown Brand',
+          model_name: data.models.name,
+          brand_name: data.models.brands.name,
           year: data.model_year,
-          hero_image_url: data.models?.hero_image_url || null,
+          hero_image_url: data.models.hero_image_url,
         };
         setVehicle(vehicle);
+      } catch (err) {
+        console.error('Failed to fetch vehicle:', err);
       }
     };
 
@@ -175,9 +203,10 @@ interface VehicleData {
           status: 'confirmed',
         })
         .select('id')
-        .single() as { data: VehicleDataRaw | null; error: any };
+        .single() as { data: { id: string } | null; error: any };
 
       if (bookingError) throw bookingError;
+      if (!bookingData) throw new Error('Failed to create booking');
 
       // Success!
       setBooking({ id: bookingData.id, confirmed: true });

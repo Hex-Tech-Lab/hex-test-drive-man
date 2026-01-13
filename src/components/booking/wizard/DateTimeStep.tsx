@@ -16,6 +16,19 @@ import { useBookingWizardStore } from '@/stores/useBookingWizardStore';
 import { createClient } from '@/lib/supabase';
 import { getVehicleImage } from '@/lib/imageHelper';
 
+interface Models {
+  name: string;
+  brands: { name: string };
+  hero_image_url: string | null;
+}
+
+interface VehicleDataRaw {
+  id: string;
+  trim_name: string;
+  model_year: number;
+  models: Models | null;
+}
+
 interface VehicleData {
   id: string;
   model_name: string;
@@ -53,18 +66,18 @@ export default function DateTimeStep() {
           .from('vehicle_trims')
           .select('id, trim_name, model_year, models(name, brands(name), hero_image_url)')
           .eq('id', vehicleId)
-          .single();
+          .single() as { data: VehicleDataRaw | null; error: any };
 
         if (fetchError) throw fetchError;
-        if (!data) throw new Error('Vehicle not found');
+        if (!data || !data.models) throw new Error('Vehicle not found');
 
         // Transform nested data to flat structure for component
         const vehicle = {
           id: data.id,
-          model_name: data.models?.name || 'Unknown Model',
-          brand_name: data.models?.brands?.name || 'Unknown Brand',
+          model_name: data.models.name,
+          brand_name: data.models.brands.name,
           year: data.model_year,
-          hero_image_url: data.models?.hero_image_url || null,
+          hero_image_url: data.models.hero_image_url,
         };
 
         setVehicle(vehicle);
