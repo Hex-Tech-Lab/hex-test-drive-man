@@ -21,7 +21,6 @@ import { useBookingWizardStore } from '@/stores/useBookingWizardStore';
 import { createClient } from '@/lib/supabase';
 import { getVehicleImage } from '@/lib/imageHelper';
 
-interface VehicleData {
 interface Models {
   name: string;
   brands: { name: string };
@@ -35,6 +34,13 @@ interface VehicleDataRaw {
   models: Models | null;
 }
 
+interface VehicleData {
+  id: string;
+  model_name: string;
+  brand_name: string;
+  year: number;
+  hero_image_url: string | null;
+}
   id: string;
   model_name: string;
   brand_name: string;
