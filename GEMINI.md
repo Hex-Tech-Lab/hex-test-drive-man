@@ -685,3 +685,5 @@ f7100d9 (Main) - PENDING deployment
 - Or manual intervention required
 - Check: https://vercel.com/hex-tech-lab/hex-test-drive-man/deployments
 
+[Sync from CLAUDE.md 2026-01-13 1255 EET]
+$(cat /tmp/claude_recent.txt)

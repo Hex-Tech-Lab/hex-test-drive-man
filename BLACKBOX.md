@@ -931,3 +931,5 @@ Prevents hitting 15-min timeout threshold.
 ✅ DOCUMENTED - No fix available in sandbox config
 Documentation committed and pushed to main.
 
+[Sync from CLAUDE.md 2026-01-13 1255 EET]
+$(cat /tmp/claude_recent.txt)
