@@ -1,52 +1,25 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import {
   Box,
   Typography,
+  TextField,
+  MenuItem,
   Card,
   CardContent,
-  TextField,
-  Button,
+  CardMedia,
   Alert,
   CircularProgress,
-  Grid,
-  Divider,
-  CardMedia,
 } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import SendIcon from '@mui/icons-material/Send';
 import { useBookingWizardStore } from '@/stores/useBookingWizardStore';
 import { createClient } from '@/lib/supabase';
 import { getVehicleImage } from '@/lib/imageHelper';
-
-interface Models {
-  name: string;
-  brands: { name: string };
-  hero_image_url: string | null;
-}
-
-interface VehicleDataRaw {
-  id: string;
-  trim_name: string;
-  model_year: number;
-  models: Models | null;
-}
 
 interface VehicleData {
   id: string;
   model_name: string;
   brand_name: string;
-  year: number;
-  hero_image_url: string | null;
-}
-
-/**
- * Confirm and OTP verification step (Step 3)
- * Reviews booking summary, collects phone, sends OTP, creates booking
- */
-export default function ConfirmStep() {
   const router = useRouter();
   const params = useParams();
   const locale = params.locale as string;
