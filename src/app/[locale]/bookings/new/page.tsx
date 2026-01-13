@@ -46,7 +46,7 @@ export default function BookingWizardPage() {
 
     // No vehicleId provided - redirect to catalog
     if (!urlVehicleId) {
-      router.push(`/${locale}/vehicles`);
+      router.push(`/${locale}/`);
       return;
     }
 
@@ -89,7 +89,7 @@ export default function BookingWizardPage() {
    */
   const handleCancel = () => {
     reset();
-    router.push(`/${locale}/vehicles`);
+    router.push(`/${locale}/`);
   };
 
   // Show loading spinner while validating vehicleId
@@ -111,7 +111,7 @@ export default function BookingWizardPage() {
         <Alert severity="error" sx={{ mb: 3 }}>
           {validationError}
         </Alert>
-        <Button variant="contained" onClick={() => router.push(`/${locale}/vehicles`)}>
+        <Button variant="contained" onClick={() => router.push(`/${locale}/`)}>
           Back to Catalog
         </Button>
       </Container>
