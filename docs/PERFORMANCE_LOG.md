@@ -2036,3 +2036,30 @@ Expanded: Comprehensive system audit + 6 fixes + error boundaries
 **End**: 2026-01-13 0011 EET
 **Actual**: 71 minutes
 **Outcome**: SUCCESS (7/7 fixes)
+
+2026-01-13 1037 EET - PPLX - Wizard Import Crisis Resolution
+Timebox: 30 minutes
+Start: 2026-01-13 1000 EET
+End: 2026-01-13 1037 EET
+Actual: 37 minutes
+Variance: +7 minutes (+23%)
+Agent: PPLX (Claude Sonnet 4.5)
+Outcome: SUCCESS
+
+Issue
+CC created duplicate Supabase client using @supabase/ssr (not installed) instead of using existing @/lib/supabase pattern. Caused 8 consecutive build failures.
+
+Root Cause
+Agent didn't verify existing patterns before creating new utilities. Created src/lib/supabase/client.ts when src/lib/supabase.ts already existed with correct @supabase/supabase-js import.
+
+Fix
+Deleted duplicate file
+
+Updated DateTimeStep/ConfirmStep to use @/lib/supabase
+
+Added Dependency Check Protocol to CLAUDE.md
+
+Build passed (2e06c98)
+
+Prevention
+New mandatory protocol: grep existing patterns + verify package.json before ANY new import.

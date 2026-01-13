@@ -854,3 +854,51 @@ f7100d9 (Main) - PENDING deployment
 - Or manual intervention required
 - Check: https://vercel.com/hex-tech-lab/hex-test-drive-man/deployments
 
+
+## Dependency Check Protocol (MANDATORY - Added 2026-01-13)
+
+### Before Adding ANY New Import
+
+**STOP and verify existing patterns FIRST:**
+
+```bash
+# 1. Check if pattern exists
+grep -r "import.*PACKAGE_NAME" src/ --include="*.ts" --include="*.tsx" | head -10
+
+# 2. Verify package installed
+grep "PACKAGE_NAME" package.json
+
+# 3. Check existing utility files
+ls -la src/lib/ lib/
+
+# 4. Use existing pattern (don't create duplicates)
+Real Example: Supabase Import Failure (2026-01-13)
+Wrong (caused 8 build failures):
+
+typescript
+// Created new file: src/lib/supabase/client.ts
+import { createBrowserClient } from '@supabase/ssr'  // ❌ Not in package.json
+Correct (existing pattern):
+
+typescript
+import { createClient } from '@/lib/supabase'  // ✅ Already exists in src/lib/supabase.ts
+Mandatory Steps
+grep existing imports before creating utilities
+
+Verify package.json before using new packages
+
+Test pnpm build locally before pushing
+
+Never assume - always verify
+
+Violation = Build Failures
+Creating duplicate utilities without checking existing code causes:
+
+Build cascade failures (7+ deployments)
+
+Missing dependency errors
+
+Wasted time debugging obvious issues
+
+When in doubt: Check src/lib/ first, then grep existing usage.
+
