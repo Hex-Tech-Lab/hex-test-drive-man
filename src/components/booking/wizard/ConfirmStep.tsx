@@ -41,12 +41,6 @@ interface VehicleData {
   year: number;
   hero_image_url: string | null;
 }
-  id: string;
-  model_name: string;
-  brand_name: string;
-  year: number;
-  hero_image_url: string | null;
-}
 
 /**
  * Confirm and OTP verification step (Step 3)
