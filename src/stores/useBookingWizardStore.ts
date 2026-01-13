@@ -138,9 +138,10 @@ export const useBookingWizardStore = create<BookingWizardState>()(
       canProceedToStep2: () => {
         const { appointment } = get();
         return (
-          appointment.date.length > 0 &&
-          appointment.time.length > 0 &&
-          appointment.venue.length > 0
+          !!appointment.date &&
+          !!appointment.time &&
+          !!appointment.venue
+
         );
       },
 
