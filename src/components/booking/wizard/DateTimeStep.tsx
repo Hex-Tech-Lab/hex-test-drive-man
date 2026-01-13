@@ -51,14 +51,23 @@ export default function DateTimeStep() {
         const supabase = createClient();
         const { data, error: fetchError } = await supabase
           .from('vehicle_trims')
-          .select('id, model_name, brand_name, year, hero_image_url')
+          .select('id, trim_name, model_year, models(name, brands(name), hero_image_url)')
           .eq('id', vehicleId)
           .single();
 
         if (fetchError) throw fetchError;
         if (!data) throw new Error('Vehicle not found');
 
-        setVehicle(data);
+        // Transform nested data to flat structure for component
+        const vehicle = {
+          id: data.id,
+          model_name: data.models?.name || 'Unknown Model',
+          brand_name: data.models?.brands?.name || 'Unknown Brand',
+          year: data.model_year,
+          hero_image_url: data.models?.hero_image_url || null,
+        };
+
+        setVehicle(vehicle);
       } catch (err) {
         console.error('Failed to fetch vehicle:', err);
         setError('Failed to load vehicle details. Please try again.');

@@ -61,13 +61,28 @@ export default function ConfirmStep() {
 
     const fetchVehicle = async () => {
       const supabase = createClient();
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from('vehicle_trims')
-        .select('id, model_name, brand_name, year, hero_image_url')
+        .select('id, trim_name, model_year, models(name, brands(name), hero_image_url)')
         .eq('id', vehicleId)
         .single();
 
-      if (data) setVehicle(data);
+      if (error) {
+        console.error('Failed to fetch vehicle:', error);
+        return;
+      }
+
+      if (data) {
+        // Transform nested data to flat structure for component
+        const vehicle = {
+          id: data.id,
+          model_name: data.models?.name || 'Unknown Model',
+          brand_name: data.models?.brands?.name || 'Unknown Brand',
+          year: data.model_year,
+          hero_image_url: data.models?.hero_image_url || null,
+        };
+        setVehicle(vehicle);
+      }
     };
 
     fetchVehicle();
