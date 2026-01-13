@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase';
@@ -25,6 +25,11 @@ interface VehicleData {
   trim_name: string;
 }
 
+/**
+ * Date/Time/Venue selection step (Step 1)
+ * Fetches vehicle data and displays basic info
+ */
+export default function DateTimeStep({ vehicleId }: { vehicleId: string }) {
 export default function DateTimeStep({ vehicleId }: { vehicleId: string }) {
   const [vehicle, setVehicle] = useState<VehicleData | null>(null);
   const [error, setError] = useState<string | null>(null);

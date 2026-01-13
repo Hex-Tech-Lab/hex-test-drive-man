@@ -90,7 +90,7 @@ grep NEXT_PUBLIC_SUPABASE_ANON_KEY .env.local
 ### Step 2: Query Attempt
 ```bash
 curl "https://lbttmhwckcrfdymwyuhn.supabase.co/rest/v1/vehicle_trims?id=eq.abe7f3bc-f421-40fe-8bc4-f865757974d8&select=id,model_name,brand_name,year,hero_image_url" \
-  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  -H "apikey: [REDACTED_SUPABASE_ANON_KEY]"
 ```
 
 **Result**:

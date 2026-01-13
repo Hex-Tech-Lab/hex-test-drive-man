@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase';
@@ -25,6 +25,9 @@ interface VehicleData {
   trim_name: string;
 }
 
+/**
+ *
+ */
 export default function ConfirmStep({ vehicleId }: { vehicleId: string }) {
   const [vehicle, setVehicle] = useState<VehicleData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -41,9 +44,11 @@ export default function ConfirmStep({ vehicleId }: { vehicleId: string }) {
           .eq('id', vehicleId)
           .single() as { data: VehicleDataRaw | null; error: any };
 
-        if (fetchError) throw fetchError;
-        if (!data || !data.models) throw new Error('Vehicle not found');
-
+/**
+ * Confirm booking step (Step 3)
+ * Displays vehicle summary for confirmation
+ */
+export default function ConfirmStep({ vehicleId }: { vehicleId: string }) {
         const flatVehicle: VehicleData = {
           id: data.id,
           model_name: data.models.name,
