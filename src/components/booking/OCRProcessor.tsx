@@ -126,7 +126,7 @@ export default function OCRProcessor({
       // Look for patterns: multiple words with capital letters or Arabic characters
       const namePatterns = [
         // English name pattern
-        /([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)/,
+        /^([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)$/,
         // Arabic name pattern
         /[\u0600-\u06FF\s]{10,}/,
       ];
