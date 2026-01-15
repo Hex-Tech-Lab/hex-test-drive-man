@@ -191,7 +191,7 @@ export default function BarcodeReader({
       for (const line of lines) {
         // Look for name patterns (multiple words, Arabic or English)
         if (
-          line.match(/^[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+$/) ||
+          line.match(/^[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,5}$/) ||
           line.match(/^[\u0600-\u06FF\s]{10,}$/)
         ) {
           name = line.trim();
