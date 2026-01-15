@@ -28,9 +28,22 @@ export default function BookingWizardPage() {
   const setStep = useBookingWizardStore((s) => s.setStep);
   const vehicleId = useBookingWizardStore((s) => s.vehicleId);
   const setVehicleId = useBookingWizardStore((s) => s.setVehicleId);
-  const canProceedToStep2 = useBookingWizardStore((s) => s.canProceedToStep2);
-  const canProceedToStep3 = useBookingWizardStore((s) => s.canProceedToStep3);
   const reset = useBookingWizardStore((s) => s.reset);
+
+  // Subscribe to appointment and documents to trigger re-renders for validation
+  // This ensures NEXT button state updates when form fields change
+  const appointment = useBookingWizardStore((s) => s.appointment);
+  const documents = useBookingWizardStore((s) => s.documents);
+
+  // Compute validation locally (triggers re-render when state changes)
+  const canProceedToStep2 =
+    appointment.date.trim().length > 0 &&
+    appointment.time.trim().length > 0 &&
+    appointment.venue.trim().length > 0;
+
+  const canProceedToStep3 =
+    documents.nationalId !== null &&
+    documents.driversLicense !== null;
 
   const steps = ['Date & Time', 'ID Upload', 'Confirm'];
 
@@ -67,9 +80,9 @@ export default function BookingWizardPage() {
    * Validates current step before proceeding
    */
   const handleNext = () => {
-    if (step === 1 && canProceedToStep2()) {
+    if (step === 1 && canProceedToStep2) {
       setStep(2);
-    } else if (step === 2 && canProceedToStep3()) {
+    } else if (step === 2 && canProceedToStep3) {
       setStep(3);
     }
   };
@@ -156,8 +169,8 @@ export default function BookingWizardPage() {
                 onClick={handleNext}
                 variant="contained"
                 disabled={
-                  (step === 1 && !canProceedToStep2()) ||
-                  (step === 2 && !canProceedToStep3())
+                  (step === 1 && !canProceedToStep2) ||
+                  (step === 2 && !canProceedToStep3)
                 }
               >
                 Next
