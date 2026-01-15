@@ -31,3 +31,72 @@
 PR #80: gc/locale-system-migration
 - Scope: Migrate `src/lib/i18n.ts` to `public/locales/{en,ar}.json` and implement loading logic.
 - Est. time: 4h
+
+## CODE REVIEW TOOLS ANALYSIS
+
+### CodeRabbit Findings
+- Status: Skipped (Docs only)
+- Reason: Path filter excludes markdown files.
+
+### Sourcery Findings
+- Status: Passed
+- Output: Generated summary and reviewer guide. No issues.
+
+### Sonar Findings
+- Status: Passed (Quality Gate Green)
+- Issues: 0 new issues.
+
+### Snyk Vulnerabilities
+- Status: Failed (Environment Error)
+- Analysis: Likely CI configuration issue (pnpm missing), not a security vulnerability in the documentation.
+
+## 3-BUCKET CLASSIFICATION
+
+### Bucket 1: Merge Immediately (0 items)
+_This PR itself is Bucket 1 (Docs only), but tracks the following risks:_
+
+### Bucket 2: Fix Before Merge (Items tracking for MVP 1.6+)
+1. **R-001**: Hardcoded locale strings (CRITICAL)
+   - Effort: 4h
+   - Owner: CC
+   - PR: #81
+   - Timeline: Immediate
+
+2. **R-002**: Missing Global ErrorBoundary (HIGH)
+   - Effort: 1.5h
+   - Owner: CC
+   - PR: #82
+   - Timeline: Next 24h
+
+### Bucket 3: Document & Defer
+1. **R-003**: VehicleCard God Component (MEDIUM)
+   - GitHub Issue: #83 (To be created)
+   - Sprint: Post-MVP 1.6
+
+## EFFORT ESTIMATION MATRIX
+
+| Risk ID | Description | Severity | Bucket | Est. Hours | Blocker? | Owner | PR Target |
+|---------|-------------|----------|--------|------------|----------|-------|-----------|
+| R-001 | Hardcoded locale strings | CRITICAL | 2 | 4h | YES | CC | #81 |
+| R-002 | Missing ErrorBoundary | HIGH | 2 | 1.5h | YES | CC | #82 |
+| R-003 | VehicleCard God Component | MEDIUM | 3 | 3h | NO | BB | Defer |
+| R-004 | Environment (pnpm) Fix | HIGH | 2 | 1h | YES | BB | #84 |
+
+### TOTALS
+- Bucket 1 (Merge now): This PR (#80)
+- Bucket 2 (Fix required): 3 items, 6.5 hours
+- Bucket 3 (Defer): 1 item, 3 hours
+
+## RECOMMENDED MERGE DECISION
+
+**Current Status**: [X] APPROVE MERGE
+
+**Rationale**:
+- This is a documentation-only PR establishing the baseline.
+- No code changes involved.
+- CI failure is known environment issue to be fixed in R-004.
+
+**Next Actions**:
+1. Merge PR #80.
+2. Assign PR #81 (Locales) to CC.
+3. Assign PR #84 (Env Fix) to BB.
