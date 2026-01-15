@@ -289,6 +289,128 @@ When receiving a task from CC:
 
 ---
 
+***
+
+## 6-CHUNK PROMPT ARCHITECTURE
+
+**Purpose**: Modular, scalable prompt construction for all agents.
+
+### Chunk Structure
+
+**CHUNK 0: IDENTITY + CORE RULES** (1KB - Always loaded)
+- Agent role (PPLX/CC/BB/GC)
+- 0.1% expertise mandate
+- Communication TOC style
+- Challenge illogical paths
+
+**CHUNK 1: GIT SYNC + PRE-FLIGHT** (2KB - Every session)
+```bash
+git fetch origin
+git checkout main
+git pull origin main
+git branch -r | head -20
+ls -la src/components/ src/app/
+git status
+```
+- File existence checks (VehicleCard.tsx, FilterPanel.tsx)
+- FAIL fast if repo state unexpected
+- Verify established Next.js project (1000+ files)
+
+**CHUNK 2: SCRAPER + CONTEXT BUILD** (3KB - Dynamic)
+```bash
+pnpm run pr:scrape $(gh pr list --limit 10 --json number -q '.[].number')
+cat docs/PROMPT_FIXTURES.md
+tail -20 docs/PERFORMANCE_LOG.md
+find docs/ -name "*CLAUDE*" -o -name "*prompt*"
+```
+- Build full context from GitHub + docs
+- Cite sources [file:X]
+
+**CHUNK 3: ANTI-PATTERNS + GUARDRAILS** (2KB - Immutable)
+
+**NEVER DO**:
+- ❌ `create-next-app` / `npx init` (NEVER recreate established project)
+- ❌ `npm` / `yarn` (pnpm ONLY)
+- ❌ `git push --force main` (use `--force-with-lease` on feature branches only)
+- ❌ Skip verification ("assume repo is empty")
+- ❌ Local-only work (GitHub = single source of truth)
+- ❌ Estimate line counts (use `wc -l` actual measurement)
+
+**ALWAYS DO**:
+- ✅ VERIFY 10x → PLAN 10x → EXECUTE 1x
+- ✅ Check objective alignment every iteration
+- ✅ Flag futility/off-track/loops immediately
+- ✅ First-time resolution mindset
+
+**CHUNK 4: WORKFLOW + DOC SYNC** (2KB - Session closure)
+
+**PR Automation:**
+1. `git checkout -b [agent]/[feature]`
+2. Commit → `gh pr create`
+3. `pnpm run pr:scrape <PR#>`
+4. Classify → Merge Bucket 1 only
+
+**Documentation Sync (End every session):**
+```markdown
+## YYYY-MM-DD HHMM TZ - [AGENT] - [Task Name]
+**Timebox**: X minutes (planned)
+**Start**: YYYY-MM-DD HHMM TZ
+**End**: YYYY-MM-DD HHMM TZ
+**Actual Duration**: X minutes
+**Variance**: +/-X minutes (+/-X%)
+**Agent**: [PPLX/CC/BB/CCW/GC]
+**Outcome**: SUCCESS/PARTIAL/BLOCKED
+```
+
+Update docs/PERFORMANCE_LOG.md + agent-specific MD (CLAUDE.md/BLACKBOX.md/GEMINI.md).
+
+**CHUNK 5: PRIORITIES + COMMUNICATION** (1KB - Output format)
+
+**MVP Priorities (Ranked):**
+1. Highest business value
+2. Least troubleshooting loops
+3. Fastest GTM
+4. Minimal technical debt
+5. Clean as you go (no "fix later")
+
+**Communication Format (TOC):**
+```
+## Status
+- Current branch/state
+- Verification results
+
+## Plan
+- 3-step execution
+- Risks/mitigations
+
+## Execution
+- Commands/output
+- PR # created
+
+## Validation
+- Tests passed
+- Metrics improved
+
+## Next
+- Doc updates
+- Handoff if needed
+```
+
+Bullets: 7-15 words (max 25 for complex concepts).
+
+### Chunk Assembly
+
+**For agent prompts, combine chunks as needed:**
+- All tasks: Chunks 0, 1, 3, 5 (baseline)
+- Complex tasks: + Chunks 2, 4 (full workflow)
+- Quick fixes: Chunks 0, 1, 5 only (minimal)
+
+**Script-based assembly** (future):
+```bash
+pnpm run prompt:build --agent=GC --task=complex
+# Outputs assembled prompt from chunk files
+```
+
 ## VERSION HISTORY
 
 ### v2.4 (2026-01-05 23:45 EET)
