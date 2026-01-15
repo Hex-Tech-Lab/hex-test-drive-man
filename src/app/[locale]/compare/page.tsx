@@ -10,6 +10,9 @@ import { useLanguageStore } from '@/stores/language-store';
 import { useParams, useRouter } from 'next/navigation';
 import { formatEGP, getVehicleImage, getVehicleImageSrcSet, getPlaceholderSrcSet } from '@/lib/imageHelper';
 
+/**
+ *
+ */
 export default function ComparePage() {
   const params = useParams();
   const locale = params.locale as string;

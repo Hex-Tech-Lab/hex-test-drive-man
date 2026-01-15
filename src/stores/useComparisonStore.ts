@@ -65,8 +65,8 @@ export const useComparisonStore = create<ComparisonStore>()(
     }),
     {
       name: 'comparison-storage',
-    }
-  )
+    },
+  ),
 );
 
 /**

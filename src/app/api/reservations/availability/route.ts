@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     if (!vehicleId || !date) {
       return NextResponse.json(
         { error: 'Missing vehicleId or date parameter' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
     if (!dateRegex.test(date)) {
       return NextResponse.json(
         { error: 'Invalid date format. Use YYYY-MM-DD' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
     if (error) {
       return NextResponse.json(
         { error: error.message },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
     console.error('GET /api/reservations/availability error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

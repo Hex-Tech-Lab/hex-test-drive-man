@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Button, Box, Typography } from '@mui/material';
 
@@ -13,6 +13,9 @@ const timeSlots: TimeSlot[] = [
   // ... 30min intervals
 ];
 
+/**
+ *
+ */
 export default function TimePills({ selectedTime, onSelect }: { selectedTime: string; onSelect: (time: string) => void }) {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>

@@ -78,7 +78,7 @@ export const useBookingStore = create<BookingStore>()(
         // Check 90-day limit (max 3 test drives)
         if (recentItems.length >= 3) {
           alert(
-            'Maximum 3 test drives can be booked within 90 days. Please wait or complete an existing booking.'
+            'Maximum 3 test drives can be booked within 90 days. Please wait or complete an existing booking.',
           );
           return false;
         }
@@ -116,16 +116,16 @@ export const useBookingStore = create<BookingStore>()(
           bookingFlow: state.bookingFlow
             ? { ...state.bookingFlow, ...data }
             : {
-                vehicleId: '',
-                datetime: '',
-                idFrontImage: null,
-                idBackImage: null,
-                ocrData: null,
-                barcodeData: null,
-                manualData: null,
-                currentStep: 0,
-                ...data,
-              },
+              vehicleId: '',
+              datetime: '',
+              idFrontImage: null,
+              idBackImage: null,
+              ocrData: null,
+              barcodeData: null,
+              manualData: null,
+              currentStep: 0,
+              ...data,
+            },
         }));
       },
 
@@ -141,8 +141,8 @@ export const useBookingStore = create<BookingStore>()(
     }),
     {
       name: 'booking-storage',
-    }
-  )
+    },
+  ),
 );
 
 /**

@@ -31,21 +31,21 @@ export async function POST(request: NextRequest) {
     if (!body.phone || typeof body.phone !== 'string') {
       return NextResponse.json(
         { error: 'Phone number is required' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!body.subjectId || typeof body.subjectId !== 'string') {
       return NextResponse.json(
         { error: 'Subject ID is required' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!body.subjectType || !['booking', 'reservation'].includes(body.subjectType)) {
       return NextResponse.json(
         { error: 'Subject type must be "booking" or "reservation"' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     if (normalizedPhone.length < 10) {
       return NextResponse.json(
         { error: 'Invalid phone number format' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     const result = await smsService.sendOtp(
       normalizedPhone,
       body.subjectId,
-      body.subjectType
+      body.subjectType,
     );
 
     if (!result.success) {
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
           error: result.error || 'Failed to send OTP',
           warning: result.warning,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -89,12 +89,12 @@ export async function POST(request: NextRequest) {
       {
         endpoint: '/api/otp/send',
         method: 'POST',
-      }
+      },
     );
 
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 const OPENCV_CDN_PRIORITY = [
   'https://cdn.jsdelivr.net/npm/@opencv/opencv@4.10.0/opencv.js',
   'https://cdnjs.cloudflare.com/ajax/libs/opencv.js/4.10.0/opencv.js',
-  'https://unpkg.com/@opencv/opencv@4.10.0/opencv.js'
+  'https://unpkg.com/@opencv/opencv@4.10.0/opencv.js',
 ];
 
 type ScannerLevel = 1 | 2 | 3 | 4;

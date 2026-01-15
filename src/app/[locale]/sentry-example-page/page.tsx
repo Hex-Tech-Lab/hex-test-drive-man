@@ -1,5 +1,8 @@
 'use client';
 
+/**
+ *
+ */
 export default function SentryTestPage() {
   return (
     <div style={{ padding: '2rem', textAlign: 'center' }}>

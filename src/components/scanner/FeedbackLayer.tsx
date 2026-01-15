@@ -116,7 +116,7 @@ export default function FeedbackLayer({ isStable, language = 'en' }: FeedbackLay
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 10
+        zIndex: 10,
       }}
     >
       {/* Visual Feedback - Green Checkmark */}
@@ -130,8 +130,8 @@ export default function FeedbackLayer({ isStable, language = 'en' }: FeedbackLay
             animation: 'fadeIn 0.3s ease-in',
             '@keyframes fadeIn': {
               from: { opacity: 0, transform: 'scale(0.8)' },
-              to: { opacity: 1, transform: 'scale(1)' }
-            }
+              to: { opacity: 1, transform: 'scale(1)' },
+            },
           }}
         >
           <CheckCircleIcon
@@ -142,8 +142,8 @@ export default function FeedbackLayer({ isStable, language = 'en' }: FeedbackLay
               animation: 'pulse 1s ease-in-out infinite',
               '@keyframes pulse': {
                 '0%, 100%': { transform: 'scale(1)' },
-                '50%': { transform: 'scale(1.1)' }
-              }
+                '50%': { transform: 'scale(1.1)' },
+              },
             }}
           />
           <Typography
@@ -155,7 +155,7 @@ export default function FeedbackLayer({ isStable, language = 'en' }: FeedbackLay
               backgroundColor: 'rgba(0, 0, 0, 0.7)',
               px: 2,
               py: 1,
-              borderRadius: 1
+              borderRadius: 1,
             }}
           >
             {language === 'ar' ? 'ثابت - جاري التقاط الصورة' : 'Stable - Capturing'}
@@ -177,7 +177,7 @@ export default function FeedbackLayer({ isStable, language = 'en' }: FeedbackLay
             py: 2,
             borderRadius: 2,
             textAlign: 'center',
-            maxWidth: '80%'
+            maxWidth: '80%',
           }}
         >
           <Typography variant="body1">

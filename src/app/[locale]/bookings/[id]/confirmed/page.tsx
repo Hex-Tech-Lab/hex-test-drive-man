@@ -1,48 +1,51 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
-import { Box, Typography, Container, Paper, Button, CircularProgress, Alert } from '@mui/material'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'
-import Link from 'next/link'
-import BookingQRCode from '@/components/booking/BookingQRCode'
-import type { Reservation } from '@/types/reservation'
+import { useEffect, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import { Box, Typography, Container, Paper, Button, CircularProgress, Alert } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import Link from 'next/link';
+import BookingQRCode from '@/components/booking/BookingQRCode';
+import type { Reservation } from '@/types/reservation';
 
+/**
+ *
+ */
 export default function BookingConfirmedPage() {
-  const params = useParams()
-  const router = useRouter()
-  const bookingId = params.id as string
-  const locale = (params.locale as string) || 'en'
+  const params = useParams();
+  const router = useRouter();
+  const bookingId = params.id as string;
+  const locale = (params.locale as string) || 'en';
 
-  const [reservation, setReservation] = useState<Reservation | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [reservation, setReservation] = useState<Reservation | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchReservation = async () => {
       try {
-        const response = await fetch(`/api/reservations/${bookingId}`)
-        if (!response.ok) throw new Error('Failed to fetch reservation')
+        const response = await fetch(`/api/reservations/${bookingId}`);
+        if (!response.ok) throw new Error('Failed to fetch reservation');
         
-        const data = await response.json()
-        setReservation(data.reservation)
+        const data = await response.json();
+        setReservation(data.reservation);
       } catch (err) {
-        console.error('Error fetching reservation:', err)
-        setError('Failed to load booking details')
+        console.error('Error fetching reservation:', err);
+        setError('Failed to load booking details');
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchReservation()
-  }, [bookingId])
+    fetchReservation();
+  }, [bookingId]);
 
   if (loading) {
     return (
       <Container maxWidth="sm" sx={{ mt: 8, textAlign: 'center' }}>
         <CircularProgress />
       </Container>
-    )
+    );
   }
 
   if (error || !reservation) {
@@ -57,7 +60,7 @@ export default function BookingConfirmedPage() {
           Back to Bookings
         </Button>
       </Container>
-    )
+    );
   }
 
   return (
@@ -67,7 +70,7 @@ export default function BookingConfirmedPage() {
           sx={{
             fontSize: 80,
             color: 'success.main',
-            mb: 2
+            mb: 2,
           }}
         />
 
@@ -88,7 +91,7 @@ export default function BookingConfirmedPage() {
           sx={{
             p: 2,
             mb: 3,
-            backgroundColor: 'grey.50'
+            backgroundColor: 'grey.50',
           }}
         >
           <Typography variant="caption" color="text.secondary">
@@ -119,5 +122,5 @@ export default function BookingConfirmedPage() {
         </Button>
       </Paper>
     </Container>
-  )
+  );
 }

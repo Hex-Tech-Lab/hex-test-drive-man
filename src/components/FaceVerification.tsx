@@ -79,6 +79,9 @@ const translations = {
   },
 };
 
+/**
+ *
+ */
 export default function FaceVerification({
   idImageFile,
   onVerificationComplete,

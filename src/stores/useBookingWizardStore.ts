@@ -201,6 +201,6 @@ export const useBookingWizardStore = create<BookingWizardState>()(
         vehicleId: state.vehicleId,
         // Don't persist sensitive data (phone, documents, OTP)
       }),
-    }
-  )
+    },
+  ),
 );

@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase';
 
+/**
+ *
+ */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -18,7 +21,7 @@ export async function POST(request: NextRequest) {
       .from('sms_verifications')
       .update({
         delivery_status: status,
-        delivered_at: delivered_at ? new Date(delivered_at * 1000).toISOString() : null
+        delivered_at: delivered_at ? new Date(delivered_at * 1000).toISOString() : null,
       })
       .eq('phone_number', `+${to}`)
       .order('created_at', { ascending: false })
@@ -35,7 +38,7 @@ export async function POST(request: NextRequest) {
     console.error('[SMS_WEBHOOK] Error:', error);
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

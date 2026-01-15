@@ -28,6 +28,9 @@ export interface VerifyOtpResult {
   error?: string;
 }
 
+/**
+ *
+ */
 function generateOTP(): string {
   return String(crypto.randomInt(0, 1_000_000)).padStart(6, '0');
 }
@@ -54,14 +57,14 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
   const supabase = createClient();
   // Store OTP in database for verification
   const { error: dbError } = await supabase
-  .from('sms_verifications')
-  .insert({
-    booking_id: subjectId, // Link to booking (subjectId is booking UUID)
-    phone_number: phone.trim(),
-    otp: code,
-    expires_at: new Date(Date.now() + 10 * 60 * 1000).toISOString(), // 10 min expiry
-    verified: false
-  });
+    .from('sms_verifications')
+    .insert({
+      booking_id: subjectId, // Link to booking (subjectId is booking UUID)
+      phone_number: phone.trim(),
+      otp: code,
+      expires_at: new Date(Date.now() + 10 * 60 * 1000).toISOString(), // 10 min expiry
+      verified: false,
+    });
 
   if (dbError) {
     console.error('Failed to store OTP:', dbError);
@@ -89,7 +92,7 @@ export async function requestOtp(params: RequestOtpParams): Promise<RequestOtpRe
  */
 export async function verifyOtp(phoneNumber: string, otp: string): Promise<boolean> {
   try {
-    const supabase = createClient()
+    const supabase = createClient();
 
     // Find matching OTP for this phone number
     const { data: verification, error } = await supabase
@@ -101,11 +104,11 @@ export async function verifyOtp(phoneNumber: string, otp: string): Promise<boole
       .gte('expires_at', new Date().toISOString())
       .order('created_at', { ascending: false })
       .limit(1)
-      .single()
+      .single();
 
     if (error || !verification) {
-      console.log('OTP verification failed:', error?.message || 'No matching OTP found')
-      return false
+      console.log('OTP verification failed:', error?.message || 'No matching OTP found');
+      return false;
     }
 
     // Mark as verified
@@ -113,19 +116,19 @@ export async function verifyOtp(phoneNumber: string, otp: string): Promise<boole
       .from('sms_verifications')
       .update({
         verified: true,
-        verified_at: new Date().toISOString()
+        verified_at: new Date().toISOString(),
       })
-      .eq('id', verification.id)
+      .eq('id', verification.id);
 
     if (updateError) {
-      console.error('Failed to update verification status:', updateError)
-      return false
+      console.error('Failed to update verification status:', updateError);
+      return false;
     }
 
-    console.log('OTP verified successfully for:', phoneNumber)
-    return true
+    console.log('OTP verified successfully for:', phoneNumber);
+    return true;
   } catch (error) {
-    console.error('verifyOtp error:', error)
-    return false
+    console.error('verifyOtp error:', error);
+    return false;
   }
 }

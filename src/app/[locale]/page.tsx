@@ -79,6 +79,9 @@ export default function CatalogPage() {
   }, [locale, setLanguage]);
 
   useEffect(() => {
+    /**
+     *
+     */
     async function fetchVehicles() {
       try {
         setLoading(true);
@@ -302,20 +305,20 @@ export default function CatalogPage() {
       return true;
     }).sort((a, b) => {
       switch (sortBy) {
-        case 'price_asc':
-          return a.minPrice - b.minPrice;
-        case 'price_desc':
-          return b.minPrice - a.minPrice;
-        case 'year_desc':
-          return b.model_year - a.model_year;
-        case 'year_asc':
-          return a.model_year - b.model_year;
-        case 'brand_asc':
-          return a.models.brands.name.localeCompare(b.models.brands.name);
-        case 'brand_desc':
-          return b.models.brands.name.localeCompare(a.models.brands.name);
-        default:
-          return 0;
+      case 'price_asc':
+        return a.minPrice - b.minPrice;
+      case 'price_desc':
+        return b.minPrice - a.minPrice;
+      case 'year_desc':
+        return b.model_year - a.model_year;
+      case 'year_asc':
+        return a.model_year - b.model_year;
+      case 'brand_asc':
+        return a.models.brands.name.localeCompare(b.models.brands.name);
+      case 'brand_desc':
+        return b.models.brands.name.localeCompare(a.models.brands.name);
+      default:
+        return 0;
       }
     });
   }, [aggregatedVehicles, searchFilters, filters, sortBy]);
@@ -364,7 +367,7 @@ export default function CatalogPage() {
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600 }}>
               {language === 'ar'
                 ? 'لم نتمكن من تحميل المركبات. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.'
-                : "We couldn't load the vehicles. Please check your internet connection and try again."}
+                : 'We couldn\'t load the vehicles. Please check your internet connection and try again.'}
             </Typography>
             <Button
               variant="contained"

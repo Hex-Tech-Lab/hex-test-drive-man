@@ -28,6 +28,9 @@ interface SkeletonTableProps {
   rows?: number;
 }
 
+/**
+ *
+ */
 export default function SkeletonTable({ rows = 5 }: SkeletonTableProps) {
   const skeletonRows = Array.from({ length: rows }, (_, i) => i);
 

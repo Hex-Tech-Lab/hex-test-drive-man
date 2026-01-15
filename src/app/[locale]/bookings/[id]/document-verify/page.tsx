@@ -34,6 +34,9 @@ import { createAppError, getUserErrorMessage, logError } from '@/lib/errorHandli
 
 const steps = ['Upload ID', 'Face Verification', 'Complete'];
 
+/**
+ *
+ */
 export default function DocumentVerifyPage() {
   const params = useParams();
   const router = useRouter();

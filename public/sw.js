@@ -33,7 +33,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[SW] Caching static assets');
       return cache.addAll(STATIC_ASSETS);
-    })
+    }),
   );
   
   // Activate immediately
@@ -52,9 +52,9 @@ self.addEventListener('activate', (event) => {
             console.log('[SW] Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
-        })
+        }),
       );
-    })
+    }),
   );
   
   // Take control immediately
@@ -85,7 +85,7 @@ self.addEventListener('fetch', (event) => {
             return networkResponse;
           });
         });
-      })
+      }),
     );
     return;
   }
@@ -117,10 +117,10 @@ self.addEventListener('fetch', (event) => {
               {
                 status: 503,
                 headers: { 'Content-Type': 'application/json' },
-              }
+              },
             );
           });
-        })
+        }),
     );
     return;
   }
@@ -142,7 +142,7 @@ self.addEventListener('fetch', (event) => {
         }
         return networkResponse;
       });
-    })
+    }),
   );
 });
 
@@ -160,6 +160,9 @@ self.addEventListener('sync', (event) => {
 });
 
 // Sync upload ID
+/**
+ *
+ */
 async function syncUploadID() {
   try {
     const cache = await caches.open(CACHE_NAME);
@@ -187,6 +190,9 @@ async function syncUploadID() {
 }
 
 // Sync upload selfie
+/**
+ *
+ */
 async function syncUploadSelfie() {
   try {
     const cache = await caches.open(CACHE_NAME);
@@ -226,7 +232,7 @@ self.addEventListener('message', (event) => {
       caches.open(MODELS_CACHE).then((cache) => {
         console.log('[SW] Pre-caching models');
         return cache.addAll(MODEL_FILES);
-      })
+      }),
     );
   }
 });

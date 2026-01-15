@@ -19,7 +19,7 @@ import {
   Alert,
   CircularProgress,
   Chip,
-  Grid
+  Grid,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -46,7 +46,7 @@ interface ReservationFormProps {
 export default function ReservationForm({
   vehicleId: initialVehicleId,
   onSubmit,
-  language = 'en'
+  language = 'en',
 }: ReservationFormProps) {
   const [vehicleId, setVehicleId] = useState(initialVehicleId || '');
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -88,7 +88,7 @@ export default function ReservationForm({
       try {
         const dateStr = selectedDate.toISOString().split('T')[0];
         const response = await fetch(
-          `/api/reservations/availability?vehicleId=${vehicleId}&date=${dateStr}`
+          `/api/reservations/availability?vehicleId=${vehicleId}&date=${dateStr}`,
         );
 
         if (!response.ok) throw new Error('Failed to fetch availability');
@@ -100,7 +100,7 @@ export default function ReservationForm({
         setError(
           isArabic
             ? 'فشل تحميل الأوقات المتاحة'
-            : 'Failed to load available time slots'
+            : 'Failed to load available time slots',
         );
       } finally {
         setLoading(false);
@@ -115,7 +115,7 @@ export default function ReservationForm({
       setError(
         isArabic
           ? 'يرجى ملء جميع الحقول'
-          : 'Please fill all fields'
+          : 'Please fill all fields',
       );
       return;
     }
@@ -125,7 +125,7 @@ export default function ReservationForm({
 
     onSubmit({
       vehicleId,
-      datetime
+      datetime,
     });
   };
 
@@ -177,9 +177,9 @@ export default function ReservationForm({
               fullWidth: true,
               sx: { mb: 3 },
               InputProps: {
-                startAdornment: <EventIcon sx={{ mr: 1, color: 'action.active' }} />
-              }
-            }
+                startAdornment: <EventIcon sx={{ mr: 1, color: 'action.active' }} />,
+              },
+            },
           }}
         />
 
@@ -207,7 +207,7 @@ export default function ReservationForm({
                       sx={{
                         width: '100%',
                         cursor: slot.available ? 'pointer' : 'not-allowed',
-                        opacity: slot.available ? 1 : 0.5
+                        opacity: slot.available ? 1 : 0.5,
                       }}
                     />
                   </Grid>

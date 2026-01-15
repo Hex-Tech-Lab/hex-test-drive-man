@@ -139,7 +139,7 @@ export default function CameraCapture({
       setError(
         isArabic
           ? 'فشل الوصول إلى الكاميرا. يرجى التحقق من الأذونات.'
-          : 'Failed to access camera. Please check permissions.'
+          : 'Failed to access camera. Please check permissions.',
       );
     }
   };
@@ -204,7 +204,7 @@ export default function CameraCapture({
       setError(
         isArabic
           ? 'فشل التقاط الصورة. يرجى المحاولة مرة أخرى.'
-          : 'Failed to capture image. Please try again.'
+          : 'Failed to capture image. Please try again.',
       );
     } finally {
       setProcessing(false);
@@ -213,7 +213,7 @@ export default function CameraCapture({
 
   // Check image quality
   const checkImageQuality = async (
-    imageDataUrl: string
+    imageDataUrl: string,
   ): Promise<{ passed: boolean; message: string }> => {
     return new Promise((resolve) => {
       const img = document.createElement('img');

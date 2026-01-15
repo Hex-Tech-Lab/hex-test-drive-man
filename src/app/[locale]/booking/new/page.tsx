@@ -35,6 +35,9 @@ const stepsAr = ['اختر التاريخ والوقت', 'التقاط البط�
 
 type CaptureMode = 'camera' | 'manual';
 
+/**
+ *
+ */
 export default function NewBookingPage() {
   const router = useRouter();
   const params = useParams();
@@ -102,7 +105,7 @@ export default function NewBookingPage() {
       name: string;
       birthDate: string;
     },
-    verified: boolean
+    verified: boolean,
   ) => {
     setBookingFlow({
       barcodeData: { ...data, verified },
@@ -198,7 +201,7 @@ export default function NewBookingPage() {
   // Upload image to Supabase Storage
   const uploadImage = async (
     imageData: string,
-    prefix: string
+    prefix: string,
   ): Promise<string> => {
     const blob = await fetch(imageData).then((r) => r.blob());
     const formData = new FormData();
@@ -321,15 +324,15 @@ export default function NewBookingPage() {
             {bookingFlow?.idBackImage &&
               bookingFlow.ocrData &&
               !bookingFlow.barcodeData && (
-                <Box sx={{ mt: 3 }}>
-                  <BarcodeReader
-                    imageData={bookingFlow.idBackImage}
-                    ocrData={bookingFlow.ocrData}
-                    onComplete={handleBarcodeComplete}
-                    language={language}
-                  />
-                </Box>
-              )}
+              <Box sx={{ mt: 3 }}>
+                <BarcodeReader
+                  imageData={bookingFlow.idBackImage}
+                  ocrData={bookingFlow.ocrData}
+                  onComplete={handleBarcodeComplete}
+                  language={language}
+                />
+              </Box>
+            )}
 
             {bookingFlow?.ocrData && bookingFlow?.barcodeData && (
               <Box sx={{ mt: 3 }}>
@@ -440,8 +443,8 @@ export default function NewBookingPage() {
                     ? 'جاري التأكيد...'
                     : 'Confirming...'
                   : isArabic
-                  ? 'تأكيد الحجز'
-                  : 'Confirm Booking'}
+                    ? 'تأكيد الحجز'
+                    : 'Confirm Booking'}
               </Button>
             </Box>
           </Box>

@@ -93,7 +93,7 @@ export default function OCRProcessor({
       setError(
         isArabic
           ? 'فشل قراءة البطاقة. يرجى إدخال البيانات يدوياً.'
-          : 'Failed to read ID. Please enter data manually.'
+          : 'Failed to read ID. Please enter data manually.',
       );
     } finally {
       setProcessing(false);
@@ -102,7 +102,7 @@ export default function OCRProcessor({
 
   // Parse Egyptian National ID text
   const parseEgyptianID = (
-    text: string
+    text: string,
   ): { name: string; nationalId: string; birthDate: string } | null => {
     try {
       // Clean text

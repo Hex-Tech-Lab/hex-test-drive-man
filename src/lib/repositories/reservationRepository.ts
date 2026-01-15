@@ -13,7 +13,7 @@ const supabase = createClient();
  */
 export async function createReservation(
   userId: string,
-  input: ReservationInput
+  input: ReservationInput,
 ): Promise<{ data: Reservation | null; error: Error | null }> {
   try {
     const insertData: any = {
@@ -51,7 +51,7 @@ export async function createReservation(
  * Gets all reservations for a user
  */
 export async function getUserReservations(
-  userId: string
+  userId: string,
 ): Promise<{ data: Reservation[] | null; error: Error | null }> {
   try {
     const { data, error } = await supabase
@@ -71,7 +71,7 @@ export async function getUserReservations(
  * Gets a single reservation by ID
  */
 export async function getReservationById(
-  id: string
+  id: string,
 ): Promise<{ data: Reservation | null; error: Error | null }> {
   try {
     const { data, error } = await supabase
@@ -92,7 +92,7 @@ export async function getReservationById(
  */
 export async function updateReservationStatus(
   id: string,
-  status: 'pending' | 'confirmed' | 'cancelled' | 'completed'
+  status: 'pending' | 'confirmed' | 'cancelled' | 'completed',
 ): Promise<{ data: Reservation | null; error: Error | null }> {
   try {
     const { data, error } = await supabase
@@ -114,7 +114,7 @@ export async function updateReservationStatus(
  */
 export async function updateReservationQRCode(
   id: string,
-  qrCodeData: string
+  qrCodeData: string,
 ): Promise<{ data: Reservation | null; error: Error | null }> {
   try {
     const { data, error } = await supabase
@@ -136,7 +136,7 @@ export async function updateReservationQRCode(
  */
 export async function getAvailableTimeSlots(
   vehicleId: string,
-  date: string // YYYY-MM-DD format
+  date: string, // YYYY-MM-DD format
 ): Promise<{ data: TimeSlot[] | null; error: Error | null }> {
   try {
     // Get all reservations for this vehicle on this date
@@ -160,12 +160,12 @@ export async function getAvailableTimeSlots(
       const datetime = `${date}T${time}:00Z`;
       
       const isBooked = reservations?.some(
-        (r) => r.reservation_datetime === datetime
+        (r) => r.reservation_datetime === datetime,
       );
 
       slots.push({
         time,
-        available: !isBooked
+        available: !isBooked,
       });
     }
 
@@ -179,7 +179,7 @@ export async function getAvailableTimeSlots(
  * Cancels a reservation
  */
 export async function cancelReservation(
-  id: string
+  id: string,
 ): Promise<{ data: Reservation | null; error: Error | null }> {
   return updateReservationStatus(id, 'cancelled');
 }
@@ -189,7 +189,7 @@ export async function cancelReservation(
  */
 export async function uploadIDImage(
   userId: string,
-  file: File
+  file: File,
 ): Promise<{ data: string | null; error: Error | null }> {
   try {
     const fileExt = file.name.split('.').pop();
@@ -200,7 +200,7 @@ export async function uploadIDImage(
       .from('reservations')
       .upload(filePath, file, {
         cacheControl: '3600',
-        upsert: false
+        upsert: false,
       });
 
     if (uploadError) throw uploadError;

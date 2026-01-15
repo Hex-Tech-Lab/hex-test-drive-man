@@ -99,7 +99,7 @@ export class BookingWorkflowService {
       console.error('[WORKFLOW] Booking initiation failed:', error);
       captureSentryError(
         error instanceof Error ? error : new Error(String(error)),
-        { service: 'BookingWorkflowService', method: 'initiateBooking' }
+        { service: 'BookingWorkflowService', method: 'initiateBooking' },
       );
       throw error;
     }
@@ -157,7 +157,7 @@ export class BookingWorkflowService {
       console.error('[WORKFLOW] Verification failed:', error);
       captureSentryError(
         error instanceof Error ? error : new Error(String(error)),
-        { service: 'BookingWorkflowService', method: 'verifyBooking', bookingId }
+        { service: 'BookingWorkflowService', method: 'verifyBooking', bookingId },
       );
 
       return {

@@ -21,15 +21,24 @@ interface State {
  * Prevents white screen of death when Supabase/network fails
  */
 class BookingErrorBoundary extends Component<Props, State> {
+  /**
+   *
+   */
   constructor(props: Props) {
     super(props);
     this.state = { hasError: false, error: null };
   }
 
+  /**
+   *
+   */
   static getDerivedStateFromError(error: Error): State {
     return { hasError: true, error };
   }
 
+  /**
+   *
+   */
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // Log to console for debugging
     console.error('BookingErrorBoundary caught error:', error, errorInfo);
@@ -38,6 +47,9 @@ class BookingErrorBoundary extends Component<Props, State> {
     // Sentry.captureException(error, { extra: errorInfo });
   }
 
+  /**
+   *
+   */
   render() {
     if (this.state.hasError) {
       return (

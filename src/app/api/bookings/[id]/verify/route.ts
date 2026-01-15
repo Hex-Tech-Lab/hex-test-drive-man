@@ -14,7 +14,7 @@ import { bookingWorkflow } from '@/services/BookingWorkflowService';
  */
 export async function POST(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { id: bookingId } = await params;
@@ -24,7 +24,7 @@ export async function POST(
     if (!body.otp || typeof body.otp !== 'string' || body.otp.length !== 6) {
       return NextResponse.json(
         { error: 'Invalid OTP format. Must be 6 digits.' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -34,7 +34,7 @@ export async function POST(
     if (!result.success) {
       return NextResponse.json(
         { error: result.error || 'Verification failed' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -46,7 +46,7 @@ export async function POST(
     console.error('[VERIFY_ENDPOINT] Unexpected error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

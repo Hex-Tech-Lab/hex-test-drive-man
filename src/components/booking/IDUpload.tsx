@@ -16,7 +16,7 @@ import {
   Alert,
   CircularProgress,
   Tabs,
-  Tab
+  Tab,
 } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -66,7 +66,7 @@ export default function IDUpload({ onUploadComplete, language = 'en' }: IDUpload
       setIdError(
         isArabic
           ? 'الرقم القومي يجب أن يكون 14 رقماً'
-          : 'National ID must be 14 digits'
+          : 'National ID must be 14 digits',
       );
     } else {
       setIdError(null);
@@ -83,7 +83,7 @@ export default function IDUpload({ onUploadComplete, language = 'en' }: IDUpload
       setUploadError(
         isArabic
           ? 'يرجى اختيار صورة بصيغة JPG أو PNG'
-          : 'Please select a JPG or PNG image'
+          : 'Please select a JPG or PNG image',
       );
       return;
     }
@@ -93,7 +93,7 @@ export default function IDUpload({ onUploadComplete, language = 'en' }: IDUpload
       setUploadError(
         isArabic
           ? 'حجم الملف يجب أن يكون أقل من 5 ميجابايت'
-          : 'File size must be less than 5MB'
+          : 'File size must be less than 5MB',
       );
       return;
     }
@@ -165,7 +165,7 @@ export default function IDUpload({ onUploadComplete, language = 'en' }: IDUpload
       // Upload to API endpoint
       const response = await fetch('/api/upload-id', {
         method: 'POST',
-        body: formData
+        body: formData,
       });
 
       if (!response.ok) {
@@ -181,7 +181,7 @@ export default function IDUpload({ onUploadComplete, language = 'en' }: IDUpload
       setUploadError(
         isArabic
           ? 'فشل رفع الصورة. يرجى المحاولة مرة أخرى'
-          : 'Failed to upload image. Please try again'
+          : 'Failed to upload image. Please try again',
       );
     } finally {
       setUploading(false);
@@ -203,7 +203,7 @@ export default function IDUpload({ onUploadComplete, language = 'en' }: IDUpload
       // Upload to API endpoint
       const response = await fetch('/api/upload-id', {
         method: 'POST',
-        body: formData
+        body: formData,
       });
 
       if (!response.ok) {
@@ -219,7 +219,7 @@ export default function IDUpload({ onUploadComplete, language = 'en' }: IDUpload
       setUploadError(
         isArabic
           ? 'فشل رفع الصورة. يرجى المحاولة مرة أخرى'
-          : 'Failed to upload image. Please try again'
+          : 'Failed to upload image. Please try again',
       );
     } finally {
       setUploading(false);

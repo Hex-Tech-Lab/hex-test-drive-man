@@ -31,21 +31,21 @@ export async function POST(request: NextRequest) {
     if (!body.phone || typeof body.phone !== 'string') {
       return NextResponse.json(
         { valid: false, error: 'Phone number is required' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!body.code || typeof body.code !== 'string') {
       return NextResponse.json(
         { valid: false, error: 'OTP code is required' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!body.subjectId || typeof body.subjectId !== 'string') {
       return NextResponse.json(
         { valid: false, error: 'Subject ID is required' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     if (normalizedPhone.length < 10) {
       return NextResponse.json(
         { valid: false, error: 'Invalid phone number format' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     const result = await smsService.verifyOtp(
       normalizedPhone,
       body.code,
-      body.subjectId
+      body.subjectId,
     );
 
     if (!result.valid) {
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
           valid: false,
           error: result.error || 'Invalid or expired OTP',
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -87,12 +87,12 @@ export async function POST(request: NextRequest) {
       {
         endpoint: '/api/otp/verify',
         method: 'POST',
-      }
+      },
     );
 
     return NextResponse.json(
       { valid: false, error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

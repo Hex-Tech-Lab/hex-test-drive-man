@@ -69,8 +69,8 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
         video: { 
           facingMode: 'environment', 
           width: { ideal: 1280 }, 
-          height: { ideal: 720 } 
-        }
+          height: { ideal: 720 }, 
+        },
       });
       
       if (!videoRef.current) return;
@@ -140,6 +140,9 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    /**
+     *
+     */
     function processFrame() {
       if (!video || !canvas || !ctx) return;
       canvas.width = video.videoWidth;
@@ -207,7 +210,7 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
       // Call completion callback
       onScanComplete({
         imageData,
-        data: extractedData
+        data: extractedData,
       });
     } catch (error) {
       console.error('Capture processing failed:', error);
@@ -260,7 +263,7 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
             justifyContent: 'center',
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
             zIndex: 1000,
-            pointerEvents: 'none'
+            pointerEvents: 'none',
           }}
         >
           <Typography
@@ -269,7 +272,7 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
               fontSize: 120,
               fontWeight: 900,
               color: '#00ff00',
-              textShadow: '0 0 30px #00ff00, 0 0 60px #00ff00'
+              textShadow: '0 0 30px #00ff00, 0 0 60px #00ff00',
             }}
           >
             {countdown}
@@ -292,7 +295,7 @@ export function SmartScanner({ mode, onScanComplete, language = 'en' }: SmartSca
           width: '100%', 
           display: state === 'loading' ? 'none' : 'block',
           borderRadius: '8px',
-          border: state === 'detecting' ? '3px solid #4caf50' : '1px solid #ccc'
+          border: state === 'detecting' ? '3px solid #4caf50' : '1px solid #ccc',
         }} 
         playsInline 
       />

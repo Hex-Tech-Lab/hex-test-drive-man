@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     if (!image) {
       return NextResponse.json(
         { error: 'No image provided' },
-        { status: 400 }
+        { status: 400 },
       );
     }
     
@@ -39,21 +39,21 @@ export async function POST(request: NextRequest) {
     // Extract name (simplified - first Arabic line with 3+ words)
     const lines = mockText.split('\n').map(l => l.trim()).filter(Boolean);
     const nameMatch = lines.find(line => 
-      /^[\u0600-\u06FF\s]{10,}$/.test(line) && line.split(/\s+/).length >= 3
+      /^[\u0600-\u06FF\s]{10,}$/.test(line) && line.split(/\s+/).length >= 3,
     );
     
     return NextResponse.json({
       text: mockText,
       nationalId,
       name: nameMatch,
-      warning: 'Mock OCR data - actual implementation pending'
+      warning: 'Mock OCR data - actual implementation pending',
     });
     
   } catch (error) {
     console.error('OCR API error:', error);
     return NextResponse.json(
       { error: 'OCR processing failed' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
