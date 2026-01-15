@@ -1,0 +1,89 @@
+## 2026-01-15 0807 EET - PPLX→GC - Intelligent Agent File Sync (60min timebox)
+
+CONTEXT:CLAUDE.md updated to v2.5.1 (305 lines, 13 sections);BLACKBOX.md (46KB) and GEMINI.md (32KB) are 5-10x larger and outdated (last updated Jan 13);Need 3-way intelligent merge: extract unique BB/GC work → merge to CLAUDE.md or docs/ → sync final structure back
+
+PREFLIGHT(5min-MANDATORY):git fetch origin;git checkout cc/emergency-completion-wave2;git pull origin cc/emergency-completion-wave2;wc -l CLAUDE.md BLACKBOX.md GEMINI.md;ls -la *.md.backup.* | head -5;grep "Last Updated" CLAUDE.md BLACKBOX.md GEMINI.md
+
+TASK1_DIFF_ANALYSIS(15min):git diff --no-index CLAUDE.md BLACKBOX.md > /tmp/bb_diff.txt;git diff --no-index CLAUDE.md GEMINI.md > /tmp/gc_diff.txt;wc -l /tmp/bb_diff.txt /tmp/gc_diff.txt;grep -E "^\+[^+]" /tmp/bb_diff.txt | head -100 > /tmp/bb_unique.txt;grep -E "^\+[^+]" /tmp/gc_diff.txt | head -100 > /tmp/gc_unique.txt;cat /tmp/bb_unique.txt /tmp/gc_unique.txt | wc -l
+
+TASK2_CONTENT_CLASSIFICATION(20min):CLASSIFY each unique block in bb_unique.txt and gc_unique.txt into:
+- CATEGORY_A: Agent-specific workflow (keep in BB.md/GEMINI.md only)
+- CATEGORY_B: Universal insight (merge to CLAUDE.md Section X)
+- CATEGORY_C: Detailed info (extract to docs/SECTION_NAME.md)
+- CATEGORY_D: Outdated/redundant (discard)
+CREATE:/tmp/sync_plan.md with classification + target location for each block
+
+TASK3_MERGE_EXECUTION(15min):FOR each CATEGORY_B block → add to relevant CLAUDE.md section with comment "# Added from BB/GC 2026-01-15";FOR each CATEGORY_C block → append to relevant docs/ file;VERIFY:wc -l CLAUDE.md → should increase by ~10-30 lines;git diff CLAUDE.md → review additions
+
+TASK4_SYNC_TO_REPLICAS(10min):cp CLAUDE.md /tmp/claude_base.txt;cat /tmp/claude_base.txt | sed 's/## 1\. CC OPERATING/## 1. GC OPERATING/g; s/Claude Code/Gemini Code/g; s/\bCC\b/GC/g' > GEMINI.md.new;cat /tmp/claude_base.txt | sed 's/## 1\. CC OPERATING/## 1. BB OPERATING/g; s/Claude Code/Blackbox AI/g; s/\bCC\b/BB/g' > BLACKBOX.md.new;APPEND CATEGORY_A blocks to respective files;mv GEMINI.md.new GEMINI.md;mv BLACKBOX.md.new BLACKBOX.md;wc -l CLAUDE.md GEMINI.md BLACKBOX.md
+
+VERIFICATION_GATE(5min):grep -c "Full Details: docs/" CLAUDE.md → should be ~13;grep -c "^## " CLAUDE.md → should be 13-14;diff -q <(grep "^## [2-9]" CLAUDE.md | sed 's/CC/GC/g') <(grep "^## [2-9]" GEMINI.md) → sections should match;diff -q <(grep "^## [2-9]" CLAUDE.md | sed 's/CC/BB/g') <(grep "^## [2-9]" BLACKBOX.md) → sections should match
+
+COMMIT_GATE(5min-MANDATORY):git add CLAUDE.md GEMINI.md BLACKBOX.md docs/;git commit -m "docs(agents): intelligent 3-way sync CLAUDE/GEMINI/BLACKBOX
+
+- Analyzed diffs: BB (+X unique blocks), GC (+Y unique blocks)
+- Merged CATEGORY_B insights to CLAUDE.md sections
+- Extracted CATEGORY_C details to docs/ files
+- Synced final structure (305→XXX lines CLAUDE.md)
+- Preserved agent-specific content in BB.md/GEMINI.md
+
+3-way merge summary in /tmp/sync_plan.md";git push origin cc/emergency-completion-wave2
+
+DOC_UPDATE(5min):cat >> docs/PERFORMANCE_LOG.md << 'LOGEOF'
+## 2026-01-15 0807 EET - GC - Agent File Intelligent Sync
+**Timebox**: 60min | **Actual**: XXmin | **Variance**: ±Y%
+**Agent**: GC (Gemini Code)
+**Outcome**: SUCCESS/PARTIAL/BLOCKED
+
+### Analysis
+- BLACKBOX.md: 46KB → XXX unique blocks analyzed
+- GEMINI.md: 32KB → YYY unique blocks analyzed
+- CLAUDE.md: 305 lines → ZZZ lines (after merge)
+
+### Classification Results
+- CATEGORY_A (agent-specific): N blocks preserved
+- CATEGORY_B (universal): M blocks merged to CLAUDE.md
+- CATEGORY_C (detailed): P blocks → docs/
+- CATEGORY_D (redundant): Q blocks discarded
+
+### Verification
+- All 13 sections synced across 3 files ✅
+- References validated: docs/ files exist ✅
+- Agent-specific content preserved ✅
+- File sizes normalized: CLAUDE (XXX), GC (YYY), BB (ZZZ)
+
+### Lessons
+1. Regular sync prevents divergence
+2. 3-way merge requires classification
+3. Agent-specific sections need preservation
+LOGEOF
+git add docs/PERFORMANCE_LOG.md;git commit --amend --no-edit;git push --force-with-lease
+
+DELIVERABLES(MANDATORY):
+1. /tmp/sync_plan.md (classification report)
+2. Updated CLAUDE.md (with merged insights)
+3. Updated docs/ files (with extracted details)
+4. Synced GEMINI.md and BLACKBOX.md
+5. Commit to cc/emergency-completion-wave2
+6. PERFORMANCE_LOG.md entry
+
+QUALITY_GATES:
+- After TASK2: Share /tmp/sync_plan.md for user approval before merging
+- After TASK3: git diff CLAUDE.md → verify additions make sense
+- After TASK4: wc -l all 3 files → verify size normalization
+- Before commit: grep "^## " all 3 files → verify section alignment
+
+STOP_CONDITIONS:
+- If >100 unique blocks in BB/GC → ask user for scope guidance
+- If CATEGORY_B merge conflicts with existing CLAUDE.md content → flag for user
+- If referenced docs/ files don't exist → create stubs or ask user
+
+SUCCESS_CRITERIA:
+✅ 3-way diff analysis complete
+✅ Classification plan reviewed by user
+✅ Insights merged to CLAUDE.md/docs/
+✅ All 3 agent files synced (same 13 sections)
+✅ Agent-specific content preserved
+✅ File sizes normalized (~300-400 lines each)
+✅ Commit pushed to branch
+✅ PERFORMANCE_LOG.md updated
