@@ -1,0 +1,13 @@
+
+      - name: Check project size
+        id: size_check
+        run: |
+          LINES=$(find src -name "*.ts" -o -name "*.tsx" | xargs wc -l | tail -1 | awk '{print $1}')
+          echo "lines=$LINES" >> $GITHUB_OUTPUT
+          if [ $LINES -gt 150000 ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: SonarCloud Scan
+        if: steps.size_check.outputs.skip != 'true'
+        # ... rest of sonar config

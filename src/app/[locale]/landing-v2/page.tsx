@@ -78,7 +78,7 @@ export default function LandingV2() {
             overflow: 'hidden',
             background: `linear-gradient(135deg, ${alpha(
               theme.palette.primary.main,
-              0.9
+              0.9,
             )} 0%, ${alpha(theme.palette.secondary.main, 0.8)} 100%)`,
           }}
         >
@@ -263,7 +263,7 @@ export default function LandingV2() {
               textAlign: 'center',
               background: `linear-gradient(135deg, ${alpha(
                 theme.palette.primary.main,
-                0.05
+                0.05,
               )} 0%, ${alpha(theme.palette.secondary.main, 0.05)} 100%)`,
             }}
           >

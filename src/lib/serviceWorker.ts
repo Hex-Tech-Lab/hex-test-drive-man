@@ -111,7 +111,7 @@ export function isOffline(): boolean {
  */
 export function addOfflineListeners(
   onOnline: () => void,
-  onOffline: () => void
+  onOffline: () => void,
 ): () => void {
   if (typeof window === 'undefined') {
     return () => {};

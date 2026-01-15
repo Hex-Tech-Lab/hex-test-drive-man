@@ -13,7 +13,7 @@ import { createClient } from '@/lib/supabase';
  */
 export async function POST(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> },
 ) {
   try {
     const params = await context.params;
@@ -24,7 +24,7 @@ export async function POST(
     if (typeof similarity !== 'number' || similarity < 0 || similarity > 1) {
       return NextResponse.json(
         { error: 'Invalid similarity score' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -33,7 +33,7 @@ export async function POST(
     if (similarity < THRESHOLD) {
       return NextResponse.json(
         { error: 'Face verification failed. Similarity below threshold.' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -53,7 +53,7 @@ export async function POST(
       console.error('Failed to update booking:', updateError);
       return NextResponse.json(
         { error: 'Failed to save verification result' },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -66,7 +66,7 @@ export async function POST(
     console.error('POST /api/bookings/[id]/face-verify error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -38,7 +38,7 @@ export default function BookingQRCode({ reservation, size = 256 }: BookingQRCode
           vehicle_id: reservation.vehicle_id,
           datetime: reservation.reservation_datetime,
           status: reservation.status,
-          national_id: reservation.national_id
+          national_id: reservation.national_id,
         });
 
         // Generate QR code on canvas
@@ -47,8 +47,8 @@ export default function BookingQRCode({ reservation, size = 256 }: BookingQRCode
           margin: 2,
           color: {
             dark: '#000000',
-            light: '#FFFFFF'
-          }
+            light: '#FFFFFF',
+          },
         });
 
         setLoading(false);
@@ -70,7 +70,7 @@ export default function BookingQRCode({ reservation, size = 256 }: BookingQRCode
           justifyContent: 'center',
           alignItems: 'center',
           height: size,
-          width: size
+          width: size,
         }}
       >
         <CircularProgress />
@@ -88,7 +88,7 @@ export default function BookingQRCode({ reservation, size = 256 }: BookingQRCode
           width: size,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}
       >
         <Typography color="error" variant="body2">
@@ -104,7 +104,7 @@ export default function BookingQRCode({ reservation, size = 256 }: BookingQRCode
       sx={{
         p: 2,
         display: 'inline-block',
-        textAlign: 'center'
+        textAlign: 'center',
       }}
     >
       <canvas ref={canvasRef} />

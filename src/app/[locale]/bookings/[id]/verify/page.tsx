@@ -1,90 +1,93 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { useParams, useRouter } from 'next/navigation'
-import { Box, TextField, Button, Typography, Container, Paper, Alert } from '@mui/material'
+import { useState, useEffect } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import { Box, TextField, Button, Typography, Container, Paper, Alert } from '@mui/material';
 
+/**
+ *
+ */
 export default function VerifyBookingPage() {
-  const params = useParams()
-  const router = useRouter()
-  const bookingId = params.id as string
-  const locale = params.locale as string
+  const params = useParams();
+  const router = useRouter();
+  const bookingId = params.id as string;
+  const locale = params.locale as string;
 
-  const [otp, setOtp] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
-  const [showResend, setShowResend] = useState(false)
-  const [timer, setTimer] = useState(60)
-  const [resending, setResending] = useState(false)
+  const [otp, setOtp] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [showResend, setShowResend] = useState(false);
+  const [timer, setTimer] = useState(60);
+  const [resending, setResending] = useState(false);
 
   useEffect(() => {
     const countdown = setInterval(() => {
       setTimer(prev => {
         if (prev <= 1) {
-          setShowResend(true)
-          clearInterval(countdown)
-          return 0
+          setShowResend(true);
+          clearInterval(countdown);
+          return 0;
         }
-        return prev - 1
-      })
-    }, 1000)
+        return prev - 1;
+      });
+    }, 1000);
 
-    return () => clearInterval(countdown)
-  }, [])
+    return () => clearInterval(countdown);
+  }, []);
 
   const handleResend = async () => {
-    setResending(true)
-    setError('')
+    setResending(true);
+    setError('');
 
     try {
       const response = await fetch('/api/otp/resend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ bookingId })
-      })
+        body: JSON.stringify({ bookingId }),
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'We couldn\'t resend the code. Please try again in a moment.')
+        throw new Error(data.error || 'We couldn\'t resend the code. Please try again in a moment.');
       }
 
       // Reset timer
-      setShowResend(false)
-      setTimer(60)
-      setError('')
+      setShowResend(false);
+      setTimer(60);
+      setError('');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'We couldn\'t resend the code. Please try again in a moment.')
+      setError(err instanceof Error ? err.message : 'We couldn\'t resend the code. Please try again in a moment.');
     } finally {
-      setResending(false)
+      setResending(false);
     }
-  }
+  };
 
   const handleVerify = async () => {
-    setLoading(true)
-    setError('')
+    setLoading(true);
+    setError('');
 
     try {
       const response = await fetch(`/api/bookings/${bookingId}/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ otp })
-      })
+        body: JSON.stringify({ otp }),
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'The code you entered is incorrect. Please check and try again.')
+        throw new Error(data.error || 'The code you entered is incorrect. Please check and try again.');
       }
 
       // Success - redirect to confirmation
-      router.push(`/${locale}/bookings/${bookingId}/confirmed`)
+      router.push(`/${locale}/bookings/${bookingId}/confirmed`);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'The code you entered is incorrect. Please check and try again.')
+      setError(err instanceof Error ? err.message : 'The code you entered is incorrect. Please check and try again.');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <Container maxWidth="sm" sx={{ mt: 8 }}>
@@ -119,7 +122,7 @@ export default function VerifyBookingPage() {
           inputProps={{
             maxLength: 6,
             pattern: '[0-9]*',
-            inputMode: 'numeric'
+            inputMode: 'numeric',
           }}
           sx={{ mb: 2 }}
           autoFocus
@@ -159,5 +162,5 @@ export default function VerifyBookingPage() {
         </Typography>
       </Paper>
     </Container>
-  )
+  );
 }

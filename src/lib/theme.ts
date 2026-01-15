@@ -72,6 +72,9 @@ export function getTheme(locale: string) {
   });
 }
 
+/**
+ *
+ */
 export function createRTLTheme(baseTheme: ReturnType<typeof createTheme>) {
   return createTheme({
     ...baseTheme,

@@ -93,7 +93,7 @@ export default function OCRProcessor({
       setError(
         isArabic
           ? 'فشل قراءة البطاقة. يرجى إدخال البيانات يدوياً.'
-          : 'Failed to read ID. Please enter data manually.'
+          : 'Failed to read ID. Please enter data manually.',
       );
     } finally {
       setProcessing(false);
@@ -102,7 +102,7 @@ export default function OCRProcessor({
 
   // Parse Egyptian National ID text
   const parseEgyptianID = (
-    text: string
+    text: string,
   ): { name: string; nationalId: string; birthDate: string } | null => {
     try {
       // Clean text
@@ -125,8 +125,9 @@ export default function OCRProcessor({
       // Extract name (Arabic or English)
       // Look for patterns: multiple words with capital letters or Arabic characters
       const namePatterns = [
-        // English name pattern
-        /([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)/,
+        // English name pattern (limited to 5 name parts to prevent ReDoS)
+    // eslint-disable-next-line security/detect-unsafe-regex
+        /^[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,5}$/,
         // Arabic name pattern
         /[\u0600-\u06FF\s]{10,}/,
       ];

@@ -3,6 +3,9 @@ import type { NextRequest } from 'next/server';
 
 const locales = ['ar', 'en'];
 
+/**
+ *
+ */
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 

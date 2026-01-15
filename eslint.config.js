@@ -14,6 +14,7 @@ const config = [
       'out/**',
       'build/**',
       'scripts/**', // Exclude scripts directory (not in tsconfig.json project)
+      'tests/**', // Exclude tests directory (not in tsconfig.json project)
       'eslint.config.js', // Ignore self to avoid false positives in rule definitions
     ],
   },

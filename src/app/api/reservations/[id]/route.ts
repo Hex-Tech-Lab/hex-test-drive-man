@@ -11,7 +11,7 @@ import { getReservationById, updateReservationStatus } from '@/lib/repositories/
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { id } = await params;
@@ -20,14 +20,14 @@ export async function GET(
     if (error) {
       return NextResponse.json(
         { error: error.message },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     if (!data) {
       return NextResponse.json(
         { error: 'Reservation not found' },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -36,7 +36,7 @@ export async function GET(
     console.error('GET /api/reservations/[id] error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -46,7 +46,7 @@ export async function GET(
  */
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { id } = await params;
@@ -56,7 +56,7 @@ export async function PATCH(
     if (!status || !['pending', 'confirmed', 'cancelled', 'completed'].includes(status)) {
       return NextResponse.json(
         { error: 'Invalid status' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -65,7 +65,7 @@ export async function PATCH(
     if (error) {
       return NextResponse.json(
         { error: error.message },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -74,7 +74,7 @@ export async function PATCH(
     console.error('PATCH /api/reservations/[id] error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

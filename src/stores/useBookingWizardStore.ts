@@ -138,10 +138,9 @@ export const useBookingWizardStore = create<BookingWizardState>()(
       canProceedToStep2: () => {
         const { appointment } = get();
         return (
-          !!appointment.date &&
-          !!appointment.time &&
-          !!appointment.venue
-
+          appointment.date.trim().length > 0 &&
+          appointment.time.trim().length > 0 &&
+          appointment.venue.trim().length > 0
         );
       },
 
@@ -202,6 +201,6 @@ export const useBookingWizardStore = create<BookingWizardState>()(
         vehicleId: state.vehicleId,
         // Don't persist sensitive data (phone, documents, OTP)
       }),
-    }
-  )
+    },
+  ),
 );

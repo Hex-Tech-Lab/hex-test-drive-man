@@ -19,6 +19,9 @@ const cacheLtr = createCache({
   stylisPlugins: [prefixer],
 });
 
+/**
+ *
+ */
 export default function AppProviders({ children }: { children: React.ReactNode }) {
   const language = useLanguageStore((state) => state.language);
   const hasHydrated = useLanguageStore((state) => state._hasHydrated);

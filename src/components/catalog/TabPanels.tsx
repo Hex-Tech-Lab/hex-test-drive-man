@@ -10,6 +10,9 @@ interface TabPanelProps {
   value: number;
 }
 
+/**
+ *
+ */
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
@@ -30,6 +33,9 @@ interface BrandTabPanelProps {
   brands: string[];
 }
 
+/**
+ *
+ */
 export function BrandTabPanel({ brands }: BrandTabPanelProps) {
   const theme = useTheme();
   const language = useLanguageStore((state) => state.language);
@@ -89,6 +95,9 @@ interface TypeTabPanelProps {
   types: string[];
 }
 
+/**
+ *
+ */
 export function TypeTabPanel({ types }: TypeTabPanelProps) {
   const theme = useTheme();
   const language = useLanguageStore((state) => state.language);
@@ -165,6 +174,9 @@ interface PriceTabPanelProps {
   maxPrice: number;
 }
 
+/**
+ *
+ */
 export function PriceTabPanel({ minPrice, maxPrice }: PriceTabPanelProps) {
   const theme = useTheme();
   const language = useLanguageStore((state) => state.language);
@@ -217,6 +229,9 @@ export function PriceTabPanel({ minPrice, maxPrice }: PriceTabPanelProps) {
   );
 }
 
+/**
+ *
+ */
 export function ElectricTabPanel() {
   const theme = useTheme();
   const language = useLanguageStore((state) => state.language);

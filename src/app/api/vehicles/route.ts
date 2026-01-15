@@ -30,14 +30,14 @@ export async function GET() {
     if (error) {
       return NextResponse.json(
         { error: error.message },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     // Format vehicles for dropdown
     const vehicles = data?.map((vehicle: any) => ({
       id: vehicle.id,
-      name: `${vehicle.models?.brands?.name || ''} ${vehicle.models?.name || ''} ${vehicle.trim_name || ''}`.trim()
+      name: `${vehicle.models?.brands?.name || ''} ${vehicle.models?.name || ''} ${vehicle.trim_name || ''}`.trim(),
     })) || [];
 
     return NextResponse.json({ vehicles });
@@ -45,7 +45,7 @@ export async function GET() {
     console.error('GET /api/vehicles error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

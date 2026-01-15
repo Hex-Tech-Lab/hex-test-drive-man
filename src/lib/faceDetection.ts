@@ -36,7 +36,7 @@ export async function loadFaceModels(): Promise<void> {
  * Detect face in an image and extract descriptor
  */
 export async function detectFace(
-  imageElement: HTMLImageElement | HTMLVideoElement | HTMLCanvasElement
+  imageElement: HTMLImageElement | HTMLVideoElement | HTMLCanvasElement,
 ): Promise<Float32Array | null> {
   try {
     const detection = await faceapi
@@ -61,7 +61,7 @@ export async function detectFace(
  */
 export function calculateSimilarity(
   descriptor1: Float32Array,
-  descriptor2: Float32Array
+  descriptor2: Float32Array,
 ): number {
   const distance = faceapi.euclideanDistance(descriptor1, descriptor2);
   // Convert distance to similarity score (0-1 range)
@@ -77,7 +77,7 @@ export function calculateSimilarity(
 export function facesMatch(
   descriptor1: Float32Array,
   descriptor2: Float32Array,
-  threshold: number = 0.85
+  threshold: number = 0.85,
 ): boolean {
   const similarity = calculateSimilarity(descriptor1, descriptor2);
   return similarity >= threshold;
@@ -119,7 +119,7 @@ export async function extractFaceFromFile(file: File): Promise<{
  * Capture face from video stream
  */
 export async function captureFaceFromVideo(
-  video: HTMLVideoElement
+  video: HTMLVideoElement,
 ): Promise<Float32Array | null> {
   const canvas = document.createElement('canvas');
   canvas.width = video.videoWidth;

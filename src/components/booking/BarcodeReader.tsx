@@ -97,7 +97,7 @@ export default function BarcodeReader({
       setError(
         isArabic
           ? 'فشل قراءة الباركود. يرجى التأكد من وضوح الصورة.'
-          : 'Failed to read barcode. Please ensure image is clear.'
+          : 'Failed to read barcode. Please ensure image is clear.',
       );
     } finally {
       setProcessing(false);
@@ -191,8 +191,9 @@ export default function BarcodeReader({
       for (const line of lines) {
         // Look for name patterns (multiple words, Arabic or English)
         if (
-          line.match(/[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+/) ||
-          line.match(/[\u0600-\u06FF\s]{10,}/)
+      // eslint-disable-next-line security/detect-unsafe-regex
+          line.match(/^[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,5}$/) ||
+          line.match(/^[\u0600-\u06FF\s]{10,}$/)
         ) {
           name = line.trim();
           break;
@@ -214,28 +215,28 @@ export default function BarcodeReader({
   // Verify barcode data against OCR data
   const verifyData = (
     barcodeData: BarcodeData,
-    ocrData: { nationalId: string; name: string; birthDate: string }
+    ocrData: { nationalId: string; name: string; birthDate: string },
   ): boolean => {
     const mismatches: string[] = [];
 
     // Check National ID
     if (barcodeData.nationalId !== ocrData.nationalId) {
       mismatches.push(
-        isArabic ? 'الرقم القومي غير متطابق' : 'National ID mismatch'
+        isArabic ? 'الرقم القومي غير متطابق' : 'National ID mismatch',
       );
     }
 
     // Check birth date
     if (barcodeData.birthDate !== ocrData.birthDate) {
       mismatches.push(
-        isArabic ? 'تاريخ الميلاد غير متطابق' : 'Birth date mismatch'
+        isArabic ? 'تاريخ الميلاد غير متطابق' : 'Birth date mismatch',
       );
     }
 
     // Name comparison (fuzzy match due to OCR errors)
     const nameSimilarity = calculateSimilarity(
       barcodeData.name.toLowerCase(),
-      ocrData.name.toLowerCase()
+      ocrData.name.toLowerCase(),
     );
 
     if (nameSimilarity < 0.7) {
@@ -276,7 +277,7 @@ export default function BarcodeReader({
           matrix[i][j] = Math.min(
             matrix[i - 1][j - 1] + 1,
             matrix[i][j - 1] + 1,
-            matrix[i - 1][j] + 1
+            matrix[i - 1][j] + 1,
           );
         }
       }
@@ -319,8 +320,8 @@ export default function BarcodeReader({
                 ? 'تم التحقق من البيانات بنجاح'
                 : 'Data verified successfully'
               : isArabic
-              ? 'تحذير: البيانات غير متطابقة'
-              : 'Warning: Data mismatch detected'}
+                ? 'تحذير: البيانات غير متطابقة'
+                : 'Warning: Data mismatch detected'}
           </Alert>
 
           <Box sx={{ mb: 2 }}>

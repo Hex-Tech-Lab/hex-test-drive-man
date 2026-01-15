@@ -275,7 +275,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
           justifyContent: 'space-between', 
           alignItems: 'center', 
           borderBottom: '1px solid #e0e0e0',
-          bgcolor: '#f9f9f9'
+          bgcolor: '#f9f9f9',
         }}>
           <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
             {language === 'ar' ? 'تصفية' : 'FILTERS'}

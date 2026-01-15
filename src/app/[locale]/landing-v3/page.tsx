@@ -44,6 +44,9 @@ export default function LandingV3() {
   }, [locale, setLanguage]);
 
   useEffect(() => {
+    /**
+     *
+     */
     async function fetchFeaturedVehicles() {
       try {
         const { data } = await vehicleRepository.getAllVehicles();
@@ -79,7 +82,7 @@ export default function LandingV3() {
           sx={{
             background: `linear-gradient(135deg, ${alpha(
               theme.palette.primary.main,
-              0.95
+              0.95,
             )} 0%, ${alpha(theme.palette.secondary.main, 0.85)} 100%)`,
             py: { xs: 8, md: 12 },
             position: 'relative',
@@ -249,64 +252,64 @@ export default function LandingV3() {
                       }}
                       onClick={() => router.push(detailUrl)}
                     >
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      image={
-                        vehicle.models?.hero_image_url ||
+                      <CardMedia
+                        component="img"
+                        height="200"
+                        image={
+                          vehicle.models?.hero_image_url ||
                         '/images/placeholder-car.png'
-                      }
-                      alt={`${vehicle.models?.brands?.name} ${vehicle.models?.name}`}
-                      sx={{
-                        objectFit: 'cover',
-                        bgcolor: alpha(theme.palette.divider, 0.05),
-                      }}
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography
-                        variant="overline"
-                        color="text.secondary"
-                        sx={{ display: 'block', mb: 0.5 }}
-                      >
-                        {vehicle.models?.brands?.name}
-                      </Typography>
-                      <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>
-                        {vehicle.models?.name} {vehicle.model_year}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ mb: 2 }}
-                      >
-                        {vehicle.trim_name}
-                      </Typography>
-                      <Box
+                        }
+                        alt={`${vehicle.models?.brands?.name} ${vehicle.models?.name}`}
                         sx={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
+                          objectFit: 'cover',
+                          bgcolor: alpha(theme.palette.divider, 0.05),
                         }}
-                      >
+                      />
+                      <CardContent sx={{ flexGrow: 1 }}>
                         <Typography
-                          variant="h6"
-                          color="primary"
-                          sx={{ fontWeight: 700 }}
+                          variant="overline"
+                          color="text.secondary"
+                          sx={{ display: 'block', mb: 0.5 }}
                         >
-                          {formatPrice(vehicle.price_egp)}
+                          {vehicle.models?.brands?.name}
                         </Typography>
-                        <Chip
-                          icon={<LocalOffer />}
-                          label={
-                            language === 'ar' ? 'احجز الآن' : 'Book Now'
-                          }
-                          size="small"
-                          color="primary"
-                          variant="outlined"
-                        />
-                      </Box>
-                    </CardContent>
-                  </Card>
-                </Grid>
+                        <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>
+                          {vehicle.models?.name} {vehicle.model_year}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ mb: 2 }}
+                        >
+                          {vehicle.trim_name}
+                        </Typography>
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                          }}
+                        >
+                          <Typography
+                            variant="h6"
+                            color="primary"
+                            sx={{ fontWeight: 700 }}
+                          >
+                            {formatPrice(vehicle.price_egp)}
+                          </Typography>
+                          <Chip
+                            icon={<LocalOffer />}
+                            label={
+                              language === 'ar' ? 'احجز الآن' : 'Book Now'
+                            }
+                            size="small"
+                            color="primary"
+                            variant="outlined"
+                          />
+                        </Box>
+                      </CardContent>
+                    </Card>
+                  </Grid>
                 );
               })}
             </Grid>

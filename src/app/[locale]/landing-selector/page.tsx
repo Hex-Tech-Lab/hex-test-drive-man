@@ -104,7 +104,7 @@ export default function LandingSelector() {
           minHeight: '100vh',
           background: `linear-gradient(135deg, ${alpha(
             theme.palette.primary.main,
-            0.02
+            0.02,
           )} 0%, ${alpha(theme.palette.secondary.main, 0.02)} 100%)`,
           py: { xs: 6, md: 10 },
         }}
@@ -164,7 +164,7 @@ export default function LandingSelector() {
                       textAlign: 'center',
                       background: `linear-gradient(135deg, ${alpha(
                         version.color,
-                        0.1
+                        0.1,
                       )} 0%, ${alpha(version.color, 0.05)} 100%)`,
                     }}
                   >

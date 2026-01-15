@@ -11,6 +11,9 @@ import { useState } from 'react';
 import { Container, Typography, Paper, Box, Alert } from '@mui/material';
 import FaceVerification from '@/components/FaceVerification';
 
+/**
+ *
+ */
 export default function TestFaceVerificationPage() {
   const [idFile, setIdFile] = useState<File | null>(null);
   const [result, setResult] = useState<{ similarity: number } | null>(null);

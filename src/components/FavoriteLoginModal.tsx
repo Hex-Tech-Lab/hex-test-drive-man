@@ -94,7 +94,7 @@ export default function FavoriteLoginModal({ open, onClose, favoriteCount }: Fav
         <Typography variant="body2" color="text.secondary">
           {language === 'ar'
             ? 'سنرسل لك رمز التحقق عبر الرسائل القصيرة'
-            : "We'll send you a verification code via SMS"}
+            : 'We\'ll send you a verification code via SMS'}
         </Typography>
       </DialogContent>
 

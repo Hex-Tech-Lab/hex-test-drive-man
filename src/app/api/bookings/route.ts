@@ -22,7 +22,7 @@ interface ValidationData {
  * Validate booking input data
  */
 function validateBookingInput(
-  data: unknown
+  data: unknown,
 ): { valid: boolean; errors: string[] } {
   const errors: string[] = [];
 
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
           error: 'Invalid booking data',
           details: validation.errors,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
           message: 'Booking already exists',
           duplicate: true,
         },
-        { status: 200 }
+        { status: 200 },
       );
     }
 
@@ -127,7 +127,7 @@ export async function POST(request: NextRequest) {
           warning: result.warning,
           smsError: result.smsError,
         },
-        { status: 201 }
+        { status: 201 },
       );
     }
 
@@ -137,27 +137,27 @@ export async function POST(request: NextRequest) {
         bookingId: result.bookingId,
         ...result.booking,
       },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     // Log error to Sentry with context
     captureSentryError(
       error instanceof Error ? error : new Error(String(error)),
-      { endpoint: '/api/bookings', method: 'POST' }
+      { endpoint: '/api/bookings', method: 'POST' },
     );
 
     // Handle JSON parse errors
     if (error instanceof SyntaxError) {
       return NextResponse.json(
         { error: 'Invalid JSON in request body' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     // Generic error response
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

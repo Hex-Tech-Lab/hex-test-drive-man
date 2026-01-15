@@ -54,7 +54,7 @@ export default function ManualEntryForm({
 
   const [errors, setErrors] = useState<Partial<Record<keyof ManualEntryData, string>>>({});
   const [birthDateObj, setBirthDateObj] = useState<Date | null>(
-    initialData?.birthDate ? new Date(initialData.birthDate) : null
+    initialData?.birthDate ? new Date(initialData.birthDate) : null,
   );
 
   const isArabic = language === 'ar';

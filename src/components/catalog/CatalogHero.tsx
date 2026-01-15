@@ -65,7 +65,7 @@ export default function CatalogHero({ totalModels, totalBrands, onCategoryClick 
       sx={{
         background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(
           theme.palette.secondary.main,
-          0.05
+          0.05,
         )} 100%)`,
         py: { xs: 4, md: 6 },
         mb: 4,

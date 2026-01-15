@@ -40,7 +40,7 @@ export default function TrimComparison({ trims, onBookTrim, onAddToComparison }:
 
   // Auto-select first 3 trims or all if less than 3
   const [selectedTrims, setSelectedTrims] = useState<string[]>(
-    trims.length <= 3 ? trims.map((t) => t.id) : trims.slice(0, 3).map((t) => t.id)
+    trims.length <= 3 ? trims.map((t) => t.id) : trims.slice(0, 3).map((t) => t.id),
   );
 
   const displayedTrims = trims.filter((t) => selectedTrims.includes(t.id));

@@ -93,7 +93,7 @@ export default function LandingV1() {
           minHeight: '100vh',
           background: `linear-gradient(135deg, ${alpha(
             theme.palette.primary.main,
-            0.05
+            0.05,
           )} 0%, ${alpha(theme.palette.secondary.main, 0.05)} 100%)`,
         }}
       >

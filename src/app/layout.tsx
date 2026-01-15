@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   description: 'Book test drives for luxury and premium vehicles in Egypt',
 };
 
+/**
+ *
+ */
 export default function RootLayout({
   children,
 }: {

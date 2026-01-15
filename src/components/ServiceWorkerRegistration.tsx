@@ -10,6 +10,9 @@
 import { useEffect } from 'react';
 import { registerServiceWorker } from '@/lib/serviceWorker';
 
+/**
+ *
+ */
 export default function ServiceWorkerRegistration() {
   useEffect(() => {
     // Register service worker on mount

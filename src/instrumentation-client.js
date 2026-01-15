@@ -2,7 +2,7 @@
 // The added config here will be used whenever a users loads a page in their browser.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import * as Sentry from "@sentry/nextjs";
+import * as Sentry from '@sentry/nextjs';
 
 // CRITICAL FIX: Defer Sentry initialization to avoid blocking initial render
 // Sentry.init() was causing 1.6s delay before FCP
@@ -30,7 +30,7 @@ if (typeof window !== 'undefined') {
       () => {
         Sentry.init(SENTRY_CONFIG);
       },
-      { timeout: 5000 } // Max 5s delay before forcing init
+      { timeout: 5000 }, // Max 5s delay before forcing init
     );
   } else {
     window.addEventListener('load', () => {

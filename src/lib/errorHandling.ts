@@ -27,7 +27,7 @@ export interface AppError {
  */
 export function createAppError(
   error: unknown,
-  type: ErrorType = ErrorType.UNKNOWN
+  type: ErrorType = ErrorType.UNKNOWN,
 ): AppError {
   const originalError = error instanceof Error ? error : new Error(String(error));
   
@@ -91,7 +91,7 @@ export function createAppError(
 export async function handleNetworkError<T>(
   fn: () => Promise<T>,
   maxRetries: number = 3,
-  delayMs: number = 1000
+  delayMs: number = 1000,
 ): Promise<T> {
   let lastError: Error | null = null;
 
@@ -176,7 +176,7 @@ export function validateFileSize(file: File, maxSizeMB: number = 10): AppError |
  */
 export function validateFileType(
   file: File,
-  allowedTypes: string[] = ['image/jpeg', 'image/png', 'image/jpg']
+  allowedTypes: string[] = ['image/jpeg', 'image/png', 'image/jpg'],
 ): AppError | null {
   if (!allowedTypes.includes(file.type)) {
     return {

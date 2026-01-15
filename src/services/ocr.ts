@@ -11,7 +11,7 @@ export async function extractTextFromImage(imageBlob: Blob): Promise<string> {
   
   const response = await fetch('/api/ocr', {
     method: 'POST',
-    body: formData
+    body: formData,
   });
   
   if (!response.ok) {
