@@ -189,7 +189,7 @@ curl "$SUPABASE_URL/rest/v1/vehicle_trims?select=count" -H "apikey: $ANON_KEY"
 
 **Format**: Compressed 2-line entries per session
 
-- **2026-01-15**: OCR 4-slot scanner (PR#82 update), Microservice pattern
+- **2026-01-15**: OCR 4-slot scanner (PR#82 update), Microservice pattern, Camera Hotfix (Single Modal)
 - **2026-01-15**: Locale migration completion (PR#82), CI fix (PR#81), Wizard Next button fix
 - **2026-01-15**: CLAUDE.md Section 0+1 integration, emergency wave2 completion
 - **2026-01-14**: Config syntax fix (PR#76), wizard validation, PR scraper audit
