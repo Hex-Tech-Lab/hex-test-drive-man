@@ -1,33 +1,32 @@
 # CLAUDE.md - Project Brain (CC Owns)
 
-Version: 2.5.0 | Last Updated: 2026-01-15 0700 EET | Agent: CC | Status: ACTIVE
+Version: 2.5.1 | Last Updated: 2026-01-15 0715 EET | Agent: CC | Status: ACTIVE
 
 ***
 
 ## TABLE OF CONTENTS
 
-1. Operating Instructions + Preflight (MANDATORY)
-2. Tech Stack
-3. Guardrails
-4. MVP Status
-5. Database
-6. Agent Workflow
-7. Architecture Decisions
-8. Quality Standards
-9. Lessons Learned
-
-**Moved to Ancillary Files**:
-- Session Timeline → `docs/PERFORMANCE_LOG.md`
-- Open Items → `docs/OPEN_ITEMS.md`
-- Full Tech Stack → `docs/architecture/TECH_STACK_FULL.md`
+1. CC Operating Instructions (MANDATORY - READ FIRST)
+2. Tech Stack Verification
+3. GUARDRAILS (NEVER BYPASS)
+4. Git Repository Status
+5. Open Items & Next Actions
+6. MVP Status Roadmap
+7. Database Architecture
+8. Session Timeline (Last 10 Sessions)
+9. Agent Ownership Workflow
+10. Architecture Decisions (Top 5)
+11. UI/UX Reconstruction (Major Feature Shifts)
+12. Quality Standards & Anti-Patterns
+13. Lessons Learned (Critical Only)
 
 ***
 
-## 1. OPERATING INSTRUCTIONS + PREFLIGHT (MANDATORY)
+## 1. CC OPERATING INSTRUCTIONS (MANDATORY - READ FIRST)
 
 **RULE**: Execute preflight checklist BEFORE any task.
 
-### PREFLIGHT CHECKLIST (5 Commands - Paste Results First)
+### PREFLIGHT CHECKLIST (5 Commands)
 ```bash
 git status && git log --oneline -3
 wc -l CLAUDE.md
@@ -40,11 +39,12 @@ pnpm --version
 Before ANY task:
 1. Search `docs/best-practices/INDEX.md` by symptom
 2. Check `docs/prompts/prompt-fixtures.md` for template
-3. If pattern found → cite source in response
-4. First response MUST include: "Checked: [files] | Pattern: [found/none]"
+3. First response MUST include: "Checked: [files] | Pattern: [found/none]"
 
 ### Core Identity
-CC (Claude Code): 0.1% expertise, thought partner, challenge misalignment, max 1 question if <95% confident.
+- CC (Claude Code): 0.1% expertise, thought partner, challenge misalignment
+- Max 1 question if <95% confident
+- Multimodal: top-tier expertise in ANY domain on demand
 
 ### CORE RULES
 - **VERIFY 10x → PLAN 10x → ACT 1x**
@@ -55,96 +55,52 @@ CC (Claude Code): 0.1% expertise, thought partner, challenge misalignment, max 1
 
 ### BUILD GATES (Before Every Commit)
 ```bash
-pnpm typecheck        # TypeScript validation
-pnpm build            # Production build
-pnpm lint             # Linting (warnings OK, errors block)
-```
-
-### VERIFICATION COMMANDS
-```bash
-grep '"next"' package.json           # Check version
-wc -l src/**/*.ts | tail -1          # Line count
-curl -X GET "$SUPABASE_URL/rest/v1/vehicle_trims?select=count" -H "apikey: $ANON_KEY"
+pnpm typecheck && pnpm build && pnpm lint
 ```
 
 ### FORBIDDEN BEHAVIORS
-- Line count estimation (use `wc -l`)
-- Fabricating versions/metrics
+- Line count estimation, fabricating metrics
 - Code changes in doc-only tasks
 - Multiple agents per feature
-- Local-only work (push to GitHub)
+- Local-only work, skipping build gates
+- Autonomous scope reduction (complete ALL tasks)
 - `cat > file <<EOF` blind overwrites
 - `sed -i` without verification
-- Skipping build gates
-- Autonomous scope reduction (complete ALL tasks in prompt)
-
-### ROLLBACK PROTOCOL (On Build Failure)
-```bash
-git diff > /tmp/failed_$(date +%Y%m%d_%H%M).patch
-git reset --hard HEAD
-pnpm build  # Verify clean
-```
 
 ### MULTI-AGENT COORDINATION
-- Session start: Check `docs/HANDOFF_STATUS.md`
+- Session start: Check `docs/HANDOFF_STATUS.md` + `git log --oneline -5`
 - Before push: `git fetch && git log HEAD..origin/main --oneline`
-- If commits shown: `git pull --rebase origin main`
 - Session end: Update `docs/PERFORMANCE_LOG.md`, backup CLAUDE.md
-
-### TIMEBOXING (Tasks 15+ Min)
-Log in `docs/PERFORMANCE_LOG.md`:
-```
-## YYYY-MM-DD HHMM TZ - CC - Task
-**Timebox**: XX min | **Actual**: YY min
-**Files**: file1.ts, file2.md
-**Build**: pnpm build PASS/FAIL
-```
 
 **Full Details**: `docs/prompts/prompt-fixtures.md`, `docs/context/CC_CORE_INSTRUCTIONS.md`
 
 ***
 
-## 2. TECH STACK
+## 2. TECH STACK VERIFICATION
 
 **Last Verified**: 2026-01-15 via `package.json`
 
-| Package | Version | Notes |
-|---------|---------|-------|
-| Next.js | 15.4.10 | App Router, React 19 |
-| React | 19.2.0 | Strict mode |
-| TypeScript | 5.7.3 | Strict mode |
-| MUI | 6.4.3 | NOT v7 (breaking changes) |
-| Zustand | 5.0.3 | Primitive selectors only |
-| Supabase | 2.50.0 | PostgreSQL client |
-| pnpm | 9.x | ONLY package manager |
+- **Next.js 15.4.10** (App Router, React 19) - `grep '"next"' package.json`
+- **React 19.2.0**, **TypeScript 5.7.3** (strict mode)
+- **MUI 6.4.3** (NOT v7; breaking slotProps changes)
+- **Zustand 5.0.3** - primitive selectors only (object selectors = infinite loops)
+- **Supabase 2.50.0**, **Sentry 10.29.0**
+- **pnpm ONLY** (no npm/yarn)
 
-**Zustand Warning**: Object selectors cause React 19 infinite loops.
-```typescript
-// WRONG: const { brands } = useFilterStore()
-// RIGHT: const brands = useFilterStore(s => s.brands)
-```
-
-**Full Stack**: `docs/architecture/TECH_STACK_FULL.md`
+**Full Details**: `docs/architecture/TECH_STACK_FULL.md`
 
 ***
 
 ## 3. GUARDRAILS (NEVER BYPASS)
 
 ### Dependency Locks
-- **ESLint**: 8.x (v9 breaking)
-- **MUI**: 6.4.3 (v7 breaking slotProps)
+- **ESLint**: 8.x (v9 breaking), **MUI**: 6.4.3 (v7 breaking)
 - **React/Next**: Current OK
 
 ### Code Discipline
 - Doc-only tasks = zero code changes
 - Run `pnpm lint && pnpm build` before commit
 - Fix CRITICAL/BLOCKER before merge
-
-### Git Rules
-- Main = single source of truth
-- Branch naming: `{agent}/{feature}-{session-id}`
-- Never `--force` to main
-- Pre-push: fetch + rebase if behind
 
 ### Git Push Sequence
 ```bash
@@ -158,33 +114,61 @@ git push origin main
 ### Database Verification
 ```bash
 curl "$SUPABASE_URL/rest/v1/vehicle_trims?select=count" -H "apikey: $ANON_KEY"
-grep SUPABASE_SERVICE_ROLE_KEY .env.local || echo "MISSING"
 ```
 
-**Full Guardrails**: `docs/policies/GIT_WORKFLOW_RULES.md`
+**Full Details**: `docs/policies/GIT_WORKFLOW_RULES.md`
 
 ***
 
-## 4. MVP STATUS
+## 4. GIT REPOSITORY STATUS
+
+- **Branch**: `main` - always verify with `git log --oneline -5`
+- **Working Tree**: Check with `git status`
+- **Active Branches**: `git branch -vv | head -10`
+
+**Note**: This section is intentionally minimal. Always run git commands for current state.
+
+**Full Details**: Run `git log --oneline -20` for recent history
+
+***
+
+## 5. OPEN ITEMS & NEXT ACTIONS
+
+### PRIORITY 1 (Blockers)
+- GEMINI.md restoration (truncation incident c29e2ed)
+- Root directory cleanup (move MD files to SDLC structure)
+
+### PRIORITY 2 (High)
+- Performance optimization Phase 1 (per OPTIMIZATION_ROADMAP.md)
+- Unmapped images: 174 require model creation (87% catalog growth potential)
+- Fix aggregated_vehicles view (returns 4 instead of 409)
+
+### PRIORITY 3 (Medium)
+- PDF extraction cell-span detection
+- Smart Rules Engine 50% coverage
+- Booking migration to production
+
+**Full Backlog**: `docs/OPEN_ITEMS.md`, GitHub Issues
+
+***
+
+## 6. MVP STATUS ROADMAP
 
 ### MVP 1.0 (COMPLETED)
 - 409 vehicles, bilingual EN/AR, compare (3), filters
 
 ### MVP 1.1 (90% Complete)
-- Vehicle detail + trim comparison
-- Catalog UI overhaul
+- Vehicle detail + trim comparison, catalog UI overhaul
 - Pending: image coverage, UI redesign phase 2
 
 ### MVP 1.5 (PLANNED)
-- SWR client-side fetching
-- Drizzle ORM migration
-- Smart Rules Engine 50%
+- SWR, Drizzle ORM, Smart Rules Engine 50%
 
 **Full Roadmap**: `MVP_ROADMAP.md`
 
 ***
 
-## 5. DATABASE
+## 7. DATABASE ARCHITECTURE
 
 **Provider**: Supabase PostgreSQL | **Tables**: 48 | **Verified**: 2026-01-04
 
@@ -201,7 +185,26 @@ grep SUPABASE_SERVICE_ROLE_KEY .env.local || echo "MISSING"
 
 ***
 
-## 6. AGENT WORKFLOW
+## 8. SESSION TIMELINE (Last 10 Sessions)
+
+**Format**: Compressed 2-line entries per session
+
+- **2026-01-15**: CLAUDE.md Section 0+1 integration, emergency wave2 completion
+- **2026-01-14**: Config syntax fix (PR#76), wizard validation, PR scraper audit
+- **2026-01-13**: Wizard protocol enforcement, PR#73 merge
+- **2026-01-11**: 3-step booking rebuild (PR#66), PR audit 54-60
+- **2026-01-09**: PR#58 multi-agent recovery (BB→GC→KWSL)
+- **2026-01-07**: BB Performance Sprint (PRs #33, #37, #39)
+- **2026-01-06**: React hooks fix, production triage
+- **2026-01-05**: Vehicle detail page, trim comparison
+- **2026-01-04**: Image mapping investigation, PR gatekeeper audit
+- **2026-01-03**: Card image fallback fix (PR#25)
+
+**Full Timeline**: `docs/PERFORMANCE_LOG.md`
+
+***
+
+## 9. AGENT OWNERSHIP WORKFLOW
 
 | Agent | Role | Expertise |
 |-------|------|-----------|
@@ -217,41 +220,43 @@ grep SUPABASE_SERVICE_ROLE_KEY .env.local || echo "MISSING"
 3. GitHub = single source of truth
 4. Session end: push branch, update PERFORMANCE_LOG
 
-**Templates**: `docs/prompts/prompt-fixtures.md`
+**Full Details**: `docs/orchestration/MULTI_AGENT_ORCHESTRATION.md`
 
 ***
 
-## 7. ARCHITECTURE DECISIONS
+## 10. ARCHITECTURE DECISIONS (Top 5)
 
-### 1. MUI 6.4.3 (Not v7)
-- Zero CVEs, v7 breaks slotProps API
-- Revisit after MVP 1.5
-
-### 2. Smart Rules Engine
-- JSON-based, bilingual EN/AR, fuzzy matching
-- 84.5% coverage on Toyota Corolla
-
-### 3. Booking/SMS Schema
-- Dedicated tables with RLS
-- Migration pending `SUPABASE_SERVICE_ROLE_KEY`
-
-### 4. OCR: Tesseract 5.3.4
-- Fallback for image-based PDFs
-- 82 rows from Toyota Corolla
-
-### 5. Google Document AI
-- Form Parser, EU region
-- ~$0.015/page
+1. **MUI 6.4.3** (not v7) - Zero CVEs, v7 breaks slotProps
+2. **Smart Rules Engine** - JSON-based, bilingual, 84.5% coverage
+3. **Booking/SMS Schema** - Dedicated tables with RLS
+4. **OCR: Tesseract 5.3.4** - Fallback for image-based PDFs
+5. **Document AI** - Form Parser, EU region, ~$0.015/page
 
 **Full Decisions**: `docs/architecture/ARCHITECTURE_DECISIONS.md`
 
 ***
 
-## 8. QUALITY STANDARDS
+## 11. UI/UX RECONSTRUCTION (Major Feature Shifts)
+
+**Status**: Planning Phase | **Priority**: HIGH
+
+### Proposed Changes
+- Pre-catalog screen, filter tabs, search box relocation
+- Grid defaults (3-4 columns), per-family vs per-year grouping
+
+### Dependencies
+- User to provide: reference site examples, mockups
+- CC to design: component architecture
+- GC to implement: after CC approval
+
+**Full Details**: `docs/architecture/UI_EVOLUTION.md`
+
+***
+
+## 12. QUALITY STANDARDS & ANTI-PATTERNS
 
 ### Code Standards
-- TypeScript strict, interfaces over types
-- Path aliases only (`@/lib/...`), no `../` imports
+- TypeScript strict, path aliases only (`@/lib/...`)
 - Single quotes, trailing commas, 2-space indent
 - MUI only (no Tailwind/shadcn)
 
@@ -260,58 +265,41 @@ grep SUPABASE_SERVICE_ROLE_KEY .env.local || echo "MISSING"
 - Types: feat, fix, chore, docs, refactor, test
 
 ### Anti-Patterns (FORBIDDEN)
-1. Verbose responses without substance
-2. Multiple agents per feature
-3. Local-only work
-4. Skipping build gates
-5. Line count estimation
-6. Fabricating metrics
-7. Code changes in doc-only tasks
-8. Autonomous scope reduction
-9. `cat > file <<EOF` overwrites
-10. `sed -i` without line verification
+1. Multiple agents per feature
+2. Local-only work, skipping build gates
+3. Line count estimation, fabricating metrics
+4. Code changes in doc-only tasks
+5. Autonomous scope reduction
+6. `cat > file <<EOF` overwrites, `sed -i` without verification
+
+**Full Standards**: `docs/best-practices/INDEX.md`
 
 ***
 
-## 9. LESSONS LEARNED
+## 13. LESSONS LEARNED (Critical Only)
 
-### 1. Content Preservation (2025-12-14)
-- Never compress CLAUDE.md without explicit approval
-- Version bump = ADD, not remove
-
-### 2. Data Loss Prevention (2025-12-12)
-- Always `git status` before `reset --hard`
-- Warn about uncommitted changes
-
-### 3. Incremental Updates (2025-12-13)
-- Process each update immediately
-- No "wait and dump all at once"
-
-### 4. Git Hook PATH (2025-12-24)
-- Husky needs `~/.config/husky/init.sh` for pnpm PATH
-- Hooks run non-interactively
-
-### 5. Scope Reduction (2026-01-14)
-- Complete ALL tasks in multi-task prompts
-- Never autonomously skip tasks
-- Document in incident report if blocked
+1. **Content Preservation** (2025-12-14): Never compress CLAUDE.md without approval
+2. **Data Loss Prevention** (2025-12-12): Always `git status` before `reset --hard`
+3. **Incremental Updates** (2025-12-13): Process updates immediately, no bulk dumps
+4. **Git Hook PATH** (2025-12-24): Husky needs `~/.config/husky/init.sh` for pnpm
+5. **Scope Reduction** (2026-01-14): Complete ALL tasks, never autonomously skip
 
 **Full Lessons**: `docs/context/LESSONS_LEARNED.md`
 
 ***
 
-## REFERENCES
+## APPENDIX A: AGENT & MODEL TERMINOLOGY
 
-| Document | Purpose |
-|----------|---------|
-| `docs/prompts/prompt-fixtures.md` | Agent templates, VERIFY→TRUST→ACT |
-| `docs/PERFORMANCE_LOG.md` | Session logs, timeboxing |
-| `docs/OPEN_ITEMS.md` | Current priorities, backlog |
-| `docs/best-practices/INDEX.md` | Searchable solutions |
-| `docs/incidents/` | Incident reports |
+| Agent | Acronym | Model |
+|-------|---------|-------|
+| Claude Code | CC | Claude 3.5 Sonnet (CS45) |
+| Claude Code Web | CCW | CS45 |
+| Gemini CLI | GC | Gemini 3 Pro Preview |
+| Blackbox | BB | Blackbox Pro |
+| Perplexity | PPLX | CS45 (90%) / GPT-52 |
 
 ***
 
-**END OF CLAUDE.md v2.5.0**
+**END OF CLAUDE.md v2.5.1**
 
-Maintained By: CC | Line Target: ~500 | Actual: ~480
+Maintained By: CC | Line Target: ~500
