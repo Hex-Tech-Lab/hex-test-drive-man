@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useFavoriteStore } from '@/stores/favorite-store';
 import { useLanguageStore } from '@/stores/language-store';
 import FavoriteLoginModal from '@/components/FavoriteLoginModal';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Saved/Favorites page (MVP 1.5 Phase 0)
@@ -15,7 +16,8 @@ import FavoriteLoginModal from '@/components/FavoriteLoginModal';
  */
 export default function SavedPage() {
   const router = useRouter();
-  const language = useLanguageStore((state) => state.language);
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
   const favoriteCount = useFavoriteStore((state) => state.getFavoriteCount());
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -35,19 +37,17 @@ export default function SavedPage() {
       <Box sx={{ textAlign: 'center', py: 8 }}>
         <FavoriteIcon sx={{ fontSize: 80, color: 'error.main', mb: 2 }} />
         <Typography variant="h4" gutterBottom>
-          {language === 'ar' ? 'سياراتك المفضلة' : 'Your Favorite Cars'}
+          {t('saved.title')}
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-          {language === 'ar'
-            ? 'سجّل الدخول لعرض وإدارة سياراتك المفضلة'
-            : 'Sign in to view and manage your favorite cars'}
+          {t('saved.signInDesc')}
         </Typography>
         <Button
           variant="contained"
           size="large"
           onClick={() => setModalOpen(true)}
         >
-          {language === 'ar' ? 'تسجيل الدخول' : 'Sign In'}
+          {t('common.signIn')}
         </Button>
       </Box>
 

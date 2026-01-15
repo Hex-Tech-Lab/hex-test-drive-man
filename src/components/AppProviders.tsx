@@ -7,6 +7,7 @@ import { prefixer } from 'stylis';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { getTheme } from '@/lib/theme';
 import { useLanguageStore } from '@/stores/language-store';
+import { I18nProvider } from '@/i18n';
 import { useEffect, useState } from 'react';
 
 const cacheRtl = createCache({
@@ -52,7 +53,7 @@ export default function AppProviders({ children }: { children: React.ReactNode }
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {children}
+        <I18nProvider>{children}</I18nProvider>
       </ThemeProvider>
     </CacheProvider>
   );

@@ -1,0 +1,200 @@
+{
+  "appName": "Test Drive Platform",
+  "language": "Language",
+  "bookTestDrive": "Book Test Drive",
+
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "cancel": "Cancel",
+    "done": "Done",
+    "loading": "Loading...",
+    "success": "Success",
+    "error": "Error",
+    "backToCatalog": "Back to Catalog",
+    "signIn": "Sign In",
+    "date": "Date",
+    "time": "Time",
+    "venue": "Venue",
+    "vehicle": "Vehicle",
+    "documents": "Documents"
+  },
+
+  "header": {
+    "title": "Test Drive Platform",
+    "switchLanguage": "العربية"
+  },
+
+  "booking": {
+    "title": "Book Test Drive",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "preferredDate": "Preferred Date",
+    "notes": "Notes (Optional)",
+    "submit": "Submit Booking",
+    "submitting": "Submitting...",
+    "cancel": "Cancel",
+    "success": "Booking submitted successfully!",
+    "error": "Failed to submit booking. Please try again.",
+    "nameRequired": "Name is required",
+    "phoneRequired": "Phone number is required",
+    "dateRequired": "Preferred date is required",
+    "trimsAvailable": "trims available"
+  },
+
+  "filters": {
+    "title": "FILTERS",
+    "clear": "Clear",
+    "brands": "Brands",
+    "categories": "Categories",
+    "priceRange": "Price Range",
+    "bodyTypes": "Body Types",
+    "fuelType": "Fuel Type",
+    "transmission": "Transmission"
+  },
+
+  "vehicle": {
+    "trims": "trims",
+    "trim": "trim",
+    "uncategorized": "Uncategorized",
+    "seats": "seats",
+    "addToFavorites": "Add to favorites",
+    "addToCompare": "Add to compare"
+  },
+
+  "cart": {
+    "title": "Shopping Cart",
+    "bookings": "Bookings",
+    "comparisons": "Comparisons",
+    "noBookings": "No bookings yet",
+    "noComparisons": "No comparisons yet",
+    "viewAllBookings": "View All Bookings",
+    "viewComparison": "View Comparison",
+    "bookingsCount": "{{count}} bookings",
+    "comparisonsCount": "{{count}} comparisons"
+  },
+
+  "compare": {
+    "title": "Compare Vehicles",
+    "noVehicles": "No vehicles to compare",
+    "addLimit": "Add up to 3 vehicles to compare",
+    "remove": "Remove",
+    "clearAll": "Clear All"
+  },
+
+  "saved": {
+    "title": "Your Favorite Cars",
+    "noSaved": "No saved vehicles",
+    "signInDesc": "Sign in to view and manage your favorite cars",
+    "browseVehicles": "Browse vehicles in the catalog to save your favorites"
+  },
+
+  "specs": {
+    "specifications": "Specifications",
+    "year": "Year",
+    "trim": "Trim",
+    "category": "Category",
+    "engine": "Engine",
+    "transmission": "Transmission",
+    "fuelType": "Fuel Type",
+    "horsepower": "Horsepower",
+    "torque": "Torque",
+    "acceleration": "0-100 km/h",
+    "topSpeed": "Top Speed",
+    "fuelConsumption": "Fuel Consumption",
+    "seats": "Seats"
+  },
+
+  "wizard": {
+    "steps": {
+      "dateTime": "Date & Time",
+      "idUpload": "ID Upload",
+      "confirm": "Confirm"
+    },
+    "loading": "Loading booking wizard...",
+    "invalidVehicleId": "Invalid vehicle ID format. Please select a vehicle from the catalog.",
+    "selectVenue": "Select Venue",
+    "selectDate": "Select Date",
+    "selectTime": "Select Time",
+    "scanID": "Scan National ID",
+    "scanLicense": "Scan Driver's License",
+    "frontSide": "Front Side",
+    "backSide": "Back Side",
+    "uploadSuccess": "Document uploaded successfully",
+    "confirmBooking": "Confirm Booking",
+    "phoneLabel": "Phone Number",
+    "phoneHelper": "Enter your phone number with country code (+20)",
+    "sendOTP": "Send OTP",
+    "resendOTP": "Resend OTP",
+    "otpLabel": "OTP Code",
+    "otpPlaceholder": "Enter 6-digit code",
+    "verify": "Verify",
+    "successTitle": "Booking Confirmed!",
+    "successDesc": "Your test drive has been successfully booked. Our team will contact you shortly to confirm details.",
+    "idRequired": "National ID is required",
+    "licenseRequired": "Driver's License is required",
+    "infoAlert": "Please arrive 10 minutes before your scheduled time. Bring a valid driver's license and national ID.",
+    "uploadTitle": "Upload Identity Documents",
+    "uploadDesc": "Please capture clear photos of your National ID and Driver's License",
+    "idLabel": "National ID",
+    "licenseLabel": "Driver's License",
+    "idCaptured": "National ID captured",
+    "licenseCaptured": "Driver's License captured",
+    "retake": "Retake",
+    "allUploaded": "Both documents uploaded successfully. Click Next to proceed.",
+    "nameLabel": "Name",
+    "idNumberLabel": "ID",
+    "reservationDetails": "Reservation Details",
+    "smsSent": "A confirmation SMS has been sent to {{phone}}",
+    "confirmTitle": "Confirm Your Booking",
+    "bookingSummary": "Booking Summary",
+    "verifyPhone": "Verify Your Phone Number",
+    "maxAttempts": "Maximum attempts reached. Please request a new OTP.",
+    "invalidOTP": "Invalid OTP code",
+    "otpSendError": "Failed to send OTP",
+    "bookingID": "Booking ID"
+  },
+
+  "catalog": {
+    "searchPlaceholder": "Search vehicle...",
+    "advancedSearch": "Advanced Search",
+    "simpleSearch": "Simple",
+    "make": "Make",
+    "model": "Model",
+    "year": "Year",
+    "bodyType": "Body Type",
+    "fuelType": "Fuel Type",
+    "transmission": "Transmission",
+    "minPrice": "Min Price (EGP)",
+    "maxPrice": "Max Price (EGP)",
+    "minPower": "Min Power (HP)",
+    "maxPower": "Max Power (HP)",
+    "seats": "Seats",
+    "any": "Any",
+    "resetAll": "Reset All",
+    "resultsCount": "{{count}} models",
+    "allBrands": "All Brands",
+    "allYears": "All Years",
+    "allBodyTypes": "All Body Types",
+    "all": "All",
+    "sort": {
+      "priceAsc": "Price: Low → High",
+      "priceDesc": "Price: High → Low",
+      "yearDesc": "Year: Newest First",
+      "yearAsc": "Year: Oldest First",
+      "nameAsc": "Name: A → Z",
+      "nameDesc": "Name: Z → A"
+    },
+    "view": {
+      "grid": "Grid",
+      "list": "List",
+      "cols3": "3 Col",
+      "cols4": "4 Col",
+      "cols5": "5 Col"
+    },
+    "hero": {
+      "title": "Discover Your Perfect Car",
+      "subtitle": "Browse by Category"
+    }
+  }
+}

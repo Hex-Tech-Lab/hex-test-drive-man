@@ -27,6 +27,7 @@ import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { useTranslation } from 'react-i18next';
 import { Vehicle, AggregatedVehicle } from '@/types/vehicle';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
@@ -68,6 +69,7 @@ const formatVehicleTitle = (brand: string, model: string, year: number) => {
  * PERF-012 FIX: Memoized to prevent re-renders when parent re-renders
  */
 const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: VehicleCardProps) {
+  const { t } = useTranslation();
   const router = useRouter();
   const params = useParams();
   const locale = (params.locale as string) || 'en';
@@ -145,20 +147,20 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
     const errors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      errors.name = language === 'ar' ? 'الاسم مطلوب' : 'Name is required';
+      errors.name = t('booking.nameRequired');
     }
 
     if (!formData.phone.trim()) {
-      errors.phone = language === 'ar' ? 'رقم الهاتف مطلوب' : 'Phone number is required';
+      errors.phone = t('booking.phoneRequired');
     }
 
     if (!formData.preferredDate) {
-      errors.preferredDate = language === 'ar' ? 'التاريخ المفضل مطلوب' : 'Preferred date is required';
+      errors.preferredDate = t('booking.dateRequired');
     }
 
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
-  }, [formData, language]);
+  }, [formData, t]);
 
   const handleSubmitBooking = useCallback(async () => {
     if (!validateForm()) {
@@ -201,15 +203,12 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
       console.error('Error submitting booking:', error);
       setSnackbar({
         open: true,
-        message:
-          language === 'ar'
-            ? 'فشل إرسال الحجز. يرجى المحاولة مرة أخرى.'
-            : 'Failed to submit booking. Please try again.',
+        message: t('booking.error'),
         severity: 'error',
       });
       setSubmitting(false);
     }
-  }, [validateForm, submitting, vehicle.id, router, language]);
+  }, [validateForm, submitting, vehicle.id, router, t]);
 
   const handleSnackbarClose = useCallback(() => {
     setSnackbar((prev) => ({ ...prev, open: false }));
@@ -247,7 +246,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
           bgcolor: 'background.paper',
           '&:hover': { bgcolor: 'background.paper' },
         }}
-        aria-label={language === 'ar' ? 'إضافة إلى المفضلة' : 'Add to favorites'}
+        aria-label={t('vehicle.addToFavorites')}
       >
         {isFavorited ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
       </IconButton>
@@ -265,7 +264,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
           bgcolor: 'background.paper',
           '&:hover': { bgcolor: 'background.paper' },
         }}
-        aria-label={language === 'ar' ? 'إضافة للمقارنة' : 'Add to compare'}
+        aria-label={t('vehicle.addToCompare')}
       >
         {isInCompare ? <CheckCircleIcon color="primary" /> : <CompareArrowsIcon />}
       </IconButton>
@@ -317,11 +316,11 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.5 }}>
             <Typography variant="body2" color="text.secondary">
               {vehicle.trimCount > 1
-                ? `${vehicle.trimCount} ${language === 'ar' ? 'إصدارات' : 'trims'}`
-                : `1 ${language === 'ar' ? 'إصدار' : 'trim'}`}
+                ? `${vehicle.trimCount} ${t('vehicle.trims')}`
+                : `1 ${t('vehicle.trim')}`}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {vehicle.categories?.name ?? (language === 'ar' ? 'غير مصنف' : 'Uncategorized')}
+              {vehicle.categories?.name ?? t('vehicle.uncategorized')}
             </Typography>
           </Box>
         </Tooltip>
@@ -333,7 +332,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
           {vehicle.transmissions?.name && (
             <Chip label={vehicle.transmissions.name} size="small" variant="outlined" />
           )}
-          {vehicle.seats && <Chip label={`${vehicle.seats} ${language === 'ar' ? 'مقاعد' : 'seats'}`} size="small" variant="outlined" />}
+          {vehicle.seats && <Chip label={`${vehicle.seats} ${t('vehicle.seats')}`} size="small" variant="outlined" />}
         </Box>
 
         <Typography variant="h5" color="primary" sx={{ mt: 'auto', fontWeight: 600 }}>
@@ -349,7 +348,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
           component={Link}
           href={`/${locale}/bookings/new?vehicleId=${vehicle.id}`}
         >
-          {language === 'ar' ? 'احجز تجربة قيادة' : 'Book Test Drive'}
+          {t('bookTestDrive')}
         </Button>
       </CardContent>
 
@@ -361,7 +360,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
         fullWidth
       >
         <DialogTitle>
-          {language === 'ar' ? 'احجز تجربة قيادة' : 'Book Test Drive'}
+          {t('booking.title')}
         </DialogTitle>
         <DialogContent>
           <Box sx={{ pt: 2 }}>
@@ -369,14 +368,14 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
               {displayTitle}
             </Typography>
             <Typography variant="body2" color="text.secondary" gutterBottom sx={{ mb: 3 }}>
-              {vehicle.trimCount > 1 
-                ? `${vehicle.trimCount} ${language === 'ar' ? 'إصدارات متاحة' : 'trims available'}` 
+              {vehicle.trimCount > 1
+                ? `${vehicle.trimCount} ${t('booking.trimsAvailable')}`
                 : vehicle.trims[0].trim_name}
             </Typography>
 
             <TextField
               fullWidth
-              label={language === 'ar' ? 'الاسم الكامل' : 'Full Name'}
+              label={t('booking.name')}
               value={formData.name}
               onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
               error={!!formErrors.name}
@@ -387,7 +386,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
 
             <TextField
               fullWidth
-              label={language === 'ar' ? 'رقم الهاتف' : 'Phone Number'}
+              label={t('booking.phone')}
               value={formData.phone}
               onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
               error={!!formErrors.phone}
@@ -398,7 +397,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
 
             <TextField
               fullWidth
-              label={language === 'ar' ? 'التاريخ المفضل' : 'Preferred Date'}
+              label={t('booking.preferredDate')}
               type="date"
               value={formData.preferredDate}
               onChange={(e) => setFormData((prev) => ({ ...prev, preferredDate: e.target.value }))}
@@ -414,7 +413,7 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
 
             <TextField
               fullWidth
-              label={language === 'ar' ? 'ملاحظات (اختياري)' : 'Notes (Optional)'}
+              label={t('booking.notes')}
               value={formData.notes}
               onChange={(e) => setFormData((prev) => ({ ...prev, notes: e.target.value }))}
               multiline
@@ -424,16 +423,14 @@ const VehicleCard = memo(function VehicleCard({ vehicle, position = 999 }: Vehic
         </DialogContent>
         <DialogActions>
           <Button onClick={handleBookingModalClose} disabled={submitting}>
-            {language === 'ar' ? 'إلغاء' : 'Cancel'}
+            {t('booking.cancel')}
           </Button>
           <Button
             onClick={handleSubmitBooking}
             variant="contained"
             disabled={submitting}
           >
-            {submitting
-              ? (language === 'ar' ? 'جاري الإرسال...' : 'Submitting...')
-              : (language === 'ar' ? 'إرسال الحجز' : 'Submit Booking')}
+            {submitting ? t('booking.submitting') : t('booking.submit')}
           </Button>
         </DialogActions>
       </Dialog>

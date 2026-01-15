@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Typography,
@@ -51,6 +52,7 @@ export default function ConfirmStep() {
   const router = useRouter();
   const params = useParams();
   const locale = params.locale as string;
+  const { t } = useTranslation();
 
   // Use primitive selectors
   const vehicleId = useBookingWizardStore((s) => s.vehicleId);
@@ -116,7 +118,7 @@ export default function ConfirmStep() {
    */
   const handleSendOtp = async () => {
     if (!customer.phone || customer.phone.length < 10) {
-      setError('Please enter a valid phone number');
+      setError(t('booking.phoneRequired'));
       return;
     }
 
@@ -140,11 +142,11 @@ export default function ConfirmStep() {
         setOtp({ sent: true, expiresAt: result.expiresAt });
         setCooldown(60); // 60 second cooldown
       } else {
-        setError(result.error || 'Failed to send OTP');
+        setError(result.error || t('wizard.otpSendError'));
       }
     } catch (err) {
       console.error('OTP send error:', err);
-      setError('Failed to send OTP. Please try again.');
+      setError(t('wizard.otpSendError'));
     } finally {
       setLoading(false);
     }
@@ -155,7 +157,7 @@ export default function ConfirmStep() {
    */
   const handleConfirmBooking = async () => {
     if (!otp.code || otp.code.length !== 6) {
-      setError('Please enter a valid 6-digit OTP code');
+      setError(t('wizard.otpLabel') + ' ' + t('common.error'));
       return;
     }
 
@@ -181,9 +183,9 @@ export default function ConfirmStep() {
         setOtp({ attempts });
 
         if (attempts >= 3) {
-          setError('Maximum attempts reached. Please request a new OTP.');
+          setError(t('wizard.maxAttempts'));
         } else {
-          setError(verifyResult.error || 'Invalid OTP code');
+          setError(verifyResult.error || t('wizard.invalidOTP'));
         }
         return;
       }
@@ -213,7 +215,7 @@ export default function ConfirmStep() {
       setOtp({ verified: true });
     } catch (err) {
       console.error('Booking creation error:', err);
-      setError('Failed to create booking. Please try again.');
+      setError(t('booking.error'));
     } finally {
       setLoading(false);
     }
@@ -233,42 +235,42 @@ export default function ConfirmStep() {
       <Box sx={{ textAlign: 'center', py: 4 }}>
         <CheckCircleIcon sx={{ fontSize: 80, color: 'success.main', mb: 2 }} />
         <Typography variant="h4" gutterBottom>
-          Booking Confirmed!
+          {t('wizard.successTitle')}
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-          Your test drive has been scheduled successfully.
+          {t('wizard.successDesc')}
         </Typography>
 
         <Card sx={{ maxWidth: 500, mx: 'auto', mb: 3 }}>
           <CardContent>
             <Typography variant="h6" gutterBottom>
-              Reservation Details
+              {t('wizard.reservationDetails')}
             </Typography>
             <Divider sx={{ my: 2 }} />
             <Typography variant="body2">
-              <strong>Booking ID:</strong> {booking.id}
+              <strong>{t('wizard.bookingID')}:</strong> {booking.id}
             </Typography>
             <Typography variant="body2">
-              <strong>Vehicle:</strong> {vehicle?.brand_name} {vehicle?.model_name}
+              <strong>{t('common.vehicle')}:</strong> {vehicle?.brand_name} {vehicle?.model_name}
             </Typography>
             <Typography variant="body2">
-              <strong>Date:</strong> {appointment.date}
+              <strong>{t('common.date')}:</strong> {appointment.date}
             </Typography>
             <Typography variant="body2">
-              <strong>Time:</strong> {appointment.time}
+              <strong>{t('common.time')}:</strong> {appointment.time}
             </Typography>
             <Typography variant="body2">
-              <strong>Venue:</strong> {appointment.venue}
+              <strong>{t('common.venue')}:</strong> {appointment.venue}
             </Typography>
           </CardContent>
         </Card>
 
         <Alert severity="success" sx={{ maxWidth: 500, mx: 'auto', mb: 3 }}>
-          A confirmation SMS has been sent to {customer.phone}
+          {t('wizard.smsSent', { phone: customer.phone })}
         </Alert>
 
         <Button variant="contained" size="large" onClick={handleDone}>
-          Done
+          {t('common.done')}
         </Button>
       </Box>
     );
@@ -278,14 +280,14 @@ export default function ConfirmStep() {
   return (
     <Box>
       <Typography variant="h5" gutterBottom>
-        Confirm Your Booking
+        {t('wizard.confirmTitle')}
       </Typography>
 
       {/* Booking Summary */}
       <Card sx={{ mb: 3 }}>
         <CardContent>
           <Typography variant="h6" gutterBottom>
-            Booking Summary
+            {t('wizard.bookingSummary')}
           </Typography>
           <Divider sx={{ my: 2 }} />
 
@@ -315,24 +317,24 @@ export default function ConfirmStep() {
             {/* Appointment */}
             <Grid item xs={12} md={6}>
               <Typography variant="body2">
-                <strong>Date:</strong> {appointment.date}
+                <strong>{t('common.date')}:</strong> {appointment.date}
               </Typography>
               <Typography variant="body2">
-                <strong>Time:</strong> {appointment.time}
+                <strong>{t('common.time')}:</strong> {appointment.time}
               </Typography>
               <Typography variant="body2">
-                <strong>Venue:</strong> {appointment.venue}
+                <strong>{t('common.venue')}:</strong> {appointment.venue}
               </Typography>
             </Grid>
 
             {/* Documents */}
             <Grid item xs={12}>
               <Typography variant="body2">
-                <strong>Documents:</strong> National ID ✓, Driver&apos;s License ✓
+                <strong>{t('common.documents')}:</strong> {t('wizard.idLabel')} ✓, {t('wizard.licenseLabel')} ✓
               </Typography>
               {documents.extractedData.name && (
                 <Typography variant="body2">
-                  <strong>Name:</strong> {documents.extractedData.name}
+                  <strong>{t('wizard.nameLabel')}:</strong> {documents.extractedData.name}
                 </Typography>
               )}
             </Grid>
@@ -344,18 +346,18 @@ export default function ConfirmStep() {
       <Card>
         <CardContent>
           <Typography variant="h6" gutterBottom>
-            Verify Your Phone Number
+            {t('wizard.verifyPhone')}
           </Typography>
 
           <TextField
             fullWidth
-            label="Phone Number"
+            label={t('wizard.phoneLabel')}
             placeholder="+20 1234567890"
             value={customer.phone}
             onChange={(e) => setCustomer({ phone: e.target.value })}
             disabled={otp.sent}
             sx={{ mb: 2 }}
-            helperText="Enter your phone number with country code (+20)"
+            helperText={t('wizard.phoneHelper')}
           />
 
           {!otp.sent && (
@@ -366,7 +368,7 @@ export default function ConfirmStep() {
               onClick={handleSendOtp}
               disabled={loading || !customer.phone || cooldown > 0}
             >
-              {loading ? <CircularProgress size={24} /> : 'Send OTP'}
+              {loading ? <CircularProgress size={24} /> : t('wizard.sendOTP')}
             </Button>
           )}
 
@@ -374,8 +376,8 @@ export default function ConfirmStep() {
             <Box>
               <TextField
                 fullWidth
-                label="OTP Code"
-                placeholder="Enter 6-digit code"
+                label={t('wizard.otpLabel')}
+                placeholder={t('wizard.otpPlaceholder')}
                 value={otp.code}
                 onChange={(e) => setOtp({ code: e.target.value })}
                 sx={{ mb: 2 }}
@@ -389,7 +391,7 @@ export default function ConfirmStep() {
                 disabled={loading || otp.code.length !== 6}
                 sx={{ mb: 1 }}
               >
-                {loading ? <CircularProgress size={24} /> : 'Confirm Booking'}
+                {loading ? <CircularProgress size={24} /> : t('wizard.confirmBooking')}
               </Button>
 
               <Button
@@ -398,7 +400,7 @@ export default function ConfirmStep() {
                 onClick={handleSendOtp}
                 disabled={cooldown > 0 || loading}
               >
-                {cooldown > 0 ? `Resend OTP (${cooldown}s)` : 'Resend OTP'}
+                {cooldown > 0 ? `${t('wizard.resendOTP')} (${cooldown}s)` : t('wizard.resendOTP')}
               </Button>
             </Box>
           )}

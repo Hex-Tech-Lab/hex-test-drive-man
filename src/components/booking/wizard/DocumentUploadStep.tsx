@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Typography,
@@ -21,6 +22,7 @@ import { SmartScanner } from '@/components/scanner/SmartScanner';
  * Extracts data via OCR for confirmation step
  */
 export default function DocumentUploadStep() {
+  const { t, i18n } = useTranslation();
   // Use primitive selectors
   const documents = useBookingWizardStore((s) => s.documents);
   const setDocuments = useBookingWizardStore((s) => s.setDocuments);
@@ -79,11 +81,10 @@ export default function DocumentUploadStep() {
   return (
     <Box>
       <Typography variant="h5" gutterBottom>
-        Upload Identity Documents
+        {t('wizard.uploadTitle')}
       </Typography>
       <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-        Please capture clear photos of your National ID and Driver&apos;s
-        License
+        {t('wizard.uploadDesc')}
       </Typography>
 
       <Grid container spacing={3}>
@@ -92,7 +93,7 @@ export default function DocumentUploadStep() {
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom>
-                National ID
+                {t('wizard.idLabel')}
               </Typography>
 
               {!documents.nationalId && !scanningNationalId && (
@@ -102,7 +103,7 @@ export default function DocumentUploadStep() {
                   fullWidth
                   onClick={() => setScanningNationalId(true)}
                 >
-                  Capture National ID
+                  {t('wizard.scanID')}
                 </Button>
               )}
 
@@ -111,7 +112,7 @@ export default function DocumentUploadStep() {
                   <SmartScanner
                     mode="front"
                     onScanComplete={handleNationalIdScan}
-                    language="en"
+                    language={i18n.language as 'en' | 'ar'}
                   />
                   <Button
                     variant="outlined"
@@ -119,7 +120,7 @@ export default function DocumentUploadStep() {
                     onClick={() => setScanningNationalId(false)}
                     sx={{ mt: 2 }}
                   >
-                    Cancel
+                    {t('common.cancel')}
                   </Button>
                 </Box>
               )}
@@ -127,16 +128,16 @@ export default function DocumentUploadStep() {
               {documents.nationalId && !scanningNationalId && (
                 <Box>
                   <Alert severity="success" icon={<CheckCircleIcon />}>
-                    National ID captured
+                    {t('wizard.idCaptured')}
                   </Alert>
                   {documents.extractedData.nationalIdNumber && (
                     <Typography variant="body2" sx={{ mt: 1 }}>
-                      ID: {documents.extractedData.nationalIdNumber}
+                      {t('wizard.idNumberLabel')}: {documents.extractedData.nationalIdNumber}
                     </Typography>
                   )}
                   {documents.extractedData.name && (
                     <Typography variant="body2">
-                      Name: {documents.extractedData.name}
+                      {t('wizard.nameLabel')}: {documents.extractedData.name}
                     </Typography>
                   )}
                   <Button
@@ -145,7 +146,7 @@ export default function DocumentUploadStep() {
                     onClick={() => setScanningNationalId(true)}
                     sx={{ mt: 2 }}
                   >
-                    Retake
+                    {t('wizard.retake')}
                   </Button>
                 </Box>
               )}
@@ -158,7 +159,7 @@ export default function DocumentUploadStep() {
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom>
-                Driver&apos;s License
+                {t('wizard.licenseLabel')}
               </Typography>
 
               {!documents.driversLicense && !scanningLicense && (
@@ -168,7 +169,7 @@ export default function DocumentUploadStep() {
                   fullWidth
                   onClick={() => setScanningLicense(true)}
                 >
-                  Capture Driver&apos;s License
+                  {t('wizard.scanLicense')}
                 </Button>
               )}
 
@@ -177,7 +178,7 @@ export default function DocumentUploadStep() {
                   <SmartScanner
                     mode="front"
                     onScanComplete={handleLicenseScan}
-                    language="en"
+                    language={i18n.language as 'en' | 'ar'}
                   />
                   <Button
                     variant="outlined"
@@ -185,7 +186,7 @@ export default function DocumentUploadStep() {
                     onClick={() => setScanningLicense(false)}
                     sx={{ mt: 2 }}
                   >
-                    Cancel
+                    {t('common.cancel')}
                   </Button>
                 </Box>
               )}
@@ -193,7 +194,7 @@ export default function DocumentUploadStep() {
               {documents.driversLicense && !scanningLicense && (
                 <Box>
                   <Alert severity="success" icon={<CheckCircleIcon />}>
-                    Driver&apos;s License captured
+                    {t('wizard.licenseCaptured')}
                   </Alert>
                   <Button
                     variant="outlined"
@@ -201,7 +202,7 @@ export default function DocumentUploadStep() {
                     onClick={() => setScanningLicense(true)}
                     sx={{ mt: 2 }}
                   >
-                    Retake
+                    {t('wizard.retake')}
                   </Button>
                 </Box>
               )}
@@ -212,7 +213,7 @@ export default function DocumentUploadStep() {
 
       {documents.nationalId && documents.driversLicense && (
         <Alert severity="success" sx={{ mt: 3 }}>
-          Both documents uploaded successfully. Click Next to proceed.
+          {t('wizard.allUploaded')}
         </Alert>
       )}
     </Box>

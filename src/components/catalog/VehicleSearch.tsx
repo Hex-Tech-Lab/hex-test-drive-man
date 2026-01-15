@@ -22,7 +22,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Vehicle } from '@/types/vehicle';
-import { useLanguageStore } from '@/stores/language-store';
+import { useTranslation } from 'react-i18next';
 
 interface VehicleSearchProps {
   vehicles: Vehicle[];
@@ -58,7 +58,7 @@ export interface SearchFilters {
  * @param props.totalResults - Current result count
  */
 export default function VehicleSearch({ vehicles, onSearch, totalResults }: VehicleSearchProps) {
-  const language = useLanguageStore((state) => state.language);
+  const { t } = useTranslation();
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [filters, setFilters] = useState<SearchFilters>({
     searchTerm: '',
@@ -183,7 +183,7 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
             <TextField
               fullWidth
               size="small"
-              placeholder={language === 'ar' ? 'ابحث عن مركبة...' : 'Search vehicle...'}
+              placeholder={t('catalog.searchPlaceholder')}
               value={filters.searchTerm}
               onChange={(e) => handleFilterChange('searchTerm', e.target.value)}
               InputProps={{
@@ -211,14 +211,14 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
             <>
               <Grid item xs={12} sm={4} md={2.5}>
                 <FormControl fullWidth size="small">
-                  <InputLabel>{language === 'ar' ? 'العلامة التجارية' : 'All Brands'}</InputLabel>
+                  <InputLabel>{t('catalog.allBrands')}</InputLabel>
                   <Select
                     value={filters.brandId || ''}
                     onChange={handleSelectChange('brandId')}
-                    label={language === 'ar' ? 'العلامة التجارية' : 'All Brands'}
+                    label={t('catalog.allBrands')}
                   >
                     <MenuItem value="">
-                      <em>{language === 'ar' ? 'الكل' : 'All'}</em>
+                      <em>{t('catalog.all')}</em>
                     </MenuItem>
                     {brands.map((brand) => (
                       <MenuItem key={brand.id} value={brand.id}>
@@ -231,14 +231,14 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
 
               <Grid item xs={12} sm={4} md={2}>
                 <FormControl fullWidth size="small">
-                  <InputLabel>{language === 'ar' ? 'السنة' : 'All Years'}</InputLabel>
+                  <InputLabel>{t('catalog.allYears')}</InputLabel>
                   <Select
                     value={filters.year || ''}
                     onChange={handleSelectChange('year')}
-                    label={language === 'ar' ? 'السنة' : 'All Years'}
+                    label={t('catalog.allYears')}
                   >
                     <MenuItem value="">
-                      <em>{language === 'ar' ? 'الكل' : 'All'}</em>
+                      <em>{t('catalog.all')}</em>
                     </MenuItem>
                     {years.map((year) => (
                       <MenuItem key={year} value={year}>
@@ -251,14 +251,14 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
 
               <Grid item xs={12} sm={4} md={2.5}>
                 <FormControl fullWidth size="small">
-                  <InputLabel>{language === 'ar' ? 'نوع الهيكل' : 'All Body Types'}</InputLabel>
+                  <InputLabel>{t('catalog.allBodyTypes')}</InputLabel>
                   <Select
                     value={filters.bodyType || ''}
                     onChange={handleSelectChange('bodyType')}
-                    label={language === 'ar' ? 'نوع الهيكل' : 'All Body Types'}
+                    label={t('catalog.allBodyTypes')}
                   >
                     <MenuItem value="">
-                      <em>{language === 'ar' ? 'الكل' : 'All'}</em>
+                      <em>{t('catalog.all')}</em>
                     </MenuItem>
                     {bodyTypes.map((type) => (
                       <MenuItem key={type} value={type}>
@@ -279,7 +279,7 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
               onClick={() => setIsAdvanced(!isAdvanced)}
               endIcon={isAdvanced ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             >
-              {language === 'ar' ? (isAdvanced ? 'بسيط' : 'متقدم') : (isAdvanced ? 'Simple' : 'Advanced')}
+              {isAdvanced ? t('catalog.simpleSearch') : t('catalog.advancedSearch')}
             </Button>
           </Grid>
         </Grid>
@@ -289,21 +289,21 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
       <Collapse in={isAdvanced}>
         <Box sx={{ p: 2, pt: 0, backgroundColor: 'grey.50', borderTop: '1px solid', borderColor: 'divider' }}>
           <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 600 }}>
-            {language === 'ar' ? 'البحث المتقدم' : 'Advanced Search'}
+            {t('catalog.advancedSearch')}
           </Typography>
 
           <Grid container spacing={2}>
             {/* Row 1: Make, Model, Year */}
             <Grid item xs={12} sm={4}>
               <FormControl fullWidth size="small">
-                <InputLabel>{language === 'ar' ? 'الصانع' : 'Make'}</InputLabel>
+                <InputLabel>{t('catalog.make')}</InputLabel>
                 <Select
                   value={filters.brandId || ''}
                   onChange={handleSelectChange('brandId')}
-                  label={language === 'ar' ? 'الصانع' : 'Make'}
+                  label={t('catalog.make')}
                 >
                   <MenuItem value="">
-                    <em>{language === 'ar' ? 'الكل' : 'All'}</em>
+                    <em>{t('catalog.all')}</em>
                   </MenuItem>
                   {brands.map((brand) => (
                     <MenuItem key={brand.id} value={brand.id}>
@@ -316,14 +316,14 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
 
             <Grid item xs={12} sm={4}>
               <FormControl fullWidth size="small" disabled={!filters.brandId}>
-                <InputLabel>{language === 'ar' ? 'الموديل' : 'Model'}</InputLabel>
+                <InputLabel>{t('catalog.model')}</InputLabel>
                 <Select
                   value={filters.modelId || ''}
                   onChange={handleSelectChange('modelId')}
-                  label={language === 'ar' ? 'الموديل' : 'Model'}
+                  label={t('catalog.model')}
                 >
                   <MenuItem value="">
-                    <em>{language === 'ar' ? 'الكل' : 'All'}</em>
+                    <em>{t('catalog.all')}</em>
                   </MenuItem>
                   {models.map((model) => (
                     <MenuItem key={model.id} value={model.id}>
@@ -336,14 +336,14 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
 
             <Grid item xs={12} sm={4}>
               <FormControl fullWidth size="small">
-                <InputLabel>{language === 'ar' ? 'السنة' : 'Year'}</InputLabel>
+                <InputLabel>{t('catalog.year')}</InputLabel>
                 <Select
                   value={filters.year || ''}
                   onChange={handleSelectChange('year')}
-                  label={language === 'ar' ? 'السنة' : 'Year'}
+                  label={t('catalog.year')}
                 >
                   <MenuItem value="">
-                    <em>{language === 'ar' ? 'الكل' : 'All'}</em>
+                    <em>{t('catalog.all')}</em>
                   </MenuItem>
                   {years.map((year) => (
                     <MenuItem key={year} value={year}>
@@ -357,14 +357,14 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
             {/* Row 2: Body Type, Fuel Type, Transmission */}
             <Grid item xs={12} sm={4}>
               <FormControl fullWidth size="small">
-                <InputLabel>{language === 'ar' ? 'نوع الهيكل' : 'Body Type'}</InputLabel>
+                <InputLabel>{t('catalog.bodyType')}</InputLabel>
                 <Select
                   value={filters.bodyType || ''}
                   onChange={handleSelectChange('bodyType')}
-                  label={language === 'ar' ? 'نوع الهيكل' : 'Body Type'}
+                  label={t('catalog.bodyType')}
                 >
                   <MenuItem value="">
-                    <em>{language === 'ar' ? 'الكل' : 'All'}</em>
+                    <em>{t('catalog.all')}</em>
                   </MenuItem>
                   {bodyTypes.map((type) => (
                     <MenuItem key={type} value={type}>
@@ -377,14 +377,14 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
 
             <Grid item xs={12} sm={4}>
               <FormControl fullWidth size="small">
-                <InputLabel>{language === 'ar' ? 'نوع الوقود' : 'Fuel Type'}</InputLabel>
+                <InputLabel>{t('catalog.fuelType')}</InputLabel>
                 <Select
                   value={filters.fuelType || ''}
                   onChange={handleSelectChange('fuelType')}
-                  label={language === 'ar' ? 'نوع الوقود' : 'Fuel Type'}
+                  label={t('catalog.fuelType')}
                 >
                   <MenuItem value="">
-                    <em>{language === 'ar' ? 'الكل' : 'All'}</em>
+                    <em>{t('catalog.all')}</em>
                   </MenuItem>
                   {fuelTypes.map((type) => (
                     <MenuItem key={type} value={type}>
@@ -397,14 +397,14 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
 
             <Grid item xs={12} sm={4}>
               <FormControl fullWidth size="small">
-                <InputLabel>{language === 'ar' ? 'ناقل الحركة' : 'Transmission'}</InputLabel>
+                <InputLabel>{t('catalog.transmission')}</InputLabel>
                 <Select
                   value={filters.transmission || ''}
                   onChange={handleSelectChange('transmission')}
-                  label={language === 'ar' ? 'ناقل الحركة' : 'Transmission'}
+                  label={t('catalog.transmission')}
                 >
                   <MenuItem value="">
-                    <em>{language === 'ar' ? 'الكل' : 'All'}</em>
+                    <em>{t('catalog.all')}</em>
                   </MenuItem>
                   {transmissions.map((trans) => (
                     <MenuItem key={trans} value={trans}>
@@ -421,7 +421,7 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
                 fullWidth
                 size="small"
                 type="number"
-                label={language === 'ar' ? 'السعر الأدنى (جنيه)' : 'Min Price (EGP)'}
+                label={t('catalog.minPrice')}
                 value={filters.minPrice || ''}
                 onChange={(e) => handleFilterChange('minPrice', e.target.value ? Number(e.target.value) : undefined)}
                 inputProps={{ min: 0, step: 100000 }}
@@ -433,7 +433,7 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
                 fullWidth
                 size="small"
                 type="number"
-                label={language === 'ar' ? 'السعر الأقصى (جنيه)' : 'Max Price (EGP)'}
+                label={t('catalog.maxPrice')}
                 value={filters.maxPrice || ''}
                 onChange={(e) => handleFilterChange('maxPrice', e.target.value ? Number(e.target.value) : undefined)}
                 inputProps={{ min: 0, step: 100000 }}
@@ -445,7 +445,7 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
                 fullWidth
                 size="small"
                 type="number"
-                label={language === 'ar' ? 'القوة الدنيا (حصان)' : 'Min Power (HP)'}
+                label={t('catalog.minPower')}
                 value={filters.minHorsepower || ''}
                 onChange={(e) => handleFilterChange('minHorsepower', e.target.value ? Number(e.target.value) : undefined)}
                 inputProps={{ min: 0, step: 10 }}
@@ -457,7 +457,7 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
                 fullWidth
                 size="small"
                 type="number"
-                label={language === 'ar' ? 'القوة القصوى (حصان)' : 'Max Power (HP)'}
+                label={t('catalog.maxPower')}
                 value={filters.maxHorsepower || ''}
                 onChange={(e) => handleFilterChange('maxHorsepower', e.target.value ? Number(e.target.value) : undefined)}
                 inputProps={{ min: 0, step: 10 }}
@@ -467,14 +467,14 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
             {/* Row 4: Seats */}
             <Grid item xs={12} sm={4}>
               <FormControl fullWidth size="small">
-                <InputLabel>{language === 'ar' ? 'المقاعد' : 'Seats'}</InputLabel>
+                <InputLabel>{t('catalog.seats')}</InputLabel>
                 <Select
                   value={filters.seats || ''}
                   onChange={handleSelectChange('seats')}
-                  label={language === 'ar' ? 'المقاعد' : 'Seats'}
+                  label={t('catalog.seats')}
                 >
                   <MenuItem value="">
-                    <em>{language === 'ar' ? 'أي' : 'Any'}</em>
+                    <em>{t('catalog.any')}</em>
                   </MenuItem>
                   {seatOptions.map((seats) => (
                     <MenuItem key={seats} value={seats}>
@@ -494,10 +494,10 @@ export default function VehicleSearch({ vehicles, onSearch, totalResults }: Vehi
                   onClick={handleReset}
                   sx={{ color: 'text.secondary' }}
                 >
-                  {language === 'ar' ? 'مسح الكل' : 'Reset All'}
+                  {t('catalog.resetAll')}
                 </Button>
                 <Typography variant="body2" color="primary" sx={{ fontWeight: 600 }}>
-                  {totalResults} {language === 'ar' ? 'موديل' : 'models'}
+                  {t('catalog.resultsCount', { count: totalResults })}
                 </Typography>
               </Box>
             </Grid>

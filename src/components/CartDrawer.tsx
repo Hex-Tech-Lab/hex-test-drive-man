@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useTranslation } from 'react-i18next';
 import { useBookingStore } from '@/stores/useBookingStore';
 import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
@@ -56,20 +57,21 @@ function TabPanel(props: TabPanelProps) {
  * Slides out from right side with tabs for each list type
  */
 export default function CartDrawer({ open, onClose }: CartDrawerProps) {
+  const { t } = useTranslation();
   const router = useRouter();
   const params = useParams();
   const locale = (params.locale as string) || 'en';
-  
+
   // BUG-008 FIX: Prevent SSR visibility flash
   const [isClient, setIsClient] = useState(false);
-  
+
   // Primitive selectors to avoid React 19 infinite loops
   const bookingItems = useBookingStore((state) => state.items);
   const removeBooking = useBookingStore((state) => state.removeItem);
 
   const comparisonItems = useCompareStore((state) => state.compareItems);
   const removeComparison = useCompareStore((state) => state.removeFromCompare);
-  
+
   const language = useLanguageStore((state) => state.language);
 
   const [activeTab, setActiveTab] = useState(0);
@@ -125,7 +127,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
           }}
         >
           <Typography variant="h6" fontWeight={600}>
-            {isRTL ? 'عربة التسوق' : 'Shopping Cart'}
+            {t('cart.title')}
           </Typography>
           <IconButton onClick={onClose} size="small">
             <CloseIcon />
@@ -136,20 +138,12 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={activeTab} onChange={handleTabChange} variant="fullWidth">
             <Tab
-              label={
-                isRTL
-                  ? `الحجوزات (${bookingItems.length})`
-                  : `Bookings (${bookingItems.length})`
-              }
+              label={`${t('cart.bookings')} (${bookingItems.length})`}
               id="cart-tab-0"
               aria-controls="cart-tabpanel-0"
             />
             <Tab
-              label={
-                isRTL
-                  ? `المقارنات (${comparisonItems.length})`
-                  : `Comparisons (${comparisonItems.length})`
-              }
+              label={`${t('cart.comparisons')} (${comparisonItems.length})`}
               id="cart-tab-1"
               aria-controls="cart-tabpanel-1"
             />
@@ -163,7 +157,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
             {bookingItems.length === 0 ? (
               <Box sx={{ textAlign: 'center', py: 4 }}>
                 <Typography variant="body2" color="text.secondary">
-                  {isRTL ? 'لا توجد حجوزات' : 'No bookings yet'}
+                  {t('cart.noBookings')}
                 </Typography>
               </Box>
             ) : (
@@ -224,7 +218,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
             {comparisonItems.length === 0 ? (
               <Box sx={{ textAlign: 'center', py: 4 }}>
                 <Typography variant="body2" color="text.secondary">
-                  {isRTL ? 'لا توجد مقارنات' : 'No comparisons yet'}
+                  {t('cart.noComparisons')}
                 </Typography>
               </Box>
             ) : (
@@ -290,7 +284,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
               disabled={bookingItems.length === 0}
               onClick={handleViewBookings}
             >
-              {isRTL ? 'عرض جميع الحجوزات' : 'View All Bookings'}
+              {t('cart.viewAllBookings')}
             </Button>
           ) : (
             <Button
@@ -299,7 +293,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
               disabled={comparisonItems.length === 0}
               onClick={handleViewComparison}
             >
-              {isRTL ? 'عرض المقارنة' : 'View Comparison'}
+              {t('cart.viewComparison')}
             </Button>
           )}
         </Box>
