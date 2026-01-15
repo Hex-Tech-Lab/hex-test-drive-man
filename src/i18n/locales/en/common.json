@@ -152,7 +152,14 @@
     "maxAttempts": "Maximum attempts reached. Please request a new OTP.",
     "invalidOTP": "Invalid OTP code",
     "otpSendError": "Failed to send OTP",
-    "bookingID": "Booking ID"
+    "bookingID": "Booking ID",
+    "idFront": "National ID (Front)",
+    "idBack": "National ID (Back)",
+    "licenseFront": "License (Front)",
+    "licenseBack": "License (Back)",
+    "readyToProceed": "Documents verified. Ready to proceed.",
+    "completeAllScans": "Please complete all 4 document scans.",
+    "capture": "Capture"
   },
 
   "catalog": {

@@ -1,82 +1,38 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Box,
   Typography,
-  Card,
-  CardContent,
-  Button,
   Alert,
   Grid,
 } from '@mui/material';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useBookingWizardStore } from '@/stores/useBookingWizardStore';
-import { SmartScanner } from '@/components/scanner/SmartScanner';
+import { ScanSlotView } from '@/components/ScanSlotView';
 
 /**
  * Document upload step (Step 2)
- * Captures National ID and Driver's License using SmartScanner
- * Extracts data via OCR for confirmation step
+ * Captures 4 document slots: ID Front/Back, License Front/Back
+ * Uses live camera preview and OCR validation
  */
 export default function DocumentUploadStep() {
-  const { t, i18n } = useTranslation();
-  // Use primitive selectors
-  const documents = useBookingWizardStore((s) => s.documents);
-  const setDocuments = useBookingWizardStore((s) => s.setDocuments);
+  const { t } = useTranslation();
+  
+  // Subscribe to store state
+  const idFront = useBookingWizardStore((s) => s.idFront);
+  const idBack = useBookingWizardStore((s) => s.idBack);
+  const licenseFront = useBookingWizardStore((s) => s.licenseFront);
+  const licenseBack = useBookingWizardStore((s) => s.licenseBack);
+  
+  const scanDocument = useBookingWizardStore((s) => s.scanDocument);
+  const allValid = useBookingWizardStore((s) => s.allDocumentsValid());
 
-  const [scanningNationalId, setScanningNationalId] = useState(false);
-  const [scanningLicense, setScanningLicense] = useState(false);
-
-  /**
-   * Convert base64 data URL to File object
-   */
-  const dataURLtoFile = (dataurl: string, filename: string): File => {
-    const arr = dataurl.split(',');
-    const mime = arr[0].match(/:(.*?);/)?.[1] || 'image/jpeg';
-    const bstr = atob(arr[1]);
-    let n = bstr.length;
-    const u8arr = new Uint8Array(n);
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new File([u8arr], filename, { type: mime });
-  };
-
-  /**
-   * Handle National ID scan completion
-   */
-  const handleNationalIdScan = (result: {
-    imageData: string;
-    data: { nationalId?: string; name?: string };
-  }) => {
-    const file = dataURLtoFile(result.imageData, 'national-id.jpg');
-    setDocuments({
-      nationalId: file,
-      extractedData: {
-        ...documents.extractedData,
-        nationalIdNumber: result.data.nationalId || null,
-        name: result.data.name || null,
-      },
-    });
-    setScanningNationalId(false);
-  };
-
-  /**
-   * Handle Driver's License scan completion
-   */
-  const handleLicenseScan = (result: {
-    imageData: string;
-    data: { nationalId?: string; name?: string };
-  }) => {
-    const file = dataURLtoFile(result.imageData, 'drivers-license.jpg');
-    setDocuments({
-      driversLicense: file,
-    });
-    setScanningLicense(false);
-  };
+  const slots = [
+    { type: 'id', side: 'front', label: t('wizard.idFront'), status: idFront },
+    { type: 'id', side: 'back', label: t('wizard.idBack'), status: idBack },
+    { type: 'license', side: 'front', label: t('wizard.licenseFront'), status: licenseFront },
+    { type: 'license', side: 'back', label: t('wizard.licenseBack'), status: licenseBack }
+  ] as const;
 
   return (
     <Box>
@@ -87,135 +43,23 @@ export default function DocumentUploadStep() {
         {t('wizard.uploadDesc')}
       </Typography>
 
-      <Grid container spacing={3}>
-        {/* National ID */}
-        <Grid item xs={12} md={6}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>
-                {t('wizard.idLabel')}
-              </Typography>
-
-              {!documents.nationalId && !scanningNationalId && (
-                <Button
-                  variant="contained"
-                  startIcon={<CloudUploadIcon />}
-                  fullWidth
-                  onClick={() => setScanningNationalId(true)}
-                >
-                  {t('wizard.scanID')}
-                </Button>
-              )}
-
-              {scanningNationalId && (
-                <Box>
-                  <SmartScanner
-                    mode="front"
-                    onScanComplete={handleNationalIdScan}
-                    language={i18n.language as 'en' | 'ar'}
-                  />
-                  <Button
-                    variant="outlined"
-                    fullWidth
-                    onClick={() => setScanningNationalId(false)}
-                    sx={{ mt: 2 }}
-                  >
-                    {t('common.cancel')}
-                  </Button>
-                </Box>
-              )}
-
-              {documents.nationalId && !scanningNationalId && (
-                <Box>
-                  <Alert severity="success" icon={<CheckCircleIcon />}>
-                    {t('wizard.idCaptured')}
-                  </Alert>
-                  {documents.extractedData.nationalIdNumber && (
-                    <Typography variant="body2" sx={{ mt: 1 }}>
-                      {t('wizard.idNumberLabel')}: {documents.extractedData.nationalIdNumber}
-                    </Typography>
-                  )}
-                  {documents.extractedData.name && (
-                    <Typography variant="body2">
-                      {t('wizard.nameLabel')}: {documents.extractedData.name}
-                    </Typography>
-                  )}
-                  <Button
-                    variant="outlined"
-                    fullWidth
-                    onClick={() => setScanningNationalId(true)}
-                    sx={{ mt: 2 }}
-                  >
-                    {t('wizard.retake')}
-                  </Button>
-                </Box>
-              )}
-            </CardContent>
-          </Card>
-        </Grid>
-
-        {/* Driver's License */}
-        <Grid item xs={12} md={6}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>
-                {t('wizard.licenseLabel')}
-              </Typography>
-
-              {!documents.driversLicense && !scanningLicense && (
-                <Button
-                  variant="contained"
-                  startIcon={<CloudUploadIcon />}
-                  fullWidth
-                  onClick={() => setScanningLicense(true)}
-                >
-                  {t('wizard.scanLicense')}
-                </Button>
-              )}
-
-              {scanningLicense && (
-                <Box>
-                  <SmartScanner
-                    mode="front"
-                    onScanComplete={handleLicenseScan}
-                    language={i18n.language as 'en' | 'ar'}
-                  />
-                  <Button
-                    variant="outlined"
-                    fullWidth
-                    onClick={() => setScanningLicense(false)}
-                    sx={{ mt: 2 }}
-                  >
-                    {t('common.cancel')}
-                  </Button>
-                </Box>
-              )}
-
-              {documents.driversLicense && !scanningLicense && (
-                <Box>
-                  <Alert severity="success" icon={<CheckCircleIcon />}>
-                    {t('wizard.licenseCaptured')}
-                  </Alert>
-                  <Button
-                    variant="outlined"
-                    fullWidth
-                    onClick={() => setScanningLicense(true)}
-                    sx={{ mt: 2 }}
-                  >
-                    {t('wizard.retake')}
-                  </Button>
-                </Box>
-              )}
-            </CardContent>
-          </Card>
-        </Grid>
+      <Grid container spacing={2}>
+        {slots.map(({ type, side, label, status }) => (
+          <Grid item xs={12} sm={6} key={`${type}-${side}`}>
+            <ScanSlotView
+              label={label}
+              status={status}
+              onScan={(image) => scanDocument(image, type, side)}
+            />
+          </Grid>
+        ))}
       </Grid>
 
-      {documents.nationalId && documents.driversLicense && (
-        <Alert severity="success" sx={{ mt: 3 }}>
-          {t('wizard.allUploaded')}
+      <Box sx={{ mt: 3 }}>
+        <Alert severity={allValid ? 'success' : 'warning'}>
+          {allValid ? t('wizard.readyToProceed') : t('wizard.completeAllScans')}
         </Alert>
-      )}
+      </Box>
     </Box>
   );
 }
