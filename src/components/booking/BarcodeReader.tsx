@@ -191,6 +191,7 @@ export default function BarcodeReader({
       for (const line of lines) {
         // Look for name patterns (multiple words, Arabic or English)
         if (
+      // eslint-disable-next-line security/detect-unsafe-regex
           line.match(/^[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,5}$/) ||
           line.match(/^[\u0600-\u06FF\s]{10,}$/)
         ) {

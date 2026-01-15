@@ -126,6 +126,7 @@ export default function OCRProcessor({
       // Look for patterns: multiple words with capital letters or Arabic characters
       const namePatterns = [
         // English name pattern (limited to 5 name parts to prevent ReDoS)
+    // eslint-disable-next-line security/detect-unsafe-regex
         /^[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,5}$/,
         // Arabic name pattern
         /[\u0600-\u06FF\s]{10,}/,
