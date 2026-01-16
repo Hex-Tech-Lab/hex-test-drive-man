@@ -39,8 +39,8 @@ export default function DocumentUploadStep() {
   // Use string IDs for state management
   const [activeSlotId, setActiveSlotId] = useState<'id-front' | 'id-back' | 'license-front' | 'license-back' | null>(null);
 
-  // Type-safe document field map
-  const docFieldMap: Record<string, ScanResult | null> = {
+  // Type-safe document field map (Fix: Use DocField union for type safety)
+  const docFieldMap: Record<DocField, ScanResult | null> = {
     idFront,
     idBack,
     licenseFront,
