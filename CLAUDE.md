@@ -189,6 +189,7 @@ curl "$SUPABASE_URL/rest/v1/vehicle_trims?select=count" -H "apikey: $ANON_KEY"
 
 **Format**: Compressed 2-line entries per session
 
+- **2026-01-16**: PR #83 MERGED - Scraper: 0 real CRITICAL/HIGH (all false positives)
 - **2026-01-16**: PR #83 Critical Hotfix: 5 blockers (Zustand/RateLimit/MemLeak/Race/Errors)
 - **2026-01-16**: 24h PR Audit: #81 CONDITIONAL/#82 APPROVE | All gates PASS (TS/Lint/Build)
 - **2026-01-15**: Service Worker restored (v1.5) & patched (POST fix)
