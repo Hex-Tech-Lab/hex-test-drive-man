@@ -8,6 +8,7 @@ import DateTimeStep from '@/components/booking/wizard/DateTimeStep';
 import DocumentUploadStep from '@/components/booking/wizard/DocumentUploadStep';
 import ConfirmStep from '@/components/booking/wizard/ConfirmStep';
 import BookingErrorBoundary from '@/components/booking/BookingErrorBoundary';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Booking wizard page - single page with 3 steps
@@ -22,17 +23,23 @@ export default function BookingWizardPage() {
   const router = useRouter();
   const params = useParams();
   const locale = params.locale as string;
+  const { t } = useTranslation();
 
   // Use primitive selectors to avoid React 19 infinite loop
   const step = useBookingWizardStore((s) => s.step);
   const setStep = useBookingWizardStore((s) => s.setStep);
   const vehicleId = useBookingWizardStore((s) => s.vehicleId);
   const setVehicleId = useBookingWizardStore((s) => s.setVehicleId);
-  const canProceedToStep2 = useBookingWizardStore((s) => s.canProceedToStep2);
-  const canProceedToStep3 = useBookingWizardStore((s) => s.canProceedToStep3);
+  // Subscribe to the RESULT of the validation functions to trigger re-renders
+  const canProceedToStep2 = useBookingWizardStore((s) => s.canProceedToStep2());
+  const canProceedToStep3 = useBookingWizardStore((s) => s.canProceedToStep3());
   const reset = useBookingWizardStore((s) => s.reset);
 
-  const steps = ['Date & Time', 'ID Upload', 'Confirm'];
+  const steps = [
+    t('wizard.steps.dateTime'),
+    t('wizard.steps.idUpload'),
+    t('wizard.steps.confirm')
+  ];
 
   const [validating, setValidating] = useState(true);
   const [validationError, setValidationError] = useState<string | null>(null);
@@ -52,7 +59,7 @@ export default function BookingWizardPage() {
 
     // Invalid UUID format
     if (!UUID_REGEX.test(urlVehicleId)) {
-      setValidationError('Invalid vehicle ID format. Please select a vehicle from the catalog.');
+      setValidationError(t('wizard.invalidVehicleId'));
       setValidating(false);
       return;
     }
@@ -60,16 +67,16 @@ export default function BookingWizardPage() {
     // Valid UUID - set in store
     setVehicleId(urlVehicleId);
     setValidating(false);
-  }, [searchParams, router, locale, setVehicleId]);
+  }, [searchParams, router, locale, setVehicleId, t]);
 
   /**
    * Navigate to next step
    * Validates current step before proceeding
    */
   const handleNext = () => {
-    if (step === 1 && canProceedToStep2()) {
+    if (step === 1 && canProceedToStep2) {
       setStep(2);
-    } else if (step === 2 && canProceedToStep3()) {
+    } else if (step === 2 && canProceedToStep3) {
       setStep(3);
     }
   };
@@ -98,7 +105,7 @@ export default function BookingWizardPage() {
       <Container maxWidth="md" sx={{ py: 8, textAlign: 'center' }}>
         <CircularProgress size={60} />
         <Typography variant="body1" sx={{ mt: 2 }}>
-          Loading booking wizard...
+          {t('wizard.loading')}
         </Typography>
       </Container>
     );
@@ -112,7 +119,7 @@ export default function BookingWizardPage() {
           {validationError}
         </Alert>
         <Button variant="contained" onClick={() => router.push(`/${locale}/`)}>
-          Back to Catalog
+          {t('common.backToCatalog')}
         </Button>
       </Container>
     );
@@ -142,13 +149,13 @@ export default function BookingWizardPage() {
         {/* Navigation buttons */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>
           <Button onClick={handleCancel} color="inherit">
-            Cancel
+            {t('common.cancel')}
           </Button>
 
           <Box sx={{ display: 'flex', gap: 2 }}>
             {step > 1 && (
               <Button onClick={handleBack} variant="outlined">
-                Back
+                {t('common.back')}
               </Button>
             )}
             {step < 3 && (
@@ -156,11 +163,11 @@ export default function BookingWizardPage() {
                 onClick={handleNext}
                 variant="contained"
                 disabled={
-                  (step === 1 && !canProceedToStep2()) ||
-                  (step === 2 && !canProceedToStep3())
+                  (step === 1 && !canProceedToStep2) ||
+                  (step === 2 && !canProceedToStep3)
                 }
               >
-                Next
+                {t('common.next')}
               </Button>
             )}
           </Box>

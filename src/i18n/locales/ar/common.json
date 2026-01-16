@@ -1,0 +1,209 @@
+{
+  "appName": "منصة اختبار القيادة",
+  "language": "اللغة",
+  "bookTestDrive": "احجز اختبار القيادة",
+
+  "common": {
+    "back": "عودة",
+    "next": "التالي",
+    "cancel": "إلغاء",
+    "done": "تم",
+    "loading": "جاري التحميل...",
+    "success": "نجاح",
+    "error": "خطأ",
+    "backToCatalog": "العودة إلى الكتالوج",
+    "signIn": "تسجيل الدخول",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "venue": "المعرض",
+    "vehicle": "المركبة",
+    "documents": "المستندات"
+  },
+
+  "header": {
+    "title": "منصة اختبار القيادة",
+    "switchLanguage": "English"
+  },
+
+  "booking": {
+    "title": "احجز اختبار القيادة",
+    "name": "الاسم الكامل",
+    "phone": "رقم الهاتف",
+    "preferredDate": "التاريخ المفضل",
+    "notes": "ملاحظات (اختياري)",
+    "submit": "إرسال الحجز",
+    "submitting": "جاري الإرسال...",
+    "cancel": "إلغاء",
+    "success": "تم إرسال الحجز بنجاح!",
+    "error": "فشل إرسال الحجز. يرجى المحاولة مرة أخرى.",
+    "nameRequired": "الاسم مطلوب",
+    "phoneRequired": "رقم الهاتف مطلوب",
+    "dateRequired": "التاريخ المفضل مطلوب",
+    "trimsAvailable": "فئات متاحة"
+  },
+
+  "filters": {
+    "title": "التصفية",
+    "clear": "مسح",
+    "brands": "العلامات التجارية",
+    "categories": "التصنيفات",
+    "priceRange": "نطاق السعر",
+    "bodyTypes": "نوع الهيكل",
+    "fuelType": "نوع الوقود",
+    "transmission": "ناقل الحركة"
+  },
+
+  "vehicle": {
+    "trims": "فئات",
+    "trim": "فئة",
+    "uncategorized": "غير مصنف",
+    "seats": "مقاعد",
+    "addToFavorites": "إضافة للمفضلة",
+    "addToCompare": "إضافة للمقارنة"
+  },
+
+  "cart": {
+    "title": "عربة التسوق",
+    "bookings": "الحجوزات",
+    "comparisons": "المقارنات",
+    "noBookings": "لا توجد حجوزات بعد",
+    "noComparisons": "لا توجد مقارنات بعد",
+    "viewAllBookings": "عرض جميع الحجوزات",
+    "viewComparison": "عرض المقارنة",
+    "bookingsCount": "{{count}} حجز",
+    "comparisonsCount": "{{count}} مقارنة"
+  },
+
+  "compare": {
+    "title": "مقارنة المركبات",
+    "noVehicles": "لا توجد مركبات للمقارنة",
+    "addLimit": "أضف ما يصل إلى 3 مركبات للمقارنة",
+    "remove": "إزالة",
+    "clearAll": "مسح الكل"
+  },
+
+  "saved": {
+    "title": "سياراتك المفضلة",
+    "noSaved": "لا توجد سيارات مفضلة",
+    "signInDesc": "سجّل الدخول لعرض وإدارة سياراتك المفضلة",
+    "browseVehicles": "تصفح المركبات في الكتالوج لحفظ مفضلاتك"
+  },
+
+  "specs": {
+    "specifications": "المواصفات",
+    "year": "السنة",
+    "trim": "الفئة",
+    "category": "التصنيف",
+    "engine": "المحرك",
+    "transmission": "ناقل الحركة",
+    "fuelType": "نوع الوقود",
+    "horsepower": "القوة الحصانية",
+    "torque": "عزم الدوران",
+    "acceleration": "التسارع 0-100",
+    "topSpeed": "السرعة القصوى",
+    "fuelConsumption": "استهلاك الوقود",
+    "seats": "المقاعد"
+  },
+
+  "wizard": {
+    "steps": {
+      "dateTime": "الموعد والوقت",
+      "idUpload": "رفع الهوية",
+      "confirm": "تأكيد"
+    },
+    "loading": "جاري تحميل معالج الحجز...",
+    "invalidVehicleId": "رقم تعريف المركبة غير صالح. يرجى اختيار مركبة من الكتالوج.",
+    "selectVenue": "اختر المعرض",
+    "selectDate": "اختر التاريخ",
+    "selectTime": "اختر الوقت",
+    "scanID": "مسح بطاقة الهوية",
+    "scanLicense": "مسح رخصة القيادة",
+    "frontSide": "الوجه الأمامي",
+    "backSide": "الوجه الخلفي",
+    "uploadSuccess": "تم رفع المستند بنجاح",
+    "confirmBooking": "تأكيد الحجز",
+    "phoneLabel": "رقم الهاتف",
+    "phoneHelper": "أدخل رقم الهاتف مع رمز الدولة (+20)",
+    "sendOTP": "إرسال رمز التحقق",
+    "resendOTP": "إعادة الإرسال",
+    "otpLabel": "رمز التحقق",
+    "otpPlaceholder": "أدخل الرمز المكون من 6 أرقام",
+    "verify": "تحقق",
+    "successTitle": "تم تأكيد الحجز!",
+    "successDesc": "تم حجز تجربة القيادة بنجاح. سيتواصل معك فريقنا قريباً لتأكيد التفاصيل.",
+    "idRequired": "بطاقة الهوية مطلوبة",
+    "licenseRequired": "رخصة القيادة مطلوبة",
+    "infoAlert": "يرجى الوصول قبل موعدك بـ 10 دقائق. يرجى إحضار رخصة قيادة سارية وبطاقة الهوية الوطنية.",
+    "uploadTitle": "رفع مستندات الهوية",
+    "uploadDesc": "يرجى التقاط صور واضحة لبطاقة الهوية الوطنية ورخصة القيادة",
+    "idLabel": "بطاقة الهوية الوطنية",
+    "licenseLabel": "رخصة القيادة",
+    "idCaptured": "تم التقاط بطاقة الهوية",
+    "licenseCaptured": "تم التقاط رخصة القيادة",
+    "retake": "إعادة الالتقاط",
+    "allUploaded": "تم رفع كلا المستندين بنجاح. اضغط التالي للمتابعة.",
+    "nameLabel": "الاسم",
+    "idNumberLabel": "رقم الهوية",
+    "reservationDetails": "تفاصيل الحجز",
+    "smsSent": "تم إرسال رسالة تأكيد نصية إلى {{phone}}",
+    "confirmTitle": "تأكيد الحجز",
+    "bookingSummary": "ملخص الحجز",
+    "verifyPhone": "تحقق من رقم الهاتف",
+    "maxAttempts": "تم تجاوز الحد الأقصى للمحاولات. يرجى طلب رمز جديد.",
+    "invalidOTP": "رمز التحقق غير صالح",
+    "otpSendError": "فشل إرسال رمز التحقق",
+    "bookingID": "رقم الحجز",
+    "idFront": "بطاقة الهوية (أمام)",
+    "idBack": "بطاقة الهوية (خلف)",
+    "licenseFront": "رخصة القيادة (أمام)",
+    "licenseBack": "رخصة القيادة (خلف)",
+    "readyToProceed": "تم التحقق من المستندات. جاهز للمتابعة.",
+    "completeAllScans": "يرجى إكمال مسح جميع المستندات الأربعة.",
+    "capture": "التقاط",
+    "scanPreview": "معاينة المسح",
+    "tapToScan": "اضغط للمسح"
+  },
+
+  "catalog": {
+    "searchPlaceholder": "ابحث عن مركبة...",
+    "advancedSearch": "البحث المتقدم",
+    "simpleSearch": "بسيط",
+    "make": "الصانع",
+    "model": "الموديل",
+    "year": "السنة",
+    "bodyType": "نوع الهيكل",
+    "fuelType": "نوع الوقود",
+    "transmission": "ناقل الحركة",
+    "minPrice": "السعر الأدنى (جنيه)",
+    "maxPrice": "السعر الأقصى (جنيه)",
+    "minPower": "القوة الدنيا (حصان)",
+    "maxPower": "القوة القصوى (حصان)",
+    "seats": "المقاعد",
+    "any": "أي",
+    "resetAll": "مسح الكل",
+    "resultsCount": "{{count}} موديل",
+    "allBrands": "جميع العلامات التجارية",
+    "allYears": "جميع السنوات",
+    "allBodyTypes": "جميع أنواع الهيكل",
+    "all": "الكل",
+    "sort": {
+      "priceAsc": "السعر: من الأقل للأعلى",
+      "priceDesc": "السعر: من الأعلى للأقل",
+      "yearDesc": "السنة: الأحدث أولاً",
+      "yearAsc": "السنة: الأقدم أولاً",
+      "nameAsc": "الاسم: أ → ي",
+      "nameDesc": "الاسم: ي → أ"
+    },
+    "view": {
+      "grid": "شبكة",
+      "list": "قائمة",
+      "cols3": "3 أعمدة",
+      "cols4": "4 أعمدة",
+      "cols5": "5 أعمدة"
+    },
+    "hero": {
+      "title": "اكتشف سيارتك المثالية",
+      "subtitle": "تصفح حسب الفئة"
+    }
+  }
+}

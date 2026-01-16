@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Container, Typography, Grid, Card, CardMedia, CardContent, Box, Button, IconButton, Table, TableBody, TableRow, TableCell, Divider } from '@mui/material';
+import { Container, Typography, Card, CardMedia, CardContent, Box, Button, IconButton, Divider } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Header from '@/components/Header';
@@ -9,6 +9,7 @@ import { useCompareStore } from '@/stores/compare-store';
 import { useLanguageStore } from '@/stores/language-store';
 import { useParams, useRouter } from 'next/navigation';
 import { formatEGP, getVehicleImage, getVehicleImageSrcSet, getPlaceholderSrcSet } from '@/lib/imageHelper';
+import { useTranslation } from 'react-i18next';
 
 /**
  *
@@ -17,9 +18,10 @@ export default function ComparePage() {
   const params = useParams();
   const locale = params.locale as string;
   const router = useRouter();
-  const language = useLanguageStore((state) => state.language);
   const setLanguage = useLanguageStore((state) => state.setLanguage);
   const { compareItems, removeFromCompare, clearCompare } = useCompareStore();
+  const { t, i18n } = useTranslation();
+  const language = i18n.language as 'en' | 'ar'; // Use i18next language
 
   useEffect(() => {
     if (locale === 'ar' || locale === 'en') {
@@ -34,10 +36,10 @@ export default function ComparePage() {
         <Container maxWidth="xl" sx={{ py: 4 }}>
           <Box sx={{ textAlign: 'center', py: 8 }}>
             <Typography variant="h5" gutterBottom>
-              {language === 'ar' ? 'لا توجد مركبات للمقارنة' : 'No vehicles to compare'}
+              {t('compare.noVehicles')}
             </Typography>
             <Typography variant="body1" color="text.secondary" gutterBottom>
-              {language === 'ar' ? 'أضف ما يصل إلى 3 مركبات للمقارنة' : 'Add up to 3 vehicles to compare'}
+              {t('compare.addLimit')}
             </Typography>
             <Button
               variant="contained"
@@ -45,7 +47,7 @@ export default function ComparePage() {
               onClick={() => router.push(`/${language}`)}
               sx={{ mt: 2 }}
             >
-              {language === 'ar' ? 'العودة إلى الكتالوج' : 'Back to Catalog'}
+              {t('common.backToCatalog')}
             </Button>
           </Box>
         </Container>
@@ -62,7 +64,7 @@ export default function ComparePage() {
       <Container maxWidth="xl" sx={{ py: 4 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
           <Typography variant="h4" sx={{ fontWeight: 600 }}>
-            {language === 'ar' ? 'مقارنة المركبات' : 'Compare Vehicles'}
+            {t('compare.title')}
           </Typography>
           <Box>
             <Button
@@ -70,10 +72,10 @@ export default function ComparePage() {
               onClick={() => router.push(`/${language}`)}
               sx={{ mr: 2 }}
             >
-              {language === 'ar' ? 'عودة' : 'Back'}
+              {t('common.back')}
             </Button>
             <Button variant="outlined" color="error" onClick={clearCompare}>
-              {language === 'ar' ? 'مسح الكل' : 'Clear All'}
+              {t('compare.clearAll')}
             </Button>
           </Box>
         </Box>
@@ -144,12 +146,12 @@ export default function ComparePage() {
 
           {/* Specifications - Refactored from Table to Box/Typography for Grid alignment */}
           <Typography variant="h5" sx={{ gridColumn: `1 / span ${numberOfVehicleColumns + 1}`, mt: 2, mb: 2 }}>
-            {language === 'ar' ? 'المواصفات' : 'Specifications'}
+            {t('specs.specifications')}
           </Typography>
 
           {/* Year */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
-            <strong>{language === 'ar' ? 'السنة' : 'Year'}</strong>
+            <strong>{t('specs.year')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
@@ -159,7 +161,7 @@ export default function ComparePage() {
 
           {/* Trim */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
-            <strong>{language === 'ar' ? 'الفئة' : 'Trim'}</strong>
+            <strong>{t('specs.trim')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
@@ -169,7 +171,7 @@ export default function ComparePage() {
 
           {/* Category */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
-            <strong>{language === 'ar' ? 'التصنيف' : 'Category'}</strong>
+            <strong>{t('specs.category')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
@@ -179,7 +181,7 @@ export default function ComparePage() {
 
           {/* Engine */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
-            <strong>{language === 'ar' ? 'المحرك' : 'Engine'}</strong>
+            <strong>{t('specs.engine')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
@@ -189,7 +191,7 @@ export default function ComparePage() {
 
           {/* Transmission */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
-            <strong>{language === 'ar' ? 'ناقل الحركة' : 'Transmission'}</strong>
+            <strong>{t('specs.transmission')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
@@ -199,7 +201,7 @@ export default function ComparePage() {
 
           {/* Fuel Type */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
-            <strong>{language === 'ar' ? 'نوع الوقود' : 'Fuel Type'}</strong>
+            <strong>{t('specs.fuelType')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
@@ -209,7 +211,7 @@ export default function ComparePage() {
 
           {/* Horsepower */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
-            <strong>{language === 'ar' ? 'القوة الحصانية' : 'Horsepower'}</strong>
+            <strong>{t('specs.horsepower')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
@@ -219,7 +221,7 @@ export default function ComparePage() {
 
           {/* Torque */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
-            <strong>{language === 'ar' ? 'عزم الدوران' : 'Torque'}</strong>
+            <strong>{t('specs.torque')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
@@ -229,7 +231,7 @@ export default function ComparePage() {
 
           {/* Acceleration 0-100 */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
-            <strong>{language === 'ar' ? 'التسارع 0-100' : '0-100 km/h'}</strong>
+            <strong>{t('specs.acceleration')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
@@ -239,7 +241,7 @@ export default function ComparePage() {
 
           {/* Top Speed */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
-            <strong>{language === 'ar' ? 'السرعة القصوى' : 'Top Speed'}</strong>
+            <strong>{t('specs.topSpeed')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>
@@ -249,7 +251,7 @@ export default function ComparePage() {
 
           {/* Fuel Consumption */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1, bgcolor: 'action.hover' }}>
-            <strong>{language === 'ar' ? 'استهلاك الوقود' : 'Fuel Consumption'}</strong>
+            <strong>{t('specs.fuelConsumption')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1, bgcolor: 'action.hover' }}>
@@ -259,7 +261,7 @@ export default function ComparePage() {
 
           {/* Seats */}
           <Typography sx={{ gridColumn: '1 / span 1', p: 1 }}>
-            <strong>{language === 'ar' ? 'المقاعد' : 'Seats'}</strong>
+            <strong>{t('specs.seats')}</strong>
           </Typography>
           {compareItems.map((v) => (
             <Typography key={v.id} sx={{ gridColumn: 'span 1', p: 1 }}>

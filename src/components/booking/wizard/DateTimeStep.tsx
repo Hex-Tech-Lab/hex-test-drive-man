@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Typography,
@@ -42,6 +43,7 @@ interface VehicleData {
  * Vehicle is inherited from URL query param (readonly display)
  */
 export default function DateTimeStep() {
+  const { t } = useTranslation();
   // Use primitive selectors
   const vehicleId = useBookingWizardStore((s) => s.vehicleId);
   const appointment = useBookingWizardStore((s) => s.appointment);
@@ -54,7 +56,7 @@ export default function DateTimeStep() {
   // Fetch vehicle data on mount
   useEffect(() => {
     if (!vehicleId) {
-      setError('No vehicle selected. Please select a vehicle from the catalog.');
+      setError(t('wizard.invalidVehicleId'));
       setLoading(false);
       return;
     }
@@ -83,7 +85,7 @@ export default function DateTimeStep() {
         setVehicle(vehicle);
       } catch (err) {
         console.error('Failed to fetch vehicle:', err);
-        setError('Failed to load vehicle details. Please try again.');
+        setError(t('booking.error'));
       } finally {
         setLoading(false);
       }
@@ -129,7 +131,7 @@ export default function DateTimeStep() {
   if (error || !vehicle) {
     return (
       <Alert severity="error" sx={{ mb: 2 }}>
-        {error || 'Vehicle not found'}
+        {error || t('common.error')}
       </Alert>
     );
   }
@@ -137,7 +139,7 @@ export default function DateTimeStep() {
   return (
     <Box>
       <Typography variant="h5" gutterBottom>
-        Schedule Your Test Drive
+        {t('wizard.steps.dateTime')}
       </Typography>
 
       {/* Vehicle Display (readonly, inherited from catalog) */}
@@ -166,7 +168,7 @@ export default function DateTimeStep() {
       <TextField
         fullWidth
         type="date"
-        label="Select Date"
+        label={t('wizard.selectDate')}
         value={appointment.date}
         onChange={(e) => setAppointment({ date: e.target.value })}
         InputLabelProps={{ shrink: true }}
@@ -179,7 +181,7 @@ export default function DateTimeStep() {
       <TextField
         fullWidth
         select
-        label="Select Time"
+        label={t('wizard.selectTime')}
         value={appointment.time}
         onChange={(e) => setAppointment({ time: e.target.value })}
         sx={{ mb: 2 }}
@@ -196,7 +198,7 @@ export default function DateTimeStep() {
       <TextField
         fullWidth
         select
-        label="Select Venue"
+        label={t('wizard.selectVenue')}
         value={appointment.venue}
         onChange={(e) => setAppointment({ venue: e.target.value })}
         sx={{ mb: 2 }}
@@ -210,8 +212,7 @@ export default function DateTimeStep() {
       </TextField>
 
       <Alert severity="info" sx={{ mt: 2 }}>
-        Please arrive 10 minutes before your scheduled time. Bring a valid
-        driver&apos;s license and national ID.
+        {t('wizard.infoAlert')}
       </Alert>
     </Box>
   );

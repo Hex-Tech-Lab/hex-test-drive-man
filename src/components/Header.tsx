@@ -5,6 +5,7 @@ import { AppBar, Toolbar, Typography, IconButton, Badge, Button, Container, Tool
 import dynamic from 'next/dynamic';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useTranslation } from 'react-i18next';
 import CartDrawerSkeleton from '@/components/skeletons/CartDrawerSkeleton';
 import { useLanguageStore } from '@/stores/language-store';
 import { useCompareStore } from '@/stores/compare-store';
@@ -22,6 +23,7 @@ const CartDrawer = dynamic(() => import('@/components/CartDrawer'), {
  * Global header component with language switcher, cart, and comparison link
  */
 export default function Header() {
+  const { t } = useTranslation();
   const language = useLanguageStore((state) => state.language);
   const setLanguage = useLanguageStore((state) => state.setLanguage);
   const compareItems = useCompareStore((state) => state.compareItems);
@@ -57,10 +59,7 @@ export default function Header() {
   };
 
   const totalCartItems = bookingCount + comparisonCount;
-  const cartBadgeLabel =
-    language === 'ar'
-      ? `${bookingCount} حجوزات | ${comparisonCount} مقارنات`
-      : `${bookingCount} bookings | ${comparisonCount} comparisons`;
+  const cartBadgeLabel = `${t('cart.bookingsCount', { count: bookingCount })} | ${t('cart.comparisonsCount', { count: comparisonCount })}`;
 
   return (
     <>
@@ -68,7 +67,7 @@ export default function Header() {
         <Container maxWidth="xl">
           <Toolbar>
             <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>
-              {language === 'ar' ? 'منصة اختبار القيادة' : 'Test Drive Platform'}
+              {t('header.title')}
             </Typography>
 
             <Button
@@ -76,7 +75,7 @@ export default function Header() {
               onClick={toggleLanguage}
               sx={{ mr: 2 }}
             >
-              {language === 'ar' ? 'English' : 'العربية'}
+              {t('header.switchLanguage')}
             </Button>
 
             <Tooltip title={cartBadgeLabel} arrow>

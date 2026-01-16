@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { ocrService, ScanResult } from '@/services/ocr/ocrService';
 
 /**
  * Booking wizard state interface
@@ -13,20 +14,18 @@ export interface BookingWizardState {
   step: 1 | 2 | 3;
   setStep: (step: 1 | 2 | 3) => void;
 
-  // Step 1: Vehicle + Appointment (vehicle inherited from URL)
+  // Step 1: Vehicle + Appointment
   vehicleId: string | null;
   setVehicleId: (id: string) => void;
 
   appointment: {
-    date: string; // ISO 8601 date
-    time: string; // HH:mm format
-    venue: string; // Location name
+    date: string;
+    time: string;
+    venue: string;
   };
-  setAppointment: (
-    appointment: Partial<BookingWizardState['appointment']>
-  ) => void;
+  setAppointment: (appointment: Partial<BookingWizardState['appointment']>) => void;
 
-  // Step 2: Documents
+  // Step 2: Documents (Legacy & OCR)
   documents: {
     nationalId: File | null;
     driversLicense: File | null;
@@ -37,6 +36,14 @@ export interface BookingWizardState {
     };
   };
   setDocuments: (documents: Partial<BookingWizardState['documents']>) => void;
+
+  // New OCR Slots
+  idFront: ScanResult | null;
+  idBack: ScanResult | null;
+  licenseFront: ScanResult | null;
+  licenseBack: ScanResult | null;
+  scanDocument: (image: Blob, type: 'id'|'license', side: 'front'|'back') => Promise<void>;
+  allDocumentsValid: () => boolean;
 
   // Step 3: Customer + OTP
   customer: {
@@ -66,75 +73,67 @@ export interface BookingWizardState {
   canProceedToStep3: () => boolean;
 }
 
-/**
- * Booking wizard store
- * Persists only step and vehicleId to localStorage
- * Sensitive data (documents, phone, OTP) not persisted for security
- */
 export const useBookingWizardStore = create<BookingWizardState>()(
   persist(
     (set, get) => ({
       // Initial state
       step: 1,
       vehicleId: null,
-      appointment: {
-        date: '',
-        time: '',
-        venue: 'Cairo Showroom', // Default
-      },
+      appointment: { date: '', time: '', venue: 'Cairo Showroom' },
       documents: {
         nationalId: null,
         driversLicense: null,
-        extractedData: {
-          nationalIdNumber: null,
-          name: null,
-          dateOfBirth: null,
-        },
+        extractedData: { nationalIdNumber: null, name: null, dateOfBirth: null },
       },
-      customer: {
-        phone: '',
-      },
-      otp: {
-        sent: false,
-        code: '',
-        verified: false,
-        attempts: 0,
-        expiresAt: null,
-      },
-      booking: {
-        id: null,
-        confirmed: false,
-      },
+      idFront: null, idBack: null, licenseFront: null, licenseBack: null,
+      customer: { phone: '' },
+      otp: { sent: false, code: '', verified: false, attempts: 0, expiresAt: null },
+      booking: { id: null, confirmed: false },
 
       // Setters
       setStep: (step) => set({ step }),
       setVehicleId: (id) => set({ vehicleId: id }),
-      setAppointment: (appointment) =>
-        set((state) => ({
-          appointment: { ...state.appointment, ...appointment },
-        })),
-      setDocuments: (documents) =>
-        set((state) => ({
-          documents: { ...state.documents, ...documents },
-        })),
-      setCustomer: (customer) =>
-        set((state) => ({
-          customer: { ...state.customer, ...customer },
-        })),
-      setOtp: (otp) =>
-        set((state) => ({
-          otp: { ...state.otp, ...otp },
-        })),
-      setBooking: (booking) =>
-        set((state) => ({
-          booking: { ...state.booking, ...booking },
-        })),
+      setAppointment: (appointment) => set((state) => ({ appointment: { ...state.appointment, ...appointment } })),
+      setDocuments: (documents) => set((state) => ({ documents: { ...state.documents, ...documents } })),
+      setCustomer: (customer) => set((state) => ({ customer: { ...state.customer, ...customer } })),
+      setOtp: (otp) => set((state) => ({ otp: { ...state.otp, ...otp } })),
+      setBooking: (booking) => set((state) => ({ booking: { ...state.booking, ...booking } })),
+
+      // OCR Action
+      scanDocument: async (image, type, side) => {
+        try {
+          const result = await ocrService.scanImage(image, type, side);
+          const key = `${type}${side.charAt(0).toUpperCase() + side.slice(1)}` as 'idFront' | 'idBack' | 'licenseFront' | 'licenseBack';
+          
+          set((state) => {
+             const updates: Partial<BookingWizardState> = { [key]: result };
+             
+             if (result.valid && result.extracted) {
+               updates.documents = {
+                 ...state.documents,
+                 extractedData: {
+                   ...state.documents.extractedData,
+                   name: result.extracted.name || state.documents.extractedData.name,
+                   nationalIdNumber: result.extracted.idNumber || state.documents.extractedData.nationalIdNumber,
+                 }
+               };
+             }
+             return updates;
+          });
+        } catch (error) {
+          console.error('OCR failed:', error);
+        }
+      },
+
+      allDocumentsValid: () => {
+        const state = get();
+        return ocrService.validateAllSlots({
+            id: { front: state.idFront, back: state.idBack },
+            license: { front: state.licenseFront, back: state.licenseBack }
+        });
+      },
 
       // Validation
-      /**
-       * Check if can proceed to Step 2 (ID Upload)
-       * Requires: date, time, and venue filled
-       */
       canProceedToStep2: () => {
         const { appointment } = get();
         return (
@@ -144,62 +143,31 @@ export const useBookingWizardStore = create<BookingWizardState>()(
         );
       },
 
-      /**
-       * Check if can proceed to Step 3 (Confirm)
-       * Requires: both documents uploaded
-       */
       canProceedToStep3: () => {
-        const { documents } = get();
-        return (
-          documents.nationalId !== null && documents.driversLicense !== null
-        );
+        return get().allDocumentsValid();
       },
 
-      /**
-       * Reset all state to initial values
-       * Called after successful booking or cancellation
-       */
       reset: () =>
         set({
           step: 1,
           vehicleId: null,
-          appointment: {
-            date: '',
-            time: '',
-            venue: 'Cairo Showroom',
-          },
+          appointment: { date: '', time: '', venue: 'Cairo Showroom' },
           documents: {
             nationalId: null,
             driversLicense: null,
-            extractedData: {
-              nationalIdNumber: null,
-              name: null,
-              dateOfBirth: null,
-            },
+            extractedData: { nationalIdNumber: null, name: null, dateOfBirth: null },
           },
-          customer: {
-            phone: '',
-          },
-          otp: {
-            sent: false,
-            code: '',
-            verified: false,
-            attempts: 0,
-            expiresAt: null,
-          },
-          booking: {
-            id: null,
-            confirmed: false,
-          },
+          idFront: null, idBack: null, licenseFront: null, licenseBack: null,
+          customer: { phone: '' },
+          otp: { sent: false, code: '', verified: false, attempts: 0, expiresAt: null },
+          booking: { id: null, confirmed: false },
         }),
     }),
     {
       name: 'booking-wizard-storage',
       partialize: (state) => ({
-        // Only persist step and vehicleId
         step: state.step,
         vehicleId: state.vehicleId,
-        // Don't persist sensitive data (phone, documents, OTP)
       }),
     },
   ),

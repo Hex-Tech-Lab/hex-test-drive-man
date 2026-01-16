@@ -3,6 +3,7 @@
 import { useMemo, useCallback } from 'react';
 import { Box, Typography, Checkbox, FormControlLabel, Slider, Paper, Button, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useTranslation } from 'react-i18next';
 import { Vehicle } from '@/types/vehicle';
 import { useLanguageStore } from '@/stores/language-store';
 import { useFilterStore } from '@/stores/filter-store';
@@ -17,8 +18,9 @@ interface FilterPanelProps {
  * @param props.vehicles - List of available vehicles for filter aggregation
  */
 export default function FilterPanel({ vehicles }: FilterPanelProps) {
+  const { t } = useTranslation();
   const language = useLanguageStore((state) => state.language);
-  
+
   // Use persistent filter store
   const selectedBrands = useFilterStore((state) => state.brands);
   const selectedCategories = useFilterStore((state) => state.categories);
@@ -278,14 +280,14 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
           bgcolor: '#f9f9f9',
         }}>
           <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-            {language === 'ar' ? 'تصفية' : 'FILTERS'}
+            {t('filters.title')}
           </Typography>
-          <Button 
-            size="small" 
-            onClick={handleReset} 
+          <Button
+            size="small"
+            onClick={handleReset}
             sx={{ fontSize: '11px', minWidth: 'auto', p: '2px 8px' }}
           >
-            {language === 'ar' ? 'مسح' : 'Clear'}
+            {t('filters.clear')}
           </Button>
         </Box>
 
@@ -293,7 +295,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
-              {language === 'ar' ? 'العلامات التجارية' : 'Brands'}
+              {t('filters.brands')}
             </Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>
@@ -320,7 +322,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid #e0e0e0' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
-              {language === 'ar' ? 'الفئات' : 'Categories'}
+              {t('filters.categories')}
             </Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
@@ -347,7 +349,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
-              {language === 'ar' ? 'نطاق السعر' : 'Price Range'}
+              {t('filters.priceRange')}
             </Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>
@@ -377,7 +379,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
-              {language === 'ar' ? 'نوع الهيكل' : 'Body Types'}
+              {t('filters.bodyTypes')}
             </Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>
@@ -404,7 +406,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' }, borderBottom: '1px solid', borderColor: 'divider' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
-              {language === 'ar' ? 'نوع الوقود' : 'Fuel Type'}
+              {t('filters.fuelType')}
             </Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>
@@ -431,7 +433,7 @@ export default function FilterPanel({ vehicles }: FilterPanelProps) {
         <Accordion disableGutters elevation={0} sx={{ '&:before': { display: 'none' } }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 20 }} />} sx={accordionSummaryStyle}>
             <Typography sx={sectionTitleStyle}>
-              {language === 'ar' ? 'ناقل الحركة' : 'Transmission'}
+              {t('filters.transmission')}
             </Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ pt: 0, pb: 1.5, px: 2 }}>

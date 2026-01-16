@@ -133,8 +133,8 @@ self.addEventListener('fetch', (event) => {
       }
       
       return fetch(request).then((networkResponse) => {
-        // Cache successful responses
-        if (networkResponse.ok) {
+        // Cache successful GET responses
+        if (networkResponse.ok && request.method === 'GET') {
           const responseClone = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(request, responseClone);

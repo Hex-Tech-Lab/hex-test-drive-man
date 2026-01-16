@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import ViewListIcon from '@mui/icons-material/ViewList';
-import { useLanguageStore } from '@/stores/language-store';
+import { useTranslation } from 'react-i18next';
 
 interface CatalogToolbarProps {
   totalCount: number;
@@ -44,7 +44,7 @@ export default function CatalogToolbar({
   onGridColumnsChange,
   onSortChange,
 }: CatalogToolbarProps) {
-  const language = useLanguageStore((state) => state.language);
+  const { t } = useTranslation();
 
   const handleViewModeChange = (_event: React.MouseEvent<HTMLElement>, newMode: 'grid' | 'list' | null) => {
     if (newMode !== null) {
@@ -88,11 +88,11 @@ export default function CatalogToolbar({
         >
           <ToggleButton value="grid" aria-label="grid view">
             <ViewModuleIcon sx={{ mr: 0.5 }} fontSize="small" />
-            {language === 'ar' ? 'شبكة' : 'Grid'}
+            {t('catalog.view.grid')}
           </ToggleButton>
           <ToggleButton value="list" aria-label="list view">
             <ViewListIcon sx={{ mr: 0.5 }} fontSize="small" />
-            {language === 'ar' ? 'قائمة' : 'List'}
+            {t('catalog.view.list')}
           </ToggleButton>
         </ToggleButtonGroup>
 
@@ -106,13 +106,13 @@ export default function CatalogToolbar({
             sx={{ height: 36 }}
           >
             <ToggleButton value={3} aria-label="3 columns">
-              {language === 'ar' ? '3 أعمدة' : '3 Col'}
+              {t('catalog.view.cols3')}
             </ToggleButton>
             <ToggleButton value={4} aria-label="4 columns">
-              {language === 'ar' ? '4 أعمدة' : '4 Col'}
+              {t('catalog.view.cols4')}
             </ToggleButton>
             <ToggleButton value={5} aria-label="5 columns">
-              {language === 'ar' ? '5 أعمدة' : '5 Col'}
+              {t('catalog.view.cols5')}
             </ToggleButton>
           </ToggleButtonGroup>
         )}
@@ -122,17 +122,17 @@ export default function CatalogToolbar({
       <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap', justifyContent: { xs: 'space-between', sm: 'flex-end' } }}>
         <FormControl size="small" sx={{ minWidth: 200 }}>
           <Select value={sortBy} onChange={handleSortChange} displayEmpty>
-            <MenuItem value="price_asc">{language === 'ar' ? 'السعر: من الأقل للأعلى' : 'Price: Low → High'}</MenuItem>
-            <MenuItem value="price_desc">{language === 'ar' ? 'السعر: من الأعلى للأقل' : 'Price: High → Low'}</MenuItem>
-            <MenuItem value="year_desc">{language === 'ar' ? 'السنة: الأحدث أولاً' : 'Year: Newest First'}</MenuItem>
-            <MenuItem value="year_asc">{language === 'ar' ? 'السنة: الأقدم أولاً' : 'Year: Oldest First'}</MenuItem>
-            <MenuItem value="name_asc">{language === 'ar' ? 'الاسم: أ → ي' : 'Name: A → Z'}</MenuItem>
-            <MenuItem value="name_desc">{language === 'ar' ? 'الاسم: ي → أ' : 'Name: Z → A'}</MenuItem>
+            <MenuItem value="price_asc">{t('catalog.sort.priceAsc')}</MenuItem>
+            <MenuItem value="price_desc">{t('catalog.sort.priceDesc')}</MenuItem>
+            <MenuItem value="year_desc">{t('catalog.sort.yearDesc')}</MenuItem>
+            <MenuItem value="year_asc">{t('catalog.sort.yearAsc')}</MenuItem>
+            <MenuItem value="name_asc">{t('catalog.sort.nameAsc')}</MenuItem>
+            <MenuItem value="name_desc">{t('catalog.sort.nameDesc')}</MenuItem>
           </Select>
         </FormControl>
 
         <Chip
-          label={`${totalCount} ${language === 'ar' ? 'موديل' : 'models'}`}
+          label={t('catalog.resultsCount', { count: totalCount })}
           color="primary"
           variant="outlined"
           sx={{ fontWeight: 600, height: 36 }}
