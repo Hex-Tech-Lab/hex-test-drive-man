@@ -80,7 +80,7 @@ _This PR itself is Bucket 1 (Docs only), but tracks the following risks:_
 | R-001 | Hardcoded locale strings | CRITICAL | 2 | 4h | YES | CC | #82 (In Review) |
 | R-002 | Missing ErrorBoundary | HIGH | 2 | 1.5h | YES | CC | #82 |
 | R-003 | VehicleCard God Component | MEDIUM | 3 | 3h | NO | BB | Defer |
-| R-004 | Environment (pnpm) Fix | HIGH | 2 | 1h | YES | BB | #84 |
+| R-004 | Environment (pnpm) Fix | HIGH | 2 | 1h | NO | BB | #81 (Merged) |
 
 ### TOTALS
 - Bucket 1 (Merge now): This PR (#80)
