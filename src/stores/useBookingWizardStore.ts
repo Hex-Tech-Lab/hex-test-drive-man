@@ -42,7 +42,10 @@ export interface BookingWizardState {
   idBack: ScanResult | null;
   licenseFront: ScanResult | null;
   licenseBack: ScanResult | null;
-  scanDocument: (image: Blob, type: 'id'|'license', side: 'front'|'back') => Promise<void>;
+  // Fix #5: Return result for error surfacing
+  scanDocument: (image: Blob, type: 'id'|'license', side: 'front'|'back') => Promise<{ success: boolean; error?: string }>;
+  // Fix #3: Memory leak prevention - revoke blob URLs
+  resetDocument: (field: 'idFront' | 'idBack' | 'licenseFront' | 'licenseBack') => void;
   allDocumentsValid: () => boolean;
 
   // Step 3: Customer + OTP
@@ -99,29 +102,41 @@ export const useBookingWizardStore = create<BookingWizardState>()(
       setOtp: (otp) => set((state) => ({ otp: { ...state.otp, ...otp } })),
       setBooking: (booking) => set((state) => ({ booking: { ...state.booking, ...booking } })),
 
-      // OCR Action
+      // Fix #3: Memory leak prevention - revoke blob URLs before creating new ones
+      resetDocument: (field) => {
+        const doc = get()[field];
+        if (doc?.imageUrl) {
+          URL.revokeObjectURL(doc.imageUrl);
+        }
+        set({ [field]: null });
+      },
+
+      // OCR Action - Fix #5: Return result for error surfacing
       scanDocument: async (image, type, side) => {
         try {
           const result = await ocrService.scanImage(image, type, side);
           const key = `${type}${side.charAt(0).toUpperCase() + side.slice(1)}` as 'idFront' | 'idBack' | 'licenseFront' | 'licenseBack';
-          
+
           set((state) => {
-             const updates: Partial<BookingWizardState> = { [key]: result };
-             
-             if (result.valid && result.extracted) {
-               updates.documents = {
-                 ...state.documents,
-                 extractedData: {
-                   ...state.documents.extractedData,
-                   name: result.extracted.name || state.documents.extractedData.name,
-                   nationalIdNumber: result.extracted.idNumber || state.documents.extractedData.nationalIdNumber,
-                 }
-               };
-             }
-             return updates;
+            const updates: Partial<BookingWizardState> = { [key]: result };
+
+            if (result.valid && result.extracted) {
+              updates.documents = {
+                ...state.documents,
+                extractedData: {
+                  ...state.documents.extractedData,
+                  name: result.extracted.name || state.documents.extractedData.name,
+                  nationalIdNumber: result.extracted.idNumber || state.documents.extractedData.nationalIdNumber,
+                }
+              };
+            }
+            return updates;
           });
+
+          return { success: true };
         } catch (error) {
           console.error('OCR failed:', error);
+          return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
         }
       },
 
@@ -147,7 +162,19 @@ export const useBookingWizardStore = create<BookingWizardState>()(
         return get().allDocumentsValid();
       },
 
-      reset: () =>
+      reset: () => {
+        // Fix #3: Revoke all blob URLs to prevent memory leaks
+        const state = get();
+        const docFields: Array<'idFront' | 'idBack' | 'licenseFront' | 'licenseBack'> = [
+          'idFront', 'idBack', 'licenseFront', 'licenseBack'
+        ];
+        docFields.forEach(field => {
+          const doc = state[field];
+          if (doc?.imageUrl) {
+            URL.revokeObjectURL(doc.imageUrl);
+          }
+        });
+
         set({
           step: 1,
           vehicleId: null,
@@ -161,7 +188,8 @@ export const useBookingWizardStore = create<BookingWizardState>()(
           customer: { phone: '' },
           otp: { sent: false, code: '', verified: false, attempts: 0, expiresAt: null },
           booking: { id: null, confirmed: false },
-        }),
+        });
+      },
     }),
     {
       name: 'booking-wizard-storage',

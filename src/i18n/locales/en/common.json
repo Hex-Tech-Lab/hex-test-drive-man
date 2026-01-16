@@ -160,6 +160,7 @@
     "readyToProceed": "Documents verified. Ready to proceed.",
     "completeAllScans": "Please complete all 4 document scans.",
     "capture": "Capture",
+    "scanFailed": "Scan failed. Please try again.",
     "scanPreview": "Scan Preview",
     "tapToScan": "Tap to Scan"
   },
