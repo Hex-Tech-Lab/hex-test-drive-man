@@ -1,12 +1,16 @@
-# CLAUDE.md - Project Brain (CC Owns)
+# GEMINI.md - GC's View (Synced from CLAUDE.md)
 
-Version: 2.5.1 | Last Updated: 2026-01-15 0715 EET | Agent: GC | Status: ACTIVE
+**Last Synced**: 2026-01-16 18:15 EET
+**Sync Source**: CLAUDE.md v2.5.2
+**Agent**: GC (Gemini CLI)
+
+Version: 2.5.2 | Last Updated: 2026-01-16 | Agent: GC | Status: ACTIVE
 
 ***
 
 ## TABLE OF CONTENTS
 
-1. CC Operating Instructions (MANDATORY - READ FIRST)
+1. GC Operating Instructions (MANDATORY - READ FIRST)
 2. Tech Stack Verification
 3. GUARDRAILS (NEVER BYPASS)
 4. Git Repository Status
@@ -42,7 +46,7 @@ Before ANY task:
 3. First response MUST include: "Checked: [files] | Pattern: [found/none]"
 
 ### Core Identity
-- CC (Claude Code): 0.1% expertise, thought partner, challenge misalignment
+- GC (Gemini CLI): 1M context window, large refactors, git operations
 - Max 1 question if <95% confident
 - Multimodal: top-tier expertise in ANY domain on demand
 
@@ -73,6 +77,32 @@ pnpm typecheck && pnpm build && pnpm lint
 - Session end: Update `docs/PERFORMANCE_LOG.md`, backup CLAUDE.md
 
 **Full Details**: `docs/prompts/prompt-fixtures.md`, `docs/context/CC_CORE_INSTRUCTIONS.md`
+
+***
+
+## 1.5. 5D ISSUE TAXONOMY (Review Mandate)
+
+**NEW - Designed by CC, Implemented by GC in scripts/pr-scrape.ts**
+
+**Classification Dimensions:**
+1. **Severity**: CRITICAL | HIGH | MEDIUM | LOW
+2. **Impact Type**: EXPLOIT_VECTOR | CRASH_BUG | DATA_LOSS | PERF_DEGRADATION | UX_BLOCKER | TECH_DEBT
+3. **Attack Surface**: EXTERNAL_API | INTERNAL_LOGIC | UI_COMPONENT | DATA_LAYER
+4. **Blast Radius**: GLOBAL | MODULE | COMPONENT | ISOLATED
+5. **Remediation Effort**: TRIVIAL | QUICK | MODERATE | COMPLEX
+
+**Auto-Block Rules (Bucket 3):**
+- 2+ EXPLOIT_VECTOR
+- 1 EXPLOIT_VECTOR on EXTERNAL_API
+- 3+ CRASH_BUG
+- ANY DATA_LOSS
+- 4+ HIGH severity
+- ANY COMPLEX remediation on CRITICAL/HIGH
+
+**Priority Order:**
+1. EXPLOIT_VECTOR + EXTERNAL_API
+2. CRASH_BUG + GLOBAL/MODULE
+3. DATA_LOSS
 
 ***
 
@@ -135,7 +165,8 @@ curl "$SUPABASE_URL/rest/v1/vehicle_trims?select=count" -H "apikey: $ANON_KEY"
 ## 5. OPEN ITEMS & NEXT ACTIONS
 
 ### PRIORITY 1 (Blockers)
-- GEMINI.md restoration (truncation incident c29e2ed)
+- ✅ R-001: Hardcoded locale strings - **RESOLVED via PR #82**
+- ✅ R-004: pnpm CI environment - **RESOLVED via PR #81**
 - Root directory cleanup (move MD files to SDLC structure)
 
 ### PRIORITY 2 (High)
@@ -185,20 +216,20 @@ curl "$SUPABASE_URL/rest/v1/vehicle_trims?select=count" -H "apikey: $ANON_KEY"
 
 ***
 
-## 8. SESSION TIMELINE (Last 10 Sessions)
+## 8. SESSION TIMELINE (GC Perspective)
 
 **Format**: Compressed 2-line entries per session
 
+- **2026-01-16**: PR #83 MERGED - Scraper: 0 real CRITICAL/HIGH (all false positives)
+- **2026-01-16**: PR #83 Critical Hotfix: 5 blockers (Zustand/RateLimit/MemLeak/Race/Errors) - CC execution
+- **2026-01-16**: 24h PR Audit: #81 CONDITIONAL/#82 APPROVE | All gates PASS (TS/Lint/Build)
+- **2026-01-16**: Enhanced Scraper (5D Taxonomy) - CC specification, GC implementation
+- **2026-01-15**: Service Worker restored (v1.5) & patched (POST fix) - GC fixed BB's sw.js
+- **2026-01-15**: OCR 4-slot scanner (PR#82 update), Microservice pattern, Camera Hotfix (Single Modal)
+- **2026-01-15**: Locale migration completion (PR#82), CI fix (PR#81), Wizard Next button fix
 - **2026-01-15**: CLAUDE.md Section 0+1 integration, emergency wave2 completion
 - **2026-01-14**: Config syntax fix (PR#76), wizard validation, PR scraper audit
 - **2026-01-13**: Wizard protocol enforcement, PR#73 merge
-- **2026-01-11**: 3-step booking rebuild (PR#66), PR audit 54-60
-- **2026-01-09**: PR#58 multi-agent recovery (BB→GC→KWSL)
-- **2026-01-07**: BB Performance Sprint (PRs #33, #37, #39)
-- **2026-01-06**: React hooks fix, production triage
-- **2026-01-05**: Vehicle detail page, trim comparison
-- **2026-01-04**: Image mapping investigation, PR gatekeeper audit
-- **2026-01-03**: Card image fallback fix (PR#25)
 
 **Full Timeline**: `docs/PERFORMANCE_LOG.md`
 
@@ -317,6 +348,6 @@ curl "$SUPABASE_URL/rest/v1/vehicle_trims?select=count" -H "apikey: $ANON_KEY"
 
 ***
 
-**END OF CLAUDE.md v2.5.1**
+**END OF GEMINI.md v2.5.2**
 
 Maintained By: GC (synced from CC) | Line Target: ~500
