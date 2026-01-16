@@ -115,9 +115,6 @@ importers:
       '@playwright/test':
         specifier: ^1.57.0
         version: 1.57.0
-      '@types/i18next':
-        specifier: 13.0.0
-        version: 13.0.0(typescript@5.5.4)
       '@types/node':
         specifier: 22.13.1
         version: 22.13.1
@@ -1455,10 +1452,6 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
-
-  '@types/i18next@13.0.0':
-    resolution: {integrity: sha512-gp/SIShAuf4WOqi8ey0nuI7qfWaVpMNCcs/xLygrh/QTQIXmlDC1E0TtVejweNW+7SGDY7g0lyxyKZIJuCKIJw==}
-    deprecated: This is a stub types definition. i18next provides its own type definitions, so you do not need this installed.
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -5032,12 +5025,6 @@ snapshots:
       '@types/json-schema': 7.0.15
 
   '@types/estree@1.0.8': {}
-
-  '@types/i18next@13.0.0(typescript@5.5.4)':
-    dependencies:
-      i18next: 25.7.4(typescript@5.5.4)
-    transitivePeerDependencies:
-      - typescript
 
   '@types/json-schema@7.0.15': {}
 
