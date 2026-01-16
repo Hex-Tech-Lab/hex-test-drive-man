@@ -76,6 +76,30 @@ pnpm typecheck && pnpm build && pnpm lint
 
 ***
 
+## 1.5. 5D ISSUE TAXONOMY (Review Mandate)
+
+**Classification Dimensions:**
+1. **Severity**: CRITICAL | HIGH | MEDIUM | LOW
+2. **Impact Type**: EXPLOIT_VECTOR | CRASH_BUG | DATA_LOSS | PERF_DEGRADATION | UX_BLOCKER | TECH_DEBT
+3. **Attack Surface**: EXTERNAL_API | INTERNAL_LOGIC | UI_COMPONENT | DATA_LAYER
+4. **Blast Radius**: GLOBAL | MODULE | COMPONENT | ISOLATED
+5. **Remediation Effort**: TRIVIAL | QUICK | MODERATE | COMPLEX
+
+**Auto-Block Rules (Bucket 3):**
+- 2+ EXPLOIT_VECTOR
+- 1 EXPLOIT_VECTOR on EXTERNAL_API
+- 3+ CRASH_BUG
+- ANY DATA_LOSS
+- 4+ HIGH severity
+- ANY COMPLEX remediation on CRITICAL/HIGH
+
+**Priority Order:**
+1. EXPLOIT_VECTOR + EXTERNAL_API
+2. CRASH_BUG + GLOBAL/MODULE
+3. DATA_LOSS
+
+***
+
 ## 2. TECH STACK VERIFICATION
 
 **Last Verified**: 2026-01-15 via `package.json`
@@ -310,3 +334,4 @@ curl "$SUPABASE_URL/rest/v1/vehicle_trims?select=count" -H "apikey: $ANON_KEY"
 
 Maintained By: CC | Line Target: ~500
 - **2026-01-16**: PR #82 review audit complete (Bucket 2 -> Fixed -> Merged)
+- **2026-01-16**: Enhanced Scraper (5D Taxonomy) implemented + Docs updated
