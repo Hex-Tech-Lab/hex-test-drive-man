@@ -159,7 +159,9 @@
     "licenseBack": "رخصة القيادة (خلف)",
     "readyToProceed": "تم التحقق من المستندات. جاهز للمتابعة.",
     "completeAllScans": "يرجى إكمال مسح جميع المستندات الأربعة.",
-    "capture": "التقاط"
+    "capture": "التقاط",
+    "scanPreview": "معاينة المسح",
+    "tapToScan": "اضغط للمسح"
   },
 
   "catalog": {

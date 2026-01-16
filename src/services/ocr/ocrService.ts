@@ -20,6 +20,11 @@ class OCRService {
     // In a real app, this calls the API. For demo/mock:
     // We can call the API, but we also want to ensure the preview works.
     const response = await fetch('/api/ocr/scan', { method: 'POST', body: formData });
+    
+    if (!response.ok) {
+        throw new Error(`OCR scan failed: ${response.status} ${response.statusText}`);
+    }
+
     const result = await response.json();
     
     // Inject local preview URL for immediate feedback
