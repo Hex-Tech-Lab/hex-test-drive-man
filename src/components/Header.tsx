@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Badge, Button, Container, Tooltip } from '@mui/material';
 import dynamic from 'next/dynamic';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
@@ -12,11 +12,11 @@ import { useCompareStore } from '@/stores/compare-store';
 import { useBookingStore } from '@/stores/useBookingStore';
 import { useRouter, usePathname } from 'next/navigation';
 
-// Lazy load CartDrawer with skeleton (prevents CLS during load)
+// Lazy load CartDrawer (prevents CLS during load)
 // Only loads when user clicks cart icon (deferred until interaction)
+// BUG-011 FIX: No loading component to prevent transparent flash on page load
 const CartDrawer = dynamic(() => import('@/components/CartDrawer'), {
   ssr: false,
-  loading: () => <CartDrawerSkeleton />,
 });
 
 /**
@@ -95,7 +95,13 @@ export default function Header() {
         </Container>
       </AppBar>
 
-      <CartDrawer open={cartDrawerOpen} onClose={closeCartDrawer} />
+      {/* BUG-011 FIX: Only render CartDrawer when drawer is opened to prevent flash */}
+      {/* Skeleton shows during lazy load, but only when drawer is actually opening */}
+      {cartDrawerOpen && (
+        <Suspense fallback={<CartDrawerSkeleton open={cartDrawerOpen} onClose={closeCartDrawer} />}>
+          <CartDrawer open={cartDrawerOpen} onClose={closeCartDrawer} />
+        </Suspense>
+      )}
     </>
   );
 }
